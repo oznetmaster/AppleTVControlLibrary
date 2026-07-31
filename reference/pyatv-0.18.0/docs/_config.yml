@@ -1,0 +1,121 @@
+title: pyatv
+email: pierre.staahl@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  a client library for Apple TV and AirPlay devices
+url: "https://pyatv.dev"
+baseurl: /
+twitter_username: postlund
+github_username:  postlund
+
+markdown: kramdown
+kramdown:
+  parse_block_html: true
+  parse_span_html: true
+  html_to_native: true
+theme: jekyll-theme-cayman
+plugins:
+  - jekyll-feed
+  - jemoji
+
+pyatv_version: "pyatv"
+
+top_pages:
+  - link: /
+    title: Main Page
+  - link: /documentation/
+    title: Documentation
+  - link: /development/
+    title: Development
+  - link: /api/
+    title: API Reference
+  - link: /internals/
+    title: Internals
+  - link: /support/
+    title: Support
+
+page_links:
+  documentation:
+    - link: /documentation/
+      title: Start
+    - link: /documentation/getting-started/
+      title: Getting Started
+    - link: /documentation/tutorial/
+      title: Tutorial
+    - link: /documentation/supported_features/
+      title: Supported Features
+    - link: /documentation/concepts/
+      title: Concepts
+    - link: /documentation/protocols/
+      title: Protocols
+    - link: /documentation/atvremote/
+      title: atvremote
+    - link: /documentation/atvproxy/
+      title: atvproxy
+    - link: /documentation/atvscript/
+      title: atvscript
+    - link: /documentation/atvlog/
+      title: atvlog
+  development:
+    - link: /development/
+      title: Start
+    - link: /development/scan_pair_and_connect/
+      title: Scan, Pair and Connect
+    - link: /development/device_info/
+      title: Device Information
+    - link: /development/control/
+      title: Control
+    - link: /development/power_management/
+      title: Power Management
+    - link: /development/features/
+      title: Features
+    - link: /development/metadata/
+      title: Metadata
+    - link: /development/listeners/
+      title: Listeners
+    - link: /development/stream/
+      title: Stream
+    - link: /development/storage/
+      title: Storage
+    - link: /development/apps/
+      title: Apps
+    - link: /development/audio/
+      title: Audio
+    - link: /development/keyboard/
+      title: Keyboard
+    - link: /development/logging/
+      title: Logging
+    - link: /development/examples/
+      title: Examples
+  internals:
+    - link: /internals/
+      title: Start
+    - link: /internals/design
+      title: Design
+    - link: /internals/interfaces
+      title: Interfaces
+    - link: /internals/testing
+      title: Testing
+    - link: /internals/documentation
+      title: Documentation
+    - link: /internals/submit-pr
+      title: Submit a PR
+    - link: /internals/tools
+      title: Tools
+  support:
+    - link: /support/
+      title: Start
+    - link: /support/migration/
+      title: Migration
+    - link: /support/scanning_issues/
+      title: Scanning Issues
+    - link: /support/troubleshooting/
+      title: Troubleshooting
+    - link: /support/faq/
+      title: FAQ
+    - link: /support/acknowledgements/
+      title: Acknowledgements
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor/

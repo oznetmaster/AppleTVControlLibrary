@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/AppleTV.Companion/AppleTV.Companion.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/AppleTV.Companion.Tests/AppleTV.Companion.Tests.csproj" />
+  </Folder>
+</Solution>

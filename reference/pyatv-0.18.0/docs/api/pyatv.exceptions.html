@@ -1,0 +1,489 @@
+---
+layout: template
+title: API - pyatv.exceptions
+permalink: /api/exceptions/
+link_group: api
+---
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pyatv" href="..">pyatv</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pyatv.exceptions.AuthenticationError" href="#pyatv.exceptions.AuthenticationError">AuthenticationError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.BackOffError" href="#pyatv.exceptions.BackOffError">BackOffError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.BlockedStateError" href="#pyatv.exceptions.BlockedStateError">BlockedStateError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.CommandError" href="#pyatv.exceptions.CommandError">CommandError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.ConnectionFailedError" href="#pyatv.exceptions.ConnectionFailedError">ConnectionFailedError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.ConnectionLostError" href="#pyatv.exceptions.ConnectionLostError">ConnectionLostError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.DeviceIdMissingError" href="#pyatv.exceptions.DeviceIdMissingError">DeviceIdMissingError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.HttpError" href="#pyatv.exceptions.HttpError">HttpError</a></code></h4>
+<ul class="">
+<li><code><a title="pyatv.exceptions.HttpError.status_code" href="#pyatv.exceptions.HttpError.status_code">status_code</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.InvalidConfigError" href="#pyatv.exceptions.InvalidConfigError">InvalidConfigError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.InvalidCredentialsError" href="#pyatv.exceptions.InvalidCredentialsError">InvalidCredentialsError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.InvalidDmapDataError" href="#pyatv.exceptions.InvalidDmapDataError">InvalidDmapDataError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.InvalidResponseError" href="#pyatv.exceptions.InvalidResponseError">InvalidResponseError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.InvalidStateError" href="#pyatv.exceptions.InvalidStateError">InvalidStateError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.NoAsyncListenerError" href="#pyatv.exceptions.NoAsyncListenerError">NoAsyncListenerError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.NoCredentialsError" href="#pyatv.exceptions.NoCredentialsError">NoCredentialsError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.NoServiceError" href="#pyatv.exceptions.NoServiceError">NoServiceError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.NonLocalSubnetError" href="#pyatv.exceptions.NonLocalSubnetError">NonLocalSubnetError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.NotSupportedError" href="#pyatv.exceptions.NotSupportedError">NotSupportedError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.OperationTimeoutError" href="#pyatv.exceptions.OperationTimeoutError">OperationTimeoutError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.PairingError" href="#pyatv.exceptions.PairingError">PairingError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.PlaybackError" href="#pyatv.exceptions.PlaybackError">PlaybackError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.ProtocolError" href="#pyatv.exceptions.ProtocolError">ProtocolError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.SettingsError" href="#pyatv.exceptions.SettingsError">SettingsError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.UnknownMediaKindError" href="#pyatv.exceptions.UnknownMediaKindError">UnknownMediaKindError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.UnknownPlayStateError" href="#pyatv.exceptions.UnknownPlayStateError">UnknownPlayStateError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pyatv.exceptions.UnsupportedProtocolError" href="#pyatv.exceptions.UnsupportedProtocolError">UnsupportedProtocolError</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pyatv.exceptions</code></h1>
+</header>
+<section id="section-intro">
+<p>Local exceptions used by library.</p>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L1-L131" class="git-link">Browse git</a></div>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pyatv.exceptions.AuthenticationError"><code class="flex name class">
+<span>class <span class="ident">AuthenticationError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when authentication fails.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L27-L28" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.BackOffError"><code class="flex name class">
+<span>class <span class="ident">BackOffError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when device mandates a backoff period.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L63-L64" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.BlockedStateError"><code class="flex name class">
+<span>class <span class="ident">BlockedStateError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when calling a blocked method.</p>
+<p>Typically, public interface methods (e.g. any method available via the object
+returned by <code><a title="pyatv.connect" href="#pyatv.connect">connect()</a></code>) becomes blocked after either calling close or because
+the connection was closed for some other reason.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L113-L119" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.CommandError"><code class="flex name class">
+<span>class <span class="ident">CommandError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when a command (e.g. play or pause) failed.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L71-L72" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.ConnectionFailedError"><code class="flex name class">
+<span>class <span class="ident">ConnectionFailedError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when connection fails, e.g. refused or timed out.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L15-L16" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.ConnectionLostError"><code class="flex name class">
+<span>class <span class="ident">ConnectionLostError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when a connection is lost.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L19-L20" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.DeviceIdMissingError"><code class="flex name class">
+<span>class <span class="ident">DeviceIdMissingError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when device id is missing.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L59-L60" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.HttpError"><code class="flex name class">
+<span>class <span class="ident">HttpError</span></span>
+<span>(</span><span>message: str, status_code: int)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when a HTTP error occurs.</p>
+<p>Initialize a new HttpError.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L95-L106" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pyatv.exceptions.ProtocolError" href="#pyatv.exceptions.ProtocolError">ProtocolError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pyatv.exceptions.HttpError.status_code"><code class="name">var <span class="ident">status_code</span> -> int</code></dt>
+<dd>
+<section class="desc"><p>Return status code that triggered the error.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L103-L106" class="git-link">Browse git</a></div>
+</dd>
+</dl>
+</dd>
+<dt id="pyatv.exceptions.InvalidConfigError"><code class="flex name class">
+<span>class <span class="ident">InvalidConfigError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when something is wrong or missing in the config.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L109-L110" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.InvalidCredentialsError"><code class="flex name class">
+<span>class <span class="ident">InvalidCredentialsError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown if credentials are invalid.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L55-L56" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.InvalidDmapDataError"><code class="flex name class">
+<span>class <span class="ident">InvalidDmapDataError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when invalid DMAP data is parsed.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L35-L36" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.InvalidResponseError"><code class="flex name class">
+<span>class <span class="ident">InvalidResponseError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when a remote sends an invalid response.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L122-L123" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.InvalidStateError"><code class="flex name class">
+<span>class <span class="ident">InvalidStateError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when trying to perform an action not possible in the current state.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L82-L83" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.NoAsyncListenerError"><code class="flex name class">
+<span>class <span class="ident">NoAsyncListenerError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when starting AsyncUpdater with no listener.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L47-L48" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.NoCredentialsError"><code class="flex name class">
+<span>class <span class="ident">NoCredentialsError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown if credentials are missing.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L51-L52" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.NoServiceError"><code class="flex name class">
+<span>class <span class="ident">NoServiceError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when connecting to a device with no usable service.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L4-L5" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.NonLocalSubnetError"><code class="flex name class">
+<span>class <span class="ident">NonLocalSubnetError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when address it not in any local subnet.</p>
+<p>DEPRECATED: Not used since 0.7.1. Will be removed in 0.9.0!</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L75-L79" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.NotSupportedError"><code class="flex name class">
+<span>class <span class="ident">NotSupportedError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when trying to perform an action that is not supported.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L31-L32" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.NotImplementedError</li>
+<li>builtins.RuntimeError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.OperationTimeoutError"><code class="flex name class">
+<span>class <span class="ident">OperationTimeoutError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Raised when a timeout happens.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L126-L127" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.PairingError"><code class="flex name class">
+<span>class <span class="ident">PairingError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when pairing fails.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L23-L24" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.PlaybackError"><code class="flex name class">
+<span>class <span class="ident">PlaybackError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when media playback failed.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L67-L68" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.ProtocolError"><code class="flex name class">
+<span>class <span class="ident">ProtocolError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when a generic protocol error occurs.</p>
+<p>Generic protocol errors includes for instance missing fields, incorrect or
+unexpected types, etc. Any error that can happen when communicating with a device
+that is not covered by another exception is covered by this exception.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L86-L92" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pyatv.exceptions.HttpError" href="#pyatv.exceptions.HttpError">HttpError</a></li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.SettingsError"><code class="flex name class">
+<span>class <span class="ident">SettingsError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Raised when an error related to settings happens.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L130-L131" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.UnknownMediaKindError"><code class="flex name class">
+<span>class <span class="ident">UnknownMediaKindError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when an unknown media kind is found.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L39-L40" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.UnknownPlayStateError"><code class="flex name class">
+<span>class <span class="ident">UnknownPlayStateError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when an unknown play state is found.</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L43-L44" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pyatv.exceptions.UnsupportedProtocolError"><code class="flex name class">
+<span>class <span class="ident">UnsupportedProtocolError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Thrown when an unsupported protocol was requested.</p>
+<p>DEPRECATED: Not used since 0.8.0. Will be removed in 0.10.0!</p></section>
+<div class="git-link-div"><a href="https://github.com/postlund/pyatv/blob/master/pyatv/exceptions.py#L8-L12" class="git-link">Browse git</a></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite>.</p>
+</footer>
