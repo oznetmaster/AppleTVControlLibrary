@@ -173,7 +173,7 @@ public sealed class SrpAuthHandler
 		byte[] deviceInfo = Concat (_publicBytes, credentials.ClientId, sessionPubKey);
 		var ltsk = new Ed25519PrivateKeyParameters (credentials.Ltsk, 0);
 		byte[] deviceSignature = new byte[Ed25519PrivateKeyParameters.SignatureSize];
-		ltsk.Sign (Ed25519.Algorithm.Ed25519, Array.Empty<byte> (), deviceInfo, 0, deviceInfo.Length, deviceSignature, 0);
+		ltsk.Sign (Ed25519.Algorithm.Ed25519, null, deviceInfo, 0, deviceInfo.Length, deviceSignature, 0);
 
 		byte[] tlv = Tlv8.Tlv8.WriteTlv (new System.Collections.Generic.Dictionary<int, byte[]>
 			{
@@ -290,7 +290,7 @@ public sealed class SrpAuthHandler
 
 		byte[] deviceInfo = Concat (iosDeviceX, _pairingId, _authPublic);
 		byte[] deviceSignature = new byte[Ed25519PrivateKeyParameters.SignatureSize];
-		_signingKey.Sign (Ed25519.Algorithm.Ed25519, Array.Empty<byte> (), deviceInfo, 0, deviceInfo.Length, deviceSignature, 0);
+		_signingKey.Sign (Ed25519.Algorithm.Ed25519, null, deviceInfo, 0, deviceInfo.Length, deviceSignature, 0);
 
 		var tlv = new System.Collections.Generic.Dictionary<int, byte[]>
 			{

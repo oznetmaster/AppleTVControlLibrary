@@ -1,17 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<RootNamespace>AppleTvControlLibrary.FakeDevice</RootNamespace>
+		<AssemblyName>AppleTV.Companion.FakeDevice</AssemblyName>
 		<TargetFrameworks>net10.0;net472</TargetFrameworks>
 		<LangVersion>13.0</LangVersion>
 		<Nullable>enable</Nullable>
 		<IsPackable>false</IsPackable>
-		<IsTestProject>true</IsTestProject>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
-		<PackageReference Include="MSTest.TestAdapter" Version="3.6.4" />
-		<PackageReference Include="MSTest.TestFramework" Version="3.6.4" />
+		<PackageReference Include="BouncyCastle.Cryptography" Version="2.6.2" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
@@ -24,7 +24,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\src\AppleTV.Companion\AppleTV.Companion.csproj" />
-		<ProjectReference Include="..\AppleTV.Companion.FakeDevice\AppleTV.Companion.FakeDevice.csproj" />
 	</ItemGroup>
 
 </Project>
