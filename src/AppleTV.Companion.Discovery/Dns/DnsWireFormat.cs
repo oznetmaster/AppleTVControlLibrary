@@ -1,0 +1,245 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Net;
+using System.Text;
+
+namespace AppleTvControlLibrary.Discovery.Dns;
+
+/// <summary>Low-level encode/decode helpers for the DNS wire format used by DNS-SD.</summary>
+public static class DnsWireFormat
+	{
+	/// <summary>
+	/// Encodes a QNAME without using name compression. Labels are UTF-8 encoded, NFC
+	/// normalized, truncated to 63 bytes without splitting multi-byte code points, and
+	/// terminated with an empty root label.
+	/// </summary>
+	/// <param name="name">The dotted name, or a service instance name, to encode.</param>
+	/// <returns>The encoded QNAME bytes.</returns>
+	// pyatv/support/dns.py:71-135 (qname_encode)
+	public static byte[] QNameEncode (string name)
+		{
+		List<string> labels;
+		try
+			{
+			ServiceInstanceName srvName = ServiceInstanceName.SplitName (name);
+			labels = new List<string> ();
+			if (!string.IsNullOrEmpty (srvName.Instance))
+				{
+				labels.Add (srvName.Instance!);
+				}
+
+			labels.AddRange (srvName.PtrName.Split ('.'));
+			}
+		catch (ArgumentException)
+			{
+			labels = new List<string> (name.Split ('.'));
+			}
+
+		// pyatv/support/dns.py:100-102 (ensure a trailing empty label for the root domain)
+		if (labels.Count == 0 || labels[labels.Count - 1] != string.Empty)
+			{
+			labels.Add (string.Empty);
+			}
+
+		List<byte> encoded = new List<byte> ();
+		foreach (string rawLabel in labels)
+			{
+			// pyatv/support/dns.py:106-107 (NFC normalization per RFC 6763 section 4.1.3)
+			string label = rawLabel.Normalize (NormalizationForm.FormC);
+			byte[] encodedLabel = Encoding.UTF8.GetBytes (label);
+
+			// pyatv/support/dns.py:111-118 (truncate at 63 bytes without splitting a codepoint)
+			while (encodedLabel.Length > 63)
+				{
+				string truncated = label.Substring (0, label.Length - 1);
+				label = truncated;
+				encodedLabel = Encoding.UTF8.GetBytes (label);
+				}
+
+			encoded.Add ((byte)encodedLabel.Length);
+			if (encodedLabel.Length == 0)
+				{
+				// pyatv/support/dns.py:130-133 (empty label ends the name)
+				break;
+				}
+
+			encoded.AddRange (encodedLabel);
+			}
+
+		return encoded.ToArray ();
+		}
+
+	/// <summary>Unpacks a DNS character-string: a single length byte followed by data.</summary>
+	/// <param name="buffer">The buffer to read from.</param>
+	/// <returns>The raw character-string bytes.</returns>
+	// pyatv/support/dns.py:138-146 (parse_string)
+	public static byte[] ParseString (DnsBufferReader buffer)
+		{
+		byte length = buffer.ReadByte ();
+		return buffer.ReadBytes (length);
+		}
+
+	/// <summary>
+	/// Unpacks a domain name, handling DNS name compression (RFC 1035 sections 3.1, 4.1.4).
+	/// </summary>
+	/// <param name="buffer">The buffer to read from.</param>
+	/// <returns>The decoded, dot-joined domain name.</returns>
+	// pyatv/support/dns.py:149-196 (parse_domain_name)
+	public static string ParseDomainName (DnsBufferReader buffer)
+		{
+		List<string> labels = new List<string> ();
+		int? compressionOffset = null;
+
+		while (buffer.HasData)
+			{
+			byte length = buffer.ReadByte ();
+			if (length == 0)
+				{
+				break;
+				}
+
+			// pyatv/support/dns.py:171-173 (top two bits are a name-compression flag)
+			int lengthFlags = (length & 0xC0) >> 6;
+			if (lengthFlags != 0 && lengthFlags != 0b11)
+				{
+				throw new InvalidOperationException ("Reserved DNS name compression flag encountered");
+				}
+
+			if (lengthFlags == 0b11)
+				{
+				// pyatv/support/dns.py:175-186 (mask upper bits, combine with next byte for offset)
+				int highBits = length & 0x3F;
+				byte lowBits = buffer.ReadByte ();
+				int newOffset = (highBits << 8) | lowBits;
+				if (compressionOffset is null)
+					{
+					compressionOffset = buffer.Position;
+					}
+
+				buffer.Position = newOffset;
+				}
+			else
+				{
+				byte[] label = buffer.ReadBytes (length);
+				string decodedLabel;
+				if (label.Length >= 4 && label[0] == 'x' && label[1] == 'n' && label[2] == '-' && label[3] == '-')
+					{
+					// pyatv/support/dns.py:189-190 (ACE-prefixed labels are IDNA decoded)
+					decodedLabel = new IdnMapping ().GetUnicode (Encoding.ASCII.GetString (label));
+					}
+				else
+					{
+					decodedLabel = Encoding.UTF8.GetString (label);
+					}
+
+				labels.Add (decodedLabel);
+				}
+			}
+
+		if (compressionOffset.HasValue)
+			{
+			buffer.Position = compressionOffset.Value;
+			}
+
+		return string.Join (".", labels);
+		}
+
+	/// <summary>Parses DNS-SD TXT records into a case-insensitive key/value map.</summary>
+	/// <param name="buffer">The buffer to read from.</param>
+	/// <param name="length">The total byte length of the TXT record data.</param>
+	/// <returns>The decoded properties, keyed case-insensitively.</returns>
+	// pyatv/support/dns.py:208-231 (parse_txt_dict)
+	public static Dictionary<string, byte[]> ParseTxtDict (DnsBufferReader buffer, int length)
+		{
+		Dictionary<string, byte[]> output = new Dictionary<string, byte[]> (StringComparer.OrdinalIgnoreCase);
+		int stopPosition = buffer.Position + length;
+		while (buffer.Position < stopPosition)
+			{
+			byte[] chunk = ParseString (buffer);
+			int equalsIndex = Array.IndexOf (chunk, (byte)'=');
+			if (equalsIndex < 0)
+				{
+				// pyatv/support/dns.py:214-217 (missing "=" means present with no value)
+				string decodedChunk = Encoding.ASCII.GetString (chunk);
+				output[decodedChunk] = Array.Empty<byte> ();
+				}
+			else
+				{
+				byte[] keyBytes = new byte[equalsIndex];
+				Array.Copy (chunk, 0, keyBytes, 0, equalsIndex);
+				if (keyBytes.Length == 0)
+					{
+					// pyatv/support/dns.py:220-222 (missing keys are skipped)
+					continue;
+					}
+
+				byte[] valueBytes = new byte[chunk.Length - equalsIndex - 1];
+				Array.Copy (chunk, equalsIndex + 1, valueBytes, 0, valueBytes.Length);
+
+				string decodedKey;
+				try
+					{
+					decodedKey = Encoding.GetEncoding (
+						"us-ascii",
+						EncoderFallback.ExceptionFallback,
+						DecoderFallback.ExceptionFallback).GetString (keyBytes);
+					}
+				catch (DecoderFallbackException)
+					{
+					// pyatv/support/dns.py:226-228 (non-ASCII keys are skipped)
+					continue;
+					}
+
+				output[decodedKey] = valueBytes;
+				}
+			}
+
+		return output;
+		}
+
+	/// <summary>Parses a DNS SRV record's RDATA.</summary>
+	/// <param name="buffer">The buffer to read from.</param>
+	/// <returns>The parsed priority, weight, port, and target.</returns>
+	// pyatv/support/dns.py:234-246 (parse_srv_dict)
+	public static SrvRecord ParseSrvRecord (DnsBufferReader buffer)
+		{
+		ushort priority = buffer.ReadUInt16BE ();
+		ushort weight = buffer.ReadUInt16BE ();
+		ushort port = buffer.ReadUInt16BE ();
+		string target = ParseDomainName (buffer);
+		return new SrvRecord (priority, weight, port, target);
+		}
+
+	/// <summary>
+	/// Parses the RDATA of a DNS resource record according to its type. Falls back to raw
+	/// bytes for unhandled types.
+	/// </summary>
+	/// <param name="type">The record type.</param>
+	/// <param name="buffer">The buffer to read from.</param>
+	/// <param name="length">The RDATA length in bytes.</param>
+	/// <returns>The decoded RDATA, whose runtime type depends on <paramref name="type"/>.</returns>
+	// pyatv/support/dns.py:258-275 (QueryType.parse_rdata)
+	public static object ParseRData (QueryType type, DnsBufferReader buffer, int length)
+		{
+		switch (type)
+			{
+			case QueryType.A:
+				if (length != 4)
+					{
+					throw new ArgumentException ($"An A record must have exactly 4 bytes of data (not {length})");
+					}
+
+				byte[] addressBytes = buffer.ReadBytes (4);
+				return new IPAddress (addressBytes).ToString ();
+			case QueryType.Ptr:
+				return ParseDomainName (buffer);
+			case QueryType.Txt:
+				return ParseTxtDict (buffer, length);
+			case QueryType.Srv:
+				return ParseSrvRecord (buffer);
+			default:
+				return buffer.ReadBytes (length);
+			}
+		}
+	}
