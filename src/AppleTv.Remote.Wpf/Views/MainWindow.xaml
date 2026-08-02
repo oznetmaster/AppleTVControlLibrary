@@ -51,6 +51,7 @@
 				<RowDefinition Height="Auto" />
 				<RowDefinition Height="Auto" />
 				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*" />
@@ -66,14 +67,24 @@
 			<Button Grid.Row="2" Grid.Column="2" Content="▶" Margin="4" Padding="8" Command="{Binding RightButton}" />
 			<Button Grid.Row="3" Grid.Column="1" Content="▼" Margin="4" Padding="8" Command="{Binding DownButton}" />
 
-			<Button Grid.Row="4" Grid.Column="0" Content="Home" Margin="4" Padding="8" Command="{Binding HomeButton}" />
-			<Button Grid.Row="4" Grid.Column="1" Content="Play/Pause" Margin="4" Padding="8" Command="{Binding PlayPauseButton}" />
-			<Button Grid.Row="4" Grid.Column="2" Content="Siri" Margin="4" Padding="8" Command="{Binding SiriButton}" />
+			<!-- Touchpad: drag simulates a Companion touch surface swipe, click simulates a tap/select. -->
+			<Border x:Name="TouchpadSurface" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"
+					Margin="4" Height="120" Background="#FF2A2A2A" CornerRadius="8"
+					ToolTip="Drag to swipe, click to select (Companion touch surface)."
+					MouseDown="TouchpadSurface_MouseDown" MouseMove="TouchpadSurface_MouseMove"
+					MouseUp="TouchpadSurface_MouseUp" MouseLeave="TouchpadSurface_MouseLeave">
+				<TextBlock Text="Touchpad" Foreground="#FF888888" HorizontalAlignment="Center" VerticalAlignment="Center"
+							IsHitTestVisible="False" />
+			</Border>
+
+			<Button Grid.Row="5" Grid.Column="0" Content="Home" Margin="4" Padding="8" Command="{Binding HomeButton}" />
+			<Button Grid.Row="5" Grid.Column="1" Content="Play/Pause" Margin="4" Padding="8" Command="{Binding PlayPauseButton}" />
+			<Button Grid.Row="5" Grid.Column="2" Content="Siri" Margin="4" Padding="8" Command="{Binding SiriButton}" />
 		</Grid>
 
 		<StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,8,0,0">
 			<Button Command="{Binding PowerButton}" Padding="12,4" Margin="0,0,8,0"
-					ToolTip="Sleep/wake the device (Companion HID Sleep/Wake, based on FetchAttentionState).">
+					ToolTip="Sleep/wake the device (Companion HID Sleep/Wake). Current state is fetched once via FetchAttentionState at connect, then kept up to date from pushed SystemStatus/TVSystemStatus events.">
 				<Button.Style>
 					<Style TargetType="Button">
 						<Setter Property="Content" Value="Power" />

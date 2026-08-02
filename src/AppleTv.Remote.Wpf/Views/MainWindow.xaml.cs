@@ -2,15 +2,27 @@
 // See LICENSE file in the repository root for full license text.
 
 using System.Windows;
+using System.Windows.Input;
 
 using AppleTvControlLibrary.Discovery.Companion;
 using AppleTvControlLibrary.Remote.Wpf.ViewModels;
+
+using InputAction = AppleTvControlLibrary.Protocol.InputAction;
+using TouchAction = AppleTvControlLibrary.Protocol.TouchAction;
 
 namespace AppleTvControlLibrary.Remote.Wpf.Views;
 
 /// <summary>Code-behind for the main remote-control window.</summary>
 public partial class MainWindow : Window
 	{
+	// A tap-vs-swipe threshold: movement below this distance (device-independent pixels)
+	// between mouse-down and mouse-up is treated as a click rather than a swipe.
+	private const double ClickMovementThreshold = 8.0;
+
+	private bool _isTouchpadDragging;
+	private Point _touchpadDownPosition;
+	private bool _touchpadMoved;
+
 	/// <summary>Initializes a new instance of the <see cref="MainWindow"/> class.</summary>
 	public MainWindow ()
 		{
@@ -33,5 +45,77 @@ public partial class MainWindow : Window
 
 		bool? result = dialog.ShowDialog ();
 		return result == true ? dialog.EnteredPin : null;
+		}
+
+	// A press+release with minimal movement in between is sent as a Companion touchpad "click"
+	// (HidCommand.Select down/up plus a TouchAction.Click event - see CompanionApi.SendClick,
+	// ported from pyatv/protocols/companion/api.py:373-393); a drag is reported as touch
+	// Press (down) / Hold (move) / Release (up) so the device can distinguish a tap from a
+	// swipe. A touch Press/Release pair alone does not cause tvOS to act on the tap.
+	private void TouchpadSurface_MouseDown (object sender, MouseButtonEventArgs e)
+		{
+		if (this.DataContext is not MainViewModel viewModel || e.ChangedButton != MouseButton.Left)
+			{
+			return;
+			}
+
+		this._isTouchpadDragging = true;
+		this._touchpadMoved = false;
+		this._touchpadDownPosition = e.GetPosition (this.TouchpadSurface);
+		this.TouchpadSurface.CaptureMouse ();
+
+		(int x, int y) = MainViewModel.TranslateTouchCoordinate (this._touchpadDownPosition, this.TouchpadSurface.ActualWidth, this.TouchpadSurface.ActualHeight);
+		viewModel.SendTouchEvent (x, y, TouchAction.Press);
+		}
+
+	private void TouchpadSurface_MouseMove (object sender, MouseEventArgs e)
+		{
+		if (!this._isTouchpadDragging || this.DataContext is not MainViewModel viewModel)
+			{
+			return;
+			}
+
+		Point position = e.GetPosition (this.TouchpadSurface);
+		if (!this._touchpadMoved && (position - this._touchpadDownPosition).Length > ClickMovementThreshold)
+			{
+			this._touchpadMoved = true;
+			}
+
+		(int x, int y) = MainViewModel.TranslateTouchCoordinate (position, this.TouchpadSurface.ActualWidth, this.TouchpadSurface.ActualHeight);
+		viewModel.SendTouchEvent (x, y, TouchAction.Hold);
+		}
+
+	private void TouchpadSurface_MouseUp (object sender, MouseButtonEventArgs e)
+		{
+		if (!this._isTouchpadDragging || this.DataContext is not MainViewModel viewModel || e.ChangedButton != MouseButton.Left)
+			{
+			return;
+			}
+
+		this.EndTouchpadDrag (viewModel, e.GetPosition (this.TouchpadSurface));
+		}
+
+	private void TouchpadSurface_MouseLeave (object sender, MouseEventArgs e)
+		{
+		if (!this._isTouchpadDragging || this.DataContext is not MainViewModel viewModel)
+			{
+			return;
+			}
+
+		this.EndTouchpadDrag (viewModel, e.GetPosition (this.TouchpadSurface));
+		}
+
+	private void EndTouchpadDrag (MainViewModel viewModel, Point position)
+		{
+		this._isTouchpadDragging = false;
+		this.TouchpadSurface.ReleaseMouseCapture ();
+
+		(int x, int y) = MainViewModel.TranslateTouchCoordinate (position, this.TouchpadSurface.ActualWidth, this.TouchpadSurface.ActualHeight);
+		viewModel.SendTouchEvent (x, y, TouchAction.Release);
+
+		if (!this._touchpadMoved)
+			{
+			viewModel.SendTouchClick (InputAction.SingleTap);
+			}
 		}
 	}

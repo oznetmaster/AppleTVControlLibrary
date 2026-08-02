@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 using AppleTvControlLibrary.Auth;
 using Opack = AppleTvControlLibrary.Opack;
@@ -536,6 +537,38 @@ public sealed class CompanionApi : ICompanionProtocolListener
 				{ "_tPh", (int)mode },
 				{ "_cy", y },
 				});
+		}
+
+	/// <summary>
+	/// Send a touch click (tap on the touch surface, distinct from a directional-pad
+	/// <see cref="HidCommand.Select"/> press). This is what pyatv's remote-widget "select"
+	/// gesture actually sends when driven from a touchpad rather than a D-pad: a
+	/// <see cref="HidCommand.Select"/> button press/release (button code 6) followed by a
+	/// touch <see cref="TouchAction.Click"/> event in the bottom-right corner of the touch
+	/// surface.
+	/// </summary>
+	/// <param name="action">The click gesture: single tap, double tap, or press-and-hold.</param>
+	// pyatv/protocols/companion/api.py (click) — line 373-393 as of pyatv 0.18.0
+	public void SendClick (InputAction action)
+		{
+		if (action is InputAction.SingleTap or InputAction.DoubleTap)
+			{
+			int count = action == InputAction.SingleTap ? 1 : 2;
+			for (int i = 0; i < count; i++)
+				{
+				SendCommand ("_hidC", new Dictionary<string, object?> { { "_hBtS", 1 }, { "_hidC", (int)HidCommand.Select } });
+				Thread.Sleep (20);
+				SendCommand ("_hidC", new Dictionary<string, object?> { { "_hBtS", 2 }, { "_hidC", (int)HidCommand.Select } });
+				SendHidEvent ((int)TOUCHPAD_WIDTH, (int)TOUCHPAD_HEIGHT, TouchAction.Click);
+				}
+			}
+		else // Hold
+			{
+			SendCommand ("_hidC", new Dictionary<string, object?> { { "_hBtS", 1 }, { "_hidC", (int)HidCommand.Select } });
+			Thread.Sleep (1000);
+			SendCommand ("_hidC", new Dictionary<string, object?> { { "_hBtS", 2 }, { "_hidC", (int)HidCommand.Select } });
+			SendHidEvent ((int)TOUCHPAD_WIDTH, (int)TOUCHPAD_HEIGHT, TouchAction.Click);
+			}
 		}
 
 	/// <summary>Fetch the current attention state (system status) from the device.</summary>

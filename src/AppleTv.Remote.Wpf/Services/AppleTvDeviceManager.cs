@@ -282,6 +282,32 @@ public sealed class AppleTvDeviceManager : IDisposable
 		this._api.SendHidCommand (down: false, command: command);
 		}
 
+	/// <summary>Sends a raw touchpad (touch surface) event to the connected device.</summary>
+	/// <param name="x">The x coordinate, in the range [0, 1000].</param>
+	/// <param name="y">The y coordinate, in the range [0, 1000].</param>
+	/// <param name="action">The touch phase.</param>
+	public void SendTouchEvent (int x, int y, TouchAction action)
+		{
+		if (this._api is null)
+			{
+			throw new InvalidOperationException ("Not connected");
+			}
+
+		this._api.SendHidEvent (x, y, action);
+		}
+
+	/// <summary>Sends a touchpad click (tap), as opposed to a swipe/drag.</summary>
+	/// <param name="action">The click gesture: single tap, double tap, or press-and-hold.</param>
+	public void SendTouchClick (InputAction action)
+		{
+		if (this._api is null)
+			{
+			throw new InvalidOperationException ("Not connected");
+			}
+
+		this._api.SendClick (action);
+		}
+
 	/// <summary>
 	/// Toggles mute using the Companion media-control channel (<c>_mcc</c>: <c>GetVolume</c>/
 	/// <c>SetVolume</c>), saving and restoring the actual volume level rather than approximating

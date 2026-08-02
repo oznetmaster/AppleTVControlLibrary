@@ -382,6 +382,80 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			}
 		}
 
+	/// <summary>
+	/// Forwards a touchpad interaction to the connected device. <paramref name="x"/> and
+	/// <paramref name="y"/> are expected to already be normalized to the Companion touch
+	/// surface's [0, 1000] coordinate space (see <see cref="TranslateTouchCoordinate"/>).
+	/// </summary>
+	/// <param name="x">The x coordinate, in the range [0, 1000].</param>
+	/// <param name="y">The y coordinate, in the range [0, 1000].</param>
+	/// <param name="action">The touch phase.</param>
+	public void SendTouchEvent (int x, int y, TouchAction action)
+		{
+		if (!this.IsConnected)
+			{
+			return;
+			}
+
+		try
+			{
+			this._deviceManager.SendTouchEvent (x, y, action);
+			}
+		catch (Exception ex)
+			{
+			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Touch event failed: {ex}");
+			this.StatusMessage = $"Touch failed: {ex.Message}";
+			}
+		}
+
+	/// <summary>
+	/// Forwards a touchpad tap (click) gesture to the connected device. Unlike
+	/// <see cref="SendTouchEvent"/>, this sends the <see cref="HidCommand.Select"/> button
+	/// press/release that actually causes tvOS to act on the tap - a touch Press/Release pair
+	/// alone does not.
+	/// </summary>
+	/// <param name="action">The click gesture: single tap, double tap, or press-and-hold.</param>
+	public void SendTouchClick (InputAction action)
+		{
+		if (!this.IsConnected)
+			{
+			return;
+			}
+
+		try
+			{
+			this._deviceManager.SendTouchClick (action);
+			}
+		catch (Exception ex)
+			{
+			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Touch click failed: {ex}");
+			this.StatusMessage = $"Touch click failed: {ex.Message}";
+			}
+		}
+
+	/// <summary>
+	/// Translates a coordinate within a control of size <paramref name="controlWidth"/> x
+	/// <paramref name="controlHeight"/> to the Companion touch surface's [0, 1000] space.
+	/// </summary>
+	/// <param name="position">The offset within the control, in device-independent pixels.</param>
+	/// <param name="controlWidth">The control's width, in device-independent pixels.</param>
+	/// <param name="controlHeight">The control's height, in device-independent pixels.</param>
+	/// <returns>The translated (x, y) coordinate, clamped to [0, 1000].</returns>
+	// pyatv/protocols/companion/api.py (TOUCHPAD_WIDTH/TOUCHPAD_HEIGHT) — line 88-89 as of pyatv 0.18.0
+	public static (int X, int Y) TranslateTouchCoordinate (Point position, double controlWidth, double controlHeight)
+		{
+		const double touchpadWidth = 1000.0;
+		const double touchpadHeight = 1000.0;
+
+		int x = controlWidth > 0 ? (int)Math.Round (position.X / controlWidth * touchpadWidth) : 0;
+		int y = controlHeight > 0 ? (int)Math.Round (position.Y / controlHeight * touchpadHeight) : 0;
+
+		x = Math.Clamp (x, 0, (int)touchpadWidth);
+		y = Math.Clamp (y, 0, (int)touchpadHeight);
+
+		return (x, y);
+		}
+
 	private void TogglePower ()
 		{
 		try
