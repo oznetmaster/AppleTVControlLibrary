@@ -311,6 +311,29 @@ public sealed class AppleTvDeviceManager : IDisposable
 			api.SystemStatusChanged += this.OnSystemStatusChanged;
 			api.TextFocusStateChanged += this.OnTextFocusStateChanged;
 			this._api = api;
+
+			// pyatv/protocols/companion/api.py (app_list/account_list) — best-effort, mirroring the
+			// FetchAttentionState pattern: some devices/tvOS builds do not populate these, which must
+			// not prevent the rest of connect from completing.
+			try
+				{
+				this.Apps = api.AppList ();
+				}
+			catch (Exception ex)
+				{
+				System.Diagnostics.Debug.WriteLine ($"[AppleTvDeviceManager] AppList failed (ignored): {ex}");
+				this.Apps = new Dictionary<string, string> ();
+				}
+
+			try
+				{
+				this.Accounts = api.AccountList ();
+				}
+			catch (Exception ex)
+				{
+				System.Diagnostics.Debug.WriteLine ($"[AppleTvDeviceManager] AccountList failed (ignored): {ex}");
+				this.Accounts = new Dictionary<string, string> ();
+				}
 			}).ConfigureAwait (false);
 		}
 
@@ -389,6 +412,52 @@ public sealed class AppleTvDeviceManager : IDisposable
 	public bool IsVolumeControlSupported => this._api?.IsVolumeControlSupported ?? false;
 
 	/// <summary>
+	/// Gets the launchable apps fetched during connect, as a bundle-identifier-to-display-name
+	/// mapping. Empty (never <see langword="null"/>) if not connected or if the device did not
+	/// return any apps.
+	/// </summary>
+	public IReadOnlyDictionary<string, string> Apps
+		{
+		get;
+		private set;
+		} = new Dictionary<string, string> ();
+
+	/// <summary>
+	/// Gets the switchable user accounts fetched during connect, as an account-identifier-to-
+	/// display-name mapping. Empty (never <see langword="null"/>) if not connected or if the
+	/// device did not return any accounts.
+	/// </summary>
+	public IReadOnlyDictionary<string, string> Accounts
+		{
+		get;
+		private set;
+		} = new Dictionary<string, string> ();
+
+	/// <summary>Launches an app on the connected device.</summary>
+	/// <param name="bundleIdOrUrl">A bundle identifier or a URL/URL scheme to open.</param>
+	public void LaunchApp (string bundleIdOrUrl)
+		{
+		if (this._api is null)
+			{
+			throw new InvalidOperationException ("Not connected");
+			}
+
+		this._api.LaunchApp (bundleIdOrUrl);
+		}
+
+	/// <summary>Switches the active user account on the connected device.</summary>
+	/// <param name="accountId">The account identifier to switch to, from <see cref="Accounts"/>.</param>
+	public void SwitchAccount (string accountId)
+		{
+		if (this._api is null)
+			{
+			throw new InvalidOperationException ("Not connected");
+			}
+
+		this._api.SwitchAccount (accountId);
+		}
+
+	/// <summary>
 	/// Toggles power using the cached <see cref="CurrentSystemStatus"/> (tracked via the initial
 	/// connect snapshot and pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> events, per
 	/// pyatv/protocols/companion/__init__.py — line 219-246 as of pyatv 0.18.0) and sending the corresponding
@@ -424,6 +493,8 @@ public sealed class AppleTvDeviceManager : IDisposable
 		this._api = null;
 		this._transport?.Dispose ();
 		this._transport = null;
+		this.Apps = new Dictionary<string, string> ();
+		this.Accounts = new Dictionary<string, string> ();
 		}
 
 	// Six random bytes, hex-encoded - generated once at pair time and persisted, per the

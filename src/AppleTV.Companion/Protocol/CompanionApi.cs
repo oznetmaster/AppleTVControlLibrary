@@ -824,6 +824,28 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		return accounts;
 		}
 
+	/// <summary>
+	/// Diagnostic-only: fetch the raw, untyped <c>_c</c> content of a <c>FetchUserAccountsEvent</c>
+	/// response, with no coercion to <see cref="Dictionary{TKey, TValue}"/> of
+	/// <see cref="string"/>/<see cref="string"/>. <see cref="AccountList"/> silently drops any
+	/// entry whose value is not a plain string, which would hide a richer per-account payload
+	/// (e.g. a nested dict carrying a "current"/"active" flag) if the device ever sends one. This
+	/// exists to let that be checked against real hardware rather than assumed from the pyatv
+	/// source, per the brief's rule 2 (do not invent, do not infer past what the source says).
+	/// </summary>
+	/// <returns>The raw <c>_c</c> content, or an empty dictionary if missing/malformed.</returns>
+	public Dictionary<object, object?> AccountListRaw ()
+		{
+		var resp = SendCommand ("FetchUserAccountsEvent", new Dictionary<string, object?> ());
+
+		if (!resp.TryGetValue ("_c", out object? contentObj) || contentObj is not Dictionary<object, object?> content)
+			{
+			return new Dictionary<object, object?> ();
+			}
+
+		return content;
+		}
+
 	/// <summary>Switch the active user account on the device.</summary>
 	/// <param name="accountId">The account identifier to switch to, as returned by <see cref="AccountList"/>.</param>
 	// pyatv/protocols/companion/api.py (switch_account, SwitchUserAccountEvent/SwitchAccountID) — line 295-299 as of pyatv 0.18.0

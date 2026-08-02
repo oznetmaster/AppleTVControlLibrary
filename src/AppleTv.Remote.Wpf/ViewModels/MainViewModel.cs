@@ -26,6 +26,10 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	private bool _isAwake;
 	private bool _isPowerStateKnown;
 	private bool _autoConnectSelected;
+	private SelectableItem? _selectedApp;
+	private SelectableItem? _selectedAccount;
+	private bool _isPopulatingAppsOrAccounts;
+	private bool _isCurrentAccountKnown;
 
 	/// <summary>Initializes a new instance of the <see cref="MainViewModel"/> class.</summary>
 	public MainViewModel ()
@@ -126,11 +130,170 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			};
 		}
 
+	// Populates Apps/Accounts from the values fetched (best-effort) during
+	// AppleTvDeviceManager.ConnectAsync. Devices that don't support a given feature return an
+	// empty dictionary, in which case the corresponding dropdown stays empty and hidden (see
+	// IsAppListSupported/IsAccountListSupported).
+	private void PopulateAppsAndAccounts ()
+		{
+		this._isPopulatingAppsOrAccounts = true;
+		try
+			{
+			this.Apps.Clear ();
+			foreach (var kvp in this._deviceManager.Apps)
+				{
+				this.Apps.Add (new SelectableItem (kvp.Key, kvp.Value));
+				}
+
+			this.Accounts.Clear ();
+			foreach (var kvp in this._deviceManager.Accounts)
+				{
+				this.Accounts.Add (new SelectableItem (kvp.Key, kvp.Value));
+				}
+
+			// The device does not report which account is currently active - FetchUserAccountsEvent
+			// only returns the switchable list (pyatv/protocols/companion/api.py:301-303), with no
+			// current-account marker anywhere on the wire, and nothing in _systemInfo or _iMC fills
+			// the gap either. So "current account" is a tri-state, same pattern as power state:
+			// unknown at connect/reconnect, and only becomes known once this session has issued a
+			// successful SwitchUserAccountEvent. A switch made from the physical remote or another
+			// client is invisible to us - there is no pushed event for it - so IsCurrentAccountKnown
+			// must revert to false on every (re)connect rather than trusting a stale cached value.
+			this._selectedApp = null;
+			this._selectedAccount = null;
+			this._isCurrentAccountKnown = false;
+			}
+		finally
+			{
+			this._isPopulatingAppsOrAccounts = false;
+			}
+
+		this.OnPropertyChanged (nameof (this.IsAppListSupported));
+		this.OnPropertyChanged (nameof (this.IsAccountListSupported));
+		this.OnPropertyChanged (nameof (this.SelectedApp));
+		this.OnPropertyChanged (nameof (this.SelectedAccount));
+		this.OnPropertyChanged (nameof (this.IsCurrentAccountKnown));
+		}
+
+	private void LaunchSelectedApp (SelectableItem app)
+		{
+		try
+			{
+			this._deviceManager.LaunchApp (app.Id);
+			this.StatusMessage = $"Launched {app.DisplayName}.";
+			}
+		catch (Exception ex)
+			{
+			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] LaunchApp failed: {ex}");
+			this.StatusMessage = $"Launch failed: {ex.Message}";
+			}
+		}
+
+	private void SwitchToSelectedAccount (SelectableItem account)
+		{
+		try
+			{
+			this._deviceManager.SwitchAccount (account.Id);
+			this.StatusMessage = $"Switched to {account.DisplayName}.";
+
+			// Only now do we actually know the active account - a successful SwitchUserAccountEvent
+			// is the one and only signal the protocol gives us (see PopulateAppsAndAccounts).
+			this._isCurrentAccountKnown = true;
+			this.OnPropertyChanged (nameof (this.IsCurrentAccountKnown));
+			}
+		catch (Exception ex)
+			{
+			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] SwitchAccount failed: {ex}");
+			this.StatusMessage = $"Switch account failed: {ex.Message}";
+
+			// The switch may or may not have taken effect on the device; treat the account as unknown
+			// again rather than risk displaying a selection that doesn't match reality.
+			this._isCurrentAccountKnown = false;
+			this.OnPropertyChanged (nameof (this.IsCurrentAccountKnown));
+			}
+		}
+
 	/// <summary>Gets the discovered devices from the most recent scan.</summary>
 	public ObservableCollection<DeviceListItem> Devices
 		{
 		get;
 		} = new ();
+
+	/// <summary>
+	/// Gets the launchable apps on the connected device. Empty when not connected or when the
+	/// device does not support app listing (see <see cref="IsAppListSupported"/>).
+	/// </summary>
+	public ObservableCollection<SelectableItem> Apps
+		{
+		get;
+		} = new ();
+
+	/// <summary>
+	/// Gets a value indicating whether the connected device supports app listing/launching
+	/// (i.e. <see cref="Apps"/> is non-empty). The app dropdown should only be shown when this
+	/// is <see langword="true"/>.
+	/// </summary>
+	public bool IsAppListSupported => this.Apps.Count > 0;
+
+	/// <summary>Gets or sets the app selected in the app dropdown, launching it on selection.</summary>
+	public SelectableItem? SelectedApp
+		{
+		get => this._selectedApp;
+		set
+			{
+			if (this.SetProperty (ref this._selectedApp, value) && !this._isPopulatingAppsOrAccounts && value is not null)
+				{
+				this.LaunchSelectedApp (value);
+				}
+			}
+		}
+
+	/// <summary>
+	/// Gets the user accounts switchable on the connected device. Empty when not connected or
+	/// when the device does not support account switching (see <see cref="IsAccountListSupported"/>).
+	/// </summary>
+	public ObservableCollection<SelectableItem> Accounts
+		{
+		get;
+		} = new ();
+
+	/// <summary>
+	/// Gets a value indicating whether the connected device supports account listing/switching
+	/// (i.e. <see cref="Accounts"/> is non-empty). The account dropdown should only be shown when
+	/// this is <see langword="true"/>.
+	/// </summary>
+	public bool IsAccountListSupported => this.Accounts.Count > 0;
+
+	/// <summary>
+	/// Gets a value indicating whether <see cref="SelectedAccount"/> is known to reflect the
+	/// device's actual active account, as opposed to simply being unset. The Companion protocol
+	/// has no query for the current account - only <c>FetchUserAccountsEvent</c> (the switchable
+	/// list) and <c>SwitchUserAccountEvent</c> (switch by id) exist - so this only becomes
+	/// <see langword="true"/> once this session has issued a successful switch itself, mirroring
+	/// the tri-state pattern used for power state. A switch made from the physical remote, the
+	/// TV Remote app, or Control Center on the device is invisible to us (no event is pushed for
+	/// it), so this reverts to <see langword="false"/> on every reconnect rather than trusting a
+	/// stale cached value.
+	/// </summary>
+	public bool IsCurrentAccountKnown => this._isCurrentAccountKnown;
+
+	/// <summary>
+	/// Gets or sets the account selected in the account dropdown, switching to it on selection.
+	/// Always reflects the most recently selected/switched-to account; the device does not
+	/// report which account is currently active (pyatv 0.18.0 has no such field), so this starts
+	/// unselected on connect.
+	/// </summary>
+	public SelectableItem? SelectedAccount
+		{
+		get => this._selectedAccount;
+		set
+			{
+			if (this.SetProperty (ref this._selectedAccount, value) && !this._isPopulatingAppsOrAccounts && value is not null)
+				{
+				this.SwitchToSelectedAccount (value);
+				}
+			}
+		}
 
 	/// <summary>Gets or sets the currently selected device.</summary>
 	public DeviceListItem? SelectedDevice
@@ -489,6 +652,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			this.DisconnectCommand.RaiseCanExecuteChanged ();
 			this.RaiseRemoteButtonStates ();
 			this.ApplySystemStatus (this._deviceManager.CurrentSystemStatus);
+			this.PopulateAppsAndAccounts ();
 			}
 		catch (Exception ex)
 			{
@@ -561,6 +725,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		this.OnPropertyChanged (nameof (this.IsConnected));
 		this.DisconnectCommand.RaiseCanExecuteChanged ();
 		this.RaiseRemoteButtonStates ();
+		this.PopulateAppsAndAccounts ();
 		}
 
 	private async Task ToggleMuteAsync ()

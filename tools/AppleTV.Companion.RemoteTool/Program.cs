@@ -141,6 +141,26 @@ internal static class Program
 				Console.WriteLine ($"Final CurrentSystemStatus={api.CurrentSystemStatus}");
 				return 0;
 				}
+			case "dumpaccounts":
+				{
+				// Diagnostic-only: dumps the raw, untyped _c content of FetchUserAccountsEvent,
+				// printing each value's runtime CLR type alongside its value. AccountList() coerces
+				// this to Dictionary<string,string> and silently drops any entry whose value is not
+				// a plain string - if a real device ever returns something richer per account (e.g.
+				// a nested dict carrying a current/active flag), that entry would vanish there
+				// without a trace. Run this against real hardware to check the actual shape rather
+				// than assuming it from the pyatv source.
+				Dictionary<object, object?> raw = api.AccountListRaw ();
+				Console.WriteLine ($"FetchUserAccountsEvent raw _c content ({raw.Count} entries):");
+				foreach (var kvp in raw)
+					{
+					string keyType = kvp.Key?.GetType ().Name ?? "null";
+					string valueType = kvp.Value?.GetType ().Name ?? "null";
+					Console.WriteLine ($"  [{keyType}] {kvp.Key} = [{valueType}] {DescribeValue (kvp.Value)}");
+					}
+
+				return 0;
+				}
 			case "sequence":
 				{
 				// Reproduces the exact bug report: wake, wait, then try every button in turn,
@@ -246,6 +266,41 @@ internal static class Program
 			?? throw new InvalidOperationException ($"Failed to deserialize {path}");
 		}
 
+	// Renders a raw OPACK-decoded value for the dumpaccounts diagnostic. Nested
+	// dictionaries/lists are expanded recursively so a richer-than-expected per-account payload
+	// (e.g. a dict carrying a current/active flag alongside the display name) is fully visible
+	// rather than just showing "Dictionary`2" from ToString().
+	private static string DescribeValue (object? value)
+		{
+		switch (value)
+			{
+			case null:
+				return "null";
+			case Dictionary<object, object?> dict:
+				{
+				List<string> parts = new ();
+				foreach (var kvp in dict)
+					{
+					parts.Add ($"{kvp.Key}: {DescribeValue (kvp.Value)}");
+					}
+
+				return "{ " + string.Join (", ", parts) + " }";
+				}
+			case System.Collections.IEnumerable enumerable and not string:
+				{
+				List<string> parts = new ();
+				foreach (object? item in enumerable)
+					{
+					parts.Add (DescribeValue (item));
+					}
+
+				return "[ " + string.Join (", ", parts) + " ]";
+				}
+			default:
+				return value.ToString () ?? "null";
+			}
+		}
+
 	private static void PrintUsage ()
 		{
 		Console.WriteLine ("Usage: AppleTvControlLibrary.RemoteTool <credentials.json> <command> [args]");
@@ -258,6 +313,7 @@ internal static class Program
 		Console.WriteLine ("  click               Send a touch click (Select HID command + touch Click).");
 		Console.WriteLine ("  volume              Print the current volume, if supported.");
 		Console.WriteLine ("  monitor [seconds]   Connect and print pushed SystemStatus/media-control events for a while.");
+		Console.WriteLine ("  dumpaccounts        Print the raw, untyped FetchUserAccountsEvent _c content (diagnostic for account shape).");
 		Console.WriteLine ("  sequence            Repro of the wake-then-buttons bug: wake, wait 10s, then try every button.");
 		}
 	}

@@ -38,7 +38,12 @@ DMAP/DACP.
   tvOS builds do not populate it, and callers should not hard-depend on the list being non-empty.
 - List switchable user accounts (`AccountList()`) and switch the active account
   (`SwitchAccount(...)`). Same graceful-degradation rule as app listing: an empty or missing
-  account list is a normal outcome, not an error.
+  account list is a normal outcome, not an error. **There is no way to query which account is
+  currently active** - `FetchUserAccountsEvent` returns only the switchable list, and nothing in
+  `_systemInfo` or the `_iMC` event fills the gap. Callers can only know the current account after
+  they themselves issue a successful `SwitchAccount(...)`; a switch made on the device itself
+  (Control Center, the user icon, another client) is invisible to this library, with no event
+  pushed for it.
 
 ## What it does not do
 
@@ -81,6 +86,15 @@ same C# 13 codebase compiles on both targets with no `#if` branching in the prot
 `net472` build is destined for a Mono runtime rather than desktop .NET Framework, validate
 `Span<T>`/`ValueTask` behavior and socket options on that runtime specifically - a green build on
 Windows `net472` does not guarantee equivalent behavior on Mono.
+
+## Hardware compatibility
+
+This library has been tested against Apple TV 4K models only. Older, pre-4K devices (e.g. Apple TV
+HD / A1625, and earlier generations) are **not part of the test matrix** and have not been
+validated against real hardware. Companion Link should work the same way on those devices, and
+nothing in the protocol implementation deliberately excludes them, but "should work" is not a
+guarantee - treat pre-4K support as unverified until confirmed against real hardware, and please
+report any issues you hit on that hardware.
 
 ## Protocol reference and correctness
 

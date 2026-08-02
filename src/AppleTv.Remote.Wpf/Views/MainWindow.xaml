@@ -59,9 +59,11 @@
 				</MultiDataTrigger>
 			</Style.Triggers>
 		</Style>
+		<BooleanToVisibilityConverter x:Key="BoolToVis" />
 	</Window.Resources>
 	<Grid Margin="12">
 		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
 			<RowDefinition Height="Auto" />
 			<RowDefinition Height="Auto" />
 			<RowDefinition Height="Auto" />
@@ -104,8 +106,37 @@
 
 		<TextBlock Grid.Row="3" Text="{Binding StatusMessage}" Margin="0,0,0,8" TextWrapping="Wrap" Foreground="#FFCCCCCC" />
 
+		<!-- App / Account selectors: only shown when the connected device supports the feature. -->
+		<StackPanel Grid.Row="4" Margin="0,0,0,8">
+			<ComboBox Visibility="{Binding IsAppListSupported, Converter={StaticResource BoolToVis}}"
+					  ItemsSource="{Binding Apps}" SelectedItem="{Binding SelectedApp}"
+					  DisplayMemberPath="DisplayName" Margin="0,0,0,4"
+					  ToolTip="Launch an app (Companion _launchApp)." />
+			<ComboBox Visibility="{Binding IsAccountListSupported, Converter={StaticResource BoolToVis}}"
+					  ItemsSource="{Binding Accounts}" SelectedItem="{Binding SelectedAccount}"
+					  DisplayMemberPath="DisplayName"
+					  ToolTip="Switch user account (Companion SwitchUserAccountEvent). The device does not report which account is active, so this starts unselected and then shows whichever account was most recently switched to." />
+			<TextBlock Text="Current account: unknown (device does not report it)"
+						FontStyle="Italic" Foreground="#FF8A8A8E" Margin="0,2,0,0">
+				<TextBlock.Style>
+					<Style TargetType="TextBlock">
+						<Setter Property="Visibility" Value="Collapsed" />
+						<Style.Triggers>
+							<MultiDataTrigger>
+								<MultiDataTrigger.Conditions>
+									<Condition Binding="{Binding IsAccountListSupported}" Value="True" />
+									<Condition Binding="{Binding IsCurrentAccountKnown}" Value="False" />
+								</MultiDataTrigger.Conditions>
+								<Setter Property="Visibility" Value="Visible" />
+							</MultiDataTrigger>
+						</Style.Triggers>
+					</Style>
+				</TextBlock.Style>
+			</TextBlock>
+		</StackPanel>
+
 		<!-- Siri Remote-style body -->
-		<Border Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"
+		<Border Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center"
 				Width="220" CornerRadius="42" Padding="0,20,0,20"
 				Background="#FFD9D9DE" BorderBrush="#FFB5B5BA" BorderThickness="1">
 			<Grid>
