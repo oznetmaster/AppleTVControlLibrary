@@ -22,6 +22,7 @@ public partial class MainWindow : Window
 	private bool _isTouchpadDragging;
 	private Point _touchpadDownPosition;
 	private bool _touchpadMoved;
+	private TextInputDialog? _textInputDialog;
 
 	/// <summary>Initializes a new instance of the <see cref="MainWindow"/> class.</summary>
 	public MainWindow ()
@@ -31,6 +32,8 @@ public partial class MainWindow : Window
 		MainViewModel viewModel = new MainViewModel
 			{
 			RequestPin = this.RequestPin,
+			ShowTextInput = this.ShowTextInput,
+			HideTextInput = this.HideTextInput,
 			};
 		this.DataContext = viewModel;
 		this.Closed += (_, _) => viewModel.Dispose ();
@@ -49,6 +52,37 @@ public partial class MainWindow : Window
 
 		bool? result = dialog.ShowDialog ();
 		return result == true ? dialog.EnteredPin : null;
+		}
+
+	// Non-modal (Show, not ShowDialog): the on-screen keyboard is a live session driven by
+	// pushed _tiStarted/_tiStopped events, not a one-shot prompt, so the rest of the remote
+	// must remain usable while the dialog is open.
+	private void ShowTextInput (string? currentText)
+		{
+		if (this.DataContext is not MainViewModel viewModel)
+			{
+			return;
+			}
+
+		if (this._textInputDialog is not null)
+			{
+			this._textInputDialog.SetTextWithoutNotifying (currentText ?? string.Empty);
+			return;
+			}
+
+		TextInputDialog dialog = new TextInputDialog (currentText, viewModel.OnTextInputChanged)
+			{
+			Owner = this,
+			};
+		dialog.Closed += (_, _) => this._textInputDialog = null;
+		this._textInputDialog = dialog;
+		dialog.Show ();
+		}
+
+	private void HideTextInput ()
+		{
+		this._textInputDialog?.Close ();
+		this._textInputDialog = null;
 		}
 
 	// A press+release with minimal movement in between is sent as a Companion touchpad "click"

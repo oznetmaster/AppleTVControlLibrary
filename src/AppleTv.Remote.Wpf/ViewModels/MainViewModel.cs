@@ -66,6 +66,45 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 				this.ApplySystemStatus (this._deviceManager.CurrentSystemStatus);
 				});
 			};
+
+		// pyatv/protocols/companion/__init__.py (CompanionKeyboard, listen_to "_tiStarted"/"_tiStopped") —
+		// line 494-497 as of pyatv 0.18.0: the on-screen keyboard's focus state is pushed by the device,
+		// so the text-input dialog must be shown/hidden reactively rather than on user request.
+		//
+		// This event is raised synchronously on the connection's background receive thread (from
+		// CompanionConnection.ReceiveData -> FrameReceived -> HandleOpack -> Listener.EventReceived).
+		// ApplyTextFocusState calls back into the device (TextGet, which round-trips _tiStop/_tiStart),
+		// and that round trip can only complete once the receive thread is free to process the
+		// response frame. Using a blocking Dispatcher.Invoke here would therefore deadlock: the
+		// receive thread would block on the UI thread, which would in turn block waiting for a
+		// response only the receive thread can deliver. BeginInvoke lets the receive thread return
+		// immediately while the UI thread handles the round trip asynchronously.
+		this._deviceManager.TextFocusStateChanged += (_, _) =>
+			{
+			Application.Current?.Dispatcher.BeginInvoke (this.ApplyTextFocusState);
+			};
+		}
+
+	private void ApplyTextFocusState ()
+		{
+		if (this._deviceManager.TextFocusState == KeyboardFocusState.Focused)
+			{
+			string? currentText = null;
+			try
+				{
+				currentText = this._deviceManager.TextGet ();
+				}
+			catch (Exception ex)
+				{
+				System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] TextGet failed: {ex}");
+				}
+
+			this.ShowTextInput?.Invoke (currentText);
+			}
+		else
+			{
+			this.HideTextInput?.Invoke ();
+			}
 		}
 
 	// pyatv/protocols/companion/__init__.py (self._power_state = PowerState.Unknown) — line 213 as of pyatv 0.18.0:
@@ -305,6 +344,50 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		set;
 		}
 
+	/// <summary>
+	/// Invoked when the connected device's on-screen keyboard gains focus and text input should
+	/// be presented to the user. The argument is the device's current keyboard text, if any.
+	/// The WPF view wires this to show a non-modal <c>TextInputDialog</c>.
+	/// </summary>
+	public Action<string?>? ShowTextInput
+		{
+		get;
+		set;
+		}
+
+	/// <summary>
+	/// Invoked when the connected device's on-screen keyboard loses focus and any open text
+	/// input dialog should be dismissed.
+	/// </summary>
+	public Action? HideTextInput
+		{
+		get;
+		set;
+		}
+
+	/// <summary>
+	/// Forwards a user edit made in the text-input dialog to the connected device, replacing
+	/// its virtual keyboard text so the on-screen keyboard mirrors what the user is typing.
+	/// </summary>
+	/// <param name="text">The dialog's current full text.</param>
+	public void OnTextInputChanged (string text)
+		{
+		if (!this.IsConnected)
+			{
+			return;
+			}
+
+		try
+			{
+			this._deviceManager.SetText (text);
+			}
+		catch (Exception ex)
+			{
+			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] SetText failed: {ex}");
+			this.StatusMessage = $"Text input failed: {ex.Message}";
+			}
+		}
+
 	private async Task ScanAsync ()
 		{
 		this.IsBusy = true;
@@ -474,6 +557,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		this.IsMuted = false;
 		this.IsAwake = false;
 		this.IsPowerStateKnown = false;
+		this.HideTextInput?.Invoke ();
 		this.OnPropertyChanged (nameof (this.IsConnected));
 		this.DisconnectCommand.RaiseCanExecuteChanged ();
 		this.RaiseRemoteButtonStates ();

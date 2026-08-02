@@ -67,6 +67,45 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// </summary>
 	public event EventHandler? SystemStatusChanged;
 
+	/// <summary>
+	/// Gets the connected device's current keyboard (RTI text input) focus state, tracked via
+	/// <c>_tiStarted</c>/<c>_tiStopped</c> events (and the <c>_tiStart</c> response).
+	/// <see cref="KeyboardFocusState.Unknown"/> if not connected or if no state has been
+	/// observed yet.
+	/// </summary>
+	public KeyboardFocusState TextFocusState => this._api?.TextFocusState ?? KeyboardFocusState.Unknown;
+
+	/// <summary>
+	/// Raised whenever <see cref="TextFocusState"/> changes: the Apple TV wants (or no longer
+	/// wants) on-screen text input, e.g. when the user selects a text field in a tvOS app.
+	/// </summary>
+	public event EventHandler? TextFocusStateChanged;
+
+	/// <summary>Gets the current virtual keyboard text from the connected device.</summary>
+	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_get) — line 517-519 as of pyatv 0.18.0
+	public string? TextGet ()
+		{
+		if (this._api is null)
+			{
+			throw new InvalidOperationException ("Not connected");
+			}
+
+		return this._api.TextGet ();
+		}
+
+	/// <summary>Replaces the virtual keyboard text on the connected device.</summary>
+	/// <param name="text">The new text.</param>
+	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_set) — line 529-531 as of pyatv 0.18.0
+	public void SetText (string text)
+		{
+		if (this._api is null)
+			{
+			throw new InvalidOperationException ("Not connected");
+			}
+
+		this._api.TextSet (text);
+		}
+
 	/// <summary>Scans the network for Companion Link devices.</summary>
 	/// <param name="timeout">How long to scan for.</param>
 	/// <param name="cancellationToken">A token to cancel the scan.</param>
@@ -270,6 +309,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 
 			api.MediaControlCapabilitiesChanged += this.OnMediaControlCapabilitiesChanged;
 			api.SystemStatusChanged += this.OnSystemStatusChanged;
+			api.TextFocusStateChanged += this.OnTextFocusStateChanged;
 			this._api = api;
 			}).ConfigureAwait (false);
 		}
@@ -282,6 +322,11 @@ public sealed class AppleTvDeviceManager : IDisposable
 	private void OnSystemStatusChanged (object? sender, EventArgs e)
 		{
 		this.SystemStatusChanged?.Invoke (this, EventArgs.Empty);
+		}
+
+	private void OnTextFocusStateChanged (object? sender, EventArgs e)
+		{
+		this.TextFocusStateChanged?.Invoke (this, EventArgs.Empty);
 		}
 
 	/// <summary>Sends a HID button command to the connected device.</summary>
@@ -373,6 +418,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 			{
 			this._api.MediaControlCapabilitiesChanged -= this.OnMediaControlCapabilitiesChanged;
 			this._api.SystemStatusChanged -= this.OnSystemStatusChanged;
+			this._api.TextFocusStateChanged -= this.OnTextFocusStateChanged;
 			}
 
 		this._api = null;
