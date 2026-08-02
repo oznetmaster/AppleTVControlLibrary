@@ -1,0 +1,1017 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AppleTvControlLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:AppleTvControlLibrary.Auth.AuthenticationType">
+            <summary>
+            Supported authentication type.
+            </summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Auth.AuthenticationType.Null">
+            <summary>No authentication (just pass through). pyatv/auth/hap_pairing.py — line 15 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Auth.AuthenticationType.Legacy">
+            <summary>Legacy SRP based authentication. pyatv/auth/hap_pairing.py — line 18 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Auth.AuthenticationType.Hap">
+            <summary>Authentication based on HAP (Home-Kit). pyatv/auth/hap_pairing.py — line 21 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Auth.AuthenticationType.Transient">
+            <summary>Authentication based on transient HAP (Home-Kit). pyatv/auth/hap_pairing.py — line 24 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="T:AppleTvControlLibrary.Auth.AuthenticationException">
+            <summary>
+            Raised when authentication with a device fails.
+            </summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.AuthenticationException.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Auth.AuthenticationException"/> class.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.AuthenticationException.#ctor(System.String)">
+            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Auth.AuthenticationException"/> class.</summary>
+            <param name="message">The exception message.</param>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.AuthenticationException.#ctor(System.String,System.Exception)">
+            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Auth.AuthenticationException"/> class.</summary>
+            <param name="message">The exception message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="T:AppleTvControlLibrary.Auth.InvalidCredentialsException">
+            <summary>
+            Raised when credentials are invalid or malformed.
+            </summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.InvalidCredentialsException.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Auth.InvalidCredentialsException"/> class.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.InvalidCredentialsException.#ctor(System.String)">
+            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Auth.InvalidCredentialsException"/> class.</summary>
+            <param name="message">The exception message.</param>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.InvalidCredentialsException.#ctor(System.String,System.Exception)">
+            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Auth.InvalidCredentialsException"/> class.</summary>
+            <param name="message">The exception message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="T:AppleTvControlLibrary.Auth.HapCredentials">
+            <summary>
+            Identifiers and encryption keys used by HAP.
+            </summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.HapCredentials.#ctor(System.Byte[],System.Byte[],System.Byte[],System.Byte[])">
+            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Auth.HapCredentials"/> class.</summary>
+            <param name="ltpk">Long-term public key of the peer.</param>
+            <param name="ltsk">Long-term secret key belonging to this client.</param>
+            <param name="atvId">Identifier of the Apple TV.</param>
+            <param name="clientId">Identifier of this client.</param>
+        </member>
+        <member name="P:AppleTvControlLibrary.Auth.HapCredentials.Ltpk">
+            <summary>Gets the long-term public key of the peer.</summary>
+        </member>
+        <member name="P:AppleTvControlLibrary.Auth.HapCredentials.Ltsk">
+            <summary>Gets the long-term secret key belonging to this client.</summary>
+        </member>
+        <member name="P:AppleTvControlLibrary.Auth.HapCredentials.AtvId">
+            <summary>Gets the identifier of the Apple TV.</summary>
+        </member>
+        <member name="P:AppleTvControlLibrary.Auth.HapCredentials.ClientId">
+            <summary>Gets the identifier of this client.</summary>
+        </member>
+        <member name="P:AppleTvControlLibrary.Auth.HapCredentials.Type">
+            <summary>Gets the authentication type represented by these credentials.</summary>
+        </member>
+        <member name="P:AppleTvControlLibrary.Auth.HapCredentials.NoCredentials">
+            <summary>Gets the shared "no credentials" instance. pyatv/auth/hap_pairing.py — line 135 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="P:AppleTvControlLibrary.Auth.HapCredentials.TransientCredentials">
+            <summary>Gets the shared "transient" credentials instance. pyatv/auth/hap_pairing.py — line 136 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.HapCredentials.Equals(AppleTvControlLibrary.Auth.HapCredentials)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.HapCredentials.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.HapCredentials.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.HapCredentials.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.HapCredentials.Parse(System.String)">
+            <summary>Parse a string representation of <see cref="T:AppleTvControlLibrary.Auth.HapCredentials"/>.</summary>
+            <param name="detailString">The string to parse, or <see langword="null"/>.</param>
+            <returns>The parsed credentials.</returns>
+        </member>
+        <member name="T:AppleTvControlLibrary.Auth.SrpAuthHandler">
+            <summary>
+            Handle SRP crypto routines for auth and key derivation.
+            </summary>
+            <remarks>
+            The SRP math here is ported from srptools (the library pyatv itself depends on for its
+            SRP implementation), not from a generic SRP-6a reference, since the two differ in a few
+            details (padding, hash argument ordering) that must match byte-for-byte for the HAP
+            handshake to succeed.
+            </remarks>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.SrpAuthHandler.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Auth.SrpAuthHandler"/> class.</summary>
+        </member>
+        <member name="P:AppleTvControlLibrary.Auth.SrpAuthHandler.SharedKey">
+            <summary>Gets the shared secret (SRP session key) established during pair-setup.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.SrpAuthHandler.HkdfExpand(System.String,System.String,System.Byte[])">
+            <summary>Derives encryption keys from a shared secret using HKDF-SHA512.</summary>
+            <param name="salt">The HKDF salt string.</param>
+            <param name="info">The HKDF info string.</param>
+            <param name="sharedSecret">The shared secret to derive from.</param>
+            <returns>32 bytes of derived key material.</returns>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.SrpAuthHandler.Initialize">
+            <summary>Initialize operation by generating new keys.</summary>
+            <returns>A tuple of (auth public key, verify public key).</returns>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.SrpAuthHandler.Verify1(AppleTvControlLibrary.Auth.HapCredentials,System.Byte[],System.Byte[])">
+            <summary>First verification step.</summary>
+            <param name="credentials">The credentials of the device being verified.</param>
+            <param name="sessionPubKey">The device's X25519 public key.</param>
+            <param name="encrypted">Encrypted TLV8 payload containing the device identifier and signature.</param>
+            <returns>Encrypted TLV8 payload to send back to the device.</returns>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.SrpAuthHandler.Verify2(System.String,System.String,System.String)">
+            <summary>Last verification step. Derives the output and input encryption keys.</summary>
+            <param name="salt">The HKDF salt string.</param>
+            <param name="outputInfo">The HKDF info string for the output key.</param>
+            <param name="inputInfo">The HKDF info string for the input key.</param>
+            <returns>A tuple of (output key, input key).</returns>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.SrpAuthHandler.Step1(System.Int32)">
+            <summary>First pairing step. Sets up the SRP client session with the given PIN.</summary>
+            <param name="pin">The PIN code entered by the user.</param>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.SrpAuthHandler.Step2(System.Byte[],System.Byte[])">
+            <summary>Second pairing step. Processes the device's public key and salt.</summary>
+            <param name="atvPubKey">The device's SRP public key.</param>
+            <param name="atvSalt">The device's SRP salt.</param>
+            <returns>A tuple of (client public key, client proof).</returns>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.SrpAuthHandler.Step3(System.String)">
+            <summary>Third pairing step. Builds the encrypted TLV payload with device identity.</summary>
+            <param name="name">An optional display name to include.</param>
+            <returns>The encrypted TLV8 payload.</returns>
+        </member>
+        <member name="M:AppleTvControlLibrary.Auth.SrpAuthHandler.Step4(System.Byte[])">
+            <summary>Last pairing step. Decrypts and parses the final device response.</summary>
+            <param name="encryptedData">The encrypted TLV8 payload from the device.</param>
+            <returns>The resulting credentials for the paired device.</returns>
+        </member>
+        <member name="T:AppleTvControlLibrary.Connection.FrameType">
+            <summary>
+            Frame type values.
+            </summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Connection.FrameType.Unknown">
+            <summary>Unknown frame type. pyatv/protocols/companion/connection.py — line 24 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Connection.FrameType.NoOp">
+            <summary>No-op frame, never encrypted. pyatv/protocols/companion/connection.py — line 25 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Connection.FrameType.PS_Start">
+            <summary>Pair-setup, start (M1). pyatv/protocols/companion/connection.py — line 26 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Connection.FrameType.PS_Next">
+            <summary>Pair-setup, next step. pyatv/protocols/companion/connection.py — line 27 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Connection.FrameType.PV_Start">
+            <summary>Pair-verify, start (M1). pyatv/protocols/companion/connection.py — line 28 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Connection.FrameType.PV_Next">
+            <summary>Pair-verify, next step. pyatv/protocols/companion/connection.py — line 29 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Connection.FrameType.U_OPACK">
+            <summary>Unencrypted OPACK payload. pyatv/protocols/companion/connection.py — line 30 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Connection.FrameType.E_OPACK">
+            <summary>Encrypted OPACK payload. pyatv/protocols/companion/connection.py — line 31 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Connection.FrameType.P_OPACK">
+            <summary>Plist OPACK payload. pyatv/protocols/companion/connection.py — line 32 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Connection.FrameType.PA_Req">
+            <summary>Pairing authentication request. pyatv/protocols/companion/connection.py — line 33 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Connection.FrameType.PA_Rsp">
+            <summary>Pairing authentication response. pyatv/protocols/companion/connection.py — line 34 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Connection.FrameType.SessionStartRequest">
+            <summary>Session start request. pyatv/protocols/companion/connection.py — line 35 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Connection.FrameType.SessionStartResponse">
+            <summary>Session start response. pyatv/protocols/companion/connection.py — line 36 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Connection.FrameType.SessionData">
+            <summary>Session data. pyatv/protocols/companion/connection.py — line 37 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Connection.FrameType.FamilyIdentityRequest">
+            <summary>Family identity request. pyatv/protocols/companion/connection.py — line 38 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Connection.FrameType.FamilyIdentityResponse">
+            <summary>Family identity response. pyatv/protocols/companion/connection.py — line 39 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Connection.FrameType.FamilyIdentityUpdate">
+            <summary>Family identity update. pyatv/protocols/companion/connection.py — line 40 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="T:AppleTvControlLibrary.Connection.ICompanionConnectionListener">
+            <summary>
+            Listener interface for a Companion connection.
+            </summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Connection.ICompanionConnectionListener.FrameReceived(AppleTvControlLibrary.Connection.FrameType,System.Byte[])">
+            <summary>Frame was received from remote device.</summary>
+            <param name="frameType">The type of the received frame.</param>
+            <param name="data">The (already decrypted, if applicable) frame payload.</param>
+        </member>
+        <member name="T:AppleTvControlLibrary.Connection.CompanionConnection">
+            <summary>
+            Frame-level protocol handling for a Companion Link connection: header framing,
+            buffering of partial frames and transparent ChaCha20-Poly1305 encryption.
+            </summary>
+            <remarks>
+            This type intentionally has no socket I/O of its own; a caller feeds inbound bytes
+            via <see cref="M:AppleTvControlLibrary.Connection.CompanionConnection.ReceiveData(System.Byte[])"/> and consumes outbound bytes via <see cref="M:AppleTvControlLibrary.Connection.CompanionConnection.BuildFrame(AppleTvControlLibrary.Connection.FrameType,System.Byte[])"/>,
+            so it can be driven by any transport (Socket, SslStream over sockets not applicable
+            here, etc.) on either target framework.
+            </remarks>
+        </member>
+        <member name="P:AppleTvControlLibrary.Connection.CompanionConnection.IsEncrypted">
+            <summary>Gets a value indicating whether encryption has been enabled.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Connection.CompanionConnection.EnableEncryption(System.Byte[],System.Byte[])">
+            <summary>Enable encryption with the specified keys.</summary>
+            <param name="outputKey">The key used to encrypt outgoing data.</param>
+            <param name="inputKey">The key used to decrypt incoming data.</param>
+        </member>
+        <member name="M:AppleTvControlLibrary.Connection.CompanionConnection.BuildFrame(AppleTvControlLibrary.Connection.FrameType,System.Byte[])">
+            <summary>Build a framed (and, if encryption is enabled, encrypted) message ready to send.</summary>
+            <param name="frameType">The type of frame being sent.</param>
+            <param name="data">The frame payload.</param>
+            <returns>The bytes to write to the transport, including the 4-byte header.</returns>
+        </member>
+        <member name="M:AppleTvControlLibrary.Connection.CompanionConnection.ReceiveData(System.Byte[])">
+            <summary>Feed newly received bytes into the reassembly buffer, raising <see cref="E:AppleTvControlLibrary.Connection.CompanionConnection.FrameReceived"/>
+            for each complete frame that becomes available.</summary>
+            <param name="data">The bytes received from the transport.</param>
+        </member>
+        <member name="E:AppleTvControlLibrary.Connection.CompanionConnection.FrameReceived">
+            <summary>Raised when a complete frame has been received (and decrypted, if applicable).</summary>
+        </member>
+        <member name="T:AppleTvControlLibrary.Connection.FrameReceivedCallback">
+            <summary>Callback signature for the <see cref="E:AppleTvControlLibrary.Connection.CompanionConnection.FrameReceived"/> event.</summary>
+            <param name="sender">The <see cref="T:AppleTvControlLibrary.Connection.CompanionConnection"/> that raised the event.</param>
+            <param name="frameType">The type of the received frame.</param>
+            <param name="data">The (already decrypted, if applicable) frame payload.</param>
+        </member>
+        <member name="T:AppleTvControlLibrary.Crypto.Chacha20Cipher">
+            <summary>
+            CHACHA20 encryption/decryption layer.
+            </summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Crypto.Chacha20Cipher.#ctor(System.Byte[],System.Byte[],System.Int32)">
+            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Crypto.Chacha20Cipher"/> class.</summary>
+            <param name="outKey">The key used to encrypt outgoing data.</param>
+            <param name="inKey">The key used to decrypt incoming data.</param>
+            <param name="nonceLength">The length, in bytes, of the counter portion of the nonce.</param>
+        </member>
+        <member name="P:AppleTvControlLibrary.Crypto.Chacha20Cipher.OutNonce">
+            <summary>Gets the next encrypt nonce.</summary>
+            <remarks>
+            This is the nonce that will be used by <see cref="M:AppleTvControlLibrary.Crypto.Chacha20Cipher.Encrypt(System.Byte[],System.Byte[],System.Byte[])"/> in the _next_ call if no
+            custom nonce is specified.
+            </remarks>
+        </member>
+        <member name="P:AppleTvControlLibrary.Crypto.Chacha20Cipher.InNonce">
+            <summary>Gets the next decrypt nonce.</summary>
+            <remarks>
+            This is the nonce that will be used by <see cref="M:AppleTvControlLibrary.Crypto.Chacha20Cipher.Decrypt(System.Byte[],System.Byte[],System.Byte[])"/> in the _next_ call if no
+            custom nonce is specified.
+            </remarks>
+        </member>
+        <member name="M:AppleTvControlLibrary.Crypto.Chacha20Cipher.Encrypt(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>Encrypt data with counter or specified nonce.</summary>
+            <param name="data">The plaintext to encrypt.</param>
+            <param name="nonce">An optional explicit nonce. If not specified, the counter-derived nonce is used.</param>
+            <param name="aad">Optional additional authenticated data.</param>
+            <returns>The ciphertext with the 16-byte Poly1305 tag appended.</returns>
+        </member>
+        <member name="M:AppleTvControlLibrary.Crypto.Chacha20Cipher.Decrypt(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>Decrypt data with counter or specified nonce.</summary>
+            <param name="data">The ciphertext, including the 16-byte Poly1305 tag, to decrypt.</param>
+            <param name="nonce">An optional explicit nonce. If not specified, the counter-derived nonce is used.</param>
+            <param name="aad">Optional additional authenticated data.</param>
+            <returns>The decrypted plaintext.</returns>
+        </member>
+        <member name="M:AppleTvControlLibrary.Crypto.Chacha20Cipher.PadNonce(System.Byte[])">
+            <summary>Pad nonce to 12 bytes.</summary>
+        </member>
+        <member name="T:AppleTvControlLibrary.Crypto.Chacha20Cipher8ByteNonce">
+            <summary>
+            CHACHA20 encryption/decryption layer with an 8 byte counter.
+            </summary>
+            <remarks>
+            The first 4 bytes are always 0, followed by 8 bytes of counter for a total of 12 bytes.
+            </remarks>
+        </member>
+        <member name="M:AppleTvControlLibrary.Crypto.Chacha20Cipher8ByteNonce.#ctor(System.Byte[],System.Byte[])">
+            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Crypto.Chacha20Cipher8ByteNonce"/> class.</summary>
+            <param name="outKey">The key used to encrypt outgoing data.</param>
+            <param name="inKey">The key used to decrypt incoming data.</param>
+        </member>
+        <member name="T:AppleTvControlLibrary.Opack.Opack">
+            <summary>
+            Support for the OPACK serialization format used by the Companion Link protocol.
+            </summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Opack.Opack.Pack(System.Object)">
+            <summary>Packs a data structure using OPACK and returns the encoded bytes.</summary>
+            <param name="data">The data to encode.</param>
+            <returns>The OPACK-encoded bytes.</returns>
+        </member>
+        <member name="M:AppleTvControlLibrary.Opack.Opack.Unpack(System.ReadOnlySpan{System.Byte},System.Int32@)">
+            <summary>Unpacks raw OPACK data into .NET objects.</summary>
+            <param name="data">The OPACK-encoded bytes.</param>
+            <param name="consumed">The number of bytes consumed from <paramref name="data"/>.</param>
+            <returns>The decoded value.</returns>
+        </member>
+        <member name="T:AppleTvControlLibrary.Opack.SizedInteger">
+            <summary>
+            Wraps an integer value together with the encoded byte-width it was read with (or
+            should be re-encoded with), so that round-tripping a value through <see cref="T:AppleTvControlLibrary.Opack.Opack"/>
+            produces byte-identical output.
+            </summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Opack.SizedInteger.#ctor(System.Int64,System.Int32)">
+            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Opack.SizedInteger"/> struct.</summary>
+            <param name="value">The integer value.</param>
+            <param name="size">The encoded width in bytes (1, 2, 4 or 8).</param>
+        </member>
+        <member name="P:AppleTvControlLibrary.Opack.SizedInteger.Value">
+            <summary>Gets the integer value.</summary>
+        </member>
+        <member name="P:AppleTvControlLibrary.Opack.SizedInteger.Size">
+            <summary>Gets the encoded width, in bytes, of this integer (1, 2, 4 or 8).</summary>
+        </member>
+        <member name="T:AppleTvControlLibrary.Protocol.HidCommand">
+            <summary>
+            HID command constants.
+            </summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.Up">
+            <summary>pyatv/protocols/companion/api.py — line 38 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.Down">
+            <summary>pyatv/protocols/companion/api.py — line 39 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.Left">
+            <summary>pyatv/protocols/companion/api.py — line 40 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.Right">
+            <summary>pyatv/protocols/companion/api.py — line 41 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.Menu">
+            <summary>pyatv/protocols/companion/api.py — line 42 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.Select">
+            <summary>pyatv/protocols/companion/api.py — line 43 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.Home">
+            <summary>pyatv/protocols/companion/api.py — line 44 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.VolumeUp">
+            <summary>pyatv/protocols/companion/api.py — line 45 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.VolumeDown">
+            <summary>pyatv/protocols/companion/api.py — line 46 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.Siri">
+            <summary>pyatv/protocols/companion/api.py — line 47 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.Screensaver">
+            <summary>pyatv/protocols/companion/api.py — line 48 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.Sleep">
+            <summary>pyatv/protocols/companion/api.py — line 49 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.Wake">
+            <summary>pyatv/protocols/companion/api.py — line 50 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.PlayPause">
+            <summary>pyatv/protocols/companion/api.py — line 51 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.ChannelIncrement">
+            <summary>pyatv/protocols/companion/api.py — line 52 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.ChannelDecrement">
+            <summary>pyatv/protocols/companion/api.py — line 53 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.Guide">
+            <summary>pyatv/protocols/companion/api.py — line 54 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.PageUp">
+            <summary>pyatv/protocols/companion/api.py — line 55 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.HidCommand.PageDown">
+            <summary>pyatv/protocols/companion/api.py — line 56 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="T:AppleTvControlLibrary.Protocol.MediaControlCommand">
+            <summary>
+            Media Control command constants, used for playback and volume control (as opposed to the
+            remote-button surface exposed by <see cref="T:AppleTvControlLibrary.Protocol.HidCommand"/>).
+            </summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCommand.Play">
+            <summary>pyatv/protocols/companion/api.py — line 62 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCommand.Pause">
+            <summary>pyatv/protocols/companion/api.py — line 63 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCommand.NextTrack">
+            <summary>pyatv/protocols/companion/api.py — line 64 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCommand.PreviousTrack">
+            <summary>pyatv/protocols/companion/api.py — line 65 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCommand.GetVolume">
+            <summary>pyatv/protocols/companion/api.py — line 66 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCommand.SetVolume">
+            <summary>pyatv/protocols/companion/api.py — line 67 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCommand.SkipBy">
+            <summary>pyatv/protocols/companion/api.py — line 68 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCommand.FastForwardBegin">
+            <summary>pyatv/protocols/companion/api.py — line 69 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCommand.FastForwardEnd">
+            <summary>pyatv/protocols/companion/api.py — line 70 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCommand.RewindBegin">
+            <summary>pyatv/protocols/companion/api.py — line 71 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCommand.RewindEnd">
+            <summary>pyatv/protocols/companion/api.py — line 72 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCommand.GetCaptionSettings">
+            <summary>pyatv/protocols/companion/api.py — line 73 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCommand.SetCaptionSettings">
+            <summary>pyatv/protocols/companion/api.py — line 74 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="T:AppleTvControlLibrary.Protocol.MediaControlCapabilities">
+            <summary>
+            Bitmask flags advertised by the <c>_iMC</c> event (<c>_mcF</c> field), indicating which media
+            controls the currently active app on the device supports. Notably, <see cref="F:AppleTvControlLibrary.Protocol.MediaControlCapabilities.Volume"/> being
+            clear means the device has no Companion-addressable volume/mute control at all (audio is
+            managed over HDMI-CEC instead), so callers must check this before using
+            <see cref="F:AppleTvControlLibrary.Protocol.MediaControlCommand.GetVolume"/>/<see cref="F:AppleTvControlLibrary.Protocol.MediaControlCommand.SetVolume"/>.
+            </summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCapabilities.NoControls">
+            <summary>pyatv/protocols/companion/__init__.py — line 90 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCapabilities.Play">
+            <summary>pyatv/protocols/companion/__init__.py — line 91 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCapabilities.Pause">
+            <summary>pyatv/protocols/companion/__init__.py — line 92 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCapabilities.NextTrack">
+            <summary>pyatv/protocols/companion/__init__.py — line 93 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCapabilities.PreviousTrack">
+            <summary>pyatv/protocols/companion/__init__.py — line 94 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCapabilities.FastForward">
+            <summary>pyatv/protocols/companion/__init__.py — line 95 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCapabilities.Rewind">
+            <summary>pyatv/protocols/companion/__init__.py — line 96 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCapabilities.Volume">
+            <summary>pyatv/protocols/companion/__init__.py — line 99 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCapabilities.SkipForward">
+            <summary>pyatv/protocols/companion/__init__.py — line 100 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MediaControlCapabilities.SkipBackward">
+            <summary>pyatv/protocols/companion/__init__.py — line 101 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="T:AppleTvControlLibrary.Protocol.SystemStatus">
+            <summary>
+            Current system state, as returned by <see cref="M:AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState"/>.
+            </summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.SystemStatus.Unknown">
+            <summary>Not a valid protocol entry, only used internally. pyatv/protocols/companion/api.py — line 80 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.SystemStatus.Asleep">
+            <summary>pyatv/protocols/companion/api.py — line 82 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.SystemStatus.Screensaver">
+            <summary>pyatv/protocols/companion/api.py — line 83 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.SystemStatus.Awake">
+            <summary>pyatv/protocols/companion/api.py — line 84 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.SystemStatus.Idle">
+            <summary>Not verified against a real device. pyatv/protocols/companion/api.py — line 85 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="T:AppleTvControlLibrary.Protocol.TouchAction">
+            <summary>
+            Touch action constants.
+            </summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.TouchAction.Press">
+            <summary>pyatv/const.py — line 463 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.TouchAction.Hold">
+            <summary>pyatv/const.py — line 464 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.TouchAction.Release">
+            <summary>pyatv/const.py — line 465 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.TouchAction.Click">
+            <summary>pyatv/const.py — line 466 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="T:AppleTvControlLibrary.Protocol.InputAction">
+            <summary>
+            Type of input when pressing a button.
+            </summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.InputAction.SingleTap">
+            <summary>Press and release quickly. pyatv/const.py — line 203 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.InputAction.DoubleTap">
+            <summary>Press and release twice quickly. pyatv/const.py — line 206 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.InputAction.Hold">
+            <summary>Press and hold for one second before releasing. pyatv/const.py — line 209 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="T:AppleTvControlLibrary.Protocol.CompanionApi">
+            <summary>
+            High level implementation of the Companion API: system info, session lifecycle, HID
+            input, media control (volume) and attention state.
+            </summary>
+            <remarks>
+            App launching, text input and account switching are intentionally out of scope for this
+            port (Companion-only, per the porting brief).
+            </remarks>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.#ctor(AppleTvControlLibrary.Protocol.CompanionProtocol,AppleTvControlLibrary.Auth.HapCredentials,System.String,System.String,System.String,System.String)">
+            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Protocol.CompanionApi"/> class.</summary>
+            <param name="protocol">The underlying Companion protocol instance.</param>
+            <param name="credentials">The paired credentials, used to build the <c>_idsID</c> system info field.</param>
+            <param name="stableIdentifier">
+            A stable, persisted identifier for the <c>_systemInfo</c> <c>_i</c> field (typically six
+            random bytes, hex-encoded, generated once at pair time and never regenerated -- see
+            porting brief WP6 notes on <c>_i</c>).
+            </param>
+            <param name="deviceId">The device identifier reported as <c>_pubID</c>.</param>
+            <param name="model">The device model string reported in <c>_systemInfo</c>.</param>
+            <param name="name">The device name string reported in <c>_systemInfo</c>.</param>
+        </member>
+        <member name="P:AppleTvControlLibrary.Protocol.CompanionApi.StableIdentifier">
+            <summary>Gets the stable identifier used as the <c>_systemInfo</c> <c>_i</c> field.</summary>
+        </member>
+        <member name="P:AppleTvControlLibrary.Protocol.CompanionApi.DeviceId">
+            <summary>Gets the device identifier reported as <c>_pubID</c>.</summary>
+        </member>
+        <member name="P:AppleTvControlLibrary.Protocol.CompanionApi.Model">
+            <summary>Gets the device model string.</summary>
+        </member>
+        <member name="P:AppleTvControlLibrary.Protocol.CompanionApi.Name">
+            <summary>Gets the device name string.</summary>
+        </member>
+        <member name="P:AppleTvControlLibrary.Protocol.CompanionApi.Sid">
+            <summary>Gets the combined session id established by <see cref="M:AppleTvControlLibrary.Protocol.CompanionApi.SessionStart"/>.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.Connect">
+            <summary>
+            Runs the connection bring-up sequence: system info, touch subscription, session start,
+            TV Remote Client session start, and text input session start.
+            </summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.SystemInfo">
+            <summary>Send system information to the device.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.TouchStart">
+            <summary>Subscribe to touch gestures.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.TouchStop">
+            <summary>Unsubscribe from touch gestures.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.SessionStart">
+            <summary>Start a Companion session.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.SessionStop">
+            <summary>Stop the current Companion session.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.TvRcSessionStart">
+            <summary>
+            Open a TV Remote Client session. tvOS does not answer <c>FetchAttentionState</c> until a
+            TV Remote Client session is registered with <c>tvremoted</c>; older devices may simply
+            error on this command, so failures here are intentionally swallowed.
+            </summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.TextInputStart">
+            <summary>Start a text input session.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.TextInputStop">
+            <summary>Stop the current text input session.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.SubscribeEvent(System.String)">
+            <summary>Subscribe to updates for an event.</summary>
+            <param name="eventName">The event identifier to subscribe to.</param>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.UnsubscribeEvent(System.String)">
+            <summary>Unsubscribe from updates for an event.</summary>
+            <param name="eventName">The event identifier to unsubscribe from.</param>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.SendHidCommand(System.Boolean,AppleTvControlLibrary.Protocol.HidCommand)">
+            <summary>Send a HID command.</summary>
+            <param name="down"><see langword="true"/> for a button-down event, <see langword="false"/> for button-up.</param>
+            <param name="command">The button being pressed or released.</param>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.SendHidEvent(System.Int32,System.Int32,AppleTvControlLibrary.Protocol.TouchAction)">
+            <summary>Send a touch event.</summary>
+            <param name="x">The x coordinate, in the range [0, 1000].</param>
+            <param name="y">The y coordinate, in the range [0, 1000].</param>
+            <param name="mode">The touch phase.</param>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState">
+            <summary>Fetch the current attention state (system status) from the device.</summary>
+            <returns>The current <see cref="T:AppleTvControlLibrary.Protocol.SystemStatus"/>.</returns>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.MediaControlCommand(AppleTvControlLibrary.Protocol.MediaControlCommand,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>Send a media control command to the device.</summary>
+            <param name="command">The media control command to send.</param>
+            <param name="args">Additional command-specific arguments, if any.</param>
+            <returns>The decoded response content (the message's <c>_c</c> field).</returns>
+        </member>
+        <member name="P:AppleTvControlLibrary.Protocol.CompanionApi.IsVolumeControlSupported">
+            <summary>
+            Gets a value indicating whether the device currently advertises volume control support
+            via the <c>_iMC</c> event's <c>_mcF</c> bitmask (<see cref="F:AppleTvControlLibrary.Protocol.MediaControlCapabilities.Volume"/>).
+            When this is <see langword="false"/>, audio is managed outside Companion (e.g. HDMI-CEC)
+            and <see cref="M:AppleTvControlLibrary.Protocol.CompanionApi.GetVolume"/>/<see cref="M:AppleTvControlLibrary.Protocol.CompanionApi.SetVolume(System.Double)"/> must not be used.
+            </summary>
+        </member>
+        <member name="E:AppleTvControlLibrary.Protocol.CompanionApi.MediaControlCapabilitiesChanged">
+            <summary>
+            Raised whenever an updated <c>_iMC</c> event is received and the device's advertised
+            media-control capability flags (including <see cref="P:AppleTvControlLibrary.Protocol.CompanionApi.IsVolumeControlSupported"/>) may
+            have changed.
+            </summary>
+        </member>
+        <member name="P:AppleTvControlLibrary.Protocol.CompanionApi.CurrentSystemStatus">
+            <summary>
+            Gets the most recently known system status (power state), updated by the initial
+            <see cref="M:AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState"/> snapshot taken during <see cref="M:AppleTvControlLibrary.Protocol.CompanionApi.Connect"/> and by
+            subsequently pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> events.
+            </summary>
+        </member>
+        <member name="E:AppleTvControlLibrary.Protocol.CompanionApi.SystemStatusChanged">
+            <summary>
+            Raised whenever a pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> event updates
+            <see cref="P:AppleTvControlLibrary.Protocol.CompanionApi.CurrentSystemStatus"/>.
+            </summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.GetVolume">
+            <summary>Gets the current volume level, in percent ([0.0-100.0]).</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.SetVolume(System.Double)">
+            <summary>Sets the current volume level.</summary>
+            <param name="level">The new volume level, in percent ([0.0-100.0]).</param>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.ToggleMute">
+            <summary>
+            Toggles mute by saving the current volume and setting it to zero, or restoring the
+            previously saved volume. Requires <see cref="P:AppleTvControlLibrary.Protocol.CompanionApi.IsVolumeControlSupported"/>.
+            </summary>
+            <returns><see langword="true"/> if the device is now muted, otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.AppleTvControlLibrary#Protocol#ICompanionProtocolListener#EventReceived(System.String,System.Collections.Generic.Dictionary{System.Object,System.Object})">
+            <inheritdoc/>
+        </member>
+        <member name="T:AppleTvControlLibrary.Protocol.MessageType">
+            <summary>
+            Type of an OPACK message exchanged over a Companion connection.
+            </summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MessageType.Event">
+            <summary>An unsolicited event. pyatv/protocols/companion/protocol.py — line 57 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MessageType.Request">
+            <summary>A request expecting a response. pyatv/protocols/companion/protocol.py — line 58 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.MessageType.Response">
+            <summary>A response to a previously sent request. pyatv/protocols/companion/protocol.py — line 59 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="T:AppleTvControlLibrary.Protocol.ICompanionProtocolListener">
+            <summary>
+            Listener interface for a Companion protocol instance.
+            </summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.ICompanionProtocolListener.EventReceived(System.String,System.Collections.Generic.Dictionary{System.Object,System.Object})">
+            <summary>An event was received from the remote device.</summary>
+            <param name="eventName">The event identifier (the message's <c>_i</c> field).</param>
+            <param name="data">The event content (the message's <c>_c</c> field).</param>
+        </member>
+        <member name="T:AppleTvControlLibrary.Protocol.ProtocolException">
+            <summary>
+            Raised when a Companion protocol exchange fails.
+            </summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.ProtocolException.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Protocol.ProtocolException"/> class.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.ProtocolException.#ctor(System.String)">
+            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Protocol.ProtocolException"/> class.</summary>
+            <param name="message">The exception message.</param>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.ProtocolException.#ctor(System.String,System.Exception)">
+            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Protocol.ProtocolException"/> class.</summary>
+            <param name="message">The exception message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="T:AppleTvControlLibrary.Protocol.FrameIdentifier">
+            <summary>
+            Identifies a pending exchange either by XID (regular OPACK messages) or by the
+            <see cref="T:AppleTvControlLibrary.Connection.FrameType"/> that is expected in response (auth messages, which never have an XID
+            since parallel authentication attempts are impossible).
+            </summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.FrameIdentifier.FromXid(System.Int32)">
+            <summary>Creates a <see cref="T:AppleTvControlLibrary.Protocol.FrameIdentifier"/> keyed by XID.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.FrameIdentifier.FromFrameType(AppleTvControlLibrary.Connection.FrameType)">
+            <summary>Creates a <see cref="T:AppleTvControlLibrary.Protocol.FrameIdentifier"/> keyed by frame type.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.FrameIdentifier.Equals(AppleTvControlLibrary.Protocol.FrameIdentifier)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.FrameIdentifier.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.FrameIdentifier.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.FrameIdentifier.op_Equality(AppleTvControlLibrary.Protocol.FrameIdentifier,AppleTvControlLibrary.Protocol.FrameIdentifier)">
+            <summary>Determines whether two <see cref="T:AppleTvControlLibrary.Protocol.FrameIdentifier"/> instances are equal.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.FrameIdentifier.op_Inequality(AppleTvControlLibrary.Protocol.FrameIdentifier,AppleTvControlLibrary.Protocol.FrameIdentifier)">
+            <summary>Determines whether two <see cref="T:AppleTvControlLibrary.Protocol.FrameIdentifier"/> instances are not equal.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.FrameIdentifier.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:AppleTvControlLibrary.Protocol.CompanionProtocol">
+            <summary>
+            Protocol logic related to Companion: frame dispatch, XID/frame-type based response
+            correlation, and OPACK-level send/receive plumbing built on top of <see cref="T:AppleTvControlLibrary.Connection.CompanionConnection"/>.
+            </summary>
+            <remarks>
+            Unlike pyatv, which relies on asyncio futures (<c>SharedData</c>) to await a response, this
+            port uses synchronous callback-based correlation: sending a frame is expected to synchronously
+            (or, for a real transport, eventually) result in <c>CompanionConnection.FrameReceived</c> being
+            invoked with the matching response, at which point the originally registered continuation is
+            invoked. This
+            keeps the type usable both by an in-memory test harness (as used for WP5/WP6 validation) and by
+            a future asynchronous socket transport without changing the correlation logic itself.
+            </remarks>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.CompanionProtocol.SRP_SALT">
+            <summary>SRP HKDF salt used when deriving Companion encryption keys.</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.CompanionProtocol.SRP_OUTPUT_INFO">
+            <summary>SRP HKDF info string for the client's outbound encryption key.</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.CompanionProtocol.SRP_INPUT_INFO">
+            <summary>SRP HKDF info string for the client's inbound encryption key.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionProtocol.#ctor(AppleTvControlLibrary.Connection.CompanionConnection,AppleTvControlLibrary.Auth.SrpAuthHandler)">
+            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Protocol.CompanionProtocol"/> class.</summary>
+            <param name="connection">The underlying framed connection.</param>
+            <param name="srp">The SRP handler used for pair-verify.</param>
+        </member>
+        <member name="P:AppleTvControlLibrary.Protocol.CompanionProtocol.Listener">
+            <summary>Gets or sets the listener notified when an event frame is received.</summary>
+        </member>
+        <member name="P:AppleTvControlLibrary.Protocol.CompanionProtocol.Sender">
+            <summary>Gets a callback invoked whenever a fully-built frame needs to be transmitted.</summary>
+            <remarks>
+            This decouples <see cref="T:AppleTvControlLibrary.Protocol.CompanionProtocol"/> from any specific transport; a caller
+            (production socket code, or a test harness driving a fake device in-memory) is
+            responsible for actually delivering the bytes and, eventually, feeding any response back
+            in via <c>CompanionConnection.ReceiveData</c>.
+            </remarks>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>Exchange an auth frame (<c>PS_*</c> or <c>PV_*</c>).</summary>
+            <param name="frameType">The frame type to send.</param>
+            <param name="data">The message content.</param>
+            <returns>The decoded OPACK response.</returns>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>Send data as OPACK and decode the result as OPACK.</summary>
+            <param name="frameType">The frame type to send.</param>
+            <param name="data">The message content.</param>
+            <returns>The decoded OPACK response.</returns>
+        </member>
+        <member name="P:AppleTvControlLibrary.Protocol.CompanionProtocol.ResponseTimeout">
+            <summary>
+            Gets or sets how long to wait for a response before <see cref="M:AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})"/> or
+            <see cref="M:AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})"/> throws a <see cref="T:AppleTvControlLibrary.Protocol.ProtocolException"/>.
+            </summary>
+            <remarks>
+            Unlike the in-memory fake device used for WP5/WP6 validation (where
+            <c>CompanionConnection.FrameReceived</c> fires synchronously, inline with the send
+            call), a real socket transport delivers the response from a separate read thread/task,
+            asynchronously with respect to the caller of <see cref="M:AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})"/>/
+            <see cref="M:AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})"/>. This wait handle lets both usages share the same
+            correlation logic without changing it: the fake device signals it before the wait ever
+            blocks, while a real transport signals it once the background read loop processes the
+            matching frame.
+            </remarks>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionProtocol.SendOpack(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>Send data encoded with OPACK, adding an XID if not already present.</summary>
+            <param name="frameType">The frame type to send.</param>
+            <param name="data">The message content.</param>
+        </member>
+        <member name="T:AppleTvControlLibrary.Tlv8.TlvValue">
+            <summary>
+            Correspond to TLV values in HAP specification.
+            </summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.TlvValue.Method">
+            <summary>Pairing method. pyatv/auth/hap_tlv8.py — line 17 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.TlvValue.Identifier">
+            <summary>Peer identifier. pyatv/auth/hap_tlv8.py — line 18 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.TlvValue.Salt">
+            <summary>SRP salt. pyatv/auth/hap_tlv8.py — line 19 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.TlvValue.PublicKey">
+            <summary>Public key. pyatv/auth/hap_tlv8.py — line 20 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.TlvValue.Proof">
+            <summary>SRP proof. pyatv/auth/hap_tlv8.py — line 21 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.TlvValue.EncryptedData">
+            <summary>Encrypted data. pyatv/auth/hap_tlv8.py — line 22 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.TlvValue.SeqNo">
+            <summary>Sequence number. pyatv/auth/hap_tlv8.py — line 23 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.TlvValue.Error">
+            <summary>Error code. pyatv/auth/hap_tlv8.py — line 24 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.TlvValue.BackOff">
+            <summary>Backoff time in seconds. pyatv/auth/hap_tlv8.py — line 25 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.TlvValue.Certificate">
+            <summary>Certificate. pyatv/auth/hap_tlv8.py — line 26 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.TlvValue.Signature">
+            <summary>Signature. pyatv/auth/hap_tlv8.py — line 27 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.TlvValue.Permissions">
+            <summary>Permissions. pyatv/auth/hap_tlv8.py — line 28 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.TlvValue.FragmentData">
+            <summary>Fragment data. pyatv/auth/hap_tlv8.py — line 29 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.TlvValue.FragmentLast">
+            <summary>Last fragment. pyatv/auth/hap_tlv8.py — line 30 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.TlvValue.Name">
+            <summary>Apple internal(?) name value. pyatv/auth/hap_tlv8.py — line 33 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.TlvValue.PairingFlags">
+            <summary>Apple internal(?) flags value. pyatv/auth/hap_tlv8.py — line 34 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="T:AppleTvControlLibrary.Tlv8.PairingFlagValue">
+            <summary>
+            Flag values used with TlvValue.PairingFlags.
+            </summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.PairingFlagValue.TransientPairing">
+            <summary>Transient pairing flag. pyatv/auth/hap_tlv8.py — line 40 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="T:AppleTvControlLibrary.Tlv8.ErrorCode">
+            <summary>
+            Correspond to error codes in HAP specification.
+            </summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.ErrorCode.Unknown">
+            <summary>Unknown error. pyatv/auth/hap_tlv8.py — line 46 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.ErrorCode.Authentication">
+            <summary>Authentication error. pyatv/auth/hap_tlv8.py — line 47 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.ErrorCode.BackOff">
+            <summary>Backoff required. pyatv/auth/hap_tlv8.py — line 48 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.ErrorCode.MaxPeers">
+            <summary>Max peers reached. pyatv/auth/hap_tlv8.py — line 49 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.ErrorCode.MaxTries">
+            <summary>Max tries reached. pyatv/auth/hap_tlv8.py — line 50 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.ErrorCode.Unavailable">
+            <summary>Unavailable. pyatv/auth/hap_tlv8.py — line 51 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.ErrorCode.Busy">
+            <summary>Busy. pyatv/auth/hap_tlv8.py — line 52 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="T:AppleTvControlLibrary.Tlv8.Method">
+            <summary>
+            Correspond to methods in HAP specification.
+            </summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.Method.PairSetup">
+            <summary>Pair setup. pyatv/auth/hap_tlv8.py — line 58 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.Method.PairSetupWithAuth">
+            <summary>Pair setup with auth. pyatv/auth/hap_tlv8.py — line 59 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.Method.PairVerify">
+            <summary>Pair verify. pyatv/auth/hap_tlv8.py — line 60 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.Method.AddPairing">
+            <summary>Add pairing. pyatv/auth/hap_tlv8.py — line 61 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.Method.RemovePairing">
+            <summary>Remove pairing. pyatv/auth/hap_tlv8.py — line 62 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.Method.ListPairing">
+            <summary>List pairing. pyatv/auth/hap_tlv8.py — line 63 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="T:AppleTvControlLibrary.Tlv8.State">
+            <summary>
+            Correspond to states in HAP specification.
+            </summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.State.M1">
+            <summary>State M1. pyatv/auth/hap_tlv8.py — line 69 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.State.M2">
+            <summary>State M2. pyatv/auth/hap_tlv8.py — line 70 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.State.M3">
+            <summary>State M3. pyatv/auth/hap_tlv8.py — line 71 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.State.M4">
+            <summary>State M4. pyatv/auth/hap_tlv8.py — line 72 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.State.M5">
+            <summary>State M5. pyatv/auth/hap_tlv8.py — line 73 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Tlv8.State.M6">
+            <summary>State M6. pyatv/auth/hap_tlv8.py — line 74 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="T:AppleTvControlLibrary.Tlv8.Tlv8">
+            <summary>
+            Implementation of TLV8 used by HomeKit pairing process.
+            </summary>
+            <remarks>
+            Note that this implementation only supports one level of value, i.e. no dicts
+            in dicts.
+            </remarks>
+        </member>
+        <member name="M:AppleTvControlLibrary.Tlv8.Tlv8.ReadTlv(System.Byte[])">
+            <summary>Parse TLV8 bytes into a dict.</summary>
+            <remarks>
+            If value is larger than 255 bytes, it is split up in multiple chunks. So
+            the same tag might occur several times.
+            </remarks>
+        </member>
+        <member name="M:AppleTvControlLibrary.Tlv8.Tlv8.WriteTlv(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.Int32,System.Byte[]}})">
+            <summary>Convert a dict to TLV8 bytes.</summary>
+            <remarks>
+            NB: This simple implementation assumes all values are bytes!
+            </remarks>
+        </member>
+        <member name="M:AppleTvControlLibrary.Tlv8.Tlv8.Stringify(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.Int32,System.Byte[]}})">
+            <summary>Create simplified string of TLV8 data.</summary>
+            <remarks>
+            Method, sequence number, error and backoff time are parsed while the rest
+            are just summarized with value byte length.
+            </remarks>
+        </member>
+    </members>
+</doc>
