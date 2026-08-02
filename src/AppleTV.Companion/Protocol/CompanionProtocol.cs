@@ -124,7 +124,10 @@ public sealed class CompanionProtocol
 
 	private readonly CompanionConnection _connection;
 	private readonly SrpAuthHandler _srp;
-	private readonly Dictionary<FrameIdentifier, Action<Dictionary<object, object?>>> _pending = new ();
+	// A real transport delivers frames on a background read thread/task while exchanges are
+	// issued from the caller's thread, so this table needs to be safe for concurrent access
+	// (unlike the in-memory fake-device harness, where everything runs on one thread).
+	private readonly System.Collections.Concurrent.ConcurrentDictionary<FrameIdentifier, Action<Dictionary<object, object?>>> _pending = new ();
 
 	// pyatv/protocols/companion/protocol.py:89 (self._xid: int = randint(0, 2**16))
 	private int _xid;
@@ -192,22 +195,47 @@ public sealed class CompanionProtocol
 		return ExchangeGeneric (frameType, data, FrameIdentifier.FromXid (xid));
 		}
 
+	/// <summary>
+	/// Gets or sets how long to wait for a response before <see cref="ExchangeAuth"/> or
+	/// <see cref="ExchangeOpack"/> throws a <see cref="ProtocolException"/>.
+	/// </summary>
+	/// <remarks>
+	/// Unlike the in-memory fake device used for WP5/WP6 validation (where
+	/// <c>CompanionConnection.FrameReceived</c> fires synchronously, inline with the send
+	/// call), a real socket transport delivers the response from a separate read thread/task,
+	/// asynchronously with respect to the caller of <see cref="ExchangeAuth"/>/
+	/// <see cref="ExchangeOpack"/>. This wait handle lets both usages share the same
+	/// correlation logic without changing it: the fake device signals it before the wait ever
+	/// blocks, while a real transport signals it once the background read loop processes the
+	/// matching frame.
+	/// </remarks>
+	public TimeSpan ResponseTimeout
+		{
+		get;
+		set;
+		} = TimeSpan.FromSeconds (10);
+
 	// pyatv/protocols/companion/protocol.py:155-176 (_exchange_generic_opack)
 	private Dictionary<object, object?> ExchangeGeneric (FrameType frameType, Dictionary<string, object?> data, FrameIdentifier identifier)
 		{
 		Dictionary<object, object?>? result = null;
-		_pending[identifier] = response => result = response;
+		using var signal = new System.Threading.ManualResetEventSlim (false);
+		_pending[identifier] = response =>
+			{
+			result = response;
+			signal.Set ();
+			};
 
 		SendOpack (frameType, data);
 
-		if (result is null)
+		if (result is null && !signal.Wait (ResponseTimeout))
 			{
-			_pending.Remove (identifier);
+			_pending.TryRemove (identifier, out _);
 			throw new ProtocolException ($"No response received for {identifier}");
 			}
 
 		// pyatv/protocols/companion/protocol.py:173-174
-		if (result.TryGetValue ("_em", out object? errorMessage))
+		if (result!.TryGetValue ("_em", out object? errorMessage))
 			{
 			throw new ProtocolException ($"Command failed: {errorMessage}");
 			}
@@ -276,9 +304,8 @@ public sealed class CompanionProtocol
 	private void HandleAuth (FrameType frameType, Dictionary<object, object?> opackData)
 		{
 		var identifier = FrameIdentifier.FromFrameType (frameType);
-		if (_pending.TryGetValue (identifier, out var continuation))
+		if (_pending.TryRemove (identifier, out var continuation))
 			{
-			_pending.Remove (identifier);
 			continuation (opackData);
 			}
 		}
@@ -303,9 +330,8 @@ public sealed class CompanionProtocol
 			if (xid is not null)
 				{
 				var identifier = FrameIdentifier.FromXid ((int)xid.Value);
-				if (_pending.TryGetValue (identifier, out var continuation))
+				if (_pending.TryRemove (identifier, out var continuation))
 					{
-					_pending.Remove (identifier);
 					continuation (opackData);
 					}
 				}
