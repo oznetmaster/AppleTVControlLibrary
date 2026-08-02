@@ -1,0 +1,153 @@
+name: Publish .NET Packages
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version or tag to publish, for example 1.2.3 or v1.2.3
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    env:
+      SOLUTION_PATH: AppleTVControlLibrary.slnx
+      TEST_PROJECT: tests/AppleTV.Companion.Tests/AppleTV.Companion.Tests.csproj
+      ARTIFACT_DIR: ${{ github.workspace }}/artifacts
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Determine package version
+        id: version
+        shell: pwsh
+        run: |
+          $rawVersion = switch ('${{ github.event_name }}') {
+              'workflow_dispatch' { '${{ inputs.version }}'; break }
+              'push' { '${{ github.ref_name }}'; break }
+              default { '' }
+          }
+
+          if ([string]::IsNullOrWhiteSpace($rawVersion)) {
+              throw 'No release tag or manual version was provided.'
+          }
+
+          $packageVersion = $rawVersion.Trim()
+          if ($packageVersion.StartsWith('v', [System.StringComparison]::OrdinalIgnoreCase)) {
+              $packageVersion = $packageVersion.Substring(1)
+          }
+
+          if ($packageVersion -notmatch '^\d+\.\d+\.\d+(?:\.\d+)?(?:[-+][0-9A-Za-z\.-]+)?$') {
+              throw "Version '$packageVersion' is not a supported NuGet semantic version."
+          }
+
+          "raw_version=$rawVersion" >> $env:GITHUB_OUTPUT
+          "package_version=$packageVersion" >> $env:GITHUB_OUTPUT
+
+      - name: Restore solution
+        run: dotnet restore ${{ env.SOLUTION_PATH }}
+
+      - name: Build solution
+        run: dotnet build ${{ env.SOLUTION_PATH }} --configuration Release --no-restore -p:ContinuousIntegrationBuild=true -p:Version=${{ steps.version.outputs.package_version }}
+
+      - name: Run tests (net472)
+        run: dotnet test ${{ env.TEST_PROJECT }} --configuration Release --no-build --framework net472
+
+      - name: Run tests (net10.0)
+        run: dotnet test ${{ env.TEST_PROJECT }} --configuration Release --no-build --framework net10.0
+
+      - name: Pack NuGet packages
+        shell: pwsh
+        run: |
+          $packages = @(
+              'src/AppleTV.Companion/AppleTV.Companion.csproj',
+              'src/AppleTV.Companion.Discovery/AppleTV.Companion.Discovery.csproj'
+          )
+          $outputDir = "${{ env.ARTIFACT_DIR }}/nuget"
+          New-Item -ItemType Directory -Path $outputDir -Force | Out-Null
+
+          foreach ($project in $packages) {
+              dotnet pack $project --configuration Release --no-build -p:ContinuousIntegrationBuild=true -p:Version=${{ steps.version.outputs.package_version }} -p:PackageVersion=${{ steps.version.outputs.package_version }} --output $outputDir
+              if ($LASTEXITCODE -ne 0) {
+                  throw "Pack failed for $project"
+              }
+          }
+
+      - name: Publish NuGet packages
+        shell: pwsh
+        run: |
+          $packages = Get-ChildItem -Path "${{ env.ARTIFACT_DIR }}/nuget" -Filter '*.nupkg' | Where-Object { $_.Name -notlike '*.symbols.nupkg' }
+          if (-not $packages) {
+              throw 'No NuGet packages were produced.'
+          }
+
+          foreach ($package in $packages) {
+              dotnet nuget push $package.FullName --api-key "${{ secrets.NUGET_API_KEY }}" --source 'https://api.nuget.org/v3/index.json' --skip-duplicate
+          }
+
+      - name: Publish WPF reference application
+        shell: pwsh
+        run: |
+          foreach ($framework in @('net472', 'net10.0-windows')) {
+              $outputDir = "${{ env.ARTIFACT_DIR }}/publish/AppleTv.Remote.Wpf-$framework"
+              dotnet publish src/AppleTv.Remote.Wpf/AppleTv.Remote.Wpf.csproj --configuration Release --no-build --framework $framework --output $outputDir -p:Version=${{ steps.version.outputs.package_version }}
+              if ($LASTEXITCODE -ne 0) {
+                  throw "Publish failed for AppleTv.Remote.Wpf ($framework)"
+              }
+          }
+
+      - name: Collect release assets
+        shell: pwsh
+        run: |
+          $releaseDir = "${{ env.ARTIFACT_DIR }}/release"
+          New-Item -ItemType Directory -Path $releaseDir -Force | Out-Null
+
+          $libraries = @(
+              @{ ProjectDir = 'src/AppleTV.Companion'; AssemblyName = 'AppleTvControlLibrary'; Frameworks = @('net472', 'net10.0') },
+              @{ ProjectDir = 'src/AppleTV.Companion.Discovery'; AssemblyName = 'AppleTvControlLibrary.Discovery'; Frameworks = @('net472', 'net10.0') }
+          )
+
+          foreach ($library in $libraries) {
+              foreach ($framework in $library.Frameworks) {
+                  $outputDir = Join-Path $library.ProjectDir "bin/Release/$framework"
+                  foreach ($extension in @('dll', 'xml')) {
+                      $sourcePath = Join-Path $outputDir "$($library.AssemblyName).$extension"
+                      if (Test-Path $sourcePath) {
+                          Copy-Item $sourcePath (Join-Path $releaseDir "$($library.AssemblyName).$framework.$extension") -Force
+                      }
+                  }
+              }
+          }
+
+          Get-ChildItem -Path "${{ env.ARTIFACT_DIR }}/publish" -Directory | ForEach-Object {
+              $zipPath = Join-Path $releaseDir "$($_.Name).zip"
+              Compress-Archive -Path (Join-Path $_.FullName '*') -DestinationPath $zipPath -Force
+          }
+
+      - name: Create GitHub release from tag
+        if: github.event_name == 'push'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.raw_version }}
+          name: ${{ steps.version.outputs.raw_version }}
+          generate_release_notes: true
+          prerelease: ${{ contains(steps.version.outputs.package_version, '-') }}
+          files: |
+            ${{ env.ARTIFACT_DIR }}/release/*.dll
+            ${{ env.ARTIFACT_DIR }}/release/*.xml
+            ${{ env.ARTIFACT_DIR }}/release/*.zip
