@@ -65,6 +65,7 @@
 			<RowDefinition Height="Auto" />
 			<RowDefinition Height="Auto" />
 			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
 			<RowDefinition Height="*" />
 		</Grid.RowDefinitions>
 
@@ -97,10 +98,14 @@
 			</ListBox.ItemTemplate>
 		</ListBox>
 
-		<TextBlock Grid.Row="2" Text="{Binding StatusMessage}" Margin="0,0,0,8" TextWrapping="Wrap" Foreground="#FFCCCCCC" />
+		<CheckBox Grid.Row="2" Content="Auto-connect to this device on startup"
+				  IsChecked="{Binding AutoConnectSelected}"
+				  Margin="0,0,0,8" Foreground="#FFCCCCCC" />
+
+		<TextBlock Grid.Row="3" Text="{Binding StatusMessage}" Margin="0,0,0,8" TextWrapping="Wrap" Foreground="#FFCCCCCC" />
 
 		<!-- Siri Remote-style body -->
-		<Border Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"
+		<Border Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"
 				Width="220" CornerRadius="42" Padding="0,20,0,20"
 				Background="#FFD9D9DE" BorderBrush="#FFB5B5BA" BorderThickness="1">
 			<Grid>

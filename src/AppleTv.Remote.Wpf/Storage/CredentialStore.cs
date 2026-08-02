@@ -2,7 +2,9 @@
 // See LICENSE file in the repository root for full license text.
 
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -88,6 +90,17 @@ public sealed class StoredDevice
 		set;
 		} = Array.Empty<byte> ();
 
+	/// <summary>
+	/// Gets or sets a value indicating whether this device should be automatically connected to
+	/// on the next application startup, for ease of testing. Only one stored device should have
+	/// this set at a time; <see cref="CredentialStore.SetAutoConnect"/> enforces that.
+	/// </summary>
+	public bool AutoConnect
+		{
+		get;
+		set;
+		}
+
 	/// <summary>Converts the stored key material to a <see cref="HapCredentials"/> instance.</summary>
 	public HapCredentials ToCredentials () => new (this.Ltpk, this.Ltsk, this.AtvId, this.ClientId);
 
@@ -162,6 +175,57 @@ public sealed class CredentialStore
 			{
 			File.Delete (path);
 			}
+		}
+
+	/// <summary>Loads every stored device currently persisted.</summary>
+	public IReadOnlyList<StoredDevice> LoadAll ()
+		{
+		List<StoredDevice> devices = new ();
+		foreach (string path in Directory.EnumerateFiles (this._directory, "*.json"))
+			{
+			try
+				{
+				string json = File.ReadAllText (path);
+				StoredDevice? device = JsonSerializer.Deserialize<StoredDevice> (json, SerializerOptions);
+				if (device is not null)
+					{
+					devices.Add (device);
+					}
+				}
+			catch (JsonException)
+				{
+				// Ignore unreadable/corrupt files rather than failing the whole load.
+				}
+			}
+
+		return devices;
+		}
+
+	/// <summary>
+	/// Marks <paramref name="uniqueId"/> as the device to automatically connect to at startup,
+	/// clearing the flag on every other stored device so at most one is ever marked.
+	/// </summary>
+	/// <param name="uniqueId">
+	/// The device to enable auto-connect for, or <see langword="null"/> to clear auto-connect
+	/// entirely.
+	/// </param>
+	public void SetAutoConnect (string? uniqueId)
+		{
+		foreach (StoredDevice device in this.LoadAll ())
+			{
+			bool shouldAutoConnect = uniqueId is not null && device.UniqueId == uniqueId;
+			if (device.AutoConnect != shouldAutoConnect)
+				{
+				device.AutoConnect = shouldAutoConnect;
+				this.Save (device);
+				}
+			}
+		}
+
+	/// <summary>Returns the stored device currently marked for auto-connect, if any.</summary>
+	public StoredDevice? LoadAutoConnectDevice ()
+		{
+		return this.LoadAll ().FirstOrDefault (d => d.AutoConnect);
 		}
 
 	private string GetPath (string uniqueId)

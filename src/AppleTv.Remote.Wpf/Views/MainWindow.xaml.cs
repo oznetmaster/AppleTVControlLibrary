@@ -34,6 +34,10 @@ public partial class MainWindow : Window
 			};
 		this.DataContext = viewModel;
 		this.Closed += (_, _) => viewModel.Dispose ();
+
+		// Fire-and-forget: InitializeAsync reports its own status/errors via StatusMessage, and
+		// Scan/Pair/Connect/Disconnect remain fully usable whether or not this succeeds.
+		this.Loaded += async (_, _) => await viewModel.InitializeAsync ().ConfigureAwait (true);
 		}
 
 	private int? RequestPin (CompanionDiscoveryResult device)

@@ -80,6 +80,21 @@ public sealed class AppleTvDeviceManager : IDisposable
 	public StoredDevice? LoadStoredDevice (string uniqueId) => this._credentialStore.Load (uniqueId);
 
 	/// <summary>
+	/// Loads the stored device currently marked for automatic connection at startup, if any,
+	/// for ease-of-testing so the same paired device doesn't need to be reselected every run.
+	/// </summary>
+	public StoredDevice? LoadAutoConnectDevice () => this._credentialStore.LoadAutoConnectDevice ();
+
+	/// <summary>
+	/// Marks <paramref name="uniqueId"/> as the device to automatically connect to on the next
+	/// application startup, clearing the flag on every other stored device.
+	/// </summary>
+	/// <param name="uniqueId">
+	/// The device to enable auto-connect for, or <see langword="null"/> to disable auto-connect.
+	/// </param>
+	public void SetAutoConnect (string? uniqueId) => this._credentialStore.SetAutoConnect (uniqueId);
+
+	/// <summary>
 	/// Begins pair-setup by connecting to the device and sending M1 (<c>PS_Start</c>). This is
 	/// what causes the Apple TV to display the on-screen PIN, so the PIN can only be known -
 	/// and therefore only be requested from the user - after this method returns. Follow up with

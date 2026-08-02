@@ -2,7 +2,9 @@
 // See LICENSE file in the repository root for full license text.
 
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -23,6 +25,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	private bool _isMuted;
 	private bool _isAwake;
 	private bool _isPowerStateKnown;
+	private bool _autoConnectSelected;
 
 	/// <summary>Initializes a new instance of the <see cref="MainViewModel"/> class.</summary>
 	public MainViewModel ()
@@ -99,6 +102,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			if (this.SetProperty (ref this._selectedDevice, value))
 				{
 				this.RaiseCommandStates ();
+				this.UpdateAutoConnectCheckboxFromSelection ();
 				}
 			}
 		}
@@ -271,6 +275,26 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		}
 
 	/// <summary>
+	/// Gets or sets a value indicating whether <see cref="SelectedDevice"/> should be
+	/// automatically connected to on the next application startup, for ease of testing.
+	/// Setting this persists the choice immediately via
+	/// <see cref="AppleTvDeviceManager.SetAutoConnect"/>; only one stored device can have this
+	/// set at a time.
+	/// </summary>
+	public bool AutoConnectSelected
+		{
+		get => this._autoConnectSelected;
+		set
+			{
+			if (this.SetProperty (ref this._autoConnectSelected, value))
+				{
+				string? uniqueId = value ? this.SelectedDevice?.Device.UniqueId : null;
+				this._deviceManager.SetAutoConnect (uniqueId);
+				}
+			}
+		}
+
+	/// <summary>
 	/// Invoked when pairing is required and a PIN must be collected from the user. The WPF view
 	/// wires this to show <c>PinEntryDialog</c> and return the entered PIN, or <see langword="null"/>
 	/// if the user cancelled.
@@ -367,6 +391,11 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			return;
 			}
 
+		await this.ConnectToStoredDeviceAsync (stored).ConfigureAwait (true);
+		}
+
+	private async Task ConnectToStoredDeviceAsync (StoredDevice stored)
+		{
 		this.IsBusy = true;
 		this.StatusMessage = "Connecting...";
 		try
@@ -387,6 +416,55 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			{
 			this.IsBusy = false;
 			}
+		}
+
+	/// <summary>
+	/// Performs one-time startup work: if a stored device is marked for auto-connect (see
+	/// <see cref="AutoConnectSelected"/>), populates <see cref="Devices"/> and
+	/// <see cref="SelectedDevice"/> with it and connects immediately, without requiring a scan
+	/// first. Scan/Pair/Connect/Disconnect remain fully usable afterward.
+	/// </summary>
+	public async Task InitializeAsync ()
+		{
+		StoredDevice? autoConnect = this._deviceManager.LoadAutoConnectDevice ();
+		if (autoConnect is null)
+			{
+			return;
+			}
+
+		CompanionDiscoveryResult device = new (
+			autoConnect.Name,
+			IPAddress.TryParse (autoConnect.Address, out IPAddress? address) ? address : null,
+			autoConnect.Port,
+			autoConnect.UniqueId,
+			CompanionPairingRequirement.Mandatory,
+			new Dictionary<string, string> ());
+
+		DeviceListItem item = new (device, isPaired: true);
+		this.Devices.Add (item);
+
+		// Set the backing field directly (rather than the SelectedDevice setter) so the
+		// auto-connect flag isn't clobbered by UpdateAutoConnectCheckboxFromSelection before
+		// AutoConnectSelected is set to reflect the already-persisted choice below.
+		this._selectedDevice = item;
+		this.OnPropertyChanged (nameof (this.SelectedDevice));
+		this.RaiseCommandStates ();
+		this._autoConnectSelected = true;
+		this.OnPropertyChanged (nameof (this.AutoConnectSelected));
+
+		await this.ConnectToStoredDeviceAsync (autoConnect).ConfigureAwait (true);
+		}
+
+	// Reflects the persisted AutoConnect flag for whichever stored device is newly selected,
+	// without re-persisting anything (selecting a device should not silently change which
+	// device auto-connects; only the checkbox itself does that).
+	private void UpdateAutoConnectCheckboxFromSelection ()
+		{
+		string? uniqueId = this.SelectedDevice?.Device.UniqueId;
+		bool isAutoConnect = uniqueId is not null
+			&& this._deviceManager.LoadStoredDevice (uniqueId) is { AutoConnect: true };
+		this._autoConnectSelected = isAutoConnect;
+		this.OnPropertyChanged (nameof (this.AutoConnectSelected));
 		}
 
 	private void Disconnect ()
