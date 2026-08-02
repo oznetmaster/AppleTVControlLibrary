@@ -142,4 +142,42 @@ public class CompanionApiIntegrationTests
 
 		Assert.IsFalse (device.HasSessionStarted);
 		}
+
+	// pyatv/protocols/companion/api.py:395-399 (mediacontrol_command),
+	// pyatv/protocols/companion/__init__.py:441-467 (GetVolume/set_volume)
+	[TestMethod]
+	public void SetVolumeThenGetVolumeRoundTrips ()
+		{
+		var device = new FakeCompanionOpackDevice ();
+		var api = CreateConnectedApi (device, out _);
+		api.Connect ();
+
+		api.SetVolume (42.0);
+
+		Assert.AreEqual (42.0, device.Volume, 0.001);
+		Assert.AreEqual (42.0, api.GetVolume (), 0.001);
+		}
+
+	// pyatv/protocols/companion/__init__.py:99 (MediaControlFlags.Volume), 439-449 (_handle_control_flag_update)
+	[TestMethod]
+	public void ToggleMuteSavesAndRestoresVolume ()
+		{
+		var device = new FakeCompanionOpackDevice ();
+		var api = CreateConnectedApi (device, out _);
+		api.Connect ();
+
+		api.SetVolume (60.0);
+		Assert.IsFalse (api.IsVolumeControlSupported);
+
+		((ICompanionProtocolListener)api).EventReceived ("_iMC", new Dictionary<object, object?> { { "_mcF", (long)MediaControlCapabilities.Volume } });
+		Assert.IsTrue (api.IsVolumeControlSupported);
+
+		bool muted = api.ToggleMute ();
+		Assert.IsTrue (muted);
+		Assert.AreEqual (0.0, device.Volume, 0.001);
+
+		bool unmuted = api.ToggleMute ();
+		Assert.IsFalse (unmuted);
+		Assert.AreEqual (60.0, device.Volume, 0.001);
+		}
 	}

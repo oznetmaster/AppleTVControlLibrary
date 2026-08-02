@@ -61,7 +61,10 @@ public sealed class ServiceInstanceName
 			{
 			string label = labels[index];
 			string nextLabel = labels[index + 1];
+			// CA1865 (StartsWith(char)) is not available on net472; this must build on both TFMs.
+#pragma warning disable CA1865
 			if (label.StartsWith ("_", System.StringComparison.Ordinal) &&
+#pragma warning restore CA1865
 				(nextLabel.Equals ("_tcp", System.StringComparison.OrdinalIgnoreCase) ||
 				 nextLabel.Equals ("_udp", System.StringComparison.OrdinalIgnoreCase)))
 				{

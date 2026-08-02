@@ -11,13 +11,13 @@ public static class CompanionServiceInfo
 	{
 	/// <summary>The Companion Link mDNS service type.</summary>
 	// pyatv/helpers.py:14 (COMPANION_SERVICE)
-	public const string ServiceType = "_companion-link._tcp.local";
+	public const string SERVICE_TYPE = "_companion-link._tcp.local";
 
 	// pyatv/protocols/companion/__init__.py:56-60 (PAIRING_DISABLED_MASK)
-	private const int PairingDisabledMask = 0x04;
+	private const int PAIRING_DISABLED_MASK = 0x04;
 
 	// pyatv/protocols/companion/__init__.py:62-79 (PAIRING_WITH_PIN_SUPPORTED_MASK)
-	private const int PairingWithPinSupportedMask = 0x4000;
+	private const int PAIRING_WITH_PIN_SUPPORTED_MASK = 0x4000;
 
 	/// <summary>
 	/// Returns the stable unique identifier for a Companion service, from the "rpmrtid"
@@ -46,12 +46,12 @@ public static class CompanionServiceInfo
 
 		int flags = int.TryParse (trimmed, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out int parsed) ? parsed : 0;
 
-		if ((flags & PairingDisabledMask) != 0)
+		if ((flags & PAIRING_DISABLED_MASK) != 0)
 			{
 			return CompanionPairingRequirement.Disabled;
 			}
 
-		if ((flags & PairingWithPinSupportedMask) != 0)
+		if ((flags & PAIRING_WITH_PIN_SUPPORTED_MASK) != 0)
 			{
 			return CompanionPairingRequirement.Mandatory;
 			}

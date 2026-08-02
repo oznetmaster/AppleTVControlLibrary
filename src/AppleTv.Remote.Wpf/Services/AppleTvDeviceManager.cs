@@ -214,6 +214,26 @@ public sealed class AppleTvDeviceManager : IDisposable
 		this._api.SendHidCommand (down: false, command: command);
 		}
 
+	/// <summary>
+	/// Toggles mute using the Companion media-control channel (<c>_mcc</c>: <c>GetVolume</c>/
+	/// <c>SetVolume</c>), saving and restoring the actual volume level rather than approximating
+	/// with repeated volume-step presses. Requires the device to advertise volume control support
+	/// via the <c>_iMC</c> event's <c>_mcF</c> bitmask.
+	/// </summary>
+	/// <returns>The resulting muted state.</returns>
+	public bool ToggleMute ()
+		{
+		if (this._api is null)
+			{
+			throw new InvalidOperationException ("Not connected");
+			}
+
+		return this._api.ToggleMute ();
+		}
+
+	/// <summary>Gets a value indicating whether the connected device supports volume control.</summary>
+	public bool IsVolumeControlSupported => this._api?.IsVolumeControlSupported ?? false;
+
 	/// <summary>Disconnects the current device, if any.</summary>
 	public void Disconnect ()
 		{

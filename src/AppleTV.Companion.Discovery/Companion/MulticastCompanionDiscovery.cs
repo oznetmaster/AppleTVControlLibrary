@@ -19,28 +19,34 @@ namespace AppleTvControlLibrary.Discovery.Companion;
 public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 	{
 	// pyatv/core/mdns.py:509 (multicast default address)
-	private const string MulticastAddress = "224.0.0.251";
+	private const string MULTICAST_ADDRESS = "224.0.0.251";
 
 	// pyatv/core/mdns.py:510 (multicast default port), pyatv/core/mdns.py:491 (unicast default port)
-	private const int MulticastPort = 5353;
+	private const int MULTICAST_PORT = 5353;
 
 	/// <inheritdoc/>
 	public async Task<IReadOnlyList<CompanionDiscoveryResult>> ScanAsync (TimeSpan timeout, CancellationToken cancellationToken = default)
 		{
 		List<byte[]> queries = DnsServiceQueries.CreateServiceQueries (
-			new[] { CompanionServiceInfo.ServiceType },
+			new[] { CompanionServiceInfo.SERVICE_TYPE },
 			QueryType.Ptr);
 
 		ServiceParser parser = new ServiceParser ();
-		IPEndPoint groupEndpoint = new IPEndPoint (IPAddress.Parse (MulticastAddress), MulticastPort);
+		IPEndPoint groupEndpoint = new IPEndPoint (IPAddress.Parse (MULTICAST_ADDRESS), MULTICAST_PORT);
 
 		using UdpClient client = new UdpClient (AddressFamily.InterNetwork);
 		client.Client.SetSocketOption (SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
 		client.Client.Bind (new IPEndPoint (IPAddress.Any, 0));
-		client.JoinMulticastGroup (IPAddress.Parse (MulticastAddress));
+		client.JoinMulticastGroup (IPAddress.Parse (MULTICAST_ADDRESS));
 
 		using CancellationTokenSource timeoutCts = new CancellationTokenSource (timeout);
 		using CancellationTokenSource linkedCts = CancellationTokenSource.CreateLinkedTokenSource (cancellationToken, timeoutCts.Token);
+
+		// UdpClient.ReceiveAsync() has no CancellationToken overload on all targeted TFMs, so the
+		// receive loop cannot observe cancellation on its own. Closing the socket when the token
+		// fires forces the pending ReceiveAsync() call to complete (with an ObjectDisposedException),
+		// which is caught below. Without this, a scan with no responses would never return.
+		using CancellationTokenRegistration registration = linkedCts.Token.Register (static state => ((UdpClient)state!).Close (), client);
 
 		// pyatv/core/mdns.py:385-408 (_resend_loop resends queries once per second for the duration)
 		Task sendTask = ResendLoopAsync (client, groupEndpoint, queries, timeout, linkedCts.Token);
@@ -54,12 +60,19 @@ public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 			{
 			// Expected once the timeout elapses.
 			}
-
-		client.Close ();
+		catch (ObjectDisposedException)
+			{
+			// Expected when the socket is closed by the cancellation registration above.
+			}
+		catch (SocketException ex) when (ex.SocketErrorCode == SocketError.OperationAborted || ex.SocketErrorCode == SocketError.Interrupted)
+			{
+			// See ReceiveLoopAsync: Windows can surface the cancellation-triggered socket close
+			// as a SocketException instead of ObjectDisposedException.
+			}
 
 		IReadOnlyList<Service> services = parser.Parse ();
 		return services
-			.Where (service => string.Equals (service.Type, CompanionServiceInfo.ServiceType, StringComparison.OrdinalIgnoreCase))
+			.Where (service => string.Equals (service.Type, CompanionServiceInfo.SERVICE_TYPE, StringComparison.OrdinalIgnoreCase))
 			.Select (CompanionServiceInfo.ToDiscoveryResult)
 			.ToList ();
 		}
@@ -103,7 +116,10 @@ public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 			{
 			while (!cancellationToken.IsCancellationRequested)
 				{
+				// UdpClient.ReceiveAsync(CancellationToken) is not available on net472; this must build on both TFMs.
+#pragma warning disable CA2016
 				UdpReceiveResult result = await client.ReceiveAsync ().ConfigureAwait (false);
+#pragma warning restore CA2016
 				try
 					{
 					DnsMessage message = new DnsMessage ().Unpack (result.Buffer);
@@ -122,6 +138,13 @@ public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 		catch (OperationCanceledException)
 			{
 			// Expected once the timeout elapses.
+			}
+		catch (SocketException ex) when (ex.SocketErrorCode == SocketError.OperationAborted || ex.SocketErrorCode == SocketError.Interrupted)
+			{
+			// On Windows, closing the underlying socket while ReceiveAsync() is pending surfaces
+			// as a SocketException("The I/O operation has been aborted...", WSA_OPERATION_ABORTED)
+			// rather than ObjectDisposedException. This is the same "socket closed to end the
+			// scan" condition handled above, just a different exception shape on this platform.
 			}
 		}
 	}

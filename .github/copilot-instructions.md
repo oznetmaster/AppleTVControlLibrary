@@ -1,28 +1,34 @@
-# Apple TV Companion Link ‚Äî C# Porting Brief
+# Apple TV Companion Link ó C# Porting Brief
 
 **Target:** a Companion Link protocol library, multi-targeted `net10.0` + `net472`, C# 13 or later.
 **Toolchain:** Visual Studio, GitHub Copilot agent mode, Claude Opus 5, MSTest.
-**Reference:** pyatv 0.18.0 (MIT, Pierre St√•hl). Every constant in this document was read from that source tree, not from documentation.
+**Reference:** pyatv 0.18.0 (MIT, Pierre StÂhl). Every constant in this document was read from that source tree, not from documentation.
 **Scope:** Companion Link only. No MRP, no AirPlay 2, no RAOP, no DMAP/DACP. tvOS 18+.
 
 ---
 
 ## 0. Ground rules
 
-1. **Every protocol constant carries a citation comment** naming the pyatv file and line it came from:
-```csharp
-	// pyatv/protocols/companion/protocol.py:41
-	private const string SrpOutputInfo = "ClientEncrypt-main";
-```
-	An uncited constant is presumed invented and must be removed.
+Put these in `.github/copilot-instructions.md` verbatim.
 
-2. **Do not invent field names, type bytes, or enum values.** If a value cannot be found in the vendored pyatv tree, stop and ask. Do not infer it from the protocol documentation at pyatv.dev ‚Äî that page is stale and contains known errors (¬ß6).
+1. **Every protocol constant carries a citation comment** naming the pyatv file and line it came from:
+   ```csharp
+   // pyatv/protocols/companion/protocol.py:41
+   private const string SrpOutputInfo = "ClientEncrypt-main";
+   ```
+   An uncited constant is presumed invented and must be removed.
+
+2. **Do not invent field names, type bytes, or enum values.** If a value cannot be found in the vendored pyatv tree, stop and ask. Do not infer it from the protocol documentation at pyatv.dev ó that page is stale and contains known errors (ß7). **This applies to this brief as well:** if a claim here cannot be confirmed against the vendored source, the source wins and the brief is wrong.
 
 3. **Test vectors are ported, not authored.** Where pyatv has a test, port the test. Do not write new assertions that encode your own understanding of the format.
 
 4. **No `#if NET472` in the protocol layer.** All crypto comes from BouncyCastle on both TFMs so there is exactly one code path. Framework differences are absorbed by polyfills at the project level, not by conditional compilation in protocol code.
 
-> **Why rule 1 exists.** This is not about model capability ‚Äî you are running Opus 5, the same model that produced this brief. It is about task shape. Companion Link is an undocumented protocol with no error surface: when a field name is wrong, the Apple TV completes the handshake and then goes quiet. Any model asked to "implement" rather than "port" will emit a plausible constant, write a test asserting that constant, and go green. The failure is self-consistent, so neither the test suite nor a review that isn't checking against source can catch it. The citation comment is what makes that review mechanical.
+5. **A missing capability is a real answer.** If a feature has no representation in the source, the correct outcome is to expose it as unsupported ó not to approximate it, and not to assume a later pyatv version added it. Ask before building a workaround.
+
+> **Why rule 1 exists.** This is not about model capability ó you are running Opus 5, the same model that produced this brief. It is about task shape. Companion Link is an undocumented protocol with no error surface: when a field name is wrong, the Apple TV completes the handshake and then goes quiet. Any model asked to "implement" rather than "port" will emit a plausible constant, write a test asserting that constant, and go green. The failure is self-consistent, so neither the test suite nor a review that isn't checking against source can catch it. The citation comment is what makes that review mechanical.
+>
+> A previous revision of this brief claimed the `_hidC` enum "has grown past 19 values (Guide and Control Center were added in 0.17.0)." That was fabricated ó the enum has exactly 19 values and there is no Control Center ó and it sent an agent hunting for values that do not exist. Rule 2 now explicitly binds this document too.
 
 ---
 
@@ -33,7 +39,7 @@
   AppleTv.Companion/            net10.0;net472
   AppleTv.Companion.Discovery/  mDNS, separated so it can be swapped per host
 /tests
-  AppleTv.Companion.Tests/      net10.0;net472 ‚Äî MSTest
+  AppleTv.Companion.Tests/      net10.0;net472 ó MSTest
   AppleTv.Companion.FakeDevice/ the ported fake Apple TV
 /reference
   pyatv-0.18.0/                 vendored, read-only, NOT compiled
@@ -41,16 +47,16 @@
 /THIRD-PARTY-NOTICES.txt        pyatv MIT notice + BouncyCastle
 ```
 
-Vendoring pyatv into the tree is deliberate ‚Äî it puts the source where `#file:` can reach it, so Copilot ports rather than generates.
+Vendoring pyatv into the tree is deliberate ó it puts the source where `#file:` can reach it, so Copilot ports rather than generates.
 
-```sh
+```bash
 pip download pyatv==0.18.0 --no-deps --no-binary :all: -d /tmp/pyatv
 tar xzf /tmp/pyatv/pyatv-0.18.0.tar.gz -C reference/
 ```
 
 Exclude `/reference` from the solution and from analysis so the `.py` files never reach the compiler but stay visible to Copilot's file search.
 
-**Multi-target the test project as well.** Byte-exactness is the whole point of this library, and the `net472` leg runs different `Span<T>`, `BitConverter`, and encoding implementations underneath. A suite that only runs on `net10.0` will not exercise the polyfill path where the divergence would actually show up.
+**Multi-target the test project as well.** Byte-exactness is the whole deliverable, and the `net472` leg runs different `Span<T>`, `BitConverter`, and encoding implementations underneath. A suite that only runs on `net10.0` leaves the polyfill path unexercised ó which is exactly where a divergence would hide.
 
 ### net472 configuration
 
@@ -61,27 +67,27 @@ Exclude `/reference` from the solution and from analysis so the `.py` files neve
 
 C# 13 on `net472` is unsupported-but-working. What you need:
 
-- `System.Memory` ‚Äî `Span<T>`, `Memory<T>`, `ReadOnlySequence<T>`
-- `System.Buffers` ‚Äî pooled arrays for the frame reassembly buffer
-- `Microsoft.Bcl.AsyncInterfaces` ‚Äî `IAsyncEnumerable<T>`, `IAsyncDisposable`
-- `System.Threading.Tasks.Extensions` ‚Äî `ValueTask<T>`
-- Generated attribute shims: `IsExternalInit` (records, `init`), `RequiredMemberAttribute`, `CompilerFeatureRequiredAttribute`, `CollectionBuilderAttribute` (collection expressions on your own types), `InlineArrayAttribute`
+- `System.Memory` ó `Span<T>`, `Memory<T>`, `ReadOnlySequence<T>`
+- `System.Buffers` ó pooled arrays for the frame reassembly buffer
+- `Microsoft.Bcl.AsyncInterfaces` ó `IAsyncEnumerable<T>`, `IAsyncDisposable`
+- `System.Threading.Tasks.Extensions` ó `ValueTask<T>`
+- Generated attribute shims: `IsExternalInit` (records, `init`), `RequiredMemberAttribute`, `CompilerFeatureRequiredAttribute`, `CollectionBuilderAttribute`, `InlineArrayAttribute`
 
 `PolySharp` or `Polyfill` generates the attribute set; pick one and keep it consistent across both projects.
 
-**Genuinely blocked on net472**, because they need runtime support rather than just an attribute: `allows ref struct` generic constraints, and ref struct interface implementations. Neither is needed here ‚Äî the codecs work fine with `ReadOnlySpan<byte>` parameters and array returns. If Copilot reaches for them, that is a signal it is designing rather than porting.
+**Genuinely blocked on net472**, because they need runtime support rather than just an attribute: `allows ref struct` generic constraints, and ref struct interface implementations. Neither is needed here ó the codecs work fine with `ReadOnlySpan<byte>` parameters and array returns. If Copilot reaches for either, that is a signal it is designing rather than porting.
 
 **Dependencies:** `BouncyCastle.Cryptography` 2.6.2 for both TFMs, plus MSTest and the polyfill package. If you ILRepack this library into a consuming assembly, align the BouncyCastle version with anything else already merged in to avoid duplicate-type conflicts.
 
-**Mono.** If the `net472` leg is destined for a Mono runtime rather than desktop .NET Framework, validate there specifically ‚Äî `Span<T>` and `ValueTask` behaviour, and socket options in particular, are not guaranteed to match a Windows `net472` build. A green suite on Windows `net472` is necessary but not sufficient.
+**Mono.** If the `net472` leg is destined for a Mono runtime rather than desktop .NET Framework, validate there specifically ó `Span<T>` and `ValueTask` behaviour, and socket options in particular, are not guaranteed to match a Windows `net472` build. A green suite on Windows `net472` is necessary but not sufficient.
 
 ---
 
 ## 2. Work packages
 
-Each has a green-test exit criterion. **Do not start the next until the current one is green.** One Copilot thread per package ‚Äî the boundaries exist so no single session has to hold the whole protocol in context.
+Each has a green-test exit criterion. **Do not start the next until the current one is green.** One Copilot thread per package ó the boundaries exist so no single session has to hold the whole protocol in context.
 
-### WP1 ‚Äî OPACK codec ‚≠ê start here
+### WP1 ó OPACK codec ? start here
 
 | | |
 |---|---|
@@ -90,21 +96,21 @@ Each has a green-test exit criterion. **Do not start the next until the current 
 | **Exit** | All 41 ported tests green on **both** TFMs |
 | **Hardware** | None |
 
-Port the vectors as `[TestMethod]` with `[DataRow]` over hex-string/expected pairs ‚Äî the pyatv tests are mostly single-assert round-trips and collapse neatly into data rows.
+Port the vectors as `[TestMethod]` with `[DataRow]` over hex-string/expected pairs ó the pyatv tests are mostly single-assert round-trips and collapse neatly into data rows.
 
 Traps, all confirmed from source:
 
-- **Strings and byte arrays use different length ladders.** Strings `0x61`‚Äì`0x64` take 1, 2, 3, 4 length bytes (`noof_bytes = data[0] & 0xF`). Byte arrays `0x91`‚Äì`0x94` take 1, 2, 4, 8 (`noof_bytes = 1 << ((data[0] & 0xF) - 1)`). Not the same rule. Reading one off the other is the single most likely silent bug in the port.
-- **Integers `0x30`‚Äì`0x33`** take `2 ** (data[0] & 0xF)` bytes ‚Üí 1, 2, 4, 8. A third distinct ladder.
-- **Sized-int round-tripping.** pyatv preserves the encoded width via an int subclass carrying a `size` attribute so re-encoding produces identical bytes. Model this explicitly in C# ‚Äî a small readonly struct wrapping value plus width ‚Äî or you will re-encode `0x30 0x05` as `0x0D` and lose byte-exactness against captured frames.
-- **The object/pointer table is asymmetric between pack and unpack.** This is a genuine inconsistency in pyatv, not a misreading. `_pack` stores *encoded byte sequences*, dedupes on those, and adds an entry only when `len(packed_bytes) > 1` and the value was not already a hit. `_unpack` stores *decoded values* and dedupes on those. Critically, `_pack` adds lists and dicts to the table while `_unpack` sets `add_to_object_list = False` for them. Port each direction faithfully and separately. Do not unify them into one symmetric table ‚Äî the encoder must match what Apple accepts, the decoder must match what Apple sends.
-- Pointers: index < 0x21 ‚Üí `0xA0 + index` as a single byte; otherwise `0xC1`‚Äì`0xC4` with 1, 2, 4, 8 little-endian index bytes.
-- Collections: `0xD0 + n` list, `0xE0 + n` dict for n ‚â§ 14. At n ‚â• 15 the low nibble is `0xF` and the collection is terminated with a `0x03` sentinel.
+- **Strings and byte arrays use different length ladders.** Strings `0x61`ñ`0x64` take 1, 2, 3, 4 length bytes (`noof_bytes = data[0] & 0xF`). Byte arrays `0x91`ñ`0x94` take 1, 2, 4, 8 (`noof_bytes = 1 << ((data[0] & 0xF) - 1)`). Not the same rule. Reading one off the other is the single most likely silent bug in the port.
+- **Integers `0x30`ñ`0x33`** take `2 ** (data[0] & 0xF)` bytes ? 1, 2, 4, 8. A third distinct ladder.
+- **Sized-int round-tripping.** pyatv preserves the encoded width via an int subclass carrying a `size` attribute so re-encoding produces identical bytes. Model this explicitly in C# ó a small readonly struct wrapping value plus width ó or you will re-encode `0x30 0x05` as `0x0D` and lose byte-exactness against captured frames.
+- **The object/pointer table is asymmetric between pack and unpack.** This is a genuine inconsistency in pyatv, not a misreading. `_pack` stores *encoded byte sequences*, dedupes on those, and adds an entry only when `len(packed_bytes) > 1` and the value was not already a hit. `_unpack` stores *decoded values* and dedupes on those. Critically, `_pack` adds lists and dicts to the table while `_unpack` sets `add_to_object_list = False` for them. Port each direction faithfully and separately. Do not unify them into one symmetric table ó the encoder must match what Apple accepts, the decoder must match what Apple sends.
+- Pointers: index < 0x21 ? `0xA0 + index` as a single byte; otherwise `0xC1`ñ`0xC4` with 1, 2, 4, 8 little-endian index bytes.
+- Collections: `0xD0 + n` list, `0xE0 + n` dict for n = 14. At n = 15 the low nibble is `0xF` and the collection is terminated with a `0x03` sentinel.
 - Floats: unpack handles `0x35` (float32) and `0x36` (float64); pack always emits `0x36`.
 - `0x06` absolute time: decode as a little-endian 8-byte integer, encoding unimplemented. Leave it that way.
 - All multi-byte integers and lengths here are **little-endian**. The frame header in WP3 is big-endian. Do not mix them.
 
-### WP2 ‚Äî TLV8
+### WP2 ó TLV8
 
 | | |
 |---|---|
@@ -114,7 +120,7 @@ Traps, all confirmed from source:
 
 One trap: a value longer than 255 bytes is emitted as **repeated entries with the same tag**, chunked at 255, and the reader concatenates them. Your reader must accumulate on duplicate tags rather than overwrite. Test with a 600-byte value specifically.
 
-### WP3 ‚Äî Connection, framing, ChaCha20
+### WP3 ó Connection, framing, ChaCha20
 
 | | |
 |---|---|
@@ -124,13 +130,13 @@ One trap: a value longer than 255 bytes is emitted as **repeated entries with th
 
 - Header is 4 bytes: 1 byte frame type + **3 bytes big-endian** length.
 - Frame types (`connection.py:21-39`): `Unknown=0, NoOp=1, PS_Start=3, PS_Next=4, PV_Start=5, PV_Next=6, U_OPACK=7, E_OPACK=8, P_OPACK=9, PA_Req=10, PA_Rsp=11, SessionStartRequest=16, SessionStartResponse=17, SessionData=18, FamilyIdentityRequest=32, FamilyIdentityResponse=33, FamilyIdentityUpdate=34`. Port the whole enum; only the first nine are used.
-- **The length field includes the 16-byte auth tag when encryption is active** ‚Äî `payload_length += AUTH_TAG_LENGTH` happens before the header is built.
+- **The length field includes the 16-byte auth tag when encryption is active** ó `payload_length += AUTH_TAG_LENGTH` happens before the header is built.
 - **Zero-length payloads are never encrypted**, even after encryption is enabled (`if self._chacha and payload_length > 0`). NoOp frames bypass the cipher.
 - **AAD is the 4-byte header**, built before encryption, so it already carries the tag-inclusive length.
 - Nonce is a **12-byte little-endian counter**, separate counters per direction, incremented after each use. Companion uses the 12-byte variant, not the 8-byte-with-4-zero-pad variant used elsewhere in pyatv.
-- Receive path must handle partial frames: buffer until `4 + big-endian length` bytes are available. A three-byte big-endian read is the kind of thing that gets written as `BitConverter.ToInt32` on a padded array ‚Äî check the endianness handling explicitly on the `net472` leg.
+- Receive path must handle partial frames: buffer until `4 + big-endian length` bytes are available. A three-byte big-endian read is the kind of thing that gets written as `BitConverter.ToInt32` on a padded array ó check the endianness handling explicitly on the `net472` leg.
 
-### WP4 ‚Äî HAP pair-setup and pair-verify
+### WP4 ó HAP pair-setup and pair-verify
 
 | | |
 |---|---|
@@ -145,8 +151,7 @@ salt        = ""                    (empty string)
 output key  = HKDF(shared, salt, "ClientEncrypt-main")
 input key   = HKDF(shared, salt, "ServerEncrypt-main")
 ```
-
-The server derives these inverted ‚Äî a useful sanity check when the fake device talks to your client.
+The server derives these inverted ó a useful sanity check when the fake device talks to your client.
 
 Message shapes, from `companion/auth.py`:
 
@@ -154,13 +159,13 @@ Message shapes, from `companion/auth.py`:
 - M3: `PS_Next` with `{"_pd": TLV8{SeqNo: 0x03, PublicKey, Proof}, "_pwTy": 1}`
 - M5: `PS_Next` with `{"_pd": TLV8{SeqNo: 0x05, EncryptedData}, "_pwTy": 1}`
 - Pair-verify M1: `PV_Start` with `{"_pd": TLV8{SeqNo: 0x01, PublicKey}, "_auTy": 4}`
-- M3: `PV_Next` with `{"_pd": TLV8{SeqNo: 0x03, EncryptedData}}` ‚Äî note **no `_auTy`** on this one
+- M3: `PV_Next` with `{"_pd": TLV8{SeqNo: 0x03, EncryptedData}}` ó note **no `_auTy`** on this one
 
 `_auTy: 4` and `_pwTy: 1` are easy to drop or over-apply; the asymmetry above is what the source does.
 
-BouncyCastle mapping: `Srp6Client` + `Srp6Utilities` (SHA-512, 3072-bit group), `Ed25519Signer`, `X25519Agreement`, `HkdfBytesGenerator`, `ChaCha20Poly1305`. Watch fixed-width zero-padding in the SRP proof computation ‚Äî a leading-zero-stripped `BigInteger` is the classic failure and produces a proof mismatch with no diagnostic.
+BouncyCastle mapping: `Srp6Client` + `Srp6Utilities` (SHA-512, 3072-bit group), `Ed25519Signer`, `X25519Agreement`, `HkdfBytesGenerator`, `ChaCha20Poly1305`. Watch fixed-width zero-padding in the SRP proof computation ó a leading-zero-stripped `BigInteger` is the classic failure and produces a proof mismatch with no diagnostic.
 
-### WP5 ‚Äî Fake Apple TV ‚≠ê the force multiplier
+### WP5 ó Fake Apple TV ? the force multiplier
 
 | | |
 |---|---|
@@ -168,28 +173,28 @@ BouncyCastle mapping: `Srp6Client` + `Srp6Utilities` (SHA-512, 3072-bit group), 
 | **Exit** | Client completes pair-setup then pair-verify against it, encrypted channel up |
 | **Hardware** | None |
 
-This is what makes the rest tractable. Without it every downstream failure is a silent timeout against real hardware; with it, WP4 and WP6 become ordinary red-green work that Copilot can iterate on unattended. If schedule pressure appears, cut features ‚Äî do not cut this.
+This is what makes the rest tractable. Without it every downstream failure is a silent timeout against real hardware; with it, WP4 and WP6 become ordinary red-green work that Copilot can iterate on unattended. If schedule pressure appears, cut features ó do not cut this.
 
-### WP6 ‚Äî Protocol dispatch and API surface
+### WP6 ó Protocol dispatch and session lifecycle
 
 | | |
 |---|---|
 | **Source** | `protocols/companion/protocol.py` (234), `api.py` (475) |
-| **Exit** | HID commands and session lifecycle green against the fake device |
+| **Exit** | Session lifecycle green against the fake device |
 | **Hardware** | Fake device only |
 
 E_OPACK envelope (`api.py:172-178`):
 ```
-{ "_i": <command name>, "_t": <MessageType>, "_c": { ‚Ä¶content‚Ä¶ } }
+{ "_i": <command name>, "_t": <MessageType>, "_c": { ÖcontentÖ } }
 ```
 `MessageType`: `Event=1, Request=2, Response=3` (`protocol.py:53-58`). Responses correlate by XID where present; **auth frames have no XID and correlate by frame type instead**, because parallel auth attempts are impossible. Implement both dispatch paths.
 
-Session bring-up order ‚Äî this is what the public documentation gets wrong:
+Session bring-up order ó this is what the public documentation gets wrong:
 
 1. `_systemInfo`
 2. `_touchStart`
 3. `_sessionStart` with `{"_srvT": "com.apple.tvremoteservices", "_sid": <random uint32>}`; the reply carries the device's `_sid` and the effective session id is `(remote_sid << 32) | local_sid`
-4. `TVRCSessionStart` with `{"ProtocolVersionKey": "1.2"}` ‚Äî **wrap in try/catch**; pyatv notes tvOS will not answer `FetchAttentionState` until a TV Remote Client session is registered with `tvremoted`, but older devices simply error on it
+4. `TVRCSessionStart` with `{"ProtocolVersionKey": "1.2"}` ó **wrap in try/catch**; pyatv notes tvOS will not answer `FetchAttentionState` until a TV Remote Client session is registered with `tvremoted`, but older devices simply error on it
 5. `_tiStart` with `{}`
 
 Both `TVRCSessionStart` and `_tiStart` are real and both are sent. They are not alternatives.
@@ -197,33 +202,104 @@ Both `TVRCSessionStart` and `_tiStart` are real and both are sent. They are not 
 `_systemInfo` payload (`api.py:191-209`), semi-random values and all:
 ```
 _bf: 0, _cf: 512, _clFl: 128,
-_i:     <stable client identifier>      ‚Üê see below
+_i:     <stable client identifier>      ? see below
 _idsID: <credentials client_id>
 _pubID: <device id>
 _sf: 256, _sv: "170.18",
 model: <string>, name: <string>
 ```
 
-> **`_i` is the field that will cost you a day.** pyatv's own comment: a null `_i` stops the device pushing `TVSystemStatus` power-state events. Worse, from tvOS 18.4 a non-persistent value gets the connection dropped seconds after a successful handshake. The value is MAC-shaped ‚Äî pyatv falls back to the device id with colons stripped and lowercased. **Generate six random bytes once at pair time, hex-encode, persist alongside the credentials, never regenerate.** Persistence is therefore load-bearing, not optional: put the credential blob somewhere that survives an upgrade of the host application, and expose export/import on the public API from day one so a consumer can back it up. A library that silently regenerates the identifier presents as an intermittent network fault, and the fault will be chased in the wrong layer.
+> **`_i` is the field that will cost you a day.** pyatv's own comment: a null `_i` stops the device pushing `TVSystemStatus` power-state events. Worse, from tvOS 18.4 a non-persistent value gets the connection dropped seconds after a successful handshake. The value is MAC-shaped ó pyatv falls back to the device id with colons stripped and lowercased. **Generate six random bytes once at pair time, hex-encode, persist alongside the credentials, never regenerate.** Persistence is therefore load-bearing, not optional: put the credential blob somewhere that survives an upgrade of the host application, and expose export/import on the public API from day one. A library that silently regenerates the identifier presents as an intermittent network fault, and the fault will be chased in the wrong layer.
 
-Command surface to implement (app launching is out of scope):
-- `_hidC` ‚Äî button presses, `_hBtS` 1 = down, 2 = up
-- `_hidT` ‚Äî touch events, `_cx`/`_cy` in 0‚Äì1000, `_tPh` 1 press / 3 hold / 4 release / 5 tap, `_ns` nanosecond timestamp
-- `FetchAttentionState` ‚Äî 1 asleep, 2 screensaver, 3 awake, 4 idle
-- `_interest` / `_regEvents` / `_deregEvents` ‚Äî event subscription
-- `_sessionStop` ‚Äî takes the **combined 64-bit** `sid`, not the local one
+Other session commands: `_sessionStop` takes the **combined 64-bit** `sid`, not the local one. `_tiStop` and `_touchStop` mirror their start counterparts.
 
-Read the current `_hidC` enum from source; it has grown past the 19 values the documentation lists (Guide and Control Center were added in 0.17.0).
+### WP7 ó HID: buttons and touch
 
-### WP7 ‚Äî Discovery
+| | |
+|---|---|
+| **Source** | `protocols/companion/api.py:35-56, 88-90, 305-330`, `pyatv/const.py:460-466` |
+| **Exit** | Button and touch commands green against the fake device |
+| **Hardware** | Fake device only |
 
-`_companion-link._tcp.local`. Keep it behind an interface. Multicast is the least portable part of the whole library: socket option availability and multicast group binding differ between .NET on Windows, .NET on Linux, and Mono, and a discovery implementation that works in a desktop test harness may not work on the eventual host. Isolating it means the protocol library stays testable even where discovery has to be replaced with a static address.
+**`HidCommand` ó `api.py:35-56`. Exactly these nineteen values. There are no others in 0.18.0.**
+
+```
+Up = 1                 Sleep = 12
+Down = 2               Wake = 13
+Left = 3               PlayPause = 14
+Right = 4              ChannelIncrement = 15
+Menu = 5               ChannelDecrement = 16
+Select = 6             Guide = 17
+Home = 7               PageUp = 18
+VolumeUp = 8           PageDown = 19
+VolumeDown = 9
+Siri = 10
+Screensaver = 11
+```
+
+There is no mute, no Control Center, no "back". Do not extrapolate values past 19 ó the enum ends there. `grep -rni mute pyatv/protocols/companion/` returns nothing at all across the whole protocol; see ß4 for how mute is actually built.
+
+Wire form (`api.py:305-309`): `_hidC` with `{"_hBtS": 1 if down else 2, "_hidC": <value>}`. A press is two commands, down then up.
+
+**Touch** (`api.py:311-330`, `const.py:460-466`): `TouchAction` is `Press = 1, Hold = 3, Release = 4, Click = 5` ó note 2 is unused. Coordinates are clamped to `TOUCHPAD_WIDTH = 1000.0` and `TOUCHPAD_HEIGHT = 1000.0` (`api.py:88-89`), and `TOUCHPAD_DELAY_MS = 16` (`api.py:90`) is the inter-event delay for a swipe. Events also carry `_ns`, a nanosecond timestamp.
+
+### WP8 ó Media control and power
+
+| | |
+|---|---|
+| **Source** | `protocols/companion/api.py:59-74, 395-399`, `__init__.py:87-101, 331-380, 431-490` |
+| **Exit** | Transport, volume, and power state green against the fake device |
+| **Hardware** | Fake device only |
+
+This is a **separate command channel from `_hidC`**, and it is where transport control actually lives.
+
+**`MediaControlCommand` ó `api.py:59-74`:**
+```
+Play = 1                 FastForwardBegin = 8
+Pause = 2                FastForwardEnd = 9
+NextTrack = 3            RewindBegin = 10
+PreviousTrack = 4        RewindEnd = 11
+GetVolume = 5            GetCaptionSettings = 12
+SetVolume = 6            SetCaptionSettings = 13
+SkipBy = 7
+```
+
+Wire form (`api.py:395-399`): `_mcc` with `{"_mcc": <value>, Öargs}`.
+
+Arguments confirmed in source:
+- `SetVolume` ? `{"_vol": <0.0ñ1.0>}` (`__init__.py:469-471`)
+- `GetVolume` ? response at `_c._vol`, also `0.0ñ1.0` (`__init__.py:443-444`)
+- `SkipBy` ? `{"_skpS": <seconds>}`, negative for backward (`__init__.py:361-380`)
+
+**Absolute volume exists.** Do not implement volume as `VolumeUp`/`VolumeDown` repetition when `SetVolume` is available.
+
+**Capability gating ó `MediaControlFlags`, `__init__.py:87-101`:**
+```
+NoControls = 0x0000      Rewind      = 0x0020
+Play       = 0x0001      (0x0040 unknown)
+Pause      = 0x0002      (0x0080 unknown)
+NextTrack  = 0x0004      Volume      = 0x0100
+PreviousTrack = 0x0008   SkipForward = 0x0200
+FastForward = 0x0010     SkipBackward = 0x0400
+```
+
+The flags arrive in the `_iMC` event as `_mcF` and describe **what the currently foregrounded app supports**, so they change at runtime. Subscribe with `subscribe_event("_iMC")` (`api.py:159`) and re-dispatch on every update. pyatv queries volume only when `_mcF & Volume` is set and zeroes its cached level when it is not (`__init__.py:439-451`) ó port that gate. When the bit is clear, volume is being handled outside Companion (typically CEC to the TV or receiver) and the correct behaviour is to report volume unsupported, not to fall back to HID stepping.
+
+**Mute** has no protocol representation. Build it as `GetVolume` ? stash ? `SetVolume(0.0)`, with unmute restoring the stashed level, and gate the whole thing on the `Volume` flag. Expose it as unsupported when the flag is clear.
+
+**Power:** `FetchAttentionState` returns 1 asleep, 2 screensaver, 3 awake, 4 idle. Push updates arrive via the `SystemStatus` / `TVSystemStatus` events, which require a non-null `_i` in `_systemInfo`.
+
+### WP9 ó Discovery
+
+`_companion-link._tcp.local`. Keep it behind an interface. Multicast is the least portable part of the library: socket option availability and multicast group binding differ between .NET on Windows, .NET on Linux, and Mono, and a discovery implementation that works in a desktop harness may not work on the eventual host. Isolating it means the protocol library stays testable where discovery has to be replaced with a static address.
 
 Do not key persisted credentials off the `rp*` TXT records; `rpHA`, `rpHN`, `rpAD`, `rpHI` and `rpBA` rotate as a privacy measure.
 
-### WP8 ‚Äî Real hardware
+### WP10 ó Real hardware
 
-Not an agent task. Budget a full day just to get capture working ‚Äî atvproxy is itself unreliable on tvOS 18.4+ (postlund suspects new validation it can't handle). Fallback that does work: run `pyatv --debug` against the same Apple TV and diff its logs against yours. Its output includes both the decoded OPACK dict and raw plaintext hex per frame, so you can validate your encoder byte-for-byte before encryption is ever involved.
+Not an agent task. Budget a full day just to get capture working ó atvproxy is itself unreliable on tvOS 18.4+ (postlund suspects new validation it can't handle). Fallback that does work: run `pyatv --debug` against the same Apple TV and diff its logs against yours. Its output includes both the decoded OPACK dict and raw plaintext hex per frame, so you can validate your encoder byte-for-byte before encryption is ever involved.
+
+This is also how you resolve any open "does the protocol support X" question ó including whether a physical remote button reaches Companion at all, or is handled entirely over CEC. Capture the press, read the frame, cite the byte.
 
 **Test on Apple TV 4K 3rd gen (AppleTV14,1), not just 2nd gen.** There is an open pyatv issue where session setup completes on gen 3 / tvOS 26.5 but `FetchAttentionState` gets no response, while gen 2 on the identical build works. Do not let a consumer make power state load-bearing without a degraded path.
 
@@ -241,21 +317,48 @@ The protocol has effectively no error surface. When something is wrong the Apple
 | Decrypt fails on second frame | nonce counter not incrementing, or shared across directions |
 | Decrypt fails on first frame | AAD built after the tag-length adjustment, or wrong info string |
 | Frames accepted then silence | OPACK encoder producing structurally valid but wrong output |
+| Volume commands accepted, nothing happens | `_mcF & 0x0100` clear ó volume is on CEC, not Companion |
 | Works on `net10.0`, fails on `net472` | endianness or `Span` slicing difference in the framing layer |
 
-`_rT` is a response class, not an error code ‚Äî setup commands answer `_rT: 0`, data commands answer `_rT: 1` with payload. A pyatv contributor lost time reading `_rT: 0` as failure.
+`_rT` is a response class, not an error code ó setup commands answer `_rT: 0`, data commands answer `_rT: 1` with payload. A pyatv contributor lost time reading `_rT: 0` as failure.
 
 ---
 
-## 4. Licensing
+## 4. Features with no protocol representation
 
-pyatv is MIT (Pierre St√•hl). Reuse in a proprietary product is fine provided copies carry the notice. Protocol *facts* ‚Äî type bytes, field names, enum values ‚Äî are facts about Apple's wire format and not pyatv's to license; a codec written from the format description carries no obligation, while structural transliteration of `opack.py` does. Attribute regardless: one `THIRD-PARTY-NOTICES.txt` entry.
+Confirmed absent from the vendored tree. Expose as unsupported; do not approximate without a capture.
+
+| Feature | Status |
+|---|---|
+| Mute | No HID value, no media-control command, no flag. Build from `SetVolume(0.0)` + stash, gated on the `Volume` flag. |
+| Now-playing metadata | Title, artist, artwork, position, play state are MRP territory. `_iMC` gives capability flags only. |
+| App launch / app list | Out of scope for this library; also the feature most affected by tvOS point releases. |
+| Absolute channel selection | Only `ChannelIncrement` / `ChannelDecrement`. |
+
+---
+
+## 5. Licensing
+
+pyatv is MIT (Pierre StÂhl). Reuse in a proprietary product is fine provided copies carry the notice. Protocol *facts* ó type bytes, field names, enum values ó are facts about Apple's wire format and not pyatv's to license; a codec written from the format description carries no obligation, while structural transliteration of `opack.py` does. Attribute regardless: one `THIRD-PARTY-NOTICES.txt` entry.
 
 **Source your SRP6a group parameters and TLV8 layout from pyatv, not from Apple's HAP PDF.** The freely downloadable HAP specification is the Non-Commercial edition and its terms are separate. If this ships commercially, keep a note of which source you used.
 
 ---
 
-## 5. Documentation errata
+## 6. Version pinning
+
+Everything in this brief is `pyatv 0.18.0`. If you upgrade the vendored tree, re-check in this order ó these are the things that have actually moved between releases:
+
+1. `HidCommand` ó values may be appended
+2. `MediaControlCommand` and `MediaControlFlags` ó flags 0x0040 and 0x0080 are currently unidentified
+3. The `_systemInfo` payload, especially `_i` handling
+4. Session bring-up order
+
+Do not assume a value exists in 0.18.0 because a newer release has it, and do not assume a newer release still has a value because 0.18.0 does.
+
+---
+
+## 7. Documentation errata
 
 pyatv.dev's protocol page is stale relative to the source and contains transcription errors. Background only; the vendored source is authoritative.
 
@@ -264,20 +367,22 @@ pyatv.dev's protocol page is stale relative to the source and contains transcrip
 - The endless-dictionary example `0xEF4163416403` decodes to `{"c":"d"}`, not `{"a":"b"}`
 - Prose says pairing begins with `PA_Start`/`PA_Next`; the frame table and the source use `PS_*`/`PV_*`
 - `_tiStart` and `_rT` are absent from the page entirely
-- The `_hidC` enum on the page is out of date
+- The page's `_hidC` list and the `MediaControlCommand` surface are both incomplete relative to `api.py`
 
 ---
 
-## 6. Copilot working notes
+## 8. Copilot working notes
 
-**Session scope.** One thread per work package, ending on green tests. The packages are sized so no session needs to hold the whole protocol at once ‚Äî this is about keeping the citation discipline intact, which is the first thing to degrade in a long thread.
+**Session scope.** One thread per work package, ending on green tests. The packages are sized so no session needs to hold the whole protocol at once ó this is about keeping the citation discipline intact, which is the first thing to degrade in a long thread.
 
 **Getting it to read rather than recall.** Reference the pyatv sources explicitly with `#file:` at the start of each session. A session that has not read `opack.py` will still write an OPACK codec, and it will look right.
 
-**Verification command.** Give it `dotnet test` explicitly so it closes the loop without you brokering each round. Confirm it is running both TFMs and not just the first ‚Äî a `net10.0`-only green is a half-verified package.
+**Verification command.** Give it `dotnet test` explicitly so it closes the loop without you brokering each round. Confirm it is running both TFMs and not just the first ó a `net10.0`-only green is a half-verified package.
 
 **Opening prompt shape for WP1:**
 
-> Port `#file:reference/pyatv-0.18.0/pyatv/support/opack.py` to `src/AppleTv.Companion/Opack/`. Then port all 41 tests from `#file:reference/pyatv-0.18.0/tests/support/test_opack.py` to MSTest, using `[DataRow]` where the pyatv tests are parameterised. Every type byte constant gets a comment citing the pyatv file and line. Target both `net10.0` and `net472` ‚Äî no `#if` in the codec. Run `dotnet test` until green on both.
+> Port `#file:reference/pyatv-0.18.0/pyatv/support/opack.py` to `src/AppleTv.Companion/Opack/`. Then port all 41 tests from `#file:reference/pyatv-0.18.0/tests/support/test_opack.py` to MSTest, using `[DataRow]` where the pyatv tests are parameterised. Every type byte constant gets a comment citing the pyatv file and line. Target both `net10.0` and `net472` ó no `#if` in the codec. Run `dotnet test` until green on both.
 
-**The review step that cannot be delegated.** Before merging each package, check the protocol constants by hand against the vendored source. Roughly twenty minutes per package. This is the only defence against a constant that was invented, asserted, and passed ‚Äî and it cannot be done by the thing that wrote the code, regardless of which model is behind it.
+**When a value cannot be found.** Stop and say so. Do not infer from a physical remote's button layout, from the pyatv.dev page, from a later pyatv release, or from this brief. A capture (WP10) is the only thing that turns an absent value into a citable one.
+
+**The review step that cannot be delegated.** Before merging each package, check the protocol constants by hand against the vendored source. Roughly twenty minutes per package. This is the only defence against a constant that was invented, asserted, and passed ó and it cannot be done by the thing that wrote the code, regardless of which model is behind it.

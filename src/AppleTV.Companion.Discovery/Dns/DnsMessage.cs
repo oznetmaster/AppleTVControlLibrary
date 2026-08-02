@@ -7,12 +7,12 @@ namespace AppleTvControlLibrary.Discovery.Dns;
 public sealed class DnsMessage
 	{
 	// pyatv/support/dns.py:364 (default flags=0x0120)
-	private const ushort DefaultFlags = 0x0120;
+	private const ushort DEFAULT_FLAGS = 0x0120;
 
 	/// <summary>Initializes a new instance of the <see cref="DnsMessage"/> class.</summary>
 	/// <param name="msgId">The message id.</param>
 	/// <param name="flags">The message flags.</param>
-	public DnsMessage (ushort msgId = 0, ushort flags = DefaultFlags)
+	public DnsMessage (ushort msgId = 0, ushort flags = DEFAULT_FLAGS)
 		{
 		this.MsgId = msgId;
 		this.Flags = flags;

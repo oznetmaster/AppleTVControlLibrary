@@ -11,8 +11,9 @@ namespace AppleTvControlLibrary.Discovery.Mdns;
 // pyatv/core/mdns.py:106-174 (ServiceParser)
 public sealed class ServiceParser
 	{
+	/// <summary>The DNS-SD device-info service type.</summary>
 	// pyatv/core/mdns.py:57 (DEVICE_INFO_SERVICE)
-	public const string DeviceInfoService = "_device-info._tcp.local";
+	public const string DEVICE_INFO_SERVICE = "_device-info._tcp.local";
 
 	private readonly Dictionary<string, Dictionary<QueryType, List<DnsResource>>> _table = new Dictionary<string, Dictionary<QueryType, List<DnsResource>>> ();
 	private readonly Dictionary<string, string> _ptrs = new Dictionary<string, string> ();
@@ -31,7 +32,10 @@ public sealed class ServiceParser
 
 		foreach (DnsResource record in records)
 			{
+			// CA1865 (StartsWith(char)) is not available on net472; this must build on both TFMs.
+#pragma warning disable CA1865
 			if (record.QType == QueryType.Ptr && record.QName.StartsWith ("_", StringComparison.Ordinal))
+#pragma warning restore CA1865
 				{
 				this._ptrs[record.QName] = (string)record.Rd;
 				}

@@ -93,6 +93,19 @@ public sealed class FakeCompanionOpackDevice
 		private set;
 		}
 
+	// tests/fake_device/companion.py:350-351 (self.state.volume)
+	private double _volume;
+
+	/// <summary>Gets or sets a value indicating whether volume control (<c>_mcF</c>'s Volume bit) is advertised.</summary>
+	public bool SupportsVolumeControl
+		{
+		get;
+		set;
+		} = true;
+
+	/// <summary>Gets the current volume level, in percent ([0.0-100.0]).</summary>
+	public double Volume => _volume;
+
 	/// <summary>Sets the system status reported by <c>FetchAttentionState</c>.</summary>
 	/// <param name="status">The new status.</param>
 	public void SetSystemStatus (SystemStatus status)
@@ -121,6 +134,7 @@ public sealed class FakeCompanionOpackDevice
 			"_TISTART" when messageType == (long)MessageType.Request => HandleTextInputStart (request),
 			"_TISTOP" when messageType == (long)MessageType.Request => HandleTextInputStop (request),
 			"_HIDC" => HandleHidCommand (request),
+			"_MCC" => HandleMediaControlCommand (request),
 			"_INTEREST" => HandleInterest (request),
 			"FETCHATTENTIONSTATE" => HandleFetchAttentionState (request),
 			_ => HandleNotSupported (request),
@@ -250,6 +264,42 @@ public sealed class FakeCompanionOpackDevice
 			}
 
 		return Response (request, new Dictionary<object, object?> ());
+		}
+
+	// tests/fake_device/companion.py:457-467 (handle__mcc, trimmed to GetVolume/SetVolume)
+	private Dictionary<object, object?> HandleMediaControlCommand (Dictionary<object, object?> request)
+		{
+		var content = (Dictionary<object, object?>)request["_c"]!;
+		var mcc = (MediaControlCommand)ToLong (content["_mcc"]);
+
+		if (mcc == MediaControlCommand.SetVolume)
+			{
+			double newVolume = ToDouble (content["_vol"]) * 100.0;
+			_volume = Math.Min (Math.Max (newVolume, 0.0), 100.0);
+			return Response (request, new Dictionary<object, object?> ());
+			}
+
+		if (mcc == MediaControlCommand.GetVolume)
+			{
+			return Response (request, new Dictionary<object, object?> { { "_vol", _volume / 100.0 } });
+			}
+
+		return Response (request, new Dictionary<object, object?> ());
+		}
+
+	// pyatv/support/opack.py:31-33, 195-201 (float pack/unpack)
+	private static double ToDouble (object? value)
+		{
+		return value switch
+			{
+			null => throw new ArgumentNullException (nameof (value)),
+			double d => d,
+			float f => f,
+			long l => l,
+			int i => i,
+			AppleTvControlLibrary.Opack.SizedInteger si => si.Value,
+			_ => Convert.ToDouble (value, System.Globalization.CultureInfo.InvariantCulture),
+			};
 		}
 
 	// tests/fake_device/companion.py:497-508 (handle__interest)

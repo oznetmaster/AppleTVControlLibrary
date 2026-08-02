@@ -17,6 +17,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	private CompanionDiscoveryResult? _selectedDevice;
 	private string _statusMessage = "Not connected.";
 	private bool _isBusy;
+	private bool _isMuted;
 
 	/// <summary>Initializes a new instance of the <see cref="MainViewModel"/> class.</summary>
 	public MainViewModel ()
@@ -39,6 +40,8 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		this.VolumeUpButton = this.CreateHidCommand (HidCommand.VolumeUp);
 		this.VolumeDownButton = this.CreateHidCommand (HidCommand.VolumeDown);
 		this.SiriButton = this.CreateHidCommand (HidCommand.Siri);
+
+		this.MuteButton = new RelayCommand (this.ToggleMute, () => this.IsConnected);
 		}
 
 	/// <summary>Gets the discovered devices from the most recent scan.</summary>
@@ -173,6 +176,19 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		get;
 		}
 
+	/// <summary>Gets the Mute remote button command.</summary>
+	public RelayCommand MuteButton
+		{
+		get;
+		}
+
+	/// <summary>Gets a value indicating whether the device is currently considered muted.</summary>
+	public bool IsMuted
+		{
+		get => this._isMuted;
+		private set => this.SetProperty (ref this._isMuted, value);
+		}
+
 	/// <summary>
 	/// Invoked when pairing is required and a PIN must be collected from the user. The WPF view
 	/// wires this to show <c>PinEntryDialog</c> and return the entered PIN, or <see langword="null"/>
@@ -262,6 +278,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			this.StatusMessage = $"Connected to {stored.Name}.";
 			this.OnPropertyChanged (nameof (this.IsConnected));
 			this.DisconnectCommand.RaiseCanExecuteChanged ();
+			this.MuteButton.RaiseCanExecuteChanged ();
 			}
 		catch (Exception ex)
 			{
@@ -277,8 +294,23 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		{
 		this._deviceManager.Disconnect ();
 		this.StatusMessage = "Disconnected.";
+		this.IsMuted = false;
 		this.OnPropertyChanged (nameof (this.IsConnected));
 		this.DisconnectCommand.RaiseCanExecuteChanged ();
+		this.MuteButton.RaiseCanExecuteChanged ();
+		}
+
+	private void ToggleMute ()
+		{
+		try
+			{
+			this.IsMuted = this._deviceManager.ToggleMute ();
+			this.StatusMessage = this.IsMuted ? "Muted." : "Unmuted.";
+			}
+		catch (Exception ex)
+			{
+			this.StatusMessage = $"Mute failed: {ex.Message}";
+			}
 		}
 
 	private RelayCommand CreateHidCommand (HidCommand command)

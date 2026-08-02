@@ -7,5 +7,9 @@
   <Folder Name="/tests/">
     <Project Path="tests/AppleTV.Companion.FakeDevice/AppleTV.Companion.FakeDevice.csproj" />
     <Project Path="tests/AppleTV.Companion.Tests/AppleTV.Companion.Tests.csproj" />
+    <Project Path="tests/AppleTV.Companion.LiveTests/AppleTV.Companion.LiveTests.csproj" />
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/AppleTV.Companion.ScanTool/AppleTV.Companion.ScanTool.csproj" />
   </Folder>
 </Solution>

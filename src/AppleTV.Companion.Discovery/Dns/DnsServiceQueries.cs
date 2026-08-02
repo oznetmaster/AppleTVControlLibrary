@@ -7,10 +7,10 @@ public static class DnsServiceQueries
 	{
 	/// <summary>Well-known sleep proxy service used to detect sleeping devices.</summary>
 	// pyatv/core/mdns.py:30 (SLEEP_PROXY_SERVICE)
-	public const string SleepProxyService = "_sleep-proxy._udp.local";
+	public const string SLEEP_PROXY_SERVICE = "_sleep-proxy._udp.local";
 
 	// pyatv/core/mdns.py:28 (SERVICES_PER_MSG)
-	private const int ServicesPerMessage = 3;
+	private const int SERVICES_PER_MESSAGE = 3;
 
 	/// <summary>Creates service request messages, batching services into groups of three.</summary>
 	/// <param name="services">The service types to query for.</param>
@@ -20,18 +20,18 @@ public static class DnsServiceQueries
 	public static List<byte[]> CreateServiceQueries (IReadOnlyList<string> services, QueryType qtype)
 		{
 		List<byte[]> queries = new List<byte[]> ();
-		int messageCount = (int)System.Math.Ceiling (services.Count / (double)ServicesPerMessage);
+		int messageCount = (int)System.Math.Ceiling (services.Count / (double)SERVICES_PER_MESSAGE);
 		for (int i = 0; i < messageCount; i++)
 			{
 			DnsMessage msg = new DnsMessage (0x35FF);
-			int start = i * ServicesPerMessage;
+			int start = i * SERVICES_PER_MESSAGE;
 			int end = System.Math.Min (start + 4, services.Count);
 			for (int j = start; j < end; j++)
 				{
 				msg.Questions.Add (new DnsQuestion (services[j], qtype, 0x8001));
 				}
 
-			msg.Questions.Add (new DnsQuestion (SleepProxyService, qtype, 0x8001));
+			msg.Questions.Add (new DnsQuestion (SLEEP_PROXY_SERVICE, qtype, 0x8001));
 
 			queries.Add (msg.Pack ());
 			}

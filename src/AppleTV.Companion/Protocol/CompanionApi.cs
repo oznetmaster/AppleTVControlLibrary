@@ -53,6 +53,75 @@ public enum HidCommand
 	}
 
 /// <summary>
+/// Media Control command constants, used for playback and volume control (as opposed to the
+/// remote-button surface exposed by <see cref="HidCommand"/>).
+/// </summary>
+// pyatv/protocols/companion/api.py:59-73 (MediaControlCommand)
+public enum MediaControlCommand
+	{
+	/// <summary>pyatv/protocols/companion/api.py:62</summary>
+	Play = 1,
+	/// <summary>pyatv/protocols/companion/api.py:63</summary>
+	Pause = 2,
+	/// <summary>pyatv/protocols/companion/api.py:64</summary>
+	NextTrack = 3,
+	/// <summary>pyatv/protocols/companion/api.py:65</summary>
+	PreviousTrack = 4,
+	/// <summary>pyatv/protocols/companion/api.py:66</summary>
+	GetVolume = 5,
+	/// <summary>pyatv/protocols/companion/api.py:67</summary>
+	SetVolume = 6,
+	/// <summary>pyatv/protocols/companion/api.py:68</summary>
+	SkipBy = 7,
+	/// <summary>pyatv/protocols/companion/api.py:69</summary>
+	FastForwardBegin = 8,
+	/// <summary>pyatv/protocols/companion/api.py:70</summary>
+	FastForwardEnd = 9,
+	/// <summary>pyatv/protocols/companion/api.py:71</summary>
+	RewindBegin = 10,
+	/// <summary>pyatv/protocols/companion/api.py:72</summary>
+	RewindEnd = 11,
+	/// <summary>pyatv/protocols/companion/api.py:73</summary>
+	GetCaptionSettings = 12,
+	/// <summary>pyatv/protocols/companion/api.py:74</summary>
+	SetCaptionSettings = 13,
+	}
+
+/// <summary>
+/// Bitmask flags advertised by the <c>_iMC</c> event (<c>_mcF</c> field), indicating which media
+/// controls the currently active app on the device supports. Notably, <see cref="Volume"/> being
+/// clear means the device has no Companion-addressable volume/mute control at all (audio is
+/// managed over HDMI-CEC instead), so callers must check this before using
+/// <see cref="MediaControlCommand.GetVolume"/>/<see cref="MediaControlCommand.SetVolume"/>.
+/// </summary>
+// pyatv/protocols/companion/__init__.py:87-99 (MediaControlFlags)
+[Flags]
+public enum MediaControlCapabilities
+	{
+	/// <summary>pyatv/protocols/companion/__init__.py:90</summary>
+	NoControls = 0x0000,
+	/// <summary>pyatv/protocols/companion/__init__.py:91</summary>
+	Play = 0x0001,
+	/// <summary>pyatv/protocols/companion/__init__.py:92</summary>
+	Pause = 0x0002,
+	/// <summary>pyatv/protocols/companion/__init__.py:93</summary>
+	NextTrack = 0x0004,
+	/// <summary>pyatv/protocols/companion/__init__.py:94</summary>
+	PreviousTrack = 0x0008,
+	/// <summary>pyatv/protocols/companion/__init__.py:95</summary>
+	FastForward = 0x0010,
+	/// <summary>pyatv/protocols/companion/__init__.py:96</summary>
+	Rewind = 0x0020,
+	// 0x0040 and 0x0080 are unused/unknown in pyatv (pyatv/protocols/companion/__init__.py:97-98).
+	/// <summary>pyatv/protocols/companion/__init__.py:99</summary>
+	Volume = 0x0100,
+	/// <summary>pyatv/protocols/companion/__init__.py:100</summary>
+	SkipForward = 0x0200,
+	/// <summary>pyatv/protocols/companion/__init__.py:101</summary>
+	SkipBackward = 0x0400,
+	}
+
+/// <summary>
 /// Current system state, as returned by <see cref="CompanionApi.FetchAttentionState"/>.
 /// </summary>
 // pyatv/protocols/companion/api.py:77-85 (SystemStatus)
@@ -102,14 +171,14 @@ public enum InputAction
 
 /// <summary>
 /// High level implementation of the Companion API: system info, session lifecycle, HID
-/// input, and attention state.
+/// input, media control (volume) and attention state.
 /// </summary>
 /// <remarks>
-/// App launching, media control, text input and account switching are intentionally out of
-/// scope for this port (Companion-only, per the porting brief).
+/// App launching, text input and account switching are intentionally out of scope for this
+/// port (Companion-only, per the porting brief).
 /// </remarks>
 // pyatv/protocols/companion/api.py:94-475 (CompanionAPI, trimmed to WP6 scope)
-public sealed class CompanionApi
+public sealed class CompanionApi : ICompanionProtocolListener
 	{
 	// pyatv/protocols/companion/api.py:88-89
 	private const double TOUCHPAD_WIDTH = 1000.0;
@@ -122,6 +191,10 @@ public sealed class CompanionApi
 	private readonly HapCredentials _credentials;
 	private readonly long _baseTimestamp;
 	private readonly List<string> _subscribedEvents = new ();
+
+	// pyatv/protocols/companion/__init__.py:439, 448 (self._volume, zeroed when flag absent)
+	private MediaControlCapabilities _mediaControlFlags = MediaControlCapabilities.NoControls;
+	private double _volume;
 
 	/// <summary>Initializes a new instance of the <see cref="CompanionApi"/> class.</summary>
 	/// <param name="protocol">The underlying Companion protocol instance.</param>
@@ -152,6 +225,9 @@ public sealed class CompanionApi
 
 		// pyatv/protocols/companion/api.py:107 (self._base_timestamp = time.time_ns())
 		_baseTimestamp = DateTime.UtcNow.Ticks * 100;
+
+		// pyatv/protocols/companion/__init__.py:436 (self.api.listen_to("_iMC", ...))
+		_protocol.Listener = this;
 		}
 
 	/// <summary>Gets the stable identifier used as the <c>_systemInfo</c> <c>_i</c> field.</summary>
@@ -440,6 +516,111 @@ public sealed class CompanionApi
 
 		long state = ToLong (content["state"]);
 		return (SystemStatus)state;
+		}
+
+	/// <summary>Send a media control command to the device.</summary>
+	/// <param name="command">The media control command to send.</param>
+	/// <param name="args">Additional command-specific arguments, if any.</param>
+	/// <returns>The decoded response content (the message's <c>_c</c> field).</returns>
+	// pyatv/protocols/companion/api.py:395-399 (mediacontrol_command)
+	public Dictionary<object, object?> MediaControlCommand (MediaControlCommand command, Dictionary<string, object?>? args = null)
+		{
+		Dictionary<string, object?> content = new () { { "_mcc", (int)command } };
+		if (args is not null)
+			{
+			foreach (var kvp in args)
+				{
+				content[kvp.Key] = kvp.Value;
+				}
+			}
+
+		var resp = SendCommand ("_mcc", content);
+		if (!resp.TryGetValue ("_c", out object? contentObj) || contentObj is not Dictionary<object, object?> respContent)
+			{
+			throw new ProtocolException ("missing content");
+			}
+
+		return respContent;
+		}
+
+	/// <summary>
+	/// Gets a value indicating whether the device currently advertises volume control support
+	/// via the <c>_iMC</c> event's <c>_mcF</c> bitmask (<see cref="MediaControlCapabilities.Volume"/>).
+	/// When this is <see langword="false"/>, audio is managed outside Companion (e.g. HDMI-CEC)
+	/// and <see cref="GetVolume"/>/<see cref="SetVolume"/> must not be used.
+	/// </summary>
+	// pyatv/protocols/companion/__init__.py:439-449 (_handle_control_flag_update)
+	public bool IsVolumeControlSupported => (_mediaControlFlags & MediaControlCapabilities.Volume) != 0;
+
+	/// <summary>Gets the current volume level, in percent ([0.0-100.0]).</summary>
+	// pyatv/protocols/companion/__init__.py:441-443 (GetVolume, resp["_c"]["_vol"] * 100.0)
+	public double GetVolume ()
+		{
+		Dictionary<object, object?> content = MediaControlCommand (Protocol.MediaControlCommand.GetVolume);
+		_volume = ToDouble (content["_vol"]) * 100.0;
+		return _volume;
+		}
+
+	/// <summary>Sets the current volume level.</summary>
+	/// <param name="level">The new volume level, in percent ([0.0-100.0]).</param>
+	// pyatv/protocols/companion/__init__.py:459-467 (set_volume, level / 100.0)
+	public void SetVolume (double level)
+		{
+		MediaControlCommand (Protocol.MediaControlCommand.SetVolume, new Dictionary<string, object?> { { "_vol", level / 100.0 } });
+		_volume = level;
+		}
+
+	/// <summary>
+	/// Toggles mute by saving the current volume and setting it to zero, or restoring the
+	/// previously saved volume. Requires <see cref="IsVolumeControlSupported"/>.
+	/// </summary>
+	/// <returns><see langword="true"/> if the device is now muted, otherwise <see langword="false"/>.</returns>
+	public bool ToggleMute ()
+		{
+		if (!IsVolumeControlSupported)
+			{
+			throw new ProtocolException ("Device does not advertise volume control support (_mcF missing Volume flag)");
+			}
+
+		if (_volume > 0.0)
+			{
+			_preMuteVolume = _volume;
+			SetVolume (0.0);
+			return true;
+			}
+
+		SetVolume (_preMuteVolume);
+		return false;
+		}
+
+	// pyatv/protocols/companion/__init__.py:433-436 (self.api.listen_to("_iMC", ...))
+	private double _preMuteVolume;
+
+	/// <inheritdoc/>
+	// pyatv/protocols/companion/__init__.py:438-449 (_handle_control_flag_update)
+	void ICompanionProtocolListener.EventReceived (string eventName, Dictionary<object, object?> data)
+		{
+		if (string.Equals (eventName, "_iMC", StringComparison.Ordinal) && data.TryGetValue ("_mcF", out object? mcf))
+			{
+			_mediaControlFlags = (MediaControlCapabilities)ToLong (mcf);
+			}
+		}
+
+	// Companion OPACK floats unpack as a plain double (or int/long for integral values via a
+	// SizedInteger), so accept either.
+	// pyatv/support/opack.py:31-33, 195-201 (float pack/unpack)
+	private static double ToDouble (object? value)
+		{
+		return value switch
+			{
+			null => throw new ArgumentNullException (nameof (value)),
+			double d => d,
+			float f => f,
+			long l => l,
+			int i => i,
+			Opack.SizedInteger si => si.Value,
+			_ => Convert.ToDouble (value, System.Globalization.CultureInfo.InvariantCulture),
+			};
 		}
 
 	// Companion OPACK integers unpack as a SizedInteger (or a boxed long for small tag-encoded
