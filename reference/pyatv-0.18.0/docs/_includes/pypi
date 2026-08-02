@@ -1,5 +1,0 @@
-{%- assign package = include.package -%}
-{%- capture link -%}
-  <a href="https://pypi.org/project/{{ package }}">{{ package }}</a>
-{%- endcapture -%}
-{{ link }}
