@@ -46,8 +46,8 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		this.VolumeDownButton = this.CreateHidCommand (HidCommand.VolumeDown, () => this.IsConnected && this.IsVolumeControlSupported);
 		this.SiriButton = this.CreateHidCommand (HidCommand.Siri);
 
-		this.MuteButton = new RelayCommand (this.ToggleMute, () => this.IsConnected && this.IsVolumeControlSupported);
-		this.PowerButton = new RelayCommand (this.TogglePower, () => this.IsConnected);
+		this.MuteButton = new RelayCommand (async () => await this.ToggleMuteAsync ().ConfigureAwait (true), () => this.IsConnected && this.IsVolumeControlSupported);
+		this.PowerButton = new RelayCommand (async () => await this.TogglePowerAsync ().ConfigureAwait (true), () => this.IsConnected);
 
 		this._deviceManager.MediaControlCapabilitiesChanged += (_, _) =>
 			{
@@ -72,6 +72,16 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		{
 		this.IsPowerStateKnown = status != SystemStatus.Unknown;
 		this.IsAwake = status is not (SystemStatus.Asleep or SystemStatus.Unknown);
+
+		// The transient "Waking..."/"Sleeping..." message set by TogglePower() must be replaced once a
+		// confirming pushed status arrives, otherwise it is left showing forever even after the real
+		// state (IsAwake/IsPowerStateKnown) has updated correctly.
+		this.StatusMessage = status switch
+			{
+			SystemStatus.Unknown => this.StatusMessage,
+			SystemStatus.Asleep => "Asleep.",
+			_ => "Awake.",
+			};
 		}
 
 	/// <summary>Gets the discovered devices from the most recent scan.</summary>
@@ -391,11 +401,11 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		this.RaiseRemoteButtonStates ();
 		}
 
-	private void ToggleMute ()
+	private async Task ToggleMuteAsync ()
 		{
 		try
 			{
-			this.IsMuted = this._deviceManager.ToggleMute ();
+			this.IsMuted = await Task.Run (() => this._deviceManager.ToggleMute ()).ConfigureAwait (true);
 			this.StatusMessage = this.IsMuted ? "Muted." : "Unmuted.";
 			}
 		catch (Exception ex)
@@ -438,7 +448,10 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// alone does not.
 	/// </summary>
 	/// <param name="action">The click gesture: single tap, double tap, or press-and-hold.</param>
-	public void SendTouchClick (InputAction action)
+	// SendTouchClick ultimately sends a "_hidC" command via CompanionApi.SendClick, which blocks on
+	// CompanionProtocol.ExchangeOpack (see the remark on TogglePowerAsync above), so this is run on a
+	// background thread rather than directly on the calling (UI) thread.
+	public async void SendTouchClick (InputAction action)
 		{
 		if (!this.IsConnected)
 			{
@@ -447,7 +460,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 
 		try
 			{
-			this._deviceManager.SendTouchClick (action);
+			await Task.Run (() => this._deviceManager.SendTouchClick (action)).ConfigureAwait (true);
 			}
 		catch (Exception ex)
 			{
@@ -479,13 +492,22 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		return (x, y);
 		}
 
-	private void TogglePower ()
+	// pyatv/protocols/companion/__init__.py (_handle_system_status_update) — line 249-256 as of pyatv 0.18.0: Wake/Sleep
+	// HID commands are single fire-and-forget events with no ack, so the real power state must come from the pushed
+	// SystemStatus/TVSystemStatus event via ApplySystemStatus(...), not from the command that was just sent. Showing
+	// "Waking..."/IsAwake optimistically here left the UI stuck if the device never pushed a confirming status.
+	//
+	// CompanionApi.SendHidCommand/TogglePower ultimately block on CompanionProtocol.ExchangeOpack, which waits
+	// (synchronously) up to ResponseTimeout for a reply. Calling that directly from a RelayCommand blocked the WPF
+	// dispatcher thread for the whole timeout whenever the device was slow to respond (e.g. while waking), which
+	// froze every other button in the UI, not just the power button. Running the send on a background thread keeps
+	// the UI responsive regardless of how long the device takes to answer.
+	private async Task TogglePowerAsync ()
 		{
 		try
 			{
-			this.IsAwake = this._deviceManager.TogglePower ();
-			this.IsPowerStateKnown = true;
-			this.StatusMessage = this.IsAwake ? "Waking..." : "Sleeping...";
+			bool requestedWake = await Task.Run (() => this._deviceManager.TogglePower ()).ConfigureAwait (true);
+			this.StatusMessage = requestedWake ? "Waking..." : "Sleeping...";
 			}
 		catch (Exception ex)
 			{
@@ -497,11 +519,11 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	private RelayCommand CreateHidCommand (HidCommand command, Func<bool>? canExecute = null)
 		{
 		return new RelayCommand (
-			() =>
+			async () =>
 				{
 				try
 					{
-					this._deviceManager.SendHidCommand (command);
+					await Task.Run (() => this._deviceManager.SendHidCommand (command)).ConfigureAwait (true);
 					}
 				catch (Exception ex)
 					{

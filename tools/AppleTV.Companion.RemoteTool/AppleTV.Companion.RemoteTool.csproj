@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>AppleTvControlLibrary.RemoteTool</RootNamespace>
+		<AssemblyName>AppleTvControlLibrary.RemoteTool</AssemblyName>
+		<TargetFramework>net10.0</TargetFramework>
+		<LangVersion>13.0</LangVersion>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\AppleTV.Companion\AppleTV.Companion.csproj" />
+		<ProjectReference Include="..\..\src\AppleTV.Companion.Discovery\AppleTV.Companion.Discovery.csproj" />
+	</ItemGroup>
+
+</Project>
