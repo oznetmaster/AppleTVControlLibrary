@@ -8,6 +8,11 @@
 # or publish this tree - it is not part of this project's license and must not ship with it.
 /reference/
 
+# DocFX metadata and rendered site output are generated locally/CI. Metadata embeds absolute
+# source paths, so publishing it would disclose local machine layout without benefiting consumers.
+/src/AppleTV.Companion/docfx/api/
+/src/AppleTV.Companion/docfx/_site/
+
 # User-specific files
 *.rsuser
 *.suo
