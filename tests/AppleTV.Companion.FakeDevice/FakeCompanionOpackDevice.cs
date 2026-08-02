@@ -113,6 +113,46 @@ public sealed class FakeCompanionOpackDevice
 	/// <summary>Gets the current volume level, in percent ([0.0-100.0]).</summary>
 	public double Volume => _volume;
 
+	/// <summary>Gets the bundle identifier most recently launched via <c>_launchApp</c>, if any.</summary>
+	// tests/fake_device/companion.py:361-364 (handle__launchapp, self.state.active_app)
+	public string? LaunchedBundleId
+		{
+		get;
+		private set;
+		}
+
+	/// <summary>Gets the URL/URL scheme most recently launched via <c>_launchApp</c>, if any.</summary>
+	// tests/fake_device/companion.py:365-366 (handle__launchapp, self.state.open_url)
+	public string? OpenedUrl
+		{
+		get;
+		private set;
+		}
+
+	/// <summary>Gets or sets the installed apps reported by <c>FetchLaunchableApplicationsEvent</c>, as a bundle-identifier-to-display-name mapping.</summary>
+	// tests/fake_device/companion.py:93 (self.installed_apps: Dict[str, str] = {}), 573-575 (set_installed_apps)
+	public Dictionary<string, string> InstalledApps
+		{
+		get;
+		set;
+		} = new ();
+
+	/// <summary>Gets the account identifier most recently switched to via <c>SwitchUserAccountEvent</c>, if any.</summary>
+	// tests/fake_device/companion.py:372-374 (handle_switchuseraccountevent, self.state.active_account)
+	public string? ActiveAccountId
+		{
+		get;
+		private set;
+		}
+
+	/// <summary>Gets or sets the available user accounts reported by <c>FetchUserAccountsEvent</c>, as an account-identifier-to-display-name mapping.</summary>
+	// tests/fake_device/companion.py:577-579 (set_available_accounts, self.state.available_accounts)
+	public Dictionary<string, string> AvailableAccounts
+		{
+		get;
+		set;
+		} = new ();
+
 	// tests/fake_device/companion.py:97 (INITIAL_RTI_TEXT = "Fake Companion Keyboard Text")
 	private const string INITIAL_RTI_TEXT = "Fake Companion Keyboard Text";
 
@@ -238,6 +278,10 @@ public sealed class FakeCompanionOpackDevice
 			"_TIC" when messageType == (long)MessageType.Event => HandleTextInputCommand (request),
 			"_HIDC" => HandleHidCommand (request),
 			"_MCC" => HandleMediaControlCommand (request),
+			"_LAUNCHAPP" => HandleLaunchApp (request),
+			"FETCHLAUNCHABLEAPPLICATIONSEVENT" => HandleFetchLaunchableApplicationsEvent (request),
+			"SWITCHUSERACCOUNTEVENT" => HandleSwitchUserAccountEvent (request),
+			"FETCHUSERACCOUNTSEVENT" => HandleFetchUserAccountsEvent (request),
 			"_INTEREST" => HandleInterest (request),
 			"FETCHATTENTIONSTATE" => HandleFetchAttentionState (request),
 			_ => HandleNotSupported (request),
@@ -463,6 +507,60 @@ public sealed class FakeCompanionOpackDevice
 			}
 
 		return Response (request, new Dictionary<object, object?> ());
+		}
+
+	// tests/fake_device/companion.py:360-367 (handle__launchapp)
+	private Dictionary<object, object?> HandleLaunchApp (Dictionary<object, object?> request)
+		{
+		var content = (Dictionary<object, object?>)request["_c"]!;
+
+		if (content.TryGetValue ("_bundleID", out object? bundleId) && bundleId is string bundleIdStr)
+			{
+			LaunchedBundleId = bundleIdStr;
+			}
+		else if (content.TryGetValue ("_urlS", out object? url) && url is string urlStr)
+			{
+			OpenedUrl = urlStr;
+			}
+
+		return Response (request, new Dictionary<object, object?> ());
+		}
+
+	// tests/fake_device/companion.py:369-370 (handle_fetchlaunchableapplicationsevent)
+	private Dictionary<object, object?> HandleFetchLaunchableApplicationsEvent (Dictionary<object, object?> request)
+		{
+		Dictionary<object, object?> content = new ();
+		foreach (var kvp in InstalledApps)
+			{
+			content[kvp.Key] = kvp.Value;
+			}
+
+		return Response (request, content);
+		}
+
+	// tests/fake_device/companion.py:372-375 (handle_switchuseraccountevent)
+	private Dictionary<object, object?> HandleSwitchUserAccountEvent (Dictionary<object, object?> request)
+		{
+		var content = (Dictionary<object, object?>)request["_c"]!;
+
+		if (content.TryGetValue ("SwitchAccountID", out object? accountId) && accountId is string accountIdStr)
+			{
+			ActiveAccountId = accountIdStr;
+			}
+
+		return Response (request, new Dictionary<object, object?> ());
+		}
+
+	// tests/fake_device/companion.py:377-378 (handle_fetchuseraccountsevent)
+	private Dictionary<object, object?> HandleFetchUserAccountsEvent (Dictionary<object, object?> request)
+		{
+		Dictionary<object, object?> content = new ();
+		foreach (var kvp in AvailableAccounts)
+			{
+			content[kvp.Key] = kvp.Value;
+			}
+
+		return Response (request, content);
 		}
 
 	// pyatv/support/opack.py — line 31-33 as of pyatv 0.18.0, 195-201 (float pack/unpack)

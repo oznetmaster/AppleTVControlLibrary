@@ -190,11 +190,12 @@ public enum KeyboardFocusState
 
 /// <summary>
 /// High level implementation of the Companion API: system info, session lifecycle, HID
-/// input, media control (volume) and attention state.
+/// input, media control (volume), attention state, app listing/launching, and account
+/// listing/switching.
 /// </summary>
 /// <remarks>
-/// App launching, text input and account switching are intentionally out of scope for this
-/// port (Companion-only, per the porting brief).
+/// Text input is intentionally out of scope for this port (Companion-only, per the porting
+/// brief).
 /// </remarks>
 // pyatv/protocols/companion/api.py (CompanionAPI, trimmed to WP6 scope) — line 94-475 as of pyatv 0.18.0
 public sealed class CompanionApi : ICompanionProtocolListener
@@ -733,6 +734,107 @@ public sealed class CompanionApi : ICompanionProtocolListener
 
 		long state = ToLong (content["state"]);
 		return (SystemStatus)state;
+		}
+
+	/// <summary>
+	/// Launch an app on the device, by bundle identifier or by URL/URL scheme (for deep-linking
+	/// into content rather than opening an app cold).
+	/// </summary>
+	/// <param name="bundleIdOrUrl">
+	/// A bundle identifier (e.g. <c>com.apple.TVWatchList</c>), or a URL/URL scheme to open.
+	/// </param>
+	// pyatv/protocols/companion/api.py (launch_app) — line 279-289 as of pyatv 0.18.0
+	// pyatv/support/url.py (is_url_or_scheme, bool(urlparse(url).scheme)) — line 11-14 as of pyatv 0.18.0
+	public void LaunchApp (string bundleIdOrUrl)
+		{
+		string launchCommandKey = Uri.TryCreate (bundleIdOrUrl, UriKind.Absolute, out Uri? uri) && !string.IsNullOrEmpty (uri.Scheme)
+			? "_urlS"
+			: "_bundleID";
+
+		SendCommand (
+			"_launchApp",
+			new Dictionary<string, object?>
+				{
+				{ launchCommandKey, bundleIdOrUrl },
+				});
+		}
+
+	/// <summary>
+	/// Fetch the list of launchable apps on the device, as a mapping of bundle identifier to
+	/// display name.
+	/// </summary>
+	/// <returns>
+	/// A mapping of bundle identifier to display name. This is the only Companion feature with a
+	/// confirmed history of returning empty on some tvOS point releases, so callers must treat an
+	/// empty (or missing) result as a normal outcome rather than an error and must not hard-depend
+	/// on the list being non-empty.
+	/// </returns>
+	// pyatv/protocols/companion/api.py (app_list, FetchLaunchableApplicationsEvent) — line 291-293 as of pyatv 0.18.0
+	// pyatv/protocols/companion/__init__.py (CompanionApps.app_list, content.items()) — line 168-175 as of pyatv 0.18.0
+	public Dictionary<string, string> AppList ()
+		{
+		var resp = SendCommand ("FetchLaunchableApplicationsEvent", new Dictionary<string, object?> ());
+
+		Dictionary<string, string> apps = new ();
+		if (!resp.TryGetValue ("_c", out object? contentObj) || contentObj is not Dictionary<object, object?> content)
+			{
+			return apps;
+			}
+
+		foreach (var kvp in content)
+			{
+			if (kvp.Key is string bundleId && kvp.Value is string displayName)
+				{
+				apps[bundleId] = displayName;
+				}
+			}
+
+		return apps;
+		}
+
+	/// <summary>
+	/// Fetch the list of user accounts that can be switched to on the device, as a mapping of
+	/// account identifier to display name.
+	/// </summary>
+	/// <returns>
+	/// A mapping of account identifier to display name. Like <see cref="AppList"/>, this is not
+	/// guaranteed to be populated on every device/tvOS combination, so callers must treat an
+	/// empty (or missing) result as a normal outcome rather than an error.
+	/// </returns>
+	// pyatv/protocols/companion/api.py (account_list, FetchUserAccountsEvent) — line 301-303 as of pyatv 0.18.0
+	// pyatv/protocols/companion/__init__.py (CompanionUserAccounts.account_list, content.items()) — line 190-197 as of pyatv 0.18.0
+	public Dictionary<string, string> AccountList ()
+		{
+		var resp = SendCommand ("FetchUserAccountsEvent", new Dictionary<string, object?> ());
+
+		Dictionary<string, string> accounts = new ();
+		if (!resp.TryGetValue ("_c", out object? contentObj) || contentObj is not Dictionary<object, object?> content)
+			{
+			return accounts;
+			}
+
+		foreach (var kvp in content)
+			{
+			if (kvp.Key is string accountId && kvp.Value is string displayName)
+				{
+				accounts[accountId] = displayName;
+				}
+			}
+
+		return accounts;
+		}
+
+	/// <summary>Switch the active user account on the device.</summary>
+	/// <param name="accountId">The account identifier to switch to, as returned by <see cref="AccountList"/>.</param>
+	// pyatv/protocols/companion/api.py (switch_account, SwitchUserAccountEvent/SwitchAccountID) — line 295-299 as of pyatv 0.18.0
+	public void SwitchAccount (string accountId)
+		{
+		SendCommand (
+			"SwitchUserAccountEvent",
+			new Dictionary<string, object?>
+				{
+				{ "SwitchAccountID", accountId },
+				});
 		}
 
 	/// <summary>Send a media control command to the device.</summary>

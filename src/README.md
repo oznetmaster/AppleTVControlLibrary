@@ -33,12 +33,18 @@ DMAP/DACP.
   capabilities.
 - Track power state (asleep/awake/screensaver/idle) via pushed `SystemStatus`/`TVSystemStatus`
   events, and toggle power via sleep/wake HID commands.
+- List launchable apps (`AppList()`) and launch an app by bundle identifier or deep-link URL
+  (`LaunchApp(...)`). Treat an empty or missing app list as a normal outcome, not an error - some
+  tvOS builds do not populate it, and callers should not hard-depend on the list being non-empty.
+- List switchable user accounts (`AccountList()`) and switch the active account
+  (`SwitchAccount(...)`). Same graceful-degradation rule as app listing: an empty or missing
+  account list is a normal outcome, not an error.
 
 ## What it does not do
 
 - No now-playing metadata (title, artist, artwork, position) - that is MRP territory and out of
   scope for this library.
-- No app launching or app listing.
+
 - No absolute channel selection (only channel increment/decrement).
 - No mute command exists on the wire; callers build it from `SetVolume(0.0)` plus a stashed
   previous level, gated on the device advertising volume control at all.

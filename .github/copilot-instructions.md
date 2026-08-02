@@ -301,7 +301,7 @@ Not an agent task. Budget a full day just to get capture working — atvproxy is i
 
 This is also how you resolve any open "does the protocol support X" question — including whether a physical remote button reaches Companion at all, or is handled entirely over CEC. Capture the press, read the frame, cite the byte.
 
-**Test on Apple TV 4K 3rd gen (AppleTV14,1), not just 2nd gen.** There is an open pyatv issue where session setup completes on gen 3 / tvOS 26.5 but `FetchAttentionState` gets no response, while gen 2 on the identical build works. Do not let a consumer make power state load-bearing without a degraded path.
+**Test on Apple TV HD (AppleTV5,3, model A1625), not just 4K units.** A commercial Companion driver's release notes document a regression specific to Apple TV HD (A1625) on tvOS 26.5: the encrypted session stays healthy and HID button presses work, but `FetchAttentionState`, `FetchLaunchableApplicationsEvent`, and `GetVolume` are silently dropped, leaving power state, app list, and volume polling empty. Newer Apple TV 4K models (A1842 / A1962 / A2169 / A2737, i.e. `AppleTV14,1` and earlier 4K generations) on the identical tvOS build are unaffected. This is the inverse of an earlier draft of this brief, which wrongly generalized a single pyatv issue report into a 4K-3rd-gen warning; that claim is retracted. Do not let a consumer make power state, app list, or volume load-bearing on Apple TV HD without a degraded path.
 
 ---
 
@@ -313,7 +313,8 @@ The protocol has effectively no error surface. When something is wrong the Apple
 |---|---|
 | Handshake OK, connection dropped after a few seconds | `_i` not stable across connections |
 | No `TVSystemStatus` events ever arrive | `_i` was null in `_systemInfo` |
-| `FetchAttentionState` never answers | `TVRCSessionStart` not sent, or gen-3/26.5 issue |
+| `FetchAttentionState` never answers | `TVRCSessionStart` not sent, or Apple TV HD (A1625) / tvOS 26.5 regression |
+| `FetchLaunchableApplicationsEvent` or `GetVolume` silently empty, buttons still work | Same Apple TV HD (A1625) / tvOS 26.5 regression — not a protocol bug, degrade gracefully |
 | Decrypt fails on second frame | nonce counter not incrementing, or shared across directions |
 | Decrypt fails on first frame | AAD built after the tag-length adjustment, or wrong info string |
 | Frames accepted then silence | OPACK encoder producing structurally valid but wrong output |
