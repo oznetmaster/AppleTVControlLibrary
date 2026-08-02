@@ -559,6 +559,20 @@
         <member name="F:AppleTvControlLibrary.Protocol.InputAction.Hold">
             <summary>Press and hold for one second before releasing. pyatv/const.py — line 209 as of pyatv 0.18.0</summary>
         </member>
+        <member name="T:AppleTvControlLibrary.Protocol.KeyboardFocusState">
+            <summary>
+            All supported keyboard (RTI text input) focus states.
+            </summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.KeyboardFocusState.Unknown">
+            <summary>Keyboard focus state is not determinable. pyatv/const.py — line 117-118 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.KeyboardFocusState.Unfocused">
+            <summary>Keyboard is not focused. pyatv/const.py — line 120-121 as of pyatv 0.18.0</summary>
+        </member>
+        <member name="F:AppleTvControlLibrary.Protocol.KeyboardFocusState.Focused">
+            <summary>Keyboard is focused. pyatv/const.py — line 123-124 as of pyatv 0.18.0</summary>
+        </member>
         <member name="T:AppleTvControlLibrary.Protocol.CompanionApi">
             <summary>
             High level implementation of the Companion API: system info, session lifecycle, HID
@@ -631,6 +645,41 @@
         <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.TextInputStop">
             <summary>Stop the current text input session.</summary>
         </member>
+        <member name="P:AppleTvControlLibrary.Protocol.CompanionApi.TextFocusState">
+            <summary>
+            Gets the current keyboard (RTI text input) focus state, as last reported by the
+            <c>_tiStarted</c>/<c>_tiStopped</c> events or the <c>_tiStart</c> response.
+            </summary>
+        </member>
+        <member name="E:AppleTvControlLibrary.Protocol.CompanionApi.TextFocusStateChanged">
+            <summary>
+            Raised whenever <see cref="P:AppleTvControlLibrary.Protocol.CompanionApi.TextFocusState"/> is updated by a <c>_tiStarted</c>,
+            <c>_tiStopped</c> event, or a <c>_tiStart</c> response.
+            </summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.TextInputCommand(System.String,System.Boolean)">
+            <summary>
+            Send a text input command: refreshes the RTI session, optionally clears the current
+            text, then optionally inserts new text.
+            </summary>
+            <param name="text">The text to insert, or an empty string to insert nothing.</param>
+            <param name="clearPreviousInput">Whether to clear the existing text before inserting.</param>
+            <returns>The resulting text field contents, or <see langword="null"/> if there is no focused text field.</returns>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.TextGet">
+            <summary>Get the current virtual keyboard text.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.TextClear">
+            <summary>Clear the virtual keyboard text.</summary>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.TextAppend(System.String)">
+            <summary>Append text to the virtual keyboard.</summary>
+            <param name="text">The text to insert.</param>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.TextSet(System.String)">
+            <summary>Replace the virtual keyboard text.</summary>
+            <param name="text">The new text.</param>
+        </member>
         <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.SubscribeEvent(System.String)">
             <summary>Subscribe to updates for an event.</summary>
             <param name="eventName">The event identifier to subscribe to.</param>
@@ -649,6 +698,17 @@
             <param name="x">The x coordinate, in the range [0, 1000].</param>
             <param name="y">The y coordinate, in the range [0, 1000].</param>
             <param name="mode">The touch phase.</param>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.SendClick(AppleTvControlLibrary.Protocol.InputAction)">
+            <summary>
+            Send a touch click (tap on the touch surface, distinct from a directional-pad
+            <see cref="F:AppleTvControlLibrary.Protocol.HidCommand.Select"/> press). This is what pyatv's remote-widget "select"
+            gesture actually sends when driven from a touchpad rather than a D-pad: a
+            <see cref="F:AppleTvControlLibrary.Protocol.HidCommand.Select"/> button press/release (button code 6) followed by a
+            touch <see cref="F:AppleTvControlLibrary.Protocol.TouchAction.Click"/> event in the bottom-right corner of the touch
+            surface.
+            </summary>
+            <param name="action">The click gesture: single tap, double tap, or press-and-hold.</param>
         </member>
         <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState">
             <summary>Fetch the current attention state (system status) from the device.</summary>
@@ -850,6 +910,54 @@
             <summary>Send data encoded with OPACK, adding an XID if not already present.</summary>
             <param name="frameType">The frame type to send.</param>
             <param name="data">The message content.</param>
+        </member>
+        <member name="T:AppleTvControlLibrary.Text.KeyedArchiver">
+            <summary>
+            Support for reading a subset of NSKeyedArchiver serialized data.
+            </summary>
+            <remarks>
+            pyatv does not implement a full NSKeyedArchiver reader; it just loads the plist and walks
+            <c>$top</c> down a key path, dereferencing UID values into <c>$objects</c> as it goes. This
+            is a direct port of that same limited approach -- do not extend it into a general archiver.
+            </remarks>
+        </member>
+        <member name="M:AppleTvControlLibrary.Text.KeyedArchiver.ReadArchiveProperties(System.Byte[],System.String[][])">
+            <summary>
+            Get properties from an NSKeyedArchiver encoded binary plist.
+            </summary>
+            <param name="archive">The raw NSKeyedArchiver encoded binary plist bytes.</param>
+            <param name="paths">One or more key paths to follow from <c>$top</c>, dereferencing UID values into <c>$objects</c> along the way.</param>
+            <returns>
+            One resolved value per requested path, in the same order, or <see langword="null"/> for a
+            path that could not be fully resolved.
+            </returns>
+        </member>
+        <member name="T:AppleTvControlLibrary.Text.RtiTextOperations">
+            <summary>
+            Helper functions to generate NSKeyedArchiver-encoded payloads for the RTI (Remote Text Input)
+            service used by Companion Link text input (<c>_tiC</c>).
+            </summary>
+            <remarks>
+            pyatv does not implement a real NSKeyedArchiver writer for these; instead it constructs the
+            <c>$objects</c> array literally, with hand-wired UID indices. This is a byte-for-byte port of
+            that same approach, including the object ordering (which matters for the resulting UID
+            indices to match).
+            </remarks>
+        </member>
+        <member name="M:AppleTvControlLibrary.Text.RtiTextOperations.GetRtiClearTextPayload(System.Byte[])">
+            <summary>
+            Prepare an NSKeyedArchiver encoded payload for clearing the RTI text.
+            </summary>
+            <param name="sessionUuid">The 16 raw bytes of the RTI session UUID.</param>
+            <returns>The binary plist encoded payload bytes, for use as the <c>_tiD</c> field.</returns>
+        </member>
+        <member name="M:AppleTvControlLibrary.Text.RtiTextOperations.GetRtiInputTextPayload(System.Byte[],System.String)">
+            <summary>
+            Prepare an NSKeyedArchiver encoded payload for RTI text input.
+            </summary>
+            <param name="sessionUuid">The 16 raw bytes of the RTI session UUID.</param>
+            <param name="text">The text to insert.</param>
+            <returns>The binary plist encoded payload bytes, for use as the <c>_tiD</c> field.</returns>
         </member>
         <member name="T:AppleTvControlLibrary.Tlv8.TlvValue">
             <summary>

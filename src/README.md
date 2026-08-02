@@ -7,6 +7,13 @@ volume, and power state. It targets `net472` and `net10.0` from a single, non-co
 This library implements Companion Link only. It does not implement MRP, AirPlay 2, RAOP, or
 DMAP/DACP.
 
+> **Trademark notice and disclaimer:** Apple, Apple TV, tvOS, AirPlay, and Siri are trademarks of
+> Apple Inc., registered in the U.S. and other countries. This project is an independent,
+> unofficial implementation of a reverse-engineered protocol and is **not affiliated with,
+> endorsed by, sponsored by, or approved by Apple Inc.** in any way. "Apple TV" and other Apple
+> product names are used solely to describe compatibility and interoperability. No Apple software,
+> assets, or confidential documentation are included in or derived for this repository.
+
 ## Packages
 
 | Package | Contents |
@@ -82,6 +89,13 @@ projects consulted during the port.
 
 MIT - see [LICENSE](LICENSE). Third-party attributions are listed in
 [ATTRIBUTIONS.md](ATTRIBUTIONS.md) and [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt).
+
+## Trademarks
+
+Apple, Apple TV, tvOS, AirPlay, and Siri are trademarks of Apple Inc. This project is not
+affiliated with, endorsed by, or sponsored by Apple Inc. All product names, logos, and brands
+referenced are property of their respective owners and are used here for identification purposes
+only.
 
 ## Changelog
 

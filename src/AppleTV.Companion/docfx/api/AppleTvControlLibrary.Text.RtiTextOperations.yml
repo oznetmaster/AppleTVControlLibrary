@@ -1,0 +1,426 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Text.RtiTextOperations
+  commentId: T:AppleTvControlLibrary.Text.RtiTextOperations
+  id: RtiTextOperations
+  parent: AppleTvControlLibrary.Text
+  children:
+  - AppleTvControlLibrary.Text.RtiTextOperations.GetRtiClearTextPayload(System.Byte[])
+  - AppleTvControlLibrary.Text.RtiTextOperations.GetRtiInputTextPayload(System.Byte[],System.String)
+  langs:
+  - csharp
+  - vb
+  name: RtiTextOperations
+  nameWithType: RtiTextOperations
+  fullName: AppleTvControlLibrary.Text.RtiTextOperations
+  type: Class
+  source:
+    id: RtiTextOperations
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Text\RtiTextOperations.cs
+    startLine: 18
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Text
+  summary: >-
+    Helper functions to generate NSKeyedArchiver-encoded payloads for the RTI (Remote Text Input)
+
+    service used by Companion Link text input (<code>_tiC</code>).
+  remarks: >-
+    pyatv does not implement a real NSKeyedArchiver writer for these; instead it constructs the
+
+    <code>$objects</code> array literally, with hand-wired UID indices. This is a byte-for-byte port of
+
+    that same approach, including the object ordering (which matters for the resulting UID
+
+    indices to match).
+  example: []
+  syntax:
+    content: public static class RtiTextOperations
+    content.vb: Public Module RtiTextOperations
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: AppleTvControlLibrary.Text.RtiTextOperations.GetRtiClearTextPayload(System.Byte[])
+  commentId: M:AppleTvControlLibrary.Text.RtiTextOperations.GetRtiClearTextPayload(System.Byte[])
+  id: GetRtiClearTextPayload(System.Byte[])
+  parent: AppleTvControlLibrary.Text.RtiTextOperations
+  langs:
+  - csharp
+  - vb
+  name: GetRtiClearTextPayload(byte[])
+  nameWithType: RtiTextOperations.GetRtiClearTextPayload(byte[])
+  fullName: AppleTvControlLibrary.Text.RtiTextOperations.GetRtiClearTextPayload(byte[])
+  type: Method
+  source:
+    id: GetRtiClearTextPayload
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Text\RtiTextOperations.cs
+    startLine: 26
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Text
+  summary: Prepare an NSKeyedArchiver encoded payload for clearing the RTI text.
+  example: []
+  syntax:
+    content: public static byte[] GetRtiClearTextPayload(byte[] sessionUuid)
+    parameters:
+    - id: sessionUuid
+      type: System.Byte[]
+      description: The 16 raw bytes of the RTI session UUID.
+    return:
+      type: System.Byte[]
+      description: The binary plist encoded payload bytes, for use as the <code>_tiD</code> field.
+    content.vb: Public Shared Function GetRtiClearTextPayload(sessionUuid As Byte()) As Byte()
+  overload: AppleTvControlLibrary.Text.RtiTextOperations.GetRtiClearTextPayload*
+  nameWithType.vb: RtiTextOperations.GetRtiClearTextPayload(Byte())
+  fullName.vb: AppleTvControlLibrary.Text.RtiTextOperations.GetRtiClearTextPayload(Byte())
+  name.vb: GetRtiClearTextPayload(Byte())
+- uid: AppleTvControlLibrary.Text.RtiTextOperations.GetRtiInputTextPayload(System.Byte[],System.String)
+  commentId: M:AppleTvControlLibrary.Text.RtiTextOperations.GetRtiInputTextPayload(System.Byte[],System.String)
+  id: GetRtiInputTextPayload(System.Byte[],System.String)
+  parent: AppleTvControlLibrary.Text.RtiTextOperations
+  langs:
+  - csharp
+  - vb
+  name: GetRtiInputTextPayload(byte[], string)
+  nameWithType: RtiTextOperations.GetRtiInputTextPayload(byte[], string)
+  fullName: AppleTvControlLibrary.Text.RtiTextOperations.GetRtiInputTextPayload(byte[], string)
+  type: Method
+  source:
+    id: GetRtiInputTextPayload
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Text\RtiTextOperations.cs
+    startLine: 73
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Text
+  summary: Prepare an NSKeyedArchiver encoded payload for RTI text input.
+  example: []
+  syntax:
+    content: public static byte[] GetRtiInputTextPayload(byte[] sessionUuid, string text)
+    parameters:
+    - id: sessionUuid
+      type: System.Byte[]
+      description: The 16 raw bytes of the RTI session UUID.
+    - id: text
+      type: System.String
+      description: The text to insert.
+    return:
+      type: System.Byte[]
+      description: The binary plist encoded payload bytes, for use as the <code>_tiD</code> field.
+    content.vb: Public Shared Function GetRtiInputTextPayload(sessionUuid As Byte(), text As String) As Byte()
+  overload: AppleTvControlLibrary.Text.RtiTextOperations.GetRtiInputTextPayload*
+  nameWithType.vb: RtiTextOperations.GetRtiInputTextPayload(Byte(), String)
+  fullName.vb: AppleTvControlLibrary.Text.RtiTextOperations.GetRtiInputTextPayload(Byte(), String)
+  name.vb: GetRtiInputTextPayload(Byte(), String)
+references:
+- uid: AppleTvControlLibrary.Text
+  commentId: N:AppleTvControlLibrary.Text
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Text
+  nameWithType: AppleTvControlLibrary.Text
+  fullName: AppleTvControlLibrary.Text
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Text
+    name: Text
+    href: AppleTvControlLibrary.Text.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Text
+    name: Text
+    href: AppleTvControlLibrary.Text.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AppleTvControlLibrary.Text.RtiTextOperations.GetRtiClearTextPayload*
+  commentId: Overload:AppleTvControlLibrary.Text.RtiTextOperations.GetRtiClearTextPayload
+  href: AppleTvControlLibrary.Text.RtiTextOperations.html#AppleTvControlLibrary_Text_RtiTextOperations_GetRtiClearTextPayload_System_Byte___
+  name: GetRtiClearTextPayload
+  nameWithType: RtiTextOperations.GetRtiClearTextPayload
+  fullName: AppleTvControlLibrary.Text.RtiTextOperations.GetRtiClearTextPayload
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Text.RtiTextOperations.GetRtiInputTextPayload*
+  commentId: Overload:AppleTvControlLibrary.Text.RtiTextOperations.GetRtiInputTextPayload
+  href: AppleTvControlLibrary.Text.RtiTextOperations.html#AppleTvControlLibrary_Text_RtiTextOperations_GetRtiInputTextPayload_System_Byte___System_String_
+  name: GetRtiInputTextPayload
+  nameWithType: RtiTextOperations.GetRtiInputTextPayload
+  fullName: AppleTvControlLibrary.Text.RtiTextOperations.GetRtiInputTextPayload
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

@@ -1,0 +1,53 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Crypto
+  commentId: N:AppleTvControlLibrary.Crypto
+  id: AppleTvControlLibrary.Crypto
+  children:
+  - AppleTvControlLibrary.Crypto.Chacha20Cipher
+  - AppleTvControlLibrary.Crypto.Chacha20Cipher8ByteNonce
+  langs:
+  - csharp
+  - vb
+  name: AppleTvControlLibrary.Crypto
+  nameWithType: AppleTvControlLibrary.Crypto
+  fullName: AppleTvControlLibrary.Crypto
+  type: Namespace
+  assemblies:
+  - AppleTvControlLibrary
+references:
+- uid: AppleTvControlLibrary.Crypto.Chacha20Cipher
+  commentId: T:AppleTvControlLibrary.Crypto.Chacha20Cipher
+  parent: AppleTvControlLibrary.Crypto
+  href: AppleTvControlLibrary.Crypto.Chacha20Cipher.html
+  name: Chacha20Cipher
+  nameWithType: Chacha20Cipher
+  fullName: AppleTvControlLibrary.Crypto.Chacha20Cipher
+- uid: AppleTvControlLibrary.Crypto.Chacha20Cipher8ByteNonce
+  commentId: T:AppleTvControlLibrary.Crypto.Chacha20Cipher8ByteNonce
+  href: AppleTvControlLibrary.Crypto.Chacha20Cipher8ByteNonce.html
+  name: Chacha20Cipher8ByteNonce
+  nameWithType: Chacha20Cipher8ByteNonce
+  fullName: AppleTvControlLibrary.Crypto.Chacha20Cipher8ByteNonce
+- uid: AppleTvControlLibrary.Crypto
+  commentId: N:AppleTvControlLibrary.Crypto
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Crypto
+  nameWithType: AppleTvControlLibrary.Crypto
+  fullName: AppleTvControlLibrary.Crypto
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Crypto
+    name: Crypto
+    href: AppleTvControlLibrary.Crypto.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Crypto
+    name: Crypto
+    href: AppleTvControlLibrary.Crypto.html

@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Protocol.KeyboardFocusState
+  commentId: T:AppleTvControlLibrary.Protocol.KeyboardFocusState
+  id: KeyboardFocusState
+  parent: AppleTvControlLibrary.Protocol
+  children:
+  - AppleTvControlLibrary.Protocol.KeyboardFocusState.Focused
+  - AppleTvControlLibrary.Protocol.KeyboardFocusState.Unfocused
+  - AppleTvControlLibrary.Protocol.KeyboardFocusState.Unknown
+  langs:
+  - csharp
+  - vb
+  name: KeyboardFocusState
+  nameWithType: KeyboardFocusState
+  fullName: AppleTvControlLibrary.Protocol.KeyboardFocusState
+  type: Enum
+  source:
+    id: KeyboardFocusState
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 180
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: All supported keyboard (RTI text input) focus states.
+  example: []
+  syntax:
+    content: public enum KeyboardFocusState
+    content.vb: Public Enum KeyboardFocusState
+- uid: AppleTvControlLibrary.Protocol.KeyboardFocusState.Unknown
+  commentId: F:AppleTvControlLibrary.Protocol.KeyboardFocusState.Unknown
+  id: Unknown
+  parent: AppleTvControlLibrary.Protocol.KeyboardFocusState
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: KeyboardFocusState.Unknown
+  fullName: AppleTvControlLibrary.Protocol.KeyboardFocusState.Unknown
+  type: Field
+  source:
+    id: Unknown
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 183
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Keyboard focus state is not determinable. pyatv/const.py — line 117-118 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Unknown = 0
+    return:
+      type: AppleTvControlLibrary.Protocol.KeyboardFocusState
+- uid: AppleTvControlLibrary.Protocol.KeyboardFocusState.Unfocused
+  commentId: F:AppleTvControlLibrary.Protocol.KeyboardFocusState.Unfocused
+  id: Unfocused
+  parent: AppleTvControlLibrary.Protocol.KeyboardFocusState
+  langs:
+  - csharp
+  - vb
+  name: Unfocused
+  nameWithType: KeyboardFocusState.Unfocused
+  fullName: AppleTvControlLibrary.Protocol.KeyboardFocusState.Unfocused
+  type: Field
+  source:
+    id: Unfocused
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 185
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Keyboard is not focused. pyatv/const.py — line 120-121 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Unfocused = 1
+    return:
+      type: AppleTvControlLibrary.Protocol.KeyboardFocusState
+- uid: AppleTvControlLibrary.Protocol.KeyboardFocusState.Focused
+  commentId: F:AppleTvControlLibrary.Protocol.KeyboardFocusState.Focused
+  id: Focused
+  parent: AppleTvControlLibrary.Protocol.KeyboardFocusState
+  langs:
+  - csharp
+  - vb
+  name: Focused
+  nameWithType: KeyboardFocusState.Focused
+  fullName: AppleTvControlLibrary.Protocol.KeyboardFocusState.Focused
+  type: Field
+  source:
+    id: Focused
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 187
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Keyboard is focused. pyatv/const.py — line 123-124 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Focused = 2
+    return:
+      type: AppleTvControlLibrary.Protocol.KeyboardFocusState
+references:
+- uid: AppleTvControlLibrary.Protocol
+  commentId: N:AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Protocol
+  nameWithType: AppleTvControlLibrary.Protocol
+  fullName: AppleTvControlLibrary.Protocol
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Protocol
+    name: Protocol
+    href: AppleTvControlLibrary.Protocol.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Protocol
+    name: Protocol
+    href: AppleTvControlLibrary.Protocol.html
+- uid: AppleTvControlLibrary.Protocol.KeyboardFocusState
+  commentId: T:AppleTvControlLibrary.Protocol.KeyboardFocusState
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.KeyboardFocusState.html
+  name: KeyboardFocusState
+  nameWithType: KeyboardFocusState
+  fullName: AppleTvControlLibrary.Protocol.KeyboardFocusState

@@ -1,0 +1,206 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Tlv8.State
+  commentId: T:AppleTvControlLibrary.Tlv8.State
+  id: State
+  parent: AppleTvControlLibrary.Tlv8
+  children:
+  - AppleTvControlLibrary.Tlv8.State.M1
+  - AppleTvControlLibrary.Tlv8.State.M2
+  - AppleTvControlLibrary.Tlv8.State.M3
+  - AppleTvControlLibrary.Tlv8.State.M4
+  - AppleTvControlLibrary.Tlv8.State.M5
+  - AppleTvControlLibrary.Tlv8.State.M6
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: State
+  fullName: AppleTvControlLibrary.Tlv8.State
+  type: Enum
+  source:
+    id: State
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 106
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Correspond to states in HAP specification.
+  example: []
+  syntax:
+    content: public enum State
+    content.vb: Public Enum State
+- uid: AppleTvControlLibrary.Tlv8.State.M1
+  commentId: F:AppleTvControlLibrary.Tlv8.State.M1
+  id: M1
+  parent: AppleTvControlLibrary.Tlv8.State
+  langs:
+  - csharp
+  - vb
+  name: M1
+  nameWithType: State.M1
+  fullName: AppleTvControlLibrary.Tlv8.State.M1
+  type: Field
+  source:
+    id: M1
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 109
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: State M1. pyatv/auth/hap_tlv8.py — line 69 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: M1 = 1
+    return:
+      type: AppleTvControlLibrary.Tlv8.State
+- uid: AppleTvControlLibrary.Tlv8.State.M2
+  commentId: F:AppleTvControlLibrary.Tlv8.State.M2
+  id: M2
+  parent: AppleTvControlLibrary.Tlv8.State
+  langs:
+  - csharp
+  - vb
+  name: M2
+  nameWithType: State.M2
+  fullName: AppleTvControlLibrary.Tlv8.State.M2
+  type: Field
+  source:
+    id: M2
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 111
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: State M2. pyatv/auth/hap_tlv8.py — line 70 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: M2 = 2
+    return:
+      type: AppleTvControlLibrary.Tlv8.State
+- uid: AppleTvControlLibrary.Tlv8.State.M3
+  commentId: F:AppleTvControlLibrary.Tlv8.State.M3
+  id: M3
+  parent: AppleTvControlLibrary.Tlv8.State
+  langs:
+  - csharp
+  - vb
+  name: M3
+  nameWithType: State.M3
+  fullName: AppleTvControlLibrary.Tlv8.State.M3
+  type: Field
+  source:
+    id: M3
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 113
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: State M3. pyatv/auth/hap_tlv8.py — line 71 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: M3 = 3
+    return:
+      type: AppleTvControlLibrary.Tlv8.State
+- uid: AppleTvControlLibrary.Tlv8.State.M4
+  commentId: F:AppleTvControlLibrary.Tlv8.State.M4
+  id: M4
+  parent: AppleTvControlLibrary.Tlv8.State
+  langs:
+  - csharp
+  - vb
+  name: M4
+  nameWithType: State.M4
+  fullName: AppleTvControlLibrary.Tlv8.State.M4
+  type: Field
+  source:
+    id: M4
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 115
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: State M4. pyatv/auth/hap_tlv8.py — line 72 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: M4 = 4
+    return:
+      type: AppleTvControlLibrary.Tlv8.State
+- uid: AppleTvControlLibrary.Tlv8.State.M5
+  commentId: F:AppleTvControlLibrary.Tlv8.State.M5
+  id: M5
+  parent: AppleTvControlLibrary.Tlv8.State
+  langs:
+  - csharp
+  - vb
+  name: M5
+  nameWithType: State.M5
+  fullName: AppleTvControlLibrary.Tlv8.State.M5
+  type: Field
+  source:
+    id: M5
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 117
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: State M5. pyatv/auth/hap_tlv8.py — line 73 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: M5 = 5
+    return:
+      type: AppleTvControlLibrary.Tlv8.State
+- uid: AppleTvControlLibrary.Tlv8.State.M6
+  commentId: F:AppleTvControlLibrary.Tlv8.State.M6
+  id: M6
+  parent: AppleTvControlLibrary.Tlv8.State
+  langs:
+  - csharp
+  - vb
+  name: M6
+  nameWithType: State.M6
+  fullName: AppleTvControlLibrary.Tlv8.State.M6
+  type: Field
+  source:
+    id: M6
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 119
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: State M6. pyatv/auth/hap_tlv8.py — line 74 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: M6 = 6
+    return:
+      type: AppleTvControlLibrary.Tlv8.State
+references:
+- uid: AppleTvControlLibrary.Tlv8
+  commentId: N:AppleTvControlLibrary.Tlv8
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Tlv8
+  nameWithType: AppleTvControlLibrary.Tlv8
+  fullName: AppleTvControlLibrary.Tlv8
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Tlv8
+    name: Tlv8
+    href: AppleTvControlLibrary.Tlv8.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Tlv8
+    name: Tlv8
+    href: AppleTvControlLibrary.Tlv8.html
+- uid: AppleTvControlLibrary.Tlv8.State
+  commentId: T:AppleTvControlLibrary.Tlv8.State
+  parent: AppleTvControlLibrary.Tlv8
+  href: AppleTvControlLibrary.Tlv8.State.html
+  name: State
+  nameWithType: State
+  fullName: AppleTvControlLibrary.Tlv8.State

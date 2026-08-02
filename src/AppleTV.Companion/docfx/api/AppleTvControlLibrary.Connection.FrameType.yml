@@ -1,0 +1,481 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Connection.FrameType
+  commentId: T:AppleTvControlLibrary.Connection.FrameType
+  id: FrameType
+  parent: AppleTvControlLibrary.Connection
+  children:
+  - AppleTvControlLibrary.Connection.FrameType.E_OPACK
+  - AppleTvControlLibrary.Connection.FrameType.FamilyIdentityRequest
+  - AppleTvControlLibrary.Connection.FrameType.FamilyIdentityResponse
+  - AppleTvControlLibrary.Connection.FrameType.FamilyIdentityUpdate
+  - AppleTvControlLibrary.Connection.FrameType.NoOp
+  - AppleTvControlLibrary.Connection.FrameType.PA_Req
+  - AppleTvControlLibrary.Connection.FrameType.PA_Rsp
+  - AppleTvControlLibrary.Connection.FrameType.PS_Next
+  - AppleTvControlLibrary.Connection.FrameType.PS_Start
+  - AppleTvControlLibrary.Connection.FrameType.PV_Next
+  - AppleTvControlLibrary.Connection.FrameType.PV_Start
+  - AppleTvControlLibrary.Connection.FrameType.P_OPACK
+  - AppleTvControlLibrary.Connection.FrameType.SessionData
+  - AppleTvControlLibrary.Connection.FrameType.SessionStartRequest
+  - AppleTvControlLibrary.Connection.FrameType.SessionStartResponse
+  - AppleTvControlLibrary.Connection.FrameType.U_OPACK
+  - AppleTvControlLibrary.Connection.FrameType.Unknown
+  langs:
+  - csharp
+  - vb
+  name: FrameType
+  nameWithType: FrameType
+  fullName: AppleTvControlLibrary.Connection.FrameType
+  type: Enum
+  source:
+    id: FrameType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 14
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: Frame type values.
+  example: []
+  syntax:
+    content: public enum FrameType
+    content.vb: Public Enum FrameType
+- uid: AppleTvControlLibrary.Connection.FrameType.Unknown
+  commentId: F:AppleTvControlLibrary.Connection.FrameType.Unknown
+  id: Unknown
+  parent: AppleTvControlLibrary.Connection.FrameType
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: FrameType.Unknown
+  fullName: AppleTvControlLibrary.Connection.FrameType.Unknown
+  type: Field
+  source:
+    id: Unknown
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 17
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: Unknown frame type. pyatv/protocols/companion/connection.py — line 24 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Unknown = 0
+    return:
+      type: AppleTvControlLibrary.Connection.FrameType
+- uid: AppleTvControlLibrary.Connection.FrameType.NoOp
+  commentId: F:AppleTvControlLibrary.Connection.FrameType.NoOp
+  id: NoOp
+  parent: AppleTvControlLibrary.Connection.FrameType
+  langs:
+  - csharp
+  - vb
+  name: NoOp
+  nameWithType: FrameType.NoOp
+  fullName: AppleTvControlLibrary.Connection.FrameType.NoOp
+  type: Field
+  source:
+    id: NoOp
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 19
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: No-op frame, never encrypted. pyatv/protocols/companion/connection.py — line 25 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: NoOp = 1
+    return:
+      type: AppleTvControlLibrary.Connection.FrameType
+- uid: AppleTvControlLibrary.Connection.FrameType.PS_Start
+  commentId: F:AppleTvControlLibrary.Connection.FrameType.PS_Start
+  id: PS_Start
+  parent: AppleTvControlLibrary.Connection.FrameType
+  langs:
+  - csharp
+  - vb
+  name: PS_Start
+  nameWithType: FrameType.PS_Start
+  fullName: AppleTvControlLibrary.Connection.FrameType.PS_Start
+  type: Field
+  source:
+    id: PS_Start
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 21
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: Pair-setup, start (M1). pyatv/protocols/companion/connection.py — line 26 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: PS_Start = 3
+    return:
+      type: AppleTvControlLibrary.Connection.FrameType
+- uid: AppleTvControlLibrary.Connection.FrameType.PS_Next
+  commentId: F:AppleTvControlLibrary.Connection.FrameType.PS_Next
+  id: PS_Next
+  parent: AppleTvControlLibrary.Connection.FrameType
+  langs:
+  - csharp
+  - vb
+  name: PS_Next
+  nameWithType: FrameType.PS_Next
+  fullName: AppleTvControlLibrary.Connection.FrameType.PS_Next
+  type: Field
+  source:
+    id: PS_Next
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 23
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: Pair-setup, next step. pyatv/protocols/companion/connection.py — line 27 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: PS_Next = 4
+    return:
+      type: AppleTvControlLibrary.Connection.FrameType
+- uid: AppleTvControlLibrary.Connection.FrameType.PV_Start
+  commentId: F:AppleTvControlLibrary.Connection.FrameType.PV_Start
+  id: PV_Start
+  parent: AppleTvControlLibrary.Connection.FrameType
+  langs:
+  - csharp
+  - vb
+  name: PV_Start
+  nameWithType: FrameType.PV_Start
+  fullName: AppleTvControlLibrary.Connection.FrameType.PV_Start
+  type: Field
+  source:
+    id: PV_Start
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 25
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: Pair-verify, start (M1). pyatv/protocols/companion/connection.py — line 28 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: PV_Start = 5
+    return:
+      type: AppleTvControlLibrary.Connection.FrameType
+- uid: AppleTvControlLibrary.Connection.FrameType.PV_Next
+  commentId: F:AppleTvControlLibrary.Connection.FrameType.PV_Next
+  id: PV_Next
+  parent: AppleTvControlLibrary.Connection.FrameType
+  langs:
+  - csharp
+  - vb
+  name: PV_Next
+  nameWithType: FrameType.PV_Next
+  fullName: AppleTvControlLibrary.Connection.FrameType.PV_Next
+  type: Field
+  source:
+    id: PV_Next
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 27
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: Pair-verify, next step. pyatv/protocols/companion/connection.py — line 29 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: PV_Next = 6
+    return:
+      type: AppleTvControlLibrary.Connection.FrameType
+- uid: AppleTvControlLibrary.Connection.FrameType.U_OPACK
+  commentId: F:AppleTvControlLibrary.Connection.FrameType.U_OPACK
+  id: U_OPACK
+  parent: AppleTvControlLibrary.Connection.FrameType
+  langs:
+  - csharp
+  - vb
+  name: U_OPACK
+  nameWithType: FrameType.U_OPACK
+  fullName: AppleTvControlLibrary.Connection.FrameType.U_OPACK
+  type: Field
+  source:
+    id: U_OPACK
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 29
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: Unencrypted OPACK payload. pyatv/protocols/companion/connection.py — line 30 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: U_OPACK = 7
+    return:
+      type: AppleTvControlLibrary.Connection.FrameType
+- uid: AppleTvControlLibrary.Connection.FrameType.E_OPACK
+  commentId: F:AppleTvControlLibrary.Connection.FrameType.E_OPACK
+  id: E_OPACK
+  parent: AppleTvControlLibrary.Connection.FrameType
+  langs:
+  - csharp
+  - vb
+  name: E_OPACK
+  nameWithType: FrameType.E_OPACK
+  fullName: AppleTvControlLibrary.Connection.FrameType.E_OPACK
+  type: Field
+  source:
+    id: E_OPACK
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 31
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: Encrypted OPACK payload. pyatv/protocols/companion/connection.py — line 31 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: E_OPACK = 8
+    return:
+      type: AppleTvControlLibrary.Connection.FrameType
+- uid: AppleTvControlLibrary.Connection.FrameType.P_OPACK
+  commentId: F:AppleTvControlLibrary.Connection.FrameType.P_OPACK
+  id: P_OPACK
+  parent: AppleTvControlLibrary.Connection.FrameType
+  langs:
+  - csharp
+  - vb
+  name: P_OPACK
+  nameWithType: FrameType.P_OPACK
+  fullName: AppleTvControlLibrary.Connection.FrameType.P_OPACK
+  type: Field
+  source:
+    id: P_OPACK
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 33
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: Plist OPACK payload. pyatv/protocols/companion/connection.py — line 32 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: P_OPACK = 9
+    return:
+      type: AppleTvControlLibrary.Connection.FrameType
+- uid: AppleTvControlLibrary.Connection.FrameType.PA_Req
+  commentId: F:AppleTvControlLibrary.Connection.FrameType.PA_Req
+  id: PA_Req
+  parent: AppleTvControlLibrary.Connection.FrameType
+  langs:
+  - csharp
+  - vb
+  name: PA_Req
+  nameWithType: FrameType.PA_Req
+  fullName: AppleTvControlLibrary.Connection.FrameType.PA_Req
+  type: Field
+  source:
+    id: PA_Req
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 35
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: Pairing authentication request. pyatv/protocols/companion/connection.py — line 33 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: PA_Req = 10
+    return:
+      type: AppleTvControlLibrary.Connection.FrameType
+- uid: AppleTvControlLibrary.Connection.FrameType.PA_Rsp
+  commentId: F:AppleTvControlLibrary.Connection.FrameType.PA_Rsp
+  id: PA_Rsp
+  parent: AppleTvControlLibrary.Connection.FrameType
+  langs:
+  - csharp
+  - vb
+  name: PA_Rsp
+  nameWithType: FrameType.PA_Rsp
+  fullName: AppleTvControlLibrary.Connection.FrameType.PA_Rsp
+  type: Field
+  source:
+    id: PA_Rsp
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 37
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: Pairing authentication response. pyatv/protocols/companion/connection.py — line 34 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: PA_Rsp = 11
+    return:
+      type: AppleTvControlLibrary.Connection.FrameType
+- uid: AppleTvControlLibrary.Connection.FrameType.SessionStartRequest
+  commentId: F:AppleTvControlLibrary.Connection.FrameType.SessionStartRequest
+  id: SessionStartRequest
+  parent: AppleTvControlLibrary.Connection.FrameType
+  langs:
+  - csharp
+  - vb
+  name: SessionStartRequest
+  nameWithType: FrameType.SessionStartRequest
+  fullName: AppleTvControlLibrary.Connection.FrameType.SessionStartRequest
+  type: Field
+  source:
+    id: SessionStartRequest
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 39
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: Session start request. pyatv/protocols/companion/connection.py — line 35 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: SessionStartRequest = 16
+    return:
+      type: AppleTvControlLibrary.Connection.FrameType
+- uid: AppleTvControlLibrary.Connection.FrameType.SessionStartResponse
+  commentId: F:AppleTvControlLibrary.Connection.FrameType.SessionStartResponse
+  id: SessionStartResponse
+  parent: AppleTvControlLibrary.Connection.FrameType
+  langs:
+  - csharp
+  - vb
+  name: SessionStartResponse
+  nameWithType: FrameType.SessionStartResponse
+  fullName: AppleTvControlLibrary.Connection.FrameType.SessionStartResponse
+  type: Field
+  source:
+    id: SessionStartResponse
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 41
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: Session start response. pyatv/protocols/companion/connection.py — line 36 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: SessionStartResponse = 17
+    return:
+      type: AppleTvControlLibrary.Connection.FrameType
+- uid: AppleTvControlLibrary.Connection.FrameType.SessionData
+  commentId: F:AppleTvControlLibrary.Connection.FrameType.SessionData
+  id: SessionData
+  parent: AppleTvControlLibrary.Connection.FrameType
+  langs:
+  - csharp
+  - vb
+  name: SessionData
+  nameWithType: FrameType.SessionData
+  fullName: AppleTvControlLibrary.Connection.FrameType.SessionData
+  type: Field
+  source:
+    id: SessionData
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 43
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: Session data. pyatv/protocols/companion/connection.py — line 37 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: SessionData = 18
+    return:
+      type: AppleTvControlLibrary.Connection.FrameType
+- uid: AppleTvControlLibrary.Connection.FrameType.FamilyIdentityRequest
+  commentId: F:AppleTvControlLibrary.Connection.FrameType.FamilyIdentityRequest
+  id: FamilyIdentityRequest
+  parent: AppleTvControlLibrary.Connection.FrameType
+  langs:
+  - csharp
+  - vb
+  name: FamilyIdentityRequest
+  nameWithType: FrameType.FamilyIdentityRequest
+  fullName: AppleTvControlLibrary.Connection.FrameType.FamilyIdentityRequest
+  type: Field
+  source:
+    id: FamilyIdentityRequest
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 45
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: Family identity request. pyatv/protocols/companion/connection.py — line 38 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: FamilyIdentityRequest = 32
+    return:
+      type: AppleTvControlLibrary.Connection.FrameType
+- uid: AppleTvControlLibrary.Connection.FrameType.FamilyIdentityResponse
+  commentId: F:AppleTvControlLibrary.Connection.FrameType.FamilyIdentityResponse
+  id: FamilyIdentityResponse
+  parent: AppleTvControlLibrary.Connection.FrameType
+  langs:
+  - csharp
+  - vb
+  name: FamilyIdentityResponse
+  nameWithType: FrameType.FamilyIdentityResponse
+  fullName: AppleTvControlLibrary.Connection.FrameType.FamilyIdentityResponse
+  type: Field
+  source:
+    id: FamilyIdentityResponse
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 47
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: Family identity response. pyatv/protocols/companion/connection.py — line 39 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: FamilyIdentityResponse = 33
+    return:
+      type: AppleTvControlLibrary.Connection.FrameType
+- uid: AppleTvControlLibrary.Connection.FrameType.FamilyIdentityUpdate
+  commentId: F:AppleTvControlLibrary.Connection.FrameType.FamilyIdentityUpdate
+  id: FamilyIdentityUpdate
+  parent: AppleTvControlLibrary.Connection.FrameType
+  langs:
+  - csharp
+  - vb
+  name: FamilyIdentityUpdate
+  nameWithType: FrameType.FamilyIdentityUpdate
+  fullName: AppleTvControlLibrary.Connection.FrameType.FamilyIdentityUpdate
+  type: Field
+  source:
+    id: FamilyIdentityUpdate
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 49
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: Family identity update. pyatv/protocols/companion/connection.py — line 40 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: FamilyIdentityUpdate = 34
+    return:
+      type: AppleTvControlLibrary.Connection.FrameType
+references:
+- uid: AppleTvControlLibrary.Connection
+  commentId: N:AppleTvControlLibrary.Connection
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Connection
+  nameWithType: AppleTvControlLibrary.Connection
+  fullName: AppleTvControlLibrary.Connection
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Connection
+    name: Connection
+    href: AppleTvControlLibrary.Connection.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Connection
+    name: Connection
+    href: AppleTvControlLibrary.Connection.html
+- uid: AppleTvControlLibrary.Connection.FrameType
+  commentId: T:AppleTvControlLibrary.Connection.FrameType
+  parent: AppleTvControlLibrary.Connection
+  href: AppleTvControlLibrary.Connection.FrameType.html
+  name: FrameType
+  nameWithType: FrameType
+  fullName: AppleTvControlLibrary.Connection.FrameType

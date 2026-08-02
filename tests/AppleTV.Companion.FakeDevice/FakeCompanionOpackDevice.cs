@@ -114,19 +114,17 @@ public sealed class FakeCompanionOpackDevice
 	public double Volume => _volume;
 
 	// tests/fake_device/companion.py:97 (INITIAL_RTI_TEXT = "Fake Companion Keyboard Text")
-	private const string InitialRtiText = "Fake Companion Keyboard Text";
+	private const string INITIAL_RTI_TEXT = "Fake Companion Keyboard Text";
 
 	// tests/fake_device/companion.py:100 (self._rti_focus_state: KeyboardFocusState = KeyboardFocusState.Focused)
 	private KeyboardFocusState _rtiFocusState = KeyboardFocusState.Focused;
 
 	// tests/fake_device/companion.py:101 (self.rti_text: Optional[str] = INITIAL_RTI_TEXT)
-	private string? _rtiText = InitialRtiText;
+	private string? _rtiText = INITIAL_RTI_TEXT;
 
 	// tests/fake_device/companion.py:102 (self.rti_session_uuid: Optional[bytes] = None)
 	private byte[]? _rtiSessionUuid;
 
-	// tests/fake_device/companion.py:99 (self.rti_clients: List[FakeCompanionService] = [])
-	private bool _isRtiClientRegistered;
 
 	// pyatv/protocols/companion/keyed_archiver.py (read_archive_properties path used in text_input_command) — line 434-438 as of pyatv 0.18.0
 	private static readonly string[] TargetSessionUuidPath = { "textOperations", "targetSessionUUID", "NS.uuidbytes" };
@@ -341,7 +339,6 @@ public sealed class FakeCompanionOpackDevice
 
 		if (_rtiText is null)
 			{
-			_isRtiClientRegistered = true;
 			return Response (request, new Dictionary<object, object?> ());
 			}
 
@@ -353,7 +350,6 @@ public sealed class FakeCompanionOpackDevice
 
 		// tests/fake_device/companion.py (self.state.rti_session_uuid = b"0123456789abcdef") — line 517 as of pyatv 0.18.0
 		_rtiSessionUuid = Encoding.ASCII.GetBytes ("0123456789abcdef");
-		_isRtiClientRegistered = true;
 		return Response (request, RtiEncodedData ());
 		}
 
@@ -365,7 +361,6 @@ public sealed class FakeCompanionOpackDevice
 		if (_rtiSessionUuid is not null)
 			{
 			_rtiSessionUuid = null;
-			_isRtiClientRegistered = false;
 			return Response (request, new Dictionary<object, object?> ());
 			}
 

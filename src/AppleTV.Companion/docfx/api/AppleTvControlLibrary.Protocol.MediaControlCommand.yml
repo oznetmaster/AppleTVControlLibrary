@@ -1,0 +1,391 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Protocol.MediaControlCommand
+  commentId: T:AppleTvControlLibrary.Protocol.MediaControlCommand
+  id: MediaControlCommand
+  parent: AppleTvControlLibrary.Protocol
+  children:
+  - AppleTvControlLibrary.Protocol.MediaControlCommand.FastForwardBegin
+  - AppleTvControlLibrary.Protocol.MediaControlCommand.FastForwardEnd
+  - AppleTvControlLibrary.Protocol.MediaControlCommand.GetCaptionSettings
+  - AppleTvControlLibrary.Protocol.MediaControlCommand.GetVolume
+  - AppleTvControlLibrary.Protocol.MediaControlCommand.NextTrack
+  - AppleTvControlLibrary.Protocol.MediaControlCommand.Pause
+  - AppleTvControlLibrary.Protocol.MediaControlCommand.Play
+  - AppleTvControlLibrary.Protocol.MediaControlCommand.PreviousTrack
+  - AppleTvControlLibrary.Protocol.MediaControlCommand.RewindBegin
+  - AppleTvControlLibrary.Protocol.MediaControlCommand.RewindEnd
+  - AppleTvControlLibrary.Protocol.MediaControlCommand.SetCaptionSettings
+  - AppleTvControlLibrary.Protocol.MediaControlCommand.SetVolume
+  - AppleTvControlLibrary.Protocol.MediaControlCommand.SkipBy
+  langs:
+  - csharp
+  - vb
+  name: MediaControlCommand
+  nameWithType: MediaControlCommand
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCommand
+  type: Enum
+  source:
+    id: MediaControlCommand
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 64
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: >-
+    Media Control command constants, used for playback and volume control (as opposed to the
+
+    remote-button surface exposed by <xref href="AppleTvControlLibrary.Protocol.HidCommand" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public enum MediaControlCommand
+    content.vb: Public Enum MediaControlCommand
+- uid: AppleTvControlLibrary.Protocol.MediaControlCommand.Play
+  commentId: F:AppleTvControlLibrary.Protocol.MediaControlCommand.Play
+  id: Play
+  parent: AppleTvControlLibrary.Protocol.MediaControlCommand
+  langs:
+  - csharp
+  - vb
+  name: Play
+  nameWithType: MediaControlCommand.Play
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCommand.Play
+  type: Field
+  source:
+    id: Play
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 67
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: pyatv/protocols/companion/api.py — line 62 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Play = 1
+    return:
+      type: AppleTvControlLibrary.Protocol.MediaControlCommand
+- uid: AppleTvControlLibrary.Protocol.MediaControlCommand.Pause
+  commentId: F:AppleTvControlLibrary.Protocol.MediaControlCommand.Pause
+  id: Pause
+  parent: AppleTvControlLibrary.Protocol.MediaControlCommand
+  langs:
+  - csharp
+  - vb
+  name: Pause
+  nameWithType: MediaControlCommand.Pause
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCommand.Pause
+  type: Field
+  source:
+    id: Pause
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 69
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: pyatv/protocols/companion/api.py — line 63 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Pause = 2
+    return:
+      type: AppleTvControlLibrary.Protocol.MediaControlCommand
+- uid: AppleTvControlLibrary.Protocol.MediaControlCommand.NextTrack
+  commentId: F:AppleTvControlLibrary.Protocol.MediaControlCommand.NextTrack
+  id: NextTrack
+  parent: AppleTvControlLibrary.Protocol.MediaControlCommand
+  langs:
+  - csharp
+  - vb
+  name: NextTrack
+  nameWithType: MediaControlCommand.NextTrack
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCommand.NextTrack
+  type: Field
+  source:
+    id: NextTrack
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 71
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: pyatv/protocols/companion/api.py — line 64 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: NextTrack = 3
+    return:
+      type: AppleTvControlLibrary.Protocol.MediaControlCommand
+- uid: AppleTvControlLibrary.Protocol.MediaControlCommand.PreviousTrack
+  commentId: F:AppleTvControlLibrary.Protocol.MediaControlCommand.PreviousTrack
+  id: PreviousTrack
+  parent: AppleTvControlLibrary.Protocol.MediaControlCommand
+  langs:
+  - csharp
+  - vb
+  name: PreviousTrack
+  nameWithType: MediaControlCommand.PreviousTrack
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCommand.PreviousTrack
+  type: Field
+  source:
+    id: PreviousTrack
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 73
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: pyatv/protocols/companion/api.py — line 65 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: PreviousTrack = 4
+    return:
+      type: AppleTvControlLibrary.Protocol.MediaControlCommand
+- uid: AppleTvControlLibrary.Protocol.MediaControlCommand.GetVolume
+  commentId: F:AppleTvControlLibrary.Protocol.MediaControlCommand.GetVolume
+  id: GetVolume
+  parent: AppleTvControlLibrary.Protocol.MediaControlCommand
+  langs:
+  - csharp
+  - vb
+  name: GetVolume
+  nameWithType: MediaControlCommand.GetVolume
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCommand.GetVolume
+  type: Field
+  source:
+    id: GetVolume
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 75
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: pyatv/protocols/companion/api.py — line 66 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: GetVolume = 5
+    return:
+      type: AppleTvControlLibrary.Protocol.MediaControlCommand
+- uid: AppleTvControlLibrary.Protocol.MediaControlCommand.SetVolume
+  commentId: F:AppleTvControlLibrary.Protocol.MediaControlCommand.SetVolume
+  id: SetVolume
+  parent: AppleTvControlLibrary.Protocol.MediaControlCommand
+  langs:
+  - csharp
+  - vb
+  name: SetVolume
+  nameWithType: MediaControlCommand.SetVolume
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCommand.SetVolume
+  type: Field
+  source:
+    id: SetVolume
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 77
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: pyatv/protocols/companion/api.py — line 67 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: SetVolume = 6
+    return:
+      type: AppleTvControlLibrary.Protocol.MediaControlCommand
+- uid: AppleTvControlLibrary.Protocol.MediaControlCommand.SkipBy
+  commentId: F:AppleTvControlLibrary.Protocol.MediaControlCommand.SkipBy
+  id: SkipBy
+  parent: AppleTvControlLibrary.Protocol.MediaControlCommand
+  langs:
+  - csharp
+  - vb
+  name: SkipBy
+  nameWithType: MediaControlCommand.SkipBy
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCommand.SkipBy
+  type: Field
+  source:
+    id: SkipBy
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 79
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: pyatv/protocols/companion/api.py — line 68 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: SkipBy = 7
+    return:
+      type: AppleTvControlLibrary.Protocol.MediaControlCommand
+- uid: AppleTvControlLibrary.Protocol.MediaControlCommand.FastForwardBegin
+  commentId: F:AppleTvControlLibrary.Protocol.MediaControlCommand.FastForwardBegin
+  id: FastForwardBegin
+  parent: AppleTvControlLibrary.Protocol.MediaControlCommand
+  langs:
+  - csharp
+  - vb
+  name: FastForwardBegin
+  nameWithType: MediaControlCommand.FastForwardBegin
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCommand.FastForwardBegin
+  type: Field
+  source:
+    id: FastForwardBegin
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 81
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: pyatv/protocols/companion/api.py — line 69 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: FastForwardBegin = 8
+    return:
+      type: AppleTvControlLibrary.Protocol.MediaControlCommand
+- uid: AppleTvControlLibrary.Protocol.MediaControlCommand.FastForwardEnd
+  commentId: F:AppleTvControlLibrary.Protocol.MediaControlCommand.FastForwardEnd
+  id: FastForwardEnd
+  parent: AppleTvControlLibrary.Protocol.MediaControlCommand
+  langs:
+  - csharp
+  - vb
+  name: FastForwardEnd
+  nameWithType: MediaControlCommand.FastForwardEnd
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCommand.FastForwardEnd
+  type: Field
+  source:
+    id: FastForwardEnd
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 83
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: pyatv/protocols/companion/api.py — line 70 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: FastForwardEnd = 9
+    return:
+      type: AppleTvControlLibrary.Protocol.MediaControlCommand
+- uid: AppleTvControlLibrary.Protocol.MediaControlCommand.RewindBegin
+  commentId: F:AppleTvControlLibrary.Protocol.MediaControlCommand.RewindBegin
+  id: RewindBegin
+  parent: AppleTvControlLibrary.Protocol.MediaControlCommand
+  langs:
+  - csharp
+  - vb
+  name: RewindBegin
+  nameWithType: MediaControlCommand.RewindBegin
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCommand.RewindBegin
+  type: Field
+  source:
+    id: RewindBegin
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 85
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: pyatv/protocols/companion/api.py — line 71 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: RewindBegin = 10
+    return:
+      type: AppleTvControlLibrary.Protocol.MediaControlCommand
+- uid: AppleTvControlLibrary.Protocol.MediaControlCommand.RewindEnd
+  commentId: F:AppleTvControlLibrary.Protocol.MediaControlCommand.RewindEnd
+  id: RewindEnd
+  parent: AppleTvControlLibrary.Protocol.MediaControlCommand
+  langs:
+  - csharp
+  - vb
+  name: RewindEnd
+  nameWithType: MediaControlCommand.RewindEnd
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCommand.RewindEnd
+  type: Field
+  source:
+    id: RewindEnd
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 87
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: pyatv/protocols/companion/api.py — line 72 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: RewindEnd = 11
+    return:
+      type: AppleTvControlLibrary.Protocol.MediaControlCommand
+- uid: AppleTvControlLibrary.Protocol.MediaControlCommand.GetCaptionSettings
+  commentId: F:AppleTvControlLibrary.Protocol.MediaControlCommand.GetCaptionSettings
+  id: GetCaptionSettings
+  parent: AppleTvControlLibrary.Protocol.MediaControlCommand
+  langs:
+  - csharp
+  - vb
+  name: GetCaptionSettings
+  nameWithType: MediaControlCommand.GetCaptionSettings
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCommand.GetCaptionSettings
+  type: Field
+  source:
+    id: GetCaptionSettings
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 89
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: pyatv/protocols/companion/api.py — line 73 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: GetCaptionSettings = 12
+    return:
+      type: AppleTvControlLibrary.Protocol.MediaControlCommand
+- uid: AppleTvControlLibrary.Protocol.MediaControlCommand.SetCaptionSettings
+  commentId: F:AppleTvControlLibrary.Protocol.MediaControlCommand.SetCaptionSettings
+  id: SetCaptionSettings
+  parent: AppleTvControlLibrary.Protocol.MediaControlCommand
+  langs:
+  - csharp
+  - vb
+  name: SetCaptionSettings
+  nameWithType: MediaControlCommand.SetCaptionSettings
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCommand.SetCaptionSettings
+  type: Field
+  source:
+    id: SetCaptionSettings
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 91
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: pyatv/protocols/companion/api.py — line 74 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: SetCaptionSettings = 13
+    return:
+      type: AppleTvControlLibrary.Protocol.MediaControlCommand
+references:
+- uid: AppleTvControlLibrary.Protocol.HidCommand
+  commentId: T:AppleTvControlLibrary.Protocol.HidCommand
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.HidCommand.html
+  name: HidCommand
+  nameWithType: HidCommand
+  fullName: AppleTvControlLibrary.Protocol.HidCommand
+- uid: AppleTvControlLibrary.Protocol
+  commentId: N:AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Protocol
+  nameWithType: AppleTvControlLibrary.Protocol
+  fullName: AppleTvControlLibrary.Protocol
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Protocol
+    name: Protocol
+    href: AppleTvControlLibrary.Protocol.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Protocol
+    name: Protocol
+    href: AppleTvControlLibrary.Protocol.html
+- uid: AppleTvControlLibrary.Protocol.MediaControlCommand
+  commentId: T:AppleTvControlLibrary.Protocol.MediaControlCommand
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.MediaControlCommand.html
+  name: MediaControlCommand
+  nameWithType: MediaControlCommand
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCommand

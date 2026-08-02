@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Protocol.MessageType
+  commentId: T:AppleTvControlLibrary.Protocol.MessageType
+  id: MessageType
+  parent: AppleTvControlLibrary.Protocol
+  children:
+  - AppleTvControlLibrary.Protocol.MessageType.Event
+  - AppleTvControlLibrary.Protocol.MessageType.Request
+  - AppleTvControlLibrary.Protocol.MessageType.Response
+  langs:
+  - csharp
+  - vb
+  name: MessageType
+  nameWithType: MessageType
+  fullName: AppleTvControlLibrary.Protocol.MessageType
+  type: Enum
+  source:
+    id: MessageType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 16
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Type of an OPACK message exchanged over a Companion connection.
+  example: []
+  syntax:
+    content: public enum MessageType
+    content.vb: Public Enum MessageType
+- uid: AppleTvControlLibrary.Protocol.MessageType.Event
+  commentId: F:AppleTvControlLibrary.Protocol.MessageType.Event
+  id: Event
+  parent: AppleTvControlLibrary.Protocol.MessageType
+  langs:
+  - csharp
+  - vb
+  name: Event
+  nameWithType: MessageType.Event
+  fullName: AppleTvControlLibrary.Protocol.MessageType.Event
+  type: Field
+  source:
+    id: Event
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 19
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: An unsolicited event. pyatv/protocols/companion/protocol.py — line 57 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Event = 1
+    return:
+      type: AppleTvControlLibrary.Protocol.MessageType
+- uid: AppleTvControlLibrary.Protocol.MessageType.Request
+  commentId: F:AppleTvControlLibrary.Protocol.MessageType.Request
+  id: Request
+  parent: AppleTvControlLibrary.Protocol.MessageType
+  langs:
+  - csharp
+  - vb
+  name: Request
+  nameWithType: MessageType.Request
+  fullName: AppleTvControlLibrary.Protocol.MessageType.Request
+  type: Field
+  source:
+    id: Request
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 21
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: A request expecting a response. pyatv/protocols/companion/protocol.py — line 58 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Request = 2
+    return:
+      type: AppleTvControlLibrary.Protocol.MessageType
+- uid: AppleTvControlLibrary.Protocol.MessageType.Response
+  commentId: F:AppleTvControlLibrary.Protocol.MessageType.Response
+  id: Response
+  parent: AppleTvControlLibrary.Protocol.MessageType
+  langs:
+  - csharp
+  - vb
+  name: Response
+  nameWithType: MessageType.Response
+  fullName: AppleTvControlLibrary.Protocol.MessageType.Response
+  type: Field
+  source:
+    id: Response
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 23
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: A response to a previously sent request. pyatv/protocols/companion/protocol.py — line 59 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Response = 3
+    return:
+      type: AppleTvControlLibrary.Protocol.MessageType
+references:
+- uid: AppleTvControlLibrary.Protocol
+  commentId: N:AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Protocol
+  nameWithType: AppleTvControlLibrary.Protocol
+  fullName: AppleTvControlLibrary.Protocol
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Protocol
+    name: Protocol
+    href: AppleTvControlLibrary.Protocol.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Protocol
+    name: Protocol
+    href: AppleTvControlLibrary.Protocol.html
+- uid: AppleTvControlLibrary.Protocol.MessageType
+  commentId: T:AppleTvControlLibrary.Protocol.MessageType
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.MessageType.html
+  name: MessageType
+  nameWithType: MessageType
+  fullName: AppleTvControlLibrary.Protocol.MessageType

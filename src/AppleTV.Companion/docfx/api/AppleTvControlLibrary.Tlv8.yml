@@ -1,0 +1,85 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Tlv8
+  commentId: N:AppleTvControlLibrary.Tlv8
+  id: AppleTvControlLibrary.Tlv8
+  children:
+  - AppleTvControlLibrary.Tlv8.ErrorCode
+  - AppleTvControlLibrary.Tlv8.Method
+  - AppleTvControlLibrary.Tlv8.PairingFlagValue
+  - AppleTvControlLibrary.Tlv8.State
+  - AppleTvControlLibrary.Tlv8.Tlv8
+  - AppleTvControlLibrary.Tlv8.TlvValue
+  langs:
+  - csharp
+  - vb
+  name: AppleTvControlLibrary.Tlv8
+  nameWithType: AppleTvControlLibrary.Tlv8
+  fullName: AppleTvControlLibrary.Tlv8
+  type: Namespace
+  assemblies:
+  - AppleTvControlLibrary
+references:
+- uid: AppleTvControlLibrary.Tlv8.TlvValue
+  commentId: T:AppleTvControlLibrary.Tlv8.TlvValue
+  parent: AppleTvControlLibrary.Tlv8
+  href: AppleTvControlLibrary.Tlv8.TlvValue.html
+  name: TlvValue
+  nameWithType: TlvValue
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue
+- uid: AppleTvControlLibrary.Tlv8.PairingFlagValue
+  commentId: T:AppleTvControlLibrary.Tlv8.PairingFlagValue
+  parent: AppleTvControlLibrary.Tlv8
+  href: AppleTvControlLibrary.Tlv8.PairingFlagValue.html
+  name: PairingFlagValue
+  nameWithType: PairingFlagValue
+  fullName: AppleTvControlLibrary.Tlv8.PairingFlagValue
+- uid: AppleTvControlLibrary.Tlv8.ErrorCode
+  commentId: T:AppleTvControlLibrary.Tlv8.ErrorCode
+  parent: AppleTvControlLibrary.Tlv8
+  href: AppleTvControlLibrary.Tlv8.ErrorCode.html
+  name: ErrorCode
+  nameWithType: ErrorCode
+  fullName: AppleTvControlLibrary.Tlv8.ErrorCode
+- uid: AppleTvControlLibrary.Tlv8.Method
+  commentId: T:AppleTvControlLibrary.Tlv8.Method
+  parent: AppleTvControlLibrary.Tlv8
+  href: AppleTvControlLibrary.Tlv8.Method.html
+  name: Method
+  nameWithType: Method
+  fullName: AppleTvControlLibrary.Tlv8.Method
+- uid: AppleTvControlLibrary.Tlv8.State
+  commentId: T:AppleTvControlLibrary.Tlv8.State
+  parent: AppleTvControlLibrary.Tlv8
+  href: AppleTvControlLibrary.Tlv8.State.html
+  name: State
+  nameWithType: State
+  fullName: AppleTvControlLibrary.Tlv8.State
+- uid: AppleTvControlLibrary.Tlv8.Tlv8
+  commentId: T:AppleTvControlLibrary.Tlv8.Tlv8
+  href: AppleTvControlLibrary.Tlv8.Tlv8.html
+  name: Tlv8
+  nameWithType: Tlv8
+  fullName: AppleTvControlLibrary.Tlv8.Tlv8
+- uid: AppleTvControlLibrary.Tlv8
+  commentId: N:AppleTvControlLibrary.Tlv8
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Tlv8
+  nameWithType: AppleTvControlLibrary.Tlv8
+  fullName: AppleTvControlLibrary.Tlv8
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Tlv8
+    name: Tlv8
+    href: AppleTvControlLibrary.Tlv8.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Tlv8
+    name: Tlv8
+    href: AppleTvControlLibrary.Tlv8.html

@@ -1,0 +1,422 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Text.KeyedArchiver
+  commentId: T:AppleTvControlLibrary.Text.KeyedArchiver
+  id: KeyedArchiver
+  parent: AppleTvControlLibrary.Text
+  children:
+  - AppleTvControlLibrary.Text.KeyedArchiver.ReadArchiveProperties(System.Byte[],System.String[][])
+  langs:
+  - csharp
+  - vb
+  name: KeyedArchiver
+  nameWithType: KeyedArchiver
+  fullName: AppleTvControlLibrary.Text.KeyedArchiver
+  type: Class
+  source:
+    id: KeyedArchiver
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Text\KeyedArchiver.cs
+    startLine: 19
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Text
+  summary: Support for reading a subset of NSKeyedArchiver serialized data.
+  remarks: >-
+    pyatv does not implement a full NSKeyedArchiver reader; it just loads the plist and walks
+
+    <code>$top</code> down a key path, dereferencing UID values into <code>$objects</code> as it goes. This
+
+    is a direct port of that same limited approach -- do not extend it into a general archiver.
+  example: []
+  syntax:
+    content: public static class KeyedArchiver
+    content.vb: Public Module KeyedArchiver
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: AppleTvControlLibrary.Text.KeyedArchiver.ReadArchiveProperties(System.Byte[],System.String[][])
+  commentId: M:AppleTvControlLibrary.Text.KeyedArchiver.ReadArchiveProperties(System.Byte[],System.String[][])
+  id: ReadArchiveProperties(System.Byte[],System.String[][])
+  parent: AppleTvControlLibrary.Text.KeyedArchiver
+  langs:
+  - csharp
+  - vb
+  name: ReadArchiveProperties(byte[], params string[][])
+  nameWithType: KeyedArchiver.ReadArchiveProperties(byte[], params string[][])
+  fullName: AppleTvControlLibrary.Text.KeyedArchiver.ReadArchiveProperties(byte[], params string[][])
+  type: Method
+  source:
+    id: ReadArchiveProperties
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Text\KeyedArchiver.cs
+    startLine: 31
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Text
+  summary: Get properties from an NSKeyedArchiver encoded binary plist.
+  example: []
+  syntax:
+    content: public static object?[] ReadArchiveProperties(byte[] archive, params string[][] paths)
+    parameters:
+    - id: archive
+      type: System.Byte[]
+      description: The raw NSKeyedArchiver encoded binary plist bytes.
+    - id: paths
+      type: System.String[][]
+      description: One or more key paths to follow from <code>$top</code>, dereferencing UID values into <code>$objects</code> along the way.
+    return:
+      type: System.Object[]
+      description: >-
+        One resolved value per requested path, in the same order, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for a
+
+        path that could not be fully resolved.
+    content.vb: Public Shared Function ReadArchiveProperties(archive As Byte(), ParamArray paths As String()()) As Object()
+  overload: AppleTvControlLibrary.Text.KeyedArchiver.ReadArchiveProperties*
+  nameWithType.vb: KeyedArchiver.ReadArchiveProperties(Byte(), ParamArray String()())
+  fullName.vb: AppleTvControlLibrary.Text.KeyedArchiver.ReadArchiveProperties(Byte(), ParamArray String()())
+  name.vb: ReadArchiveProperties(Byte(), ParamArray String()())
+references:
+- uid: AppleTvControlLibrary.Text
+  commentId: N:AppleTvControlLibrary.Text
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Text
+  nameWithType: AppleTvControlLibrary.Text
+  fullName: AppleTvControlLibrary.Text
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Text
+    name: Text
+    href: AppleTvControlLibrary.Text.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Text
+    name: Text
+    href: AppleTvControlLibrary.Text.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AppleTvControlLibrary.Text.KeyedArchiver.ReadArchiveProperties*
+  commentId: Overload:AppleTvControlLibrary.Text.KeyedArchiver.ReadArchiveProperties
+  href: AppleTvControlLibrary.Text.KeyedArchiver.html#AppleTvControlLibrary_Text_KeyedArchiver_ReadArchiveProperties_System_Byte___System_String_____
+  name: ReadArchiveProperties
+  nameWithType: KeyedArchiver.ReadArchiveProperties
+  fullName: AppleTvControlLibrary.Text.KeyedArchiver.ReadArchiveProperties
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: System.String[][]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[][]
+  nameWithType: string[][]
+  fullName: string[][]
+  nameWithType.vb: String()()
+  fullName.vb: String()()
+  name.vb: String()()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: (
+  - name: )
+- uid: System.Object[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object[]
+  nameWithType: object[]
+  fullName: object[]
+  nameWithType.vb: Object()
+  fullName.vb: Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )

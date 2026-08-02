@@ -1,0 +1,2043 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Protocol.CompanionApi
+  commentId: T:AppleTvControlLibrary.Protocol.CompanionApi
+  id: CompanionApi
+  parent: AppleTvControlLibrary.Protocol
+  children:
+  - AppleTvControlLibrary.Protocol.CompanionApi.#ctor(AppleTvControlLibrary.Protocol.CompanionProtocol,AppleTvControlLibrary.Auth.HapCredentials,System.String,System.String,System.String,System.String)
+  - AppleTvControlLibrary.Protocol.CompanionApi.Connect
+  - AppleTvControlLibrary.Protocol.CompanionApi.CurrentSystemStatus
+  - AppleTvControlLibrary.Protocol.CompanionApi.DeviceId
+  - AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState
+  - AppleTvControlLibrary.Protocol.CompanionApi.GetVolume
+  - AppleTvControlLibrary.Protocol.CompanionApi.IsVolumeControlSupported
+  - AppleTvControlLibrary.Protocol.CompanionApi.MediaControlCapabilitiesChanged
+  - AppleTvControlLibrary.Protocol.CompanionApi.MediaControlCommand(AppleTvControlLibrary.Protocol.MediaControlCommand,System.Collections.Generic.Dictionary{System.String,System.Object})
+  - AppleTvControlLibrary.Protocol.CompanionApi.Model
+  - AppleTvControlLibrary.Protocol.CompanionApi.Name
+  - AppleTvControlLibrary.Protocol.CompanionApi.SendClick(AppleTvControlLibrary.Protocol.InputAction)
+  - AppleTvControlLibrary.Protocol.CompanionApi.SendHidCommand(System.Boolean,AppleTvControlLibrary.Protocol.HidCommand)
+  - AppleTvControlLibrary.Protocol.CompanionApi.SendHidEvent(System.Int32,System.Int32,AppleTvControlLibrary.Protocol.TouchAction)
+  - AppleTvControlLibrary.Protocol.CompanionApi.SessionStart
+  - AppleTvControlLibrary.Protocol.CompanionApi.SessionStop
+  - AppleTvControlLibrary.Protocol.CompanionApi.SetVolume(System.Double)
+  - AppleTvControlLibrary.Protocol.CompanionApi.Sid
+  - AppleTvControlLibrary.Protocol.CompanionApi.StableIdentifier
+  - AppleTvControlLibrary.Protocol.CompanionApi.SubscribeEvent(System.String)
+  - AppleTvControlLibrary.Protocol.CompanionApi.SystemInfo
+  - AppleTvControlLibrary.Protocol.CompanionApi.SystemStatusChanged
+  - AppleTvControlLibrary.Protocol.CompanionApi.TextAppend(System.String)
+  - AppleTvControlLibrary.Protocol.CompanionApi.TextClear
+  - AppleTvControlLibrary.Protocol.CompanionApi.TextFocusState
+  - AppleTvControlLibrary.Protocol.CompanionApi.TextFocusStateChanged
+  - AppleTvControlLibrary.Protocol.CompanionApi.TextGet
+  - AppleTvControlLibrary.Protocol.CompanionApi.TextInputCommand(System.String,System.Boolean)
+  - AppleTvControlLibrary.Protocol.CompanionApi.TextInputStart
+  - AppleTvControlLibrary.Protocol.CompanionApi.TextInputStop
+  - AppleTvControlLibrary.Protocol.CompanionApi.TextSet(System.String)
+  - AppleTvControlLibrary.Protocol.CompanionApi.ToggleMute
+  - AppleTvControlLibrary.Protocol.CompanionApi.TouchStart
+  - AppleTvControlLibrary.Protocol.CompanionApi.TouchStop
+  - AppleTvControlLibrary.Protocol.CompanionApi.TvRcSessionStart
+  - AppleTvControlLibrary.Protocol.CompanionApi.UnsubscribeEvent(System.String)
+  langs:
+  - csharp
+  - vb
+  name: CompanionApi
+  nameWithType: CompanionApi
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi
+  type: Class
+  source:
+    id: CompanionApi
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 199
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: >-
+    High level implementation of the Companion API: system info, session lifecycle, HID
+
+    input, media control (volume) and attention state.
+  remarks: >-
+    App launching, text input and account switching are intentionally out of scope for this
+
+    port (Companion-only, per the porting brief).
+  example: []
+  syntax:
+    content: 'public sealed class CompanionApi : ICompanionProtocolListener'
+    content.vb: Public NotInheritable Class CompanionApi Implements ICompanionProtocolListener
+  inheritance:
+  - System.Object
+  implements:
+  - AppleTvControlLibrary.Protocol.ICompanionProtocolListener
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.#ctor(AppleTvControlLibrary.Protocol.CompanionProtocol,AppleTvControlLibrary.Auth.HapCredentials,System.String,System.String,System.String,System.String)
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.#ctor(AppleTvControlLibrary.Protocol.CompanionProtocol,AppleTvControlLibrary.Auth.HapCredentials,System.String,System.String,System.String,System.String)
+  id: '#ctor(AppleTvControlLibrary.Protocol.CompanionProtocol,AppleTvControlLibrary.Auth.HapCredentials,System.String,System.String,System.String,System.String)'
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: CompanionApi(CompanionProtocol, HapCredentials, string, string, string, string)
+  nameWithType: CompanionApi.CompanionApi(CompanionProtocol, HapCredentials, string, string, string, string)
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.CompanionApi(AppleTvControlLibrary.Protocol.CompanionProtocol, AppleTvControlLibrary.Auth.HapCredentials, string, string, string, string)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 238
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Initializes a new instance of the <xref href="AppleTvControlLibrary.Protocol.CompanionApi" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public CompanionApi(CompanionProtocol protocol, HapCredentials credentials, string stableIdentifier, string deviceId, string model, string name)
+    parameters:
+    - id: protocol
+      type: AppleTvControlLibrary.Protocol.CompanionProtocol
+      description: The underlying Companion protocol instance.
+    - id: credentials
+      type: AppleTvControlLibrary.Auth.HapCredentials
+      description: The paired credentials, used to build the <code>_idsID</code> system info field.
+    - id: stableIdentifier
+      type: System.String
+      description: >-
+        A stable, persisted identifier for the <code>_systemInfo</code> <code>_i</code> field (typically six
+
+        random bytes, hex-encoded, generated once at pair time and never regenerated -- see
+
+        porting brief WP6 notes on <code>_i</code>).
+    - id: deviceId
+      type: System.String
+      description: The device identifier reported as <code>_pubID</code>.
+    - id: model
+      type: System.String
+      description: The device model string reported in <code>_systemInfo</code>.
+    - id: name
+      type: System.String
+      description: The device name string reported in <code>_systemInfo</code>.
+    content.vb: Public Sub New(protocol As CompanionProtocol, credentials As HapCredentials, stableIdentifier As String, deviceId As String, model As String, name As String)
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.#ctor*
+  nameWithType.vb: CompanionApi.New(CompanionProtocol, HapCredentials, String, String, String, String)
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionApi.New(AppleTvControlLibrary.Protocol.CompanionProtocol, AppleTvControlLibrary.Auth.HapCredentials, String, String, String, String)
+  name.vb: New(CompanionProtocol, HapCredentials, String, String, String, String)
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.StableIdentifier
+  commentId: P:AppleTvControlLibrary.Protocol.CompanionApi.StableIdentifier
+  id: StableIdentifier
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: StableIdentifier
+  nameWithType: CompanionApi.StableIdentifier
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.StableIdentifier
+  type: Property
+  source:
+    id: StableIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 261
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Gets the stable identifier used as the <code>_systemInfo</code> <code>_i</code> field.
+  example: []
+  syntax:
+    content: public string StableIdentifier { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property StableIdentifier As String
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.StableIdentifier*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.DeviceId
+  commentId: P:AppleTvControlLibrary.Protocol.CompanionApi.DeviceId
+  id: DeviceId
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: DeviceId
+  nameWithType: CompanionApi.DeviceId
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.DeviceId
+  type: Property
+  source:
+    id: DeviceId
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 267
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Gets the device identifier reported as <code>_pubID</code>.
+  example: []
+  syntax:
+    content: public string DeviceId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property DeviceId As String
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.DeviceId*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.Model
+  commentId: P:AppleTvControlLibrary.Protocol.CompanionApi.Model
+  id: Model
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: Model
+  nameWithType: CompanionApi.Model
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.Model
+  type: Property
+  source:
+    id: Model
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 273
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Gets the device model string.
+  example: []
+  syntax:
+    content: public string Model { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Model As String
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.Model*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.Name
+  commentId: P:AppleTvControlLibrary.Protocol.CompanionApi.Name
+  id: Name
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: CompanionApi.Name
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.Name
+  type: Property
+  source:
+    id: Name
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 279
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Gets the device name string.
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.Name*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.Sid
+  commentId: P:AppleTvControlLibrary.Protocol.CompanionApi.Sid
+  id: Sid
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: Sid
+  nameWithType: CompanionApi.Sid
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.Sid
+  type: Property
+  source:
+    id: Sid
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 286
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Gets the combined session id established by <xref href="AppleTvControlLibrary.Protocol.CompanionApi.SessionStart" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public long Sid { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property Sid As Long
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.Sid*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.Connect
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.Connect
+  id: Connect
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: Connect()
+  nameWithType: CompanionApi.Connect()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.Connect()
+  type: Method
+  source:
+    id: Connect
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 298
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: >-
+    Runs the connection bring-up sequence: system info, touch subscription, session start,
+
+    TV Remote Client session start, and text input session start.
+  example: []
+  syntax:
+    content: public void Connect()
+    content.vb: Public Sub Connect()
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.Connect*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SystemInfo
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.SystemInfo
+  id: SystemInfo
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: SystemInfo()
+  nameWithType: CompanionApi.SystemInfo()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SystemInfo()
+  type: Method
+  source:
+    id: SystemInfo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 386
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Send system information to the device.
+  example: []
+  syntax:
+    content: public void SystemInfo()
+    content.vb: Public Sub SystemInfo()
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.SystemInfo*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TouchStart
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.TouchStart
+  id: TouchStart
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: TouchStart()
+  nameWithType: CompanionApi.TouchStart()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TouchStart()
+  type: Method
+  source:
+    id: TouchStart
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 408
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Subscribe to touch gestures.
+  example: []
+  syntax:
+    content: public void TouchStart()
+    content.vb: Public Sub TouchStart()
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.TouchStart*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TouchStop
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.TouchStop
+  id: TouchStop
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: TouchStop()
+  nameWithType: CompanionApi.TouchStop()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TouchStop()
+  type: Method
+  source:
+    id: TouchStop
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 422
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Unsubscribe from touch gestures.
+  example: []
+  syntax:
+    content: public void TouchStop()
+    content.vb: Public Sub TouchStop()
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.TouchStop*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SessionStart
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.SessionStart
+  id: SessionStart
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: SessionStart()
+  nameWithType: CompanionApi.SessionStart()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SessionStart()
+  type: Method
+  source:
+    id: SessionStart
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 432
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Start a Companion session.
+  example: []
+  syntax:
+    content: public void SessionStart()
+    content.vb: Public Sub SessionStart()
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.SessionStart*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SessionStop
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.SessionStop
+  id: SessionStop
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: SessionStop()
+  nameWithType: CompanionApi.SessionStop()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SessionStop()
+  type: Method
+  source:
+    id: SessionStop
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 455
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Stop the current Companion session.
+  example: []
+  syntax:
+    content: public void SessionStop()
+    content.vb: Public Sub SessionStop()
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.SessionStop*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TvRcSessionStart
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.TvRcSessionStart
+  id: TvRcSessionStart
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: TvRcSessionStart()
+  nameWithType: CompanionApi.TvRcSessionStart()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TvRcSessionStart()
+  type: Method
+  source:
+    id: TvRcSessionStart
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 472
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: >-
+    Open a TV Remote Client session. tvOS does not answer <code>FetchAttentionState</code> until a
+
+    TV Remote Client session is registered with <code>tvremoted</code>; older devices may simply
+
+    error on this command, so failures here are intentionally swallowed.
+  example: []
+  syntax:
+    content: public void TvRcSessionStart()
+    content.vb: Public Sub TvRcSessionStart()
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.TvRcSessionStart*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TextInputStart
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.TextInputStart
+  id: TextInputStart
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: TextInputStart()
+  nameWithType: CompanionApi.TextInputStart()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TextInputStart()
+  type: Method
+  source:
+    id: TextInputStart
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 487
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Start a text input session.
+  example: []
+  syntax:
+    content: public Dictionary<object, object?> TextInputStart()
+    return:
+      type: System.Collections.Generic.Dictionary{System.Object,System.Object}
+    content.vb: Public Function TextInputStart() As Dictionary(Of Object, Object)
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.TextInputStart*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TextInputStop
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.TextInputStop
+  id: TextInputStop
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: TextInputStop()
+  nameWithType: CompanionApi.TextInputStop()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TextInputStop()
+  type: Method
+  source:
+    id: TextInputStop
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 504
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Stop the current text input session.
+  example: []
+  syntax:
+    content: public void TextInputStop()
+    content.vb: Public Sub TextInputStop()
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.TextInputStop*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TextFocusState
+  commentId: P:AppleTvControlLibrary.Protocol.CompanionApi.TextFocusState
+  id: TextFocusState
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: TextFocusState
+  nameWithType: CompanionApi.TextFocusState
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TextFocusState
+  type: Property
+  source:
+    id: TextFocusState
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 514
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: >-
+    Gets the current keyboard (RTI text input) focus state, as last reported by the
+
+    <code>_tiStarted</code>/<code>_tiStopped</code> events or the <code>_tiStart</code> response.
+  example: []
+  syntax:
+    content: public KeyboardFocusState TextFocusState { get; }
+    parameters: []
+    return:
+      type: AppleTvControlLibrary.Protocol.KeyboardFocusState
+    content.vb: Public Property TextFocusState As KeyboardFocusState
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.TextFocusState*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TextFocusStateChanged
+  commentId: E:AppleTvControlLibrary.Protocol.CompanionApi.TextFocusStateChanged
+  id: TextFocusStateChanged
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: TextFocusStateChanged
+  nameWithType: CompanionApi.TextFocusStateChanged
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TextFocusStateChanged
+  type: Event
+  source:
+    id: TextFocusStateChanged
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 524
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: >-
+    Raised whenever <xref href="AppleTvControlLibrary.Protocol.CompanionApi.TextFocusState" data-throw-if-not-resolved="false"></xref> is updated by a <code>_tiStarted</code>,
+
+    <code>_tiStopped</code> event, or a <code>_tiStart</code> response.
+  example: []
+  syntax:
+    content: public event EventHandler? TextFocusStateChanged
+    return:
+      type: System.EventHandler
+    content.vb: Public Event TextFocusStateChanged As EventHandler
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TextInputCommand(System.String,System.Boolean)
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.TextInputCommand(System.String,System.Boolean)
+  id: TextInputCommand(System.String,System.Boolean)
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: TextInputCommand(string, bool)
+  nameWithType: CompanionApi.TextInputCommand(string, bool)
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TextInputCommand(string, bool)
+  type: Method
+  source:
+    id: TextInputCommand
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 547
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: >-
+    Send a text input command: refreshes the RTI session, optionally clears the current
+
+    text, then optionally inserts new text.
+  example: []
+  syntax:
+    content: public string? TextInputCommand(string text, bool clearPreviousInput = false)
+    parameters:
+    - id: text
+      type: System.String
+      description: The text to insert, or an empty string to insert nothing.
+    - id: clearPreviousInput
+      type: System.Boolean
+      description: Whether to clear the existing text before inserting.
+    return:
+      type: System.String
+      description: The resulting text field contents, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if there is no focused text field.
+    content.vb: Public Function TextInputCommand(text As String, clearPreviousInput As Boolean = False) As String
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.TextInputCommand*
+  nameWithType.vb: CompanionApi.TextInputCommand(String, Boolean)
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionApi.TextInputCommand(String, Boolean)
+  name.vb: TextInputCommand(String, Boolean)
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TextGet
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.TextGet
+  id: TextGet
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: TextGet()
+  nameWithType: CompanionApi.TextGet()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TextGet()
+  type: Method
+  source:
+    id: TextGet
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 598
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Get the current virtual keyboard text.
+  example: []
+  syntax:
+    content: public string? TextGet()
+    return:
+      type: System.String
+    content.vb: Public Function TextGet() As String
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.TextGet*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TextClear
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.TextClear
+  id: TextClear
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: TextClear()
+  nameWithType: CompanionApi.TextClear()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TextClear()
+  type: Method
+  source:
+    id: TextClear
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 605
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Clear the virtual keyboard text.
+  example: []
+  syntax:
+    content: public void TextClear()
+    content.vb: Public Sub TextClear()
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.TextClear*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TextAppend(System.String)
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.TextAppend(System.String)
+  id: TextAppend(System.String)
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: TextAppend(string)
+  nameWithType: CompanionApi.TextAppend(string)
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TextAppend(string)
+  type: Method
+  source:
+    id: TextAppend
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 613
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Append text to the virtual keyboard.
+  example: []
+  syntax:
+    content: public void TextAppend(string text)
+    parameters:
+    - id: text
+      type: System.String
+      description: The text to insert.
+    content.vb: Public Sub TextAppend(text As String)
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.TextAppend*
+  nameWithType.vb: CompanionApi.TextAppend(String)
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionApi.TextAppend(String)
+  name.vb: TextAppend(String)
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TextSet(System.String)
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.TextSet(System.String)
+  id: TextSet(System.String)
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: TextSet(string)
+  nameWithType: CompanionApi.TextSet(string)
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TextSet(string)
+  type: Method
+  source:
+    id: TextSet
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 621
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Replace the virtual keyboard text.
+  example: []
+  syntax:
+    content: public void TextSet(string text)
+    parameters:
+    - id: text
+      type: System.String
+      description: The new text.
+    content.vb: Public Sub TextSet(text As String)
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.TextSet*
+  nameWithType.vb: CompanionApi.TextSet(String)
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionApi.TextSet(String)
+  name.vb: TextSet(String)
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SubscribeEvent(System.String)
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.SubscribeEvent(System.String)
+  id: SubscribeEvent(System.String)
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: SubscribeEvent(string)
+  nameWithType: CompanionApi.SubscribeEvent(string)
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SubscribeEvent(string)
+  type: Method
+  source:
+    id: SubscribeEvent
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 629
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Subscribe to updates for an event.
+  example: []
+  syntax:
+    content: public void SubscribeEvent(string eventName)
+    parameters:
+    - id: eventName
+      type: System.String
+      description: The event identifier to subscribe to.
+    content.vb: Public Sub SubscribeEvent(eventName As String)
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.SubscribeEvent*
+  nameWithType.vb: CompanionApi.SubscribeEvent(String)
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionApi.SubscribeEvent(String)
+  name.vb: SubscribeEvent(String)
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.UnsubscribeEvent(System.String)
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.UnsubscribeEvent(System.String)
+  id: UnsubscribeEvent(System.String)
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: UnsubscribeEvent(string)
+  nameWithType: CompanionApi.UnsubscribeEvent(string)
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.UnsubscribeEvent(string)
+  type: Method
+  source:
+    id: UnsubscribeEvent
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 641
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Unsubscribe from updates for an event.
+  example: []
+  syntax:
+    content: public void UnsubscribeEvent(string eventName)
+    parameters:
+    - id: eventName
+      type: System.String
+      description: The event identifier to unsubscribe from.
+    content.vb: Public Sub UnsubscribeEvent(eventName As String)
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.UnsubscribeEvent*
+  nameWithType.vb: CompanionApi.UnsubscribeEvent(String)
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionApi.UnsubscribeEvent(String)
+  name.vb: UnsubscribeEvent(String)
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SendHidCommand(System.Boolean,AppleTvControlLibrary.Protocol.HidCommand)
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.SendHidCommand(System.Boolean,AppleTvControlLibrary.Protocol.HidCommand)
+  id: SendHidCommand(System.Boolean,AppleTvControlLibrary.Protocol.HidCommand)
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: SendHidCommand(bool, HidCommand)
+  nameWithType: CompanionApi.SendHidCommand(bool, HidCommand)
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SendHidCommand(bool, AppleTvControlLibrary.Protocol.HidCommand)
+  type: Method
+  source:
+    id: SendHidCommand
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 654
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Send a HID command.
+  example: []
+  syntax:
+    content: public void SendHidCommand(bool down, HidCommand command)
+    parameters:
+    - id: down
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> for a button-down event, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> for button-up.
+    - id: command
+      type: AppleTvControlLibrary.Protocol.HidCommand
+      description: The button being pressed or released.
+    content.vb: Public Sub SendHidCommand(down As Boolean, command As HidCommand)
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.SendHidCommand*
+  nameWithType.vb: CompanionApi.SendHidCommand(Boolean, HidCommand)
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionApi.SendHidCommand(Boolean, AppleTvControlLibrary.Protocol.HidCommand)
+  name.vb: SendHidCommand(Boolean, HidCommand)
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SendHidEvent(System.Int32,System.Int32,AppleTvControlLibrary.Protocol.TouchAction)
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.SendHidEvent(System.Int32,System.Int32,AppleTvControlLibrary.Protocol.TouchAction)
+  id: SendHidEvent(System.Int32,System.Int32,AppleTvControlLibrary.Protocol.TouchAction)
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: SendHidEvent(int, int, TouchAction)
+  nameWithType: CompanionApi.SendHidEvent(int, int, TouchAction)
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SendHidEvent(int, int, AppleTvControlLibrary.Protocol.TouchAction)
+  type: Method
+  source:
+    id: SendHidEvent
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 670
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Send a touch event.
+  example: []
+  syntax:
+    content: public void SendHidEvent(int x, int y, TouchAction mode)
+    parameters:
+    - id: x
+      type: System.Int32
+      description: The x coordinate, in the range [0, 1000].
+    - id: y
+      type: System.Int32
+      description: The y coordinate, in the range [0, 1000].
+    - id: mode
+      type: AppleTvControlLibrary.Protocol.TouchAction
+      description: The touch phase.
+    content.vb: Public Sub SendHidEvent(x As Integer, y As Integer, mode As TouchAction)
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.SendHidEvent*
+  nameWithType.vb: CompanionApi.SendHidEvent(Integer, Integer, TouchAction)
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionApi.SendHidEvent(Integer, Integer, AppleTvControlLibrary.Protocol.TouchAction)
+  name.vb: SendHidEvent(Integer, Integer, TouchAction)
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SendClick(AppleTvControlLibrary.Protocol.InputAction)
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.SendClick(AppleTvControlLibrary.Protocol.InputAction)
+  id: SendClick(AppleTvControlLibrary.Protocol.InputAction)
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: SendClick(InputAction)
+  nameWithType: CompanionApi.SendClick(InputAction)
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SendClick(AppleTvControlLibrary.Protocol.InputAction)
+  type: Method
+  source:
+    id: SendClick
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 699
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: >-
+    Send a touch click (tap on the touch surface, distinct from a directional-pad
+
+    <xref href="AppleTvControlLibrary.Protocol.HidCommand.Select" data-throw-if-not-resolved="false"></xref> press). This is what pyatv's remote-widget "select"
+
+    gesture actually sends when driven from a touchpad rather than a D-pad: a
+
+    <xref href="AppleTvControlLibrary.Protocol.HidCommand.Select" data-throw-if-not-resolved="false"></xref> button press/release (button code 6) followed by a
+
+    touch <xref href="AppleTvControlLibrary.Protocol.TouchAction.Click" data-throw-if-not-resolved="false"></xref> event in the bottom-right corner of the touch
+
+    surface.
+  example: []
+  syntax:
+    content: public void SendClick(InputAction action)
+    parameters:
+    - id: action
+      type: AppleTvControlLibrary.Protocol.InputAction
+      description: 'The click gesture: single tap, double tap, or press-and-hold.'
+    content.vb: Public Sub SendClick(action As InputAction)
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.SendClick*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState
+  id: FetchAttentionState
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: FetchAttentionState()
+  nameWithType: CompanionApi.FetchAttentionState()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState()
+  type: Method
+  source:
+    id: FetchAttentionState
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 724
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Fetch the current attention state (system status) from the device.
+  example: []
+  syntax:
+    content: public SystemStatus FetchAttentionState()
+    return:
+      type: AppleTvControlLibrary.Protocol.SystemStatus
+      description: The current <xref href="AppleTvControlLibrary.Protocol.SystemStatus" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function FetchAttentionState() As SystemStatus
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.MediaControlCommand(AppleTvControlLibrary.Protocol.MediaControlCommand,System.Collections.Generic.Dictionary{System.String,System.Object})
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.MediaControlCommand(AppleTvControlLibrary.Protocol.MediaControlCommand,System.Collections.Generic.Dictionary{System.String,System.Object})
+  id: MediaControlCommand(AppleTvControlLibrary.Protocol.MediaControlCommand,System.Collections.Generic.Dictionary{System.String,System.Object})
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: MediaControlCommand(MediaControlCommand, Dictionary<string, object?>?)
+  nameWithType: CompanionApi.MediaControlCommand(MediaControlCommand, Dictionary<string, object?>?)
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.MediaControlCommand(AppleTvControlLibrary.Protocol.MediaControlCommand, System.Collections.Generic.Dictionary<string, object?>?)
+  type: Method
+  source:
+    id: MediaControlCommand
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 742
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Send a media control command to the device.
+  example: []
+  syntax:
+    content: public Dictionary<object, object?> MediaControlCommand(MediaControlCommand command, Dictionary<string, object?>? args = null)
+    parameters:
+    - id: command
+      type: AppleTvControlLibrary.Protocol.MediaControlCommand
+      description: The media control command to send.
+    - id: args
+      type: System.Collections.Generic.Dictionary{System.String,System.Object}
+      description: Additional command-specific arguments, if any.
+    return:
+      type: System.Collections.Generic.Dictionary{System.Object,System.Object}
+      description: The decoded response content (the message's <code>_c</code> field).
+    content.vb: Public Function MediaControlCommand(command As MediaControlCommand, args As Dictionary(Of String, Object) = Nothing) As Dictionary(Of Object, Object)
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.MediaControlCommand*
+  nameWithType.vb: CompanionApi.MediaControlCommand(MediaControlCommand, Dictionary(Of String, Object))
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionApi.MediaControlCommand(AppleTvControlLibrary.Protocol.MediaControlCommand, System.Collections.Generic.Dictionary(Of String, Object))
+  name.vb: MediaControlCommand(MediaControlCommand, Dictionary(Of String, Object))
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.IsVolumeControlSupported
+  commentId: P:AppleTvControlLibrary.Protocol.CompanionApi.IsVolumeControlSupported
+  id: IsVolumeControlSupported
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: IsVolumeControlSupported
+  nameWithType: CompanionApi.IsVolumeControlSupported
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.IsVolumeControlSupported
+  type: Property
+  source:
+    id: IsVolumeControlSupported
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 769
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: >-
+    Gets a value indicating whether the device currently advertises volume control support
+
+    via the <code>_iMC</code> event's <code>_mcF</code> bitmask (<xref href="AppleTvControlLibrary.Protocol.MediaControlCapabilities.Volume" data-throw-if-not-resolved="false"></xref>).
+
+    When this is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, audio is managed outside Companion (e.g. HDMI-CEC)
+
+    and <xref href="AppleTvControlLibrary.Protocol.CompanionApi.GetVolume" data-throw-if-not-resolved="false"></xref>/<xref href="AppleTvControlLibrary.Protocol.CompanionApi.SetVolume(System.Double)" data-throw-if-not-resolved="false"></xref> must not be used.
+  example: []
+  syntax:
+    content: public bool IsVolumeControlSupported { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsVolumeControlSupported As Boolean
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.IsVolumeControlSupported*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.MediaControlCapabilitiesChanged
+  commentId: E:AppleTvControlLibrary.Protocol.CompanionApi.MediaControlCapabilitiesChanged
+  id: MediaControlCapabilitiesChanged
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: MediaControlCapabilitiesChanged
+  nameWithType: CompanionApi.MediaControlCapabilitiesChanged
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.MediaControlCapabilitiesChanged
+  type: Event
+  source:
+    id: MediaControlCapabilitiesChanged
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 776
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: >-
+    Raised whenever an updated <code>_iMC</code> event is received and the device's advertised
+
+    media-control capability flags (including <xref href="AppleTvControlLibrary.Protocol.CompanionApi.IsVolumeControlSupported" data-throw-if-not-resolved="false"></xref>) may
+
+    have changed.
+  example: []
+  syntax:
+    content: public event EventHandler? MediaControlCapabilitiesChanged
+    return:
+      type: System.EventHandler
+    content.vb: Public Event MediaControlCapabilitiesChanged As EventHandler
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.CurrentSystemStatus
+  commentId: P:AppleTvControlLibrary.Protocol.CompanionApi.CurrentSystemStatus
+  id: CurrentSystemStatus
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: CurrentSystemStatus
+  nameWithType: CompanionApi.CurrentSystemStatus
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.CurrentSystemStatus
+  type: Property
+  source:
+    id: CurrentSystemStatus
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 784
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: >-
+    Gets the most recently known system status (power state), updated by the initial
+
+    <xref href="AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState" data-throw-if-not-resolved="false"></xref> snapshot taken during <xref href="AppleTvControlLibrary.Protocol.CompanionApi.Connect" data-throw-if-not-resolved="false"></xref> and by
+
+    subsequently pushed <code>SystemStatus</code>/<code>TVSystemStatus</code> events.
+  example: []
+  syntax:
+    content: public SystemStatus CurrentSystemStatus { get; }
+    parameters: []
+    return:
+      type: AppleTvControlLibrary.Protocol.SystemStatus
+    content.vb: Public ReadOnly Property CurrentSystemStatus As SystemStatus
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.CurrentSystemStatus*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SystemStatusChanged
+  commentId: E:AppleTvControlLibrary.Protocol.CompanionApi.SystemStatusChanged
+  id: SystemStatusChanged
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: SystemStatusChanged
+  nameWithType: CompanionApi.SystemStatusChanged
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SystemStatusChanged
+  type: Event
+  source:
+    id: SystemStatusChanged
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 791
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: >-
+    Raised whenever a pushed <code>SystemStatus</code>/<code>TVSystemStatus</code> event updates
+
+    <xref href="AppleTvControlLibrary.Protocol.CompanionApi.CurrentSystemStatus" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public event EventHandler? SystemStatusChanged
+    return:
+      type: System.EventHandler
+    content.vb: Public Event SystemStatusChanged As EventHandler
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.GetVolume
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.GetVolume
+  id: GetVolume
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: GetVolume()
+  nameWithType: CompanionApi.GetVolume()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.GetVolume()
+  type: Method
+  source:
+    id: GetVolume
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 795
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Gets the current volume level, in percent ([0.0-100.0]).
+  example: []
+  syntax:
+    content: public double GetVolume()
+    return:
+      type: System.Double
+    content.vb: Public Function GetVolume() As Double
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.GetVolume*
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SetVolume(System.Double)
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.SetVolume(System.Double)
+  id: SetVolume(System.Double)
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: SetVolume(double)
+  nameWithType: CompanionApi.SetVolume(double)
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SetVolume(double)
+  type: Method
+  source:
+    id: SetVolume
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 805
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Sets the current volume level.
+  example: []
+  syntax:
+    content: public void SetVolume(double level)
+    parameters:
+    - id: level
+      type: System.Double
+      description: The new volume level, in percent ([0.0-100.0]).
+    content.vb: Public Sub SetVolume(level As Double)
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.SetVolume*
+  nameWithType.vb: CompanionApi.SetVolume(Double)
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionApi.SetVolume(Double)
+  name.vb: SetVolume(Double)
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.ToggleMute
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.ToggleMute
+  id: ToggleMute
+  parent: AppleTvControlLibrary.Protocol.CompanionApi
+  langs:
+  - csharp
+  - vb
+  name: ToggleMute()
+  nameWithType: CompanionApi.ToggleMute()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.ToggleMute()
+  type: Method
+  source:
+    id: ToggleMute
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 816
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: >-
+    Toggles mute by saving the current volume and setting it to zero, or restoring the
+
+    previously saved volume. Requires <xref href="AppleTvControlLibrary.Protocol.CompanionApi.IsVolumeControlSupported" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool ToggleMute()
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the device is now muted, otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function ToggleMute() As Boolean
+  overload: AppleTvControlLibrary.Protocol.CompanionApi.ToggleMute*
+references:
+- uid: AppleTvControlLibrary.Protocol
+  commentId: N:AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Protocol
+  nameWithType: AppleTvControlLibrary.Protocol
+  fullName: AppleTvControlLibrary.Protocol
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Protocol
+    name: Protocol
+    href: AppleTvControlLibrary.Protocol.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Protocol
+    name: Protocol
+    href: AppleTvControlLibrary.Protocol.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: AppleTvControlLibrary.Protocol.ICompanionProtocolListener
+  commentId: T:AppleTvControlLibrary.Protocol.ICompanionProtocolListener
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.ICompanionProtocolListener.html
+  name: ICompanionProtocolListener
+  nameWithType: ICompanionProtocolListener
+  fullName: AppleTvControlLibrary.Protocol.ICompanionProtocolListener
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AppleTvControlLibrary.Protocol.CompanionApi
+  commentId: T:AppleTvControlLibrary.Protocol.CompanionApi
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html
+  name: CompanionApi
+  nameWithType: CompanionApi
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.#ctor*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.#ctor
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi__ctor_AppleTvControlLibrary_Protocol_CompanionProtocol_AppleTvControlLibrary_Auth_HapCredentials_System_String_System_String_System_String_System_String_
+  name: CompanionApi
+  nameWithType: CompanionApi.CompanionApi
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.CompanionApi
+  nameWithType.vb: CompanionApi.New
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionApi.New
+  name.vb: New
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol
+  commentId: T:AppleTvControlLibrary.Protocol.CompanionProtocol
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.CompanionProtocol.html
+  name: CompanionProtocol
+  nameWithType: CompanionProtocol
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol
+- uid: AppleTvControlLibrary.Auth.HapCredentials
+  commentId: T:AppleTvControlLibrary.Auth.HapCredentials
+  parent: AppleTvControlLibrary.Auth
+  href: AppleTvControlLibrary.Auth.HapCredentials.html
+  name: HapCredentials
+  nameWithType: HapCredentials
+  fullName: AppleTvControlLibrary.Auth.HapCredentials
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: AppleTvControlLibrary.Auth
+  commentId: N:AppleTvControlLibrary.Auth
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Auth
+  nameWithType: AppleTvControlLibrary.Auth
+  fullName: AppleTvControlLibrary.Auth
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Auth
+    name: Auth
+    href: AppleTvControlLibrary.Auth.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Auth
+    name: Auth
+    href: AppleTvControlLibrary.Auth.html
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.StableIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.StableIdentifier
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_StableIdentifier
+  name: StableIdentifier
+  nameWithType: CompanionApi.StableIdentifier
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.StableIdentifier
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.DeviceId*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.DeviceId
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_DeviceId
+  name: DeviceId
+  nameWithType: CompanionApi.DeviceId
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.DeviceId
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.Model*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.Model
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_Model
+  name: Model
+  nameWithType: CompanionApi.Model
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.Model
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.Name*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.Name
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_Name
+  name: Name
+  nameWithType: CompanionApi.Name
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.Name
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SessionStart
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.SessionStart
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_SessionStart
+  name: SessionStart()
+  nameWithType: CompanionApi.SessionStart()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SessionStart()
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Protocol.CompanionApi.SessionStart
+    name: SessionStart
+    href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_SessionStart
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AppleTvControlLibrary.Protocol.CompanionApi.SessionStart
+    name: SessionStart
+    href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_SessionStart
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.Sid*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.Sid
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_Sid
+  name: Sid
+  nameWithType: CompanionApi.Sid
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.Sid
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.Connect*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.Connect
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_Connect
+  name: Connect
+  nameWithType: CompanionApi.Connect
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.Connect
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SystemInfo*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.SystemInfo
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_SystemInfo
+  name: SystemInfo
+  nameWithType: CompanionApi.SystemInfo
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SystemInfo
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TouchStart*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.TouchStart
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_TouchStart
+  name: TouchStart
+  nameWithType: CompanionApi.TouchStart
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TouchStart
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TouchStop*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.TouchStop
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_TouchStop
+  name: TouchStop
+  nameWithType: CompanionApi.TouchStop
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TouchStop
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SessionStart*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.SessionStart
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_SessionStart
+  name: SessionStart
+  nameWithType: CompanionApi.SessionStart
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SessionStart
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SessionStop*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.SessionStop
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_SessionStop
+  name: SessionStop
+  nameWithType: CompanionApi.SessionStop
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SessionStop
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TvRcSessionStart*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.TvRcSessionStart
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_TvRcSessionStart
+  name: TvRcSessionStart
+  nameWithType: CompanionApi.TvRcSessionStart
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TvRcSessionStart
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TextInputStart*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.TextInputStart
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_TextInputStart
+  name: TextInputStart
+  nameWithType: CompanionApi.TextInputStart
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TextInputStart
+- uid: System.Collections.Generic.Dictionary{System.Object,System.Object}
+  commentId: T:System.Collections.Generic.Dictionary{System.Object,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<object, object>
+  nameWithType: Dictionary<object, object>
+  fullName: System.Collections.Generic.Dictionary<object, object>
+  nameWithType.vb: Dictionary(Of Object, Object)
+  fullName.vb: System.Collections.Generic.Dictionary(Of Object, Object)
+  name.vb: Dictionary(Of Object, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TextInputStop*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.TextInputStop
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_TextInputStop
+  name: TextInputStop
+  nameWithType: CompanionApi.TextInputStop
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TextInputStop
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TextFocusState*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.TextFocusState
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_TextFocusState
+  name: TextFocusState
+  nameWithType: CompanionApi.TextFocusState
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TextFocusState
+- uid: AppleTvControlLibrary.Protocol.KeyboardFocusState
+  commentId: T:AppleTvControlLibrary.Protocol.KeyboardFocusState
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.KeyboardFocusState.html
+  name: KeyboardFocusState
+  nameWithType: KeyboardFocusState
+  fullName: AppleTvControlLibrary.Protocol.KeyboardFocusState
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TextFocusState
+  commentId: P:AppleTvControlLibrary.Protocol.CompanionApi.TextFocusState
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_TextFocusState
+  name: TextFocusState
+  nameWithType: CompanionApi.TextFocusState
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TextFocusState
+- uid: System.EventHandler
+  commentId: T:System.EventHandler
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler
+  name: EventHandler
+  nameWithType: EventHandler
+  fullName: System.EventHandler
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TextInputCommand*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.TextInputCommand
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_TextInputCommand_System_String_System_Boolean_
+  name: TextInputCommand
+  nameWithType: CompanionApi.TextInputCommand
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TextInputCommand
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TextGet*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.TextGet
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_TextGet
+  name: TextGet
+  nameWithType: CompanionApi.TextGet
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TextGet
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TextClear*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.TextClear
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_TextClear
+  name: TextClear
+  nameWithType: CompanionApi.TextClear
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TextClear
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TextAppend*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.TextAppend
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_TextAppend_System_String_
+  name: TextAppend
+  nameWithType: CompanionApi.TextAppend
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TextAppend
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.TextSet*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.TextSet
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_TextSet_System_String_
+  name: TextSet
+  nameWithType: CompanionApi.TextSet
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.TextSet
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SubscribeEvent*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.SubscribeEvent
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_SubscribeEvent_System_String_
+  name: SubscribeEvent
+  nameWithType: CompanionApi.SubscribeEvent
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SubscribeEvent
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.UnsubscribeEvent*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.UnsubscribeEvent
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_UnsubscribeEvent_System_String_
+  name: UnsubscribeEvent
+  nameWithType: CompanionApi.UnsubscribeEvent
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.UnsubscribeEvent
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SendHidCommand*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.SendHidCommand
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_SendHidCommand_System_Boolean_AppleTvControlLibrary_Protocol_HidCommand_
+  name: SendHidCommand
+  nameWithType: CompanionApi.SendHidCommand
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SendHidCommand
+- uid: AppleTvControlLibrary.Protocol.HidCommand
+  commentId: T:AppleTvControlLibrary.Protocol.HidCommand
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.HidCommand.html
+  name: HidCommand
+  nameWithType: HidCommand
+  fullName: AppleTvControlLibrary.Protocol.HidCommand
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SendHidEvent*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.SendHidEvent
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_SendHidEvent_System_Int32_System_Int32_AppleTvControlLibrary_Protocol_TouchAction_
+  name: SendHidEvent
+  nameWithType: CompanionApi.SendHidEvent
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SendHidEvent
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: AppleTvControlLibrary.Protocol.TouchAction
+  commentId: T:AppleTvControlLibrary.Protocol.TouchAction
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.TouchAction.html
+  name: TouchAction
+  nameWithType: TouchAction
+  fullName: AppleTvControlLibrary.Protocol.TouchAction
+- uid: AppleTvControlLibrary.Protocol.HidCommand.Select
+  commentId: F:AppleTvControlLibrary.Protocol.HidCommand.Select
+  href: AppleTvControlLibrary.Protocol.HidCommand.html#AppleTvControlLibrary_Protocol_HidCommand_Select
+  name: Select
+  nameWithType: HidCommand.Select
+  fullName: AppleTvControlLibrary.Protocol.HidCommand.Select
+- uid: AppleTvControlLibrary.Protocol.TouchAction.Click
+  commentId: F:AppleTvControlLibrary.Protocol.TouchAction.Click
+  href: AppleTvControlLibrary.Protocol.TouchAction.html#AppleTvControlLibrary_Protocol_TouchAction_Click
+  name: Click
+  nameWithType: TouchAction.Click
+  fullName: AppleTvControlLibrary.Protocol.TouchAction.Click
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SendClick*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.SendClick
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_SendClick_AppleTvControlLibrary_Protocol_InputAction_
+  name: SendClick
+  nameWithType: CompanionApi.SendClick
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SendClick
+- uid: AppleTvControlLibrary.Protocol.InputAction
+  commentId: T:AppleTvControlLibrary.Protocol.InputAction
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.InputAction.html
+  name: InputAction
+  nameWithType: InputAction
+  fullName: AppleTvControlLibrary.Protocol.InputAction
+- uid: AppleTvControlLibrary.Protocol.SystemStatus
+  commentId: T:AppleTvControlLibrary.Protocol.SystemStatus
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.SystemStatus.html
+  name: SystemStatus
+  nameWithType: SystemStatus
+  fullName: AppleTvControlLibrary.Protocol.SystemStatus
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_FetchAttentionState
+  name: FetchAttentionState
+  nameWithType: CompanionApi.FetchAttentionState
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.MediaControlCommand*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.MediaControlCommand
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_MediaControlCommand_AppleTvControlLibrary_Protocol_MediaControlCommand_System_Collections_Generic_Dictionary_System_String_System_Object__
+  name: MediaControlCommand
+  nameWithType: CompanionApi.MediaControlCommand
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.MediaControlCommand
+- uid: AppleTvControlLibrary.Protocol.MediaControlCommand
+  commentId: T:AppleTvControlLibrary.Protocol.MediaControlCommand
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.MediaControlCommand.html
+  name: MediaControlCommand
+  nameWithType: MediaControlCommand
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCommand
+- uid: System.Collections.Generic.Dictionary{System.String,System.Object}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, object>
+  nameWithType: Dictionary<string, object>
+  fullName: System.Collections.Generic.Dictionary<string, object>
+  nameWithType.vb: Dictionary(Of String, Object)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, Object)
+  name.vb: Dictionary(Of String, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: AppleTvControlLibrary.Protocol.MediaControlCapabilities.Volume
+  commentId: F:AppleTvControlLibrary.Protocol.MediaControlCapabilities.Volume
+  href: AppleTvControlLibrary.Protocol.MediaControlCapabilities.html#AppleTvControlLibrary_Protocol_MediaControlCapabilities_Volume
+  name: Volume
+  nameWithType: MediaControlCapabilities.Volume
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCapabilities.Volume
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.GetVolume
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.GetVolume
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_GetVolume
+  name: GetVolume()
+  nameWithType: CompanionApi.GetVolume()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.GetVolume()
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Protocol.CompanionApi.GetVolume
+    name: GetVolume
+    href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_GetVolume
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AppleTvControlLibrary.Protocol.CompanionApi.GetVolume
+    name: GetVolume
+    href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_GetVolume
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SetVolume(System.Double)
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.SetVolume(System.Double)
+  isExternal: true
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_SetVolume_System_Double_
+  name: SetVolume(double)
+  nameWithType: CompanionApi.SetVolume(double)
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SetVolume(double)
+  nameWithType.vb: CompanionApi.SetVolume(Double)
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionApi.SetVolume(Double)
+  name.vb: SetVolume(Double)
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Protocol.CompanionApi.SetVolume(System.Double)
+    name: SetVolume
+    href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_SetVolume_System_Double_
+  - name: (
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: )
+  spec.vb:
+  - uid: AppleTvControlLibrary.Protocol.CompanionApi.SetVolume(System.Double)
+    name: SetVolume
+    href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_SetVolume_System_Double_
+  - name: (
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: )
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.IsVolumeControlSupported*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.IsVolumeControlSupported
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_IsVolumeControlSupported
+  name: IsVolumeControlSupported
+  nameWithType: CompanionApi.IsVolumeControlSupported
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.IsVolumeControlSupported
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.IsVolumeControlSupported
+  commentId: P:AppleTvControlLibrary.Protocol.CompanionApi.IsVolumeControlSupported
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_IsVolumeControlSupported
+  name: IsVolumeControlSupported
+  nameWithType: CompanionApi.IsVolumeControlSupported
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.IsVolumeControlSupported
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_FetchAttentionState
+  name: FetchAttentionState()
+  nameWithType: CompanionApi.FetchAttentionState()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState()
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState
+    name: FetchAttentionState
+    href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_FetchAttentionState
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState
+    name: FetchAttentionState
+    href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_FetchAttentionState
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.Connect
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.Connect
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_Connect
+  name: Connect()
+  nameWithType: CompanionApi.Connect()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.Connect()
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Protocol.CompanionApi.Connect
+    name: Connect
+    href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_Connect
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AppleTvControlLibrary.Protocol.CompanionApi.Connect
+    name: Connect
+    href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_Connect
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.CurrentSystemStatus*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.CurrentSystemStatus
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_CurrentSystemStatus
+  name: CurrentSystemStatus
+  nameWithType: CompanionApi.CurrentSystemStatus
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.CurrentSystemStatus
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.CurrentSystemStatus
+  commentId: P:AppleTvControlLibrary.Protocol.CompanionApi.CurrentSystemStatus
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_CurrentSystemStatus
+  name: CurrentSystemStatus
+  nameWithType: CompanionApi.CurrentSystemStatus
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.CurrentSystemStatus
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.GetVolume*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.GetVolume
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_GetVolume
+  name: GetVolume
+  nameWithType: CompanionApi.GetVolume
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.GetVolume
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.SetVolume*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.SetVolume
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_SetVolume_System_Double_
+  name: SetVolume
+  nameWithType: CompanionApi.SetVolume
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.SetVolume
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.ToggleMute*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionApi.ToggleMute
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_ToggleMute
+  name: ToggleMute
+  nameWithType: CompanionApi.ToggleMute
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.ToggleMute

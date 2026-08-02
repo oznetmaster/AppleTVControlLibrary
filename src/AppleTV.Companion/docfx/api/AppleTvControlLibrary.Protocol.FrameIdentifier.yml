@@ -1,0 +1,783 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Protocol.FrameIdentifier
+  commentId: T:AppleTvControlLibrary.Protocol.FrameIdentifier
+  id: FrameIdentifier
+  parent: AppleTvControlLibrary.Protocol
+  children:
+  - AppleTvControlLibrary.Protocol.FrameIdentifier.Equals(AppleTvControlLibrary.Protocol.FrameIdentifier)
+  - AppleTvControlLibrary.Protocol.FrameIdentifier.Equals(System.Object)
+  - AppleTvControlLibrary.Protocol.FrameIdentifier.FromFrameType(AppleTvControlLibrary.Connection.FrameType)
+  - AppleTvControlLibrary.Protocol.FrameIdentifier.FromXid(System.Int32)
+  - AppleTvControlLibrary.Protocol.FrameIdentifier.GetHashCode
+  - AppleTvControlLibrary.Protocol.FrameIdentifier.ToString
+  - AppleTvControlLibrary.Protocol.FrameIdentifier.op_Equality(AppleTvControlLibrary.Protocol.FrameIdentifier,AppleTvControlLibrary.Protocol.FrameIdentifier)
+  - AppleTvControlLibrary.Protocol.FrameIdentifier.op_Inequality(AppleTvControlLibrary.Protocol.FrameIdentifier,AppleTvControlLibrary.Protocol.FrameIdentifier)
+  langs:
+  - csharp
+  - vb
+  name: FrameIdentifier
+  nameWithType: FrameIdentifier
+  fullName: AppleTvControlLibrary.Protocol.FrameIdentifier
+  type: Struct
+  source:
+    id: FrameIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 70
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: >-
+    Identifies a pending exchange either by XID (regular OPACK messages) or by the
+
+    <xref href="AppleTvControlLibrary.Connection.FrameType" data-throw-if-not-resolved="false"></xref> that is expected in response (auth messages, which never have an XID
+
+    since parallel authentication attempts are impossible).
+  example: []
+  syntax:
+    content: 'public readonly struct FrameIdentifier : IEquatable<FrameIdentifier>'
+    content.vb: Public Structure FrameIdentifier Implements IEquatable(Of FrameIdentifier)
+  implements:
+  - System.IEquatable{AppleTvControlLibrary.Protocol.FrameIdentifier}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+- uid: AppleTvControlLibrary.Protocol.FrameIdentifier.FromXid(System.Int32)
+  commentId: M:AppleTvControlLibrary.Protocol.FrameIdentifier.FromXid(System.Int32)
+  id: FromXid(System.Int32)
+  parent: AppleTvControlLibrary.Protocol.FrameIdentifier
+  langs:
+  - csharp
+  - vb
+  name: FromXid(int)
+  nameWithType: FrameIdentifier.FromXid(int)
+  fullName: AppleTvControlLibrary.Protocol.FrameIdentifier.FromXid(int)
+  type: Method
+  source:
+    id: FromXid
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 82
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Creates a <xref href="AppleTvControlLibrary.Protocol.FrameIdentifier" data-throw-if-not-resolved="false"></xref> keyed by XID.
+  example: []
+  syntax:
+    content: public static FrameIdentifier FromXid(int xid)
+    parameters:
+    - id: xid
+      type: System.Int32
+    return:
+      type: AppleTvControlLibrary.Protocol.FrameIdentifier
+    content.vb: Public Shared Function FromXid(xid As Integer) As FrameIdentifier
+  overload: AppleTvControlLibrary.Protocol.FrameIdentifier.FromXid*
+  nameWithType.vb: FrameIdentifier.FromXid(Integer)
+  fullName.vb: AppleTvControlLibrary.Protocol.FrameIdentifier.FromXid(Integer)
+  name.vb: FromXid(Integer)
+- uid: AppleTvControlLibrary.Protocol.FrameIdentifier.FromFrameType(AppleTvControlLibrary.Connection.FrameType)
+  commentId: M:AppleTvControlLibrary.Protocol.FrameIdentifier.FromFrameType(AppleTvControlLibrary.Connection.FrameType)
+  id: FromFrameType(AppleTvControlLibrary.Connection.FrameType)
+  parent: AppleTvControlLibrary.Protocol.FrameIdentifier
+  langs:
+  - csharp
+  - vb
+  name: FromFrameType(FrameType)
+  nameWithType: FrameIdentifier.FromFrameType(FrameType)
+  fullName: AppleTvControlLibrary.Protocol.FrameIdentifier.FromFrameType(AppleTvControlLibrary.Connection.FrameType)
+  type: Method
+  source:
+    id: FromFrameType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 85
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Creates a <xref href="AppleTvControlLibrary.Protocol.FrameIdentifier" data-throw-if-not-resolved="false"></xref> keyed by frame type.
+  example: []
+  syntax:
+    content: public static FrameIdentifier FromFrameType(FrameType frameType)
+    parameters:
+    - id: frameType
+      type: AppleTvControlLibrary.Connection.FrameType
+    return:
+      type: AppleTvControlLibrary.Protocol.FrameIdentifier
+    content.vb: Public Shared Function FromFrameType(frameType As FrameType) As FrameIdentifier
+  overload: AppleTvControlLibrary.Protocol.FrameIdentifier.FromFrameType*
+- uid: AppleTvControlLibrary.Protocol.FrameIdentifier.Equals(AppleTvControlLibrary.Protocol.FrameIdentifier)
+  commentId: M:AppleTvControlLibrary.Protocol.FrameIdentifier.Equals(AppleTvControlLibrary.Protocol.FrameIdentifier)
+  id: Equals(AppleTvControlLibrary.Protocol.FrameIdentifier)
+  parent: AppleTvControlLibrary.Protocol.FrameIdentifier
+  langs:
+  - csharp
+  - vb
+  name: Equals(FrameIdentifier)
+  nameWithType: FrameIdentifier.Equals(FrameIdentifier)
+  fullName: AppleTvControlLibrary.Protocol.FrameIdentifier.Equals(AppleTvControlLibrary.Protocol.FrameIdentifier)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 88
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(FrameIdentifier other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Protocol.FrameIdentifier
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As FrameIdentifier) As Boolean
+  overload: AppleTvControlLibrary.Protocol.FrameIdentifier.Equals*
+  implements:
+  - System.IEquatable{AppleTvControlLibrary.Protocol.FrameIdentifier}.Equals(AppleTvControlLibrary.Protocol.FrameIdentifier)
+- uid: AppleTvControlLibrary.Protocol.FrameIdentifier.Equals(System.Object)
+  commentId: M:AppleTvControlLibrary.Protocol.FrameIdentifier.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: AppleTvControlLibrary.Protocol.FrameIdentifier
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: FrameIdentifier.Equals(object?)
+  fullName: AppleTvControlLibrary.Protocol.FrameIdentifier.Equals(object?)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 91
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Indicates whether this instance and a specified object are equal.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: AppleTvControlLibrary.Protocol.FrameIdentifier.Equals*
+  nameWithType.vb: FrameIdentifier.Equals(Object)
+  fullName.vb: AppleTvControlLibrary.Protocol.FrameIdentifier.Equals(Object)
+  name.vb: Equals(Object)
+- uid: AppleTvControlLibrary.Protocol.FrameIdentifier.GetHashCode
+  commentId: M:AppleTvControlLibrary.Protocol.FrameIdentifier.GetHashCode
+  id: GetHashCode
+  parent: AppleTvControlLibrary.Protocol.FrameIdentifier
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: FrameIdentifier.GetHashCode()
+  fullName: AppleTvControlLibrary.Protocol.FrameIdentifier.GetHashCode()
+  type: Method
+  source:
+    id: GetHashCode
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 94
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: AppleTvControlLibrary.Protocol.FrameIdentifier.GetHashCode*
+- uid: AppleTvControlLibrary.Protocol.FrameIdentifier.op_Equality(AppleTvControlLibrary.Protocol.FrameIdentifier,AppleTvControlLibrary.Protocol.FrameIdentifier)
+  commentId: M:AppleTvControlLibrary.Protocol.FrameIdentifier.op_Equality(AppleTvControlLibrary.Protocol.FrameIdentifier,AppleTvControlLibrary.Protocol.FrameIdentifier)
+  id: op_Equality(AppleTvControlLibrary.Protocol.FrameIdentifier,AppleTvControlLibrary.Protocol.FrameIdentifier)
+  parent: AppleTvControlLibrary.Protocol.FrameIdentifier
+  langs:
+  - csharp
+  - vb
+  name: operator ==(FrameIdentifier, FrameIdentifier)
+  nameWithType: FrameIdentifier.operator ==(FrameIdentifier, FrameIdentifier)
+  fullName: AppleTvControlLibrary.Protocol.FrameIdentifier.operator ==(AppleTvControlLibrary.Protocol.FrameIdentifier, AppleTvControlLibrary.Protocol.FrameIdentifier)
+  type: Operator
+  source:
+    id: op_Equality
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 97
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Determines whether two <xref href="AppleTvControlLibrary.Protocol.FrameIdentifier" data-throw-if-not-resolved="false"></xref> instances are equal.
+  example: []
+  syntax:
+    content: public static bool operator ==(FrameIdentifier left, FrameIdentifier right)
+    parameters:
+    - id: left
+      type: AppleTvControlLibrary.Protocol.FrameIdentifier
+    - id: right
+      type: AppleTvControlLibrary.Protocol.FrameIdentifier
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As FrameIdentifier, right As FrameIdentifier) As Boolean
+  overload: AppleTvControlLibrary.Protocol.FrameIdentifier.op_Equality*
+  nameWithType.vb: FrameIdentifier.=(FrameIdentifier, FrameIdentifier)
+  fullName.vb: AppleTvControlLibrary.Protocol.FrameIdentifier.=(AppleTvControlLibrary.Protocol.FrameIdentifier, AppleTvControlLibrary.Protocol.FrameIdentifier)
+  name.vb: =(FrameIdentifier, FrameIdentifier)
+- uid: AppleTvControlLibrary.Protocol.FrameIdentifier.op_Inequality(AppleTvControlLibrary.Protocol.FrameIdentifier,AppleTvControlLibrary.Protocol.FrameIdentifier)
+  commentId: M:AppleTvControlLibrary.Protocol.FrameIdentifier.op_Inequality(AppleTvControlLibrary.Protocol.FrameIdentifier,AppleTvControlLibrary.Protocol.FrameIdentifier)
+  id: op_Inequality(AppleTvControlLibrary.Protocol.FrameIdentifier,AppleTvControlLibrary.Protocol.FrameIdentifier)
+  parent: AppleTvControlLibrary.Protocol.FrameIdentifier
+  langs:
+  - csharp
+  - vb
+  name: operator !=(FrameIdentifier, FrameIdentifier)
+  nameWithType: FrameIdentifier.operator !=(FrameIdentifier, FrameIdentifier)
+  fullName: AppleTvControlLibrary.Protocol.FrameIdentifier.operator !=(AppleTvControlLibrary.Protocol.FrameIdentifier, AppleTvControlLibrary.Protocol.FrameIdentifier)
+  type: Operator
+  source:
+    id: op_Inequality
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 100
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Determines whether two <xref href="AppleTvControlLibrary.Protocol.FrameIdentifier" data-throw-if-not-resolved="false"></xref> instances are not equal.
+  example: []
+  syntax:
+    content: public static bool operator !=(FrameIdentifier left, FrameIdentifier right)
+    parameters:
+    - id: left
+      type: AppleTvControlLibrary.Protocol.FrameIdentifier
+    - id: right
+      type: AppleTvControlLibrary.Protocol.FrameIdentifier
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As FrameIdentifier, right As FrameIdentifier) As Boolean
+  overload: AppleTvControlLibrary.Protocol.FrameIdentifier.op_Inequality*
+  nameWithType.vb: FrameIdentifier.<>(FrameIdentifier, FrameIdentifier)
+  fullName.vb: AppleTvControlLibrary.Protocol.FrameIdentifier.<>(AppleTvControlLibrary.Protocol.FrameIdentifier, AppleTvControlLibrary.Protocol.FrameIdentifier)
+  name.vb: <>(FrameIdentifier, FrameIdentifier)
+- uid: AppleTvControlLibrary.Protocol.FrameIdentifier.ToString
+  commentId: M:AppleTvControlLibrary.Protocol.FrameIdentifier.ToString
+  id: ToString
+  parent: AppleTvControlLibrary.Protocol.FrameIdentifier
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: FrameIdentifier.ToString()
+  fullName: AppleTvControlLibrary.Protocol.FrameIdentifier.ToString()
+  type: Method
+  source:
+    id: ToString
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 103
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Returns the fully qualified type name of this instance.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: The fully qualified type name.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: AppleTvControlLibrary.Protocol.FrameIdentifier.ToString*
+references:
+- uid: AppleTvControlLibrary.Connection.FrameType
+  commentId: T:AppleTvControlLibrary.Connection.FrameType
+  parent: AppleTvControlLibrary.Connection
+  href: AppleTvControlLibrary.Connection.FrameType.html
+  name: FrameType
+  nameWithType: FrameType
+  fullName: AppleTvControlLibrary.Connection.FrameType
+- uid: AppleTvControlLibrary.Protocol
+  commentId: N:AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Protocol
+  nameWithType: AppleTvControlLibrary.Protocol
+  fullName: AppleTvControlLibrary.Protocol
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Protocol
+    name: Protocol
+    href: AppleTvControlLibrary.Protocol.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Protocol
+    name: Protocol
+    href: AppleTvControlLibrary.Protocol.html
+- uid: System.IEquatable{AppleTvControlLibrary.Protocol.FrameIdentifier}
+  commentId: T:System.IEquatable{AppleTvControlLibrary.Protocol.FrameIdentifier}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<FrameIdentifier>
+  nameWithType: IEquatable<FrameIdentifier>
+  fullName: System.IEquatable<AppleTvControlLibrary.Protocol.FrameIdentifier>
+  nameWithType.vb: IEquatable(Of FrameIdentifier)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Protocol.FrameIdentifier)
+  name.vb: IEquatable(Of FrameIdentifier)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: AppleTvControlLibrary.Protocol.FrameIdentifier
+    name: FrameIdentifier
+    href: AppleTvControlLibrary.Protocol.FrameIdentifier.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Protocol.FrameIdentifier
+    name: FrameIdentifier
+    href: AppleTvControlLibrary.Protocol.FrameIdentifier.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Connection
+  commentId: N:AppleTvControlLibrary.Connection
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Connection
+  nameWithType: AppleTvControlLibrary.Connection
+  fullName: AppleTvControlLibrary.Connection
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Connection
+    name: Connection
+    href: AppleTvControlLibrary.Connection.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Connection
+    name: Connection
+    href: AppleTvControlLibrary.Connection.html
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: AppleTvControlLibrary.Protocol.FrameIdentifier
+  commentId: T:AppleTvControlLibrary.Protocol.FrameIdentifier
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.FrameIdentifier.html
+  name: FrameIdentifier
+  nameWithType: FrameIdentifier
+  fullName: AppleTvControlLibrary.Protocol.FrameIdentifier
+- uid: AppleTvControlLibrary.Protocol.FrameIdentifier.FromXid*
+  commentId: Overload:AppleTvControlLibrary.Protocol.FrameIdentifier.FromXid
+  href: AppleTvControlLibrary.Protocol.FrameIdentifier.html#AppleTvControlLibrary_Protocol_FrameIdentifier_FromXid_System_Int32_
+  name: FromXid
+  nameWithType: FrameIdentifier.FromXid
+  fullName: AppleTvControlLibrary.Protocol.FrameIdentifier.FromXid
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: AppleTvControlLibrary.Protocol.FrameIdentifier.FromFrameType*
+  commentId: Overload:AppleTvControlLibrary.Protocol.FrameIdentifier.FromFrameType
+  href: AppleTvControlLibrary.Protocol.FrameIdentifier.html#AppleTvControlLibrary_Protocol_FrameIdentifier_FromFrameType_AppleTvControlLibrary_Connection_FrameType_
+  name: FromFrameType
+  nameWithType: FrameIdentifier.FromFrameType
+  fullName: AppleTvControlLibrary.Protocol.FrameIdentifier.FromFrameType
+- uid: AppleTvControlLibrary.Protocol.FrameIdentifier.Equals*
+  commentId: Overload:AppleTvControlLibrary.Protocol.FrameIdentifier.Equals
+  href: AppleTvControlLibrary.Protocol.FrameIdentifier.html#AppleTvControlLibrary_Protocol_FrameIdentifier_Equals_AppleTvControlLibrary_Protocol_FrameIdentifier_
+  name: Equals
+  nameWithType: FrameIdentifier.Equals
+  fullName: AppleTvControlLibrary.Protocol.FrameIdentifier.Equals
+- uid: System.IEquatable{AppleTvControlLibrary.Protocol.FrameIdentifier}.Equals(AppleTvControlLibrary.Protocol.FrameIdentifier)
+  commentId: M:System.IEquatable{AppleTvControlLibrary.Protocol.FrameIdentifier}.Equals(AppleTvControlLibrary.Protocol.FrameIdentifier)
+  parent: System.IEquatable{AppleTvControlLibrary.Protocol.FrameIdentifier}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(FrameIdentifier)
+  nameWithType: IEquatable<FrameIdentifier>.Equals(FrameIdentifier)
+  fullName: System.IEquatable<AppleTvControlLibrary.Protocol.FrameIdentifier>.Equals(AppleTvControlLibrary.Protocol.FrameIdentifier)
+  nameWithType.vb: IEquatable(Of FrameIdentifier).Equals(FrameIdentifier)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Protocol.FrameIdentifier).Equals(AppleTvControlLibrary.Protocol.FrameIdentifier)
+  spec.csharp:
+  - uid: System.IEquatable{AppleTvControlLibrary.Protocol.FrameIdentifier}.Equals(AppleTvControlLibrary.Protocol.FrameIdentifier)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Protocol.FrameIdentifier
+    name: FrameIdentifier
+    href: AppleTvControlLibrary.Protocol.FrameIdentifier.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{AppleTvControlLibrary.Protocol.FrameIdentifier}.Equals(AppleTvControlLibrary.Protocol.FrameIdentifier)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Protocol.FrameIdentifier
+    name: FrameIdentifier
+    href: AppleTvControlLibrary.Protocol.FrameIdentifier.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Protocol.FrameIdentifier.GetHashCode*
+  commentId: Overload:AppleTvControlLibrary.Protocol.FrameIdentifier.GetHashCode
+  href: AppleTvControlLibrary.Protocol.FrameIdentifier.html#AppleTvControlLibrary_Protocol_FrameIdentifier_GetHashCode
+  name: GetHashCode
+  nameWithType: FrameIdentifier.GetHashCode
+  fullName: AppleTvControlLibrary.Protocol.FrameIdentifier.GetHashCode
+- uid: AppleTvControlLibrary.Protocol.FrameIdentifier.op_Equality*
+  commentId: Overload:AppleTvControlLibrary.Protocol.FrameIdentifier.op_Equality
+  href: AppleTvControlLibrary.Protocol.FrameIdentifier.html#AppleTvControlLibrary_Protocol_FrameIdentifier_op_Equality_AppleTvControlLibrary_Protocol_FrameIdentifier_AppleTvControlLibrary_Protocol_FrameIdentifier_
+  name: operator ==
+  nameWithType: FrameIdentifier.operator ==
+  fullName: AppleTvControlLibrary.Protocol.FrameIdentifier.operator ==
+  nameWithType.vb: FrameIdentifier.=
+  fullName.vb: AppleTvControlLibrary.Protocol.FrameIdentifier.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: AppleTvControlLibrary.Protocol.FrameIdentifier.op_Equality*
+    name: ==
+    href: AppleTvControlLibrary.Protocol.FrameIdentifier.html#AppleTvControlLibrary_Protocol_FrameIdentifier_op_Equality_AppleTvControlLibrary_Protocol_FrameIdentifier_AppleTvControlLibrary_Protocol_FrameIdentifier_
+- uid: AppleTvControlLibrary.Protocol.FrameIdentifier.op_Inequality*
+  commentId: Overload:AppleTvControlLibrary.Protocol.FrameIdentifier.op_Inequality
+  href: AppleTvControlLibrary.Protocol.FrameIdentifier.html#AppleTvControlLibrary_Protocol_FrameIdentifier_op_Inequality_AppleTvControlLibrary_Protocol_FrameIdentifier_AppleTvControlLibrary_Protocol_FrameIdentifier_
+  name: operator !=
+  nameWithType: FrameIdentifier.operator !=
+  fullName: AppleTvControlLibrary.Protocol.FrameIdentifier.operator !=
+  nameWithType.vb: FrameIdentifier.<>
+  fullName.vb: AppleTvControlLibrary.Protocol.FrameIdentifier.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: AppleTvControlLibrary.Protocol.FrameIdentifier.op_Inequality*
+    name: '!='
+    href: AppleTvControlLibrary.Protocol.FrameIdentifier.html#AppleTvControlLibrary_Protocol_FrameIdentifier_op_Inequality_AppleTvControlLibrary_Protocol_FrameIdentifier_AppleTvControlLibrary_Protocol_FrameIdentifier_
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Protocol.FrameIdentifier.ToString*
+  commentId: Overload:AppleTvControlLibrary.Protocol.FrameIdentifier.ToString
+  href: AppleTvControlLibrary.Protocol.FrameIdentifier.html#AppleTvControlLibrary_Protocol_FrameIdentifier_ToString
+  name: ToString
+  nameWithType: FrameIdentifier.ToString
+  fullName: AppleTvControlLibrary.Protocol.FrameIdentifier.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

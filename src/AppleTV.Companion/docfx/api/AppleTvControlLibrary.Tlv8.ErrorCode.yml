@@ -1,0 +1,231 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Tlv8.ErrorCode
+  commentId: T:AppleTvControlLibrary.Tlv8.ErrorCode
+  id: ErrorCode
+  parent: AppleTvControlLibrary.Tlv8
+  children:
+  - AppleTvControlLibrary.Tlv8.ErrorCode.Authentication
+  - AppleTvControlLibrary.Tlv8.ErrorCode.BackOff
+  - AppleTvControlLibrary.Tlv8.ErrorCode.Busy
+  - AppleTvControlLibrary.Tlv8.ErrorCode.MaxPeers
+  - AppleTvControlLibrary.Tlv8.ErrorCode.MaxTries
+  - AppleTvControlLibrary.Tlv8.ErrorCode.Unavailable
+  - AppleTvControlLibrary.Tlv8.ErrorCode.Unknown
+  langs:
+  - csharp
+  - vb
+  name: ErrorCode
+  nameWithType: ErrorCode
+  fullName: AppleTvControlLibrary.Tlv8.ErrorCode
+  type: Enum
+  source:
+    id: ErrorCode
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 64
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Correspond to error codes in HAP specification.
+  example: []
+  syntax:
+    content: public enum ErrorCode
+    content.vb: Public Enum ErrorCode
+- uid: AppleTvControlLibrary.Tlv8.ErrorCode.Unknown
+  commentId: F:AppleTvControlLibrary.Tlv8.ErrorCode.Unknown
+  id: Unknown
+  parent: AppleTvControlLibrary.Tlv8.ErrorCode
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: ErrorCode.Unknown
+  fullName: AppleTvControlLibrary.Tlv8.ErrorCode.Unknown
+  type: Field
+  source:
+    id: Unknown
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 67
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Unknown error. pyatv/auth/hap_tlv8.py — line 46 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Unknown = 1
+    return:
+      type: AppleTvControlLibrary.Tlv8.ErrorCode
+- uid: AppleTvControlLibrary.Tlv8.ErrorCode.Authentication
+  commentId: F:AppleTvControlLibrary.Tlv8.ErrorCode.Authentication
+  id: Authentication
+  parent: AppleTvControlLibrary.Tlv8.ErrorCode
+  langs:
+  - csharp
+  - vb
+  name: Authentication
+  nameWithType: ErrorCode.Authentication
+  fullName: AppleTvControlLibrary.Tlv8.ErrorCode.Authentication
+  type: Field
+  source:
+    id: Authentication
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 69
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Authentication error. pyatv/auth/hap_tlv8.py — line 47 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Authentication = 2
+    return:
+      type: AppleTvControlLibrary.Tlv8.ErrorCode
+- uid: AppleTvControlLibrary.Tlv8.ErrorCode.BackOff
+  commentId: F:AppleTvControlLibrary.Tlv8.ErrorCode.BackOff
+  id: BackOff
+  parent: AppleTvControlLibrary.Tlv8.ErrorCode
+  langs:
+  - csharp
+  - vb
+  name: BackOff
+  nameWithType: ErrorCode.BackOff
+  fullName: AppleTvControlLibrary.Tlv8.ErrorCode.BackOff
+  type: Field
+  source:
+    id: BackOff
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 71
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Backoff required. pyatv/auth/hap_tlv8.py — line 48 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: BackOff = 3
+    return:
+      type: AppleTvControlLibrary.Tlv8.ErrorCode
+- uid: AppleTvControlLibrary.Tlv8.ErrorCode.MaxPeers
+  commentId: F:AppleTvControlLibrary.Tlv8.ErrorCode.MaxPeers
+  id: MaxPeers
+  parent: AppleTvControlLibrary.Tlv8.ErrorCode
+  langs:
+  - csharp
+  - vb
+  name: MaxPeers
+  nameWithType: ErrorCode.MaxPeers
+  fullName: AppleTvControlLibrary.Tlv8.ErrorCode.MaxPeers
+  type: Field
+  source:
+    id: MaxPeers
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 73
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Max peers reached. pyatv/auth/hap_tlv8.py — line 49 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: MaxPeers = 4
+    return:
+      type: AppleTvControlLibrary.Tlv8.ErrorCode
+- uid: AppleTvControlLibrary.Tlv8.ErrorCode.MaxTries
+  commentId: F:AppleTvControlLibrary.Tlv8.ErrorCode.MaxTries
+  id: MaxTries
+  parent: AppleTvControlLibrary.Tlv8.ErrorCode
+  langs:
+  - csharp
+  - vb
+  name: MaxTries
+  nameWithType: ErrorCode.MaxTries
+  fullName: AppleTvControlLibrary.Tlv8.ErrorCode.MaxTries
+  type: Field
+  source:
+    id: MaxTries
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 75
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Max tries reached. pyatv/auth/hap_tlv8.py — line 50 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: MaxTries = 5
+    return:
+      type: AppleTvControlLibrary.Tlv8.ErrorCode
+- uid: AppleTvControlLibrary.Tlv8.ErrorCode.Unavailable
+  commentId: F:AppleTvControlLibrary.Tlv8.ErrorCode.Unavailable
+  id: Unavailable
+  parent: AppleTvControlLibrary.Tlv8.ErrorCode
+  langs:
+  - csharp
+  - vb
+  name: Unavailable
+  nameWithType: ErrorCode.Unavailable
+  fullName: AppleTvControlLibrary.Tlv8.ErrorCode.Unavailable
+  type: Field
+  source:
+    id: Unavailable
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 77
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Unavailable. pyatv/auth/hap_tlv8.py — line 51 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Unavailable = 6
+    return:
+      type: AppleTvControlLibrary.Tlv8.ErrorCode
+- uid: AppleTvControlLibrary.Tlv8.ErrorCode.Busy
+  commentId: F:AppleTvControlLibrary.Tlv8.ErrorCode.Busy
+  id: Busy
+  parent: AppleTvControlLibrary.Tlv8.ErrorCode
+  langs:
+  - csharp
+  - vb
+  name: Busy
+  nameWithType: ErrorCode.Busy
+  fullName: AppleTvControlLibrary.Tlv8.ErrorCode.Busy
+  type: Field
+  source:
+    id: Busy
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 79
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Busy. pyatv/auth/hap_tlv8.py — line 52 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Busy = 7
+    return:
+      type: AppleTvControlLibrary.Tlv8.ErrorCode
+references:
+- uid: AppleTvControlLibrary.Tlv8
+  commentId: N:AppleTvControlLibrary.Tlv8
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Tlv8
+  nameWithType: AppleTvControlLibrary.Tlv8
+  fullName: AppleTvControlLibrary.Tlv8
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Tlv8
+    name: Tlv8
+    href: AppleTvControlLibrary.Tlv8.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Tlv8
+    name: Tlv8
+    href: AppleTvControlLibrary.Tlv8.html
+- uid: AppleTvControlLibrary.Tlv8.ErrorCode
+  commentId: T:AppleTvControlLibrary.Tlv8.ErrorCode
+  parent: AppleTvControlLibrary.Tlv8
+  href: AppleTvControlLibrary.Tlv8.ErrorCode.html
+  name: ErrorCode
+  nameWithType: ErrorCode
+  fullName: AppleTvControlLibrary.Tlv8.ErrorCode

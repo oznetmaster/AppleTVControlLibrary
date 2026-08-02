@@ -1,0 +1,76 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Auth
+  commentId: N:AppleTvControlLibrary.Auth
+  id: AppleTvControlLibrary.Auth
+  children:
+  - AppleTvControlLibrary.Auth.AuthenticationException
+  - AppleTvControlLibrary.Auth.AuthenticationType
+  - AppleTvControlLibrary.Auth.HapCredentials
+  - AppleTvControlLibrary.Auth.InvalidCredentialsException
+  - AppleTvControlLibrary.Auth.SrpAuthHandler
+  langs:
+  - csharp
+  - vb
+  name: AppleTvControlLibrary.Auth
+  nameWithType: AppleTvControlLibrary.Auth
+  fullName: AppleTvControlLibrary.Auth
+  type: Namespace
+  assemblies:
+  - AppleTvControlLibrary
+references:
+- uid: AppleTvControlLibrary.Auth.AuthenticationType
+  commentId: T:AppleTvControlLibrary.Auth.AuthenticationType
+  parent: AppleTvControlLibrary.Auth
+  href: AppleTvControlLibrary.Auth.AuthenticationType.html
+  name: AuthenticationType
+  nameWithType: AuthenticationType
+  fullName: AppleTvControlLibrary.Auth.AuthenticationType
+- uid: AppleTvControlLibrary.Auth.AuthenticationException
+  commentId: T:AppleTvControlLibrary.Auth.AuthenticationException
+  href: AppleTvControlLibrary.Auth.AuthenticationException.html
+  name: AuthenticationException
+  nameWithType: AuthenticationException
+  fullName: AppleTvControlLibrary.Auth.AuthenticationException
+- uid: AppleTvControlLibrary.Auth.InvalidCredentialsException
+  commentId: T:AppleTvControlLibrary.Auth.InvalidCredentialsException
+  href: AppleTvControlLibrary.Auth.InvalidCredentialsException.html
+  name: InvalidCredentialsException
+  nameWithType: InvalidCredentialsException
+  fullName: AppleTvControlLibrary.Auth.InvalidCredentialsException
+- uid: AppleTvControlLibrary.Auth.HapCredentials
+  commentId: T:AppleTvControlLibrary.Auth.HapCredentials
+  parent: AppleTvControlLibrary.Auth
+  href: AppleTvControlLibrary.Auth.HapCredentials.html
+  name: HapCredentials
+  nameWithType: HapCredentials
+  fullName: AppleTvControlLibrary.Auth.HapCredentials
+- uid: AppleTvControlLibrary.Auth.SrpAuthHandler
+  commentId: T:AppleTvControlLibrary.Auth.SrpAuthHandler
+  parent: AppleTvControlLibrary.Auth
+  href: AppleTvControlLibrary.Auth.SrpAuthHandler.html
+  name: SrpAuthHandler
+  nameWithType: SrpAuthHandler
+  fullName: AppleTvControlLibrary.Auth.SrpAuthHandler
+- uid: AppleTvControlLibrary.Auth
+  commentId: N:AppleTvControlLibrary.Auth
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Auth
+  nameWithType: AppleTvControlLibrary.Auth
+  fullName: AppleTvControlLibrary.Auth
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Auth
+    name: Auth
+    href: AppleTvControlLibrary.Auth.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Auth
+    name: Auth
+    href: AppleTvControlLibrary.Auth.html

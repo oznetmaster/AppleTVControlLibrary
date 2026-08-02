@@ -1,0 +1,456 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Tlv8.TlvValue
+  commentId: T:AppleTvControlLibrary.Tlv8.TlvValue
+  id: TlvValue
+  parent: AppleTvControlLibrary.Tlv8
+  children:
+  - AppleTvControlLibrary.Tlv8.TlvValue.BackOff
+  - AppleTvControlLibrary.Tlv8.TlvValue.Certificate
+  - AppleTvControlLibrary.Tlv8.TlvValue.EncryptedData
+  - AppleTvControlLibrary.Tlv8.TlvValue.Error
+  - AppleTvControlLibrary.Tlv8.TlvValue.FragmentData
+  - AppleTvControlLibrary.Tlv8.TlvValue.FragmentLast
+  - AppleTvControlLibrary.Tlv8.TlvValue.Identifier
+  - AppleTvControlLibrary.Tlv8.TlvValue.Method
+  - AppleTvControlLibrary.Tlv8.TlvValue.Name
+  - AppleTvControlLibrary.Tlv8.TlvValue.PairingFlags
+  - AppleTvControlLibrary.Tlv8.TlvValue.Permissions
+  - AppleTvControlLibrary.Tlv8.TlvValue.Proof
+  - AppleTvControlLibrary.Tlv8.TlvValue.PublicKey
+  - AppleTvControlLibrary.Tlv8.TlvValue.Salt
+  - AppleTvControlLibrary.Tlv8.TlvValue.SeqNo
+  - AppleTvControlLibrary.Tlv8.TlvValue.Signature
+  langs:
+  - csharp
+  - vb
+  name: TlvValue
+  nameWithType: TlvValue
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue
+  type: Enum
+  source:
+    id: TlvValue
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 13
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Correspond to TLV values in HAP specification.
+  example: []
+  syntax:
+    content: public enum TlvValue
+    content.vb: Public Enum TlvValue
+- uid: AppleTvControlLibrary.Tlv8.TlvValue.Method
+  commentId: F:AppleTvControlLibrary.Tlv8.TlvValue.Method
+  id: Method
+  parent: AppleTvControlLibrary.Tlv8.TlvValue
+  langs:
+  - csharp
+  - vb
+  name: Method
+  nameWithType: TlvValue.Method
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue.Method
+  type: Field
+  source:
+    id: Method
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 16
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Pairing method. pyatv/auth/hap_tlv8.py — line 17 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Method = 0
+    return:
+      type: AppleTvControlLibrary.Tlv8.TlvValue
+- uid: AppleTvControlLibrary.Tlv8.TlvValue.Identifier
+  commentId: F:AppleTvControlLibrary.Tlv8.TlvValue.Identifier
+  id: Identifier
+  parent: AppleTvControlLibrary.Tlv8.TlvValue
+  langs:
+  - csharp
+  - vb
+  name: Identifier
+  nameWithType: TlvValue.Identifier
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue.Identifier
+  type: Field
+  source:
+    id: Identifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 18
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Peer identifier. pyatv/auth/hap_tlv8.py — line 18 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Identifier = 1
+    return:
+      type: AppleTvControlLibrary.Tlv8.TlvValue
+- uid: AppleTvControlLibrary.Tlv8.TlvValue.Salt
+  commentId: F:AppleTvControlLibrary.Tlv8.TlvValue.Salt
+  id: Salt
+  parent: AppleTvControlLibrary.Tlv8.TlvValue
+  langs:
+  - csharp
+  - vb
+  name: Salt
+  nameWithType: TlvValue.Salt
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue.Salt
+  type: Field
+  source:
+    id: Salt
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 20
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: SRP salt. pyatv/auth/hap_tlv8.py — line 19 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Salt = 2
+    return:
+      type: AppleTvControlLibrary.Tlv8.TlvValue
+- uid: AppleTvControlLibrary.Tlv8.TlvValue.PublicKey
+  commentId: F:AppleTvControlLibrary.Tlv8.TlvValue.PublicKey
+  id: PublicKey
+  parent: AppleTvControlLibrary.Tlv8.TlvValue
+  langs:
+  - csharp
+  - vb
+  name: PublicKey
+  nameWithType: TlvValue.PublicKey
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue.PublicKey
+  type: Field
+  source:
+    id: PublicKey
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 22
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Public key. pyatv/auth/hap_tlv8.py — line 20 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: PublicKey = 3
+    return:
+      type: AppleTvControlLibrary.Tlv8.TlvValue
+- uid: AppleTvControlLibrary.Tlv8.TlvValue.Proof
+  commentId: F:AppleTvControlLibrary.Tlv8.TlvValue.Proof
+  id: Proof
+  parent: AppleTvControlLibrary.Tlv8.TlvValue
+  langs:
+  - csharp
+  - vb
+  name: Proof
+  nameWithType: TlvValue.Proof
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue.Proof
+  type: Field
+  source:
+    id: Proof
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 24
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: SRP proof. pyatv/auth/hap_tlv8.py — line 21 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Proof = 4
+    return:
+      type: AppleTvControlLibrary.Tlv8.TlvValue
+- uid: AppleTvControlLibrary.Tlv8.TlvValue.EncryptedData
+  commentId: F:AppleTvControlLibrary.Tlv8.TlvValue.EncryptedData
+  id: EncryptedData
+  parent: AppleTvControlLibrary.Tlv8.TlvValue
+  langs:
+  - csharp
+  - vb
+  name: EncryptedData
+  nameWithType: TlvValue.EncryptedData
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue.EncryptedData
+  type: Field
+  source:
+    id: EncryptedData
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 26
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Encrypted data. pyatv/auth/hap_tlv8.py — line 22 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: EncryptedData = 5
+    return:
+      type: AppleTvControlLibrary.Tlv8.TlvValue
+- uid: AppleTvControlLibrary.Tlv8.TlvValue.SeqNo
+  commentId: F:AppleTvControlLibrary.Tlv8.TlvValue.SeqNo
+  id: SeqNo
+  parent: AppleTvControlLibrary.Tlv8.TlvValue
+  langs:
+  - csharp
+  - vb
+  name: SeqNo
+  nameWithType: TlvValue.SeqNo
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue.SeqNo
+  type: Field
+  source:
+    id: SeqNo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 28
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Sequence number. pyatv/auth/hap_tlv8.py — line 23 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: SeqNo = 6
+    return:
+      type: AppleTvControlLibrary.Tlv8.TlvValue
+- uid: AppleTvControlLibrary.Tlv8.TlvValue.Error
+  commentId: F:AppleTvControlLibrary.Tlv8.TlvValue.Error
+  id: Error
+  parent: AppleTvControlLibrary.Tlv8.TlvValue
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: TlvValue.Error
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue.Error
+  type: Field
+  source:
+    id: Error
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 30
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Error code. pyatv/auth/hap_tlv8.py — line 24 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Error = 7
+    return:
+      type: AppleTvControlLibrary.Tlv8.TlvValue
+- uid: AppleTvControlLibrary.Tlv8.TlvValue.BackOff
+  commentId: F:AppleTvControlLibrary.Tlv8.TlvValue.BackOff
+  id: BackOff
+  parent: AppleTvControlLibrary.Tlv8.TlvValue
+  langs:
+  - csharp
+  - vb
+  name: BackOff
+  nameWithType: TlvValue.BackOff
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue.BackOff
+  type: Field
+  source:
+    id: BackOff
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 32
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Backoff time in seconds. pyatv/auth/hap_tlv8.py — line 25 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: BackOff = 8
+    return:
+      type: AppleTvControlLibrary.Tlv8.TlvValue
+- uid: AppleTvControlLibrary.Tlv8.TlvValue.Certificate
+  commentId: F:AppleTvControlLibrary.Tlv8.TlvValue.Certificate
+  id: Certificate
+  parent: AppleTvControlLibrary.Tlv8.TlvValue
+  langs:
+  - csharp
+  - vb
+  name: Certificate
+  nameWithType: TlvValue.Certificate
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue.Certificate
+  type: Field
+  source:
+    id: Certificate
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 34
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Certificate. pyatv/auth/hap_tlv8.py — line 26 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Certificate = 9
+    return:
+      type: AppleTvControlLibrary.Tlv8.TlvValue
+- uid: AppleTvControlLibrary.Tlv8.TlvValue.Signature
+  commentId: F:AppleTvControlLibrary.Tlv8.TlvValue.Signature
+  id: Signature
+  parent: AppleTvControlLibrary.Tlv8.TlvValue
+  langs:
+  - csharp
+  - vb
+  name: Signature
+  nameWithType: TlvValue.Signature
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue.Signature
+  type: Field
+  source:
+    id: Signature
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 36
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Signature. pyatv/auth/hap_tlv8.py — line 27 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Signature = 10
+    return:
+      type: AppleTvControlLibrary.Tlv8.TlvValue
+- uid: AppleTvControlLibrary.Tlv8.TlvValue.Permissions
+  commentId: F:AppleTvControlLibrary.Tlv8.TlvValue.Permissions
+  id: Permissions
+  parent: AppleTvControlLibrary.Tlv8.TlvValue
+  langs:
+  - csharp
+  - vb
+  name: Permissions
+  nameWithType: TlvValue.Permissions
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue.Permissions
+  type: Field
+  source:
+    id: Permissions
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 38
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Permissions. pyatv/auth/hap_tlv8.py — line 28 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Permissions = 11
+    return:
+      type: AppleTvControlLibrary.Tlv8.TlvValue
+- uid: AppleTvControlLibrary.Tlv8.TlvValue.FragmentData
+  commentId: F:AppleTvControlLibrary.Tlv8.TlvValue.FragmentData
+  id: FragmentData
+  parent: AppleTvControlLibrary.Tlv8.TlvValue
+  langs:
+  - csharp
+  - vb
+  name: FragmentData
+  nameWithType: TlvValue.FragmentData
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue.FragmentData
+  type: Field
+  source:
+    id: FragmentData
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 40
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Fragment data. pyatv/auth/hap_tlv8.py — line 29 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: FragmentData = 12
+    return:
+      type: AppleTvControlLibrary.Tlv8.TlvValue
+- uid: AppleTvControlLibrary.Tlv8.TlvValue.FragmentLast
+  commentId: F:AppleTvControlLibrary.Tlv8.TlvValue.FragmentLast
+  id: FragmentLast
+  parent: AppleTvControlLibrary.Tlv8.TlvValue
+  langs:
+  - csharp
+  - vb
+  name: FragmentLast
+  nameWithType: TlvValue.FragmentLast
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue.FragmentLast
+  type: Field
+  source:
+    id: FragmentLast
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 42
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Last fragment. pyatv/auth/hap_tlv8.py — line 30 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: FragmentLast = 13
+    return:
+      type: AppleTvControlLibrary.Tlv8.TlvValue
+- uid: AppleTvControlLibrary.Tlv8.TlvValue.Name
+  commentId: F:AppleTvControlLibrary.Tlv8.TlvValue.Name
+  id: Name
+  parent: AppleTvControlLibrary.Tlv8.TlvValue
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: TlvValue.Name
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue.Name
+  type: Field
+  source:
+    id: Name
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 45
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Apple internal(?) name value. pyatv/auth/hap_tlv8.py — line 33 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Name = 17
+    return:
+      type: AppleTvControlLibrary.Tlv8.TlvValue
+- uid: AppleTvControlLibrary.Tlv8.TlvValue.PairingFlags
+  commentId: F:AppleTvControlLibrary.Tlv8.TlvValue.PairingFlags
+  id: PairingFlags
+  parent: AppleTvControlLibrary.Tlv8.TlvValue
+  langs:
+  - csharp
+  - vb
+  name: PairingFlags
+  nameWithType: TlvValue.PairingFlags
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue.PairingFlags
+  type: Field
+  source:
+    id: PairingFlags
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Tlv8\Tlv8.cs
+    startLine: 47
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Tlv8
+  summary: Apple internal(?) flags value. pyatv/auth/hap_tlv8.py — line 34 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: PairingFlags = 19
+    return:
+      type: AppleTvControlLibrary.Tlv8.TlvValue
+references:
+- uid: AppleTvControlLibrary.Tlv8
+  commentId: N:AppleTvControlLibrary.Tlv8
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Tlv8
+  nameWithType: AppleTvControlLibrary.Tlv8
+  fullName: AppleTvControlLibrary.Tlv8
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Tlv8
+    name: Tlv8
+    href: AppleTvControlLibrary.Tlv8.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Tlv8
+    name: Tlv8
+    href: AppleTvControlLibrary.Tlv8.html
+- uid: AppleTvControlLibrary.Tlv8.TlvValue
+  commentId: T:AppleTvControlLibrary.Tlv8.TlvValue
+  parent: AppleTvControlLibrary.Tlv8
+  href: AppleTvControlLibrary.Tlv8.TlvValue.html
+  name: TlvValue
+  nameWithType: TlvValue
+  fullName: AppleTvControlLibrary.Tlv8.TlvValue

@@ -1,0 +1,120 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Connection.FrameReceivedCallback
+  commentId: T:AppleTvControlLibrary.Connection.FrameReceivedCallback
+  id: FrameReceivedCallback
+  parent: AppleTvControlLibrary.Connection
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: FrameReceivedCallback
+  nameWithType: FrameReceivedCallback
+  fullName: AppleTvControlLibrary.Connection.FrameReceivedCallback
+  type: Delegate
+  source:
+    id: FrameReceivedCallback
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Connection\CompanionConnection.cs
+    startLine: 201
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Connection
+  summary: Callback signature for the <xref href="AppleTvControlLibrary.Connection.CompanionConnection.FrameReceived" data-throw-if-not-resolved="false"></xref> event.
+  example: []
+  syntax:
+    content: public delegate void FrameReceivedCallback(object sender, FrameType frameType, byte[] data)
+    parameters:
+    - id: sender
+      type: System.Object
+      description: The <xref href="AppleTvControlLibrary.Connection.CompanionConnection" data-throw-if-not-resolved="false"></xref> that raised the event.
+    - id: frameType
+      type: AppleTvControlLibrary.Connection.FrameType
+      description: The type of the received frame.
+    - id: data
+      type: System.Byte[]
+      description: The (already decrypted, if applicable) frame payload.
+    content.vb: Public Delegate Sub FrameReceivedCallback(sender As Object, frameType As FrameType, data As Byte())
+references:
+- uid: AppleTvControlLibrary.Connection.CompanionConnection.FrameReceived
+  commentId: E:AppleTvControlLibrary.Connection.CompanionConnection.FrameReceived
+  href: AppleTvControlLibrary.Connection.CompanionConnection.html#AppleTvControlLibrary_Connection_CompanionConnection_FrameReceived
+  name: FrameReceived
+  nameWithType: CompanionConnection.FrameReceived
+  fullName: AppleTvControlLibrary.Connection.CompanionConnection.FrameReceived
+- uid: AppleTvControlLibrary.Connection.CompanionConnection
+  commentId: T:AppleTvControlLibrary.Connection.CompanionConnection
+  parent: AppleTvControlLibrary.Connection
+  href: AppleTvControlLibrary.Connection.CompanionConnection.html
+  name: CompanionConnection
+  nameWithType: CompanionConnection
+  fullName: AppleTvControlLibrary.Connection.CompanionConnection
+- uid: AppleTvControlLibrary.Connection
+  commentId: N:AppleTvControlLibrary.Connection
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Connection
+  nameWithType: AppleTvControlLibrary.Connection
+  fullName: AppleTvControlLibrary.Connection
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Connection
+    name: Connection
+    href: AppleTvControlLibrary.Connection.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Connection
+    name: Connection
+    href: AppleTvControlLibrary.Connection.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: AppleTvControlLibrary.Connection.FrameType
+  commentId: T:AppleTvControlLibrary.Connection.FrameType
+  parent: AppleTvControlLibrary.Connection
+  href: AppleTvControlLibrary.Connection.FrameType.html
+  name: FrameType
+  nameWithType: FrameType
+  fullName: AppleTvControlLibrary.Connection.FrameType
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

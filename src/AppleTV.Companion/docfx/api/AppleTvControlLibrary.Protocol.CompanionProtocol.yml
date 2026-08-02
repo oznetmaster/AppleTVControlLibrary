@@ -1,0 +1,1136 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol
+  commentId: T:AppleTvControlLibrary.Protocol.CompanionProtocol
+  id: CompanionProtocol
+  parent: AppleTvControlLibrary.Protocol
+  children:
+  - AppleTvControlLibrary.Protocol.CompanionProtocol.#ctor(AppleTvControlLibrary.Connection.CompanionConnection,AppleTvControlLibrary.Auth.SrpAuthHandler)
+  - AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+  - AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+  - AppleTvControlLibrary.Protocol.CompanionProtocol.Listener
+  - AppleTvControlLibrary.Protocol.CompanionProtocol.ResponseTimeout
+  - AppleTvControlLibrary.Protocol.CompanionProtocol.SRP_INPUT_INFO
+  - AppleTvControlLibrary.Protocol.CompanionProtocol.SRP_OUTPUT_INFO
+  - AppleTvControlLibrary.Protocol.CompanionProtocol.SRP_SALT
+  - AppleTvControlLibrary.Protocol.CompanionProtocol.SendOpack(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+  - AppleTvControlLibrary.Protocol.CompanionProtocol.Sender
+  langs:
+  - csharp
+  - vb
+  name: CompanionProtocol
+  nameWithType: CompanionProtocol
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol
+  type: Class
+  source:
+    id: CompanionProtocol
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 123
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: >-
+    Protocol logic related to Companion: frame dispatch, XID/frame-type based response
+
+    correlation, and OPACK-level send/receive plumbing built on top of <xref href="AppleTvControlLibrary.Connection.CompanionConnection" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    Unlike pyatv, which relies on asyncio futures (<code>SharedData</code>) to await a response, this
+
+    port uses synchronous callback-based correlation: sending a frame is expected to synchronously
+
+    (or, for a real transport, eventually) result in <code>CompanionConnection.FrameReceived</code> being
+
+    invoked with the matching response, at which point the originally registered continuation is
+
+    invoked. This
+
+    keeps the type usable both by an in-memory test harness (as used for WP5/WP6 validation) and by
+
+    a future asynchronous socket transport without changing the correlation logic itself.
+  example: []
+  syntax:
+    content: public sealed class CompanionProtocol
+    content.vb: Public NotInheritable Class CompanionProtocol
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.SRP_SALT
+  commentId: F:AppleTvControlLibrary.Protocol.CompanionProtocol.SRP_SALT
+  id: SRP_SALT
+  parent: AppleTvControlLibrary.Protocol.CompanionProtocol
+  langs:
+  - csharp
+  - vb
+  name: SRP_SALT
+  nameWithType: CompanionProtocol.SRP_SALT
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.SRP_SALT
+  type: Field
+  source:
+    id: SRP_SALT
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 127
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: SRP HKDF salt used when deriving Companion encryption keys.
+  example: []
+  syntax:
+    content: public const string SRP_SALT = ""
+    return:
+      type: System.String
+    content.vb: Public Const SRP_SALT As String = ""
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.SRP_OUTPUT_INFO
+  commentId: F:AppleTvControlLibrary.Protocol.CompanionProtocol.SRP_OUTPUT_INFO
+  id: SRP_OUTPUT_INFO
+  parent: AppleTvControlLibrary.Protocol.CompanionProtocol
+  langs:
+  - csharp
+  - vb
+  name: SRP_OUTPUT_INFO
+  nameWithType: CompanionProtocol.SRP_OUTPUT_INFO
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.SRP_OUTPUT_INFO
+  type: Field
+  source:
+    id: SRP_OUTPUT_INFO
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 129
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: SRP HKDF info string for the client's outbound encryption key.
+  example: []
+  syntax:
+    content: public const string SRP_OUTPUT_INFO = "ClientEncrypt-main"
+    return:
+      type: System.String
+    content.vb: Public Const SRP_OUTPUT_INFO As String = "ClientEncrypt-main"
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.SRP_INPUT_INFO
+  commentId: F:AppleTvControlLibrary.Protocol.CompanionProtocol.SRP_INPUT_INFO
+  id: SRP_INPUT_INFO
+  parent: AppleTvControlLibrary.Protocol.CompanionProtocol
+  langs:
+  - csharp
+  - vb
+  name: SRP_INPUT_INFO
+  nameWithType: CompanionProtocol.SRP_INPUT_INFO
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.SRP_INPUT_INFO
+  type: Field
+  source:
+    id: SRP_INPUT_INFO
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 131
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: SRP HKDF info string for the client's inbound encryption key.
+  example: []
+  syntax:
+    content: public const string SRP_INPUT_INFO = "ServerEncrypt-main"
+    return:
+      type: System.String
+    content.vb: Public Const SRP_INPUT_INFO As String = "ServerEncrypt-main"
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.#ctor(AppleTvControlLibrary.Connection.CompanionConnection,AppleTvControlLibrary.Auth.SrpAuthHandler)
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionProtocol.#ctor(AppleTvControlLibrary.Connection.CompanionConnection,AppleTvControlLibrary.Auth.SrpAuthHandler)
+  id: '#ctor(AppleTvControlLibrary.Connection.CompanionConnection,AppleTvControlLibrary.Auth.SrpAuthHandler)'
+  parent: AppleTvControlLibrary.Protocol.CompanionProtocol
+  langs:
+  - csharp
+  - vb
+  name: CompanionProtocol(CompanionConnection, SrpAuthHandler)
+  nameWithType: CompanionProtocol.CompanionProtocol(CompanionConnection, SrpAuthHandler)
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.CompanionProtocol(AppleTvControlLibrary.Connection.CompanionConnection, AppleTvControlLibrary.Auth.SrpAuthHandler)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 147
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Initializes a new instance of the <xref href="AppleTvControlLibrary.Protocol.CompanionProtocol" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public CompanionProtocol(CompanionConnection connection, SrpAuthHandler srp)
+    parameters:
+    - id: connection
+      type: AppleTvControlLibrary.Connection.CompanionConnection
+      description: The underlying framed connection.
+    - id: srp
+      type: AppleTvControlLibrary.Auth.SrpAuthHandler
+      description: The SRP handler used for pair-verify.
+    content.vb: Public Sub New(connection As CompanionConnection, srp As SrpAuthHandler)
+  overload: AppleTvControlLibrary.Protocol.CompanionProtocol.#ctor*
+  nameWithType.vb: CompanionProtocol.New(CompanionConnection, SrpAuthHandler)
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionProtocol.New(AppleTvControlLibrary.Connection.CompanionConnection, AppleTvControlLibrary.Auth.SrpAuthHandler)
+  name.vb: New(CompanionConnection, SrpAuthHandler)
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.Listener
+  commentId: P:AppleTvControlLibrary.Protocol.CompanionProtocol.Listener
+  id: Listener
+  parent: AppleTvControlLibrary.Protocol.CompanionProtocol
+  langs:
+  - csharp
+  - vb
+  name: Listener
+  nameWithType: CompanionProtocol.Listener
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.Listener
+  type: Property
+  source:
+    id: Listener
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 156
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Gets or sets the listener notified when an event frame is received.
+  example: []
+  syntax:
+    content: public ICompanionProtocolListener? Listener { get; set; }
+    parameters: []
+    return:
+      type: AppleTvControlLibrary.Protocol.ICompanionProtocolListener
+    content.vb: Public Property Listener As ICompanionProtocolListener
+  overload: AppleTvControlLibrary.Protocol.CompanionProtocol.Listener*
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.Sender
+  commentId: P:AppleTvControlLibrary.Protocol.CompanionProtocol.Sender
+  id: Sender
+  parent: AppleTvControlLibrary.Protocol.CompanionProtocol
+  langs:
+  - csharp
+  - vb
+  name: Sender
+  nameWithType: CompanionProtocol.Sender
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.Sender
+  type: Property
+  source:
+    id: Sender
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 169
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Gets a callback invoked whenever a fully-built frame needs to be transmitted.
+  remarks: >-
+    This decouples <xref href="AppleTvControlLibrary.Protocol.CompanionProtocol" data-throw-if-not-resolved="false"></xref> from any specific transport; a caller
+
+    (production socket code, or a test harness driving a fake device in-memory) is
+
+    responsible for actually delivering the bytes and, eventually, feeding any response back
+
+    in via <code>CompanionConnection.ReceiveData</code>.
+  example: []
+  syntax:
+    content: public Action<byte[]>? Sender { get; set; }
+    parameters: []
+    return:
+      type: System.Action{System.Byte[]}
+    content.vb: Public Property Sender As Action(Of Byte())
+  overload: AppleTvControlLibrary.Protocol.CompanionProtocol.Sender*
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+  id: ExchangeAuth(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+  parent: AppleTvControlLibrary.Protocol.CompanionProtocol
+  langs:
+  - csharp
+  - vb
+  name: ExchangeAuth(FrameType, Dictionary<string, object?>)
+  nameWithType: CompanionProtocol.ExchangeAuth(FrameType, Dictionary<string, object?>)
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth(AppleTvControlLibrary.Connection.FrameType, System.Collections.Generic.Dictionary<string, object?>)
+  type: Method
+  source:
+    id: ExchangeAuth
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 180
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Exchange an auth frame (<code>PS_*</code> or <code>PV_*</code>).
+  example: []
+  syntax:
+    content: public Dictionary<object, object?> ExchangeAuth(FrameType frameType, Dictionary<string, object?> data)
+    parameters:
+    - id: frameType
+      type: AppleTvControlLibrary.Connection.FrameType
+      description: The frame type to send.
+    - id: data
+      type: System.Collections.Generic.Dictionary{System.String,System.Object}
+      description: The message content.
+    return:
+      type: System.Collections.Generic.Dictionary{System.Object,System.Object}
+      description: The decoded OPACK response.
+    content.vb: Public Function ExchangeAuth(frameType As FrameType, data As Dictionary(Of String, Object)) As Dictionary(Of Object, Object)
+  overload: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth*
+  nameWithType.vb: CompanionProtocol.ExchangeAuth(FrameType, Dictionary(Of String, Object))
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth(AppleTvControlLibrary.Connection.FrameType, System.Collections.Generic.Dictionary(Of String, Object))
+  name.vb: ExchangeAuth(FrameType, Dictionary(Of String, Object))
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+  id: ExchangeOpack(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+  parent: AppleTvControlLibrary.Protocol.CompanionProtocol
+  langs:
+  - csharp
+  - vb
+  name: ExchangeOpack(FrameType, Dictionary<string, object?>)
+  nameWithType: CompanionProtocol.ExchangeOpack(FrameType, Dictionary<string, object?>)
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack(AppleTvControlLibrary.Connection.FrameType, System.Collections.Generic.Dictionary<string, object?>)
+  type: Method
+  source:
+    id: ExchangeOpack
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 199
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Send data as OPACK and decode the result as OPACK.
+  example: []
+  syntax:
+    content: public Dictionary<object, object?> ExchangeOpack(FrameType frameType, Dictionary<string, object?> data)
+    parameters:
+    - id: frameType
+      type: AppleTvControlLibrary.Connection.FrameType
+      description: The frame type to send.
+    - id: data
+      type: System.Collections.Generic.Dictionary{System.String,System.Object}
+      description: The message content.
+    return:
+      type: System.Collections.Generic.Dictionary{System.Object,System.Object}
+      description: The decoded OPACK response.
+    content.vb: Public Function ExchangeOpack(frameType As FrameType, data As Dictionary(Of String, Object)) As Dictionary(Of Object, Object)
+  overload: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack*
+  nameWithType.vb: CompanionProtocol.ExchangeOpack(FrameType, Dictionary(Of String, Object))
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack(AppleTvControlLibrary.Connection.FrameType, System.Collections.Generic.Dictionary(Of String, Object))
+  name.vb: ExchangeOpack(FrameType, Dictionary(Of String, Object))
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.ResponseTimeout
+  commentId: P:AppleTvControlLibrary.Protocol.CompanionProtocol.ResponseTimeout
+  id: ResponseTimeout
+  parent: AppleTvControlLibrary.Protocol.CompanionProtocol
+  langs:
+  - csharp
+  - vb
+  name: ResponseTimeout
+  nameWithType: CompanionProtocol.ResponseTimeout
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.ResponseTimeout
+  type: Property
+  source:
+    id: ResponseTimeout
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 220
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: >-
+    Gets or sets how long to wait for a response before <xref href="AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth(AppleTvControlLibrary.Connection.FrameType%2cSystem.Collections.Generic.Dictionary%7bSystem.String%2cSystem.Object%7d)" data-throw-if-not-resolved="false"></xref> or
+
+    <xref href="AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack(AppleTvControlLibrary.Connection.FrameType%2cSystem.Collections.Generic.Dictionary%7bSystem.String%2cSystem.Object%7d)" data-throw-if-not-resolved="false"></xref> throws a <xref href="AppleTvControlLibrary.Protocol.ProtocolException" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    Unlike the in-memory fake device used for WP5/WP6 validation (where
+
+    <code>CompanionConnection.FrameReceived</code> fires synchronously, inline with the send
+
+    call), a real socket transport delivers the response from a separate read thread/task,
+
+    asynchronously with respect to the caller of <xref href="AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth(AppleTvControlLibrary.Connection.FrameType%2cSystem.Collections.Generic.Dictionary%7bSystem.String%2cSystem.Object%7d)" data-throw-if-not-resolved="false"></xref>/
+
+    <xref href="AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack(AppleTvControlLibrary.Connection.FrameType%2cSystem.Collections.Generic.Dictionary%7bSystem.String%2cSystem.Object%7d)" data-throw-if-not-resolved="false"></xref>. This wait handle lets both usages share the same
+
+    correlation logic without changing it: the fake device signals it before the wait ever
+
+    blocks, while a real transport signals it once the background read loop processes the
+
+    matching frame.
+  example: []
+  syntax:
+    content: public TimeSpan ResponseTimeout { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property ResponseTimeout As TimeSpan
+  overload: AppleTvControlLibrary.Protocol.CompanionProtocol.ResponseTimeout*
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.SendOpack(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionProtocol.SendOpack(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+  id: SendOpack(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+  parent: AppleTvControlLibrary.Protocol.CompanionProtocol
+  langs:
+  - csharp
+  - vb
+  name: SendOpack(FrameType, Dictionary<string, object?>)
+  nameWithType: CompanionProtocol.SendOpack(FrameType, Dictionary<string, object?>)
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.SendOpack(AppleTvControlLibrary.Connection.FrameType, System.Collections.Generic.Dictionary<string, object?>)
+  type: Method
+  source:
+    id: SendOpack
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionProtocol.cs
+    startLine: 260
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Send data encoded with OPACK, adding an XID if not already present.
+  example: []
+  syntax:
+    content: public void SendOpack(FrameType frameType, Dictionary<string, object?> data)
+    parameters:
+    - id: frameType
+      type: AppleTvControlLibrary.Connection.FrameType
+      description: The frame type to send.
+    - id: data
+      type: System.Collections.Generic.Dictionary{System.String,System.Object}
+      description: The message content.
+    content.vb: Public Sub SendOpack(frameType As FrameType, data As Dictionary(Of String, Object))
+  overload: AppleTvControlLibrary.Protocol.CompanionProtocol.SendOpack*
+  nameWithType.vb: CompanionProtocol.SendOpack(FrameType, Dictionary(Of String, Object))
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionProtocol.SendOpack(AppleTvControlLibrary.Connection.FrameType, System.Collections.Generic.Dictionary(Of String, Object))
+  name.vb: SendOpack(FrameType, Dictionary(Of String, Object))
+references:
+- uid: AppleTvControlLibrary.Connection.CompanionConnection
+  commentId: T:AppleTvControlLibrary.Connection.CompanionConnection
+  parent: AppleTvControlLibrary.Connection
+  href: AppleTvControlLibrary.Connection.CompanionConnection.html
+  name: CompanionConnection
+  nameWithType: CompanionConnection
+  fullName: AppleTvControlLibrary.Connection.CompanionConnection
+- uid: AppleTvControlLibrary.Protocol
+  commentId: N:AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Protocol
+  nameWithType: AppleTvControlLibrary.Protocol
+  fullName: AppleTvControlLibrary.Protocol
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Protocol
+    name: Protocol
+    href: AppleTvControlLibrary.Protocol.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Protocol
+    name: Protocol
+    href: AppleTvControlLibrary.Protocol.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Connection
+  commentId: N:AppleTvControlLibrary.Connection
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Connection
+  nameWithType: AppleTvControlLibrary.Connection
+  fullName: AppleTvControlLibrary.Connection
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Connection
+    name: Connection
+    href: AppleTvControlLibrary.Connection.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Connection
+    name: Connection
+    href: AppleTvControlLibrary.Connection.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol
+  commentId: T:AppleTvControlLibrary.Protocol.CompanionProtocol
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.CompanionProtocol.html
+  name: CompanionProtocol
+  nameWithType: CompanionProtocol
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.#ctor*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionProtocol.#ctor
+  href: AppleTvControlLibrary.Protocol.CompanionProtocol.html#AppleTvControlLibrary_Protocol_CompanionProtocol__ctor_AppleTvControlLibrary_Connection_CompanionConnection_AppleTvControlLibrary_Auth_SrpAuthHandler_
+  name: CompanionProtocol
+  nameWithType: CompanionProtocol.CompanionProtocol
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.CompanionProtocol
+  nameWithType.vb: CompanionProtocol.New
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionProtocol.New
+  name.vb: New
+- uid: AppleTvControlLibrary.Auth.SrpAuthHandler
+  commentId: T:AppleTvControlLibrary.Auth.SrpAuthHandler
+  parent: AppleTvControlLibrary.Auth
+  href: AppleTvControlLibrary.Auth.SrpAuthHandler.html
+  name: SrpAuthHandler
+  nameWithType: SrpAuthHandler
+  fullName: AppleTvControlLibrary.Auth.SrpAuthHandler
+- uid: AppleTvControlLibrary.Auth
+  commentId: N:AppleTvControlLibrary.Auth
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Auth
+  nameWithType: AppleTvControlLibrary.Auth
+  fullName: AppleTvControlLibrary.Auth
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Auth
+    name: Auth
+    href: AppleTvControlLibrary.Auth.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Auth
+    name: Auth
+    href: AppleTvControlLibrary.Auth.html
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.Listener*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionProtocol.Listener
+  href: AppleTvControlLibrary.Protocol.CompanionProtocol.html#AppleTvControlLibrary_Protocol_CompanionProtocol_Listener
+  name: Listener
+  nameWithType: CompanionProtocol.Listener
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.Listener
+- uid: AppleTvControlLibrary.Protocol.ICompanionProtocolListener
+  commentId: T:AppleTvControlLibrary.Protocol.ICompanionProtocolListener
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.ICompanionProtocolListener.html
+  name: ICompanionProtocolListener
+  nameWithType: ICompanionProtocolListener
+  fullName: AppleTvControlLibrary.Protocol.ICompanionProtocolListener
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.Sender*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionProtocol.Sender
+  href: AppleTvControlLibrary.Protocol.CompanionProtocol.html#AppleTvControlLibrary_Protocol_CompanionProtocol_Sender
+  name: Sender
+  nameWithType: CompanionProtocol.Sender
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.Sender
+- uid: System.Action{System.Byte[]}
+  commentId: T:System.Action{System.Byte[]}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<byte[]>
+  nameWithType: Action<byte[]>
+  fullName: System.Action<byte[]>
+  nameWithType.vb: Action(Of Byte())
+  fullName.vb: System.Action(Of Byte())
+  name.vb: Action(Of Byte())
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth
+  href: AppleTvControlLibrary.Protocol.CompanionProtocol.html#AppleTvControlLibrary_Protocol_CompanionProtocol_ExchangeAuth_AppleTvControlLibrary_Connection_FrameType_System_Collections_Generic_Dictionary_System_String_System_Object__
+  name: ExchangeAuth
+  nameWithType: CompanionProtocol.ExchangeAuth
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth
+- uid: AppleTvControlLibrary.Connection.FrameType
+  commentId: T:AppleTvControlLibrary.Connection.FrameType
+  parent: AppleTvControlLibrary.Connection
+  href: AppleTvControlLibrary.Connection.FrameType.html
+  name: FrameType
+  nameWithType: FrameType
+  fullName: AppleTvControlLibrary.Connection.FrameType
+- uid: System.Collections.Generic.Dictionary{System.String,System.Object}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, object>
+  nameWithType: Dictionary<string, object>
+  fullName: System.Collections.Generic.Dictionary<string, object>
+  nameWithType.vb: Dictionary(Of String, Object)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, Object)
+  name.vb: Dictionary(Of String, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Collections.Generic.Dictionary{System.Object,System.Object}
+  commentId: T:System.Collections.Generic.Dictionary{System.Object,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<object, object>
+  nameWithType: Dictionary<object, object>
+  fullName: System.Collections.Generic.Dictionary<object, object>
+  nameWithType.vb: Dictionary(Of Object, Object)
+  fullName.vb: System.Collections.Generic.Dictionary(Of Object, Object)
+  name.vb: Dictionary(Of Object, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack
+  href: AppleTvControlLibrary.Protocol.CompanionProtocol.html#AppleTvControlLibrary_Protocol_CompanionProtocol_ExchangeOpack_AppleTvControlLibrary_Connection_FrameType_System_Collections_Generic_Dictionary_System_String_System_Object__
+  name: ExchangeOpack
+  nameWithType: CompanionProtocol.ExchangeOpack
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+  isExternal: true
+  href: AppleTvControlLibrary.Protocol.CompanionProtocol.html#AppleTvControlLibrary_Protocol_CompanionProtocol_ExchangeAuth_AppleTvControlLibrary_Connection_FrameType_System_Collections_Generic_Dictionary_System_String_System_Object__
+  name: ExchangeAuth(FrameType, Dictionary<string, object>)
+  nameWithType: CompanionProtocol.ExchangeAuth(FrameType, Dictionary<string, object>)
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth(AppleTvControlLibrary.Connection.FrameType, System.Collections.Generic.Dictionary<string, object>)
+  nameWithType.vb: CompanionProtocol.ExchangeAuth(FrameType, Dictionary(Of String, Object))
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth(AppleTvControlLibrary.Connection.FrameType, System.Collections.Generic.Dictionary(Of String, Object))
+  name.vb: ExchangeAuth(FrameType, Dictionary(Of String, Object))
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+    name: ExchangeAuth
+    href: AppleTvControlLibrary.Protocol.CompanionProtocol.html#AppleTvControlLibrary_Protocol_CompanionProtocol_ExchangeAuth_AppleTvControlLibrary_Connection_FrameType_System_Collections_Generic_Dictionary_System_String_System_Object__
+  - name: (
+  - uid: AppleTvControlLibrary.Connection.FrameType
+    name: FrameType
+    href: AppleTvControlLibrary.Connection.FrameType.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeAuth(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+    name: ExchangeAuth
+    href: AppleTvControlLibrary.Protocol.CompanionProtocol.html#AppleTvControlLibrary_Protocol_CompanionProtocol_ExchangeAuth_AppleTvControlLibrary_Connection_FrameType_System_Collections_Generic_Dictionary_System_String_System_Object__
+  - name: (
+  - uid: AppleTvControlLibrary.Connection.FrameType
+    name: FrameType
+    href: AppleTvControlLibrary.Connection.FrameType.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  - name: )
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+  isExternal: true
+  href: AppleTvControlLibrary.Protocol.CompanionProtocol.html#AppleTvControlLibrary_Protocol_CompanionProtocol_ExchangeOpack_AppleTvControlLibrary_Connection_FrameType_System_Collections_Generic_Dictionary_System_String_System_Object__
+  name: ExchangeOpack(FrameType, Dictionary<string, object>)
+  nameWithType: CompanionProtocol.ExchangeOpack(FrameType, Dictionary<string, object>)
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack(AppleTvControlLibrary.Connection.FrameType, System.Collections.Generic.Dictionary<string, object>)
+  nameWithType.vb: CompanionProtocol.ExchangeOpack(FrameType, Dictionary(Of String, Object))
+  fullName.vb: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack(AppleTvControlLibrary.Connection.FrameType, System.Collections.Generic.Dictionary(Of String, Object))
+  name.vb: ExchangeOpack(FrameType, Dictionary(Of String, Object))
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+    name: ExchangeOpack
+    href: AppleTvControlLibrary.Protocol.CompanionProtocol.html#AppleTvControlLibrary_Protocol_CompanionProtocol_ExchangeOpack_AppleTvControlLibrary_Connection_FrameType_System_Collections_Generic_Dictionary_System_String_System_Object__
+  - name: (
+  - uid: AppleTvControlLibrary.Connection.FrameType
+    name: FrameType
+    href: AppleTvControlLibrary.Connection.FrameType.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: AppleTvControlLibrary.Protocol.CompanionProtocol.ExchangeOpack(AppleTvControlLibrary.Connection.FrameType,System.Collections.Generic.Dictionary{System.String,System.Object})
+    name: ExchangeOpack
+    href: AppleTvControlLibrary.Protocol.CompanionProtocol.html#AppleTvControlLibrary_Protocol_CompanionProtocol_ExchangeOpack_AppleTvControlLibrary_Connection_FrameType_System_Collections_Generic_Dictionary_System_String_System_Object__
+  - name: (
+  - uid: AppleTvControlLibrary.Connection.FrameType
+    name: FrameType
+    href: AppleTvControlLibrary.Connection.FrameType.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  - name: )
+- uid: AppleTvControlLibrary.Protocol.ProtocolException
+  commentId: T:AppleTvControlLibrary.Protocol.ProtocolException
+  href: AppleTvControlLibrary.Protocol.ProtocolException.html
+  name: ProtocolException
+  nameWithType: ProtocolException
+  fullName: AppleTvControlLibrary.Protocol.ProtocolException
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.ResponseTimeout*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionProtocol.ResponseTimeout
+  href: AppleTvControlLibrary.Protocol.CompanionProtocol.html#AppleTvControlLibrary_Protocol_CompanionProtocol_ResponseTimeout
+  name: ResponseTimeout
+  nameWithType: CompanionProtocol.ResponseTimeout
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.ResponseTimeout
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol.SendOpack*
+  commentId: Overload:AppleTvControlLibrary.Protocol.CompanionProtocol.SendOpack
+  href: AppleTvControlLibrary.Protocol.CompanionProtocol.html#AppleTvControlLibrary_Protocol_CompanionProtocol_SendOpack_AppleTvControlLibrary_Connection_FrameType_System_Collections_Generic_Dictionary_System_String_System_Object__
+  name: SendOpack
+  nameWithType: CompanionProtocol.SendOpack
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol.SendOpack

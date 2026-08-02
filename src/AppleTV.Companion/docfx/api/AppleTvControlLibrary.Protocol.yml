@@ -1,0 +1,140 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Protocol
+  commentId: N:AppleTvControlLibrary.Protocol
+  id: AppleTvControlLibrary.Protocol
+  children:
+  - AppleTvControlLibrary.Protocol.CompanionApi
+  - AppleTvControlLibrary.Protocol.CompanionProtocol
+  - AppleTvControlLibrary.Protocol.FrameIdentifier
+  - AppleTvControlLibrary.Protocol.HidCommand
+  - AppleTvControlLibrary.Protocol.ICompanionProtocolListener
+  - AppleTvControlLibrary.Protocol.InputAction
+  - AppleTvControlLibrary.Protocol.KeyboardFocusState
+  - AppleTvControlLibrary.Protocol.MediaControlCapabilities
+  - AppleTvControlLibrary.Protocol.MediaControlCommand
+  - AppleTvControlLibrary.Protocol.MessageType
+  - AppleTvControlLibrary.Protocol.ProtocolException
+  - AppleTvControlLibrary.Protocol.SystemStatus
+  - AppleTvControlLibrary.Protocol.TouchAction
+  langs:
+  - csharp
+  - vb
+  name: AppleTvControlLibrary.Protocol
+  nameWithType: AppleTvControlLibrary.Protocol
+  fullName: AppleTvControlLibrary.Protocol
+  type: Namespace
+  assemblies:
+  - AppleTvControlLibrary
+references:
+- uid: AppleTvControlLibrary.Protocol.HidCommand
+  commentId: T:AppleTvControlLibrary.Protocol.HidCommand
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.HidCommand.html
+  name: HidCommand
+  nameWithType: HidCommand
+  fullName: AppleTvControlLibrary.Protocol.HidCommand
+- uid: AppleTvControlLibrary.Protocol.MediaControlCommand
+  commentId: T:AppleTvControlLibrary.Protocol.MediaControlCommand
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.MediaControlCommand.html
+  name: MediaControlCommand
+  nameWithType: MediaControlCommand
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCommand
+- uid: AppleTvControlLibrary.Protocol.MediaControlCapabilities
+  commentId: T:AppleTvControlLibrary.Protocol.MediaControlCapabilities
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.MediaControlCapabilities.html
+  name: MediaControlCapabilities
+  nameWithType: MediaControlCapabilities
+  fullName: AppleTvControlLibrary.Protocol.MediaControlCapabilities
+- uid: AppleTvControlLibrary.Protocol.SystemStatus
+  commentId: T:AppleTvControlLibrary.Protocol.SystemStatus
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.SystemStatus.html
+  name: SystemStatus
+  nameWithType: SystemStatus
+  fullName: AppleTvControlLibrary.Protocol.SystemStatus
+- uid: AppleTvControlLibrary.Protocol.TouchAction
+  commentId: T:AppleTvControlLibrary.Protocol.TouchAction
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.TouchAction.html
+  name: TouchAction
+  nameWithType: TouchAction
+  fullName: AppleTvControlLibrary.Protocol.TouchAction
+- uid: AppleTvControlLibrary.Protocol.InputAction
+  commentId: T:AppleTvControlLibrary.Protocol.InputAction
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.InputAction.html
+  name: InputAction
+  nameWithType: InputAction
+  fullName: AppleTvControlLibrary.Protocol.InputAction
+- uid: AppleTvControlLibrary.Protocol.KeyboardFocusState
+  commentId: T:AppleTvControlLibrary.Protocol.KeyboardFocusState
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.KeyboardFocusState.html
+  name: KeyboardFocusState
+  nameWithType: KeyboardFocusState
+  fullName: AppleTvControlLibrary.Protocol.KeyboardFocusState
+- uid: AppleTvControlLibrary.Protocol.CompanionApi
+  commentId: T:AppleTvControlLibrary.Protocol.CompanionApi
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html
+  name: CompanionApi
+  nameWithType: CompanionApi
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi
+- uid: AppleTvControlLibrary.Protocol.MessageType
+  commentId: T:AppleTvControlLibrary.Protocol.MessageType
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.MessageType.html
+  name: MessageType
+  nameWithType: MessageType
+  fullName: AppleTvControlLibrary.Protocol.MessageType
+- uid: AppleTvControlLibrary.Protocol.ICompanionProtocolListener
+  commentId: T:AppleTvControlLibrary.Protocol.ICompanionProtocolListener
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.ICompanionProtocolListener.html
+  name: ICompanionProtocolListener
+  nameWithType: ICompanionProtocolListener
+  fullName: AppleTvControlLibrary.Protocol.ICompanionProtocolListener
+- uid: AppleTvControlLibrary.Protocol.ProtocolException
+  commentId: T:AppleTvControlLibrary.Protocol.ProtocolException
+  href: AppleTvControlLibrary.Protocol.ProtocolException.html
+  name: ProtocolException
+  nameWithType: ProtocolException
+  fullName: AppleTvControlLibrary.Protocol.ProtocolException
+- uid: AppleTvControlLibrary.Protocol.FrameIdentifier
+  commentId: T:AppleTvControlLibrary.Protocol.FrameIdentifier
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.FrameIdentifier.html
+  name: FrameIdentifier
+  nameWithType: FrameIdentifier
+  fullName: AppleTvControlLibrary.Protocol.FrameIdentifier
+- uid: AppleTvControlLibrary.Protocol.CompanionProtocol
+  commentId: T:AppleTvControlLibrary.Protocol.CompanionProtocol
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.CompanionProtocol.html
+  name: CompanionProtocol
+  nameWithType: CompanionProtocol
+  fullName: AppleTvControlLibrary.Protocol.CompanionProtocol
+- uid: AppleTvControlLibrary.Protocol
+  commentId: N:AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Protocol
+  nameWithType: AppleTvControlLibrary.Protocol
+  fullName: AppleTvControlLibrary.Protocol
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Protocol
+    name: Protocol
+    href: AppleTvControlLibrary.Protocol.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Protocol
+    name: Protocol
+    href: AppleTvControlLibrary.Protocol.html

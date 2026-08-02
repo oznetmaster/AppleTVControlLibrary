@@ -1,0 +1,199 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Protocol.SystemStatus
+  commentId: T:AppleTvControlLibrary.Protocol.SystemStatus
+  id: SystemStatus
+  parent: AppleTvControlLibrary.Protocol
+  children:
+  - AppleTvControlLibrary.Protocol.SystemStatus.Asleep
+  - AppleTvControlLibrary.Protocol.SystemStatus.Awake
+  - AppleTvControlLibrary.Protocol.SystemStatus.Idle
+  - AppleTvControlLibrary.Protocol.SystemStatus.Screensaver
+  - AppleTvControlLibrary.Protocol.SystemStatus.Unknown
+  langs:
+  - csharp
+  - vb
+  name: SystemStatus
+  nameWithType: SystemStatus
+  fullName: AppleTvControlLibrary.Protocol.SystemStatus
+  type: Enum
+  source:
+    id: SystemStatus
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 132
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Current system state, as returned by <xref href="AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public enum SystemStatus
+    content.vb: Public Enum SystemStatus
+- uid: AppleTvControlLibrary.Protocol.SystemStatus.Unknown
+  commentId: F:AppleTvControlLibrary.Protocol.SystemStatus.Unknown
+  id: Unknown
+  parent: AppleTvControlLibrary.Protocol.SystemStatus
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: SystemStatus.Unknown
+  fullName: AppleTvControlLibrary.Protocol.SystemStatus.Unknown
+  type: Field
+  source:
+    id: Unknown
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 135
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Not a valid protocol entry, only used internally. pyatv/protocols/companion/api.py — line 80 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Unknown = 0
+    return:
+      type: AppleTvControlLibrary.Protocol.SystemStatus
+- uid: AppleTvControlLibrary.Protocol.SystemStatus.Asleep
+  commentId: F:AppleTvControlLibrary.Protocol.SystemStatus.Asleep
+  id: Asleep
+  parent: AppleTvControlLibrary.Protocol.SystemStatus
+  langs:
+  - csharp
+  - vb
+  name: Asleep
+  nameWithType: SystemStatus.Asleep
+  fullName: AppleTvControlLibrary.Protocol.SystemStatus.Asleep
+  type: Field
+  source:
+    id: Asleep
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 137
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: pyatv/protocols/companion/api.py — line 82 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Asleep = 1
+    return:
+      type: AppleTvControlLibrary.Protocol.SystemStatus
+- uid: AppleTvControlLibrary.Protocol.SystemStatus.Screensaver
+  commentId: F:AppleTvControlLibrary.Protocol.SystemStatus.Screensaver
+  id: Screensaver
+  parent: AppleTvControlLibrary.Protocol.SystemStatus
+  langs:
+  - csharp
+  - vb
+  name: Screensaver
+  nameWithType: SystemStatus.Screensaver
+  fullName: AppleTvControlLibrary.Protocol.SystemStatus.Screensaver
+  type: Field
+  source:
+    id: Screensaver
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 139
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: pyatv/protocols/companion/api.py — line 83 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Screensaver = 2
+    return:
+      type: AppleTvControlLibrary.Protocol.SystemStatus
+- uid: AppleTvControlLibrary.Protocol.SystemStatus.Awake
+  commentId: F:AppleTvControlLibrary.Protocol.SystemStatus.Awake
+  id: Awake
+  parent: AppleTvControlLibrary.Protocol.SystemStatus
+  langs:
+  - csharp
+  - vb
+  name: Awake
+  nameWithType: SystemStatus.Awake
+  fullName: AppleTvControlLibrary.Protocol.SystemStatus.Awake
+  type: Field
+  source:
+    id: Awake
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 141
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: pyatv/protocols/companion/api.py — line 84 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Awake = 3
+    return:
+      type: AppleTvControlLibrary.Protocol.SystemStatus
+- uid: AppleTvControlLibrary.Protocol.SystemStatus.Idle
+  commentId: F:AppleTvControlLibrary.Protocol.SystemStatus.Idle
+  id: Idle
+  parent: AppleTvControlLibrary.Protocol.SystemStatus
+  langs:
+  - csharp
+  - vb
+  name: Idle
+  nameWithType: SystemStatus.Idle
+  fullName: AppleTvControlLibrary.Protocol.SystemStatus.Idle
+  type: Field
+  source:
+    id: Idle
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTV.Companion\Protocol\CompanionApi.cs
+    startLine: 143
+  assemblies:
+  - AppleTvControlLibrary
+  namespace: AppleTvControlLibrary.Protocol
+  summary: Not verified against a real device. pyatv/protocols/companion/api.py — line 85 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Idle = 4
+    return:
+      type: AppleTvControlLibrary.Protocol.SystemStatus
+references:
+- uid: AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState
+  commentId: M:AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState
+  href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_FetchAttentionState
+  name: FetchAttentionState()
+  nameWithType: CompanionApi.FetchAttentionState()
+  fullName: AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState()
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState
+    name: FetchAttentionState
+    href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_FetchAttentionState
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AppleTvControlLibrary.Protocol.CompanionApi.FetchAttentionState
+    name: FetchAttentionState
+    href: AppleTvControlLibrary.Protocol.CompanionApi.html#AppleTvControlLibrary_Protocol_CompanionApi_FetchAttentionState
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Protocol
+  commentId: N:AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Protocol
+  nameWithType: AppleTvControlLibrary.Protocol
+  fullName: AppleTvControlLibrary.Protocol
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Protocol
+    name: Protocol
+    href: AppleTvControlLibrary.Protocol.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Protocol
+    name: Protocol
+    href: AppleTvControlLibrary.Protocol.html
+- uid: AppleTvControlLibrary.Protocol.SystemStatus
+  commentId: T:AppleTvControlLibrary.Protocol.SystemStatus
+  parent: AppleTvControlLibrary.Protocol
+  href: AppleTvControlLibrary.Protocol.SystemStatus.html
+  name: SystemStatus
+  nameWithType: SystemStatus
+  fullName: AppleTvControlLibrary.Protocol.SystemStatus
