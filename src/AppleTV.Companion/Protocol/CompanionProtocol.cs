@@ -96,6 +96,12 @@ public readonly struct FrameIdentifier : IEquatable<FrameIdentifier>
 
 	/// <summary>Determines whether two <see cref="FrameIdentifier"/> instances are not equal.</summary>
 	public static bool operator != (FrameIdentifier left, FrameIdentifier right) => !left.Equals (right);
+
+	/// <inheritdoc/>
+	public override string ToString ()
+		{
+		return _xid is not null ? $"XID={_xid}" : $"FrameType={_frameType}";
+		}
 	}
 
 /// <summary>
@@ -226,12 +232,14 @@ public sealed class CompanionProtocol
 			signal.Set ();
 			};
 
+		System.Diagnostics.Debug.WriteLine ($"[CompanionProtocol] Sending {frameType}, awaiting response for {identifier}");
 		SendOpack (frameType, data);
 
 		if (result is null && !signal.Wait (ResponseTimeout))
 			{
 			_pending.TryRemove (identifier, out _);
-			throw new ProtocolException ($"No response received for {identifier}");
+			System.Diagnostics.Debug.WriteLine ($"[CompanionProtocol] Timed out after {ResponseTimeout} waiting for {identifier} (sent as {frameType})");
+			throw new ProtocolException ($"No response received for {identifier} (sent as {frameType})");
 			}
 
 		// pyatv/protocols/companion/protocol.py:173-174
@@ -276,17 +284,21 @@ public sealed class CompanionProtocol
 
 	private void OnFrameReceived (FrameType frameType, byte[] data)
 		{
+		System.Diagnostics.Debug.WriteLine ($"[CompanionProtocol] Received frame {frameType} ({data.Length} bytes)");
+
 		bool isAuth = Array.IndexOf (AuthFrames, frameType) >= 0;
 		bool isOpack = Array.IndexOf (OpackFrames, frameType) >= 0;
 
 		if (!isAuth && !isOpack)
 			{
+			System.Diagnostics.Debug.WriteLine ($"[CompanionProtocol] Ignoring frame {frameType}: not an auth or OPACK frame");
 			return;
 			}
 
 		object? unpacked = AppleTvControlLibrary.Opack.Opack.Unpack (data, out _);
 		if (unpacked is not Dictionary<object, object?> opackData)
 			{
+			System.Diagnostics.Debug.WriteLine ($"[CompanionProtocol] Ignoring frame {frameType}: payload did not decode to an OPACK dictionary");
 			return;
 			}
 
@@ -307,6 +319,10 @@ public sealed class CompanionProtocol
 		if (_pending.TryRemove (identifier, out var continuation))
 			{
 			continuation (opackData);
+			}
+		else
+			{
+			System.Diagnostics.Debug.WriteLine ($"[CompanionProtocol] Received auth frame {frameType} but nothing was waiting for it (identifier {identifier})");
 			}
 		}
 
@@ -334,6 +350,14 @@ public sealed class CompanionProtocol
 					{
 					continuation (opackData);
 					}
+				else
+					{
+					System.Diagnostics.Debug.WriteLine ($"[CompanionProtocol] Received response for XID={xid.Value} but nothing was waiting for it");
+					}
+				}
+			else
+				{
+				System.Diagnostics.Debug.WriteLine ("[CompanionProtocol] Received a Response-type OPACK frame with no _x (XID) field");
 				}
 			}
 		}

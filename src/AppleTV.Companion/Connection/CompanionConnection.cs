@@ -138,6 +138,7 @@ public class CompanionConnection
 	public void ReceiveData (byte[] data)
 		{
 		_buffer.AddRange (data);
+		System.Diagnostics.Debug.WriteLine ($"[CompanionConnection] ReceiveData: +{data.Length} bytes, buffer now {_buffer.Count} bytes");
 
 		// pyatv/protocols/companion/connection.py:131
 		while (_buffer.Count >= HEADER_LENGTH)
@@ -148,9 +149,12 @@ public class CompanionConnection
 				+ (_buffer[2] << 8)
 				+ _buffer[3];
 
+			System.Diagnostics.Debug.WriteLine ($"[CompanionConnection] Frame header: type={_buffer[0]}, payloadLength(incl. header)={payloadLength}, buffered={_buffer.Count}");
+
 			// pyatv/protocols/companion/connection.py:135-141
 			if (_buffer.Count < payloadLength)
 				{
+				System.Diagnostics.Debug.WriteLine ($"[CompanionConnection] Waiting for {payloadLength - _buffer.Count} more bytes to complete frame");
 				break;
 				}
 
@@ -163,6 +167,7 @@ public class CompanionConnection
 
 			// pyatv/protocols/companion/connection.py:145
 			_buffer.RemoveRange (0, payloadLength);
+			System.Diagnostics.Debug.WriteLine ($"[CompanionConnection] Consumed {payloadLength} bytes, {_buffer.Count} bytes remain buffered (encrypted={_chacha is not null})");
 
 			// pyatv/protocols/companion/connection.py:147-153
 			try
@@ -174,10 +179,11 @@ public class CompanionConnection
 
 				FrameReceived?.Invoke (this, (FrameType)header[0], payload);
 				}
-			catch
+			catch (Exception ex)
 				{
 				// pyatv/protocols/companion/connection.py:152-153 (logged and swallowed;
 				// a malformed/undecryptable frame must not tear down the reassembly loop)
+				System.Diagnostics.Debug.WriteLine ($"[CompanionConnection] Failed to process frame (type={header[0]}, payloadSize={payloadSize}): {ex}");
 				}
 			}
 		}

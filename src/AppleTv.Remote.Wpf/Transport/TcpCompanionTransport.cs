@@ -65,6 +65,7 @@ public sealed class TcpCompanionTransport : IDisposable
 			throw new ObjectDisposedException (nameof (TcpCompanionTransport));
 			}
 
+		System.Diagnostics.Debug.WriteLine ($"[TcpCompanionTransport] Sending {frame.Length} bytes");
 		NetworkStream stream = this._client.GetStream ();
 		lock (stream)
 			{
@@ -74,6 +75,7 @@ public sealed class TcpCompanionTransport : IDisposable
 
 	private void ReadLoop ()
 		{
+		System.Diagnostics.Debug.WriteLine ($"[TcpCompanionTransport] Read loop starting on thread {Environment.CurrentManagedThreadId} ({Thread.CurrentThread.Name})");
 		NetworkStream stream = this._client.GetStream ();
 		byte[] buffer = new byte[4096];
 
@@ -84,18 +86,42 @@ public sealed class TcpCompanionTransport : IDisposable
 				int read = stream.Read (buffer, 0, buffer.Length);
 				if (read == 0)
 					{
-					// Remote closed the connection.
+					System.Diagnostics.Debug.WriteLine ("[TcpCompanionTransport] Remote closed the connection (0-byte read)");
 					return;
 					}
 
+				System.Diagnostics.Debug.WriteLine ($"[TcpCompanionTransport] Received {read} bytes");
 				byte[] received = new byte[read];
 				Array.Copy (buffer, received, read);
-				this._connection.ReceiveData (received);
+
+				try
+					{
+					this._connection.ReceiveData (received);
+					}
+				catch (Exception ex)
+					{
+					// Frame reassembly/decrypt/dispatch failures must not silently kill the read
+					// loop (which would otherwise present as every subsequent exchange timing
+					// out with no explanation). Log and keep reading.
+					System.Diagnostics.Debug.WriteLine ($"[TcpCompanionTransport] ReceiveData processing failed for a {read}-byte chunk: {ex}");
+					}
 				}
 			}
-		catch (Exception) when (this._disposed || !this._client.Connected)
+		catch (Exception ex) when (this._disposed || !this._client.Connected)
 			{
 			// Expected once Dispose() closes the socket while a read is in progress.
+			System.Diagnostics.Debug.WriteLine ($"[TcpCompanionTransport] Read loop stopped (disposed={this._disposed}, connected={this._client.Connected}): {ex.GetType ().Name}: {ex.Message}");
+			}
+		catch (Exception ex)
+			{
+			// Unexpected: the socket failed while still supposedly connected and not disposed.
+			// Previously this exception was invisible; surface it so a broken read doesn't
+			// masquerade as a downstream protocol timeout.
+			System.Diagnostics.Debug.WriteLine ($"[TcpCompanionTransport] Read loop failed unexpectedly: {ex}");
+			}
+		finally
+			{
+			System.Diagnostics.Debug.WriteLine ($"[TcpCompanionTransport] Read loop exiting on thread {Environment.CurrentManagedThreadId} (disposed={this._disposed})");
 			}
 		}
 

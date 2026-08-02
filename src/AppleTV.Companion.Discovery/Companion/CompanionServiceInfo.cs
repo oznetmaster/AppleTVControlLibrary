@@ -23,6 +23,13 @@ public static class CompanionServiceInfo
 	/// Returns the stable unique identifier for a Companion service, from the "rpmrtid"
 	/// TXT record, or <see langword="null"/> if not present.
 	/// </summary>
+	/// <remarks>
+	/// This identifies the Apple TV, not the client - it is unrelated to the client identity
+	/// ("_i") that Companion pairing/session code generates and persists locally.
+	/// Also note pyatv's own comment (helpers.py:74) only claims this is static on tvOS 16
+	/// "(maybe earlier)"; there is no source statement covering tvOS 18+, so this is an
+	/// observation carried from pyatv, not a documented guarantee.
+	/// </remarks>
 	/// <param name="properties">The service's decoded TXT record properties.</param>
 	/// <returns>The unique identifier, or <see langword="null"/>.</returns>
 	// pyatv/helpers.py:73-76 (get_unique_id, COMPANION_SERVICE branch)

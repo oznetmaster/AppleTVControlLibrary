@@ -270,11 +270,22 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	// (_systemInfo -> _touchStart -> _sessionStart -> TVRCSessionStart -> _tiStart)
 	public void Connect ()
 		{
+		System.Diagnostics.Debug.WriteLine ("[CompanionApi] Connect: sending _systemInfo");
 		SystemInfo ();
+		System.Diagnostics.Debug.WriteLine ("[CompanionApi] Connect: sending _touchStart");
 		TouchStart ();
+		System.Diagnostics.Debug.WriteLine ("[CompanionApi] Connect: sending _sessionStart");
 		SessionStart ();
+		System.Diagnostics.Debug.WriteLine ("[CompanionApi] Connect: sending TVRCSessionStart");
 		TvRcSessionStart ();
+		System.Diagnostics.Debug.WriteLine ("[CompanionApi] Connect: sending _tiStart");
 		TextInputStart ();
+		// pyatv/protocols/companion/__init__.py:433-436 (self.api.listen_to("_iMC", ...)):
+		// without this the device never reports its media-control capability flags, so
+		// IsVolumeControlSupported stays false and volume/mute always fail.
+		System.Diagnostics.Debug.WriteLine ("[CompanionApi] Connect: subscribing to _iMC");
+		SubscribeEvent ("_iMC");
+		System.Diagnostics.Debug.WriteLine ("[CompanionApi] Connect: bring-up complete");
 		}
 
 	// pyatv/protocols/companion/api.py:161-185 (_send_command)
@@ -291,9 +302,9 @@ public sealed class CompanionApi : ICompanionProtocolListener
 					{ "_c", content },
 					});
 			}
-		catch (ProtocolException)
+		catch (ProtocolException ex)
 			{
-			throw;
+			throw new ProtocolException ($"Command {identifier} failed: {ex.Message}", ex);
 			}
 		catch (Exception ex)
 			{
@@ -419,9 +430,10 @@ public sealed class CompanionApi : ICompanionProtocolListener
 			{
 			SendCommand ("TVRCSessionStart", new Dictionary<string, object?> { { "ProtocolVersionKey", "1.2" } });
 			}
-		catch (Exception)
+		catch (Exception ex)
 			{
 			// pyatv/protocols/companion/api.py:238-239: logged and ignored.
+			System.Diagnostics.Debug.WriteLine ($"[CompanionApi] TVRCSessionStart failed (ignored): {ex}");
 			}
 		}
 
@@ -552,6 +564,13 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	// pyatv/protocols/companion/__init__.py:439-449 (_handle_control_flag_update)
 	public bool IsVolumeControlSupported => (_mediaControlFlags & MediaControlCapabilities.Volume) != 0;
 
+	/// <summary>
+	/// Raised whenever an updated <c>_iMC</c> event is received and the device's advertised
+	/// media-control capability flags (including <see cref="IsVolumeControlSupported"/>) may
+	/// have changed.
+	/// </summary>
+	public event EventHandler? MediaControlCapabilitiesChanged;
+
 	/// <summary>Gets the current volume level, in percent ([0.0-100.0]).</summary>
 	// pyatv/protocols/companion/__init__.py:441-443 (GetVolume, resp["_c"]["_vol"] * 100.0)
 	public double GetVolume ()
@@ -602,7 +621,12 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		{
 		if (string.Equals (eventName, "_iMC", StringComparison.Ordinal) && data.TryGetValue ("_mcF", out object? mcf))
 			{
-			_mediaControlFlags = (MediaControlCapabilities)ToLong (mcf);
+			MediaControlCapabilities updated = (MediaControlCapabilities)ToLong (mcf);
+			if (updated != _mediaControlFlags)
+				{
+				_mediaControlFlags = updated;
+				MediaControlCapabilitiesChanged?.Invoke (this, EventArgs.Empty);
+				}
 			}
 		}
 

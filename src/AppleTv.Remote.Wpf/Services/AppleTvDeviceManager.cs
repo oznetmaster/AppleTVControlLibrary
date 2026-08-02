@@ -44,6 +44,12 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <summary>Gets a value indicating whether a device is currently connected.</summary>
 	public bool IsConnected => this._api is not null;
 
+	/// <summary>
+	/// Raised whenever the connected device's advertised media-control capabilities (including
+	/// <see cref="IsVolumeControlSupported"/>) may have changed.
+	/// </summary>
+	public event EventHandler? MediaControlCapabilitiesChanged;
+
 	/// <summary>Scans the network for Companion Link devices.</summary>
 	/// <param name="timeout">How long to scan for.</param>
 	/// <param name="cancellationToken">A token to cancel the scan.</param>
@@ -57,14 +63,15 @@ public sealed class AppleTvDeviceManager : IDisposable
 	public StoredDevice? LoadStoredDevice (string uniqueId) => this._credentialStore.Load (uniqueId);
 
 	/// <summary>
-	/// Pairs with a device using pair-setup (SRP M1-M6, per the porting brief's WP4 message
-	/// shapes), then persists the resulting credentials and stable identifier.
+	/// Begins pair-setup by connecting to the device and sending M1 (<c>PS_Start</c>). This is
+	/// what causes the Apple TV to display the on-screen PIN, so the PIN can only be known -
+	/// and therefore only be requested from the user - after this method returns. Follow up with
+	/// <see cref="CompletePairAsync"/> once the user has supplied the PIN shown on the TV.
 	/// </summary>
 	/// <param name="device">The device to pair with.</param>
-	/// <param name="pin">The PIN code displayed on the TV.</param>
-	/// <returns>The stored device record, ready to be used for <see cref="ConnectAsync"/>.</returns>
-	// pyatv/protocols/companion/auth.py:37-100 (CompanionPairSetupProcedure)
-	public async Task<StoredDevice> PairAsync (CompanionDiscoveryResult device, int pin)
+	/// <returns>An in-progress pairing session to pass to <see cref="CompletePairAsync"/>.</returns>
+	// pyatv/protocols/companion/auth.py:37-60 (CompanionPairSetupProcedure, M1/M2)
+	public async Task<PairingSession> BeginPairAsync (CompanionDiscoveryResult device)
 		{
 		if (device.Address is null)
 			{
@@ -75,13 +82,13 @@ public sealed class AppleTvDeviceManager : IDisposable
 			{
 			CompanionConnection connection = new CompanionConnection ();
 			CompanionProtocol protocol = new CompanionProtocol (connection, new SrpAuthHandler ());
-			using TcpCompanionTransport transport = TcpCompanionTransport.Connect (
+			TcpCompanionTransport transport = TcpCompanionTransport.Connect (
 				device.Address.ToString (), device.Port, connection, protocol);
 
 			SrpAuthHandler srp = new SrpAuthHandler ();
 			srp.Initialize ();
 
-			// M1
+			// M1 - sending this is what makes the Apple TV display the on-screen PIN.
 			byte[] m1 = Tlv8.Tlv8.WriteTlv (new Dictionary<int, byte[]>
 				{
 				{ (int)TlvValue.Method, new byte[] { 0 } },
@@ -92,6 +99,30 @@ public sealed class AppleTvDeviceManager : IDisposable
 			Dictionary<int, byte[]> m2Tlv = Tlv8.Tlv8.ReadTlv (m2);
 			byte[] atvSalt = m2Tlv[(int)TlvValue.Salt];
 			byte[] atvPubKey = m2Tlv[(int)TlvValue.PublicKey];
+
+			return new PairingSession (device, transport, protocol, srp, atvSalt, atvPubKey);
+			}).ConfigureAwait (false);
+		}
+
+	/// <summary>
+	/// Completes pair-setup (SRP M3-M6, per the porting brief's WP4 message shapes) using the
+	/// PIN shown on the TV after <see cref="BeginPairAsync"/>, then persists the resulting
+	/// credentials and stable identifier.
+	/// </summary>
+	/// <param name="session">The in-progress session returned by <see cref="BeginPairAsync"/>.</param>
+	/// <param name="pin">The PIN code displayed on the TV.</param>
+	/// <returns>The stored device record, ready to be used for <see cref="ConnectAsync"/>.</returns>
+	// pyatv/protocols/companion/auth.py:60-100 (CompanionPairSetupProcedure, M3-M6)
+	public async Task<StoredDevice> CompletePairAsync (PairingSession session, int pin)
+		{
+		return await Task.Run (() =>
+			{
+			using TcpCompanionTransport transport = session.Transport;
+			CompanionProtocol protocol = session.Protocol;
+			SrpAuthHandler srp = session.Srp;
+			CompanionDiscoveryResult device = session.Device;
+			byte[] atvSalt = session.AtvSalt;
+			byte[] atvPubKey = session.AtvPubKey;
 
 			// M3
 			srp.Step1 (pin);
@@ -143,15 +174,17 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// Connects to a previously paired device: performs pair-verify, enables encryption, and
 	/// runs the <see cref="CompanionApi.Connect"/> session bring-up sequence.
 	/// </summary>
-	/// <param name="stored">The stored device record from a previous <see cref="PairAsync"/> call.</param>
+	/// <param name="stored">The stored device record from a previous <see cref="CompletePairAsync"/> call.</param>
 	// pyatv/protocols/companion/auth.py:120-158 (CompanionPairVerifyProcedure)
 	public async Task ConnectAsync (StoredDevice stored)
 		{
 		await Task.Run (() =>
 			{
+			System.Diagnostics.Debug.WriteLine ($"[AppleTvDeviceManager] Connecting to {stored.Name} at {stored.Address}:{stored.Port}");
 			CompanionConnection connection = new CompanionConnection ();
 			CompanionProtocol protocol = new CompanionProtocol (connection, new SrpAuthHandler ());
 			this._transport = TcpCompanionTransport.Connect (stored.Address, stored.Port, connection, protocol);
+			System.Diagnostics.Debug.WriteLine ("[AppleTvDeviceManager] TCP connected, starting pair-verify");
 
 			HapCredentials credentials = stored.ToCredentials ();
 
@@ -163,7 +196,9 @@ public sealed class AppleTvDeviceManager : IDisposable
 				{ (int)TlvValue.SeqNo, new byte[] { 1 } },
 				{ (int)TlvValue.PublicKey, verifyPubKey },
 				});
+			System.Diagnostics.Debug.WriteLine ("[AppleTvDeviceManager] Sending pair-verify M1 (PV_Start)");
 			Dictionary<object, object?> pv2Response = protocol.ExchangeAuth (FrameType.PV_Start, new Dictionary<string, object?> { ["_pd"] = pv1, ["_auTy"] = 4 });
+			System.Diagnostics.Debug.WriteLine ("[AppleTvDeviceManager] Received pair-verify M2");
 			byte[] pv2 = (byte[])pv2Response["_pd"]!;
 			Dictionary<int, byte[]> pv2Tlv = Tlv8.Tlv8.ReadTlv (pv2);
 			byte[] serverVerifyPubKey = pv2Tlv[(int)TlvValue.PublicKey];
@@ -176,7 +211,9 @@ public sealed class AppleTvDeviceManager : IDisposable
 				{ (int)TlvValue.EncryptedData, pv3EncryptedData },
 				});
 			// pyatv/protocols/companion/auth.py:145-158: M3 carries no "_auTy", unlike M1.
+			System.Diagnostics.Debug.WriteLine ("[AppleTvDeviceManager] Sending pair-verify M3 (PV_Next)");
 			Dictionary<object, object?> pv4Response = protocol.ExchangeAuth (FrameType.PV_Next, new Dictionary<string, object?> { ["_pd"] = pv3 });
+			System.Diagnostics.Debug.WriteLine ("[AppleTvDeviceManager] Received pair-verify M4");
 			byte[] pv4 = (byte[])pv4Response["_pd"]!;
 			Dictionary<int, byte[]> pv4Tlv = Tlv8.Tlv8.ReadTlv (pv4);
 			if (pv4Tlv.ContainsKey ((int)TlvValue.Error))
@@ -187,6 +224,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 			(byte[] outputKey, byte[] inputKey) = srp.Verify2 (
 				CompanionProtocol.SRP_SALT, CompanionProtocol.SRP_OUTPUT_INFO, CompanionProtocol.SRP_INPUT_INFO);
 			connection.EnableEncryption (outputKey, inputKey);
+			System.Diagnostics.Debug.WriteLine ("[AppleTvDeviceManager] Pair-verify complete, encryption enabled; starting session bring-up");
 
 			CompanionApi api = new CompanionApi (
 				protocol,
@@ -196,9 +234,16 @@ public sealed class AppleTvDeviceManager : IDisposable
 				model: "AppleTV",
 				name: stored.Name);
 			api.Connect ();
+			System.Diagnostics.Debug.WriteLine ("[AppleTvDeviceManager] Connect complete");
 
+			api.MediaControlCapabilitiesChanged += this.OnMediaControlCapabilitiesChanged;
 			this._api = api;
 			}).ConfigureAwait (false);
+		}
+
+	private void OnMediaControlCapabilitiesChanged (object? sender, EventArgs e)
+		{
+		this.MediaControlCapabilitiesChanged?.Invoke (this, EventArgs.Empty);
 		}
 
 	/// <summary>Sends a HID button command to the connected device.</summary>
@@ -237,6 +282,11 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <summary>Disconnects the current device, if any.</summary>
 	public void Disconnect ()
 		{
+		if (this._api is not null)
+			{
+			this._api.MediaControlCapabilitiesChanged -= this.OnMediaControlCapabilitiesChanged;
+			}
+
 		this._api = null;
 		this._transport?.Dispose ();
 		this._transport = null;
@@ -256,4 +306,34 @@ public sealed class AppleTvDeviceManager : IDisposable
 		{
 		this.Disconnect ();
 		}
+	}
+
+/// <summary>
+/// Represents an in-progress pair-setup exchange, captured after M1/M2 (which is what causes
+/// the Apple TV to display its on-screen PIN) and before M3-M6. Pass this to
+/// <see cref="AppleTvDeviceManager.CompletePairAsync"/> once the user has supplied the PIN.
+/// </summary>
+public sealed class PairingSession
+	{
+	internal PairingSession (CompanionDiscoveryResult device, TcpCompanionTransport transport, CompanionProtocol protocol, SrpAuthHandler srp, byte[] atvSalt, byte[] atvPubKey)
+		{
+		this.Device = device;
+		this.Transport = transport;
+		this.Protocol = protocol;
+		this.Srp = srp;
+		this.AtvSalt = atvSalt;
+		this.AtvPubKey = atvPubKey;
+		}
+
+	internal CompanionDiscoveryResult Device { get; }
+
+	internal TcpCompanionTransport Transport { get; }
+
+	internal CompanionProtocol Protocol { get; }
+
+	internal SrpAuthHandler Srp { get; }
+
+	internal byte[] AtvSalt { get; }
+
+	internal byte[] AtvPubKey { get; }
 	}

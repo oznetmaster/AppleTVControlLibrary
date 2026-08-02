@@ -80,6 +80,7 @@ public class Chacha20Cipher
 		if (nonce is null)
 			{
 			nonce = OutNonce;
+			System.Diagnostics.Debug.WriteLine ($"[Chacha20Cipher] Encrypt: outCounter={_outCounter}, nonce={ToHex (nonce)}, aad={(aad is null ? "null" : ToHex (aad))}, plaintextLen={data.Length}");
 			_outCounter += 1;
 			}
 		else if (nonce.Length < NONCE_LENGTH)
@@ -144,12 +145,26 @@ public class Chacha20Cipher
 		return padded;
 		}
 
+	private static string ToHex (byte[] bytes)
+		{
+		var sb = new System.Text.StringBuilder (bytes.Length * 2);
+		foreach (byte b in bytes)
+			{
+			sb.Append (b.ToString ("X2", System.Globalization.CultureInfo.InvariantCulture));
+			}
+
+		return sb.ToString ();
+		}
+
 	private static byte[] CounterToBytes (long counter, int length)
 		{
 		var result = new byte[length];
 		for (int i = 0; i < length; i++)
 			{
-			result[i] = (byte)(counter >> (8 * i));
+			// Shifting a long by >= 64 bits is a no-op in C# (the shift amount is masked
+			// modulo 64), which previously caused byte 8 onward to re-emit the counter's
+			// low byte instead of 0 once nonceLength (12) exceeded 8. Guard explicitly.
+			result[i] = i < 8 ? (byte)(counter >> (8 * i)) : (byte)0;
 			}
 
 		return result;

@@ -22,8 +22,24 @@
 
 		<ListBox Grid.Row="1" Height="90" Margin="0,0,0,8"
 				 ItemsSource="{Binding Devices}"
-				 SelectedItem="{Binding SelectedDevice}"
-				 DisplayMemberPath="Name" />
+				 SelectedItem="{Binding SelectedDevice}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding DisplayName}">
+						<TextBlock.Style>
+							<Style TargetType="TextBlock">
+								<Setter Property="Foreground" Value="Red" />
+								<Style.Triggers>
+									<DataTrigger Binding="{Binding IsPaired}" Value="True">
+										<Setter Property="Foreground" Value="Green" />
+									</DataTrigger>
+								</Style.Triggers>
+							</Style>
+						</TextBlock.Style>
+					</TextBlock>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
 
 		<TextBlock Grid.Row="2" Text="{Binding StatusMessage}" Margin="0,0,0,8" TextWrapping="Wrap" />
 

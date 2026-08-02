@@ -14,7 +14,7 @@ namespace AppleTvControlLibrary.Remote.Wpf.ViewModels;
 public sealed class MainViewModel : ViewModelBase, IDisposable
 	{
 	private readonly AppleTvDeviceManager _deviceManager;
-	private CompanionDiscoveryResult? _selectedDevice;
+	private DeviceListItem? _selectedDevice;
 	private string _statusMessage = "Not connected.";
 	private bool _isBusy;
 	private bool _isMuted;
@@ -26,7 +26,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 
 		this.ScanCommand = new RelayCommand (async () => await this.ScanAsync ().ConfigureAwait (true), () => !this.IsBusy);
 		this.PairCommand = new RelayCommand (async () => await this.PairAsync ().ConfigureAwait (true), () => !this.IsBusy && this.SelectedDevice is not null);
-		this.ConnectCommand = new RelayCommand (async () => await this.ConnectAsync ().ConfigureAwait (true), () => !this.IsBusy && this.SelectedDevice is not null);
+		this.ConnectCommand = new RelayCommand (async () => await this.ConnectAsync ().ConfigureAwait (true), () => !this.IsBusy && this.SelectedDevice is { IsPaired: true });
 		this.DisconnectCommand = new RelayCommand (this.Disconnect, () => this.IsConnected);
 
 		this.UpButton = this.CreateHidCommand (HidCommand.Up);
@@ -37,21 +37,26 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		this.MenuButton = this.CreateHidCommand (HidCommand.Menu);
 		this.HomeButton = this.CreateHidCommand (HidCommand.Home);
 		this.PlayPauseButton = this.CreateHidCommand (HidCommand.PlayPause);
-		this.VolumeUpButton = this.CreateHidCommand (HidCommand.VolumeUp);
-		this.VolumeDownButton = this.CreateHidCommand (HidCommand.VolumeDown);
+		this.VolumeUpButton = this.CreateHidCommand (HidCommand.VolumeUp, () => this.IsConnected && this.IsVolumeControlSupported);
+		this.VolumeDownButton = this.CreateHidCommand (HidCommand.VolumeDown, () => this.IsConnected && this.IsVolumeControlSupported);
 		this.SiriButton = this.CreateHidCommand (HidCommand.Siri);
 
-		this.MuteButton = new RelayCommand (this.ToggleMute, () => this.IsConnected);
+		this.MuteButton = new RelayCommand (this.ToggleMute, () => this.IsConnected && this.IsVolumeControlSupported);
+
+		this._deviceManager.MediaControlCapabilitiesChanged += (_, _) =>
+			{
+			Application.Current?.Dispatcher.Invoke (this.RaiseRemoteButtonStates);
+			};
 		}
 
 	/// <summary>Gets the discovered devices from the most recent scan.</summary>
-	public ObservableCollection<CompanionDiscoveryResult> Devices
+	public ObservableCollection<DeviceListItem> Devices
 		{
 		get;
 		} = new ();
 
 	/// <summary>Gets or sets the currently selected device.</summary>
-	public CompanionDiscoveryResult? SelectedDevice
+	public DeviceListItem? SelectedDevice
 		{
 		get => this._selectedDevice;
 		set
@@ -67,7 +72,13 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	public string StatusMessage
 		{
 		get => this._statusMessage;
-		set => this.SetProperty (ref this._statusMessage, value);
+		set
+			{
+			if (this.SetProperty (ref this._statusMessage, value))
+				{
+				System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] {value}");
+				}
+			}
 		}
 
 	/// <summary>Gets or sets a value indicating whether a scan/pair/connect operation is in progress.</summary>
@@ -85,6 +96,13 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 
 	/// <summary>Gets a value indicating whether a device is currently connected.</summary>
 	public bool IsConnected => this._deviceManager.IsConnected;
+
+	/// <summary>
+	/// Gets a value indicating whether the connected device currently advertises volume control
+	/// support. When <see langword="false"/>, audio is managed outside Companion (e.g. HDMI-CEC)
+	/// and the volume/mute commands are disabled rather than sent.
+	/// </summary>
+	public bool IsVolumeControlSupported => this._deviceManager.IsVolumeControlSupported;
 
 	/// <summary>Gets the command that scans the network for devices.</summary>
 	public RelayCommand ScanCommand
@@ -210,13 +228,16 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			this.Devices.Clear ();
 			foreach (CompanionDiscoveryResult device in results)
 				{
-				this.Devices.Add (device);
+				bool isPaired = device.UniqueId is not null
+					&& this._deviceManager.LoadStoredDevice (device.UniqueId) is not null;
+				this.Devices.Add (new DeviceListItem (device, isPaired));
 				}
 
 			this.StatusMessage = $"Found {this.Devices.Count} device(s).";
 			}
 		catch (Exception ex)
 			{
+			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Scan failed: {ex}");
 			this.StatusMessage = $"Scan failed: {ex.Message}";
 			}
 		finally
@@ -229,41 +250,54 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		{
 		if (this.SelectedDevice is null)
 			{
-			return;
-			}
-
-		int? pin = this.RequestPin?.Invoke (this.SelectedDevice);
-		if (pin is null)
-			{
+			this.StatusMessage = "Select a device from the list before pairing.";
 			return;
 			}
 
 		this.IsBusy = true;
-		this.StatusMessage = "Pairing...";
+		this.StatusMessage = "Starting pairing - waiting for the TV to display a PIN...";
+		PairingSession? session = null;
 		try
 			{
-			StoredDevice stored = await this._deviceManager.PairAsync (this.SelectedDevice, pin.Value).ConfigureAwait (true);
+			// M1 must be sent before the Apple TV will display a PIN, so the pairing session is
+			// started before the user is ever prompted for one.
+			session = await this._deviceManager.BeginPairAsync (this.SelectedDevice.Device).ConfigureAwait (true);
+
+			int? pin = this.RequestPin?.Invoke (this.SelectedDevice.Device);
+			if (pin is null)
+				{
+				this.StatusMessage = "Pairing cancelled.";
+				return;
+				}
+
+			this.StatusMessage = "Pairing...";
+			StoredDevice stored = await this._deviceManager.CompletePairAsync (session, pin.Value).ConfigureAwait (true);
+			session = null;
+			this.SelectedDevice.IsPaired = true;
+			this.RaiseCommandStates ();
 			this.StatusMessage = $"Paired with {stored.Name}.";
 			}
 		catch (Exception ex)
 			{
+			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Pairing failed: {ex}");
 			this.StatusMessage = $"Pairing failed: {ex.Message}";
 			}
 		finally
 			{
+			session?.Transport.Dispose ();
 			this.IsBusy = false;
 			}
 		}
 
 	private async Task ConnectAsync ()
 		{
-		if (this.SelectedDevice?.UniqueId is null)
+		if (this.SelectedDevice?.Device.UniqueId is null)
 			{
 			this.StatusMessage = "Selected device has no unique id.";
 			return;
 			}
 
-		StoredDevice? stored = this._deviceManager.LoadStoredDevice (this.SelectedDevice.UniqueId);
+		StoredDevice? stored = this._deviceManager.LoadStoredDevice (this.SelectedDevice.Device.UniqueId);
 		if (stored is null)
 			{
 			this.StatusMessage = "Device is not paired yet.";
@@ -278,10 +312,11 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			this.StatusMessage = $"Connected to {stored.Name}.";
 			this.OnPropertyChanged (nameof (this.IsConnected));
 			this.DisconnectCommand.RaiseCanExecuteChanged ();
-			this.MuteButton.RaiseCanExecuteChanged ();
+			this.RaiseRemoteButtonStates ();
 			}
 		catch (Exception ex)
 			{
+			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Connect failed: {ex}");
 			this.StatusMessage = $"Connect failed: {ex.Message}";
 			}
 		finally
@@ -297,7 +332,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		this.IsMuted = false;
 		this.OnPropertyChanged (nameof (this.IsConnected));
 		this.DisconnectCommand.RaiseCanExecuteChanged ();
-		this.MuteButton.RaiseCanExecuteChanged ();
+		this.RaiseRemoteButtonStates ();
 		}
 
 	private void ToggleMute ()
@@ -309,11 +344,12 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			}
 		catch (Exception ex)
 			{
+			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Mute failed: {ex}");
 			this.StatusMessage = $"Mute failed: {ex.Message}";
 			}
 		}
 
-	private RelayCommand CreateHidCommand (HidCommand command)
+	private RelayCommand CreateHidCommand (HidCommand command, Func<bool>? canExecute = null)
 		{
 		return new RelayCommand (
 			() =>
@@ -324,10 +360,11 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 					}
 				catch (Exception ex)
 					{
+					System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Command failed: {ex}");
 					this.StatusMessage = $"Command failed: {ex.Message}";
 					}
 				},
-			() => this.IsConnected);
+			canExecute ?? (() => this.IsConnected));
 		}
 
 	private void RaiseCommandStates ()
@@ -335,6 +372,23 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		this.ScanCommand.RaiseCanExecuteChanged ();
 		this.PairCommand.RaiseCanExecuteChanged ();
 		this.ConnectCommand.RaiseCanExecuteChanged ();
+		}
+
+	private void RaiseRemoteButtonStates ()
+		{
+		this.OnPropertyChanged (nameof (this.IsVolumeControlSupported));
+		this.UpButton.RaiseCanExecuteChanged ();
+		this.DownButton.RaiseCanExecuteChanged ();
+		this.LeftButton.RaiseCanExecuteChanged ();
+		this.RightButton.RaiseCanExecuteChanged ();
+		this.SelectButton.RaiseCanExecuteChanged ();
+		this.MenuButton.RaiseCanExecuteChanged ();
+		this.HomeButton.RaiseCanExecuteChanged ();
+		this.PlayPauseButton.RaiseCanExecuteChanged ();
+		this.VolumeUpButton.RaiseCanExecuteChanged ();
+		this.VolumeDownButton.RaiseCanExecuteChanged ();
+		this.SiriButton.RaiseCanExecuteChanged ();
+		this.MuteButton.RaiseCanExecuteChanged ();
 		}
 
 	/// <inheritdoc/>
