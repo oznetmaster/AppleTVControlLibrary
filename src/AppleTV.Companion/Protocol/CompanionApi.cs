@@ -9,46 +9,46 @@ namespace AppleTvControlLibrary.Protocol;
 /// <summary>
 /// HID command constants.
 /// </summary>
-// pyatv/protocols/companion/api.py:35-56 (HidCommand)
+// pyatv/protocols/companion/api.py (HidCommand) — line 35-56 as of pyatv 0.18.0
 public enum HidCommand
 	{
-	/// <summary>pyatv/protocols/companion/api.py:38</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 38 as of pyatv 0.18.0</summary>
 	Up = 1,
-	/// <summary>pyatv/protocols/companion/api.py:39</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 39 as of pyatv 0.18.0</summary>
 	Down = 2,
-	/// <summary>pyatv/protocols/companion/api.py:40</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 40 as of pyatv 0.18.0</summary>
 	Left = 3,
-	/// <summary>pyatv/protocols/companion/api.py:41</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 41 as of pyatv 0.18.0</summary>
 	Right = 4,
-	/// <summary>pyatv/protocols/companion/api.py:42</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 42 as of pyatv 0.18.0</summary>
 	Menu = 5,
-	/// <summary>pyatv/protocols/companion/api.py:43</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 43 as of pyatv 0.18.0</summary>
 	Select = 6,
-	/// <summary>pyatv/protocols/companion/api.py:44</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 44 as of pyatv 0.18.0</summary>
 	Home = 7,
-	/// <summary>pyatv/protocols/companion/api.py:45</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 45 as of pyatv 0.18.0</summary>
 	VolumeUp = 8,
-	/// <summary>pyatv/protocols/companion/api.py:46</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 46 as of pyatv 0.18.0</summary>
 	VolumeDown = 9,
-	/// <summary>pyatv/protocols/companion/api.py:47</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 47 as of pyatv 0.18.0</summary>
 	Siri = 10,
-	/// <summary>pyatv/protocols/companion/api.py:48</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 48 as of pyatv 0.18.0</summary>
 	Screensaver = 11,
-	/// <summary>pyatv/protocols/companion/api.py:49</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 49 as of pyatv 0.18.0</summary>
 	Sleep = 12,
-	/// <summary>pyatv/protocols/companion/api.py:50</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 50 as of pyatv 0.18.0</summary>
 	Wake = 13,
-	/// <summary>pyatv/protocols/companion/api.py:51</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 51 as of pyatv 0.18.0</summary>
 	PlayPause = 14,
-	/// <summary>pyatv/protocols/companion/api.py:52</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 52 as of pyatv 0.18.0</summary>
 	ChannelIncrement = 15,
-	/// <summary>pyatv/protocols/companion/api.py:53</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 53 as of pyatv 0.18.0</summary>
 	ChannelDecrement = 16,
-	/// <summary>pyatv/protocols/companion/api.py:54</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 54 as of pyatv 0.18.0</summary>
 	Guide = 17,
-	/// <summary>pyatv/protocols/companion/api.py:55</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 55 as of pyatv 0.18.0</summary>
 	PageUp = 18,
-	/// <summary>pyatv/protocols/companion/api.py:56</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 56 as of pyatv 0.18.0</summary>
 	PageDown = 19,
 	}
 
@@ -56,34 +56,34 @@ public enum HidCommand
 /// Media Control command constants, used for playback and volume control (as opposed to the
 /// remote-button surface exposed by <see cref="HidCommand"/>).
 /// </summary>
-// pyatv/protocols/companion/api.py:59-73 (MediaControlCommand)
+// pyatv/protocols/companion/api.py (MediaControlCommand) — line 59-73 as of pyatv 0.18.0
 public enum MediaControlCommand
 	{
-	/// <summary>pyatv/protocols/companion/api.py:62</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 62 as of pyatv 0.18.0</summary>
 	Play = 1,
-	/// <summary>pyatv/protocols/companion/api.py:63</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 63 as of pyatv 0.18.0</summary>
 	Pause = 2,
-	/// <summary>pyatv/protocols/companion/api.py:64</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 64 as of pyatv 0.18.0</summary>
 	NextTrack = 3,
-	/// <summary>pyatv/protocols/companion/api.py:65</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 65 as of pyatv 0.18.0</summary>
 	PreviousTrack = 4,
-	/// <summary>pyatv/protocols/companion/api.py:66</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 66 as of pyatv 0.18.0</summary>
 	GetVolume = 5,
-	/// <summary>pyatv/protocols/companion/api.py:67</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 67 as of pyatv 0.18.0</summary>
 	SetVolume = 6,
-	/// <summary>pyatv/protocols/companion/api.py:68</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 68 as of pyatv 0.18.0</summary>
 	SkipBy = 7,
-	/// <summary>pyatv/protocols/companion/api.py:69</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 69 as of pyatv 0.18.0</summary>
 	FastForwardBegin = 8,
-	/// <summary>pyatv/protocols/companion/api.py:70</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 70 as of pyatv 0.18.0</summary>
 	FastForwardEnd = 9,
-	/// <summary>pyatv/protocols/companion/api.py:71</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 71 as of pyatv 0.18.0</summary>
 	RewindBegin = 10,
-	/// <summary>pyatv/protocols/companion/api.py:72</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 72 as of pyatv 0.18.0</summary>
 	RewindEnd = 11,
-	/// <summary>pyatv/protocols/companion/api.py:73</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 73 as of pyatv 0.18.0</summary>
 	GetCaptionSettings = 12,
-	/// <summary>pyatv/protocols/companion/api.py:74</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 74 as of pyatv 0.18.0</summary>
 	SetCaptionSettings = 13,
 	}
 
@@ -94,78 +94,78 @@ public enum MediaControlCommand
 /// managed over HDMI-CEC instead), so callers must check this before using
 /// <see cref="MediaControlCommand.GetVolume"/>/<see cref="MediaControlCommand.SetVolume"/>.
 /// </summary>
-// pyatv/protocols/companion/__init__.py:87-99 (MediaControlFlags)
+// pyatv/protocols/companion/__init__.py (MediaControlFlags) — line 87-99 as of pyatv 0.18.0
 [Flags]
 public enum MediaControlCapabilities
 	{
-	/// <summary>pyatv/protocols/companion/__init__.py:90</summary>
+	/// <summary>pyatv/protocols/companion/__init__.py — line 90 as of pyatv 0.18.0</summary>
 	NoControls = 0x0000,
-	/// <summary>pyatv/protocols/companion/__init__.py:91</summary>
+	/// <summary>pyatv/protocols/companion/__init__.py — line 91 as of pyatv 0.18.0</summary>
 	Play = 0x0001,
-	/// <summary>pyatv/protocols/companion/__init__.py:92</summary>
+	/// <summary>pyatv/protocols/companion/__init__.py — line 92 as of pyatv 0.18.0</summary>
 	Pause = 0x0002,
-	/// <summary>pyatv/protocols/companion/__init__.py:93</summary>
+	/// <summary>pyatv/protocols/companion/__init__.py — line 93 as of pyatv 0.18.0</summary>
 	NextTrack = 0x0004,
-	/// <summary>pyatv/protocols/companion/__init__.py:94</summary>
+	/// <summary>pyatv/protocols/companion/__init__.py — line 94 as of pyatv 0.18.0</summary>
 	PreviousTrack = 0x0008,
-	/// <summary>pyatv/protocols/companion/__init__.py:95</summary>
+	/// <summary>pyatv/protocols/companion/__init__.py — line 95 as of pyatv 0.18.0</summary>
 	FastForward = 0x0010,
-	/// <summary>pyatv/protocols/companion/__init__.py:96</summary>
+	/// <summary>pyatv/protocols/companion/__init__.py — line 96 as of pyatv 0.18.0</summary>
 	Rewind = 0x0020,
-	// 0x0040 and 0x0080 are unused/unknown in pyatv (pyatv/protocols/companion/__init__.py:97-98).
-	/// <summary>pyatv/protocols/companion/__init__.py:99</summary>
+	// 0x0040 and 0x0080 are unused/unknown in pyatv (pyatv/protocols/companion/__init__.py — line 97-98 as of pyatv 0.18.0).
+	/// <summary>pyatv/protocols/companion/__init__.py — line 99 as of pyatv 0.18.0</summary>
 	Volume = 0x0100,
-	/// <summary>pyatv/protocols/companion/__init__.py:100</summary>
+	/// <summary>pyatv/protocols/companion/__init__.py — line 100 as of pyatv 0.18.0</summary>
 	SkipForward = 0x0200,
-	/// <summary>pyatv/protocols/companion/__init__.py:101</summary>
+	/// <summary>pyatv/protocols/companion/__init__.py — line 101 as of pyatv 0.18.0</summary>
 	SkipBackward = 0x0400,
 	}
 
 /// <summary>
 /// Current system state, as returned by <see cref="CompanionApi.FetchAttentionState"/>.
 /// </summary>
-// pyatv/protocols/companion/api.py:77-85 (SystemStatus)
+// pyatv/protocols/companion/api.py (SystemStatus) — line 77-85 as of pyatv 0.18.0
 public enum SystemStatus
 	{
-	/// <summary>Not a valid protocol entry, only used internally. pyatv/protocols/companion/api.py:80</summary>
+	/// <summary>Not a valid protocol entry, only used internally. pyatv/protocols/companion/api.py — line 80 as of pyatv 0.18.0</summary>
 	Unknown = 0x00,
-	/// <summary>pyatv/protocols/companion/api.py:82</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 82 as of pyatv 0.18.0</summary>
 	Asleep = 0x01,
-	/// <summary>pyatv/protocols/companion/api.py:83</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 83 as of pyatv 0.18.0</summary>
 	Screensaver = 0x02,
-	/// <summary>pyatv/protocols/companion/api.py:84</summary>
+	/// <summary>pyatv/protocols/companion/api.py — line 84 as of pyatv 0.18.0</summary>
 	Awake = 0x03,
-	/// <summary>Not verified against a real device. pyatv/protocols/companion/api.py:85</summary>
+	/// <summary>Not verified against a real device. pyatv/protocols/companion/api.py — line 85 as of pyatv 0.18.0</summary>
 	Idle = 0x04,
 	}
 
 /// <summary>
 /// Touch action constants.
 /// </summary>
-// pyatv/const.py:460-466 (TouchAction)
+// pyatv/const.py (TouchAction) — line 460-466 as of pyatv 0.18.0
 public enum TouchAction
 	{
-	/// <summary>pyatv/const.py:463</summary>
+	/// <summary>pyatv/const.py — line 463 as of pyatv 0.18.0</summary>
 	Press = 1,
-	/// <summary>pyatv/const.py:464</summary>
+	/// <summary>pyatv/const.py — line 464 as of pyatv 0.18.0</summary>
 	Hold = 3,
-	/// <summary>pyatv/const.py:465</summary>
+	/// <summary>pyatv/const.py — line 465 as of pyatv 0.18.0</summary>
 	Release = 4,
-	/// <summary>pyatv/const.py:466</summary>
+	/// <summary>pyatv/const.py — line 466 as of pyatv 0.18.0</summary>
 	Click = 5,
 	}
 
 /// <summary>
 /// Type of input when pressing a button.
 /// </summary>
-// pyatv/const.py:200-210 (InputAction)
+// pyatv/const.py (InputAction) — line 200-210 as of pyatv 0.18.0
 public enum InputAction
 	{
-	/// <summary>Press and release quickly. pyatv/const.py:203</summary>
+	/// <summary>Press and release quickly. pyatv/const.py — line 203 as of pyatv 0.18.0</summary>
 	SingleTap = 0,
-	/// <summary>Press and release twice quickly. pyatv/const.py:206</summary>
+	/// <summary>Press and release twice quickly. pyatv/const.py — line 206 as of pyatv 0.18.0</summary>
 	DoubleTap = 1,
-	/// <summary>Press and hold for one second before releasing. pyatv/const.py:209</summary>
+	/// <summary>Press and hold for one second before releasing. pyatv/const.py — line 209 as of pyatv 0.18.0</summary>
 	Hold = 2,
 	}
 
@@ -177,14 +177,14 @@ public enum InputAction
 /// App launching, text input and account switching are intentionally out of scope for this
 /// port (Companion-only, per the porting brief).
 /// </remarks>
-// pyatv/protocols/companion/api.py:94-475 (CompanionAPI, trimmed to WP6 scope)
+// pyatv/protocols/companion/api.py (CompanionAPI, trimmed to WP6 scope) — line 94-475 as of pyatv 0.18.0
 public sealed class CompanionApi : ICompanionProtocolListener
 	{
-	// pyatv/protocols/companion/api.py:88-89
+	// pyatv/protocols/companion/api.py — line 88-89 as of pyatv 0.18.0
 	private const double TOUCHPAD_WIDTH = 1000.0;
 	private const double TOUCHPAD_HEIGHT = 1000.0;
 
-	// pyatv/protocols/companion/api.py:399 (com.apple.tvremoteservices)
+	// pyatv/protocols/companion/api.py (com.apple.tvremoteservices) — line 399 as of pyatv 0.18.0
 	private const string SESSION_SERVICE_TYPE = "com.apple.tvremoteservices";
 
 	private readonly CompanionProtocol _protocol;
@@ -192,11 +192,11 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	private readonly long _baseTimestamp;
 	private readonly List<string> _subscribedEvents = new ();
 
-	// pyatv/protocols/companion/__init__.py:439, 448 (self._volume, zeroed when flag absent)
+	// pyatv/protocols/companion/__init__.py — line 439 as of pyatv 0.18.0, 448 (self._volume, zeroed when flag absent)
 	private MediaControlCapabilities _mediaControlFlags = MediaControlCapabilities.NoControls;
 	private double _volume;
 
-	// pyatv/protocols/companion/__init__.py:213 (self._power_state = PowerState.Unknown)
+	// pyatv/protocols/companion/__init__.py (self._power_state = PowerState.Unknown) — line 213 as of pyatv 0.18.0
 	private SystemStatus _currentSystemStatus = SystemStatus.Unknown;
 
 	/// <summary>Initializes a new instance of the <see cref="CompanionApi"/> class.</summary>
@@ -210,7 +210,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	/// <param name="deviceId">The device identifier reported as <c>_pubID</c>.</param>
 	/// <param name="model">The device model string reported in <c>_systemInfo</c>.</param>
 	/// <param name="name">The device name string reported in <c>_systemInfo</c>.</param>
-	// pyatv/protocols/companion/api.py:99-107 (__init__)
+	// pyatv/protocols/companion/api.py (__init__) — line 99-107 as of pyatv 0.18.0
 	public CompanionApi (
 		CompanionProtocol protocol,
 		HapCredentials credentials,
@@ -226,10 +226,10 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		Model = model;
 		Name = name;
 
-		// pyatv/protocols/companion/api.py:107 (self._base_timestamp = time.time_ns())
+		// pyatv/protocols/companion/api.py (self._base_timestamp = time.time_ns() — line 107 as of pyatv 0.18.0)
 		_baseTimestamp = DateTime.UtcNow.Ticks * 100;
 
-		// pyatv/protocols/companion/__init__.py:436 (self.api.listen_to("_iMC", ...))
+		// pyatv/protocols/companion/__init__.py (self.api.listen_to("_iMC", ...) — line 436 as of pyatv 0.18.0)
 		_protocol.Listener = this;
 		}
 
@@ -258,7 +258,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		}
 
 	/// <summary>Gets the combined session id established by <see cref="SessionStart"/>.</summary>
-	// pyatv/protocols/companion/api.py:106 (self.sid: int = 0)
+	// pyatv/protocols/companion/api.py (self.sid: int = 0) — line 106 as of pyatv 0.18.0
 	public long Sid
 		{
 		get;
@@ -269,7 +269,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	/// Runs the connection bring-up sequence: system info, touch subscription, session start,
 	/// TV Remote Client session start, and text input session start.
 	/// </summary>
-	// pyatv/protocols/companion/api.py:135-160 (connect), trimmed per porting brief step 5
+	// pyatv/protocols/companion/api.py (connect) — line 135-160 as of pyatv 0.18.0, trimmed per porting brief step 5
 	// (_systemInfo -> _touchStart -> _sessionStart -> TVRCSessionStart -> _tiStart)
 	public void Connect ()
 		{
@@ -283,13 +283,13 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		TvRcSessionStart ();
 		System.Diagnostics.Debug.WriteLine ("[CompanionApi] Connect: sending _tiStart");
 		TextInputStart ();
-		// pyatv/protocols/companion/__init__.py:433-436 (self.api.listen_to("_iMC", ...)):
+		// pyatv/protocols/companion/__init__.py (self.api.listen_to("_iMC", ...) — line 433-436 as of pyatv 0.18.0):
 		// without this the device never reports its media-control capability flags, so
 		// IsVolumeControlSupported stays false and volume/mute always fail.
 		System.Diagnostics.Debug.WriteLine ("[CompanionApi] Connect: subscribing to _iMC");
 		SubscribeEvent ("_iMC");
 
-		// pyatv/protocols/companion/__init__.py:219-246 (CompanionPower.initialize): fetch an
+		// pyatv/protocols/companion/__init__.py (CompanionPower.initialize) — line 219-246 as of pyatv 0.18.0: fetch an
 		// initial snapshot best-effort (newer tvOS can reply "No request handler" here, which
 		// must not prevent subscribing to push updates below), then subscribe to SystemStatus/
 		// TVSystemStatus so power state can still be tracked via pushed events afterwards.
@@ -309,7 +309,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		System.Diagnostics.Debug.WriteLine ("[CompanionApi] Connect: bring-up complete");
 		}
 
-	// pyatv/protocols/companion/api.py:161-185 (_send_command)
+	// pyatv/protocols/companion/api.py (_send_command) — line 161-185 as of pyatv 0.18.0
 	private Dictionary<object, object?> SendCommand (string identifier, Dictionary<string, object?> content, MessageType messageType = MessageType.Request)
 		{
 		try
@@ -333,7 +333,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 			}
 		}
 
-	// pyatv/protocols/companion/api.py:247-266 (_send_event)
+	// pyatv/protocols/companion/api.py (_send_event) — line 247-266 as of pyatv 0.18.0
 	private void SendEvent (string identifier, Dictionary<string, object?> content)
 		{
 		try
@@ -358,7 +358,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		}
 
 	/// <summary>Send system information to the device.</summary>
-	// pyatv/protocols/companion/api.py:187-211 (system_info)
+	// pyatv/protocols/companion/api.py (system_info) — line 187-211 as of pyatv 0.18.0
 	public void SystemInfo ()
 		{
 		// Bunch of semi-random values here, per pyatv's own comment (api.py:193).
@@ -380,7 +380,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		}
 
 	/// <summary>Subscribe to touch gestures.</summary>
-	// pyatv/protocols/companion/api.py:464-471 (_touch_start)
+	// pyatv/protocols/companion/api.py (_touch_start) — line 464-471 as of pyatv 0.18.0
 	public void TouchStart ()
 		{
 		SendCommand (
@@ -394,15 +394,15 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		}
 
 	/// <summary>Unsubscribe from touch gestures.</summary>
-	// pyatv/protocols/companion/api.py:473-475 (_touch_stop)
+	// pyatv/protocols/companion/api.py (_touch_stop) — line 473-475 as of pyatv 0.18.0
 	public void TouchStop ()
 		{
 		SendCommand ("_touchStop", new Dictionary<string, object?> { { "_i", 1 } });
 		}
 
 	/// <summary>Start a Companion session.</summary>
-	// pyatv/protocols/companion/api.py:213-225 (_session_start)
-	// pyatv/protocols/companion/api.py:214 (local_sid = randint(0, 2**32 - 1)): must stay
+	// pyatv/protocols/companion/api.py (_session_start) — line 213-225 as of pyatv 0.18.0
+	// pyatv/protocols/companion/api.py (local_sid = randint(0, 2**32 - 1) — line 214 as of pyatv 0.18.0): must stay
 	// within the unsigned 32-bit range, since OPACK's integer packer treats negative values
 	// (or any int < 0x28) as a single-byte tag-encoded integer, silently corrupting the frame.
 	public void SessionStart ()
@@ -422,12 +422,12 @@ public sealed class CompanionApi : ICompanionProtocolListener
 			}
 
 		long remoteSid = ToLong (content["_sid"]);
-		// pyatv/protocols/companion/api.py:224 (self.sid = (remote_sid << 32) | local_sid)
+		// pyatv/protocols/companion/api.py (self.sid = (remote_sid << 32) — line 224 as of pyatv 0.18.0 | local_sid)
 		Sid = (remoteSid << 32) | (uint)localSid;
 		}
 
 	/// <summary>Stop the current Companion session.</summary>
-	// pyatv/protocols/companion/api.py:241-245 (_session_stop)
+	// pyatv/protocols/companion/api.py (_session_stop) — line 241-245 as of pyatv 0.18.0
 	public void SessionStop ()
 		{
 		SendCommand (
@@ -444,7 +444,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	/// TV Remote Client session is registered with <c>tvremoted</c>; older devices may simply
 	/// error on this command, so failures here are intentionally swallowed.
 	/// </summary>
-	// pyatv/protocols/companion/api.py:227-239 (_tv_rc_session_start)
+	// pyatv/protocols/companion/api.py (_tv_rc_session_start) — line 227-239 as of pyatv 0.18.0
 	public void TvRcSessionStart ()
 		{
 		try
@@ -453,20 +453,20 @@ public sealed class CompanionApi : ICompanionProtocolListener
 			}
 		catch (Exception ex)
 			{
-			// pyatv/protocols/companion/api.py:238-239: logged and ignored.
+			// pyatv/protocols/companion/api.py — line 238-239 as of pyatv 0.18.0: logged and ignored.
 			System.Diagnostics.Debug.WriteLine ($"[CompanionApi] TVRCSessionStart failed (ignored): {ex}");
 			}
 		}
 
 	/// <summary>Start a text input session.</summary>
-	// pyatv/protocols/companion/api.py:401-404 (_text_input_start)
+	// pyatv/protocols/companion/api.py (_text_input_start) — line 401-404 as of pyatv 0.18.0
 	public Dictionary<object, object?> TextInputStart ()
 		{
 		return SendCommand ("_tiStart", new Dictionary<string, object?> ());
 		}
 
 	/// <summary>Stop the current text input session.</summary>
-	// pyatv/protocols/companion/api.py:406-407 (_text_input_stop)
+	// pyatv/protocols/companion/api.py (_text_input_stop) — line 406-407 as of pyatv 0.18.0
 	public void TextInputStop ()
 		{
 		SendCommand ("_tiStop", new Dictionary<string, object?> ());
@@ -474,7 +474,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 
 	/// <summary>Subscribe to updates for an event.</summary>
 	/// <param name="eventName">The event identifier to subscribe to.</param>
-	// pyatv/protocols/companion/api.py:267-271 (subscribe_event)
+	// pyatv/protocols/companion/api.py (subscribe_event) — line 267-271 as of pyatv 0.18.0
 	public void SubscribeEvent (string eventName)
 		{
 		if (!_subscribedEvents.Contains (eventName))
@@ -486,7 +486,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 
 	/// <summary>Unsubscribe from updates for an event.</summary>
 	/// <param name="eventName">The event identifier to unsubscribe from.</param>
-	// pyatv/protocols/companion/api.py:273-277 (unsubscribe_event)
+	// pyatv/protocols/companion/api.py (unsubscribe_event) — line 273-277 as of pyatv 0.18.0
 	public void UnsubscribeEvent (string eventName)
 		{
 		if (_subscribedEvents.Contains (eventName))
@@ -499,7 +499,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	/// <summary>Send a HID command.</summary>
 	/// <param name="down"><see langword="true"/> for a button-down event, <see langword="false"/> for button-up.</param>
 	/// <param name="command">The button being pressed or released.</param>
-	// pyatv/protocols/companion/api.py:305-309 (hid_command)
+	// pyatv/protocols/companion/api.py (hid_command) — line 305-309 as of pyatv 0.18.0
 	public void SendHidCommand (bool down, HidCommand command)
 		{
 		SendCommand (
@@ -515,7 +515,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	/// <param name="x">The x coordinate, in the range [0, 1000].</param>
 	/// <param name="y">The y coordinate, in the range [0, 1000].</param>
 	/// <param name="mode">The touch phase.</param>
-	// pyatv/protocols/companion/api.py:311-326 (hid_event)
+	// pyatv/protocols/companion/api.py (hid_event) — line 311-326 as of pyatv 0.18.0
 	public void SendHidEvent (int x, int y, TouchAction mode)
 		{
 		x = Math.Max (x, 0);
@@ -537,7 +537,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 
 	/// <summary>Fetch the current attention state (system status) from the device.</summary>
 	/// <returns>The current <see cref="SystemStatus"/>.</returns>
-	// pyatv/protocols/companion/api.py:454-462 (fetch_attention_state)
+	// pyatv/protocols/companion/api.py (fetch_attention_state) — line 454-462 as of pyatv 0.18.0
 	public SystemStatus FetchAttentionState ()
 		{
 		var resp = SendCommand ("FetchAttentionState", new Dictionary<string, object?> ());
@@ -555,7 +555,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	/// <param name="command">The media control command to send.</param>
 	/// <param name="args">Additional command-specific arguments, if any.</param>
 	/// <returns>The decoded response content (the message's <c>_c</c> field).</returns>
-	// pyatv/protocols/companion/api.py:395-399 (mediacontrol_command)
+	// pyatv/protocols/companion/api.py (mediacontrol_command) — line 395-399 as of pyatv 0.18.0
 	public Dictionary<object, object?> MediaControlCommand (MediaControlCommand command, Dictionary<string, object?>? args = null)
 		{
 		Dictionary<string, object?> content = new () { { "_mcc", (int)command } };
@@ -582,7 +582,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	/// When this is <see langword="false"/>, audio is managed outside Companion (e.g. HDMI-CEC)
 	/// and <see cref="GetVolume"/>/<see cref="SetVolume"/> must not be used.
 	/// </summary>
-	// pyatv/protocols/companion/__init__.py:439-449 (_handle_control_flag_update)
+	// pyatv/protocols/companion/__init__.py (_handle_control_flag_update) — line 439-449 as of pyatv 0.18.0
 	public bool IsVolumeControlSupported => (_mediaControlFlags & MediaControlCapabilities.Volume) != 0;
 
 	/// <summary>
@@ -597,18 +597,18 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	/// <see cref="FetchAttentionState"/> snapshot taken during <see cref="Connect"/> and by
 	/// subsequently pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> events.
 	/// </summary>
-	// pyatv/protocols/companion/__init__.py:213, 247-248 (self._power_state, power_state property)
+	// pyatv/protocols/companion/__init__.py — line 213 as of pyatv 0.18.0, 247-248 (self._power_state, power_state property)
 	public SystemStatus CurrentSystemStatus => _currentSystemStatus;
 
 	/// <summary>
 	/// Raised whenever a pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> event updates
 	/// <see cref="CurrentSystemStatus"/>.
 	/// </summary>
-	// pyatv/protocols/companion/__init__.py:249-256 (_handle_system_status_update)
+	// pyatv/protocols/companion/__init__.py (_handle_system_status_update) — line 249-256 as of pyatv 0.18.0
 	public event EventHandler? SystemStatusChanged;
 
 	/// <summary>Gets the current volume level, in percent ([0.0-100.0]).</summary>
-	// pyatv/protocols/companion/__init__.py:441-443 (GetVolume, resp["_c"]["_vol"] * 100.0)
+	// pyatv/protocols/companion/__init__.py (GetVolume, resp["_c"]["_vol"] * 100.0) — line 441-443 as of pyatv 0.18.0
 	public double GetVolume ()
 		{
 		Dictionary<object, object?> content = MediaControlCommand (Protocol.MediaControlCommand.GetVolume);
@@ -618,7 +618,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 
 	/// <summary>Sets the current volume level.</summary>
 	/// <param name="level">The new volume level, in percent ([0.0-100.0]).</param>
-	// pyatv/protocols/companion/__init__.py:459-467 (set_volume, level / 100.0)
+	// pyatv/protocols/companion/__init__.py (set_volume, level / 100.0) — line 459-467 as of pyatv 0.18.0
 	public void SetVolume (double level)
 		{
 		MediaControlCommand (Protocol.MediaControlCommand.SetVolume, new Dictionary<string, object?> { { "_vol", level / 100.0 } });
@@ -648,11 +648,11 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		return false;
 		}
 
-	// pyatv/protocols/companion/__init__.py:433-436 (self.api.listen_to("_iMC", ...))
+	// pyatv/protocols/companion/__init__.py (self.api.listen_to("_iMC", ...) — line 433-436 as of pyatv 0.18.0)
 	private double _preMuteVolume;
 
 	/// <inheritdoc/>
-	// pyatv/protocols/companion/__init__.py:438-449 (_handle_control_flag_update)
+	// pyatv/protocols/companion/__init__.py (_handle_control_flag_update) — line 438-449 as of pyatv 0.18.0
 	void ICompanionProtocolListener.EventReceived (string eventName, Dictionary<object, object?> data)
 		{
 		if (string.Equals (eventName, "_iMC", StringComparison.Ordinal) && data.TryGetValue ("_mcF", out object? mcf))
@@ -665,7 +665,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 				}
 			}
 
-		// pyatv/protocols/companion/__init__.py:240-244, 249-261 (SystemStatus/TVSystemStatus
+		// pyatv/protocols/companion/__init__.py — line 240-244 as of pyatv 0.18.0, 249-261 (SystemStatus/TVSystemStatus
 		// both feed _handle_system_status_update; either name can carry "state").
 		if ((string.Equals (eventName, "SystemStatus", StringComparison.Ordinal)
 				|| string.Equals (eventName, "TVSystemStatus", StringComparison.Ordinal))
@@ -674,7 +674,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 			SystemStatus updated = (SystemStatus)ToLong (state);
 			if (updated != _currentSystemStatus)
 				{
-				// pyatv/protocols/companion/__init__.py:225-232 (_system_status_to_power_state):
+				// pyatv/protocols/companion/__init__.py (_system_status_to_power_state) — line 225-232 as of pyatv 0.18.0:
 				// only Asleep maps to Off; Screensaver, Awake and Idle all map to On, so only
 				// raise the event when the mapped power state actually changes (e.g. Awake ->
 				// Screensaver is not a real transition from the UI's point of view).
@@ -691,7 +691,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 
 	// Companion OPACK floats unpack as a plain double (or int/long for integral values via a
 	// SizedInteger), so accept either.
-	// pyatv/support/opack.py:31-33, 195-201 (float pack/unpack)
+	// pyatv/support/opack.py — line 31-33 as of pyatv 0.18.0, 195-201 (float pack/unpack)
 	private static double ToDouble (object? value)
 		{
 		return value switch
@@ -708,7 +708,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 
 	// Companion OPACK integers unpack as a SizedInteger (or a boxed long for small tag-encoded
 	// values), not as a plain int/long usable directly with Convert.ToInt64.
-	// pyatv/support/opack.py:16-29 (_sized_int)
+	// pyatv/support/opack.py (_sized_int) — line 16-29 as of pyatv 0.18.0
 	private static long ToLong (object? value)
 		{
 		return value switch

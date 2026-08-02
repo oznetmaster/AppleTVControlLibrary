@@ -9,10 +9,10 @@ namespace AppleTvControlLibrary.Crypto;
 /// <summary>
 /// CHACHA20 encryption/decryption layer.
 /// </summary>
-// pyatv/support/chacha20.py:9-73 (NONCE_LENGTH, Chacha20Cipher)
+// pyatv/support/chacha20.py (NONCE_LENGTH, Chacha20Cipher) — line 9-73 as of pyatv 0.18.0
 public class Chacha20Cipher
 	{
-	// pyatv/support/chacha20.py:9
+	// pyatv/support/chacha20.py — line 9 as of pyatv 0.18.0
 	private const int NONCE_LENGTH = 12;
 
 	// The Poly1305 authentication tag is always 16 bytes (128 bits).
@@ -29,7 +29,7 @@ public class Chacha20Cipher
 	/// <param name="outKey">The key used to encrypt outgoing data.</param>
 	/// <param name="inKey">The key used to decrypt incoming data.</param>
 	/// <param name="nonceLength">The length, in bytes, of the counter portion of the nonce.</param>
-	// pyatv/support/chacha20.py:15-21 (__init__)
+	// pyatv/support/chacha20.py (__init__) — line 15-21 as of pyatv 0.18.0
 	public Chacha20Cipher (byte[] outKey, byte[] inKey, int nonceLength = 8)
 		{
 		_outKey = new KeyParameter (outKey);
@@ -44,7 +44,7 @@ public class Chacha20Cipher
 	/// This is the nonce that will be used by <see cref="Encrypt"/> in the _next_ call if no
 	/// custom nonce is specified.
 	/// </remarks>
-	// pyatv/support/chacha20.py:23-34 (out_nonce)
+	// pyatv/support/chacha20.py (out_nonce) — line 23-34 as of pyatv 0.18.0
 	public virtual byte[] OutNonce
 		{
 		get
@@ -59,7 +59,7 @@ public class Chacha20Cipher
 	/// This is the nonce that will be used by <see cref="Decrypt"/> in the _next_ call if no
 	/// custom nonce is specified.
 	/// </remarks>
-	// pyatv/support/chacha20.py:36-47 (in_nonce)
+	// pyatv/support/chacha20.py (in_nonce) — line 36-47 as of pyatv 0.18.0
 	public virtual byte[] InNonce
 		{
 		get
@@ -74,7 +74,7 @@ public class Chacha20Cipher
 	/// <param name="nonce">An optional explicit nonce. If not specified, the counter-derived nonce is used.</param>
 	/// <param name="aad">Optional additional authenticated data.</param>
 	/// <returns>The ciphertext with the 16-byte Poly1305 tag appended.</returns>
-	// pyatv/support/chacha20.py:53-62 (encrypt)
+	// pyatv/support/chacha20.py (encrypt) — line 53-62 as of pyatv 0.18.0
 	public byte[] Encrypt (byte[] data, byte[]? nonce = null, byte[]? aad = null)
 		{
 		if (nonce is null)
@@ -108,7 +108,7 @@ public class Chacha20Cipher
 	/// <param name="nonce">An optional explicit nonce. If not specified, the counter-derived nonce is used.</param>
 	/// <param name="aad">Optional additional authenticated data.</param>
 	/// <returns>The decrypted plaintext.</returns>
-	// pyatv/support/chacha20.py:64-73 (decrypt)
+	// pyatv/support/chacha20.py (decrypt) — line 64-73 as of pyatv 0.18.0
 	public byte[] Decrypt (byte[] data, byte[]? nonce = null, byte[]? aad = null)
 		{
 		if (nonce is null)
@@ -137,7 +137,7 @@ public class Chacha20Cipher
 		}
 
 	/// <summary>Pad nonce to 12 bytes.</summary>
-	// pyatv/support/chacha20.py:49-51 (_pad_nonce)
+	// pyatv/support/chacha20.py (_pad_nonce) — line 49-51 as of pyatv 0.18.0
 	private static byte[] PadNonce (byte[] nonce)
 		{
 		var padded = new byte[NONCE_LENGTH];
@@ -177,13 +177,13 @@ public class Chacha20Cipher
 /// <remarks>
 /// The first 4 bytes are always 0, followed by 8 bytes of counter for a total of 12 bytes.
 /// </remarks>
-// pyatv/support/chacha20.py:79-106 (Chacha20Cipher8byteNonce)
+// pyatv/support/chacha20.py (Chacha20Cipher8byteNonce) — line 79-106 as of pyatv 0.18.0
 public sealed class Chacha20Cipher8ByteNonce : Chacha20Cipher
 	{
 	/// <summary>Initializes a new instance of the <see cref="Chacha20Cipher8ByteNonce"/> class.</summary>
 	/// <param name="outKey">The key used to encrypt outgoing data.</param>
 	/// <param name="inKey">The key used to decrypt incoming data.</param>
-	// pyatv/support/chacha20.py:86-88 (__init__)
+	// pyatv/support/chacha20.py (__init__) — line 86-88 as of pyatv 0.18.0
 	public Chacha20Cipher8ByteNonce (byte[] outKey, byte[] inKey)
 		: base (outKey, inKey, nonceLength: 8)
 		{
@@ -191,7 +191,7 @@ public sealed class Chacha20Cipher8ByteNonce : Chacha20Cipher
 
 	// pyatv packs this nonce as 4 zero bytes followed by an 8-byte little-endian
 	// counter (Struct("<LQ").pack(0, counter)), for a total of 12 bytes
-	// (pyatv/support/chacha20.py:76, 90-106). The base class's OutNonce/InNonce
+	// (pyatv/support/chacha20.py — line 76 as of pyatv 0.18.0, 90-106). The base class's OutNonce/InNonce
 	// already produce identical bytes for an 8-byte nonce_length: a little-endian
 	// counter left-padded with zeros to 12 bytes. No override is required.
 	}

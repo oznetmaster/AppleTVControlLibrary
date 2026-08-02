@@ -1,7 +1,7 @@
 namespace AppleTvControlLibrary.Discovery.Dns;
 
 /// <summary>Represents a DNS resource record.</summary>
-// pyatv/support/dns.py:332-358 (DnsResource)
+// pyatv/support/dns.py (DnsResource) — line 332-358 as of pyatv 0.18.0
 public sealed class DnsResource
 	{
 	/// <summary>Initializes a new instance of the <see cref="DnsResource"/> class.</summary>
@@ -59,7 +59,7 @@ public sealed class DnsResource
 	/// <summary>Creates a <see cref="DnsResource"/> from data in a data stream.</summary>
 	/// <param name="buffer">The buffer to read from.</param>
 	/// <returns>The parsed resource record.</returns>
-	// pyatv/support/dns.py:342-358 (unpack_read)
+	// pyatv/support/dns.py (unpack_read) — line 342-358 as of pyatv 0.18.0
 	public static DnsResource UnpackRead (DnsBufferReader buffer)
 		{
 		string qname = DnsWireFormat.ParseDomainName (buffer);

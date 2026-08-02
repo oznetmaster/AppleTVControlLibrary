@@ -15,13 +15,13 @@ namespace AppleTvControlLibrary.Discovery.Companion;
 /// Discovers Companion Link devices by sending DNS-SD PTR queries to the mDNS multicast
 /// group and collecting responses.
 /// </summary>
-// pyatv/core/mdns.py:324-531 (MulticastDnsSdClientProtocol, multicast)
+// pyatv/core/mdns.py (MulticastDnsSdClientProtocol, multicast) — line 324-531 as of pyatv 0.18.0
 public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 	{
-	// pyatv/core/mdns.py:509 (multicast default address)
+	// pyatv/core/mdns.py (multicast default address) — line 509 as of pyatv 0.18.0
 	private const string MULTICAST_ADDRESS = "224.0.0.251";
 
-	// pyatv/core/mdns.py:510 (multicast default port), pyatv/core/mdns.py:491 (unicast default port)
+	// pyatv/core/mdns.py (multicast default port) — line 510 as of pyatv 0.18.0, pyatv/core/mdns.py (unicast default port) — line 491 as of pyatv 0.18.0
 	private const int MULTICAST_PORT = 5353;
 
 	/// <inheritdoc/>
@@ -48,7 +48,7 @@ public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 		// which is caught below. Without this, a scan with no responses would never return.
 		using CancellationTokenRegistration registration = linkedCts.Token.Register (static state => ((UdpClient)state!).Close (), client);
 
-		// pyatv/core/mdns.py:385-408 (_resend_loop resends queries once per second for the duration)
+		// pyatv/core/mdns.py (_resend_loop resends queries once per second for the duration) — line 385-408 as of pyatv 0.18.0
 		Task sendTask = ResendLoopAsync (client, groupEndpoint, queries, timeout, linkedCts.Token);
 		Task receiveTask = ReceiveLoopAsync (client, parser, linkedCts.Token);
 
@@ -94,8 +94,8 @@ public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 					}
 				catch (SocketException)
 					{
-					// pyatv/core/mdns.py:414-415 (log and continue; a send failure to one target
-					// shouldn't abort the scan)
+					// pyatv/core/mdns.py (log and continue; a send failure to one target
+					// shouldn't abort the scan) — line 414-415 as of pyatv 0.18.0
 					}
 				}
 
@@ -127,7 +127,7 @@ public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 					}
 				catch (Exception)
 					{
-					// pyatv/core/mdns.py:430-438 (suppress decode errors, but keep listening)
+					// pyatv/core/mdns.py (suppress decode errors, but keep listening) — line 430-438 as of pyatv 0.18.0
 					}
 				}
 			}

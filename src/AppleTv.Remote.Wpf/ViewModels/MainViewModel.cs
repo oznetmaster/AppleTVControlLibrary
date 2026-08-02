@@ -50,7 +50,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			Application.Current?.Dispatcher.Invoke (this.RaiseRemoteButtonStates);
 			};
 
-		// pyatv/protocols/companion/__init__.py:249-256 (_handle_system_status_update): power
+		// pyatv/protocols/companion/__init__.py (_handle_system_status_update) — line 249-256 as of pyatv 0.18.0: power
 		// state is tracked from pushed SystemStatus/TVSystemStatus events, not by polling.
 		this._deviceManager.SystemStatusChanged += (_, _) =>
 			{

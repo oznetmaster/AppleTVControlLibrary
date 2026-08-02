@@ -21,7 +21,7 @@ namespace AppleTV.Companion.Tests.ProtocolTests;
 /// <c>pyatv/protocols/companion/api.py</c> (<c>CompanionAPI.connect</c>), which describe exactly
 /// this bring-up sequence and command surface.
 /// </remarks>
-// pyatv/protocols/companion/api.py:135-160 (connect); tests/fake_device/companion.py (FakeCompanionService)
+// pyatv/protocols/companion/api.py (connect) — line 135-160 as of pyatv 0.18.0; tests/fake_device/companion.py (FakeCompanionService)
 [TestClass]
 public class CompanionApiIntegrationTests
 	{
@@ -91,7 +91,7 @@ public class CompanionApiIntegrationTests
 		Assert.AreEqual ("1.2", device.TvRcProtocolVersion);
 		Assert.IsTrue (device.HasTextInputStarted);
 
-		// pyatv/protocols/companion/api.py:224 (self.sid = (remote_sid << 32) | local_sid)
+		// pyatv/protocols/companion/api.py (self.sid = (remote_sid << 32) — line 224 as of pyatv 0.18.0 | local_sid)
 		Assert.AreEqual (5555L << 32 | (uint)device.LocalSid, api.Sid);
 		}
 
@@ -143,8 +143,8 @@ public class CompanionApiIntegrationTests
 		Assert.IsFalse (device.HasSessionStarted);
 		}
 
-	// pyatv/protocols/companion/api.py:395-399 (mediacontrol_command),
-	// pyatv/protocols/companion/__init__.py:441-467 (GetVolume/set_volume)
+	// pyatv/protocols/companion/api.py (mediacontrol_command) — line 395-399 as of pyatv 0.18.0,
+	// pyatv/protocols/companion/__init__.py (GetVolume/set_volume) — line 441-467 as of pyatv 0.18.0
 	[TestMethod]
 	public void SetVolumeThenGetVolumeRoundTrips ()
 		{
@@ -158,7 +158,7 @@ public class CompanionApiIntegrationTests
 		Assert.AreEqual (42.0, api.GetVolume (), 0.001);
 		}
 
-	// pyatv/protocols/companion/__init__.py:99 (MediaControlFlags.Volume), 439-449 (_handle_control_flag_update)
+	// pyatv/protocols/companion/__init__.py (MediaControlFlags.Volume) — line 99 as of pyatv 0.18.0, 439-449 (_handle_control_flag_update)
 	[TestMethod]
 	public void ToggleMuteSavesAndRestoresVolume ()
 		{

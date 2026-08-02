@@ -5,7 +5,7 @@ namespace AppleTvControlLibrary.Opack;
 /// should be re-encoded with), so that round-tripping a value through <see cref="Opack"/>
 /// produces byte-identical output.
 /// </summary>
-// pyatv/support/opack.py:16-29 (_sized_int)
+// pyatv/support/opack.py (_sized_int) — line 16-29 as of pyatv 0.18.0
 public readonly struct SizedInteger
 	{
 	/// <summary>Initializes a new instance of the <see cref="SizedInteger"/> struct.</summary>

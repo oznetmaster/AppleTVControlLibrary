@@ -1,7 +1,7 @@
 namespace AppleTvControlLibrary.Discovery.Companion;
 
 /// <summary>Whether pairing is required, supported, or disabled for a discovered service.</summary>
-// pyatv/protocols/companion/__init__.py:654-660 (service_info), pyatv/const.py (PairingRequirement)
+// pyatv/protocols/companion/__init__.py (service_info) — line 654-660 as of pyatv 0.18.0, pyatv/const.py (PairingRequirement)
 public enum CompanionPairingRequirement
 	{
 	/// <summary>Pairing is not supported by this device.</summary>

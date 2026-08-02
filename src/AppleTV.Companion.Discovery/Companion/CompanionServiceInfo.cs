@@ -10,13 +10,13 @@ namespace AppleTvControlLibrary.Discovery.Companion;
 public static class CompanionServiceInfo
 	{
 	/// <summary>The Companion Link mDNS service type.</summary>
-	// pyatv/helpers.py:14 (COMPANION_SERVICE)
+	// pyatv/helpers.py (COMPANION_SERVICE) — line 14 as of pyatv 0.18.0
 	public const string SERVICE_TYPE = "_companion-link._tcp.local";
 
-	// pyatv/protocols/companion/__init__.py:56-60 (PAIRING_DISABLED_MASK)
+	// pyatv/protocols/companion/__init__.py (PAIRING_DISABLED_MASK) — line 56-60 as of pyatv 0.18.0
 	private const int PAIRING_DISABLED_MASK = 0x04;
 
-	// pyatv/protocols/companion/__init__.py:62-79 (PAIRING_WITH_PIN_SUPPORTED_MASK)
+	// pyatv/protocols/companion/__init__.py (PAIRING_WITH_PIN_SUPPORTED_MASK) — line 62-79 as of pyatv 0.18.0
 	private const int PAIRING_WITH_PIN_SUPPORTED_MASK = 0x4000;
 
 	/// <summary>
@@ -32,7 +32,7 @@ public static class CompanionServiceInfo
 	/// </remarks>
 	/// <param name="properties">The service's decoded TXT record properties.</param>
 	/// <returns>The unique identifier, or <see langword="null"/>.</returns>
-	// pyatv/helpers.py:73-76 (get_unique_id, COMPANION_SERVICE branch)
+	// pyatv/helpers.py (get_unique_id, COMPANION_SERVICE branch) — line 73-76 as of pyatv 0.18.0
 	public static string? GetUniqueId (IReadOnlyDictionary<string, string> properties)
 		{
 		return properties.TryGetValue ("rpmrtid", out string? value) ? value : null;
@@ -43,7 +43,7 @@ public static class CompanionServiceInfo
 	/// </summary>
 	/// <param name="properties">The service's decoded TXT record properties.</param>
 	/// <returns>The derived pairing requirement.</returns>
-	// pyatv/protocols/companion/__init__.py:648-660 (service_info)
+	// pyatv/protocols/companion/__init__.py (service_info) — line 648-660 as of pyatv 0.18.0
 	public static CompanionPairingRequirement GetPairingRequirement (IReadOnlyDictionary<string, string> properties)
 		{
 		string flagsText = properties.TryGetValue ("rpfl", out string? value) ? value : "0x0";
@@ -69,7 +69,7 @@ public static class CompanionServiceInfo
 	/// <summary>Converts a parsed mDNS <see cref="Service"/> into a <see cref="CompanionDiscoveryResult"/>.</summary>
 	/// <param name="service">The parsed mDNS service.</param>
 	/// <returns>The Companion-specific discovery result.</returns>
-	// pyatv/protocols/companion/__init__.py:614-624 (companion_service_handler)
+	// pyatv/protocols/companion/__init__.py (companion_service_handler) — line 614-624 as of pyatv 0.18.0
 	public static CompanionDiscoveryResult ToDiscoveryResult (Service service)
 		{
 		return new CompanionDiscoveryResult (

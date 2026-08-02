@@ -1,7 +1,7 @@
 namespace AppleTvControlLibrary.Discovery.Dns;
 
 /// <summary>DNS resource record type identifiers used by DNS-SD.</summary>
-// pyatv/support/dns.py:249-256 (QueryType)
+// pyatv/support/dns.py (QueryType) — line 249-256 as of pyatv 0.18.0
 #pragma warning disable CA1720 // Identifier contains type name -- "Ptr" is the DNS-SD record type name, not a reference to System.IntPtr/UIntPtr, and is used verbatim throughout the vendored pyatv source this enum ports.
 public enum QueryType
 	{

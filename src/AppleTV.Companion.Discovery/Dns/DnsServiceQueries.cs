@@ -6,17 +6,17 @@ namespace AppleTvControlLibrary.Discovery.Dns;
 public static class DnsServiceQueries
 	{
 	/// <summary>Well-known sleep proxy service used to detect sleeping devices.</summary>
-	// pyatv/core/mdns.py:30 (SLEEP_PROXY_SERVICE)
+	// pyatv/core/mdns.py (SLEEP_PROXY_SERVICE) — line 30 as of pyatv 0.18.0
 	public const string SLEEP_PROXY_SERVICE = "_sleep-proxy._udp.local";
 
-	// pyatv/core/mdns.py:28 (SERVICES_PER_MSG)
+	// pyatv/core/mdns.py (SERVICES_PER_MSG) — line 28 as of pyatv 0.18.0
 	private const int SERVICES_PER_MESSAGE = 3;
 
 	/// <summary>Creates service request messages, batching services into groups of three.</summary>
 	/// <param name="services">The service types to query for.</param>
 	/// <param name="qtype">The query type to use for each question.</param>
 	/// <returns>The packed query messages.</returns>
-	// pyatv/core/mdns.py:79-92 (create_service_queries)
+	// pyatv/core/mdns.py (create_service_queries) — line 79-92 as of pyatv 0.18.0
 	public static List<byte[]> CreateServiceQueries (IReadOnlyList<string> services, QueryType qtype)
 		{
 		List<byte[]> queries = new List<byte[]> ();

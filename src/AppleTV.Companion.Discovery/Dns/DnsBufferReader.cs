@@ -5,7 +5,7 @@ namespace AppleTvControlLibrary.Discovery.Dns;
 /// <summary>
 /// A minimal big-endian binary cursor over a byte buffer, used for the DNS wire format.
 /// </summary>
-// pyatv/support/dns.py:19-25 (unpack_stream) - callers use this in place of Python's BinaryIO
+// pyatv/support/dns.py (unpack_stream) — line 19-25 as of pyatv 0.18.0 - callers use this in place of Python's BinaryIO
 public sealed class DnsBufferReader
 	{
 	private readonly byte[] _buffer;

@@ -50,7 +50,7 @@ public sealed class CompanionDiscoveryResult
 	/// off other TXT records such as "rpHA", "rpHN", "rpAD", "rpHI", or "rpBA" - pyatv
 	/// observes that those rotate as a privacy measure.
 	/// </remarks>
-	// pyatv/helpers.py:73-76 (get_unique_id, COMPANION_SERVICE branch)
+	// pyatv/helpers.py (get_unique_id, COMPANION_SERVICE branch) — line 73-76 as of pyatv 0.18.0
 	public string? UniqueId
 		{
 		get;

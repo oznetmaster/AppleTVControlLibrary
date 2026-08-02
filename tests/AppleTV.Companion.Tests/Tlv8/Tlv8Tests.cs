@@ -185,7 +185,7 @@ public class Tlv8Tests
 
 	// Additional trap coverage beyond the ported vectors: a value chunked across
 	// more than two 255-byte segments must still concatenate correctly on read,
-	// and round-trip through write_tlv/read_tlv. (pyatv/auth/hap_tlv8.py:80-81, 114-122)
+	// and round-trip through write_tlv/read_tlv. (pyatv/auth/hap_tlv8.py — line 80-81 as of pyatv 0.18.0, 114-122)
 	[TestMethod]
 	public void RoundTripValueLargerThan255Bytes ()
 		{

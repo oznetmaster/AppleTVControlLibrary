@@ -21,7 +21,7 @@ namespace AppleTvControlLibrary.FakeDevice;
 // tests/fake_device/companion.py:227-563 (FakeCompanionService, trimmed to WP6 scope)
 public sealed class FakeCompanionOpackDevice
 	{
-	// pyatv/protocols/companion/api.py:77-85 (SystemStatus.Awake is the fake device's initial state)
+	// pyatv/protocols/companion/api.py (SystemStatus.Awake is the fake device's initial state) — line 77-85 as of pyatv 0.18.0
 	// tests/fake_device/companion.py:90 (self._system_status: SystemStatus = SystemStatus.Awake)
 	private SystemStatus _systemStatus = SystemStatus.Awake;
 
@@ -287,7 +287,7 @@ public sealed class FakeCompanionOpackDevice
 		return Response (request, new Dictionary<object, object?> ());
 		}
 
-	// pyatv/support/opack.py:31-33, 195-201 (float pack/unpack)
+	// pyatv/support/opack.py — line 31-33 as of pyatv 0.18.0, 195-201 (float pack/unpack)
 	private static double ToDouble (object? value)
 		{
 		return value switch
@@ -333,7 +333,7 @@ public sealed class FakeCompanionOpackDevice
 
 	// Companion OPACK integers unpack as a SizedInteger (or a boxed long for small tag-encoded
 	// values), not as a plain int/long usable directly with Convert.ToInt64.
-	// pyatv/support/opack.py:16-29 (_sized_int)
+	// pyatv/support/opack.py (_sized_int) — line 16-29 as of pyatv 0.18.0
 	private static long ToLong (object? value)
 		{
 		return value switch

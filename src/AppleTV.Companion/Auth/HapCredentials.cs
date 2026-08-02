@@ -5,23 +5,23 @@ namespace AppleTvControlLibrary.Auth;
 /// <summary>
 /// Supported authentication type.
 /// </summary>
-// pyatv/auth/hap_pairing.py:12-24 (AuthenticationType)
+// pyatv/auth/hap_pairing.py (AuthenticationType) — line 12-24 as of pyatv 0.18.0
 public enum AuthenticationType
 	{
-	/// <summary>No authentication (just pass through). pyatv/auth/hap_pairing.py:15</summary>
+	/// <summary>No authentication (just pass through). pyatv/auth/hap_pairing.py — line 15 as of pyatv 0.18.0</summary>
 	Null,
-	/// <summary>Legacy SRP based authentication. pyatv/auth/hap_pairing.py:18</summary>
+	/// <summary>Legacy SRP based authentication. pyatv/auth/hap_pairing.py — line 18 as of pyatv 0.18.0</summary>
 	Legacy,
-	/// <summary>Authentication based on HAP (Home-Kit). pyatv/auth/hap_pairing.py:21</summary>
+	/// <summary>Authentication based on HAP (Home-Kit). pyatv/auth/hap_pairing.py — line 21 as of pyatv 0.18.0</summary>
 	Hap,
-	/// <summary>Authentication based on transient HAP (Home-Kit). pyatv/auth/hap_pairing.py:24</summary>
+	/// <summary>Authentication based on transient HAP (Home-Kit). pyatv/auth/hap_pairing.py — line 24 as of pyatv 0.18.0</summary>
 	Transient,
 	}
 
 /// <summary>
 /// Raised when authentication with a device fails.
 /// </summary>
-// pyatv/exceptions.py:27-29 (AuthenticationError)
+// pyatv/exceptions.py (AuthenticationError) — line 27-29 as of pyatv 0.18.0
 public class AuthenticationException : Exception
 	{
 	/// <summary>Initializes a new instance of the <see cref="AuthenticationException"/> class.</summary>
@@ -46,7 +46,7 @@ public class AuthenticationException : Exception
 /// <summary>
 /// Raised when credentials are invalid or malformed.
 /// </summary>
-// pyatv/exceptions.py:55-57 (InvalidCredentialsError)
+// pyatv/exceptions.py (InvalidCredentialsError) — line 55-57 as of pyatv 0.18.0
 public class InvalidCredentialsException : Exception
 	{
 	/// <summary>Initializes a new instance of the <see cref="InvalidCredentialsException"/> class.</summary>
@@ -71,7 +71,7 @@ public class InvalidCredentialsException : Exception
 /// <summary>
 /// Identifiers and encryption keys used by HAP.
 /// </summary>
-// pyatv/auth/hap_pairing.py:30-83 (HapCredentials)
+// pyatv/auth/hap_pairing.py (HapCredentials) — line 30-83 as of pyatv 0.18.0
 public sealed class HapCredentials : IEquatable<HapCredentials>
 	{
 	private static readonly byte[] EmptyBytes = Array.Empty<byte> ();
@@ -82,7 +82,7 @@ public sealed class HapCredentials : IEquatable<HapCredentials>
 	/// <param name="ltsk">Long-term secret key belonging to this client.</param>
 	/// <param name="atvId">Identifier of the Apple TV.</param>
 	/// <param name="clientId">Identifier of this client.</param>
-	// pyatv/auth/hap_pairing.py:33-44 (__init__)
+	// pyatv/auth/hap_pairing.py (__init__) — line 33-44 as of pyatv 0.18.0
 	public HapCredentials (byte[]? ltpk = null, byte[]? ltsk = null, byte[]? atvId = null, byte[]? clientId = null)
 		{
 		this.Ltpk = ltpk ?? EmptyBytes;
@@ -122,19 +122,19 @@ public sealed class HapCredentials : IEquatable<HapCredentials>
 		get;
 		}
 
-	/// <summary>Gets the shared "no credentials" instance. pyatv/auth/hap_pairing.py:135</summary>
+	/// <summary>Gets the shared "no credentials" instance. pyatv/auth/hap_pairing.py — line 135 as of pyatv 0.18.0</summary>
 	public static HapCredentials NoCredentials
 		{
 		get;
 		} = new HapCredentials ();
 
-	/// <summary>Gets the shared "transient" credentials instance. pyatv/auth/hap_pairing.py:136</summary>
+	/// <summary>Gets the shared "transient" credentials instance. pyatv/auth/hap_pairing.py — line 136 as of pyatv 0.18.0</summary>
 	public static HapCredentials TransientCredentials
 		{
 		get;
 		} = new HapCredentials (ltpk: TransientMarker);
 
-	// pyatv/auth/hap_pairing.py:46-63 (_get_auth_type)
+	// pyatv/auth/hap_pairing.py (_get_auth_type) — line 46-63 as of pyatv 0.18.0
 	private static AuthenticationType GetAuthType (byte[] ltpk, byte[] ltsk, byte[] atvId, byte[] clientId)
 		{
 		if (ltpk.Length == 0 && ltsk.Length == 0 && atvId.Length == 0 && clientId.Length == 0)
@@ -179,7 +179,7 @@ public sealed class HapCredentials : IEquatable<HapCredentials>
 		}
 
 	/// <inheritdoc/>
-	// pyatv/auth/hap_pairing.py:65-69 (__eq__)
+	// pyatv/auth/hap_pairing.py (__eq__) — line 65-69 as of pyatv 0.18.0
 	public bool Equals (HapCredentials? other)
 		{
 		return other is not null && ToString () == other.ToString ();
@@ -198,7 +198,7 @@ public sealed class HapCredentials : IEquatable<HapCredentials>
 		}
 
 	/// <inheritdoc/>
-	// pyatv/auth/hap_pairing.py:71-79 (__str__)
+	// pyatv/auth/hap_pairing.py (__str__) — line 71-79 as of pyatv 0.18.0
 	public override string ToString ()
 		{
 		return string.Join (
@@ -211,7 +211,7 @@ public sealed class HapCredentials : IEquatable<HapCredentials>
 
 	private static readonly char[] HexChars = "0123456789abcdef".ToCharArray ();
 
-	// pyatv/auth/hap_pairing.py:73-76 (binascii.hexlify)
+	// pyatv/auth/hap_pairing.py (binascii.hexlify) — line 73-76 as of pyatv 0.18.0
 	private static string ToHex (byte[] data)
 		{
 		var chars = new char[data.Length * 2];
@@ -225,7 +225,7 @@ public sealed class HapCredentials : IEquatable<HapCredentials>
 		return new string (chars);
 		}
 
-	// pyatv/auth/hap_pairing.py:145-151 (binascii.unhexlify)
+	// pyatv/auth/hap_pairing.py (binascii.unhexlify) — line 145-151 as of pyatv 0.18.0
 	private static byte[] FromHex (string hex)
 		{
 		if (hex.Length % 2 != 0)
@@ -245,7 +245,7 @@ public sealed class HapCredentials : IEquatable<HapCredentials>
 	/// <summary>Parse a string representation of <see cref="HapCredentials"/>.</summary>
 	/// <param name="detailString">The string to parse, or <see langword="null"/>.</param>
 	/// <returns>The parsed credentials.</returns>
-	// pyatv/auth/hap_pairing.py:139-152 (parse_credentials)
+	// pyatv/auth/hap_pairing.py (parse_credentials) — line 139-152 as of pyatv 0.18.0
 	public static HapCredentials Parse (string? detailString)
 		{
 		if (detailString is null)

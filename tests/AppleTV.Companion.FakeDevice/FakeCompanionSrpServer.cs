@@ -17,11 +17,11 @@ namespace AppleTvControlLibrary.FakeDevice;
 /// same byte-for-byte behavior already validated for the client side in
 /// <c>SrpAuthHandler</c>/<c>SrpAuthHandlerTests</c>.
 /// </remarks>
-// pyatv/protocols/companion/server_auth.py:41-63 (new_server_session);
+// pyatv/protocols/companion/server_auth.py (new_server_session) — line 41-63 as of pyatv 0.18.0;
 // srptools/context.py, srptools/server.py, srptools/common.py (SRPServerSession)
 public sealed class FakeCompanionSrpServer
 	{
-	// pyatv/auth/hap_srp.py:21 (constants.PRIME_3072, value from srptools/constants.py:34-41)
+	// pyatv/auth/hap_srp.py (constants.PRIME_3072, value from srptools/constants.py — line 34-41 as of pyatv 0.18.0) — line 21 as of pyatv 0.18.0
 	private static readonly BigInteger Prime = new BigInteger (
 		"FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD129024E088A67CC74020BBEA6" +
 		"3B139B22514A08798E3404DDEF9519B3CD3A431B302B0A6DF25F14374FE1356D6D51C245" +
@@ -35,10 +35,10 @@ public sealed class FakeCompanionSrpServer
 		"3EC86A64521F2B18177B200CBBE117577A615D6C770988C0BAD946E208E24FA074E5AB31" +
 		"43DB5BFCE0FD108E4B82D120A93AD2CAFFFFFFFFFFFFFFFF", 16);
 
-	// pyatv/auth/hap_srp.py:21 (constants.PRIME_3072_GEN, srptools/constants.py:33)
+	// pyatv/auth/hap_srp.py (constants.PRIME_3072_GEN, srptools/constants.py — line 33 as of pyatv 0.18.0) — line 21 as of pyatv 0.18.0
 	private static readonly BigInteger Generator = BigInteger.ValueOf (5);
 
-	// srptools/context.py:39 (self._mult = H(N | PAD(g)))
+	// srptools/context.py — line 39 as of pyatv 0.18.0 (self._mult = H(N | PAD(g)))
 	private static readonly BigInteger Multiplier = HashAsInt ("", Prime, PadBytes (Generator));
 
 	private const string USER_NAME = "Pair-Setup";
@@ -85,29 +85,29 @@ public sealed class FakeCompanionSrpServer
 	/// <summary>Create a new server session for the given PIN, generating a random salt and server private key.</summary>
 	/// <param name="pin">The PIN code the client is expected to provide.</param>
 	/// <returns>A new server session.</returns>
-	// pyatv/protocols/companion/server_auth.py:41-63 (new_server_session);
-	// srptools/context.py:244-254 (get_user_data_triplet); srptools/server.py:13-27 (__init__)
+	// pyatv/protocols/companion/server_auth.py (new_server_session) — line 41-63 as of pyatv 0.18.0;
+	// srptools/context.py — line 244-254 as of pyatv 0.18.0 (get_user_data_triplet); srptools/server.py — line 13-27 as of pyatv 0.18.0 (__init__)
 	public static FakeCompanionSrpServer Create (int pin)
 		{
 		var random = new SecureRandom ();
 
-		// srptools/context.py:250 (salt = self.generate_salt(), bits_salt=128)
+		// srptools/context.py — line 250 as of pyatv 0.18.0 (salt = self.generate_salt(), bits_salt=128)
 		var salt = new byte[16];
 		random.NextBytes (salt);
 
-		// srptools/context.py:79-87 (get_common_password_hash): x = H(s | H(I ":" P))
+		// srptools/context.py — line 79-87 as of pyatv 0.18.0 (get_common_password_hash): x = H(s | H(I ":" P))
 		byte[] innerHash = HashAsBytes (":", USER_NAME, pin.ToString (System.Globalization.CultureInfo.InvariantCulture));
 		BigInteger passwordHash = HashAsInt ("", salt, innerHash);
 
-		// srptools/context.py:193-199 (get_common_password_verifier): v = g^x % N
+		// srptools/context.py — line 193-199 as of pyatv 0.18.0 (get_common_password_verifier): v = g^x % N
 		BigInteger passwordVerifier = Generator.ModPow (passwordHash, Prime);
 
-		// srptools/context.py:159-165 (generate_server_private): b = random()
+		// srptools/context.py — line 159-165 as of pyatv 0.18.0 (generate_server_private): b = random()
 		var serverPrivateBytes = new byte[128];
 		random.NextBytes (serverPrivateBytes);
 		BigInteger serverPrivate = new BigInteger (1, serverPrivateBytes);
 
-		// srptools/context.py:174-182 (get_server_public): B = (k*v + g^b) % N
+		// srptools/context.py — line 174-182 as of pyatv 0.18.0 (get_server_public): B = (k*v + g^b) % N
 		BigInteger serverPublic = Multiplier.Multiply (passwordVerifier)
 			.Add (Generator.ModPow (serverPrivate, Prime))
 			.Mod (Prime);
@@ -117,7 +117,7 @@ public sealed class FakeCompanionSrpServer
 
 	/// <summary>Process the client's public key (A), deriving the shared session key.</summary>
 	/// <param name="clientPublicKey">The client's SRP public key.</param>
-	// srptools/common.py:117-125 (init_common_secret); srptools/server.py:29-33 (init_session_key)
+	// srptools/common.py — line 117-125 as of pyatv 0.18.0 (init_common_secret); srptools/server.py — line 29-33 as of pyatv 0.18.0 (init_session_key)
 	public void ProcessClientPublicKey (byte[] clientPublicKey)
 		{
 		_clientPublic = new BigInteger (1, clientPublicKey);
@@ -129,7 +129,7 @@ public sealed class FakeCompanionSrpServer
 		// u = H(PAD(A) | PAD(B))
 		_commonSecret = HashAsInt ("", PadBytes (_clientPublic), PadBytes (ServerPublic));
 
-		// srptools/context.py:167-172 (get_server_premaster_secret): S = (A * v^u) ^ b % N
+		// srptools/context.py — line 167-172 as of pyatv 0.18.0 (get_server_premaster_secret): S = (A * v^u) ^ b % N
 		BigInteger premasterSecret = _clientPublic
 			.Multiply (_passwordVerifier.ModPow (_commonSecret, Prime))
 			.Mod (Prime)
@@ -142,7 +142,7 @@ public sealed class FakeCompanionSrpServer
 	/// <summary>Verify the client's proof (M1) and return the server's proof (M2, key_proof_hash).</summary>
 	/// <param name="clientProof">The client-provided proof.</param>
 	/// <returns>The server's proof to send back, or <see langword="null"/> if verification failed.</returns>
-	// srptools/server.py:35-38 (verify_proof); srptools/common.py:127-132 (init_session_key_proof)
+	// srptools/server.py — line 35-38 as of pyatv 0.18.0 (verify_proof); srptools/common.py — line 127-132 as of pyatv 0.18.0 (init_session_key_proof)
 	public byte[]? VerifyClientProofAndGetServerProof (byte[] clientProof)
 		{
 		if (_clientPublic is null || _sessionKeyBytes is null)
@@ -162,11 +162,11 @@ public sealed class FakeCompanionSrpServer
 			return null;
 			}
 
-		// srptools/context.py:236-238 (get_common_session_key_proof_hash): H(A, M, K)
+		// srptools/context.py — line 236-238 as of pyatv 0.18.0 (get_common_session_key_proof_hash): H(A, M, K)
 		return HashAsBytes ("", _clientPublic, expectedClientProof, _sessionKeyBytes);
 		}
 
-	// srptools/context.py:63-67 (pad)
+	// srptools/context.py — line 63-67 as of pyatv 0.18.0 (pad)
 	private static byte[] PadBytes (BigInteger value, int? overridePaddingLength = null)
 		{
 		int paddingLength = overridePaddingLength ?? ToPyBytes (Prime).Length;

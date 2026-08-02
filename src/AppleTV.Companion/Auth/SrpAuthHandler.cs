@@ -23,10 +23,10 @@ namespace AppleTvControlLibrary.Auth;
 /// details (padding, hash argument ordering) that must match byte-for-byte for the HAP
 /// handshake to succeed.
 /// </remarks>
-// pyatv/auth/hap_srp.py:40-233 (SRPAuthHandler); srptools/context.py, srptools/client.py, srptools/common.py
+// pyatv/auth/hap_srp.py (SRPAuthHandler) — line 40-233 as of pyatv 0.18.0; srptools/context.py, srptools/client.py, srptools/common.py
 public sealed class SrpAuthHandler
 	{
-	// pyatv/auth/hap_srp.py:21 (constants.PRIME_3072, value from srptools/constants.py:34-41)
+	// pyatv/auth/hap_srp.py (constants.PRIME_3072) — line 21 as of pyatv 0.18.0; value from srptools/constants.py — line 34-41 as of pyatv 0.18.0
 	private static readonly BigInteger Prime = new BigInteger (
 		"FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD129024E088A67CC74020BBEA6" +
 		"3B139B22514A08798E3404DDEF9519B3CD3A431B302B0A6DF25F14374FE1356D6D51C245" +
@@ -40,15 +40,15 @@ public sealed class SrpAuthHandler
 		"3EC86A64521F2B18177B200CBBE117577A615D6C770988C0BAD946E208E24FA074E5AB31" +
 		"43DB5BFCE0FD108E4B82D120A93AD2CAFFFFFFFFFFFFFFFF", 16);
 
-	// pyatv/auth/hap_srp.py:21 (constants.PRIME_3072_GEN, srptools/constants.py:33)
+	// pyatv/auth/hap_srp.py (constants.PRIME_3072_GEN) — line 21 as of pyatv 0.18.0; value from srptools/constants.py — line 33 as of pyatv 0.18.0
 	private static readonly BigInteger Generator = BigInteger.ValueOf (5);
 
-	// srptools/context.py:39 (self._mult = H(N | PAD(g)))
+	// srptools/context.py — line 39 as of pyatv 0.18.0 (self._mult = H(N | PAD(g)))
 	private static readonly BigInteger Multiplier = HashAsInt ("", Prime, PadBytes (Generator));
 
 	private const string USER_NAME = "Pair-Setup";
 
-	// pyatv/auth/hap_srp.py:44 (pairing_id = str(uuid.uuid4()).encode())
+	// pyatv/auth/hap_srp.py (pairing_id = str(uuid.uuid4()).encode()) — line 44 as of pyatv 0.18.0
 	private readonly byte[] _pairingId;
 
 	private Ed25519PrivateKeyParameters? _signingKey;
@@ -69,14 +69,14 @@ public sealed class SrpAuthHandler
 	private byte[]? _setupSessionKey;
 
 	/// <summary>Initializes a new instance of the <see cref="SrpAuthHandler"/> class.</summary>
-	// pyatv/auth/hap_srp.py:44-53 (__init__)
+	// pyatv/auth/hap_srp.py (__init__) — line 44-53 as of pyatv 0.18.0
 	public SrpAuthHandler ()
 		{
 		_pairingId = Encoding.UTF8.GetBytes (Guid.NewGuid ().ToString ());
 		}
 
 	/// <summary>Gets the shared secret (SRP session key) established during pair-setup.</summary>
-	// pyatv/auth/hap_srp.py:55-58 (shared_key)
+	// pyatv/auth/hap_srp.py (shared_key) — line 55-58 as of pyatv 0.18.0
 	public byte[] SharedKey
 		{
 		get
@@ -95,7 +95,7 @@ public sealed class SrpAuthHandler
 	/// <param name="info">The HKDF info string.</param>
 	/// <param name="sharedSecret">The shared secret to derive from.</param>
 	/// <returns>32 bytes of derived key material.</returns>
-	// pyatv/auth/hap_srp.py:29-37 (hkdf_expand)
+	// pyatv/auth/hap_srp.py (hkdf_expand) — line 29-37 as of pyatv 0.18.0
 	public static byte[] HkdfExpand (string salt, string info, byte[] sharedSecret)
 		{
 		var generator = new HkdfBytesGenerator (new Sha512Digest ());
@@ -111,7 +111,7 @@ public sealed class SrpAuthHandler
 
 	/// <summary>Initialize operation by generating new keys.</summary>
 	/// <returns>A tuple of (auth public key, verify public key).</returns>
-	// pyatv/auth/hap_srp.py:66-79 (initialize)
+	// pyatv/auth/hap_srp.py (initialize) — line 66-79 as of pyatv 0.18.0
 	public (byte[] AuthPublic, byte[] PublicBytes) Initialize ()
 		{
 		var random = new SecureRandom ();
@@ -131,7 +131,7 @@ public sealed class SrpAuthHandler
 	/// <param name="sessionPubKey">The device's X25519 public key.</param>
 	/// <param name="encrypted">Encrypted TLV8 payload containing the device identifier and signature.</param>
 	/// <returns>Encrypted TLV8 payload to send back to the device.</returns>
-	// pyatv/auth/hap_srp.py:81-118 (verify1)
+	// pyatv/auth/hap_srp.py (verify1) — line 81-118 as of pyatv 0.18.0
 	public byte[] Verify1 (HapCredentials credentials, byte[] sessionPubKey, byte[] encrypted)
 		{
 		if (_verifyPrivate is null || _publicBytes is null)
@@ -189,7 +189,7 @@ public sealed class SrpAuthHandler
 	/// <param name="outputInfo">The HKDF info string for the output key.</param>
 	/// <param name="inputInfo">The HKDF info string for the input key.</param>
 	/// <returns>A tuple of (output key, input key).</returns>
-	// pyatv/auth/hap_srp.py:120-129 (verify2)
+	// pyatv/auth/hap_srp.py (verify2) — line 120-129 as of pyatv 0.18.0
 	public (byte[] OutputKey, byte[] InputKey) Verify2 (string salt, string outputInfo, string inputInfo)
 		{
 		if (_shared is null)
@@ -204,7 +204,7 @@ public sealed class SrpAuthHandler
 
 	/// <summary>First pairing step. Sets up the SRP client session with the given PIN.</summary>
 	/// <param name="pin">The PIN code entered by the user.</param>
-	// pyatv/auth/hap_srp.py:131-141 (step1); srptools/client.py:9-24 (SRPClientSession.__init__)
+	// pyatv/auth/hap_srp.py (step1) — line 131-141 as of pyatv 0.18.0; srptools/client.py — line 9-24 as of pyatv 0.18.0 (SRPClientSession.__init__)
 	public void Step1 (int pin)
 		{
 		if (_authPrivate is null)
@@ -226,7 +226,7 @@ public sealed class SrpAuthHandler
 	/// <param name="atvPubKey">The device's SRP public key.</param>
 	/// <param name="atvSalt">The device's SRP salt.</param>
 	/// <returns>A tuple of (client public key, client proof).</returns>
-	// pyatv/auth/hap_srp.py:143-155 (step2); srptools/common.py:88-101 (process), srptools/client.py:26-33
+	// pyatv/auth/hap_srp.py (step2) — line 143-155 as of pyatv 0.18.0; srptools/common.py — line 88-101 as of pyatv 0.18.0 (process), srptools/client.py — line 26-33 as of pyatv 0.18.0
 	public (byte[] PubKey, byte[] Proof) Step2 (byte[] atvPubKey, byte[] atvSalt)
 		{
 		if (_clientPrivate is null || _clientPublic is null || _pin is null)
@@ -273,7 +273,7 @@ public sealed class SrpAuthHandler
 	/// <summary>Third pairing step. Builds the encrypted TLV payload with device identity.</summary>
 	/// <param name="name">An optional display name to include.</param>
 	/// <returns>The encrypted TLV8 payload.</returns>
-	// pyatv/auth/hap_srp.py:167-201 (step3)
+	// pyatv/auth/hap_srp.py (step3) — line 167-201 as of pyatv 0.18.0
 	public byte[] Step3 (string? name = null)
 		{
 		if (_sessionKeyBytes is null || _signingKey is null || _authPublic is null)
@@ -301,7 +301,7 @@ public sealed class SrpAuthHandler
 
 		if (name is not null)
 			{
-			// pyatv/auth/hap_srp.py:190-194
+			// pyatv/auth/hap_srp.py — line 190-194 as of pyatv 0.18.0
 			tlv[(int)Tlv8.TlvValue.Name] = Opack.Opack.Pack (new System.Collections.Generic.Dictionary<string, object?> { { "name", name } });
 			}
 
@@ -312,7 +312,7 @@ public sealed class SrpAuthHandler
 	/// <summary>Last pairing step. Decrypts and parses the final device response.</summary>
 	/// <param name="encryptedData">The encrypted TLV8 payload from the device.</param>
 	/// <returns>The resulting credentials for the paired device.</returns>
-	// pyatv/auth/hap_srp.py:203-233 (step4)
+	// pyatv/auth/hap_srp.py (step4) — line 203-233 as of pyatv 0.18.0
 	public HapCredentials Step4 (byte[] encryptedData)
 		{
 		if (_setupSessionKey is null || _authPrivate is null)
@@ -333,12 +333,12 @@ public sealed class SrpAuthHandler
 		byte[] atvIdentifier = decryptedTlv[(int)Tlv8.TlvValue.Identifier];
 		byte[] atvPubKey = decryptedTlv[(int)Tlv8.TlvValue.PublicKey];
 
-		// TODO: verify signature here (pyatv/auth/hap_srp.py:230)
+		// TODO: verify signature here (pyatv/auth/hap_srp.py — line 230 as of pyatv 0.18.0)
 
 		return new HapCredentials (atvPubKey, _authPrivate, atvIdentifier, _pairingId);
 		}
 
-	// srptools/context.py:63-67 (pad)
+	// srptools/context.py — line 63-67 as of pyatv 0.18.0 (pad)
 	private static byte[] PadBytes (BigInteger value, int? overridePaddingLength = null)
 		{
 		int paddingLength = overridePaddingLength ?? ToPyBytes (Prime).Length;
@@ -353,13 +353,13 @@ public sealed class SrpAuthHandler
 		return padded;
 		}
 
-	// srptools/utils.py:47-52 (int_to_bytes / hex_from): minimal big-endian bytes, no fixed width.
+	// srptools/utils.py — line 47-52 as of pyatv 0.18.0 (int_to_bytes / hex_from): minimal big-endian bytes, no fixed width.
 	private static byte[] ToPyBytes (BigInteger value)
 		{
 		return value.ToByteArrayUnsigned ();
 		}
 
-	// srptools/context.py:69-91 (hash): joiner.join(map(conv, args)) then sha512; as_bytes toggles
+	// srptools/context.py — line 69-91 as of pyatv 0.18.0 (hash): joiner.join(map(conv, args)) then sha512; as_bytes toggles
 	// whether the raw digest or int_from_hex(hexdigest) is returned. Both are represented here as
 	// separate helpers since we don't have Python's dynamic typing.
 	private static byte[] HashAsBytes (string joiner, params object[] args)

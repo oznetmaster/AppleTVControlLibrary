@@ -15,7 +15,7 @@ namespace AppleTV.Companion.Tests.Discovery;
 [TestClass]
 public class DnsWireFormatTests
 	{
-	// pyatv/support/dns.py:71-135 (qname_encode) - basic multi-label name with root terminator
+	// pyatv/support/dns.py (qname_encode) — line 71-135 as of pyatv 0.18.0 - basic multi-label name with root terminator
 	[TestMethod]
 	public void QNameEncode_SimpleName_EncodesLengthPrefixedLabels ()
 		{
@@ -33,7 +33,7 @@ public class DnsWireFormatTests
 		CollectionAssert.AreEqual (expected, encoded);
 		}
 
-	// pyatv/support/dns.py:149-196 (parse_domain_name) - round trip through ParseDomainName
+	// pyatv/support/dns.py (parse_domain_name) — line 149-196 as of pyatv 0.18.0 - round trip through ParseDomainName
 	[TestMethod]
 	public void ParseDomainName_RoundTripsSimpleName ()
 		{
@@ -45,7 +45,7 @@ public class DnsWireFormatTests
 		Assert.AreEqual ("Office._companion-link._tcp.local", decoded);
 		}
 
-	// pyatv/support/dns.py:138-146 (parse_string)
+	// pyatv/support/dns.py (parse_string) — line 138-146 as of pyatv 0.18.0
 	[TestMethod]
 	public void ParseString_ReadsLengthPrefixedData ()
 		{
@@ -57,7 +57,7 @@ public class DnsWireFormatTests
 		CollectionAssert.AreEqual (new byte[] { (byte)'a', (byte)'b', (byte)'c' }, result);
 		}
 
-	// pyatv/support/dns.py:199-231 (parse_txt_dict) - key with no value and key=value pair
+	// pyatv/support/dns.py (parse_txt_dict) — line 199-231 as of pyatv 0.18.0 - key with no value and key=value pair
 	[TestMethod]
 	public void ParseTxtDict_HandlesKeyWithNoValueAndKeyValuePair ()
 		{
@@ -72,7 +72,7 @@ public class DnsWireFormatTests
 		CollectionAssert.AreEqual (Encoding.ASCII.GetBytes ("ABC123"), result["rpmrtid"]);
 		}
 
-	// pyatv/support/dns.py:234-246 (parse_srv_dict)
+	// pyatv/support/dns.py (parse_srv_dict) — line 234-246 as of pyatv 0.18.0
 	[TestMethod]
 	public void ParseSrvRecord_ReadsPriorityWeightPortAndTarget ()
 		{

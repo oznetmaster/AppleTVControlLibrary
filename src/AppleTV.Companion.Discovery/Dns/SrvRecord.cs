@@ -1,7 +1,7 @@
 namespace AppleTvControlLibrary.Discovery.Dns;
 
 /// <summary>Represents a parsed DNS SRV record's RDATA.</summary>
-// pyatv/support/dns.py:234-246 (parse_srv_dict)
+// pyatv/support/dns.py (parse_srv_dict) — line 234-246 as of pyatv 0.18.0
 public readonly struct SrvRecord
 	{
 	/// <summary>Initializes a new instance of the <see cref="SrvRecord"/> struct.</summary>

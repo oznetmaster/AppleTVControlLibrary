@@ -19,11 +19,11 @@ namespace AppleTV.Companion.Tests.AuthTests;
 /// <c>pyatv/protocols/companion/auth.py</c> (<c>CompanionPairSetupProcedure</c> and
 /// <c>CompanionPairVerifyProcedure</c>), which describe exactly this message sequence.
 /// </remarks>
-// pyatv/protocols/companion/auth.py:37-158 (CompanionPairSetupProcedure, CompanionPairVerifyProcedure)
+// pyatv/protocols/companion/auth.py (CompanionPairSetupProcedure, CompanionPairVerifyProcedure) — line 37-158 as of pyatv 0.18.0
 [TestClass]
 public class CompanionPairingIntegrationTests
 	{
-	// pyatv/protocols/companion/protocol.py:40-42 (SRP_SALT, SRP_OUTPUT_INFO, SRP_INPUT_INFO)
+	// pyatv/protocols/companion/protocol.py (SRP_SALT, SRP_OUTPUT_INFO, SRP_INPUT_INFO) — line 40-42 as of pyatv 0.18.0
 	private const string SrpSalt = "";
 	private const string SrpOutputInfo = "ClientEncrypt-main";
 	private const string SrpInputInfo = "ServerEncrypt-main";
@@ -35,7 +35,7 @@ public class CompanionPairingIntegrationTests
 		var pairSetupSrp = new SrpAuthHandler ();
 
 		// --- Pair-setup M1 ---
-		// pyatv/protocols/companion/auth.py:49-58 (start_pairing)
+		// pyatv/protocols/companion/auth.py (start_pairing) — line 49-58 as of pyatv 0.18.0
 		pairSetupSrp.Initialize ();
 
 		byte[] m1RequestTlv = Tlv8.WriteTlv (new System.Collections.Generic.Dictionary<int, byte[]>
@@ -51,7 +51,7 @@ public class CompanionPairingIntegrationTests
 		byte[] atvPubKey = m2[(int)TlvValue.PublicKey];
 
 		// --- Pair-setup M3 ---
-		// pyatv/protocols/companion/auth.py:66-90 (finish_pairing, first half)
+		// pyatv/protocols/companion/auth.py (finish_pairing, first half) — line 66-90 as of pyatv 0.18.0
 		const int pin = FakeCompanionDevice.PIN_CODE;
 		pairSetupSrp.Step1 (pin);
 		(byte[] clientPubKey, byte[] clientProof) = pairSetupSrp.Step2 (atvPubKey, atvSalt);
@@ -69,7 +69,7 @@ public class CompanionPairingIntegrationTests
 		Assert.IsFalse (m4.ContainsKey ((int)TlvValue.Error), "Server rejected client SRP proof");
 
 		// --- Pair-setup M5 ---
-		// pyatv/protocols/companion/auth.py:92-100 (finish_pairing, second half)
+		// pyatv/protocols/companion/auth.py (finish_pairing, second half) — line 92-100 as of pyatv 0.18.0
 		byte[] m5EncryptedData = pairSetupSrp.Step3 (name: "Test Client");
 		byte[] m5RequestTlv = Tlv8.WriteTlv (new System.Collections.Generic.Dictionary<int, byte[]>
 			{
@@ -89,7 +89,7 @@ public class CompanionPairingIntegrationTests
 		CollectionAssert.AreEqual (device.PairedClientId, credentials.ClientId);
 
 		// --- Pair-verify M1/M3 ---
-		// pyatv/protocols/companion/auth.py:120-158 (CompanionPairVerifyProcedure.verify_credentials)
+		// pyatv/protocols/companion/auth.py (CompanionPairVerifyProcedure.verify_credentials) — line 120-158 as of pyatv 0.18.0
 		var pairVerifySrp = new SrpAuthHandler ();
 		(byte[] _, byte[] verifyPubKey) = pairVerifySrp.Initialize ();
 
@@ -123,7 +123,7 @@ public class CompanionPairingIntegrationTests
 
 		// The client's output key must equal the server's input key and vice versa, since
 		// "ClientEncrypt-main" on the client side derives the key the server decrypts with
-		// (pyatv/protocols/companion/server_auth.py:131-132).
+		// (pyatv/protocols/companion/server_auth.py — line 131-132 as of pyatv 0.18.0).
 		Assert.IsNotNull (device.ServerOutputKey);
 		Assert.IsNotNull (device.ServerInputKey);
 		CollectionAssert.AreEqual (clientOutputKey, device.ServerInputKey);

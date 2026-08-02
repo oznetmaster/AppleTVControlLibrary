@@ -18,14 +18,14 @@ namespace AppleTV.Companion.Tests.AuthTests;
 /// secret and session key computed from the srptools-derived math in
 /// <see cref="SrpAuthHandler"/> agree with a standard SRP server for the same verifier.
 /// </summary>
-// pyatv/auth/hap_srp.py:131-165 (step1, step2); srptools/context.py, srptools/client.py
+// pyatv/auth/hap_srp.py (step1, step2) — line 131-165 as of pyatv 0.18.0; srptools/context.py, srptools/client.py
 [TestClass]
 public class SrpAuthHandlerTests
 	{
-	// pyatv/auth/hap_srp.py:135 (SRPContext("Pair-Setup", str(pin), ...))
+	// pyatv/auth/hap_srp.py (SRPContext("Pair-Setup", str(pin) — line 135 as of pyatv 0.18.0, ...))
 	private static readonly byte[] Identity = Encoding.UTF8.GetBytes ("Pair-Setup");
 
-	// pyatv/auth/hap_srp.py:21 (constants.PRIME_3072); mirrors the private field in SrpAuthHandler.
+	// pyatv/auth/hap_srp.py (constants.PRIME_3072) — line 21 as of pyatv 0.18.0; mirrors the private field in SrpAuthHandler.
 	private static readonly BigInteger Prime = new BigInteger (
 		"FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD129024E088A67CC74020BBEA6" +
 		"3B139B22514A08798E3404DDEF9519B3CD3A431B302B0A6DF25F14374FE1356D6D51C245" +

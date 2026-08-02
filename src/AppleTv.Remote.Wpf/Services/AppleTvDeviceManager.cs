@@ -84,7 +84,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// </summary>
 	/// <param name="device">The device to pair with.</param>
 	/// <returns>An in-progress pairing session to pass to <see cref="CompletePairAsync"/>.</returns>
-	// pyatv/protocols/companion/auth.py:37-60 (CompanionPairSetupProcedure, M1/M2)
+	// pyatv/protocols/companion/auth.py (CompanionPairSetupProcedure, M1/M2) — line 37-60 as of pyatv 0.18.0
 	public async Task<PairingSession> BeginPairAsync (CompanionDiscoveryResult device)
 		{
 		if (device.Address is null)
@@ -126,7 +126,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <param name="session">The in-progress session returned by <see cref="BeginPairAsync"/>.</param>
 	/// <param name="pin">The PIN code displayed on the TV.</param>
 	/// <returns>The stored device record, ready to be used for <see cref="ConnectAsync"/>.</returns>
-	// pyatv/protocols/companion/auth.py:60-100 (CompanionPairSetupProcedure, M3-M6)
+	// pyatv/protocols/companion/auth.py (CompanionPairSetupProcedure, M3-M6) — line 60-100 as of pyatv 0.18.0
 	public async Task<StoredDevice> CompletePairAsync (PairingSession session, int pin)
 		{
 		return await Task.Run (() =>
@@ -189,7 +189,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// runs the <see cref="CompanionApi.Connect"/> session bring-up sequence.
 	/// </summary>
 	/// <param name="stored">The stored device record from a previous <see cref="CompletePairAsync"/> call.</param>
-	// pyatv/protocols/companion/auth.py:120-158 (CompanionPairVerifyProcedure)
+	// pyatv/protocols/companion/auth.py (CompanionPairVerifyProcedure) — line 120-158 as of pyatv 0.18.0
 	public async Task ConnectAsync (StoredDevice stored)
 		{
 		await Task.Run (() =>
@@ -224,7 +224,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 				{ (int)TlvValue.SeqNo, new byte[] { 3 } },
 				{ (int)TlvValue.EncryptedData, pv3EncryptedData },
 				});
-			// pyatv/protocols/companion/auth.py:145-158: M3 carries no "_auTy", unlike M1.
+			// pyatv/protocols/companion/auth.py — line 145-158 as of pyatv 0.18.0: M3 carries no "_auTy", unlike M1.
 			System.Diagnostics.Debug.WriteLine ("[AppleTvDeviceManager] Sending pair-verify M3 (PV_Next)");
 			Dictionary<object, object?> pv4Response = protocol.ExchangeAuth (FrameType.PV_Next, new Dictionary<string, object?> { ["_pd"] = pv3 });
 			System.Diagnostics.Debug.WriteLine ("[AppleTvDeviceManager] Received pair-verify M4");
@@ -302,12 +302,12 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <summary>
 	/// Toggles power using the cached <see cref="CurrentSystemStatus"/> (tracked via the initial
 	/// connect snapshot and pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> events, per
-	/// pyatv/protocols/companion/__init__.py:219-246) and sending the corresponding
+	/// pyatv/protocols/companion/__init__.py — line 219-246 as of pyatv 0.18.0) and sending the corresponding
 	/// <see cref="HidCommand.Sleep"/> or <see cref="HidCommand.Wake"/> command: an asleep device
 	/// is woken, anything else (awake, screensaver, idle, unknown) is put to sleep.
 	/// </summary>
 	/// <returns><see langword="true"/> if a wake command was sent, <see langword="false"/> if a sleep command was sent.</returns>
-	// pyatv/protocols/companion/api.py:38/44-45 (HidCommand.Sleep/Wake). turn_on/turn_off both
+	// pyatv/protocols/companion/api.py (HidCommand.Sleep/Wake) — line 38/44-45 as of pyatv 0.18.0. turn_on/turn_off both
 	// call hid_command(False, ...) - a single up-only event, not a down/up pair.
 	public bool TogglePower ()
 		{

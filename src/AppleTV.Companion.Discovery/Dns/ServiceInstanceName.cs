@@ -4,7 +4,7 @@ namespace AppleTvControlLibrary.Discovery.Dns;
 /// Represents either a service or service instance name in the DNS, handling periods
 /// embedded in the instance name correctly.
 /// </summary>
-// pyatv/support/dns.py:28-68 (ServiceInstanceName)
+// pyatv/support/dns.py (ServiceInstanceName) — line 28-68 as of pyatv 0.18.0
 public sealed class ServiceInstanceName
 	{
 	/// <summary>Initializes a new instance of the <see cref="ServiceInstanceName"/> class.</summary>
@@ -37,7 +37,7 @@ public sealed class ServiceInstanceName
 		}
 
 	/// <summary>Gets just the service name, like the name for a PTR record.</summary>
-	// pyatv/support/dns.py:65-68 (ptr_name)
+	// pyatv/support/dns.py (ptr_name) — line 65-68 as of pyatv 0.18.0
 	public string PtrName => string.Join (".", new[] { this.Service, this.Domain });
 
 	/// <summary>
@@ -48,7 +48,7 @@ public sealed class ServiceInstanceName
 	/// <exception cref="System.ArgumentException">
 	/// Thrown when <paramref name="name"/> isn't a service name or service instance name.
 	/// </exception>
-	// pyatv/support/dns.py:43-63 (split_name)
+	// pyatv/support/dns.py (split_name) — line 43-63 as of pyatv 0.18.0
 	public static ServiceInstanceName SplitName (string name)
 		{
 		string[] labels = name.Split ('.');

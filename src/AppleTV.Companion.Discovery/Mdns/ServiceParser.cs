@@ -8,11 +8,11 @@ using AppleTvControlLibrary.Discovery.Dns;
 namespace AppleTvControlLibrary.Discovery.Mdns;
 
 /// <summary>Parses zeroconf/DNS-SD services from records collected across DNS messages.</summary>
-// pyatv/core/mdns.py:106-174 (ServiceParser)
+// pyatv/core/mdns.py (ServiceParser) — line 106-174 as of pyatv 0.18.0
 public sealed class ServiceParser
 	{
 	/// <summary>The DNS-SD device-info service type.</summary>
-	// pyatv/core/mdns.py:57 (DEVICE_INFO_SERVICE)
+	// pyatv/core/mdns.py (DEVICE_INFO_SERVICE) — line 57 as of pyatv 0.18.0
 	public const string DEVICE_INFO_SERVICE = "_device-info._tcp.local";
 
 	private readonly Dictionary<string, Dictionary<QueryType, List<DnsResource>>> _table = new Dictionary<string, Dictionary<QueryType, List<DnsResource>>> ();
@@ -22,7 +22,7 @@ public sealed class ServiceParser
 	/// <summary>Adds a message with records to parse.</summary>
 	/// <param name="message">The DNS message whose answers and additional resources should be added.</param>
 	/// <returns>This instance, for chaining.</returns>
-	// pyatv/core/mdns.py:115-129 (add_message)
+	// pyatv/core/mdns.py (add_message) — line 115-129 as of pyatv 0.18.0
 	public ServiceParser AddMessage (DnsMessage message)
 		{
 		this._cache = null;
@@ -65,7 +65,7 @@ public sealed class ServiceParser
 
 	/// <summary>Parses previously added records and returns the discovered services.</summary>
 	/// <returns>The parsed services.</returns>
-	// pyatv/core/mdns.py:131-174 (parse)
+	// pyatv/core/mdns.py (parse) — line 131-174 as of pyatv 0.18.0
 	public IReadOnlyList<Service> Parse ()
 		{
 		if (this._cache is not null)
@@ -118,7 +118,7 @@ public sealed class ServiceParser
 				DecodeProperties (txt ?? new Dictionary<string, byte[]> ()));
 			}
 
-		// pyatv/core/mdns.py:167-172 (placeholders for PTRs to unknown services)
+		// pyatv/core/mdns.py (placeholders for PTRs to unknown services) — line 167-172 as of pyatv 0.18.0
 		foreach (KeyValuePair<string, string> ptr in this._ptrs)
 			{
 			string realName = ptr.Value;
@@ -164,7 +164,7 @@ public sealed class ServiceParser
 	/// <summary>Decodes a bytes value, converting non-breaking-spaces to spaces before decoding.</summary>
 	/// <param name="value">The raw TXT record value.</param>
 	/// <returns>The decoded string.</returns>
-	// pyatv/core/mdns.py:60-70 (decode_value)
+	// pyatv/core/mdns.py (decode_value) — line 60-70 as of pyatv 0.18.0
 	public static string DecodeValue (byte[] value)
 		{
 		try
@@ -213,7 +213,7 @@ public sealed class ServiceParser
 		return result.ToArray ();
 		}
 
-	// pyatv/core/mdns.py:73-76 (_decode_properties)
+	// pyatv/core/mdns.py (_decode_properties) — line 73-76 as of pyatv 0.18.0
 	private static Dictionary<string, string> DecodeProperties (Dictionary<string, byte[]> properties)
 		{
 		Dictionary<string, string> result = new Dictionary<string, string> (StringComparer.OrdinalIgnoreCase);

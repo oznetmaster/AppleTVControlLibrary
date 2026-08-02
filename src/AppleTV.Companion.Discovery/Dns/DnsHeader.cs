@@ -1,7 +1,7 @@
 namespace AppleTvControlLibrary.Discovery.Dns;
 
 /// <summary>Represents the header to a DNS message.</summary>
-// pyatv/support/dns.py:278-302 (DnsHeader)
+// pyatv/support/dns.py (DnsHeader) — line 278-302 as of pyatv 0.18.0
 internal sealed class DnsHeader
 	{
 	public DnsHeader (ushort id, ushort flags, ushort qdcount, ushort ancount, ushort nscount, ushort arcount)
@@ -44,7 +44,7 @@ internal sealed class DnsHeader
 		get;
 		}
 
-	// pyatv/support/dns.py:291-298 (unpack_read)
+	// pyatv/support/dns.py (unpack_read) — line 291-298 as of pyatv 0.18.0
 	public static DnsHeader UnpackRead (DnsBufferReader buffer)
 		{
 		ushort id = buffer.ReadUInt16BE ();
@@ -56,7 +56,7 @@ internal sealed class DnsHeader
 		return new DnsHeader (id, flags, qdcount, ancount, nscount, arcount);
 		}
 
-	// pyatv/support/dns.py:300-302 (pack)
+	// pyatv/support/dns.py (pack) — line 300-302 as of pyatv 0.18.0
 	public byte[] Pack ()
 		{
 		byte[] result = new byte[12];

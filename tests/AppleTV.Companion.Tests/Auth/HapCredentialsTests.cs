@@ -12,7 +12,7 @@ namespace AppleTV.Companion.Tests.AuthTests;
 [TestClass]
 public class HapCredentialsTests
 	{
-	// pyatv/auth/hap_pairing.py:139-152 (parse_credentials)
+	// pyatv/auth/hap_pairing.py (parse_credentials) — line 139-152 as of pyatv 0.18.0
 	[TestMethod]
 	public void ParseNullReturnsNoCredentials ()
 		{

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 namespace AppleTvControlLibrary.Discovery.Dns;
 
 /// <summary>Represents a DNS message (query or response).</summary>
-// pyatv/support/dns.py:361-448 (DnsMessage)
+// pyatv/support/dns.py (DnsMessage) — line 361-448 as of pyatv 0.18.0
 public sealed class DnsMessage
 	{
-	// pyatv/support/dns.py:364 (default flags=0x0120)
+	// pyatv/support/dns.py (default flags=0x0120) — line 364 as of pyatv 0.18.0
 	private const ushort DEFAULT_FLAGS = 0x0120;
 
 	/// <summary>Initializes a new instance of the <see cref="DnsMessage"/> class.</summary>
@@ -61,7 +61,7 @@ public sealed class DnsMessage
 	/// <summary>Unpacks bytes into this <see cref="DnsMessage"/>.</summary>
 	/// <param name="msg">The raw message bytes.</param>
 	/// <returns>This instance, for chaining.</returns>
-	// pyatv/support/dns.py:373-401 (unpack)
+	// pyatv/support/dns.py (unpack) — line 373-401 as of pyatv 0.18.0
 	public DnsMessage Unpack (byte[] msg)
 		{
 		DnsBufferReader buffer = new DnsBufferReader (msg);
@@ -100,7 +100,7 @@ public sealed class DnsMessage
 	/// pyatv makes of this method (<c>create_service_queries</c>); answer/authority/resource
 	/// packing is not needed by a discovery client and is therefore not implemented.
 	/// </remarks>
-	// pyatv/support/dns.py:403-439 (pack)
+	// pyatv/support/dns.py (pack) — line 403-439 as of pyatv 0.18.0
 	public byte[] Pack ()
 		{
 		DnsHeader header = new DnsHeader (

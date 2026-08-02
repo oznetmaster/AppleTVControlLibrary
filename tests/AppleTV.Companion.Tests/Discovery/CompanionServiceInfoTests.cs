@@ -13,7 +13,7 @@ namespace AppleTV.Companion.Tests.Discovery;
 [TestClass]
 public class CompanionServiceInfoTests
 	{
-	// pyatv/helpers.py:73-76 (get_unique_id, COMPANION_SERVICE branch)
+	// pyatv/helpers.py (get_unique_id, COMPANION_SERVICE branch) — line 73-76 as of pyatv 0.18.0
 	[TestMethod]
 	public void GetUniqueId_ReturnsRpmrtidValue ()
 		{
@@ -34,7 +34,7 @@ public class CompanionServiceInfoTests
 		Assert.IsNull (uniqueId);
 		}
 
-	// pyatv/protocols/companion/__init__.py:56-79, 648-660 (service_info + masks)
+	// pyatv/protocols/companion/__init__.py — line 56-79 as of pyatv 0.18.0, 648-660 (service_info + masks)
 	[TestMethod]
 	public void GetPairingRequirement_DisabledMaskWins ()
 		{

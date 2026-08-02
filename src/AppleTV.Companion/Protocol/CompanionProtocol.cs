@@ -10,34 +10,34 @@ namespace AppleTvControlLibrary.Protocol;
 /// <summary>
 /// Type of an OPACK message exchanged over a Companion connection.
 /// </summary>
-// pyatv/protocols/companion/protocol.py:54-59 (MessageType)
+// pyatv/protocols/companion/protocol.py (MessageType) — line 54-59 as of pyatv 0.18.0
 public enum MessageType
 	{
-	/// <summary>An unsolicited event. pyatv/protocols/companion/protocol.py:57</summary>
+	/// <summary>An unsolicited event. pyatv/protocols/companion/protocol.py — line 57 as of pyatv 0.18.0</summary>
 	Event = 1,
-	/// <summary>A request expecting a response. pyatv/protocols/companion/protocol.py:58</summary>
+	/// <summary>A request expecting a response. pyatv/protocols/companion/protocol.py — line 58 as of pyatv 0.18.0</summary>
 	Request = 2,
-	/// <summary>A response to a previously sent request. pyatv/protocols/companion/protocol.py:59</summary>
+	/// <summary>A response to a previously sent request. pyatv/protocols/companion/protocol.py — line 59 as of pyatv 0.18.0</summary>
 	Response = 3,
 	}
 
 /// <summary>
 /// Listener interface for a Companion protocol instance.
 /// </summary>
-// pyatv/protocols/companion/protocol.py:65-69 (CompanionProtocolListener)
+// pyatv/protocols/companion/protocol.py (CompanionProtocolListener) — line 65-69 as of pyatv 0.18.0
 public interface ICompanionProtocolListener
 	{
 	/// <summary>An event was received from the remote device.</summary>
 	/// <param name="eventName">The event identifier (the message's <c>_i</c> field).</param>
 	/// <param name="data">The event content (the message's <c>_c</c> field).</param>
-	// pyatv/protocols/companion/protocol.py:68
+	// pyatv/protocols/companion/protocol.py — line 68 as of pyatv 0.18.0
 	void EventReceived (string eventName, Dictionary<object, object?> data);
 	}
 
 /// <summary>
 /// Raised when a Companion protocol exchange fails.
 /// </summary>
-// pyatv/exceptions.py:31-33 (ProtocolError)
+// pyatv/exceptions.py (ProtocolError) — line 31-33 as of pyatv 0.18.0
 public class ProtocolException : Exception
 	{
 	/// <summary>Initializes a new instance of the <see cref="ProtocolException"/> class.</summary>
@@ -64,7 +64,7 @@ public class ProtocolException : Exception
 /// <see cref="FrameType"/> that is expected in response (auth messages, which never have an XID
 /// since parallel authentication attempts are impossible).
 /// </summary>
-// pyatv/protocols/companion/protocol.py:44-49 (FrameIdType)
+// pyatv/protocols/companion/protocol.py (FrameIdType) — line 44-49 as of pyatv 0.18.0
 public readonly struct FrameIdentifier : IEquatable<FrameIdentifier>
 	{
 	private readonly int? _xid;
@@ -117,10 +117,10 @@ public readonly struct FrameIdentifier : IEquatable<FrameIdentifier>
 /// keeps the type usable both by an in-memory test harness (as used for WP5/WP6 validation) and by
 /// a future asynchronous socket transport without changing the correlation logic itself.
 /// </remarks>
-// pyatv/protocols/companion/protocol.py:72-234 (CompanionProtocol)
+// pyatv/protocols/companion/protocol.py (CompanionProtocol) — line 72-234 as of pyatv 0.18.0
 public sealed class CompanionProtocol
 	{
-	// pyatv/protocols/companion/protocol.py:40-42
+	// pyatv/protocols/companion/protocol.py — line 40-42 as of pyatv 0.18.0
 	/// <summary>SRP HKDF salt used when deriving Companion encryption keys.</summary>
 	public const string SRP_SALT = "";
 	/// <summary>SRP HKDF info string for the client's outbound encryption key.</summary>
@@ -135,13 +135,13 @@ public sealed class CompanionProtocol
 	// (unlike the in-memory fake-device harness, where everything runs on one thread).
 	private readonly System.Collections.Concurrent.ConcurrentDictionary<FrameIdentifier, Action<Dictionary<object, object?>>> _pending = new ();
 
-	// pyatv/protocols/companion/protocol.py:89 (self._xid: int = randint(0, 2**16))
+	// pyatv/protocols/companion/protocol.py (self._xid: int = randint(0, 2**16) — line 89 as of pyatv 0.18.0)
 	private int _xid;
 
 	/// <summary>Initializes a new instance of the <see cref="CompanionProtocol"/> class.</summary>
 	/// <param name="connection">The underlying framed connection.</param>
 	/// <param name="srp">The SRP handler used for pair-verify.</param>
-	// pyatv/protocols/companion/protocol.py:77-92 (__init__)
+	// pyatv/protocols/companion/protocol.py (__init__) — line 77-92 as of pyatv 0.18.0
 	public CompanionProtocol (CompanionConnection connection, SrpAuthHandler srp)
 		{
 		_connection = connection;
@@ -174,10 +174,10 @@ public sealed class CompanionProtocol
 	/// <param name="frameType">The frame type to send.</param>
 	/// <param name="data">The message content.</param>
 	/// <returns>The decoded OPACK response.</returns>
-	// pyatv/protocols/companion/protocol.py:125-141 (exchange_auth)
+	// pyatv/protocols/companion/protocol.py (exchange_auth) — line 125-141 as of pyatv 0.18.0
 	public Dictionary<object, object?> ExchangeAuth (FrameType frameType, Dictionary<string, object?> data)
 		{
-		// pyatv/protocols/companion/protocol.py:132-140: *_Start is only used for the first
+		// pyatv/protocols/companion/protocol.py — line 132-140 as of pyatv 0.18.0: *_Start is only used for the first
 		// message, then *_Next is used for remaining messages (even the response to the first).
 		FrameType identifier = frameType switch
 			{
@@ -193,7 +193,7 @@ public sealed class CompanionProtocol
 	/// <param name="frameType">The frame type to send.</param>
 	/// <param name="data">The message content.</param>
 	/// <returns>The decoded OPACK response.</returns>
-	// pyatv/protocols/companion/protocol.py:143-153 (exchange_opack)
+	// pyatv/protocols/companion/protocol.py (exchange_opack) — line 143-153 as of pyatv 0.18.0
 	public Dictionary<object, object?> ExchangeOpack (FrameType frameType, Dictionary<string, object?> data)
 		{
 		int xid = _xid++;
@@ -221,7 +221,7 @@ public sealed class CompanionProtocol
 		set;
 		} = TimeSpan.FromSeconds (10);
 
-	// pyatv/protocols/companion/protocol.py:155-176 (_exchange_generic_opack)
+	// pyatv/protocols/companion/protocol.py (_exchange_generic_opack) — line 155-176 as of pyatv 0.18.0
 	private Dictionary<object, object?> ExchangeGeneric (FrameType frameType, Dictionary<string, object?> data, FrameIdentifier identifier)
 		{
 		Dictionary<object, object?>? result = null;
@@ -242,7 +242,7 @@ public sealed class CompanionProtocol
 			throw new ProtocolException ($"No response received for {identifier} (sent as {frameType})");
 			}
 
-		// pyatv/protocols/companion/protocol.py:173-174
+		// pyatv/protocols/companion/protocol.py — line 173-174 as of pyatv 0.18.0
 		if (result!.TryGetValue ("_em", out object? errorMessage))
 			{
 			throw new ProtocolException ($"Command failed: {errorMessage}");
@@ -254,7 +254,7 @@ public sealed class CompanionProtocol
 	/// <summary>Send data encoded with OPACK, adding an XID if not already present.</summary>
 	/// <param name="frameType">The frame type to send.</param>
 	/// <param name="data">The message content.</param>
-	// pyatv/protocols/companion/protocol.py:178-186 (send_opack)
+	// pyatv/protocols/companion/protocol.py (send_opack) — line 178-186 as of pyatv 0.18.0
 	public void SendOpack (FrameType frameType, Dictionary<string, object?> data)
 		{
 		if (!data.ContainsKey ("_x"))
@@ -271,7 +271,7 @@ public sealed class CompanionProtocol
 		Sender (frame);
 		}
 
-	// pyatv/protocols/companion/protocol.py:188-207 (frame_received)
+	// pyatv/protocols/companion/protocol.py (frame_received) — line 188-207 as of pyatv 0.18.0
 	private static readonly FrameType[] AuthFrames =
 		{
 		FrameType.PS_Start, FrameType.PS_Next, FrameType.PV_Start, FrameType.PV_Next,
@@ -312,7 +312,7 @@ public sealed class CompanionProtocol
 			}
 		}
 
-	// pyatv/protocols/companion/protocol.py:209-215 (_handle_auth)
+	// pyatv/protocols/companion/protocol.py (_handle_auth) — line 209-215 as of pyatv 0.18.0
 	private void HandleAuth (FrameType frameType, Dictionary<object, object?> opackData)
 		{
 		var identifier = FrameIdentifier.FromFrameType (frameType);
@@ -326,7 +326,7 @@ public sealed class CompanionProtocol
 			}
 		}
 
-	// pyatv/protocols/companion/protocol.py:217-234 (_handle_opack)
+	// pyatv/protocols/companion/protocol.py (_handle_opack) — line 217-234 as of pyatv 0.18.0
 	private void HandleOpack (Dictionary<object, object?> opackData)
 		{
 		object? messageType = opackData.TryGetValue ("_t", out object? mt) ? mt : null;

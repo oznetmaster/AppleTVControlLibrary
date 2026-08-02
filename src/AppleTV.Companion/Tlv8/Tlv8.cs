@@ -7,113 +7,113 @@ namespace AppleTvControlLibrary.Tlv8;
 /// <summary>
 /// Correspond to TLV values in HAP specification.
 /// </summary>
-// pyatv/auth/hap_tlv8.py:13-34
+// pyatv/auth/hap_tlv8.py — line 13-34 as of pyatv 0.18.0
 public enum TlvValue
 	{
-	/// <summary>Pairing method. pyatv/auth/hap_tlv8.py:17</summary>
+	/// <summary>Pairing method. pyatv/auth/hap_tlv8.py — line 17 as of pyatv 0.18.0</summary>
 	Method = 0x00,
-	/// <summary>Peer identifier. pyatv/auth/hap_tlv8.py:18</summary>
+	/// <summary>Peer identifier. pyatv/auth/hap_tlv8.py — line 18 as of pyatv 0.18.0</summary>
 	Identifier = 0x01,
-	/// <summary>SRP salt. pyatv/auth/hap_tlv8.py:19</summary>
+	/// <summary>SRP salt. pyatv/auth/hap_tlv8.py — line 19 as of pyatv 0.18.0</summary>
 	Salt = 0x02,
-	/// <summary>Public key. pyatv/auth/hap_tlv8.py:20</summary>
+	/// <summary>Public key. pyatv/auth/hap_tlv8.py — line 20 as of pyatv 0.18.0</summary>
 	PublicKey = 0x03,
-	/// <summary>SRP proof. pyatv/auth/hap_tlv8.py:21</summary>
+	/// <summary>SRP proof. pyatv/auth/hap_tlv8.py — line 21 as of pyatv 0.18.0</summary>
 	Proof = 0x04,
-	/// <summary>Encrypted data. pyatv/auth/hap_tlv8.py:22</summary>
+	/// <summary>Encrypted data. pyatv/auth/hap_tlv8.py — line 22 as of pyatv 0.18.0</summary>
 	EncryptedData = 0x05,
-	/// <summary>Sequence number. pyatv/auth/hap_tlv8.py:23</summary>
+	/// <summary>Sequence number. pyatv/auth/hap_tlv8.py — line 23 as of pyatv 0.18.0</summary>
 	SeqNo = 0x06,
-	/// <summary>Error code. pyatv/auth/hap_tlv8.py:24</summary>
+	/// <summary>Error code. pyatv/auth/hap_tlv8.py — line 24 as of pyatv 0.18.0</summary>
 	Error = 0x07,
-	/// <summary>Backoff time in seconds. pyatv/auth/hap_tlv8.py:25</summary>
+	/// <summary>Backoff time in seconds. pyatv/auth/hap_tlv8.py — line 25 as of pyatv 0.18.0</summary>
 	BackOff = 0x08,
-	/// <summary>Certificate. pyatv/auth/hap_tlv8.py:26</summary>
+	/// <summary>Certificate. pyatv/auth/hap_tlv8.py — line 26 as of pyatv 0.18.0</summary>
 	Certificate = 0x09,
-	/// <summary>Signature. pyatv/auth/hap_tlv8.py:27</summary>
+	/// <summary>Signature. pyatv/auth/hap_tlv8.py — line 27 as of pyatv 0.18.0</summary>
 	Signature = 0x0A,
-	/// <summary>Permissions. pyatv/auth/hap_tlv8.py:28</summary>
+	/// <summary>Permissions. pyatv/auth/hap_tlv8.py — line 28 as of pyatv 0.18.0</summary>
 	Permissions = 0x0B,
-	/// <summary>Fragment data. pyatv/auth/hap_tlv8.py:29</summary>
+	/// <summary>Fragment data. pyatv/auth/hap_tlv8.py — line 29 as of pyatv 0.18.0</summary>
 	FragmentData = 0x0C,
-	/// <summary>Last fragment. pyatv/auth/hap_tlv8.py:30</summary>
+	/// <summary>Last fragment. pyatv/auth/hap_tlv8.py — line 30 as of pyatv 0.18.0</summary>
 	FragmentLast = 0x0D,
 
-	/// <summary>Apple internal(?) name value. pyatv/auth/hap_tlv8.py:33</summary>
+	/// <summary>Apple internal(?) name value. pyatv/auth/hap_tlv8.py — line 33 as of pyatv 0.18.0</summary>
 	Name = 0x11,
-	/// <summary>Apple internal(?) flags value. pyatv/auth/hap_tlv8.py:34</summary>
+	/// <summary>Apple internal(?) flags value. pyatv/auth/hap_tlv8.py — line 34 as of pyatv 0.18.0</summary>
 	PairingFlags = 0x13,
 	}
 
 /// <summary>
 /// Flag values used with TlvValue.PairingFlags.
 /// </summary>
-// pyatv/auth/hap_tlv8.py:37-40
+// pyatv/auth/hap_tlv8.py — line 37-40 as of pyatv 0.18.0
 public enum PairingFlagValue
 	{
-	/// <summary>Transient pairing flag. pyatv/auth/hap_tlv8.py:40</summary>
+	/// <summary>Transient pairing flag. pyatv/auth/hap_tlv8.py — line 40 as of pyatv 0.18.0</summary>
 	TransientPairing = 0x10,
 	}
 
 /// <summary>
 /// Correspond to error codes in HAP specification.
 /// </summary>
-// pyatv/auth/hap_tlv8.py:43-52
+// pyatv/auth/hap_tlv8.py — line 43-52 as of pyatv 0.18.0
 public enum ErrorCode
 	{
-	/// <summary>Unknown error. pyatv/auth/hap_tlv8.py:46</summary>
+	/// <summary>Unknown error. pyatv/auth/hap_tlv8.py — line 46 as of pyatv 0.18.0</summary>
 	Unknown = 0x01,
-	/// <summary>Authentication error. pyatv/auth/hap_tlv8.py:47</summary>
+	/// <summary>Authentication error. pyatv/auth/hap_tlv8.py — line 47 as of pyatv 0.18.0</summary>
 	Authentication = 0x02,
-	/// <summary>Backoff required. pyatv/auth/hap_tlv8.py:48</summary>
+	/// <summary>Backoff required. pyatv/auth/hap_tlv8.py — line 48 as of pyatv 0.18.0</summary>
 	BackOff = 0x03,
-	/// <summary>Max peers reached. pyatv/auth/hap_tlv8.py:49</summary>
+	/// <summary>Max peers reached. pyatv/auth/hap_tlv8.py — line 49 as of pyatv 0.18.0</summary>
 	MaxPeers = 0x04,
-	/// <summary>Max tries reached. pyatv/auth/hap_tlv8.py:50</summary>
+	/// <summary>Max tries reached. pyatv/auth/hap_tlv8.py — line 50 as of pyatv 0.18.0</summary>
 	MaxTries = 0x05,
-	/// <summary>Unavailable. pyatv/auth/hap_tlv8.py:51</summary>
+	/// <summary>Unavailable. pyatv/auth/hap_tlv8.py — line 51 as of pyatv 0.18.0</summary>
 	Unavailable = 0x06,
-	/// <summary>Busy. pyatv/auth/hap_tlv8.py:52</summary>
+	/// <summary>Busy. pyatv/auth/hap_tlv8.py — line 52 as of pyatv 0.18.0</summary>
 	Busy = 0x07,
 	}
 
 /// <summary>
 /// Correspond to methods in HAP specification.
 /// </summary>
-// pyatv/auth/hap_tlv8.py:55-63
+// pyatv/auth/hap_tlv8.py — line 55-63 as of pyatv 0.18.0
 public enum Method
 	{
-	/// <summary>Pair setup. pyatv/auth/hap_tlv8.py:58</summary>
+	/// <summary>Pair setup. pyatv/auth/hap_tlv8.py — line 58 as of pyatv 0.18.0</summary>
 	PairSetup = 0x00,
-	/// <summary>Pair setup with auth. pyatv/auth/hap_tlv8.py:59</summary>
+	/// <summary>Pair setup with auth. pyatv/auth/hap_tlv8.py — line 59 as of pyatv 0.18.0</summary>
 	PairSetupWithAuth = 0x01,
-	/// <summary>Pair verify. pyatv/auth/hap_tlv8.py:60</summary>
+	/// <summary>Pair verify. pyatv/auth/hap_tlv8.py — line 60 as of pyatv 0.18.0</summary>
 	PairVerify = 0x02,
-	/// <summary>Add pairing. pyatv/auth/hap_tlv8.py:61</summary>
+	/// <summary>Add pairing. pyatv/auth/hap_tlv8.py — line 61 as of pyatv 0.18.0</summary>
 	AddPairing = 0x03,
-	/// <summary>Remove pairing. pyatv/auth/hap_tlv8.py:62</summary>
+	/// <summary>Remove pairing. pyatv/auth/hap_tlv8.py — line 62 as of pyatv 0.18.0</summary>
 	RemovePairing = 0x04,
-	/// <summary>List pairing. pyatv/auth/hap_tlv8.py:63</summary>
+	/// <summary>List pairing. pyatv/auth/hap_tlv8.py — line 63 as of pyatv 0.18.0</summary>
 	ListPairing = 0x05,
 	}
 
 /// <summary>
 /// Correspond to states in HAP specification.
 /// </summary>
-// pyatv/auth/hap_tlv8.py:66-74
+// pyatv/auth/hap_tlv8.py — line 66-74 as of pyatv 0.18.0
 public enum State
 	{
-	/// <summary>State M1. pyatv/auth/hap_tlv8.py:69</summary>
+	/// <summary>State M1. pyatv/auth/hap_tlv8.py — line 69 as of pyatv 0.18.0</summary>
 	M1 = 0x01,
-	/// <summary>State M2. pyatv/auth/hap_tlv8.py:70</summary>
+	/// <summary>State M2. pyatv/auth/hap_tlv8.py — line 70 as of pyatv 0.18.0</summary>
 	M2 = 0x02,
-	/// <summary>State M3. pyatv/auth/hap_tlv8.py:71</summary>
+	/// <summary>State M3. pyatv/auth/hap_tlv8.py — line 71 as of pyatv 0.18.0</summary>
 	M3 = 0x03,
-	/// <summary>State M4. pyatv/auth/hap_tlv8.py:72</summary>
+	/// <summary>State M4. pyatv/auth/hap_tlv8.py — line 72 as of pyatv 0.18.0</summary>
 	M4 = 0x04,
-	/// <summary>State M5. pyatv/auth/hap_tlv8.py:73</summary>
+	/// <summary>State M5. pyatv/auth/hap_tlv8.py — line 73 as of pyatv 0.18.0</summary>
 	M5 = 0x05,
-	/// <summary>State M6. pyatv/auth/hap_tlv8.py:74</summary>
+	/// <summary>State M6. pyatv/auth/hap_tlv8.py — line 74 as of pyatv 0.18.0</summary>
 	M6 = 0x06,
 	}
 
@@ -132,14 +132,14 @@ public static class Tlv8
 	/// If value is larger than 255 bytes, it is split up in multiple chunks. So
 	/// the same tag might occur several times.
 	/// </remarks>
-	// pyatv/auth/hap_tlv8.py:77-100 (read_tlv)
+	// pyatv/auth/hap_tlv8.py (read_tlv) — line 77-100 as of pyatv 0.18.0
 	public static Dictionary<int, byte[]> ReadTlv (byte[] data)
 		{
 		var result = new Dictionary<int, byte[]> ();
 		int pos = 0;
 		int size = data.Length;
 
-		// pyatv/auth/hap_tlv8.py:84-98 (_parse, iterative rewrite of the recursion)
+		// pyatv/auth/hap_tlv8.py (_parse, iterative rewrite of the recursion) — line 84-98 as of pyatv 0.18.0
 		while (pos < size)
 			{
 			int tag = data[pos];
@@ -149,7 +149,7 @@ public static class Tlv8
 
 			if (result.TryGetValue (tag, out var existing))
 				{
-				// pyatv/auth/hap_tlv8.py:94-95 (value > 255 is split up)
+				// pyatv/auth/hap_tlv8.py (value > 255 is split up) — line 94-95 as of pyatv 0.18.0
 				var combined = new byte[existing.Length + value.Length];
 				Array.Copy (existing, combined, existing.Length);
 				Array.Copy (value, 0, combined, existing.Length, value.Length);
@@ -170,7 +170,7 @@ public static class Tlv8
 	/// <remarks>
 	/// NB: This simple implementation assumes all values are bytes!
 	/// </remarks>
-	// pyatv/auth/hap_tlv8.py:103-123 (write_tlv)
+	// pyatv/auth/hap_tlv8.py (write_tlv) — line 103-123 as of pyatv 0.18.0
 	public static byte[] WriteTlv (IEnumerable<KeyValuePair<int, byte[]>> data)
 		{
 		var tlv = new List<byte> ();
@@ -182,7 +182,7 @@ public static class Tlv8
 			int length = value.Length;
 			int pos = 0;
 
-			// pyatv/auth/hap_tlv8.py:114-122
+			// pyatv/auth/hap_tlv8.py — line 114-122 as of pyatv 0.18.0
 			// A tag with length > 255 is added multiple times and concatenated into
 			// one buffer when reading the TLV again.
 			while (pos < value.Length)
@@ -208,7 +208,7 @@ public static class Tlv8
 	/// Method, sequence number, error and backoff time are parsed while the rest
 	/// are just summarized with value byte length.
 	/// </remarks>
-	// pyatv/auth/hap_tlv8.py:126-158 (stringify)
+	// pyatv/auth/hap_tlv8.py (stringify) — line 126-158 as of pyatv 0.18.0
 	public static string Stringify (IEnumerable<KeyValuePair<int, byte[]>> data)
 		{
 		var output = new List<string> ();
@@ -221,7 +221,7 @@ public static class Tlv8
 
 			if (!isKnownKey)
 				{
-				// pyatv/auth/hap_tlv8.py:142-143
+				// pyatv/auth/hap_tlv8.py — line 142-143 as of pyatv 0.18.0
 				output.Add ($"{ToHex (key)}={value.Length}bytes");
 				continue;
 				}
@@ -230,31 +230,31 @@ public static class Tlv8
 
 			if (keyType == TlvValue.Method)
 				{
-				// pyatv/auth/hap_tlv8.py:144-146
+				// pyatv/auth/hap_tlv8.py — line 144-146 as of pyatv 0.18.0
 				long method = FromBytesLittleEndian (value);
 				output.Add (keyType + "=" + EnumValueName<Method> (method));
 				}
 			else if (keyType == TlvValue.SeqNo)
 				{
-				// pyatv/auth/hap_tlv8.py:147-149
+				// pyatv/auth/hap_tlv8.py — line 147-149 as of pyatv 0.18.0
 				long seqno = FromBytesLittleEndian (value);
 				output.Add (keyType + "=" + EnumValueName<State> (seqno));
 				}
 			else if (keyType == TlvValue.Error)
 				{
-				// pyatv/auth/hap_tlv8.py:150-152
+				// pyatv/auth/hap_tlv8.py — line 150-152 as of pyatv 0.18.0
 				long code = FromBytesLittleEndian (value);
 				output.Add (keyType + "=" + EnumValueName<ErrorCode> (code));
 				}
 			else if (keyType == TlvValue.BackOff)
 				{
-				// pyatv/auth/hap_tlv8.py:153-155
+				// pyatv/auth/hap_tlv8.py — line 153-155 as of pyatv 0.18.0
 				long seconds = FromBytesLittleEndian (value);
 				output.Add ($"{keyType}={seconds}s");
 				}
 			else
 				{
-				// pyatv/auth/hap_tlv8.py:156-157
+				// pyatv/auth/hap_tlv8.py — line 156-157 as of pyatv 0.18.0
 				output.Add ($"{keyType}={value.Length}bytes");
 				}
 			}
@@ -262,7 +262,7 @@ public static class Tlv8
 		return string.Join (", ", output);
 		}
 
-	// pyatv/auth/hap_tlv8.py:133-137 (_enum_value_name)
+	// pyatv/auth/hap_tlv8.py (_enum_value_name) — line 133-137 as of pyatv 0.18.0
 	private static string EnumValueName<TEnum> (long value) where TEnum : struct, Enum
 		{
 		if (Enum.IsDefined (typeof (TEnum), (int)value))

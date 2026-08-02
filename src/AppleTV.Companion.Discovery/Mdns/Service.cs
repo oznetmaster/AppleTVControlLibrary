@@ -4,7 +4,7 @@ using System.Net;
 namespace AppleTvControlLibrary.Discovery.Mdns;
 
 /// <summary>Represents an MDNS service.</summary>
-// pyatv/core/mdns.py:39-46 (Service)
+// pyatv/core/mdns.py (Service) — line 39-46 as of pyatv 0.18.0
 public sealed class Service
 	{
 	/// <summary>Initializes a new instance of the <see cref="Service"/> class.</summary>

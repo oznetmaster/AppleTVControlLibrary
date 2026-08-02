@@ -25,10 +25,10 @@ namespace AppleTvControlLibrary.LiveTests.Discovery;
 /// </remarks>
 internal sealed class FakeMdnsResponder : IDisposable
 	{
-	// pyatv/core/mdns.py:509 (multicast default address)
+	// pyatv/core/mdns.py (multicast default address) — line 509 as of pyatv 0.18.0
 	private const string MulticastAddress = "224.0.0.251";
 
-	// pyatv/core/mdns.py:510 (multicast default port)
+	// pyatv/core/mdns.py (multicast default port) — line 510 as of pyatv 0.18.0
 	private const int MulticastPort = 5353;
 
 	private readonly UdpClient _client;

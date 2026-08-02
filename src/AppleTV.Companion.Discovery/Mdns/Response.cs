@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace AppleTvControlLibrary.Discovery.Mdns;
 
 /// <summary>Represents the response to an MDNS request.</summary>
-// pyatv/core/mdns.py:49-54 (Response)
+// pyatv/core/mdns.py (Response) — line 49-54 as of pyatv 0.18.0
 public sealed class Response
 	{
 	/// <summary>Initializes a new instance of the <see cref="Response"/> class.</summary>
@@ -27,7 +27,7 @@ public sealed class Response
 		}
 
 	/// <summary>Gets the device model, from the "_device-info._tcp.local" service, if present.</summary>
-	// pyatv/core/mdns.py:57 (DEVICE_INFO_SERVICE)
+	// pyatv/core/mdns.py (DEVICE_INFO_SERVICE) — line 57 as of pyatv 0.18.0
 	public string? Model
 		{
 		get;

@@ -21,7 +21,7 @@ public class CompanionConnectionTests
 	private static readonly byte[] FakeOutKey = Encoding.ASCII.GetBytes (new string ('o', 32));
 	private static readonly byte[] FakeInKey = Encoding.ASCII.GetBytes (new string ('i', 32));
 
-	// pyatv/protocols/companion/connection.py:106 (1 byte type + 3 byte big-endian length)
+	// pyatv/protocols/companion/connection.py (1 byte type + 3 byte big-endian length) — line 106 as of pyatv 0.18.0
 	[TestMethod]
 	public void BuildFrameUnencryptedHeader ()
 		{
@@ -37,8 +37,8 @@ public class CompanionConnectionTests
 		Assert.AreEqual ((byte)data.Length, frame[3]);
 		}
 
-	// pyatv/protocols/companion/connection.py:103-105 (payload_length += AUTH_TAG_LENGTH
-	// when encryption is active)
+	// pyatv/protocols/companion/connection.py (payload_length += AUTH_TAG_LENGTH
+	// when encryption is active) — line 103-105 as of pyatv 0.18.0
 	[TestMethod]
 	public void BuildFrameEncryptedHeaderIncludesAuthTag ()
 		{
@@ -55,7 +55,7 @@ public class CompanionConnectionTests
 		Assert.AreEqual ((byte)expectedPayloadLength, frame[3]);
 		}
 
-	// pyatv/protocols/companion/connection.py:104, 115 (zero-length payloads are never
+	// pyatv/protocols/companion/connection.py — line 104 as of pyatv 0.18.0, 115 (zero-length payloads are never
 	// encrypted, even after encryption is enabled)
 	[TestMethod]
 	public void BuildFrameZeroLengthPayloadNeverEncrypted ()
@@ -72,7 +72,7 @@ public class CompanionConnectionTests
 		Assert.AreEqual (0x00, frame[3]);
 		}
 
-	// pyatv/protocols/companion/connection.py:98-153 round trip: what one side builds,
+	// pyatv/protocols/companion/connection.py — line 98-153 as of pyatv 0.18.0 round trip: what one side builds,
 	// the other side (with output/input keys swapped) must be able to receive.
 	[TestMethod]
 	public void FramingRoundTripsUnencrypted ()
@@ -126,8 +126,8 @@ public class CompanionConnectionTests
 		CollectionAssert.AreEqual (data, receivedData);
 		}
 
-	// pyatv/protocols/companion/connection.py:135-141 (require 4 + big-endian length
-	// bytes before a frame is considered complete; partial frames must be buffered)
+	// pyatv/protocols/companion/connection.py (require 4 + big-endian length
+	// bytes before a frame is considered complete; partial frames must be buffered) — line 135-141 as of pyatv 0.18.0
 	[TestMethod]
 	public void ReceiveDataBuffersPartialFrames ()
 		{

@@ -25,16 +25,16 @@ namespace AppleTvControlLibrary.FakeDevice;
 /// <see cref="HandleAuthFrame"/> rather than raw sockets, so it can be driven in-process by a
 /// test that also drives the client-side <see cref="SrpAuthHandler"/>.
 /// </remarks>
-// pyatv/protocols/companion/server_auth.py:66-90 (CompanionServerAuth); tests/fake_device/companion.py:225-283
+// pyatv/protocols/companion/server_auth.py (CompanionServerAuth) — line 66-90 as of pyatv 0.18.0; tests/fake_device/companion.py:225-283
 public sealed class FakeCompanionDevice
 	{
-	// pyatv/auth/server_auth.py:3
+	// pyatv/auth/server_auth.py — line 3 as of pyatv 0.18.0
 	public const int PIN_CODE = 1111;
 
-	// pyatv/auth/server_auth.py:12
+	// pyatv/auth/server_auth.py — line 12 as of pyatv 0.18.0
 	public const string SERVER_IDENTIFIER = "5D797FD3-3538-427E-A47B-A32FC6CF3A6A";
 
-	// pyatv/auth/server_auth.py:13 (32 * b"\xaa")
+	// pyatv/auth/server_auth.py (32 * b"\xaa") — line 13 as of pyatv 0.18.0
 	private static readonly byte[] PrivateKeySeed = CreateSeed ();
 
 	private readonly byte[] _uniqueId;
@@ -48,7 +48,7 @@ public sealed class FakeCompanionDevice
 	/// <summary>Initializes a new instance of the <see cref="FakeCompanionDevice"/> class.</summary>
 	/// <param name="uniqueId">The device identifier reported during pairing. Defaults to <see cref="SERVER_IDENTIFIER"/>.</param>
 	/// <param name="pin">The PIN code required to complete pair-setup. Defaults to <see cref="PIN_CODE"/>.</param>
-	// pyatv/protocols/companion/server_auth.py:69-75 (CompanionServerAuth.__init__)
+	// pyatv/protocols/companion/server_auth.py (CompanionServerAuth.__init__) — line 69-75 as of pyatv 0.18.0
 	public FakeCompanionDevice (string? uniqueId = null, int pin = PIN_CODE)
 		{
 		_uniqueId = System.Text.Encoding.UTF8.GetBytes (uniqueId ?? SERVER_IDENTIFIER);
@@ -66,17 +66,17 @@ public sealed class FakeCompanionDevice
 	/// <summary>Gets a value indicating whether the encrypted session channel is active.</summary>
 	public bool IsEncrypted => _sessionChacha is not null;
 
-	/// <summary>Gets the key derived by the server to encrypt data sent to the client, set after pair-verify M1. pyatv/protocols/companion/server_auth.py:131</summary>
+	/// <summary>Gets the key derived by the server to encrypt data sent to the client, set after pair-verify M1. pyatv/protocols/companion/server_auth.py — line 131 as of pyatv 0.18.0</summary>
 	public byte[]? ServerOutputKey => _outputKey;
 
-	/// <summary>Gets the key derived by the server to decrypt data from the client, set after pair-verify M1. pyatv/protocols/companion/server_auth.py:132</summary>
+	/// <summary>Gets the key derived by the server to decrypt data from the client, set after pair-verify M1. pyatv/protocols/companion/server_auth.py — line 132 as of pyatv 0.18.0</summary>
 	public byte[]? ServerInputKey => _inputKey;
 
 	/// <summary>Handle an incoming auth frame, mirroring the client-driven pair-setup/pair-verify state machine.</summary>
 	/// <param name="frameType">The frame type of the incoming message.</param>
 	/// <param name="pairingData">The raw bytes of the <c>_pd</c> TLV8 blob.</param>
 	/// <returns>The frame type and TLV8 payload (already wrapped in a <c>_pd</c> dict entry) to send back to the client.</returns>
-	// pyatv/protocols/companion/server_auth.py:82-90 (handle_auth_frame)
+	// pyatv/protocols/companion/server_auth.py (handle_auth_frame) — line 82-90 as of pyatv 0.18.0
 	public (FrameType FrameType, byte[] PairingData) HandleAuthFrame (FrameType frameType, byte[] pairingData)
 		{
 		var tlv = Tlv8.Tlv8.ReadTlv (pairingData);
@@ -95,7 +95,7 @@ public sealed class FakeCompanionDevice
 			};
 		}
 
-	// pyatv/protocols/companion/server_auth.py:92-124 (_m1_verify)
+	// pyatv/protocols/companion/server_auth.py (_m1_verify) — line 92-124 as of pyatv 0.18.0
 	private (FrameType, byte[]) M1Verify (Dictionary<int, byte[]> pairingData)
 		{
 		byte[] serverPubKey = _keys.VerifyPub.GetEncoded ();
@@ -128,14 +128,14 @@ public sealed class FakeCompanionDevice
 				{ (int)TlvValue.EncryptedData, encrypted },
 			});
 
-		// pyatv/protocols/companion/server_auth.py:117-118
+		// pyatv/protocols/companion/server_auth.py — line 117-118 as of pyatv 0.18.0
 		_outputKey = SrpAuthHandler.HkdfExpand ("", "ServerEncrypt-main", shared);
 		_inputKey = SrpAuthHandler.HkdfExpand ("", "ClientEncrypt-main", shared);
 
 		return (FrameType.PV_Next, responseTlv);
 		}
 
-	// pyatv/protocols/companion/server_auth.py:126-130 (_m3_verify)
+	// pyatv/protocols/companion/server_auth.py (_m3_verify) — line 126-130 as of pyatv 0.18.0
 	private (FrameType, byte[]) M3Verify (Dictionary<int, byte[]> pairingData)
 		{
 		_ = pairingData;
@@ -147,14 +147,14 @@ public sealed class FakeCompanionDevice
 
 		if (_outputKey is not null && _inputKey is not null)
 			{
-			// pyatv/protocols/companion/connection.py:92 (nonce_length=12)
+			// pyatv/protocols/companion/connection.py (nonce_length=12) — line 92 as of pyatv 0.18.0
 			_sessionChacha = new Chacha20Cipher (_outputKey, _inputKey, nonceLength: 12);
 			}
 
 		return (FrameType.PV_Next, responseTlv);
 		}
 
-	// pyatv/protocols/companion/server_auth.py:132-140 (_m1_setup)
+	// pyatv/protocols/companion/server_auth.py (_m1_setup) — line 132-140 as of pyatv 0.18.0
 	private (FrameType, byte[]) M1Setup (Dictionary<int, byte[]> pairingData)
 		{
 		_ = pairingData;
@@ -170,7 +170,7 @@ public sealed class FakeCompanionDevice
 		return (FrameType.PS_Next, responseTlv);
 		}
 
-	// pyatv/protocols/companion/server_auth.py:142-155 (_m3_setup)
+	// pyatv/protocols/companion/server_auth.py (_m3_setup) — line 142-155 as of pyatv 0.18.0
 	private (FrameType, byte[]) M3Setup (Dictionary<int, byte[]> pairingData)
 		{
 		byte[] clientPublicKey = pairingData[(int)TlvValue.PublicKey];
@@ -199,7 +199,7 @@ public sealed class FakeCompanionDevice
 		return (FrameType.PS_Next, Tlv8.Tlv8.WriteTlv (tlv));
 		}
 
-	// pyatv/protocols/companion/server_auth.py:157-217 (_m5_setup)
+	// pyatv/protocols/companion/server_auth.py (_m5_setup) — line 157-217 as of pyatv 0.18.0
 	private (FrameType, byte[]) M5Setup (Dictionary<int, byte[]> pairingData)
 		{
 		byte[] sessionKey = SrpAuthHandler.HkdfExpand ("Pair-Setup-Encrypt-Salt", "Pair-Setup-Encrypt-Info", _srpSession.SessionKey);
@@ -211,7 +211,7 @@ public sealed class FakeCompanionDevice
 		var decryptedTlv = Tlv8.Tlv8.ReadTlv (decryptedTlvBytes);
 		byte[] clientId = decryptedTlv[(int)TlvValue.Identifier];
 
-		// pyatv/protocols/companion/server_auth.py:199-207: signature over
+		// pyatv/protocols/companion/server_auth.py — line 199-207 as of pyatv 0.18.0: signature over
 		// acc_device_x + unique_id + auth_pub
 		byte[] deviceInfo = Concat (accessoryDeviceX, _uniqueId, _keys.AuthPub);
 		byte[] signature = new byte[Ed25519PrivateKeyParameters.SignatureSize];

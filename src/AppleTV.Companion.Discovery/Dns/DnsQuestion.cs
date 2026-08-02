@@ -1,7 +1,7 @@
 namespace AppleTvControlLibrary.Discovery.Dns;
 
 /// <summary>Represents a DNS query.</summary>
-// pyatv/support/dns.py:305-329 (DnsQuestion)
+// pyatv/support/dns.py (DnsQuestion) — line 305-329 as of pyatv 0.18.0
 public sealed class DnsQuestion
 	{
 	/// <summary>Initializes a new instance of the <see cref="DnsQuestion"/> class.</summary>
@@ -33,7 +33,7 @@ public sealed class DnsQuestion
 	/// <summary>Creates a <see cref="DnsQuestion"/> from a data stream.</summary>
 	/// <param name="buffer">The buffer to read from.</param>
 	/// <returns>The parsed question.</returns>
-	// pyatv/support/dns.py:312-321 (unpack_read)
+	// pyatv/support/dns.py (unpack_read) — line 312-321 as of pyatv 0.18.0
 	public static DnsQuestion UnpackRead (DnsBufferReader buffer)
 		{
 		string qname = DnsWireFormat.ParseDomainName (buffer);
@@ -44,7 +44,7 @@ public sealed class DnsQuestion
 
 	/// <summary>Encodes the question data as needed for a DNS query or response.</summary>
 	/// <returns>The packed question bytes.</returns>
-	// pyatv/support/dns.py:323-329 (pack)
+	// pyatv/support/dns.py (pack) — line 323-329 as of pyatv 0.18.0
 	public byte[] Pack ()
 		{
 		byte[] qname = DnsWireFormat.QNameEncode (this.QName);
