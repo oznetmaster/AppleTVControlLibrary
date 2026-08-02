@@ -196,6 +196,9 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	private MediaControlCapabilities _mediaControlFlags = MediaControlCapabilities.NoControls;
 	private double _volume;
 
+	// pyatv/protocols/companion/__init__.py:213 (self._power_state = PowerState.Unknown)
+	private SystemStatus _currentSystemStatus = SystemStatus.Unknown;
+
 	/// <summary>Initializes a new instance of the <see cref="CompanionApi"/> class.</summary>
 	/// <param name="protocol">The underlying Companion protocol instance.</param>
 	/// <param name="credentials">The paired credentials, used to build the <c>_idsID</c> system info field.</param>
@@ -285,6 +288,24 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		// IsVolumeControlSupported stays false and volume/mute always fail.
 		System.Diagnostics.Debug.WriteLine ("[CompanionApi] Connect: subscribing to _iMC");
 		SubscribeEvent ("_iMC");
+
+		// pyatv/protocols/companion/__init__.py:219-246 (CompanionPower.initialize): fetch an
+		// initial snapshot best-effort (newer tvOS can reply "No request handler" here, which
+		// must not prevent subscribing to push updates below), then subscribe to SystemStatus/
+		// TVSystemStatus so power state can still be tracked via pushed events afterwards.
+		try
+			{
+			System.Diagnostics.Debug.WriteLine ("[CompanionApi] Connect: sending FetchAttentionState");
+			_currentSystemStatus = FetchAttentionState ();
+			}
+		catch (Exception ex)
+			{
+			System.Diagnostics.Debug.WriteLine ($"[CompanionApi] Connect: FetchAttentionState failed (ignored): {ex}");
+			}
+
+		System.Diagnostics.Debug.WriteLine ("[CompanionApi] Connect: subscribing to SystemStatus/TVSystemStatus");
+		SubscribeEvent ("SystemStatus");
+		SubscribeEvent ("TVSystemStatus");
 		System.Diagnostics.Debug.WriteLine ("[CompanionApi] Connect: bring-up complete");
 		}
 
@@ -571,6 +592,21 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	/// </summary>
 	public event EventHandler? MediaControlCapabilitiesChanged;
 
+	/// <summary>
+	/// Gets the most recently known system status (power state), updated by the initial
+	/// <see cref="FetchAttentionState"/> snapshot taken during <see cref="Connect"/> and by
+	/// subsequently pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> events.
+	/// </summary>
+	// pyatv/protocols/companion/__init__.py:213, 247-248 (self._power_state, power_state property)
+	public SystemStatus CurrentSystemStatus => _currentSystemStatus;
+
+	/// <summary>
+	/// Raised whenever a pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> event updates
+	/// <see cref="CurrentSystemStatus"/>.
+	/// </summary>
+	// pyatv/protocols/companion/__init__.py:249-256 (_handle_system_status_update)
+	public event EventHandler? SystemStatusChanged;
+
 	/// <summary>Gets the current volume level, in percent ([0.0-100.0]).</summary>
 	// pyatv/protocols/companion/__init__.py:441-443 (GetVolume, resp["_c"]["_vol"] * 100.0)
 	public double GetVolume ()
@@ -626,6 +662,29 @@ public sealed class CompanionApi : ICompanionProtocolListener
 				{
 				_mediaControlFlags = updated;
 				MediaControlCapabilitiesChanged?.Invoke (this, EventArgs.Empty);
+				}
+			}
+
+		// pyatv/protocols/companion/__init__.py:240-244, 249-261 (SystemStatus/TVSystemStatus
+		// both feed _handle_system_status_update; either name can carry "state").
+		if ((string.Equals (eventName, "SystemStatus", StringComparison.Ordinal)
+				|| string.Equals (eventName, "TVSystemStatus", StringComparison.Ordinal))
+				&& data.TryGetValue ("state", out object? state))
+			{
+			SystemStatus updated = (SystemStatus)ToLong (state);
+			if (updated != _currentSystemStatus)
+				{
+				// pyatv/protocols/companion/__init__.py:225-232 (_system_status_to_power_state):
+				// only Asleep maps to Off; Screensaver, Awake and Idle all map to On, so only
+				// raise the event when the mapped power state actually changes (e.g. Awake ->
+				// Screensaver is not a real transition from the UI's point of view).
+				bool wasOn = _currentSystemStatus != SystemStatus.Asleep && _currentSystemStatus != SystemStatus.Unknown;
+				bool isOn = updated != SystemStatus.Asleep && updated != SystemStatus.Unknown;
+				_currentSystemStatus = updated;
+				if (isOn != wasOn)
+					{
+					SystemStatusChanged?.Invoke (this, EventArgs.Empty);
+					}
 				}
 			}
 		}

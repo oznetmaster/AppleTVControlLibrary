@@ -49,6 +49,16 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			{
 			Application.Current?.Dispatcher.Invoke (this.RaiseRemoteButtonStates);
 			};
+
+		// pyatv/protocols/companion/__init__.py:249-256 (_handle_system_status_update): power
+		// state is tracked from pushed SystemStatus/TVSystemStatus events, not by polling.
+		this._deviceManager.SystemStatusChanged += (_, _) =>
+			{
+			Application.Current?.Dispatcher.Invoke (() =>
+				{
+				this.IsAwake = this._deviceManager.CurrentSystemStatus is not (SystemStatus.Asleep or SystemStatus.Unknown);
+				});
+			};
 		}
 
 	/// <summary>Gets the discovered devices from the most recent scan.</summary>
@@ -331,6 +341,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			this.OnPropertyChanged (nameof (this.IsConnected));
 			this.DisconnectCommand.RaiseCanExecuteChanged ();
 			this.RaiseRemoteButtonStates ();
+			this.IsAwake = this._deviceManager.CurrentSystemStatus is not (SystemStatus.Asleep or SystemStatus.Unknown);
 			}
 		catch (Exception ex)
 			{

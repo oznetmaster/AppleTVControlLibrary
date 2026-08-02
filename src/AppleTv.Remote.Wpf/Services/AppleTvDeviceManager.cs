@@ -50,6 +50,20 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// </summary>
 	public event EventHandler? MediaControlCapabilitiesChanged;
 
+	/// <summary>
+	/// Gets the connected device's most recently known system status (power state), tracked via
+	/// the initial <see cref="CompanionApi.Connect"/> snapshot and pushed
+	/// <c>SystemStatus</c>/<c>TVSystemStatus</c> events. <see cref="SystemStatus.Unknown"/> if
+	/// not connected or if no status has been observed yet.
+	/// </summary>
+	public SystemStatus CurrentSystemStatus => this._api?.CurrentSystemStatus ?? SystemStatus.Unknown;
+
+	/// <summary>
+	/// Raised whenever a pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> event updates
+	/// <see cref="CurrentSystemStatus"/>.
+	/// </summary>
+	public event EventHandler? SystemStatusChanged;
+
 	/// <summary>Scans the network for Companion Link devices.</summary>
 	/// <param name="timeout">How long to scan for.</param>
 	/// <param name="cancellationToken">A token to cancel the scan.</param>
@@ -237,6 +251,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 			System.Diagnostics.Debug.WriteLine ("[AppleTvDeviceManager] Connect complete");
 
 			api.MediaControlCapabilitiesChanged += this.OnMediaControlCapabilitiesChanged;
+			api.SystemStatusChanged += this.OnSystemStatusChanged;
 			this._api = api;
 			}).ConfigureAwait (false);
 		}
@@ -244,6 +259,11 @@ public sealed class AppleTvDeviceManager : IDisposable
 	private void OnMediaControlCapabilitiesChanged (object? sender, EventArgs e)
 		{
 		this.MediaControlCapabilitiesChanged?.Invoke (this, EventArgs.Empty);
+		}
+
+	private void OnSystemStatusChanged (object? sender, EventArgs e)
+		{
+		this.SystemStatusChanged?.Invoke (this, EventArgs.Empty);
 		}
 
 	/// <summary>Sends a HID button command to the connected device.</summary>
@@ -280,12 +300,15 @@ public sealed class AppleTvDeviceManager : IDisposable
 	public bool IsVolumeControlSupported => this._api?.IsVolumeControlSupported ?? false;
 
 	/// <summary>
-	/// Toggles power by fetching the device's current attention state (<see cref="CompanionApi.FetchAttentionState"/>)
-	/// and sending the corresponding <see cref="HidCommand.Sleep"/> or <see cref="HidCommand.Wake"/> command:
-	/// asleep devices are woken, anything else (awake, screensaver, idle) is put to sleep.
+	/// Toggles power using the cached <see cref="CurrentSystemStatus"/> (tracked via the initial
+	/// connect snapshot and pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> events, per
+	/// pyatv/protocols/companion/__init__.py:219-246) and sending the corresponding
+	/// <see cref="HidCommand.Sleep"/> or <see cref="HidCommand.Wake"/> command: an asleep device
+	/// is woken, anything else (awake, screensaver, idle, unknown) is put to sleep.
 	/// </summary>
 	/// <returns><see langword="true"/> if a wake command was sent, <see langword="false"/> if a sleep command was sent.</returns>
-	// pyatv/protocols/companion/api.py:454-462 (fetch_attention_state), 38/44-45 (HidCommand.Sleep/Wake)
+	// pyatv/protocols/companion/api.py:38/44-45 (HidCommand.Sleep/Wake). turn_on/turn_off both
+	// call hid_command(False, ...) - a single up-only event, not a down/up pair.
 	public bool TogglePower ()
 		{
 		if (this._api is null)
@@ -293,10 +316,8 @@ public sealed class AppleTvDeviceManager : IDisposable
 			throw new InvalidOperationException ("Not connected");
 			}
 
-		SystemStatus status = this._api.FetchAttentionState ();
-		bool shouldWake = status == SystemStatus.Asleep;
+		bool shouldWake = this._api.CurrentSystemStatus == SystemStatus.Asleep;
 		HidCommand command = shouldWake ? HidCommand.Wake : HidCommand.Sleep;
-		this._api.SendHidCommand (down: true, command: command);
 		this._api.SendHidCommand (down: false, command: command);
 		return shouldWake;
 		}
@@ -307,6 +328,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 		if (this._api is not null)
 			{
 			this._api.MediaControlCapabilitiesChanged -= this.OnMediaControlCapabilitiesChanged;
+			this._api.SystemStatusChanged -= this.OnSystemStatusChanged;
 			}
 
 		this._api = null;
