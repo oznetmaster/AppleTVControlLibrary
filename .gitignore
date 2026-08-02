@@ -3,6 +3,11 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Vendored third-party source (pyatv, srptools, etc.) used only as a read-only reference for
+# Copilot's citation discipline (see .github/copilot-instructions.md, section 1). Never commit
+# or publish this tree - it is not part of this project's license and must not ship with it.
+/reference/
+
 # User-specific files
 *.rsuser
 *.suo
