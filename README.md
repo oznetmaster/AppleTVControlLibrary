@@ -20,6 +20,12 @@ DMAP/DACP.
 |---|---|
 | `AppleTvControlLibrary` | Protocol, framing, crypto, pairing/verification, OPACK/TLV8 codecs, and the high-level `CompanionApi`. |
 | `AppleTvControlLibrary.Discovery` | mDNS/DNS-SD discovery of Companion Link services, isolated behind `ICompanionDiscovery` so it can be swapped per host. |
+| `AppleTvControlLibrary.All` | Convenience meta-package that installs both independent libraries; it contains no DLL of its own. |
+
+`AppleTvControlLibrary` and `AppleTvControlLibrary.Discovery` are intentionally independent: a
+host with a known Apple TV address can use the protocol library without multicast discovery, and
+a host can use the discovery API independently. Install `AppleTvControlLibrary.All` when both are
+wanted; it restores the two library packages automatically.
 
 ## What it can do
 

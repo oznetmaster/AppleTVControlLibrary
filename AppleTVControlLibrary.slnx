@@ -2,6 +2,7 @@
   <Folder Name="/src/">
     <Project Path="src/AppleTV.Companion/AppleTV.Companion.csproj" />
   <Project Path="src/AppleTV.Companion.Discovery/AppleTV.Companion.Discovery.csproj" />
+  <Project Path="src/AppleTV.Companion.All/AppleTV.Companion.All.csproj" />
   <Project Path="src/AppleTv.Remote.Wpf/AppleTv.Remote.Wpf.csproj" />
   </Folder>
   <Folder Name="/tests/">
