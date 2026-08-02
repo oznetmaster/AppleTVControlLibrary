@@ -3,10 +3,14 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 using AppleTvControlLibrary.Connection;
 using AppleTvControlLibrary.Opack;
 using AppleTvControlLibrary.Protocol;
+using AppleTvControlLibrary.Text;
+
+using Claunia.PropertyList;
 
 namespace AppleTvControlLibrary.FakeDevice;
 
@@ -109,6 +113,103 @@ public sealed class FakeCompanionOpackDevice
 	/// <summary>Gets the current volume level, in percent ([0.0-100.0]).</summary>
 	public double Volume => _volume;
 
+	// tests/fake_device/companion.py:97 (INITIAL_RTI_TEXT = "Fake Companion Keyboard Text")
+	private const string InitialRtiText = "Fake Companion Keyboard Text";
+
+	// tests/fake_device/companion.py:100 (self._rti_focus_state: KeyboardFocusState = KeyboardFocusState.Focused)
+	private KeyboardFocusState _rtiFocusState = KeyboardFocusState.Focused;
+
+	// tests/fake_device/companion.py:101 (self.rti_text: Optional[str] = INITIAL_RTI_TEXT)
+	private string? _rtiText = InitialRtiText;
+
+	// tests/fake_device/companion.py:102 (self.rti_session_uuid: Optional[bytes] = None)
+	private byte[]? _rtiSessionUuid;
+
+	// tests/fake_device/companion.py:99 (self.rti_clients: List[FakeCompanionService] = [])
+	private bool _isRtiClientRegistered;
+
+	// pyatv/protocols/companion/keyed_archiver.py (read_archive_properties path used in text_input_command) — line 434-438 as of pyatv 0.18.0
+	private static readonly string[] TargetSessionUuidPath = { "textOperations", "targetSessionUUID", "NS.uuidbytes" };
+	private static readonly string[] TextToAssertPath = { "textOperations", "textToAssert" };
+	private static readonly string[] InsertionTextPath = { "textOperations", "keyboardOutput", "insertionText" };
+
+	/// <summary>Gets or sets the current RTI (virtual keyboard) text. Setting to <see langword="null"/> models no focused text field.</summary>
+	// tests/fake_device/companion.py (FakeCompanionUseCases.set_rti_text) — line 578-580 as of pyatv 0.18.0
+	public string? RtiText
+		{
+		get => _rtiText;
+		set => _rtiText = value;
+		}
+
+	/// <summary>Gets the current RTI keyboard focus state.</summary>
+	public KeyboardFocusState RtiFocusState => _rtiFocusState;
+
+	/// <summary>
+	/// Raised when the fake device pushes an unsolicited OPACK event frame (e.g. <c>_tiStarted</c>/<c>_tiStopped</c>).
+	/// </summary>
+	public event Action<string, Dictionary<object, object?>>? EventEmitted;
+
+	/// <summary>Sets the RTI keyboard focus state, emitting <c>_tiStarted</c>/<c>_tiStopped</c> if it changes.</summary>
+	/// <param name="state">The new focus state.</param>
+	// tests/fake_device/companion.py (FakeCompanionState.rti_focus_state setter) — line 136-143 as of pyatv 0.18.0
+	public void SetRtiFocusState (KeyboardFocusState state)
+		{
+		if (state == _rtiFocusState)
+			{
+			return;
+			}
+
+		_rtiFocusState = state;
+		if (state == KeyboardFocusState.Focused)
+			{
+			EventEmitted?.Invoke ("_tiStarted", RtiEncodedData ());
+			}
+		else if (state == KeyboardFocusState.Unfocused)
+			{
+			EventEmitted?.Invoke ("_tiStopped", RtiEncodedData ());
+			}
+		}
+
+	// tests/fake_device/companion.py (FakeCompanionState.rti_encoded_data) — line 145-166 as of pyatv 0.18.0
+	private Dictionary<object, object?> RtiEncodedData ()
+		{
+		if (_rtiFocusState != KeyboardFocusState.Focused)
+			{
+			return new Dictionary<object, object?> ();
+			}
+
+		var objects = new NSArray (0);
+		objects.Add (new NSString ("$null"));
+		objects.Add (new NSData (_rtiSessionUuid ?? Array.Empty<byte> ()));
+
+		var docSt = new NSDictionary ();
+		docSt.Add ("docSt", new UID ((byte)3));
+		objects.Add (docSt);
+
+		if (_rtiText is not null)
+			{
+			var contextBeforeInput = new NSDictionary ();
+			contextBeforeInput.Add ("contextBeforeInput", new UID ((byte)4));
+			objects.Add (contextBeforeInput);
+			objects.Add (new NSString (_rtiText));
+			}
+		else
+			{
+			objects.Add (new NSDictionary ());
+			}
+
+		var top = new NSDictionary ();
+		top.Add ("sessionUUID", new UID ((byte)1));
+		top.Add ("documentState", new UID ((byte)2));
+
+		var root = new NSDictionary ();
+		root.Add ("$top", top);
+		root.Add ("$objects", objects);
+
+		byte[] encoded = BinaryPropertyListWriter.WriteToArray (root);
+		return new Dictionary<object, object?> { { "_tiD", encoded } };
+		}
+
 	/// <summary>Sets the system status reported by <c>FetchAttentionState</c>.</summary>
 	/// <param name="status">The new status.</param>
 	public void SetSystemStatus (SystemStatus status)
@@ -136,6 +237,7 @@ public sealed class FakeCompanionOpackDevice
 			"TVRCSESSIONSTART" => HandleTvRcSessionStart (request),
 			"_TISTART" when messageType == (long)MessageType.Request => HandleTextInputStart (request),
 			"_TISTOP" when messageType == (long)MessageType.Request => HandleTextInputStop (request),
+			"_TIC" when messageType == (long)MessageType.Event => HandleTextInputCommand (request),
 			"_HIDC" => HandleHidCommand (request),
 			"_MCC" => HandleMediaControlCommand (request),
 			"_INTEREST" => HandleInterest (request),
@@ -236,14 +338,92 @@ public sealed class FakeCompanionOpackDevice
 	private Dictionary<object, object?> HandleTextInputStart (Dictionary<object, object?> request)
 		{
 		HasTextInputStarted = true;
-		return Response (request, new Dictionary<object, object?> ());
+
+		if (_rtiText is null)
+			{
+			_isRtiClientRegistered = true;
+			return Response (request, new Dictionary<object, object?> ());
+			}
+
+		if (_rtiSessionUuid is not null)
+			{
+			// tests/fake_device/companion.py (_LOGGER.warning("RTI session already started")) — line 510-521 as of pyatv 0.18.0
+			return Response (request, RtiEncodedData ());
+			}
+
+		// tests/fake_device/companion.py (self.state.rti_session_uuid = b"0123456789abcdef") — line 517 as of pyatv 0.18.0
+		_rtiSessionUuid = Encoding.ASCII.GetBytes ("0123456789abcdef");
+		_isRtiClientRegistered = true;
+		return Response (request, RtiEncodedData ());
 		}
 
 	// tests/fake_device/companion.py:523-531 (handle__tistop)
 	private Dictionary<object, object?> HandleTextInputStop (Dictionary<object, object?> request)
 		{
 		HasTextInputStarted = false;
+
+		if (_rtiSessionUuid is not null)
+			{
+			_rtiSessionUuid = null;
+			_isRtiClientRegistered = false;
+			return Response (request, new Dictionary<object, object?> ());
+			}
+
+		// tests/fake_device/companion.py (_LOGGER.warning("No RTI session")) — line 528-531 as of pyatv 0.18.0
 		return Response (request, new Dictionary<object, object?> ());
+		}
+
+	// tests/fake_device/companion.py:551-570 (handle__tic)
+	private Dictionary<object, object?>? HandleTextInputCommand (Dictionary<object, object?> request)
+		{
+		var content = (Dictionary<object, object?>)request["_c"]!;
+		if (content["_tiD"] is not byte[] tiData)
+			{
+			return null;
+			}
+
+		object?[] properties = KeyedArchiver.ReadArchiveProperties (
+			tiData,
+			TargetSessionUuidPath,
+			TextToAssertPath,
+			InsertionTextPath);
+
+		if (properties[0] is not byte[] sessionUuid || _rtiSessionUuid is null || !BytesEqual (sessionUuid, _rtiSessionUuid))
+			{
+			return null;
+			}
+
+		// tests/fake_device/companion.py (if text_to_assert == "": self.state.rti_text = "") — line 566-567 as of pyatv 0.18.0
+		if (properties[1] is string textToAssert && textToAssert.Length == 0)
+			{
+			_rtiText = string.Empty;
+			}
+
+		// tests/fake_device/companion.py (if insertion_text is not None: self.state.rti_text += insertion_text) — line 569-570 as of pyatv 0.18.0
+		if (properties[2] is string insertionText)
+			{
+			_rtiText = (_rtiText ?? string.Empty) + insertionText;
+			}
+
+		return null;
+		}
+
+	private static bool BytesEqual (byte[] a, byte[] b)
+		{
+		if (a.Length != b.Length)
+			{
+			return false;
+			}
+
+		for (int i = 0; i < a.Length; i++)
+			{
+			if (a[i] != b[i])
+				{
+				return false;
+				}
+			}
+
+		return true;
 		}
 
 	// tests/fake_device/companion.py:380-402 (handle__hidc, trimmed to Sleep/Wake/press tracking)

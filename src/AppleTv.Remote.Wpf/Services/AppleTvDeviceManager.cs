@@ -191,7 +191,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 				{
 				UniqueId = device.UniqueId ?? Convert.ToHexString (credentials.AtvId).ToLowerInvariant (),
 				Name = device.Name,
-				Address = device.Address.ToString (),
+				Address = device.Address?.ToString () ?? string.Empty,
 				Port = device.Port,
 				StableIdentifier = GenerateStableIdentifier (),
 				};

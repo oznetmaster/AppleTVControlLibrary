@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Threading;
 
 using AppleTvControlLibrary.Auth;
+using AppleTvControlLibrary.Text;
 using Opack = AppleTvControlLibrary.Opack;
 
 namespace AppleTvControlLibrary.Protocol;
@@ -174,6 +175,20 @@ public enum InputAction
 	}
 
 /// <summary>
+/// All supported keyboard (RTI text input) focus states.
+/// </summary>
+// pyatv/const.py (KeyboardFocusState) — line 114-124 as of pyatv 0.18.0
+public enum KeyboardFocusState
+	{
+	/// <summary>Keyboard focus state is not determinable. pyatv/const.py — line 117-118 as of pyatv 0.18.0</summary>
+	Unknown = 0,
+	/// <summary>Keyboard is not focused. pyatv/const.py — line 120-121 as of pyatv 0.18.0</summary>
+	Unfocused = 1,
+	/// <summary>Keyboard is focused. pyatv/const.py — line 123-124 as of pyatv 0.18.0</summary>
+	Focused = 2,
+	}
+
+/// <summary>
 /// High level implementation of the Companion API: system info, session lifecycle, HID
 /// input, media control (volume) and attention state.
 /// </summary>
@@ -190,6 +205,12 @@ public sealed class CompanionApi : ICompanionProtocolListener
 
 	// pyatv/protocols/companion/api.py (com.apple.tvremoteservices) — line 399 as of pyatv 0.18.0
 	private const string SESSION_SERVICE_TYPE = "com.apple.tvremoteservices";
+
+	// pyatv/protocols/companion/api.py (["sessionUUID"]) — line 436 as of pyatv 0.18.0
+	private static readonly string[] SessionUuidPath = { "sessionUUID" };
+
+	// pyatv/protocols/companion/api.py (["documentState", "docSt", "contextBeforeInput"]) — line 437 as of pyatv 0.18.0
+	private static readonly string[] CurrentTextPath = { "documentState", "docSt", "contextBeforeInput" };
 
 	private readonly CompanionProtocol _protocol;
 	private readonly HapCredentials _credentials;
@@ -466,7 +487,17 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	// pyatv/protocols/companion/api.py (_text_input_start) — line 401-404 as of pyatv 0.18.0
 	public Dictionary<object, object?> TextInputStart ()
 		{
-		return SendCommand ("_tiStart", new Dictionary<string, object?> ());
+		Dictionary<object, object?> response = SendCommand ("_tiStart", new Dictionary<string, object?> ());
+
+		// pyatv/protocols/companion/api.py (await asyncio.gather(*self.dispatch("_tiStart", response.get("_c", {})))) — line 404 as of pyatv 0.18.0:
+		// _tiStart is a command, but its response content is also dispatched to the same
+		// focus-state handler used for the _tiStarted/_tiStopped events.
+		Dictionary<object, object?> content = response.TryGetValue ("_c", out object? c) && c is Dictionary<object, object?> dict
+			? dict
+			: new Dictionary<object, object?> ();
+		HandleTextInputFocusUpdate (content);
+
+		return response;
 		}
 
 	/// <summary>Stop the current text input session.</summary>
@@ -474,6 +505,123 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void TextInputStop ()
 		{
 		SendCommand ("_tiStop", new Dictionary<string, object?> ());
+		}
+
+	/// <summary>
+	/// Gets the current keyboard (RTI text input) focus state, as last reported by the
+	/// <c>_tiStarted</c>/<c>_tiStopped</c> events or the <c>_tiStart</c> response.
+	/// </summary>
+	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_focus_state) — line 512-515 as of pyatv 0.18.0
+	public KeyboardFocusState TextFocusState
+		{
+		get;
+		private set;
+		} = KeyboardFocusState.Unknown;
+
+	/// <summary>
+	/// Raised whenever <see cref="TextFocusState"/> is updated by a <c>_tiStarted</c>,
+	/// <c>_tiStopped</c> event, or a <c>_tiStart</c> response.
+	/// </summary>
+	public event EventHandler? TextFocusStateChanged;
+
+	// pyatv/protocols/companion/__init__.py (CompanionKeyboard._handle_text_input) — line 505-510 as of pyatv 0.18.0:
+	// focus state is derived from whether _tiD is present in the event/response data, not
+	// from a standalone flag.
+	private void HandleTextInputFocusUpdate (Dictionary<object, object?> data)
+		{
+		KeyboardFocusState state = data.ContainsKey ("_tiD") ? KeyboardFocusState.Focused : KeyboardFocusState.Unfocused;
+		if (state != TextFocusState)
+			{
+			TextFocusState = state;
+			TextFocusStateChanged?.Invoke (this, EventArgs.Empty);
+			}
+		}
+
+	/// <summary>
+	/// Send a text input command: refreshes the RTI session, optionally clears the current
+	/// text, then optionally inserts new text.
+	/// </summary>
+	/// <param name="text">The text to insert, or an empty string to insert nothing.</param>
+	/// <param name="clearPreviousInput">Whether to clear the existing text before inserting.</param>
+	/// <returns>The resulting text field contents, or <see langword="null"/> if there is no focused text field.</returns>
+	// pyatv/protocols/companion/api.py (text_input_command) — line 421-451 as of pyatv 0.18.0
+	public string? TextInputCommand (string text, bool clearPreviousInput = false)
+		{
+		// pyatv/protocols/companion/api.py (# restart the text input session so that we have up-to-date data) — line 426-428 as of pyatv 0.18.0
+		TextInputStop ();
+		Dictionary<object, object?> response = TextInputStart ();
+
+		Dictionary<object, object?> content = response.TryGetValue ("_c", out object? c) && c is Dictionary<object, object?> dict
+			? dict
+			: new Dictionary<object, object?> ();
+
+		// pyatv/protocols/companion/api.py (ti_data = response.get("_c", {}).get("_tiD")) — line 429 as of pyatv 0.18.0
+		if (!content.TryGetValue ("_tiD", out object? tiDataObj) || tiDataObj is not byte[] tiData)
+			{
+			// pyatv/protocols/companion/api.py (if ti_data is None: return None) — line 431-432 as of pyatv 0.18.0
+			return null;
+			}
+
+		// pyatv/protocols/companion/api.py (keyed_archiver.read_archive_properties) — line 434-438 as of pyatv 0.18.0
+		object?[] properties = KeyedArchiver.ReadArchiveProperties (
+			tiData,
+			SessionUuidPath,
+			CurrentTextPath);
+
+		if (properties[0] is not byte[] sessionUuid)
+			{
+			return null;
+			}
+
+		// pyatv/protocols/companion/api.py (if current_text is None: current_text = "") — line 440-441 as of pyatv 0.18.0
+		string currentText = properties[1] as string ?? string.Empty;
+
+		if (clearPreviousInput)
+			{
+			// pyatv/protocols/companion/api.py (self._send_event("_tiC", {"_tiV": 1, "_tiD": get_rti_clear_text_payload(session_uuid)})) — line 443-449 as of pyatv 0.18.0:
+			// _tiC is an event, not a command -- it must not go through the request/reply path.
+			SendEvent ("_tiC", new Dictionary<string, object?> { { "_tiV", 1 }, { "_tiD", RtiTextOperations.GetRtiClearTextPayload (sessionUuid) } });
+			currentText = string.Empty;
+			}
+
+		if (!string.IsNullOrEmpty (text))
+			{
+			// pyatv/protocols/companion/api.py (self._send_event("_tiC", {"_tiV": 1, "_tiD": get_rti_input_text_payload(session_uuid, text)})) — line 451-457 as of pyatv 0.18.0
+			SendEvent ("_tiC", new Dictionary<string, object?> { { "_tiV", 1 }, { "_tiD", RtiTextOperations.GetRtiInputTextPayload (sessionUuid, text) } });
+			currentText += text;
+			}
+
+		return currentText;
+		}
+
+	/// <summary>Get the current virtual keyboard text.</summary>
+	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_get) — line 517-519 as of pyatv 0.18.0
+	public string? TextGet ()
+		{
+		return TextInputCommand (string.Empty, clearPreviousInput: false);
+		}
+
+	/// <summary>Clear the virtual keyboard text.</summary>
+	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_clear) — line 521-523 as of pyatv 0.18.0
+	public void TextClear ()
+		{
+		TextInputCommand (string.Empty, clearPreviousInput: true);
+		}
+
+	/// <summary>Append text to the virtual keyboard.</summary>
+	/// <param name="text">The text to insert.</param>
+	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_append) — line 525-527 as of pyatv 0.18.0
+	public void TextAppend (string text)
+		{
+		TextInputCommand (text, clearPreviousInput: false);
+		}
+
+	/// <summary>Replace the virtual keyboard text.</summary>
+	/// <param name="text">The new text.</param>
+	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_set) — line 529-531 as of pyatv 0.18.0
+	public void TextSet (string text)
+		{
+		TextInputCommand (text, clearPreviousInput: true);
 		}
 
 	/// <summary>Subscribe to updates for an event.</summary>
@@ -691,6 +839,15 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	// pyatv/protocols/companion/__init__.py (_handle_control_flag_update) — line 438-449 as of pyatv 0.18.0
 	void ICompanionProtocolListener.EventReceived (string eventName, Dictionary<object, object?> data)
 		{
+		// pyatv/protocols/companion/__init__.py (CompanionKeyboard.__init__, listen_to "_tiStarted"/"_tiStopped") — line 494-497 as of pyatv 0.18.0:
+		// _tiStarted is not sent if the session starts while a field is already focused, so
+		// _tiStopped and the _tiStart response (handled in TextInputStart) must also update state.
+		if (string.Equals (eventName, "_tiStarted", StringComparison.Ordinal)
+				|| string.Equals (eventName, "_tiStopped", StringComparison.Ordinal))
+			{
+			HandleTextInputFocusUpdate (data);
+			}
+
 		if (string.Equals (eventName, "_iMC", StringComparison.Ordinal) && data.TryGetValue ("_mcF", out object? mcf))
 			{
 			MediaControlCapabilities updated = (MediaControlCapabilities)ToLong (mcf);

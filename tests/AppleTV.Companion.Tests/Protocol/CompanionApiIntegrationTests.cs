@@ -56,6 +56,21 @@ public class CompanionApiIntegrationTests
 				}
 			};
 
+		// tests/fake_device/companion.py (FakeCompanionState._send_rti) — line 133-134 as of pyatv 0.18.0:
+		// unsolicited events pushed by the fake device (e.g. _tiStarted/_tiStopped) must also be
+		// framed and delivered to the client connection, since they are not a response to a request.
+		device.EventEmitted += (identifier, content) =>
+			{
+			var eventFrame = new Dictionary<object, object?>
+				{
+				{ "_i", identifier },
+				{ "_t", (int)MessageType.Event },
+				{ "_c", content },
+				};
+			byte[] frame = serverConnection.BuildFrame (AppleTvControlLibrary.Connection.FrameType.E_OPACK, AppleTvControlLibrary.Opack.Opack.Pack (eventFrame));
+			clientConnection.ReceiveData (frame);
+			};
+
 		companionProtocol.Sender = frame => serverConnection.ReceiveData (frame);
 
 		var credentials = new HapCredentials (
@@ -182,5 +197,76 @@ public class CompanionApiIntegrationTests
 		bool unmuted = api.ToggleMute ();
 		Assert.IsFalse (unmuted);
 		Assert.AreEqual (60.0, device.Volume, 0.001);
+		}
+
+	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_get) — line 517-519 as of pyatv 0.18.0
+	[TestMethod]
+	public void TextGetReturnsInitialRtiText ()
+		{
+		var device = new FakeCompanionOpackDevice ();
+		var api = CreateConnectedApi (device, out _);
+		api.Connect ();
+
+		string? text = api.TextGet ();
+
+		Assert.AreEqual ("Fake Companion Keyboard Text", text);
+		}
+
+	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_clear) — line 521-523 as of pyatv 0.18.0
+	[TestMethod]
+	public void TextClearEmptiesRtiText ()
+		{
+		var device = new FakeCompanionOpackDevice ();
+		var api = CreateConnectedApi (device, out _);
+		api.Connect ();
+
+		api.TextClear ();
+
+		Assert.AreEqual (string.Empty, device.RtiText);
+		}
+
+	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_append) — line 525-527 as of pyatv 0.18.0
+	[TestMethod]
+	public void TextAppendAddsToExistingRtiText ()
+		{
+		var device = new FakeCompanionOpackDevice ();
+		var api = CreateConnectedApi (device, out _);
+		api.Connect ();
+
+		api.TextAppend (" more");
+
+		Assert.AreEqual ("Fake Companion Keyboard Text more", device.RtiText);
+		}
+
+	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_set) — line 529-532 as of pyatv 0.18.0
+	[TestMethod]
+	public void TextSetReplacesRtiText ()
+		{
+		var device = new FakeCompanionOpackDevice ();
+		var api = CreateConnectedApi (device, out _);
+		api.Connect ();
+
+		api.TextSet ("replacement");
+
+		Assert.AreEqual ("replacement", device.RtiText);
+		}
+
+	// pyatv/protocols/companion/__init__.py (CompanionKeyboard._handle_text_input) — line 505-510 as of pyatv 0.18.0
+	[TestMethod]
+	public void RtiFocusStateChangeRaisesEventAndUpdatesApi ()
+		{
+		var device = new FakeCompanionOpackDevice ();
+		var api = CreateConnectedApi (device, out _);
+		api.Connect ();
+
+		Assert.AreEqual (KeyboardFocusState.Focused, api.TextFocusState);
+
+		bool raised = false;
+		api.TextFocusStateChanged += (sender, args) => raised = true;
+
+		device.SetRtiFocusState (KeyboardFocusState.Unfocused);
+
+		Assert.IsTrue (raised);
+		Assert.AreEqual (KeyboardFocusState.Unfocused, api.TextFocusState);
 		}
 	}
