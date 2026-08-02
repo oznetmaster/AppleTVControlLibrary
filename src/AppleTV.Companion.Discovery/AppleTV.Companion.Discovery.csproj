@@ -13,6 +13,10 @@
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageTags>appletv;api;discovery;mdns</PackageTags>
+		<RepositoryUrl>https://github.com/oznetmaster/AppleTVControlLibrary</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/oznetmaster/AppleTVControlLibrary</PackageProjectUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Description>Companion Link discovery (mDNS/DNS-SD) for AppleTvControlLibrary, isolated behind an interface for host portability.</Description>
 		<LangVersion>13.0</LangVersion>
 		<Nullable>enable</Nullable>
@@ -43,6 +47,13 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\AppleTV.Companion\AppleTV.Companion.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\README.md" Pack="true" PackagePath="" />
+		<None Include="..\..\LICENSE" Pack="true" PackagePath="" />
+		<None Include="..\..\ATTRIBUTIONS.md" Pack="true" PackagePath="" />
+		<None Include="..\..\THIRD-PARTY-NOTICES.txt" Pack="true" PackagePath="" />
 	</ItemGroup>
 
 </Project>

@@ -58,9 +58,10 @@
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 	<ItemGroup>
-		<None Include="..\README.md" Pack="true" PackagePath="" />
-		<None Include="..\LICENSE" Pack="true" PackagePath="" />
-		<None Include="..\ATTRIBUTIONS.md" Pack="true" PackagePath="" />
+		<None Include="..\..\README.md" Pack="true" PackagePath="" />
+		<None Include="..\..\LICENSE" Pack="true" PackagePath="" />
+		<None Include="..\..\ATTRIBUTIONS.md" Pack="true" PackagePath="" />
+		<None Include="..\..\THIRD-PARTY-NOTICES.txt" Pack="true" PackagePath="" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
 		<PackageReference Include="IsExternalInit" Version="1.0.3">
