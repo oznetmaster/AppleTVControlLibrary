@@ -228,7 +228,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 
 			StoredDevice stored = new StoredDevice
 				{
-				UniqueId = device.UniqueId ?? Convert.ToHexString (credentials.AtvId).ToLowerInvariant (),
+				UniqueId = device.UniqueId ?? ToHexString (credentials.AtvId).ToLowerInvariant (),
 				Name = device.Name,
 				Address = device.Address?.ToString () ?? string.Empty,
 				Port = device.Port,
@@ -301,7 +301,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 				protocol,
 				credentials,
 				stableIdentifier: stored.StableIdentifier,
-				deviceId: Convert.ToHexString (credentials.AtvId).ToLowerInvariant (),
+				deviceId: ToHexString (credentials.AtvId).ToLowerInvariant (),
 				model: "AppleTV",
 				name: stored.Name);
 			api.Connect ();
@@ -431,8 +431,22 @@ public sealed class AppleTvDeviceManager : IDisposable
 	private static string GenerateStableIdentifier ()
 		{
 		byte[] bytes = new byte[6];
+#if NET472
+		Compat.FillRandom (bytes);
+#else
 		RandomNumberGenerator.Fill (bytes);
-		return Convert.ToHexString (bytes).ToLowerInvariant ();
+#endif
+		return ToHexString (bytes).ToLowerInvariant ();
+		}
+
+	// Convert.ToHexString is not available on net472; Compat.ToHexString polyfills it there.
+	private static string ToHexString (byte[] bytes)
+		{
+#if NET472
+		return Compat.ToHexString (bytes);
+#else
+		return Convert.ToHexString (bytes);
+#endif
 		}
 
 	/// <inheritdoc/>

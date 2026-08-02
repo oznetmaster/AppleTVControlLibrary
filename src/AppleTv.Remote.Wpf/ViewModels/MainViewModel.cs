@@ -648,10 +648,20 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		int x = controlWidth > 0 ? (int)Math.Round (position.X / controlWidth * touchpadWidth) : 0;
 		int y = controlHeight > 0 ? (int)Math.Round (position.Y / controlHeight * touchpadHeight) : 0;
 
-		x = Math.Clamp (x, 0, (int)touchpadWidth);
-		y = Math.Clamp (y, 0, (int)touchpadHeight);
+		x = Clamp (x, 0, (int)touchpadWidth);
+		y = Clamp (y, 0, (int)touchpadHeight);
 
 		return (x, y);
+		}
+
+	// Math.Clamp(int, int, int) is not available on net472; Compat.Clamp polyfills it there.
+	private static int Clamp (int value, int min, int max)
+		{
+#if NET472
+		return Compat.Clamp (value, min, max);
+#else
+		return Math.Clamp (value, min, max);
+#endif
 		}
 
 	// pyatv/protocols/companion/__init__.py (_handle_system_status_update) — line 249-256 as of pyatv 0.18.0: Wake/Sleep
