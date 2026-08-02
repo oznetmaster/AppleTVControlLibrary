@@ -88,11 +88,18 @@
 				<Button.Style>
 					<Style TargetType="Button">
 						<Setter Property="Content" Value="Power" />
-						<Setter Property="Foreground" Value="Red" />
+						<Setter Property="Foreground" Value="Gray" />
 						<Style.Triggers>
-							<DataTrigger Binding="{Binding IsAwake}" Value="True">
-								<Setter Property="Foreground" Value="Green" />
+							<DataTrigger Binding="{Binding IsPowerStateKnown}" Value="True">
+								<Setter Property="Foreground" Value="Red" />
 							</DataTrigger>
+							<MultiDataTrigger>
+								<MultiDataTrigger.Conditions>
+									<Condition Binding="{Binding IsPowerStateKnown}" Value="True" />
+									<Condition Binding="{Binding IsAwake}" Value="True" />
+								</MultiDataTrigger.Conditions>
+								<Setter Property="Foreground" Value="Green" />
+							</MultiDataTrigger>
 						</Style.Triggers>
 					</Style>
 				</Button.Style>

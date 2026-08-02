@@ -22,6 +22,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	private bool _isBusy;
 	private bool _isMuted;
 	private bool _isAwake;
+	private bool _isPowerStateKnown;
 
 	/// <summary>Initializes a new instance of the <see cref="MainViewModel"/> class.</summary>
 	public MainViewModel ()
@@ -59,9 +60,18 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			{
 			Application.Current?.Dispatcher.Invoke (() =>
 				{
-				this.IsAwake = this._deviceManager.CurrentSystemStatus is not (SystemStatus.Asleep or SystemStatus.Unknown);
+				this.ApplySystemStatus (this._deviceManager.CurrentSystemStatus);
 				});
 			};
+		}
+
+	// pyatv/protocols/companion/__init__.py (self._power_state = PowerState.Unknown) — line 213 as of pyatv 0.18.0:
+	// SystemStatus.Unknown means no fetch or pushed event has been observed yet, so IsAwake must not
+	// be presented as a confident true/false until IsPowerStateKnown is true.
+	private void ApplySystemStatus (SystemStatus status)
+		{
+		this.IsPowerStateKnown = status != SystemStatus.Unknown;
+		this.IsAwake = status is not (SystemStatus.Asleep or SystemStatus.Unknown);
 		}
 
 	/// <summary>Gets the discovered devices from the most recent scan.</summary>
@@ -239,6 +249,18 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		}
 
 	/// <summary>
+	/// Gets a value indicating whether the device's power state has actually been observed (via
+	/// the initial <see cref="AppleTvControlLibrary.Protocol.CompanionApi.Connect"/> fetch or a
+	/// pushed status event), as opposed to still being <see cref="SystemStatus.Unknown"/>. The UI
+	/// should not present a confident awake/asleep color until this is <see langword="true"/>.
+	/// </summary>
+	public bool IsPowerStateKnown
+		{
+		get => this._isPowerStateKnown;
+		private set => this.SetProperty (ref this._isPowerStateKnown, value);
+		}
+
+	/// <summary>
 	/// Invoked when pairing is required and a PIN must be collected from the user. The WPF view
 	/// wires this to show <c>PinEntryDialog</c> and return the entered PIN, or <see langword="null"/>
 	/// if the user cancelled.
@@ -344,7 +366,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			this.OnPropertyChanged (nameof (this.IsConnected));
 			this.DisconnectCommand.RaiseCanExecuteChanged ();
 			this.RaiseRemoteButtonStates ();
-			this.IsAwake = this._deviceManager.CurrentSystemStatus is not (SystemStatus.Asleep or SystemStatus.Unknown);
+			this.ApplySystemStatus (this._deviceManager.CurrentSystemStatus);
 			}
 		catch (Exception ex)
 			{
@@ -363,6 +385,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		this.StatusMessage = "Disconnected.";
 		this.IsMuted = false;
 		this.IsAwake = false;
+		this.IsPowerStateKnown = false;
 		this.OnPropertyChanged (nameof (this.IsConnected));
 		this.DisconnectCommand.RaiseCanExecuteChanged ();
 		this.RaiseRemoteButtonStates ();
@@ -461,6 +484,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		try
 			{
 			this.IsAwake = this._deviceManager.TogglePower ();
+			this.IsPowerStateKnown = true;
 			this.StatusMessage = this.IsAwake ? "Waking..." : "Sleeping...";
 			}
 		catch (Exception ex)
