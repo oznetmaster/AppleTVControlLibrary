@@ -2,6 +2,19 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.0.1] - 2026-08-02
+
+### Fixed
+
+- Made `AppleTvControlLibrary` and `AppleTvControlLibrary.Discovery` independent packages, as
+  intended. The previously published Discovery package incorrectly declared a dependency on the
+  Companion Link package.
+
+### Added
+
+- `AppleTvControlLibrary.All`, a NuGet-only convenience package that restores both independent
+  libraries for consumers that want the complete Companion Link and mDNS discovery stack.
+
 ## [1.0.0] - 2026-08-02
 
 ### Added
