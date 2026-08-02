@@ -18,6 +18,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	private string _statusMessage = "Not connected.";
 	private bool _isBusy;
 	private bool _isMuted;
+	private bool _isAwake;
 
 	/// <summary>Initializes a new instance of the <see cref="MainViewModel"/> class.</summary>
 	public MainViewModel ()
@@ -42,6 +43,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		this.SiriButton = this.CreateHidCommand (HidCommand.Siri);
 
 		this.MuteButton = new RelayCommand (this.ToggleMute, () => this.IsConnected && this.IsVolumeControlSupported);
+		this.PowerButton = new RelayCommand (this.TogglePower, () => this.IsConnected);
 
 		this._deviceManager.MediaControlCapabilitiesChanged += (_, _) =>
 			{
@@ -200,11 +202,27 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		get;
 		}
 
+	/// <summary>Gets the Power remote button command.</summary>
+	public RelayCommand PowerButton
+		{
+		get;
+		}
+
 	/// <summary>Gets a value indicating whether the device is currently considered muted.</summary>
 	public bool IsMuted
 		{
 		get => this._isMuted;
 		private set => this.SetProperty (ref this._isMuted, value);
+		}
+
+	/// <summary>
+	/// Gets a value indicating whether the device is currently considered awake, based on the
+	/// most recent <see cref="AppleTvDeviceManager.TogglePower"/> result.
+	/// </summary>
+	public bool IsAwake
+		{
+		get => this._isAwake;
+		private set => this.SetProperty (ref this._isAwake, value);
 		}
 
 	/// <summary>
@@ -330,6 +348,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		this._deviceManager.Disconnect ();
 		this.StatusMessage = "Disconnected.";
 		this.IsMuted = false;
+		this.IsAwake = false;
 		this.OnPropertyChanged (nameof (this.IsConnected));
 		this.DisconnectCommand.RaiseCanExecuteChanged ();
 		this.RaiseRemoteButtonStates ();
@@ -346,6 +365,20 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			{
 			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Mute failed: {ex}");
 			this.StatusMessage = $"Mute failed: {ex.Message}";
+			}
+		}
+
+	private void TogglePower ()
+		{
+		try
+			{
+			this.IsAwake = this._deviceManager.TogglePower ();
+			this.StatusMessage = this.IsAwake ? "Waking..." : "Sleeping...";
+			}
+		catch (Exception ex)
+			{
+			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Power toggle failed: {ex}");
+			this.StatusMessage = $"Power toggle failed: {ex.Message}";
 			}
 		}
 
@@ -389,6 +422,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		this.VolumeDownButton.RaiseCanExecuteChanged ();
 		this.SiriButton.RaiseCanExecuteChanged ();
 		this.MuteButton.RaiseCanExecuteChanged ();
+		this.PowerButton.RaiseCanExecuteChanged ();
 		}
 
 	/// <inheritdoc/>

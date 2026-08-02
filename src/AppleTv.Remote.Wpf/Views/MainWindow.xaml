@@ -72,6 +72,20 @@
 		</Grid>
 
 		<StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,8,0,0">
+			<Button Command="{Binding PowerButton}" Padding="12,4" Margin="0,0,8,0"
+					ToolTip="Sleep/wake the device (Companion HID Sleep/Wake, based on FetchAttentionState).">
+				<Button.Style>
+					<Style TargetType="Button">
+						<Setter Property="Content" Value="Power" />
+						<Setter Property="Foreground" Value="Red" />
+						<Style.Triggers>
+							<DataTrigger Binding="{Binding IsAwake}" Value="True">
+								<Setter Property="Foreground" Value="Green" />
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</Button.Style>
+			</Button>
 			<Button Content="Vol -" Command="{Binding VolumeDownButton}" Padding="12,4" Margin="0,0,8,0" />
 			<Button Content="Vol +" Command="{Binding VolumeUpButton}" Padding="12,4" Margin="0,0,8,0" />
 			<Button Command="{Binding MuteButton}" Padding="12,4"

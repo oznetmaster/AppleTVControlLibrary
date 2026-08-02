@@ -279,6 +279,28 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <summary>Gets a value indicating whether the connected device supports volume control.</summary>
 	public bool IsVolumeControlSupported => this._api?.IsVolumeControlSupported ?? false;
 
+	/// <summary>
+	/// Toggles power by fetching the device's current attention state (<see cref="CompanionApi.FetchAttentionState"/>)
+	/// and sending the corresponding <see cref="HidCommand.Sleep"/> or <see cref="HidCommand.Wake"/> command:
+	/// asleep devices are woken, anything else (awake, screensaver, idle) is put to sleep.
+	/// </summary>
+	/// <returns><see langword="true"/> if a wake command was sent, <see langword="false"/> if a sleep command was sent.</returns>
+	// pyatv/protocols/companion/api.py:454-462 (fetch_attention_state), 38/44-45 (HidCommand.Sleep/Wake)
+	public bool TogglePower ()
+		{
+		if (this._api is null)
+			{
+			throw new InvalidOperationException ("Not connected");
+			}
+
+		SystemStatus status = this._api.FetchAttentionState ();
+		bool shouldWake = status == SystemStatus.Asleep;
+		HidCommand command = shouldWake ? HidCommand.Wake : HidCommand.Sleep;
+		this._api.SendHidCommand (down: true, command: command);
+		this._api.SendHidCommand (down: false, command: command);
+		return shouldWake;
+		}
+
 	/// <summary>Disconnects the current device, if any.</summary>
 	public void Disconnect ()
 		{
