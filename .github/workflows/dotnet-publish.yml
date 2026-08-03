@@ -59,6 +59,38 @@ jobs:
           "raw_version=$rawVersion" >> $env:GITHUB_OUTPUT
           "package_version=$packageVersion" >> $env:GITHUB_OUTPUT
 
+      - name: Extract release notes from changelog
+        shell: pwsh
+        run: |
+          $version = '${{ steps.version.outputs.package_version }}'
+          $lines = Get-Content CHANGELOG.md
+          $headingPattern = "^## \[$([regex]::Escape($version))\](?:\s|$)"
+          $start = -1
+
+          for ($index = 0; $index -lt $lines.Count; $index++) {
+              if ($lines[$index] -match $headingPattern) {
+                  $start = $index
+                  break
+              }
+          }
+
+          if ($start -lt 0) {
+              throw "No changelog section found for release version $version."
+          }
+
+          $end = $start + 1
+          while ($end -lt $lines.Count -and $lines[$end] -notmatch '^## \[') {
+              $end++
+          }
+
+          $releaseNotes = $lines[$start..($end - 1)] -join [Environment]::NewLine
+          if ([string]::IsNullOrWhiteSpace($releaseNotes)) {
+              throw "Changelog section for release version $version is empty."
+          }
+
+          $releaseNotesPath = "${{ env.ARTIFACT_DIR }}/release-notes.md"
+          Set-Content -Path $releaseNotesPath -Value $releaseNotes -NoNewline
+
       - name: Restore solution
         run: dotnet restore ${{ env.SOLUTION_PATH }}
 
@@ -83,7 +115,7 @@ jobs:
           New-Item -ItemType Directory -Path $outputDir -Force | Out-Null
 
           foreach ($project in $packages) {
-              dotnet pack $project --configuration Release --no-build -p:ContinuousIntegrationBuild=true -p:Version=${{ steps.version.outputs.package_version }} -p:PackageVersion=${{ steps.version.outputs.package_version }} --output $outputDir
+              dotnet pack $project --configuration Release --no-build -p:ContinuousIntegrationBuild=true -p:Version=${{ steps.version.outputs.package_version }} -p:PackageVersion=${{ steps.version.outputs.package_version }} -p:ReleaseNotesFile="${{ env.ARTIFACT_DIR }}/release-notes.md" --output $outputDir
               if ($LASTEXITCODE -ne 0) {
                   throw "Pack failed for $project"
               }
@@ -139,38 +171,6 @@ jobs:
               $zipPath = Join-Path $releaseDir "$($_.Name).zip"
               Compress-Archive -Path (Join-Path $_.FullName '*') -DestinationPath $zipPath -Force
           }
-
-      - name: Extract release notes from changelog
-        shell: pwsh
-        run: |
-          $version = '${{ steps.version.outputs.package_version }}'
-          $lines = Get-Content CHANGELOG.md
-          $headingPattern = "^## \[$([regex]::Escape($version))\](?:\s|$)"
-          $start = -1
-
-          for ($index = 0; $index -lt $lines.Count; $index++) {
-              if ($lines[$index] -match $headingPattern) {
-                  $start = $index
-                  break
-              }
-          }
-
-          if ($start -lt 0) {
-              throw "No changelog section found for release version $version."
-          }
-
-          $end = $start + 1
-          while ($end -lt $lines.Count -and $lines[$end] -notmatch '^## \[') {
-              $end++
-          }
-
-          $releaseNotes = $lines[$start..($end - 1)] -join [Environment]::NewLine
-          if ([string]::IsNullOrWhiteSpace($releaseNotes)) {
-              throw "Changelog section for release version $version is empty."
-          }
-
-          $releaseNotesPath = "${{ env.ARTIFACT_DIR }}/release-notes.md"
-          Set-Content -Path $releaseNotesPath -Value $releaseNotes -NoNewline
 
       - name: Create GitHub release from tag
         if: github.event_name == 'push'

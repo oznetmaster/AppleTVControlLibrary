@@ -1,0 +1,5 @@
+<Project>
+  <PropertyGroup Condition="'$(ReleaseNotesFile)' != ''">
+	 <PackageReleaseNotes>$([System.IO.File]::ReadAllText('$(ReleaseNotesFile)'))</PackageReleaseNotes>
+  </PropertyGroup>
+</Project>
