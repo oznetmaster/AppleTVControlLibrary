@@ -5,15 +5,24 @@
         {
           "src": "..",
           "files": [
-            "**/*.csproj"
-          ],
-          "exclude": [
-            "**/bin/**",
-            "**/obj/**"
+            "AppleTV.Companion.csproj"
           ]
         }
       ],
       "dest": "api",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false
+    },
+    {
+      "src": [
+        {
+          "src": "../../AppleTV.Companion.Discovery",
+          "files": [
+            "AppleTV.Companion.Discovery.csproj"
+          ]
+        }
+      ],
+      "dest": "discovery-api",
       "disableGitFeatures": false,
       "disableDefaultFilter": false
     }
@@ -23,7 +32,9 @@
       {
         "files": [
           "api/**.yml",
-          "api/index.md"
+          "api/**.md",
+          "discovery-api/**.yml",
+          "discovery-api/**.md"
         ]
       },
       {
@@ -54,16 +65,14 @@
       }
     ],
     "dest": "_site",
-    "globalMetadataFiles": [],
-    "fileMetadataFiles": [],
+    "globalMetadata": {
+      "_appTitle": "AppleTvControlLibrary Documentation"
+    },
     "template": [
-      "default"
+      "default",
+      "modern"
     ],
-    "postProcessors": [],
     "markdownEngineName": "markdig",
-    "noLangKeyword": false,
-    "keepFileLink": false,
-    "cleanupCacheHistory": false,
     "disableGitFeatures": false
   }
 }

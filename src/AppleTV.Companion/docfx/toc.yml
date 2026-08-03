@@ -1,0 +1,21 @@
+items:
+- name: Home
+  href: index.md
+- name: Overview
+  href: articles/overview.md
+- name: Getting Started
+  href: articles/getting-started.md
+- name: Pairing and Credentials
+  href: articles/pairing.md
+- name: Compatibility and Limitations
+  href: articles/compatibility.md
+- name: Companion Link API Reference
+  href: api/
+  homepage: api/index.md
+- name: Discovery API Reference
+  href: discovery-api/
+  homepage: discovery-api/index.md
+- name: GitHub Repository
+  href: https://github.com/oznetmaster/AppleTVControlLibrary
+- name: NuGet Packages
+  href: https://www.nuget.org/profiles/oznetmaster
