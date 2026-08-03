@@ -31,6 +31,33 @@ host with a known Apple TV address can use the protocol library without multicas
 a host can use the discovery API independently. Install `AppleTvControlLibrary.All` when both are
 wanted; it restores the two library packages automatically.
 
+## Repository layout
+
+| Path | Contents |
+|---|---|
+| `src/AppleTV.Companion` | Core Companion Link library and the DocFX documentation source. |
+| `src/AppleTV.Companion.Discovery` | Independently usable mDNS/DNS-SD discovery library. |
+| `src/AppleTV.Companion.All` | Meta-package project that restores both library packages. |
+| `src/AppleTv.Remote.Wpf` | WPF reference host for scanning, pairing, connecting, and remote control. |
+| `tests/AppleTV.Companion.Tests` | Unit and protocol test suite. |
+| `tests/AppleTV.Companion.FakeDevice` | Fake Apple TV used by protocol and session integration tests. |
+| `tests/AppleTV.Companion.LiveTests` | Opt-in tests for a real Apple TV. |
+| `tools/AppleTV.Companion.RemoteTool` | Command-line remote-control utility. |
+| `tools/AppleTV.Companion.ScanTool` | Command-line Companion Link discovery utility. |
+| `.github` | Continuous integration, publishing, and GitHub Pages workflows. |
+
+### WPF reference host
+
+`src/AppleTv.Remote.Wpf` is a working desktop reference host rather than a reusable UI component.
+It demonstrates the full application workflow: scan for devices, pair once, persist credentials,
+reconnect, and control a selected Apple TV. Its UI includes directional and media controls,
+capability-aware volume and mute controls, power-state updates, app launching, switchable-account
+selection, and reactive text entry when the Apple TV keyboard gains focus.
+
+Use it as an integration example for credential storage, connection lifecycle handling, and the
+high-level `CompanionApi`; hosts are expected to provide their own UI and secure credential-store
+implementation.
+
 ## What it can do
 
 - Discover Apple TVs advertising Companion Link over mDNS (`_companion-link._tcp`).
