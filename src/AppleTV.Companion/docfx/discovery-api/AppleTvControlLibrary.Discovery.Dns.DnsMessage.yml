@@ -1,0 +1,820 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage
+  commentId: T:AppleTvControlLibrary.Discovery.Dns.DnsMessage
+  id: DnsMessage
+  parent: AppleTvControlLibrary.Discovery.Dns
+  children:
+  - AppleTvControlLibrary.Discovery.Dns.DnsMessage.#ctor(System.UInt16,System.UInt16)
+  - AppleTvControlLibrary.Discovery.Dns.DnsMessage.Answers
+  - AppleTvControlLibrary.Discovery.Dns.DnsMessage.Authorities
+  - AppleTvControlLibrary.Discovery.Dns.DnsMessage.Flags
+  - AppleTvControlLibrary.Discovery.Dns.DnsMessage.MsgId
+  - AppleTvControlLibrary.Discovery.Dns.DnsMessage.Pack
+  - AppleTvControlLibrary.Discovery.Dns.DnsMessage.Questions
+  - AppleTvControlLibrary.Discovery.Dns.DnsMessage.Resources
+  - AppleTvControlLibrary.Discovery.Dns.DnsMessage.Unpack(System.Byte[])
+  langs:
+  - csharp
+  - vb
+  name: DnsMessage
+  nameWithType: DnsMessage
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage
+  type: Class
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: DnsMessage
+    path: ../../AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+    startLine: 9
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Dns
+  summary: Represents a DNS message (query or response).
+  example: []
+  syntax:
+    content: public sealed class DnsMessage
+    content.vb: Public NotInheritable Class DnsMessage
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage.#ctor(System.UInt16,System.UInt16)
+  commentId: M:AppleTvControlLibrary.Discovery.Dns.DnsMessage.#ctor(System.UInt16,System.UInt16)
+  id: '#ctor(System.UInt16,System.UInt16)'
+  parent: AppleTvControlLibrary.Discovery.Dns.DnsMessage
+  langs:
+  - csharp
+  - vb
+  name: DnsMessage(ushort, ushort)
+  nameWithType: DnsMessage.DnsMessage(ushort, ushort)
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage.DnsMessage(ushort, ushort)
+  type: Constructor
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: .ctor
+    path: ../../AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+    startLine: 17
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Dns
+  summary: Initializes a new instance of the <xref href="AppleTvControlLibrary.Discovery.Dns.DnsMessage" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public DnsMessage(ushort msgId = 0, ushort flags = 288)
+    parameters:
+    - id: msgId
+      type: System.UInt16
+      description: The message id.
+    - id: flags
+      type: System.UInt16
+      description: The message flags.
+    content.vb: Public Sub New(msgId As UShort = 0, flags As UShort = 288)
+  overload: AppleTvControlLibrary.Discovery.Dns.DnsMessage.#ctor*
+  nameWithType.vb: DnsMessage.New(UShort, UShort)
+  fullName.vb: AppleTvControlLibrary.Discovery.Dns.DnsMessage.New(UShort, UShort)
+  name.vb: New(UShort, UShort)
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage.MsgId
+  commentId: P:AppleTvControlLibrary.Discovery.Dns.DnsMessage.MsgId
+  id: MsgId
+  parent: AppleTvControlLibrary.Discovery.Dns.DnsMessage
+  langs:
+  - csharp
+  - vb
+  name: MsgId
+  nameWithType: DnsMessage.MsgId
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage.MsgId
+  type: Property
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: MsgId
+    path: ../../AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+    startLine: 28
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Dns
+  summary: Gets or sets the message id.
+  example: []
+  syntax:
+    content: public ushort MsgId { get; set; }
+    parameters: []
+    return:
+      type: System.UInt16
+    content.vb: Public Property MsgId As UShort
+  overload: AppleTvControlLibrary.Discovery.Dns.DnsMessage.MsgId*
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Flags
+  commentId: P:AppleTvControlLibrary.Discovery.Dns.DnsMessage.Flags
+  id: Flags
+  parent: AppleTvControlLibrary.Discovery.Dns.DnsMessage
+  langs:
+  - csharp
+  - vb
+  name: Flags
+  nameWithType: DnsMessage.Flags
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Flags
+  type: Property
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Flags
+    path: ../../AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+    startLine: 34
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Dns
+  summary: Gets or sets the message flags.
+  example: []
+  syntax:
+    content: public ushort Flags { get; set; }
+    parameters: []
+    return:
+      type: System.UInt16
+    content.vb: Public Property Flags As UShort
+  overload: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Flags*
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Questions
+  commentId: P:AppleTvControlLibrary.Discovery.Dns.DnsMessage.Questions
+  id: Questions
+  parent: AppleTvControlLibrary.Discovery.Dns.DnsMessage
+  langs:
+  - csharp
+  - vb
+  name: Questions
+  nameWithType: DnsMessage.Questions
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Questions
+  type: Property
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Questions
+    path: ../../AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+    startLine: 40
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Dns
+  summary: Gets the questions in this message.
+  example: []
+  syntax:
+    content: public List<DnsQuestion> Questions { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{AppleTvControlLibrary.Discovery.Dns.DnsQuestion}
+    content.vb: Public ReadOnly Property Questions As List(Of DnsQuestion)
+  overload: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Questions*
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Answers
+  commentId: P:AppleTvControlLibrary.Discovery.Dns.DnsMessage.Answers
+  id: Answers
+  parent: AppleTvControlLibrary.Discovery.Dns.DnsMessage
+  langs:
+  - csharp
+  - vb
+  name: Answers
+  nameWithType: DnsMessage.Answers
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Answers
+  type: Property
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Answers
+    path: ../../AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+    startLine: 46
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Dns
+  summary: Gets the answer resource records in this message.
+  example: []
+  syntax:
+    content: public List<DnsResource> Answers { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{AppleTvControlLibrary.Discovery.Dns.DnsResource}
+    content.vb: Public ReadOnly Property Answers As List(Of DnsResource)
+  overload: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Answers*
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Authorities
+  commentId: P:AppleTvControlLibrary.Discovery.Dns.DnsMessage.Authorities
+  id: Authorities
+  parent: AppleTvControlLibrary.Discovery.Dns.DnsMessage
+  langs:
+  - csharp
+  - vb
+  name: Authorities
+  nameWithType: DnsMessage.Authorities
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Authorities
+  type: Property
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Authorities
+    path: ../../AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+    startLine: 52
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Dns
+  summary: Gets the authority resource records in this message.
+  example: []
+  syntax:
+    content: public List<DnsResource> Authorities { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{AppleTvControlLibrary.Discovery.Dns.DnsResource}
+    content.vb: Public ReadOnly Property Authorities As List(Of DnsResource)
+  overload: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Authorities*
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Resources
+  commentId: P:AppleTvControlLibrary.Discovery.Dns.DnsMessage.Resources
+  id: Resources
+  parent: AppleTvControlLibrary.Discovery.Dns.DnsMessage
+  langs:
+  - csharp
+  - vb
+  name: Resources
+  nameWithType: DnsMessage.Resources
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Resources
+  type: Property
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Resources
+    path: ../../AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+    startLine: 58
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Dns
+  summary: Gets the additional resource records in this message.
+  example: []
+  syntax:
+    content: public List<DnsResource> Resources { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{AppleTvControlLibrary.Discovery.Dns.DnsResource}
+    content.vb: Public ReadOnly Property Resources As List(Of DnsResource)
+  overload: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Resources*
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Unpack(System.Byte[])
+  commentId: M:AppleTvControlLibrary.Discovery.Dns.DnsMessage.Unpack(System.Byte[])
+  id: Unpack(System.Byte[])
+  parent: AppleTvControlLibrary.Discovery.Dns.DnsMessage
+  langs:
+  - csharp
+  - vb
+  name: Unpack(byte[])
+  nameWithType: DnsMessage.Unpack(byte[])
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Unpack(byte[])
+  type: Method
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Unpack
+    path: ../../AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+    startLine: 67
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Dns
+  summary: Unpacks bytes into this <xref href="AppleTvControlLibrary.Discovery.Dns.DnsMessage" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public DnsMessage Unpack(byte[] msg)
+    parameters:
+    - id: msg
+      type: System.Byte[]
+      description: The raw message bytes.
+    return:
+      type: AppleTvControlLibrary.Discovery.Dns.DnsMessage
+      description: This instance, for chaining.
+    content.vb: Public Function Unpack(msg As Byte()) As DnsMessage
+  overload: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Unpack*
+  nameWithType.vb: DnsMessage.Unpack(Byte())
+  fullName.vb: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Unpack(Byte())
+  name.vb: Unpack(Byte())
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Pack
+  commentId: M:AppleTvControlLibrary.Discovery.Dns.DnsMessage.Pack
+  id: Pack
+  parent: AppleTvControlLibrary.Discovery.Dns.DnsMessage
+  langs:
+  - csharp
+  - vb
+  name: Pack()
+  nameWithType: DnsMessage.Pack()
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Pack()
+  type: Method
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Pack
+    path: ../../AppleTV.Companion.Discovery/Dns/DnsMessage.cs
+    startLine: 106
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Dns
+  summary: Packs this message into bytes.
+  remarks: >-
+    Only the question section is packed for outgoing queries, matching the only usage
+
+    pyatv makes of this method (<code>create_service_queries</code>); answer/authority/resource
+
+    packing is not needed by a discovery client and is therefore not implemented.
+  example: []
+  syntax:
+    content: public byte[] Pack()
+    return:
+      type: System.Byte[]
+      description: The packed message bytes.
+    content.vb: Public Function Pack() As Byte()
+  overload: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Pack*
+references:
+- uid: AppleTvControlLibrary.Discovery.Dns
+  commentId: N:AppleTvControlLibrary.Discovery.Dns
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Discovery.Dns
+  nameWithType: AppleTvControlLibrary.Discovery.Dns
+  fullName: AppleTvControlLibrary.Discovery.Dns
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery
+    name: Discovery
+    href: AppleTvControlLibrary.Discovery.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery.Dns
+    name: Dns
+    href: AppleTvControlLibrary.Discovery.Dns.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery
+    name: Discovery
+    href: AppleTvControlLibrary.Discovery.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery.Dns
+    name: Dns
+    href: AppleTvControlLibrary.Discovery.Dns.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage
+  commentId: T:AppleTvControlLibrary.Discovery.Dns.DnsMessage
+  parent: AppleTvControlLibrary.Discovery.Dns
+  href: AppleTvControlLibrary.Discovery.Dns.DnsMessage.html
+  name: DnsMessage
+  nameWithType: DnsMessage
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage.#ctor*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Dns.DnsMessage.#ctor
+  href: AppleTvControlLibrary.Discovery.Dns.DnsMessage.html#AppleTvControlLibrary_Discovery_Dns_DnsMessage__ctor_System_UInt16_System_UInt16_
+  name: DnsMessage
+  nameWithType: DnsMessage.DnsMessage
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage.DnsMessage
+  nameWithType.vb: DnsMessage.New
+  fullName.vb: AppleTvControlLibrary.Discovery.Dns.DnsMessage.New
+  name.vb: New
+- uid: System.UInt16
+  commentId: T:System.UInt16
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint16
+  name: ushort
+  nameWithType: ushort
+  fullName: ushort
+  nameWithType.vb: UShort
+  fullName.vb: UShort
+  name.vb: UShort
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage.MsgId*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Dns.DnsMessage.MsgId
+  href: AppleTvControlLibrary.Discovery.Dns.DnsMessage.html#AppleTvControlLibrary_Discovery_Dns_DnsMessage_MsgId
+  name: MsgId
+  nameWithType: DnsMessage.MsgId
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage.MsgId
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Flags*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Dns.DnsMessage.Flags
+  href: AppleTvControlLibrary.Discovery.Dns.DnsMessage.html#AppleTvControlLibrary_Discovery_Dns_DnsMessage_Flags
+  name: Flags
+  nameWithType: DnsMessage.Flags
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Flags
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Questions*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Dns.DnsMessage.Questions
+  href: AppleTvControlLibrary.Discovery.Dns.DnsMessage.html#AppleTvControlLibrary_Discovery_Dns_DnsMessage_Questions
+  name: Questions
+  nameWithType: DnsMessage.Questions
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Questions
+- uid: System.Collections.Generic.List{AppleTvControlLibrary.Discovery.Dns.DnsQuestion}
+  commentId: T:System.Collections.Generic.List{AppleTvControlLibrary.Discovery.Dns.DnsQuestion}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<DnsQuestion>
+  nameWithType: List<DnsQuestion>
+  fullName: System.Collections.Generic.List<AppleTvControlLibrary.Discovery.Dns.DnsQuestion>
+  nameWithType.vb: List(Of DnsQuestion)
+  fullName.vb: System.Collections.Generic.List(Of AppleTvControlLibrary.Discovery.Dns.DnsQuestion)
+  name.vb: List(Of DnsQuestion)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: AppleTvControlLibrary.Discovery.Dns.DnsQuestion
+    name: DnsQuestion
+    href: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Discovery.Dns.DnsQuestion
+    name: DnsQuestion
+    href: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Answers*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Dns.DnsMessage.Answers
+  href: AppleTvControlLibrary.Discovery.Dns.DnsMessage.html#AppleTvControlLibrary_Discovery_Dns_DnsMessage_Answers
+  name: Answers
+  nameWithType: DnsMessage.Answers
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Answers
+- uid: System.Collections.Generic.List{AppleTvControlLibrary.Discovery.Dns.DnsResource}
+  commentId: T:System.Collections.Generic.List{AppleTvControlLibrary.Discovery.Dns.DnsResource}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<DnsResource>
+  nameWithType: List<DnsResource>
+  fullName: System.Collections.Generic.List<AppleTvControlLibrary.Discovery.Dns.DnsResource>
+  nameWithType.vb: List(Of DnsResource)
+  fullName.vb: System.Collections.Generic.List(Of AppleTvControlLibrary.Discovery.Dns.DnsResource)
+  name.vb: List(Of DnsResource)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: AppleTvControlLibrary.Discovery.Dns.DnsResource
+    name: DnsResource
+    href: AppleTvControlLibrary.Discovery.Dns.DnsResource.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Discovery.Dns.DnsResource
+    name: DnsResource
+    href: AppleTvControlLibrary.Discovery.Dns.DnsResource.html
+  - name: )
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Authorities*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Dns.DnsMessage.Authorities
+  href: AppleTvControlLibrary.Discovery.Dns.DnsMessage.html#AppleTvControlLibrary_Discovery_Dns_DnsMessage_Authorities
+  name: Authorities
+  nameWithType: DnsMessage.Authorities
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Authorities
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Resources*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Dns.DnsMessage.Resources
+  href: AppleTvControlLibrary.Discovery.Dns.DnsMessage.html#AppleTvControlLibrary_Discovery_Dns_DnsMessage_Resources
+  name: Resources
+  nameWithType: DnsMessage.Resources
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Resources
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Unpack*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Dns.DnsMessage.Unpack
+  href: AppleTvControlLibrary.Discovery.Dns.DnsMessage.html#AppleTvControlLibrary_Discovery_Dns_DnsMessage_Unpack_System_Byte___
+  name: Unpack
+  nameWithType: DnsMessage.Unpack
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Unpack
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Pack*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Dns.DnsMessage.Pack
+  href: AppleTvControlLibrary.Discovery.Dns.DnsMessage.html#AppleTvControlLibrary_Discovery_Dns_DnsMessage_Pack
+  name: Pack
+  nameWithType: DnsMessage.Pack
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsMessage.Pack

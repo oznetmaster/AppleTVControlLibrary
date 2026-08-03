@@ -1,0 +1,663 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo
+  commentId: T:AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo
+  id: CompanionServiceInfo
+  parent: AppleTvControlLibrary.Discovery.Companion
+  children:
+  - AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.GetPairingRequirement(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  - AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.GetUniqueId(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  - AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.SERVICE_TYPE
+  - AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.ToDiscoveryResult(AppleTvControlLibrary.Discovery.Mdns.Service)
+  langs:
+  - csharp
+  - vb
+  name: CompanionServiceInfo
+  nameWithType: CompanionServiceInfo
+  fullName: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo
+  type: Class
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Companion/CompanionServiceInfo.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: CompanionServiceInfo
+    path: ../../AppleTV.Companion.Discovery/Companion/CompanionServiceInfo.cs
+    startLine: 12
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Companion
+  summary: Companion Link specific constants and parsing helpers for mDNS discovery.
+  example: []
+  syntax:
+    content: public static class CompanionServiceInfo
+    content.vb: Public Module CompanionServiceInfo
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.SERVICE_TYPE
+  commentId: F:AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.SERVICE_TYPE
+  id: SERVICE_TYPE
+  parent: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo
+  langs:
+  - csharp
+  - vb
+  name: SERVICE_TYPE
+  nameWithType: CompanionServiceInfo.SERVICE_TYPE
+  fullName: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.SERVICE_TYPE
+  type: Field
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Companion/CompanionServiceInfo.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: SERVICE_TYPE
+    path: ../../AppleTV.Companion.Discovery/Companion/CompanionServiceInfo.cs
+    startLine: 16
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Companion
+  summary: The Companion Link mDNS service type.
+  example: []
+  syntax:
+    content: public const string SERVICE_TYPE = "_companion-link._tcp.local"
+    return:
+      type: System.String
+    content.vb: Public Const SERVICE_TYPE As String = "_companion-link._tcp.local"
+- uid: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.GetUniqueId(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  commentId: M:AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.GetUniqueId(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  id: GetUniqueId(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  parent: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo
+  langs:
+  - csharp
+  - vb
+  name: GetUniqueId(IReadOnlyDictionary<string, string>)
+  nameWithType: CompanionServiceInfo.GetUniqueId(IReadOnlyDictionary<string, string>)
+  fullName: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.GetUniqueId(System.Collections.Generic.IReadOnlyDictionary<string, string>)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Companion/CompanionServiceInfo.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: GetUniqueId
+    path: ../../AppleTV.Companion.Discovery/Companion/CompanionServiceInfo.cs
+    startLine: 38
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Companion
+  summary: >-
+    Returns the stable unique identifier for a Companion service, from the "rpmrtid"
+
+    TXT record, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if not present.
+  remarks: >-
+    This identifies the Apple TV, not the client - it is unrelated to the client identity
+
+    ("_i") that Companion pairing/session code generates and persists locally.
+
+    Also note pyatv's own comment (helpers.py:74) only claims this is static on tvOS 16
+
+    "(maybe earlier)"; there is no source statement covering tvOS 18+, so this is an
+
+    observation carried from pyatv, not a documented guarantee.
+  example: []
+  syntax:
+    content: public static string? GetUniqueId(IReadOnlyDictionary<string, string> properties)
+    parameters:
+    - id: properties
+      type: System.Collections.Generic.IReadOnlyDictionary{System.String,System.String}
+      description: The service's decoded TXT record properties.
+    return:
+      type: System.String
+      description: The unique identifier, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+    content.vb: Public Shared Function GetUniqueId(properties As IReadOnlyDictionary(Of String, String)) As String
+  overload: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.GetUniqueId*
+  nameWithType.vb: CompanionServiceInfo.GetUniqueId(IReadOnlyDictionary(Of String, String))
+  fullName.vb: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.GetUniqueId(System.Collections.Generic.IReadOnlyDictionary(Of String, String))
+  name.vb: GetUniqueId(IReadOnlyDictionary(Of String, String))
+- uid: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.GetPairingRequirement(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  commentId: M:AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.GetPairingRequirement(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  id: GetPairingRequirement(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  parent: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo
+  langs:
+  - csharp
+  - vb
+  name: GetPairingRequirement(IReadOnlyDictionary<string, string>)
+  nameWithType: CompanionServiceInfo.GetPairingRequirement(IReadOnlyDictionary<string, string>)
+  fullName: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.GetPairingRequirement(System.Collections.Generic.IReadOnlyDictionary<string, string>)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Companion/CompanionServiceInfo.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: GetPairingRequirement
+    path: ../../AppleTV.Companion.Discovery/Companion/CompanionServiceInfo.cs
+    startLine: 49
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Companion
+  summary: Derives the pairing requirement for a Companion service from its "rpfl" TXT record.
+  example: []
+  syntax:
+    content: public static CompanionPairingRequirement GetPairingRequirement(IReadOnlyDictionary<string, string> properties)
+    parameters:
+    - id: properties
+      type: System.Collections.Generic.IReadOnlyDictionary{System.String,System.String}
+      description: The service's decoded TXT record properties.
+    return:
+      type: AppleTvControlLibrary.Discovery.Companion.CompanionPairingRequirement
+      description: The derived pairing requirement.
+    content.vb: Public Shared Function GetPairingRequirement(properties As IReadOnlyDictionary(Of String, String)) As CompanionPairingRequirement
+  overload: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.GetPairingRequirement*
+  nameWithType.vb: CompanionServiceInfo.GetPairingRequirement(IReadOnlyDictionary(Of String, String))
+  fullName.vb: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.GetPairingRequirement(System.Collections.Generic.IReadOnlyDictionary(Of String, String))
+  name.vb: GetPairingRequirement(IReadOnlyDictionary(Of String, String))
+- uid: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.ToDiscoveryResult(AppleTvControlLibrary.Discovery.Mdns.Service)
+  commentId: M:AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.ToDiscoveryResult(AppleTvControlLibrary.Discovery.Mdns.Service)
+  id: ToDiscoveryResult(AppleTvControlLibrary.Discovery.Mdns.Service)
+  parent: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo
+  langs:
+  - csharp
+  - vb
+  name: ToDiscoveryResult(Service)
+  nameWithType: CompanionServiceInfo.ToDiscoveryResult(Service)
+  fullName: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.ToDiscoveryResult(AppleTvControlLibrary.Discovery.Mdns.Service)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Companion/CompanionServiceInfo.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: ToDiscoveryResult
+    path: ../../AppleTV.Companion.Discovery/Companion/CompanionServiceInfo.cs
+    startLine: 75
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Companion
+  summary: Converts a parsed mDNS <xref href="AppleTvControlLibrary.Discovery.Mdns.Service" data-throw-if-not-resolved="false"></xref> into a <xref href="AppleTvControlLibrary.Discovery.Companion.CompanionDiscoveryResult" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static CompanionDiscoveryResult ToDiscoveryResult(Service service)
+    parameters:
+    - id: service
+      type: AppleTvControlLibrary.Discovery.Mdns.Service
+      description: The parsed mDNS service.
+    return:
+      type: AppleTvControlLibrary.Discovery.Companion.CompanionDiscoveryResult
+      description: The Companion-specific discovery result.
+    content.vb: Public Shared Function ToDiscoveryResult(service As Service) As CompanionDiscoveryResult
+  overload: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.ToDiscoveryResult*
+references:
+- uid: AppleTvControlLibrary.Discovery.Companion
+  commentId: N:AppleTvControlLibrary.Discovery.Companion
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Discovery.Companion
+  nameWithType: AppleTvControlLibrary.Discovery.Companion
+  fullName: AppleTvControlLibrary.Discovery.Companion
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery
+    name: Discovery
+    href: AppleTvControlLibrary.Discovery.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery.Companion
+    name: Companion
+    href: AppleTvControlLibrary.Discovery.Companion.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery
+    name: Discovery
+    href: AppleTvControlLibrary.Discovery.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery.Companion
+    name: Companion
+    href: AppleTvControlLibrary.Discovery.Companion.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.GetUniqueId*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.GetUniqueId
+  href: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.html#AppleTvControlLibrary_Discovery_Companion_CompanionServiceInfo_GetUniqueId_System_Collections_Generic_IReadOnlyDictionary_System_String_System_String__
+  name: GetUniqueId
+  nameWithType: CompanionServiceInfo.GetUniqueId
+  fullName: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.GetUniqueId
+- uid: System.Collections.Generic.IReadOnlyDictionary{System.String,System.String}
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary{System.String,System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<string, string>
+  nameWithType: IReadOnlyDictionary<string, string>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<string, string>
+  nameWithType.vb: IReadOnlyDictionary(Of String, String)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of String, String)
+  name.vb: IReadOnlyDictionary(Of String, String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyDictionary`2
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<TKey, TValue>
+  nameWithType: IReadOnlyDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>
+  nameWithType.vb: IReadOnlyDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of TKey, TValue)
+  name.vb: IReadOnlyDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.GetPairingRequirement*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.GetPairingRequirement
+  href: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.html#AppleTvControlLibrary_Discovery_Companion_CompanionServiceInfo_GetPairingRequirement_System_Collections_Generic_IReadOnlyDictionary_System_String_System_String__
+  name: GetPairingRequirement
+  nameWithType: CompanionServiceInfo.GetPairingRequirement
+  fullName: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.GetPairingRequirement
+- uid: AppleTvControlLibrary.Discovery.Companion.CompanionPairingRequirement
+  commentId: T:AppleTvControlLibrary.Discovery.Companion.CompanionPairingRequirement
+  parent: AppleTvControlLibrary.Discovery.Companion
+  href: AppleTvControlLibrary.Discovery.Companion.CompanionPairingRequirement.html
+  name: CompanionPairingRequirement
+  nameWithType: CompanionPairingRequirement
+  fullName: AppleTvControlLibrary.Discovery.Companion.CompanionPairingRequirement
+- uid: AppleTvControlLibrary.Discovery.Mdns.Service
+  commentId: T:AppleTvControlLibrary.Discovery.Mdns.Service
+  parent: AppleTvControlLibrary.Discovery.Mdns
+  href: AppleTvControlLibrary.Discovery.Mdns.Service.html
+  name: Service
+  nameWithType: Service
+  fullName: AppleTvControlLibrary.Discovery.Mdns.Service
+- uid: AppleTvControlLibrary.Discovery.Companion.CompanionDiscoveryResult
+  commentId: T:AppleTvControlLibrary.Discovery.Companion.CompanionDiscoveryResult
+  parent: AppleTvControlLibrary.Discovery.Companion
+  href: AppleTvControlLibrary.Discovery.Companion.CompanionDiscoveryResult.html
+  name: CompanionDiscoveryResult
+  nameWithType: CompanionDiscoveryResult
+  fullName: AppleTvControlLibrary.Discovery.Companion.CompanionDiscoveryResult
+- uid: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.ToDiscoveryResult*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.ToDiscoveryResult
+  href: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.html#AppleTvControlLibrary_Discovery_Companion_CompanionServiceInfo_ToDiscoveryResult_AppleTvControlLibrary_Discovery_Mdns_Service_
+  name: ToDiscoveryResult
+  nameWithType: CompanionServiceInfo.ToDiscoveryResult
+  fullName: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo.ToDiscoveryResult
+- uid: AppleTvControlLibrary.Discovery.Mdns
+  commentId: N:AppleTvControlLibrary.Discovery.Mdns
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Discovery.Mdns
+  nameWithType: AppleTvControlLibrary.Discovery.Mdns
+  fullName: AppleTvControlLibrary.Discovery.Mdns
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery
+    name: Discovery
+    href: AppleTvControlLibrary.Discovery.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery.Mdns
+    name: Mdns
+    href: AppleTvControlLibrary.Discovery.Mdns.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery
+    name: Discovery
+    href: AppleTvControlLibrary.Discovery.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery.Mdns
+    name: Mdns
+    href: AppleTvControlLibrary.Discovery.Mdns.html

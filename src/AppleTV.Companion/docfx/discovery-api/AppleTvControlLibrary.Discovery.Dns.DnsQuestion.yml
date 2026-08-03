@@ -1,0 +1,591 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsQuestion
+  commentId: T:AppleTvControlLibrary.Discovery.Dns.DnsQuestion
+  id: DnsQuestion
+  parent: AppleTvControlLibrary.Discovery.Dns
+  children:
+  - AppleTvControlLibrary.Discovery.Dns.DnsQuestion.#ctor(System.String,AppleTvControlLibrary.Discovery.Dns.QueryType,System.UInt16)
+  - AppleTvControlLibrary.Discovery.Dns.DnsQuestion.Pack
+  - AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QClass
+  - AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QName
+  - AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QType
+  - AppleTvControlLibrary.Discovery.Dns.DnsQuestion.UnpackRead(AppleTvControlLibrary.Discovery.Dns.DnsBufferReader)
+  langs:
+  - csharp
+  - vb
+  name: DnsQuestion
+  nameWithType: DnsQuestion
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsQuestion
+  type: Class
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Dns/DnsQuestion.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: DnsQuestion
+    path: ../../AppleTV.Companion.Discovery/Dns/DnsQuestion.cs
+    startLine: 7
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Dns
+  summary: Represents a DNS query.
+  example: []
+  syntax:
+    content: public sealed class DnsQuestion
+    content.vb: Public NotInheritable Class DnsQuestion
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.#ctor(System.String,AppleTvControlLibrary.Discovery.Dns.QueryType,System.UInt16)
+  commentId: M:AppleTvControlLibrary.Discovery.Dns.DnsQuestion.#ctor(System.String,AppleTvControlLibrary.Discovery.Dns.QueryType,System.UInt16)
+  id: '#ctor(System.String,AppleTvControlLibrary.Discovery.Dns.QueryType,System.UInt16)'
+  parent: AppleTvControlLibrary.Discovery.Dns.DnsQuestion
+  langs:
+  - csharp
+  - vb
+  name: DnsQuestion(string, QueryType, ushort)
+  nameWithType: DnsQuestion.DnsQuestion(string, QueryType, ushort)
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.DnsQuestion(string, AppleTvControlLibrary.Discovery.Dns.QueryType, ushort)
+  type: Constructor
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Dns/DnsQuestion.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: .ctor
+    path: ../../AppleTV.Companion.Discovery/Dns/DnsQuestion.cs
+    startLine: 10
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Dns
+  summary: Initializes a new instance of the <xref href="AppleTvControlLibrary.Discovery.Dns.DnsQuestion" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public DnsQuestion(string qname, QueryType qtype, ushort qclass)
+    parameters:
+    - id: qname
+      type: System.String
+    - id: qtype
+      type: AppleTvControlLibrary.Discovery.Dns.QueryType
+    - id: qclass
+      type: System.UInt16
+    content.vb: Public Sub New(qname As String, qtype As QueryType, qclass As UShort)
+  overload: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.#ctor*
+  nameWithType.vb: DnsQuestion.New(String, QueryType, UShort)
+  fullName.vb: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.New(String, AppleTvControlLibrary.Discovery.Dns.QueryType, UShort)
+  name.vb: New(String, QueryType, UShort)
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QName
+  commentId: P:AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QName
+  id: QName
+  parent: AppleTvControlLibrary.Discovery.Dns.DnsQuestion
+  langs:
+  - csharp
+  - vb
+  name: QName
+  nameWithType: DnsQuestion.QName
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QName
+  type: Property
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Dns/DnsQuestion.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: QName
+    path: ../../AppleTV.Companion.Discovery/Dns/DnsQuestion.cs
+    startLine: 18
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Dns
+  summary: Gets the query name.
+  example: []
+  syntax:
+    content: public string QName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property QName As String
+  overload: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QName*
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QType
+  commentId: P:AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QType
+  id: QType
+  parent: AppleTvControlLibrary.Discovery.Dns.DnsQuestion
+  langs:
+  - csharp
+  - vb
+  name: QType
+  nameWithType: DnsQuestion.QType
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QType
+  type: Property
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Dns/DnsQuestion.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: QType
+    path: ../../AppleTV.Companion.Discovery/Dns/DnsQuestion.cs
+    startLine: 24
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Dns
+  summary: Gets the query type.
+  example: []
+  syntax:
+    content: public QueryType QType { get; }
+    parameters: []
+    return:
+      type: AppleTvControlLibrary.Discovery.Dns.QueryType
+    content.vb: Public ReadOnly Property QType As QueryType
+  overload: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QType*
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QClass
+  commentId: P:AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QClass
+  id: QClass
+  parent: AppleTvControlLibrary.Discovery.Dns.DnsQuestion
+  langs:
+  - csharp
+  - vb
+  name: QClass
+  nameWithType: DnsQuestion.QClass
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QClass
+  type: Property
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Dns/DnsQuestion.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: QClass
+    path: ../../AppleTV.Companion.Discovery/Dns/DnsQuestion.cs
+    startLine: 30
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Dns
+  summary: Gets the query class.
+  example: []
+  syntax:
+    content: public ushort QClass { get; }
+    parameters: []
+    return:
+      type: System.UInt16
+    content.vb: Public ReadOnly Property QClass As UShort
+  overload: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QClass*
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.UnpackRead(AppleTvControlLibrary.Discovery.Dns.DnsBufferReader)
+  commentId: M:AppleTvControlLibrary.Discovery.Dns.DnsQuestion.UnpackRead(AppleTvControlLibrary.Discovery.Dns.DnsBufferReader)
+  id: UnpackRead(AppleTvControlLibrary.Discovery.Dns.DnsBufferReader)
+  parent: AppleTvControlLibrary.Discovery.Dns.DnsQuestion
+  langs:
+  - csharp
+  - vb
+  name: UnpackRead(DnsBufferReader)
+  nameWithType: DnsQuestion.UnpackRead(DnsBufferReader)
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.UnpackRead(AppleTvControlLibrary.Discovery.Dns.DnsBufferReader)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Dns/DnsQuestion.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: UnpackRead
+    path: ../../AppleTV.Companion.Discovery/Dns/DnsQuestion.cs
+    startLine: 39
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Dns
+  summary: Creates a <xref href="AppleTvControlLibrary.Discovery.Dns.DnsQuestion" data-throw-if-not-resolved="false"></xref> from a data stream.
+  example: []
+  syntax:
+    content: public static DnsQuestion UnpackRead(DnsBufferReader buffer)
+    parameters:
+    - id: buffer
+      type: AppleTvControlLibrary.Discovery.Dns.DnsBufferReader
+      description: The buffer to read from.
+    return:
+      type: AppleTvControlLibrary.Discovery.Dns.DnsQuestion
+      description: The parsed question.
+    content.vb: Public Shared Function UnpackRead(buffer As DnsBufferReader) As DnsQuestion
+  overload: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.UnpackRead*
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.Pack
+  commentId: M:AppleTvControlLibrary.Discovery.Dns.DnsQuestion.Pack
+  id: Pack
+  parent: AppleTvControlLibrary.Discovery.Dns.DnsQuestion
+  langs:
+  - csharp
+  - vb
+  name: Pack()
+  nameWithType: DnsQuestion.Pack()
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.Pack()
+  type: Method
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Dns/DnsQuestion.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Pack
+    path: ../../AppleTV.Companion.Discovery/Dns/DnsQuestion.cs
+    startLine: 50
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Dns
+  summary: Encodes the question data as needed for a DNS query or response.
+  example: []
+  syntax:
+    content: public byte[] Pack()
+    return:
+      type: System.Byte[]
+      description: The packed question bytes.
+    content.vb: Public Function Pack() As Byte()
+  overload: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.Pack*
+references:
+- uid: AppleTvControlLibrary.Discovery.Dns
+  commentId: N:AppleTvControlLibrary.Discovery.Dns
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Discovery.Dns
+  nameWithType: AppleTvControlLibrary.Discovery.Dns
+  fullName: AppleTvControlLibrary.Discovery.Dns
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery
+    name: Discovery
+    href: AppleTvControlLibrary.Discovery.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery.Dns
+    name: Dns
+    href: AppleTvControlLibrary.Discovery.Dns.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery
+    name: Discovery
+    href: AppleTvControlLibrary.Discovery.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery.Dns
+    name: Dns
+    href: AppleTvControlLibrary.Discovery.Dns.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsQuestion
+  commentId: T:AppleTvControlLibrary.Discovery.Dns.DnsQuestion
+  parent: AppleTvControlLibrary.Discovery.Dns
+  href: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.html
+  name: DnsQuestion
+  nameWithType: DnsQuestion
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsQuestion
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.#ctor*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Dns.DnsQuestion.#ctor
+  href: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.html#AppleTvControlLibrary_Discovery_Dns_DnsQuestion__ctor_System_String_AppleTvControlLibrary_Discovery_Dns_QueryType_System_UInt16_
+  name: DnsQuestion
+  nameWithType: DnsQuestion.DnsQuestion
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.DnsQuestion
+  nameWithType.vb: DnsQuestion.New
+  fullName.vb: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: AppleTvControlLibrary.Discovery.Dns.QueryType
+  commentId: T:AppleTvControlLibrary.Discovery.Dns.QueryType
+  parent: AppleTvControlLibrary.Discovery.Dns
+  href: AppleTvControlLibrary.Discovery.Dns.QueryType.html
+  name: QueryType
+  nameWithType: QueryType
+  fullName: AppleTvControlLibrary.Discovery.Dns.QueryType
+- uid: System.UInt16
+  commentId: T:System.UInt16
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint16
+  name: ushort
+  nameWithType: ushort
+  fullName: ushort
+  nameWithType.vb: UShort
+  fullName.vb: UShort
+  name.vb: UShort
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QName*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QName
+  href: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.html#AppleTvControlLibrary_Discovery_Dns_DnsQuestion_QName
+  name: QName
+  nameWithType: DnsQuestion.QName
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QName
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QType*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QType
+  href: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.html#AppleTvControlLibrary_Discovery_Dns_DnsQuestion_QType
+  name: QType
+  nameWithType: DnsQuestion.QType
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QType
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QClass*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QClass
+  href: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.html#AppleTvControlLibrary_Discovery_Dns_DnsQuestion_QClass
+  name: QClass
+  nameWithType: DnsQuestion.QClass
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.QClass
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.UnpackRead*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Dns.DnsQuestion.UnpackRead
+  href: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.html#AppleTvControlLibrary_Discovery_Dns_DnsQuestion_UnpackRead_AppleTvControlLibrary_Discovery_Dns_DnsBufferReader_
+  name: UnpackRead
+  nameWithType: DnsQuestion.UnpackRead
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.UnpackRead
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsBufferReader
+  commentId: T:AppleTvControlLibrary.Discovery.Dns.DnsBufferReader
+  parent: AppleTvControlLibrary.Discovery.Dns
+  href: AppleTvControlLibrary.Discovery.Dns.DnsBufferReader.html
+  name: DnsBufferReader
+  nameWithType: DnsBufferReader
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsBufferReader
+- uid: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.Pack*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Dns.DnsQuestion.Pack
+  href: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.html#AppleTvControlLibrary_Discovery_Dns_DnsQuestion_Pack
+  name: Pack
+  nameWithType: DnsQuestion.Pack
+  fullName: AppleTvControlLibrary.Discovery.Dns.DnsQuestion.Pack
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )

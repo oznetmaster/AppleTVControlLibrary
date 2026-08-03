@@ -2,6 +2,27 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.1.0] - 2026-08-03
+
+### Added
+
+- Async-first Companion Link APIs for connection/session lifecycle, OPACK exchanges, HID and touch
+  input, media control, text input, subscriptions, app/account operations, and power state.
+- Cancellable asynchronous TCP connection setup for the WPF reference host.
+- Concurrent fake-device tests covering response correlation for overlapping OPACK exchanges and
+  touch-swipe traffic interleaved with status queries.
+
+### Changed
+
+- The WPF reference host and remote command-line tool now use the asynchronous library APIs.
+- Outbound protocol sends are serialized; pending exchanges now fail promptly when the connection
+  faults and use asynchronously scheduled task continuations.
+
+### Deprecated
+
+- Existing synchronous Companion API and protocol methods remain for source compatibility but are
+  obsolete. Use the corresponding `Async` methods in new code.
+
 ## [1.0.3] - 2026-08-03
 
 ### Fixed

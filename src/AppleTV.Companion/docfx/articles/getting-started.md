@@ -26,12 +26,15 @@ var devices = await discovery.ScanAsync (TimeSpan.FromSeconds (5));
 
 Pairing and connection orchestration is demonstrated by the WPF reference host in
 `src/AppleTv.Remote.Wpf`. After pairing, create a `CompanionApi`, complete pair verification,
-call `Connect()`, and send commands through the API.
+call `ConnectAsync()`, and send commands through the API.
 
 ```csharp
-api.Connect ();
-api.SendHidCommand (down: true, command: HidCommand.Select);
-api.SendHidCommand (down: false, command: HidCommand.Select);
+await api.ConnectAsync ();
+await api.SendHidCommandAsync (down: true, command: HidCommand.Select);
+await api.SendHidCommandAsync (down: false, command: HidCommand.Select);
 ```
+
+The API is async-first. Synchronous methods are retained only as obsolete source-compatibility
+wrappers; new code should use the corresponding `Async` methods.
 
 See [Pairing and Credentials](pairing.md) for persistence requirements.

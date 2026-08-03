@@ -1,0 +1,276 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Discovery.Companion.ICompanionDiscovery
+  commentId: T:AppleTvControlLibrary.Discovery.Companion.ICompanionDiscovery
+  id: ICompanionDiscovery
+  parent: AppleTvControlLibrary.Discovery.Companion
+  children:
+  - AppleTvControlLibrary.Discovery.Companion.ICompanionDiscovery.ScanAsync(System.TimeSpan,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ICompanionDiscovery
+  nameWithType: ICompanionDiscovery
+  fullName: AppleTvControlLibrary.Discovery.Companion.ICompanionDiscovery
+  type: Interface
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Companion/ICompanionDiscovery.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: ICompanionDiscovery
+    path: ../../AppleTV.Companion.Discovery/Companion/ICompanionDiscovery.cs
+    startLine: 15
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Companion
+  summary: >-
+    Discovers Companion Link devices on the local network. Kept behind an interface so
+
+    multicast discovery - the least portable part of the library - can be swapped for a
+
+    static address on hosts where multicast/mDNS isn't available or reliable.
+  example: []
+  syntax:
+    content: public interface ICompanionDiscovery
+    content.vb: Public Interface ICompanionDiscovery
+  derivedClasses:
+  - AppleTvControlLibrary.Discovery.Companion.MulticastCompanionDiscovery
+  - AppleTvControlLibrary.Discovery.Companion.StaticCompanionDiscovery
+- uid: AppleTvControlLibrary.Discovery.Companion.ICompanionDiscovery.ScanAsync(System.TimeSpan,System.Threading.CancellationToken)
+  commentId: M:AppleTvControlLibrary.Discovery.Companion.ICompanionDiscovery.ScanAsync(System.TimeSpan,System.Threading.CancellationToken)
+  id: ScanAsync(System.TimeSpan,System.Threading.CancellationToken)
+  parent: AppleTvControlLibrary.Discovery.Companion.ICompanionDiscovery
+  langs:
+  - csharp
+  - vb
+  name: ScanAsync(TimeSpan, CancellationToken)
+  nameWithType: ICompanionDiscovery.ScanAsync(TimeSpan, CancellationToken)
+  fullName: AppleTvControlLibrary.Discovery.Companion.ICompanionDiscovery.ScanAsync(System.TimeSpan, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Companion/ICompanionDiscovery.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: ScanAsync
+    path: ../../AppleTV.Companion.Discovery/Companion/ICompanionDiscovery.cs
+    startLine: 21
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Companion
+  summary: Scans the network for Companion Link devices.
+  example: []
+  syntax:
+    content: Task<IReadOnlyList<CompanionDiscoveryResult>> ScanAsync(TimeSpan timeout, CancellationToken cancellationToken = default)
+    parameters:
+    - id: timeout
+      type: System.TimeSpan
+      description: How long to wait for responses.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A token to cancel the scan.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{AppleTvControlLibrary.Discovery.Companion.CompanionDiscoveryResult}}
+      description: The discovered Companion Link devices.
+    content.vb: Function ScanAsync(timeout As TimeSpan, cancellationToken As CancellationToken = Nothing) As Task(Of IReadOnlyList(Of CompanionDiscoveryResult))
+  overload: AppleTvControlLibrary.Discovery.Companion.ICompanionDiscovery.ScanAsync*
+references:
+- uid: AppleTvControlLibrary.Discovery.Companion
+  commentId: N:AppleTvControlLibrary.Discovery.Companion
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Discovery.Companion
+  nameWithType: AppleTvControlLibrary.Discovery.Companion
+  fullName: AppleTvControlLibrary.Discovery.Companion
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery
+    name: Discovery
+    href: AppleTvControlLibrary.Discovery.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery.Companion
+    name: Companion
+    href: AppleTvControlLibrary.Discovery.Companion.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery
+    name: Discovery
+    href: AppleTvControlLibrary.Discovery.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery.Companion
+    name: Companion
+    href: AppleTvControlLibrary.Discovery.Companion.html
+- uid: AppleTvControlLibrary.Discovery.Companion.ICompanionDiscovery.ScanAsync*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Companion.ICompanionDiscovery.ScanAsync
+  href: AppleTvControlLibrary.Discovery.Companion.ICompanionDiscovery.html#AppleTvControlLibrary_Discovery_Companion_ICompanionDiscovery_ScanAsync_System_TimeSpan_System_Threading_CancellationToken_
+  name: ScanAsync
+  nameWithType: ICompanionDiscovery.ScanAsync
+  fullName: AppleTvControlLibrary.Discovery.Companion.ICompanionDiscovery.ScanAsync
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{AppleTvControlLibrary.Discovery.Companion.CompanionDiscoveryResult}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{AppleTvControlLibrary.Discovery.Companion.CompanionDiscoveryResult}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IReadOnlyList<CompanionDiscoveryResult>>
+  nameWithType: Task<IReadOnlyList<CompanionDiscoveryResult>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<AppleTvControlLibrary.Discovery.Companion.CompanionDiscoveryResult>>
+  nameWithType.vb: Task(Of IReadOnlyList(Of CompanionDiscoveryResult))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyList(Of AppleTvControlLibrary.Discovery.Companion.CompanionDiscoveryResult))
+  name.vb: Task(Of IReadOnlyList(Of CompanionDiscoveryResult))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: AppleTvControlLibrary.Discovery.Companion.CompanionDiscoveryResult
+    name: CompanionDiscoveryResult
+    href: AppleTvControlLibrary.Discovery.Companion.CompanionDiscoveryResult.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Discovery.Companion.CompanionDiscoveryResult
+    name: CompanionDiscoveryResult
+    href: AppleTvControlLibrary.Discovery.Companion.CompanionDiscoveryResult.html
+  - name: )
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

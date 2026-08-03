@@ -107,10 +107,17 @@ var results = await discovery.ScanAsync (TimeSpan.FromSeconds (5));
 //    or drive SrpAuthHandler / CompanionProtocol directly for full control.
 
 // 3. After pairing, connect and issue commands via CompanionApi.
-api.Connect ();
-api.SendHidCommand (down: true, command: HidCommand.Select);
-api.SendHidCommand (down: false, command: HidCommand.Select);
+await api.ConnectAsync ();
+await api.SendHidCommandAsync (down: true, command: HidCommand.Select);
+await api.SendHidCommandAsync (down: false, command: HidCommand.Select);
 ```
+
+### Async APIs
+
+Version 1.1.0 is async-first. Use the `Async` API variants for all protocol operations, including
+connection, commands, event subscriptions, and discovery. The original synchronous APIs remain
+available for source compatibility but are obsolete; migrate to their `Async` equivalents to avoid
+blocking application threads.
 
 See `src/AppleTv.Remote.Wpf` in the source repository for a complete reference host application
 (scan, pair, connect, and drive a remote-control UI).

@@ -1,0 +1,69 @@
+### YamlMime:TableOfContent
+items:
+- uid: AppleTvControlLibrary.Discovery.Companion
+  name: AppleTvControlLibrary.Discovery.Companion
+  type: Namespace
+  items:
+  - uid: AppleTvControlLibrary.Discovery.Companion.CompanionDiscoveryResult
+    name: CompanionDiscoveryResult
+    type: Class
+  - uid: AppleTvControlLibrary.Discovery.Companion.CompanionPairingRequirement
+    name: CompanionPairingRequirement
+    type: Enum
+  - uid: AppleTvControlLibrary.Discovery.Companion.CompanionServiceInfo
+    name: CompanionServiceInfo
+    type: Class
+  - uid: AppleTvControlLibrary.Discovery.Companion.ICompanionDiscovery
+    name: ICompanionDiscovery
+    type: Interface
+  - uid: AppleTvControlLibrary.Discovery.Companion.MulticastCompanionDiscovery
+    name: MulticastCompanionDiscovery
+    type: Class
+  - uid: AppleTvControlLibrary.Discovery.Companion.StaticCompanionDiscovery
+    name: StaticCompanionDiscovery
+    type: Class
+- uid: AppleTvControlLibrary.Discovery.Dns
+  name: AppleTvControlLibrary.Discovery.Dns
+  type: Namespace
+  items:
+  - uid: AppleTvControlLibrary.Discovery.Dns.DnsBufferReader
+    name: DnsBufferReader
+    type: Class
+  - uid: AppleTvControlLibrary.Discovery.Dns.DnsMessage
+    name: DnsMessage
+    type: Class
+  - uid: AppleTvControlLibrary.Discovery.Dns.DnsQuestion
+    name: DnsQuestion
+    type: Class
+  - uid: AppleTvControlLibrary.Discovery.Dns.DnsResource
+    name: DnsResource
+    type: Class
+  - uid: AppleTvControlLibrary.Discovery.Dns.DnsServiceQueries
+    name: DnsServiceQueries
+    type: Class
+  - uid: AppleTvControlLibrary.Discovery.Dns.DnsWireFormat
+    name: DnsWireFormat
+    type: Class
+  - uid: AppleTvControlLibrary.Discovery.Dns.QueryType
+    name: QueryType
+    type: Enum
+  - uid: AppleTvControlLibrary.Discovery.Dns.ServiceInstanceName
+    name: ServiceInstanceName
+    type: Class
+  - uid: AppleTvControlLibrary.Discovery.Dns.SrvRecord
+    name: SrvRecord
+    type: Struct
+- uid: AppleTvControlLibrary.Discovery.Mdns
+  name: AppleTvControlLibrary.Discovery.Mdns
+  type: Namespace
+  items:
+  - uid: AppleTvControlLibrary.Discovery.Mdns.Response
+    name: Response
+    type: Class
+  - uid: AppleTvControlLibrary.Discovery.Mdns.Service
+    name: Service
+    type: Class
+  - uid: AppleTvControlLibrary.Discovery.Mdns.ServiceParser
+    name: ServiceParser
+    type: Class
+memberLayout: SamePage

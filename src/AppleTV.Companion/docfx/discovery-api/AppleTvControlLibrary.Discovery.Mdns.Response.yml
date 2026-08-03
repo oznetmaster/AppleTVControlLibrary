@@ -1,0 +1,571 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Discovery.Mdns.Response
+  commentId: T:AppleTvControlLibrary.Discovery.Mdns.Response
+  id: Response
+  parent: AppleTvControlLibrary.Discovery.Mdns
+  children:
+  - AppleTvControlLibrary.Discovery.Mdns.Response.#ctor(System.Collections.Generic.IReadOnlyList{AppleTvControlLibrary.Discovery.Mdns.Service},System.Boolean,System.String)
+  - AppleTvControlLibrary.Discovery.Mdns.Response.DeepSleep
+  - AppleTvControlLibrary.Discovery.Mdns.Response.Model
+  - AppleTvControlLibrary.Discovery.Mdns.Response.Services
+  langs:
+  - csharp
+  - vb
+  name: Response
+  nameWithType: Response
+  fullName: AppleTvControlLibrary.Discovery.Mdns.Response
+  type: Class
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Mdns/Response.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Response
+    path: ../../AppleTV.Companion.Discovery/Mdns/Response.cs
+    startLine: 9
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Mdns
+  summary: Represents the response to an MDNS request.
+  example: []
+  syntax:
+    content: public sealed class Response
+    content.vb: Public NotInheritable Class Response
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: AppleTvControlLibrary.Discovery.Mdns.Response.#ctor(System.Collections.Generic.IReadOnlyList{AppleTvControlLibrary.Discovery.Mdns.Service},System.Boolean,System.String)
+  commentId: M:AppleTvControlLibrary.Discovery.Mdns.Response.#ctor(System.Collections.Generic.IReadOnlyList{AppleTvControlLibrary.Discovery.Mdns.Service},System.Boolean,System.String)
+  id: '#ctor(System.Collections.Generic.IReadOnlyList{AppleTvControlLibrary.Discovery.Mdns.Service},System.Boolean,System.String)'
+  parent: AppleTvControlLibrary.Discovery.Mdns.Response
+  langs:
+  - csharp
+  - vb
+  name: Response(IReadOnlyList<Service>, bool, string?)
+  nameWithType: Response.Response(IReadOnlyList<Service>, bool, string?)
+  fullName: AppleTvControlLibrary.Discovery.Mdns.Response.Response(System.Collections.Generic.IReadOnlyList<AppleTvControlLibrary.Discovery.Mdns.Service>, bool, string?)
+  type: Constructor
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Mdns/Response.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: .ctor
+    path: ../../AppleTV.Companion.Discovery/Mdns/Response.cs
+    startLine: 12
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Mdns
+  summary: Initializes a new instance of the <xref href="AppleTvControlLibrary.Discovery.Mdns.Response" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public Response(IReadOnlyList<Service> services, bool deepSleep, string? model)
+    parameters:
+    - id: services
+      type: System.Collections.Generic.IReadOnlyList{AppleTvControlLibrary.Discovery.Mdns.Service}
+    - id: deepSleep
+      type: System.Boolean
+    - id: model
+      type: System.String
+    content.vb: Public Sub New(services As IReadOnlyList(Of Service), deepSleep As Boolean, model As String)
+  overload: AppleTvControlLibrary.Discovery.Mdns.Response.#ctor*
+  nameWithType.vb: Response.New(IReadOnlyList(Of Service), Boolean, String)
+  fullName.vb: AppleTvControlLibrary.Discovery.Mdns.Response.New(System.Collections.Generic.IReadOnlyList(Of AppleTvControlLibrary.Discovery.Mdns.Service), Boolean, String)
+  name.vb: New(IReadOnlyList(Of Service), Boolean, String)
+- uid: AppleTvControlLibrary.Discovery.Mdns.Response.Services
+  commentId: P:AppleTvControlLibrary.Discovery.Mdns.Response.Services
+  id: Services
+  parent: AppleTvControlLibrary.Discovery.Mdns.Response
+  langs:
+  - csharp
+  - vb
+  name: Services
+  nameWithType: Response.Services
+  fullName: AppleTvControlLibrary.Discovery.Mdns.Response.Services
+  type: Property
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Mdns/Response.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Services
+    path: ../../AppleTV.Companion.Discovery/Mdns/Response.cs
+    startLine: 20
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Mdns
+  summary: Gets the services discovered in this response.
+  example: []
+  syntax:
+    content: public IReadOnlyList<Service> Services { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{AppleTvControlLibrary.Discovery.Mdns.Service}
+    content.vb: Public ReadOnly Property Services As IReadOnlyList(Of Service)
+  overload: AppleTvControlLibrary.Discovery.Mdns.Response.Services*
+- uid: AppleTvControlLibrary.Discovery.Mdns.Response.DeepSleep
+  commentId: P:AppleTvControlLibrary.Discovery.Mdns.Response.DeepSleep
+  id: DeepSleep
+  parent: AppleTvControlLibrary.Discovery.Mdns.Response
+  langs:
+  - csharp
+  - vb
+  name: DeepSleep
+  nameWithType: Response.DeepSleep
+  fullName: AppleTvControlLibrary.Discovery.Mdns.Response.DeepSleep
+  type: Property
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Mdns/Response.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: DeepSleep
+    path: ../../AppleTV.Companion.Discovery/Mdns/Response.cs
+    startLine: 26
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Mdns
+  summary: Gets a value indicating whether the responding device appears to be a sleep proxy.
+  example: []
+  syntax:
+    content: public bool DeepSleep { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property DeepSleep As Boolean
+  overload: AppleTvControlLibrary.Discovery.Mdns.Response.DeepSleep*
+- uid: AppleTvControlLibrary.Discovery.Mdns.Response.Model
+  commentId: P:AppleTvControlLibrary.Discovery.Mdns.Response.Model
+  id: Model
+  parent: AppleTvControlLibrary.Discovery.Mdns.Response
+  langs:
+  - csharp
+  - vb
+  name: Model
+  nameWithType: Response.Model
+  fullName: AppleTvControlLibrary.Discovery.Mdns.Response.Model
+  type: Property
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Mdns/Response.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Model
+    path: ../../AppleTV.Companion.Discovery/Mdns/Response.cs
+    startLine: 33
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Mdns
+  summary: Gets the device model, from the "_device-info._tcp.local" service, if present.
+  example: []
+  syntax:
+    content: public string? Model { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Model As String
+  overload: AppleTvControlLibrary.Discovery.Mdns.Response.Model*
+references:
+- uid: AppleTvControlLibrary.Discovery.Mdns
+  commentId: N:AppleTvControlLibrary.Discovery.Mdns
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Discovery.Mdns
+  nameWithType: AppleTvControlLibrary.Discovery.Mdns
+  fullName: AppleTvControlLibrary.Discovery.Mdns
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery
+    name: Discovery
+    href: AppleTvControlLibrary.Discovery.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery.Mdns
+    name: Mdns
+    href: AppleTvControlLibrary.Discovery.Mdns.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery
+    name: Discovery
+    href: AppleTvControlLibrary.Discovery.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery.Mdns
+    name: Mdns
+    href: AppleTvControlLibrary.Discovery.Mdns.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AppleTvControlLibrary.Discovery.Mdns.Response
+  commentId: T:AppleTvControlLibrary.Discovery.Mdns.Response
+  href: AppleTvControlLibrary.Discovery.Mdns.Response.html
+  name: Response
+  nameWithType: Response
+  fullName: AppleTvControlLibrary.Discovery.Mdns.Response
+- uid: AppleTvControlLibrary.Discovery.Mdns.Response.#ctor*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Mdns.Response.#ctor
+  href: AppleTvControlLibrary.Discovery.Mdns.Response.html#AppleTvControlLibrary_Discovery_Mdns_Response__ctor_System_Collections_Generic_IReadOnlyList_AppleTvControlLibrary_Discovery_Mdns_Service__System_Boolean_System_String_
+  name: Response
+  nameWithType: Response.Response
+  fullName: AppleTvControlLibrary.Discovery.Mdns.Response.Response
+  nameWithType.vb: Response.New
+  fullName.vb: AppleTvControlLibrary.Discovery.Mdns.Response.New
+  name.vb: New
+- uid: System.Collections.Generic.IReadOnlyList{AppleTvControlLibrary.Discovery.Mdns.Service}
+  commentId: T:System.Collections.Generic.IReadOnlyList{AppleTvControlLibrary.Discovery.Mdns.Service}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<Service>
+  nameWithType: IReadOnlyList<Service>
+  fullName: System.Collections.Generic.IReadOnlyList<AppleTvControlLibrary.Discovery.Mdns.Service>
+  nameWithType.vb: IReadOnlyList(Of Service)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of AppleTvControlLibrary.Discovery.Mdns.Service)
+  name.vb: IReadOnlyList(Of Service)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: AppleTvControlLibrary.Discovery.Mdns.Service
+    name: Service
+    href: AppleTvControlLibrary.Discovery.Mdns.Service.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Discovery.Mdns.Service
+    name: Service
+    href: AppleTvControlLibrary.Discovery.Mdns.Service.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: AppleTvControlLibrary.Discovery.Mdns.Response.Services*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Mdns.Response.Services
+  href: AppleTvControlLibrary.Discovery.Mdns.Response.html#AppleTvControlLibrary_Discovery_Mdns_Response_Services
+  name: Services
+  nameWithType: Response.Services
+  fullName: AppleTvControlLibrary.Discovery.Mdns.Response.Services
+- uid: AppleTvControlLibrary.Discovery.Mdns.Response.DeepSleep*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Mdns.Response.DeepSleep
+  href: AppleTvControlLibrary.Discovery.Mdns.Response.html#AppleTvControlLibrary_Discovery_Mdns_Response_DeepSleep
+  name: DeepSleep
+  nameWithType: Response.DeepSleep
+  fullName: AppleTvControlLibrary.Discovery.Mdns.Response.DeepSleep
+- uid: AppleTvControlLibrary.Discovery.Mdns.Response.Model*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Mdns.Response.Model
+  href: AppleTvControlLibrary.Discovery.Mdns.Response.html#AppleTvControlLibrary_Discovery_Mdns_Response_Model
+  name: Model
+  nameWithType: Response.Model
+  fullName: AppleTvControlLibrary.Discovery.Mdns.Response.Model
