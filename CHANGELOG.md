@@ -2,6 +2,15 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.0.3] - 2026-08-03
+
+### Fixed
+
+- Updated the packaged README screenshot to use the GitHub Pages-hosted image so it renders on
+  NuGet.org.
+- Added explicit empty framework assets to `AppleTvControlLibrary.All`, eliminating the NU5128
+  packaging warning while retaining its `net472` and `net10.0` dependency groups.
+
 ## [1.0.2] - 2026-08-03
 
 ### Changed
