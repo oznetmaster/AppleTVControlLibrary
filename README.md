@@ -7,6 +7,10 @@ volume, and power state. It targets `net472` and `net10.0` from a single, non-co
 This library implements Companion Link only. It does not implement MRP, AirPlay 2, RAOP, or
 DMAP/DACP.
 
+## Documentation
+
+API documentation is published at [oznetmaster.github.io/AppleTVControlLibrary](https://oznetmaster.github.io/AppleTVControlLibrary/).
+
 > **Trademark notice and disclaimer:** Apple, Apple TV, tvOS, AirPlay, and Siri are trademarks of
 > Apple Inc., registered in the U.S. and other countries. This project is an independent,
 > unofficial implementation of a reverse-engineered protocol and is **not affiliated with,
