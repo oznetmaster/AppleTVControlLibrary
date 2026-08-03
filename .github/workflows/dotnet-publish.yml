@@ -88,6 +88,7 @@ jobs:
               throw "Changelog section for release version $version is empty."
           }
 
+          New-Item -ItemType Directory -Path "${{ env.ARTIFACT_DIR }}" -Force | Out-Null
           $releaseNotesPath = "${{ env.ARTIFACT_DIR }}/release-notes.md"
           Set-Content -Path $releaseNotesPath -Value $releaseNotes -NoNewline
 
