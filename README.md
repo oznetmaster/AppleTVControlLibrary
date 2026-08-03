@@ -54,6 +54,8 @@ reconnect, and control a selected Apple TV. Its UI includes directional and medi
 capability-aware volume and mute controls, power-state updates, app launching, switchable-account
 selection, and reactive text entry when the Apple TV keyboard gains focus.
 
+<img src="src/AppleTV.Companion/docfx/images/companion-link-remote.png" alt="Companion Link Remote WPF reference host" width="180" />
+
 Use it as an integration example for credential storage, connection lifecycle handling, and the
 high-level `CompanionApi`; hosts are expected to provide their own UI and secure credential-store
 implementation.

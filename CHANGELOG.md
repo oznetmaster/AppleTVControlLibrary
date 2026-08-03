@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.0.2] - 2026-08-03
+
+### Changed
+
+- Renamed the WPF reference host window from "Apple TV Remote" to "Companion Link Remote" to
+  distinguish this independent application from Apple's product.
+
+### Added
+
+- Expanded the README with a repository layout, WPF reference-host guidance, and a current
+  screenshot of the running Companion Link Remote application.
+
 ## [1.0.1] - 2026-08-02
 
 ### Fixed
