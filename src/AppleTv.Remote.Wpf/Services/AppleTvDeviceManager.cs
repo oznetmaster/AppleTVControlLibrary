@@ -84,7 +84,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 
 	/// <summary>Gets the current virtual keyboard text from the connected device.</summary>
 	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_get) — line 517-519 as of pyatv 0.18.0
-	public string? TextGet ()
+	public async Task<string?> TextGetAsync ()
 		{
 		if (this._api is null)
 			{
@@ -93,20 +93,20 @@ public sealed class AppleTvDeviceManager : IDisposable
 
 #pragma warning restore CS0618
 
-		return this._api.TextGetAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
+		return await this._api.TextGetAsync ().ConfigureAwait (false);
 		}
 
 	/// <summary>Replaces the virtual keyboard text on the connected device.</summary>
 	/// <param name="text">The new text.</param>
 	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_set) — line 529-531 as of pyatv 0.18.0
-	public void SetText (string text)
+	public async Task SetTextAsync (string text)
 		{
 		if (this._api is null)
 			{
 			throw new InvalidOperationException ("Not connected");
 			}
 
-		this._api.TextSetAsync (text).ConfigureAwait (false).GetAwaiter ().GetResult ();
+		await this._api.TextSetAsync (text).ConfigureAwait (false);
 		}
 
 	/// <summary>Scans the network for Companion Link devices.</summary>
@@ -152,12 +152,10 @@ public sealed class AppleTvDeviceManager : IDisposable
 			throw new InvalidOperationException ("Device has no resolved address");
 			}
 
-		return await Task.Run (() =>
-			{
-			CompanionConnection connection = new CompanionConnection ();
-			CompanionProtocol protocol = new CompanionProtocol (connection, new SrpAuthHandler ());
-			TcpCompanionTransport transport = TcpCompanionTransport.Connect (
-				device.Address.ToString (), device.Port, connection, protocol);
+		CompanionConnection connection = new CompanionConnection ();
+		CompanionProtocol protocol = new CompanionProtocol (connection, new SrpAuthHandler ());
+		TcpCompanionTransport transport = await TcpCompanionTransport.ConnectAsync (
+			device.Address.ToString (), device.Port, connection, protocol).ConfigureAwait (false);
 
 			SrpAuthHandler srp = new SrpAuthHandler ();
 			srp.Initialize ();
@@ -168,14 +166,13 @@ public sealed class AppleTvDeviceManager : IDisposable
 				{ (int)TlvValue.Method, new byte[] { 0 } },
 				{ (int)TlvValue.SeqNo, new byte[] { 1 } },
 				});
-			Dictionary<object, object?> m2Response = protocol.ExchangeAuthAsync (FrameType.PS_Start, new Dictionary<string, object?> { ["_pd"] = m1, ["_pwTy"] = 1 }).ConfigureAwait (false).GetAwaiter ().GetResult ();
+		Dictionary<object, object?> m2Response = await protocol.ExchangeAuthAsync (FrameType.PS_Start, new Dictionary<string, object?> { ["_pd"] = m1, ["_pwTy"] = 1 }).ConfigureAwait (false);
 			byte[] m2 = (byte[])m2Response["_pd"]!;
 			Dictionary<int, byte[]> m2Tlv = Tlv8.Tlv8.ReadTlv (m2);
 			byte[] atvSalt = m2Tlv[(int)TlvValue.Salt];
 			byte[] atvPubKey = m2Tlv[(int)TlvValue.PublicKey];
 
-			return new PairingSession (device, transport, protocol, srp, atvSalt, atvPubKey);
-			}).ConfigureAwait (false);
+		return new PairingSession (device, transport, protocol, srp, atvSalt, atvPubKey);
 		}
 
 	/// <summary>
@@ -252,12 +249,10 @@ public sealed class AppleTvDeviceManager : IDisposable
 	// pyatv/protocols/companion/auth.py (CompanionPairVerifyProcedure) — line 120-158 as of pyatv 0.18.0
 	public async Task ConnectAsync (StoredDevice stored)
 		{
-		await Task.Run (async () =>
-			{
-			System.Diagnostics.Debug.WriteLine ($"[AppleTvDeviceManager] Connecting to {stored.Name} at {stored.Address}:{stored.Port}");
+		System.Diagnostics.Debug.WriteLine ($"[AppleTvDeviceManager] Connecting to {stored.Name} at {stored.Address}:{stored.Port}");
 			CompanionConnection connection = new CompanionConnection ();
 			CompanionProtocol protocol = new CompanionProtocol (connection, new SrpAuthHandler ());
-			this._transport = TcpCompanionTransport.Connect (stored.Address, stored.Port, connection, protocol);
+			this._transport = await TcpCompanionTransport.ConnectAsync (stored.Address, stored.Port, connection, protocol).ConfigureAwait (false);
 			System.Diagnostics.Debug.WriteLine ("[AppleTvDeviceManager] TCP connected, starting pair-verify");
 
 			HapCredentials credentials = stored.ToCredentials ();
@@ -271,7 +266,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 				{ (int)TlvValue.PublicKey, verifyPubKey },
 				});
 			System.Diagnostics.Debug.WriteLine ("[AppleTvDeviceManager] Sending pair-verify M1 (PV_Start)");
-			Dictionary<object, object?> pv2Response = protocol.ExchangeAuthAsync (FrameType.PV_Start, new Dictionary<string, object?> { ["_pd"] = pv1, ["_auTy"] = 4 }).ConfigureAwait (false).GetAwaiter ().GetResult ();
+			Dictionary<object, object?> pv2Response = await protocol.ExchangeAuthAsync (FrameType.PV_Start, new Dictionary<string, object?> { ["_pd"] = pv1, ["_auTy"] = 4 }).ConfigureAwait (false);
 			System.Diagnostics.Debug.WriteLine ("[AppleTvDeviceManager] Received pair-verify M2");
 			byte[] pv2 = (byte[])pv2Response["_pd"]!;
 			Dictionary<int, byte[]> pv2Tlv = Tlv8.Tlv8.ReadTlv (pv2);
@@ -286,7 +281,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 				});
 			// pyatv/protocols/companion/auth.py — line 145-158 as of pyatv 0.18.0: M3 carries no "_auTy", unlike M1.
 			System.Diagnostics.Debug.WriteLine ("[AppleTvDeviceManager] Sending pair-verify M3 (PV_Next)");
-			Dictionary<object, object?> pv4Response = protocol.ExchangeAuthAsync (FrameType.PV_Next, new Dictionary<string, object?> { ["_pd"] = pv3 }).ConfigureAwait (false).GetAwaiter ().GetResult ();
+			Dictionary<object, object?> pv4Response = await protocol.ExchangeAuthAsync (FrameType.PV_Next, new Dictionary<string, object?> { ["_pd"] = pv3 }).ConfigureAwait (false);
 			System.Diagnostics.Debug.WriteLine ("[AppleTvDeviceManager] Received pair-verify M4");
 			byte[] pv4 = (byte[])pv4Response["_pd"]!;
 			Dictionary<int, byte[]> pv4Tlv = Tlv8.Tlv8.ReadTlv (pv4);
@@ -337,7 +332,6 @@ public sealed class AppleTvDeviceManager : IDisposable
 				System.Diagnostics.Debug.WriteLine ($"[AppleTvDeviceManager] AccountList failed (ignored): {ex}");
 				this.Accounts = new Dictionary<string, string> ();
 				}
-			}).ConfigureAwait (false);
 		}
 
 	private void OnMediaControlCapabilitiesChanged (object? sender, EventArgs e)
@@ -357,41 +351,41 @@ public sealed class AppleTvDeviceManager : IDisposable
 
 	/// <summary>Sends a HID button command to the connected device.</summary>
 	/// <param name="command">The button to send.</param>
-	public void SendHidCommand (HidCommand command)
+	public async Task SendHidCommandAsync (HidCommand command)
 		{
 		if (this._api is null)
 			{
 			throw new InvalidOperationException ("Not connected");
 			}
 
-		this._api.SendHidCommandAsync (down: true, command: command).ConfigureAwait (false).GetAwaiter ().GetResult ();
-		this._api.SendHidCommandAsync (down: false, command: command).ConfigureAwait (false).GetAwaiter ().GetResult ();
+		await this._api.SendHidCommandAsync (down: true, command: command).ConfigureAwait (false);
+		await this._api.SendHidCommandAsync (down: false, command: command).ConfigureAwait (false);
 		}
 
 	/// <summary>Sends a raw touchpad (touch surface) event to the connected device.</summary>
 	/// <param name="x">The x coordinate, in the range [0, 1000].</param>
 	/// <param name="y">The y coordinate, in the range [0, 1000].</param>
 	/// <param name="action">The touch phase.</param>
-	public void SendTouchEvent (int x, int y, TouchAction action)
+	public async Task SendTouchEventAsync (int x, int y, TouchAction action)
 		{
 		if (this._api is null)
 			{
 			throw new InvalidOperationException ("Not connected");
 			}
 
-		this._api.SendHidEventAsync (x, y, action).ConfigureAwait (false).GetAwaiter ().GetResult ();
+		await this._api.SendHidEventAsync (x, y, action).ConfigureAwait (false);
 		}
 
 	/// <summary>Sends a touchpad click (tap), as opposed to a swipe/drag.</summary>
 	/// <param name="action">The click gesture: single tap, double tap, or press-and-hold.</param>
-	public void SendTouchClick (InputAction action)
+	public async Task SendTouchClickAsync (InputAction action)
 		{
 		if (this._api is null)
 			{
 			throw new InvalidOperationException ("Not connected");
 			}
 
-		this._api.SendClickAsync (action).ConfigureAwait (false).GetAwaiter ().GetResult ();
+		await this._api.SendClickAsync (action).ConfigureAwait (false);
 		}
 
 	/// <summary>
@@ -401,14 +395,14 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// via the <c>_iMC</c> event's <c>_mcF</c> bitmask.
 	/// </summary>
 	/// <returns>The resulting muted state.</returns>
-	public bool ToggleMute ()
+	public async Task<bool> ToggleMuteAsync ()
 		{
 		if (this._api is null)
 			{
 			throw new InvalidOperationException ("Not connected");
 			}
 
-		return this._api.ToggleMuteAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
+		return await this._api.ToggleMuteAsync ().ConfigureAwait (false);
 		}
 
 	/// <summary>Gets a value indicating whether the connected device supports volume control.</summary>
@@ -438,26 +432,26 @@ public sealed class AppleTvDeviceManager : IDisposable
 
 	/// <summary>Launches an app on the connected device.</summary>
 	/// <param name="bundleIdOrUrl">A bundle identifier or a URL/URL scheme to open.</param>
-	public void LaunchApp (string bundleIdOrUrl)
+	public async Task LaunchAppAsync (string bundleIdOrUrl)
 		{
 		if (this._api is null)
 			{
 			throw new InvalidOperationException ("Not connected");
 			}
 
-		this._api.LaunchAppAsync (bundleIdOrUrl).ConfigureAwait (false).GetAwaiter ().GetResult ();
+		await this._api.LaunchAppAsync (bundleIdOrUrl).ConfigureAwait (false);
 		}
 
 	/// <summary>Switches the active user account on the connected device.</summary>
 	/// <param name="accountId">The account identifier to switch to, from <see cref="Accounts"/>.</param>
-	public void SwitchAccount (string accountId)
+	public async Task SwitchAccountAsync (string accountId)
 		{
 		if (this._api is null)
 			{
 			throw new InvalidOperationException ("Not connected");
 			}
 
-		this._api.SwitchAccountAsync (accountId).ConfigureAwait (false).GetAwaiter ().GetResult ();
+		await this._api.SwitchAccountAsync (accountId).ConfigureAwait (false);
 		}
 
 	/// <summary>
@@ -470,7 +464,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <returns><see langword="true"/> if a wake command was sent, <see langword="false"/> if a sleep command was sent.</returns>
 	// pyatv/protocols/companion/api.py (HidCommand.Sleep/Wake) — line 38/44-45 as of pyatv 0.18.0. turn_on/turn_off both
 	// call hid_command(False, ...) - a single up-only event, not a down/up pair.
-	public bool TogglePower ()
+	public async Task<bool> TogglePowerAsync ()
 		{
 		if (this._api is null)
 			{
@@ -479,7 +473,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 
 		bool shouldWake = this._api.CurrentSystemStatus == SystemStatus.Asleep;
 		HidCommand command = shouldWake ? HidCommand.Wake : HidCommand.Sleep;
-		this._api.SendHidCommandAsync (down: false, command: command).ConfigureAwait (false).GetAwaiter ().GetResult ();
+		await this._api.SendHidCommandAsync (down: false, command: command).ConfigureAwait (false);
 		return shouldWake;
 		}
 

@@ -85,18 +85,18 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		// immediately while the UI thread handles the round trip asynchronously.
 		this._deviceManager.TextFocusStateChanged += (_, _) =>
 			{
-			Application.Current?.Dispatcher.BeginInvoke (this.ApplyTextFocusState);
+			Application.Current?.Dispatcher.BeginInvoke (new Action (async () => await this.ApplyTextFocusStateAsync ().ConfigureAwait (true)));
 			};
 		}
 
-	private void ApplyTextFocusState ()
+	private async Task ApplyTextFocusStateAsync ()
 		{
 		if (this._deviceManager.TextFocusState == KeyboardFocusState.Focused)
 			{
 			string? currentText = null;
 			try
 				{
-				currentText = this._deviceManager.TextGet ();
+				currentText = await this._deviceManager.TextGetAsync ().ConfigureAwait (true);
 				}
 			catch (Exception ex)
 				{
@@ -175,11 +175,11 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		this.OnPropertyChanged (nameof (this.IsCurrentAccountKnown));
 		}
 
-	private void LaunchSelectedApp (SelectableItem app)
+	private async Task LaunchSelectedAppAsync (SelectableItem app)
 		{
 		try
 			{
-			this._deviceManager.LaunchApp (app.Id);
+			await this._deviceManager.LaunchAppAsync (app.Id).ConfigureAwait (true);
 			this.StatusMessage = $"Launched {app.DisplayName}.";
 			}
 		catch (Exception ex)
@@ -189,11 +189,11 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			}
 		}
 
-	private void SwitchToSelectedAccount (SelectableItem account)
+	private async Task SwitchToSelectedAccountAsync (SelectableItem account)
 		{
 		try
 			{
-			this._deviceManager.SwitchAccount (account.Id);
+			await this._deviceManager.SwitchAccountAsync (account.Id).ConfigureAwait (true);
 			this.StatusMessage = $"Switched to {account.DisplayName}.";
 
 			// Only now do we actually know the active account - a successful SwitchUserAccountEvent
@@ -243,7 +243,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			{
 			if (this.SetProperty (ref this._selectedApp, value) && !this._isPopulatingAppsOrAccounts && value is not null)
 				{
-				this.LaunchSelectedApp (value);
+				_ = this.LaunchSelectedAppAsync (value);
 				}
 			}
 		}
@@ -290,7 +290,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			{
 			if (this.SetProperty (ref this._selectedAccount, value) && !this._isPopulatingAppsOrAccounts && value is not null)
 				{
-				this.SwitchToSelectedAccount (value);
+				_ = this.SwitchToSelectedAccountAsync (value);
 				}
 			}
 		}
@@ -456,7 +456,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 
 	/// <summary>
 	/// Gets a value indicating whether the device is currently considered awake, based on the
-	/// most recent <see cref="AppleTvDeviceManager.TogglePower"/> result.
+	/// most recent <see cref="AppleTvDeviceManager.TogglePowerAsync"/> result.
 	/// </summary>
 	public bool IsAwake
 		{
@@ -535,6 +535,11 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// <param name="text">The dialog's current full text.</param>
 	public void OnTextInputChanged (string text)
 		{
+		_ = this.SetTextAsync (text);
+		}
+
+	private async Task SetTextAsync (string text)
+		{
 		if (!this.IsConnected)
 			{
 			return;
@@ -542,7 +547,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 
 		try
 			{
-			this._deviceManager.SetText (text);
+			await this._deviceManager.SetTextAsync (text).ConfigureAwait (true);
 			}
 		catch (Exception ex)
 			{
@@ -732,7 +737,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		{
 		try
 			{
-			this.IsMuted = await Task.Run (() => this._deviceManager.ToggleMute ()).ConfigureAwait (true);
+			this.IsMuted = await this._deviceManager.ToggleMuteAsync ().ConfigureAwait (true);
 			this.StatusMessage = this.IsMuted ? "Muted." : "Unmuted.";
 			}
 		catch (Exception ex)
@@ -752,6 +757,11 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// <param name="action">The touch phase.</param>
 	public void SendTouchEvent (int x, int y, TouchAction action)
 		{
+		_ = this.SendTouchEventAsync (x, y, action);
+		}
+
+	private async Task SendTouchEventAsync (int x, int y, TouchAction action)
+		{
 		if (!this.IsConnected)
 			{
 			return;
@@ -759,7 +769,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 
 		try
 			{
-			this._deviceManager.SendTouchEvent (x, y, action);
+			await this._deviceManager.SendTouchEventAsync (x, y, action).ConfigureAwait (true);
 			}
 		catch (Exception ex)
 			{
@@ -787,7 +797,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 
 		try
 			{
-			await Task.Run (() => this._deviceManager.SendTouchClick (action)).ConfigureAwait (true);
+			await this._deviceManager.SendTouchClickAsync (action).ConfigureAwait (true);
 			}
 		catch (Exception ex)
 			{
@@ -843,7 +853,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		{
 		try
 			{
-			bool requestedWake = await Task.Run (() => this._deviceManager.TogglePower ()).ConfigureAwait (true);
+			bool requestedWake = await this._deviceManager.TogglePowerAsync ().ConfigureAwait (true);
 			this.StatusMessage = requestedWake ? "Waking..." : "Sleeping...";
 			}
 		catch (Exception ex)
@@ -860,7 +870,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 				{
 				try
 					{
-					await Task.Run (() => this._deviceManager.SendHidCommand (command)).ConfigureAwait (true);
+					await this._deviceManager.SendHidCommandAsync (command).ConfigureAwait (true);
 					}
 				catch (Exception ex)
 					{

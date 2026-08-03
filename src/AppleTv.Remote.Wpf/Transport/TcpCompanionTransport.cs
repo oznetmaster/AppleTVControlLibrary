@@ -51,10 +51,27 @@ public sealed class TcpCompanionTransport : IDisposable, IAsyncDisposable
 	/// <param name="connection">The connection instance to feed inbound frames into.</param>
 	/// <param name="protocol">The protocol instance whose outbound frames should be written to the socket.</param>
 	/// <returns>A connected <see cref="TcpCompanionTransport"/>.</returns>
+	[Obsolete ("Use ConnectAsync instead.")]
 	public static TcpCompanionTransport Connect (string host, int port, CompanionConnection connection, CompanionProtocol protocol)
 		{
+		return ConnectAsync (host, port, connection, protocol).ConfigureAwait (false).GetAwaiter ().GetResult ();
+		}
+
+	/// <summary>Asynchronously connects and wires a TCP transport to a Companion protocol.</summary>
+	public static async Task<TcpCompanionTransport> ConnectAsync (string host, int port, CompanionConnection connection, CompanionProtocol protocol, CancellationToken cancellationToken = default)
+		{
 		TcpClient client = new TcpClient ();
-		client.Connect (host, port);
+		using CancellationTokenRegistration registration = cancellationToken.Register (static state => ((TcpClient)state!).Close (), client);
+		try
+			{
+			await client.ConnectAsync (host, port).ConfigureAwait (false);
+			cancellationToken.ThrowIfCancellationRequested ();
+			}
+		catch
+			{
+			client.Dispose ();
+			throw;
+			}
 
 		TcpCompanionTransport transport = new TcpCompanionTransport (client, connection);
 		protocol.AsyncSender = transport.SendAsync;

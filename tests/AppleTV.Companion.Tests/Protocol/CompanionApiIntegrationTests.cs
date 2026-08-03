@@ -3,6 +3,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 using AppleTvControlLibrary.Auth;
 using AppleTvControlLibrary.Connection;
@@ -83,6 +85,53 @@ public class CompanionApiIntegrationTests
 		Assert.AreEqual (SystemStatus.Screensaver, await api.FetchAttentionStateAsync ());
 		}
 
+	[TestMethod]
+	public async Task ConcurrentCommandsCorrelateResponsesByXid ()
+		{
+		var device = new FakeCompanionOpackDevice ();
+		CompanionProtocol protocol = CreateQueuedProtocol (device, out Action deliverResponses);
+
+		Task<Dictionary<object, object?>>[] commands = Enumerable.Range (0, 48)
+			.Select (requestNumber => protocol.ExchangeOpackAsync (
+				FrameType.E_OPACK,
+				new Dictionary<string, object?>
+					{
+					["_i"] = "FetchAttentionState",
+					["_t"] = (int)MessageType.Request,
+					["_c"] = new Dictionary<string, object?> { ["requestNumber"] = requestNumber },
+					}))
+			.ToArray ();
+		deliverResponses ();
+
+		Dictionary<object, object?>[] responses = await Task.WhenAll (commands);
+		CollectionAssert.AreEquivalent (
+			Enumerable.Range (0, 48).Select (value => (long)value).ToArray (),
+			responses.Select (response => ToLong (((Dictionary<object, object?>)response["_c"]!)["requestNumber"])).ToArray ());
+		}
+
+	[TestMethod]
+	public async Task TouchSwipeAndStatusQueriesCanRunConcurrently ()
+		{
+		var device = new FakeCompanionOpackDevice ();
+		device.SetSystemStatus (SystemStatus.Screensaver);
+		CompanionApi api = CreateConnectedApi (device, out _);
+		await api.ConnectAsync ();
+
+		Task swipe = Task.Run (async () =>
+			{
+			for (int x = 0; x <= 1000; x += 100)
+				{
+				await api.SendHidEventAsync (x, 500, x == 0 ? TouchAction.Press : TouchAction.Hold);
+				await Task.Yield ();
+				}
+			await api.SendHidEventAsync (1000, 500, TouchAction.Release);
+			});
+		Task<SystemStatus[]> queries = Task.WhenAll (Enumerable.Range (0, 24).Select (_ => api.FetchAttentionStateAsync ()));
+
+		await Task.WhenAll (swipe, queries);
+		CollectionAssert.AreEqual (Enumerable.Repeat (SystemStatus.Screensaver, 24).ToArray (), queries.Result);
+		}
+
 	// Wires a client-side CompanionConnection/CompanionProtocol pair to a FakeCompanionOpackDevice
 	// by looping the framed bytes through a second, "server-side" CompanionConnection used purely
 	// for (de)framing (neither side enables encryption, matching how E_OPACK frames are exercised
@@ -146,6 +195,50 @@ public class CompanionApiIntegrationTests
 			deviceId: "00:11:22:33:44:55",
 			model: "AppleTV14,1",
 			name: "Living Room");
+		}
+
+	private static CompanionProtocol CreateQueuedProtocol (FakeCompanionOpackDevice device, out Action deliverResponses)
+		{
+		var clientConnection = new CompanionConnection ();
+		var serverConnection = new CompanionConnection ();
+		var protocol = new CompanionProtocol (clientConnection, new SrpAuthHandler ());
+		var responses = new List<byte[]> ();
+
+		serverConnection.FrameReceived += (sender, frameType, data) =>
+			{
+			var request = (Dictionary<object, object?>)AppleTvControlLibrary.Opack.Opack.Unpack (data, out _)!;
+			Dictionary<object, object?> response = device.HandleOpackFrame (request)!;
+			if (request["_c"] is Dictionary<object, object?> content && content.TryGetValue ("requestNumber", out object? requestNumber))
+				{
+				((Dictionary<object, object?>)response["_c"]!)["requestNumber"] = requestNumber;
+				}
+			responses.Add (serverConnection.BuildFrame (frameType, AppleTvControlLibrary.Opack.Opack.Pack (response)));
+			};
+
+		protocol.AsyncSender = frame =>
+			{
+			serverConnection.ReceiveData (frame);
+			return Task.CompletedTask;
+			};
+		deliverResponses = () =>
+			{
+			for (int index = responses.Count - 1; index >= 0; index--)
+				{
+				clientConnection.ReceiveData (responses[index]);
+				}
+			};
+		return protocol;
+		}
+
+	private static long ToLong (object? value)
+		{
+		return value switch
+			{
+			SizedInteger sizedInteger => sizedInteger.Value,
+			long number => number,
+			int number => number,
+			_ => throw new AssertFailedException ($"Expected an OPACK integer but received {value?.GetType ().FullName ?? "null"}."),
+			};
 		}
 
 	[TestMethod]
