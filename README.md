@@ -4,12 +4,8 @@ A .NET client library for the Apple TV **Companion Link** protocol - the channel
 the Apple TV Remote app use for HID input (remote buttons, touch), media transport control,
 volume, and power state. It targets `net472` and `net10.0` from a single, non-conditional codebase.
 
-This library implements Companion Link only. It does not implement MRP, AirPlay 2, RAOP, or
-DMAP/DACP.
-
-## Documentation
-
-API documentation is published at [oznetmaster.github.io/AppleTVControlLibrary](https://oznetmaster.github.io/AppleTVControlLibrary/).
+The protocol implementation is limited to Companion Link, with companion-service discovery
+provided separately. It does not implement MRP, AirPlay 2, RAOP, or DMAP/DACP.
 
 > **Trademark notice and disclaimer:** Apple, Apple TV, tvOS, AirPlay, and Siri are trademarks of
 > Apple Inc., registered in the U.S. and other countries. This project is an independent,
@@ -17,6 +13,10 @@ API documentation is published at [oznetmaster.github.io/AppleTVControlLibrary](
 > endorsed by, sponsored by, or approved by Apple Inc.** in any way. "Apple TV" and other Apple
 > product names are used solely to describe compatibility and interoperability. No Apple software,
 > assets, or confidential documentation are included in or derived for this repository.
+
+## Documentation
+
+API documentation is published at [oznetmaster.github.io/AppleTVControlLibrary](https://oznetmaster.github.io/AppleTVControlLibrary/).
 
 ## Packages
 
