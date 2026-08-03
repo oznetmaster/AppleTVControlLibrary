@@ -28,6 +28,61 @@ namespace AppleTV.Companion.Tests.ProtocolTests;
 [TestClass]
 public class CompanionApiIntegrationTests
 	{
+	[TestMethod]
+	public async System.Threading.Tasks.Task SendOpackAsyncHonorsCancellationBeforeSending ()
+		{
+		var protocol = new CompanionProtocol (new CompanionConnection (), new SrpAuthHandler ());
+		using var cancellationSource = new System.Threading.CancellationTokenSource ();
+		cancellationSource.Cancel ();
+
+		await Assert.ThrowsExceptionAsync<System.Threading.Tasks.TaskCanceledException> (() =>
+			protocol.SendOpackAsync (FrameType.E_OPACK, new Dictionary<string, object?> (), cancellationSource.Token));
+		}
+
+	[TestMethod]
+	public async System.Threading.Tasks.Task ConnectAsyncRunsFullBringUpSequence ()
+		{
+		var device = new FakeCompanionOpackDevice ();
+		CompanionApi api = CreateConnectedApi (device, out _);
+
+		await api.ConnectAsync ();
+
+		Assert.IsTrue (api.Sid != 0);
+		}
+
+	[TestMethod]
+	public async System.Threading.Tasks.Task AsyncHidSessionVolumeAndTextOperationsRoundTrip ()
+		{
+		var device = new FakeCompanionOpackDevice ();
+		CompanionApi api = CreateConnectedApi (device, out _);
+		await api.ConnectAsync ();
+
+		await api.SendHidCommandAsync (down: true, HidCommand.Select);
+		Assert.IsTrue (device.PressedButtons.Contains (HidCommand.Select));
+
+		await api.SetVolumeAsync (42.0);
+		Assert.AreEqual (42.0, await api.GetVolumeAsync (), 0.001);
+
+		await api.TextSetAsync ("async text");
+		Assert.AreEqual ("async text", await api.TextGetAsync ());
+
+		await api.SessionStopAsync ();
+		Assert.IsFalse (device.HasSessionStarted);
+		}
+
+	[TestMethod]
+	public async System.Threading.Tasks.Task AsyncSubscriptionAndAttentionStateRoundTrip ()
+		{
+		var device = new FakeCompanionOpackDevice ();
+		device.SetSystemStatus (SystemStatus.Screensaver);
+		CompanionApi api = CreateConnectedApi (device, out _);
+		await api.ConnectAsync ();
+
+		await api.SubscribeEventAsync ("_iMC");
+		await api.UnsubscribeEventAsync ("_iMC");
+		Assert.AreEqual (SystemStatus.Screensaver, await api.FetchAttentionStateAsync ());
+		}
+
 	// Wires a client-side CompanionConnection/CompanionProtocol pair to a FakeCompanionOpackDevice
 	// by looping the framed bytes through a second, "server-side" CompanionConnection used purely
 	// for (de)framing (neither side enables encryption, matching how E_OPACK frames are exercised
@@ -71,7 +126,11 @@ public class CompanionApiIntegrationTests
 			clientConnection.ReceiveData (frame);
 			};
 
-		companionProtocol.Sender = frame => serverConnection.ReceiveData (frame);
+		companionProtocol.AsyncSender = frame =>
+			{
+			serverConnection.ReceiveData (frame);
+			return System.Threading.Tasks.Task.CompletedTask;
+			};
 
 		var credentials = new HapCredentials (
 			ltpk: new byte[] { 1 },
@@ -253,7 +312,7 @@ public class CompanionApiIntegrationTests
 
 	// pyatv/protocols/companion/__init__.py (CompanionKeyboard._handle_text_input) — line 505-510 as of pyatv 0.18.0
 	[TestMethod]
-	public void RtiFocusStateChangeRaisesEventAndUpdatesApi ()
+	public async System.Threading.Tasks.Task RtiFocusStateChangeRaisesEventAndUpdatesApi ()
 		{
 		var device = new FakeCompanionOpackDevice ();
 		var api = CreateConnectedApi (device, out _);
@@ -261,12 +320,12 @@ public class CompanionApiIntegrationTests
 
 		Assert.AreEqual (KeyboardFocusState.Focused, api.TextFocusState);
 
-		bool raised = false;
-		api.TextFocusStateChanged += (sender, args) => raised = true;
+		var raised = new System.Threading.Tasks.TaskCompletionSource<object?> (System.Threading.Tasks.TaskCreationOptions.RunContinuationsAsynchronously);
+		api.TextFocusStateChanged += (sender, args) => raised.TrySetResult (null);
 
 		device.SetRtiFocusState (KeyboardFocusState.Unfocused);
 
-		Assert.IsTrue (raised);
+		await raised.Task;
 		Assert.AreEqual (KeyboardFocusState.Unfocused, api.TextFocusState);
 		}
 	}

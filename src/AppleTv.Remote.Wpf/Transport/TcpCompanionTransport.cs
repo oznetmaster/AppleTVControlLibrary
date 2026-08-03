@@ -4,6 +4,7 @@
 using System;
 using System.Net.Sockets;
 using System.Threading;
+using System.Threading.Tasks;
 
 using AppleTvControlLibrary.Connection;
 using AppleTvControlLibrary.Protocol;
@@ -21,7 +22,7 @@ namespace AppleTvControlLibrary.Remote.Wpf.Transport;
 /// by design (see the porting brief's WP3 remarks) so they can be driven by any transport; this
 /// class is that transport for the WPF remote app.
 /// </remarks>
-public sealed class TcpCompanionTransport : IDisposable
+public sealed class TcpCompanionTransport : IDisposable, IAsyncDisposable
 	{
 	private readonly TcpClient _client;
 	private readonly CompanionConnection _connection;
@@ -56,12 +57,12 @@ public sealed class TcpCompanionTransport : IDisposable
 		client.Connect (host, port);
 
 		TcpCompanionTransport transport = new TcpCompanionTransport (client, connection);
-		protocol.Sender = transport.Send;
+		protocol.AsyncSender = transport.SendAsync;
 		transport._readThread.Start ();
 		return transport;
 		}
 
-	private void Send (byte[] frame)
+	private async Task SendAsync (byte[] frame)
 		{
 		if (this._disposed)
 			{
@@ -69,11 +70,7 @@ public sealed class TcpCompanionTransport : IDisposable
 			}
 
 		System.Diagnostics.Debug.WriteLine ($"[TcpCompanionTransport] Sending {frame.Length} bytes");
-		NetworkStream stream = this._client.GetStream ();
-		lock (stream)
-			{
-			stream.Write (frame, 0, frame.Length);
-			}
+		await this._client.GetStream ().WriteAsync (frame, 0, frame.Length).ConfigureAwait (false);
 		}
 
 	private void ReadLoop ()
@@ -108,6 +105,7 @@ public sealed class TcpCompanionTransport : IDisposable
 					// out with no explanation). Log and keep reading.
 					System.Diagnostics.Debug.WriteLine ($"[TcpCompanionTransport] ReceiveData processing failed for a {read}-byte chunk: {ex}");
 					}
+
 				}
 			}
 		catch (Exception ex) when (this._disposed || !this._client.Connected)
@@ -146,5 +144,12 @@ public sealed class TcpCompanionTransport : IDisposable
 			{
 			// Best-effort close; the read thread will observe the closed socket and exit.
 			}
+		}
+
+	/// <summary>Asynchronously closes the socket and waits for the read loop to stop.</summary>
+	public async ValueTask DisposeAsync ()
+		{
+		Dispose ();
+		await Task.Run (() => this._readThread.Join ()).ConfigureAwait (false);
 		}
 	}

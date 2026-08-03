@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 using AppleTvControlLibrary.Crypto;
 
@@ -83,7 +84,7 @@ public class CompanionConnection
 	private const int HEADER_LENGTH = 4;
 
 	private readonly List<byte> _buffer = new ();
-
+	private readonly object _receiveLock = new ();
 	private Chacha20Cipher? _chacha;
 
 	/// <summary>Gets a value indicating whether encryption has been enabled.</summary>
@@ -106,6 +107,11 @@ public class CompanionConnection
 	// pyatv/protocols/companion/connection.py (send) — line 98-119 as of pyatv 0.18.0
 	public byte[] BuildFrame (FrameType frameType, byte[] data)
 		{
+		if (IsFaulted)
+			{
+			throw new InvalidOperationException ("Cannot send data on a faulted connection");
+			}
+
 		int payloadLength = data.Length;
 
 		// pyatv/protocols/companion/connection.py — line 104-105 as of pyatv 0.18.0
@@ -134,65 +140,147 @@ public class CompanionConnection
 		return frame;
 		}
 
+	private bool _isFaulted;
+	private Exception? _faultException;
+	private readonly object _faultLock = new ();
+
+	/// <summary>Gets a value indicating whether this connection has been faulted.</summary>
+	public bool IsFaulted
+		{
+		get
+			{
+			lock (_faultLock)
+				{
+				return _isFaulted;
+				}
+			}
+		}
+
+	/// <summary>Gets the exception that caused the connection to be faulted, if any.</summary>
+	public Exception? FaultException
+		{
+		get
+			{
+			lock (_faultLock)
+				{
+				return _faultException;
+				}
+			}
+		}
+
+	/// <summary>Faults the connection, preventing any further frames from being processed or sent.</summary>
+	/// <param name="exception">The exception that caused the fault, if any.</param>
+	public void Fault (Exception? exception = null)
+		{
+		lock (_faultLock)
+			{
+			if (_isFaulted)
+				{
+				return;
+				}
+
+			_isFaulted = true;
+			_faultException = exception;
+			}
+
+		Faulted?.Invoke (this, exception);
+		}
+
 	/// <summary>Feed newly received bytes into the reassembly buffer, raising <see cref="FrameReceived"/>
 	/// for each complete frame that becomes available.</summary>
 	/// <param name="data">The bytes received from the transport.</param>
 	// pyatv/protocols/companion/connection.py (data_received) — line 126-153 as of pyatv 0.18.0
 	public void ReceiveData (byte[] data)
 		{
-		_buffer.AddRange (data);
-		System.Diagnostics.Debug.WriteLine ($"[CompanionConnection] ReceiveData: +{data.Length} bytes, buffer now {_buffer.Count} bytes");
-
-		// pyatv/protocols/companion/connection.py — line 131 as of pyatv 0.18.0
-		while (_buffer.Count >= HEADER_LENGTH)
+		if (IsFaulted)
 			{
-			// pyatv/protocols/companion/connection.py (3 byte big-endian length) — line 132-134 as of pyatv 0.18.0
-			int payloadLength = HEADER_LENGTH
-				+ (_buffer[1] << 16)
-				+ (_buffer[2] << 8)
-				+ _buffer[3];
+			return;
+			}
 
-			System.Diagnostics.Debug.WriteLine ($"[CompanionConnection] Frame header: type={_buffer[0]}, payloadLength(incl. header)={payloadLength}, buffered={_buffer.Count}");
-
-			// pyatv/protocols/companion/connection.py — line 135-141 as of pyatv 0.18.0
-			if (_buffer.Count < payloadLength)
+		var receivedFrames = new List<(FrameType FrameType, byte[] Payload)> ();
+		lock (_receiveLock)
+			{
+			if (IsFaulted)
 				{
-				System.Diagnostics.Debug.WriteLine ($"[CompanionConnection] Waiting for {payloadLength - _buffer.Count} more bytes to complete frame");
-				break;
+				return;
 				}
 
-			var header = new byte[HEADER_LENGTH];
-			_buffer.CopyTo (0, header, 0, HEADER_LENGTH);
+			_buffer.AddRange (data);
+			System.Diagnostics.Debug.WriteLine ($"[CompanionConnection] ReceiveData: +{data.Length} bytes, buffer now {_buffer.Count} bytes");
 
-			int payloadSize = payloadLength - HEADER_LENGTH;
-			var payload = new byte[payloadSize];
-			_buffer.CopyTo (HEADER_LENGTH, payload, 0, payloadSize);
-
-			// pyatv/protocols/companion/connection.py — line 145 as of pyatv 0.18.0
-			_buffer.RemoveRange (0, payloadLength);
-			System.Diagnostics.Debug.WriteLine ($"[CompanionConnection] Consumed {payloadLength} bytes, {_buffer.Count} bytes remain buffered (encrypted={_chacha is not null})");
-
-			// pyatv/protocols/companion/connection.py — line 147-153 as of pyatv 0.18.0
-			try
+			// pyatv/protocols/companion/connection.py — line 131 as of pyatv 0.18.0
+			while (_buffer.Count >= HEADER_LENGTH)
 				{
-				if (_chacha is not null && payload.Length > 0)
+				// pyatv/protocols/companion/connection.py (3 byte big-endian length) — line 132-134 as of pyatv 0.18.0
+				int payloadLength = HEADER_LENGTH
+					+ (_buffer[1] << 16)
+					+ (_buffer[2] << 8)
+					+ _buffer[3];
+
+				System.Diagnostics.Debug.WriteLine ($"[CompanionConnection] Frame header: type={_buffer[0]}, payloadLength(incl. header)={payloadLength}, buffered={_buffer.Count}");
+
+				// pyatv/protocols/companion/connection.py — line 135-141 as of pyatv 0.18.0
+				if (_buffer.Count < payloadLength)
 					{
-					payload = _chacha.Decrypt (payload, aad: header);
+					System.Diagnostics.Debug.WriteLine ($"[CompanionConnection] Waiting for {payloadLength - _buffer.Count} more bytes to complete frame");
+					break;
 					}
 
-				FrameReceived?.Invoke (this, (FrameType)header[0], payload);
+				var header = new byte[HEADER_LENGTH];
+				_buffer.CopyTo (0, header, 0, HEADER_LENGTH);
+
+				int payloadSize = payloadLength - HEADER_LENGTH;
+				var payload = new byte[payloadSize];
+				_buffer.CopyTo (HEADER_LENGTH, payload, 0, payloadSize);
+
+				// pyatv/protocols/companion/connection.py — line 145 as of pyatv 0.18.0
+				_buffer.RemoveRange (0, payloadLength);
+				System.Diagnostics.Debug.WriteLine ($"[CompanionConnection] Consumed {payloadLength} bytes, {_buffer.Count} bytes remain buffered (encrypted={_chacha is not null})");
+
+				// pyatv/protocols/companion/connection.py — line 147-153 as of pyatv 0.18.0
+				try
+					{
+					if (_chacha is not null && payload.Length > 0)
+						{
+						payload = _chacha.Decrypt (payload, aad: header);
+						}
+
+					receivedFrames.Add (((FrameType)header[0], payload));
+					}
+				catch (Exception ex)
+					{
+					// pyatv/protocols/companion/connection.py (logged and swallowed;
+					// a malformed/undecryptable frame must not tear down the reassembly loop) — line 152-153 as of pyatv 0.18.0
+					System.Diagnostics.Debug.WriteLine ($"[CompanionConnection] Failed to process frame (type={header[0]}, payloadSize={payloadSize}): {ex}");
+					Fault (ex);
+					}
+				}
+			}
+
+		foreach (var frame in receivedFrames)
+			{
+			if (IsFaulted)
+				{
+				return;
+				}
+
+			try
+				{
+				FrameReceived?.Invoke (this, frame.FrameType, frame.Payload);
 				}
 			catch (Exception ex)
 				{
-				// pyatv/protocols/companion/connection.py (logged and swallowed;
-				// a malformed/undecryptable frame must not tear down the reassembly loop) — line 152-153 as of pyatv 0.18.0
-				System.Diagnostics.Debug.WriteLine ($"[CompanionConnection] Failed to process frame (type={header[0]}, payloadSize={payloadSize}): {ex}");
+				Fault (ex);
+				return;
 				}
 			}
 		}
 
 	/// <summary>Raised when a complete frame has been received (and decrypted, if applicable).</summary>
 	public event FrameReceivedCallback? FrameReceived;
+
+	/// <summary>Raised when this connection enters its terminal faulted state.</summary>
+	public event ConnectionFaultedCallback? Faulted;
 	}
 
 /// <summary>Callback signature for the <see cref="CompanionConnection.FrameReceived"/> event.</summary>
@@ -200,3 +288,6 @@ public class CompanionConnection
 /// <param name="frameType">The type of the received frame.</param>
 /// <param name="data">The (already decrypted, if applicable) frame payload.</param>
 public delegate void FrameReceivedCallback (object sender, FrameType frameType, byte[] data);
+
+/// <summary>Callback signature for a terminal connection fault.</summary>
+public delegate void ConnectionFaultedCallback (object sender, Exception? exception);

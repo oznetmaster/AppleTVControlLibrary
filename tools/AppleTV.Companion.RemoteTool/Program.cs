@@ -8,6 +8,7 @@ using System.Net.Sockets;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading;
+using System.Threading.Tasks;
 
 using AppleTvControlLibrary.Auth;
 using AppleTvControlLibrary.Connection;
@@ -52,7 +53,7 @@ internal static class Program
 
 		try
 			{
-			PairVerify (stored, protocol, connection);
+			await PairVerifyAsync (stored, protocol, connection).ConfigureAwait (false);
 			Console.WriteLine ("Pair-verify complete, encryption enabled.");
 
 			CompanionApi api = new CompanionApi (
@@ -67,10 +68,10 @@ internal static class Program
 			api.MediaControlCapabilitiesChanged += (_, _) => Console.WriteLine ($"[event] MediaControlCapabilities -> {(api.IsVolumeControlSupported ? "Volume supported" : "Volume not supported")}");
 
 			Console.WriteLine ("Running Connect() bring-up...");
-			api.Connect ();
+			await api.ConnectAsync ().ConfigureAwait (false);
 			Console.WriteLine ($"Connect complete. CurrentSystemStatus={api.CurrentSystemStatus}");
 
-			return RunCommand (api, command, args);
+			return await RunCommandAsync (api, command, args).ConfigureAwait (false);
 			}
 		catch (Exception ex)
 			{
@@ -79,24 +80,24 @@ internal static class Program
 			}
 		}
 
-	private static int RunCommand (CompanionApi api, string command, string[] args)
+	private static async Task<int> RunCommandAsync (CompanionApi api, string command, string[] args)
 		{
 		switch (command)
 			{
 			case "status":
 				{
-				Console.WriteLine ($"FetchAttentionState() -> {api.FetchAttentionState ()}");
+				Console.WriteLine ($"FetchAttentionState() -> {await api.FetchAttentionStateAsync ().ConfigureAwait (false)}");
 				return 0;
 				}
 			case "wake":
 				{
-				api.SendHidCommand (down: false, HidCommand.Wake);
+				await api.SendHidCommandAsync (down: false, HidCommand.Wake).ConfigureAwait (false);
 				Console.WriteLine ("Sent Wake.");
 				return 0;
 				}
 			case "sleep":
 				{
-				api.SendHidCommand (down: false, HidCommand.Sleep);
+				await api.SendHidCommandAsync (down: false, HidCommand.Sleep).ConfigureAwait (false);
 				Console.WriteLine ("Sent Sleep.");
 				return 0;
 				}
@@ -109,16 +110,16 @@ internal static class Program
 					}
 
 				Console.WriteLine ($"Sending {hid} down...");
-				api.SendHidCommand (down: true, hid);
+				await api.SendHidCommandAsync (down: true, hid).ConfigureAwait (false);
 				Console.WriteLine ($"Sending {hid} up...");
-				api.SendHidCommand (down: false, hid);
+				await api.SendHidCommandAsync (down: false, hid).ConfigureAwait (false);
 				Console.WriteLine ("Done.");
 				return 0;
 				}
 			case "click":
 				{
 				Console.WriteLine ("Sending touch click (Select)...");
-				api.SendClick (InputAction.SingleTap);
+				await api.SendClickAsync (InputAction.SingleTap).ConfigureAwait (false);
 				Console.WriteLine ("Done.");
 				return 0;
 				}
@@ -130,14 +131,14 @@ internal static class Program
 					return 0;
 					}
 
-				Console.WriteLine ($"GetVolume() -> {api.GetVolume ()}%");
+				Console.WriteLine ($"GetVolume() -> {await api.GetVolumeAsync ().ConfigureAwait (false)}%");
 				return 0;
 				}
 			case "monitor":
 				{
 				int seconds = args.Length > 2 && int.TryParse (args[2], out int s) ? s : 30;
 				Console.WriteLine ($"Monitoring pushed events for {seconds}s (Ctrl+C to stop early)...");
-				Thread.Sleep (TimeSpan.FromSeconds (seconds));
+				await Task.Delay (TimeSpan.FromSeconds (seconds)).ConfigureAwait (false);
 				Console.WriteLine ($"Final CurrentSystemStatus={api.CurrentSystemStatus}");
 				return 0;
 				}
@@ -150,7 +151,7 @@ internal static class Program
 				// a nested dict carrying a current/active flag), that entry would vanish there
 				// without a trace. Run this against real hardware to check the actual shape rather
 				// than assuming it from the pyatv source.
-				Dictionary<object, object?> raw = api.AccountListRaw ();
+				Dictionary<object, object?> raw = await api.AccountListRawAsync ().ConfigureAwait (false);
 				Console.WriteLine ($"FetchUserAccountsEvent raw _c content ({raw.Count} entries):");
 				foreach (var kvp in raw)
 					{
@@ -166,7 +167,7 @@ internal static class Program
 				// Reproduces the exact bug report: wake, wait, then try every button in turn,
 				// printing status before/after each so a stuck-after-wake regression is visible
 				// without needing the WPF app or a human watching the TV.
-				return RunWakeThenButtonsSequence (api);
+				return await RunWakeThenButtonsSequenceAsync (api).ConfigureAwait (false);
 				}
 			default:
 				PrintUsage ();
@@ -177,16 +178,16 @@ internal static class Program
 	// Reproduces "power on works but no other button works" end-to-end: sends Wake, waits for
 	// the device to settle, then exercises every HID button and the touch click path while
 	// printing CurrentSystemStatus and any exception at each step.
-	private static int RunWakeThenButtonsSequence (CompanionApi api)
+	private static async Task<int> RunWakeThenButtonsSequenceAsync (CompanionApi api)
 		{
 		Console.WriteLine ($"Initial CurrentSystemStatus={api.CurrentSystemStatus}");
 
 		Console.WriteLine ("Sending Wake...");
-		api.SendHidCommand (down: false, HidCommand.Wake);
+		await api.SendHidCommandAsync (down: false, HidCommand.Wake).ConfigureAwait (false);
 
 		for (int i = 0; i < 10; i++)
 			{
-			Thread.Sleep (1000);
+			await Task.Delay (1000).ConfigureAwait (false);
 			Console.WriteLine ($"  +{i + 1}s: CurrentSystemStatus={api.CurrentSystemStatus}");
 			}
 
@@ -195,8 +196,8 @@ internal static class Program
 			try
 				{
 				Console.WriteLine ($"Sending {hid}...");
-				api.SendHidCommand (down: true, hid);
-				api.SendHidCommand (down: false, hid);
+				await api.SendHidCommandAsync (down: true, hid).ConfigureAwait (false);
+				await api.SendHidCommandAsync (down: false, hid).ConfigureAwait (false);
 				Console.WriteLine ($"  {hid} acknowledged. CurrentSystemStatus={api.CurrentSystemStatus}");
 				}
 			catch (Exception ex)
@@ -204,13 +205,13 @@ internal static class Program
 				Console.WriteLine ($"  {hid} FAILED: {ex.Message}");
 				}
 
-			Thread.Sleep (500);
+			await Task.Delay (500).ConfigureAwait (false);
 			}
 
 		try
 			{
 			Console.WriteLine ("Sending touch click...");
-			api.SendClick (InputAction.SingleTap);
+			await api.SendClickAsync (InputAction.SingleTap).ConfigureAwait (false);
 			Console.WriteLine ("  Touch click acknowledged.");
 			}
 		catch (Exception ex)
@@ -222,7 +223,7 @@ internal static class Program
 		}
 
 	// pyatv/protocols/companion/auth.py (CompanionPairVerifyProcedure) — line 120-158 as of pyatv 0.18.0
-	private static void PairVerify (StoredDevice stored, CompanionProtocol protocol, CompanionConnection connection)
+	private static async Task PairVerifyAsync (StoredDevice stored, CompanionProtocol protocol, CompanionConnection connection)
 		{
 		HapCredentials credentials = stored.ToCredentials ();
 
@@ -234,7 +235,7 @@ internal static class Program
 			{ (int)TlvValue.SeqNo, new byte[] { 1 } },
 			{ (int)TlvValue.PublicKey, verifyPubKey },
 			});
-		Dictionary<object, object?> pv2Response = protocol.ExchangeAuth (FrameType.PV_Start, new Dictionary<string, object?> { ["_pd"] = pv1, ["_auTy"] = 4 });
+		Dictionary<object, object?> pv2Response = await protocol.ExchangeAuthAsync (FrameType.PV_Start, new Dictionary<string, object?> { ["_pd"] = pv1, ["_auTy"] = 4 }).ConfigureAwait (false);
 		byte[] pv2 = (byte[])pv2Response["_pd"]!;
 		Dictionary<int, byte[]> pv2Tlv = Tlv8.Tlv8.ReadTlv (pv2);
 		byte[] serverVerifyPubKey = pv2Tlv[(int)TlvValue.PublicKey];
@@ -246,7 +247,7 @@ internal static class Program
 			{ (int)TlvValue.SeqNo, new byte[] { 3 } },
 			{ (int)TlvValue.EncryptedData, pv3EncryptedData },
 			});
-		Dictionary<object, object?> pv4Response = protocol.ExchangeAuth (FrameType.PV_Next, new Dictionary<string, object?> { ["_pd"] = pv3 });
+		Dictionary<object, object?> pv4Response = await protocol.ExchangeAuthAsync (FrameType.PV_Next, new Dictionary<string, object?> { ["_pd"] = pv3 }).ConfigureAwait (false);
 		byte[] pv4 = (byte[])pv4Response["_pd"]!;
 		Dictionary<int, byte[]> pv4Tlv = Tlv8.Tlv8.ReadTlv (pv4);
 		if (pv4Tlv.ContainsKey ((int)TlvValue.Error))
@@ -401,7 +402,7 @@ internal sealed class RawTcpTransport : IDisposable
 		this._client = new TcpClient ();
 		this._client.Connect (host, port);
 
-		protocol.Sender = this.Send;
+		protocol.AsyncSender = this.SendAsync;
 
 		this._readThread = new Thread (this.ReadLoop)
 			{
@@ -411,18 +412,14 @@ internal sealed class RawTcpTransport : IDisposable
 		this._readThread.Start ();
 		}
 
-	private void Send (byte[] frame)
+	private async Task SendAsync (byte[] frame)
 		{
 		if (this._disposed || this._client is null)
 			{
 			throw new ObjectDisposedException (nameof (RawTcpTransport));
 			}
 
-		NetworkStream stream = this._client.GetStream ();
-		lock (stream)
-			{
-			stream.Write (frame, 0, frame.Length);
-			}
+		await this._client.GetStream ().WriteAsync (frame, 0, frame.Length).ConfigureAwait (false);
 		}
 
 	private void ReadLoop ()
