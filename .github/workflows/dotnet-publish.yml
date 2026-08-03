@@ -140,13 +140,45 @@ jobs:
               Compress-Archive -Path (Join-Path $_.FullName '*') -DestinationPath $zipPath -Force
           }
 
+      - name: Extract release notes from changelog
+        shell: pwsh
+        run: |
+          $version = '${{ steps.version.outputs.package_version }}'
+          $lines = Get-Content CHANGELOG.md
+          $headingPattern = "^## \[$([regex]::Escape($version))\](?:\s|$)"
+          $start = -1
+
+          for ($index = 0; $index -lt $lines.Count; $index++) {
+              if ($lines[$index] -match $headingPattern) {
+                  $start = $index
+                  break
+              }
+          }
+
+          if ($start -lt 0) {
+              throw "No changelog section found for release version $version."
+          }
+
+          $end = $start + 1
+          while ($end -lt $lines.Count -and $lines[$end] -notmatch '^## \[') {
+              $end++
+          }
+
+          $releaseNotes = $lines[$start..($end - 1)] -join [Environment]::NewLine
+          if ([string]::IsNullOrWhiteSpace($releaseNotes)) {
+              throw "Changelog section for release version $version is empty."
+          }
+
+          $releaseNotesPath = "${{ env.ARTIFACT_DIR }}/release-notes.md"
+          Set-Content -Path $releaseNotesPath -Value $releaseNotes -NoNewline
+
       - name: Create GitHub release from tag
         if: github.event_name == 'push'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.version.outputs.raw_version }}
           name: ${{ steps.version.outputs.raw_version }}
-          generate_release_notes: true
+          body_path: ${{ env.ARTIFACT_DIR }}/release-notes.md
           prerelease: ${{ contains(steps.version.outputs.package_version, '-') }}
           files: |
             ${{ env.ARTIFACT_DIR }}/release/*.dll
