@@ -137,6 +137,35 @@ public sealed class AppleTvDeviceManager : IDisposable
 	public void SetAutoConnect (string? uniqueId) => this._credentialStore.SetAutoConnect (uniqueId);
 
 	/// <summary>
+	/// Locates a stored device after its last known endpoint has become stale, verifies its stable
+	/// Companion identifier, and persists the newly advertised address and port.
+	/// </summary>
+	/// <param name="stored">The paired device whose endpoint needs to be refreshed.</param>
+	/// <param name="timeout">The maximum time to wait for the named mDNS response.</param>
+	/// <param name="cancellationToken">A token to cancel the lookup.</param>
+	/// <returns><see langword="true"/> when a verified endpoint was saved; otherwise <see langword="false"/>.</returns>
+	public async Task<bool> RefreshStoredEndpointAsync (StoredDevice stored, TimeSpan timeout, CancellationToken cancellationToken = default)
+		{
+		if (string.IsNullOrWhiteSpace (stored.UniqueId) || string.IsNullOrWhiteSpace (stored.Name))
+			{
+			return false;
+			}
+
+		CompanionDiscoveryResult? discovered = await MulticastCompanionDiscovery.DiscoveryAsync (stored.Name, timeout, cancellationToken).ConfigureAwait (false);
+		if (discovered?.Address is null
+			|| !string.Equals (discovered.UniqueId, stored.UniqueId, StringComparison.Ordinal))
+			{
+			return false;
+			}
+
+		stored.Address = discovered.Address.ToString ();
+		stored.Port = discovered.Port;
+		stored.Name = discovered.Name;
+		this._credentialStore.Save (stored);
+		return true;
+		}
+
+	/// <summary>
 	/// Begins pair-setup by connecting to the device and sending M1 (<c>PS_Start</c>). This is
 	/// what causes the Apple TV to display the on-screen PIN, so the PIN can only be known -
 	/// and therefore only be requested from the user - after this method returns. Follow up with
@@ -252,7 +281,9 @@ public sealed class AppleTvDeviceManager : IDisposable
 		System.Diagnostics.Debug.WriteLine ($"[AppleTvDeviceManager] Connecting to {stored.Name} at {stored.Address}:{stored.Port}");
 			CompanionConnection connection = new CompanionConnection ();
 			CompanionProtocol protocol = new CompanionProtocol (connection, new SrpAuthHandler ());
-			this._transport = await TcpCompanionTransport.ConnectAsync (stored.Address, stored.Port, connection, protocol).ConfigureAwait (false);
+			TcpCompanionTransport transport = await TcpCompanionTransport.ConnectAsync (stored.Address, stored.Port, connection, protocol).ConfigureAwait (false);
+			try
+				{
 			System.Diagnostics.Debug.WriteLine ("[AppleTvDeviceManager] TCP connected, starting pair-verify");
 
 			HapCredentials credentials = stored.ToCredentials ();
@@ -308,6 +339,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 			api.MediaControlCapabilitiesChanged += this.OnMediaControlCapabilitiesChanged;
 			api.SystemStatusChanged += this.OnSystemStatusChanged;
 			api.TextFocusStateChanged += this.OnTextFocusStateChanged;
+			this._transport = transport;
 			this._api = api;
 
 			// pyatv/protocols/companion/api.py (app_list/account_list) — best-effort, mirroring the
@@ -332,6 +364,12 @@ public sealed class AppleTvDeviceManager : IDisposable
 				System.Diagnostics.Debug.WriteLine ($"[AppleTvDeviceManager] AccountList failed (ignored): {ex}");
 				this.Accounts = new Dictionary<string, string> ();
 				}
+			}
+		catch
+			{
+			transport.Dispose ();
+			throw;
+			}
 		}
 
 	private void OnMediaControlCapabilitiesChanged (object? sender, EventArgs e)

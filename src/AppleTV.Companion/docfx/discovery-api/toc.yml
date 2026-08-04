@@ -22,6 +22,9 @@ items:
   - uid: AppleTvControlLibrary.Discovery.Companion.StaticCompanionDiscovery
     name: StaticCompanionDiscovery
     type: Class
+  - uid: AppleTvControlLibrary.Discovery.Companion.UnicastCompanionDiscovery
+    name: UnicastCompanionDiscovery
+    type: Class
 - uid: AppleTvControlLibrary.Discovery.Dns
   name: AppleTvControlLibrary.Discovery.Dns
   type: Namespace

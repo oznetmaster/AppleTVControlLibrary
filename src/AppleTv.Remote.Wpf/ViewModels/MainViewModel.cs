@@ -704,7 +704,34 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		this._autoConnectSelected = true;
 		this.OnPropertyChanged (nameof (this.AutoConnectSelected));
 
-		await this.ConnectToStoredDeviceAsync (autoConnect).ConfigureAwait (true);
+		await this.AutoConnectToStoredDeviceAsync (autoConnect).ConfigureAwait (true);
+		}
+
+	private async Task AutoConnectToStoredDeviceAsync (StoredDevice stored)
+		{
+		try
+			{
+			await this.ConnectToStoredDeviceAsync (stored).ConfigureAwait (true);
+			if (this.IsConnected)
+				{
+				return;
+				}
+
+			this.StatusMessage = $"Saved address failed. Looking for {stored.Name}...";
+			if (!await this._deviceManager.RefreshStoredEndpointAsync (stored, TimeSpan.FromSeconds (5)).ConfigureAwait (true))
+				{
+				this.StatusMessage = $"Could not verify a new address for {stored.Name}. Scan and connect manually.";
+				return;
+				}
+
+			this.StatusMessage = $"Device found at a new address. Reconnecting...";
+			await this.ConnectToStoredDeviceAsync (stored).ConfigureAwait (true);
+			}
+		catch (Exception ex)
+			{
+			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Auto-connect recovery failed: {ex}");
+			this.StatusMessage = $"Auto-connect failed: {ex.Message}";
+			}
 		}
 
 	// Reflects the persisted AutoConnect flag for whichever stored device is newly selected,

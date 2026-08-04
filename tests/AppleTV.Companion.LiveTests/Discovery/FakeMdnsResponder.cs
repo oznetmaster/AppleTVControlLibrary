@@ -13,8 +13,8 @@ using AppleTvControlLibrary.Discovery.Dns;
 namespace AppleTvControlLibrary.LiveTests.Discovery;
 
 /// <summary>
-/// A real, socket-backed fake mDNS responder for Companion Link discovery: joins the mDNS
-/// multicast group on the loopback host, answers PTR queries for a single configured service
+	/// A real, socket-backed fake mDNS responder for Companion Link discovery: joins the mDNS
+	/// multicast group on the loopback host, answering PTR queries for a single configured service
 /// with PTR/SRV/TXT/A records, and unicasts the reply back to the querier -- exactly what
 /// <see cref="AppleTvControlLibrary.Discovery.Companion.MulticastCompanionDiscovery"/> expects
 /// to see from a real Apple TV on the LAN.
@@ -41,6 +41,7 @@ internal sealed class FakeMdnsResponder : IDisposable
 	private readonly IPAddress _address;
 	private readonly int _port;
 	private readonly IReadOnlyDictionary<string, string> _txtProperties;
+	private readonly IPAddress? _bindAddress;
 	private Thread? _thread;
 	private volatile bool _disposed;
 
@@ -57,7 +58,8 @@ internal sealed class FakeMdnsResponder : IDisposable
 		string hostName,
 		IPAddress address,
 		int port,
-		IReadOnlyDictionary<string, string> txtProperties)
+		IReadOnlyDictionary<string, string> txtProperties,
+		IPAddress? bindAddress = null)
 		{
 		_serviceType = serviceType;
 		_instanceName = instanceName;
@@ -65,12 +67,17 @@ internal sealed class FakeMdnsResponder : IDisposable
 		_address = address;
 		_port = port;
 		_txtProperties = txtProperties;
+		_bindAddress = bindAddress;
 
 		_client = new UdpClient (AddressFamily.InterNetwork);
 		_client.Client.SetSocketOption (SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-		_client.Client.Bind (new IPEndPoint (IPAddress.Any, MulticastPort));
-		_client.JoinMulticastGroup (IPAddress.Parse (MulticastAddress));
+		_client.Client.Bind (new IPEndPoint (_bindAddress ?? IPAddress.Any, MulticastPort));
+		if (_bindAddress is null)
+			{
+			_client.JoinMulticastGroup (IPAddress.Parse (MulticastAddress));
+			}
 		}
+
 
 	/// <summary>Starts the background thread that listens for and answers queries.</summary>
 	public void Start ()

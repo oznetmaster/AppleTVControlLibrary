@@ -10,6 +10,7 @@ items:
   - AppleTvControlLibrary.Discovery.Companion.ICompanionDiscovery
   - AppleTvControlLibrary.Discovery.Companion.MulticastCompanionDiscovery
   - AppleTvControlLibrary.Discovery.Companion.StaticCompanionDiscovery
+  - AppleTvControlLibrary.Discovery.Companion.UnicastCompanionDiscovery
   langs:
   - csharp
   - vb
@@ -59,6 +60,12 @@ references:
   name: StaticCompanionDiscovery
   nameWithType: StaticCompanionDiscovery
   fullName: AppleTvControlLibrary.Discovery.Companion.StaticCompanionDiscovery
+- uid: AppleTvControlLibrary.Discovery.Companion.UnicastCompanionDiscovery
+  commentId: T:AppleTvControlLibrary.Discovery.Companion.UnicastCompanionDiscovery
+  href: AppleTvControlLibrary.Discovery.Companion.UnicastCompanionDiscovery.html
+  name: UnicastCompanionDiscovery
+  nameWithType: UnicastCompanionDiscovery
+  fullName: AppleTvControlLibrary.Discovery.Companion.UnicastCompanionDiscovery
 - uid: AppleTvControlLibrary.Discovery.Companion
   commentId: N:AppleTvControlLibrary.Discovery.Companion
   href: AppleTvControlLibrary.html

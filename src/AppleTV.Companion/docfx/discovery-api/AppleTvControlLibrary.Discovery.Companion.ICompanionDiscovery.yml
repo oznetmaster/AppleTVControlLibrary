@@ -37,6 +37,7 @@ items:
   derivedClasses:
   - AppleTvControlLibrary.Discovery.Companion.MulticastCompanionDiscovery
   - AppleTvControlLibrary.Discovery.Companion.StaticCompanionDiscovery
+  - AppleTvControlLibrary.Discovery.Companion.UnicastCompanionDiscovery
 - uid: AppleTvControlLibrary.Discovery.Companion.ICompanionDiscovery.ScanAsync(System.TimeSpan,System.Threading.CancellationToken)
   commentId: M:AppleTvControlLibrary.Discovery.Companion.ICompanionDiscovery.ScanAsync(System.TimeSpan,System.Threading.CancellationToken)
   id: ScanAsync(System.TimeSpan,System.Threading.CancellationToken)

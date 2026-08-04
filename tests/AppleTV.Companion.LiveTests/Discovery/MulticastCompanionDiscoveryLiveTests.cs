@@ -63,6 +63,39 @@ public sealed class MulticastCompanionDiscoveryLiveTests
 		Assert.AreEqual (IPAddress.Loopback, found.Address);
 		}
 
+	[TestMethod]
+	public async Task UnicastScanAsync_RespondingDevice_IsDiscovered ()
+		{
+		using FakeMdnsResponder responder = CreateResponder (bindAddress: IPAddress.Loopback);
+		responder.Start ();
+
+		UnicastCompanionDiscovery discovery = new UnicastCompanionDiscovery (IPAddress.Loopback);
+		System.Collections.Generic.IReadOnlyList<CompanionDiscoveryResult> results =
+			await discovery.ScanAsync (TimeSpan.FromSeconds (3)).ConfigureAwait (false);
+
+		Assert.AreEqual (1, results.Count);
+		Assert.AreEqual ("Live Test Room", results[0].Name);
+		Assert.AreEqual (49152, results[0].Port);
+		Assert.AreEqual (IPAddress.Loopback, results[0].Address);
+		}
+
+	[TestMethod]
+	public async Task DiscoveryAsync_MatchingName_CompletesBeforeTimeout ()
+		{
+		using FakeMdnsResponder responder = CreateResponder ();
+		responder.Start ();
+
+		DateTime start = DateTime.UtcNow;
+		CompanionDiscoveryResult? result = await MulticastCompanionDiscovery.DiscoveryAsync (
+			"Live Test Room",
+			TimeSpan.FromSeconds (10)).ConfigureAwait (false);
+		TimeSpan elapsed = DateTime.UtcNow - start;
+
+		Assert.IsNotNull (result);
+		Assert.AreEqual (49152, result!.Port);
+		Assert.IsTrue (elapsed < TimeSpan.FromSeconds (5), $"Named lookup took {elapsed}, expected it to finish after the matching response.");
+		}
+
 	/// <summary>
 	/// A scan with no responder running must still return (empty) within roughly the requested
 	/// timeout, guarding against the "scan never returns" regression where the receive loop's
@@ -102,5 +135,21 @@ public sealed class MulticastCompanionDiscoveryLiveTests
 		TimeSpan elapsed = DateTime.UtcNow - cancelledAt;
 
 		Assert.IsTrue (elapsed < TimeSpan.FromSeconds (5), $"Scan took {elapsed} to return after cancellation, expected it to unblock promptly.");
+		}
+
+	private static FakeMdnsResponder CreateResponder (IPAddress? bindAddress = null)
+		{
+		return new FakeMdnsResponder (
+			serviceType: CompanionServiceInfo.SERVICE_TYPE,
+			instanceName: "Live Test Room",
+			hostName: "live-test-atv.local",
+			address: IPAddress.Loopback,
+			port: 49152,
+			txtProperties: new System.Collections.Generic.Dictionary<string, string>
+				{
+				["rpmrtid"] = "AAAAAAAAAAAA",
+				["rpfl"] = "0x4000",
+				},
+			bindAddress: bindAddress);
 		}
 	}

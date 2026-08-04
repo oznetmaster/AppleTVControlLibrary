@@ -62,7 +62,8 @@ implementation.
 
 ## What it can do
 
-- Discover Apple TVs advertising Companion Link over mDNS (`_companion-link._tcp`).
+- Discover Apple TVs advertising Companion Link over mDNS (`_companion-link._tcp`), query a known
+  device address directly, or stop a multicast lookup once an exact service name resolves.
 - Pair with a device (HAP pair-setup over SRP) and persist the resulting credentials.
 - Establish an encrypted session (HAP pair-verify, ChaCha20-Poly1305) and bring up a Companion
   Link session (`_systemInfo`, `_touchStart`, `_sessionStart`, `TVRCSessionStart`, `_tiStart`).
@@ -103,6 +104,14 @@ using AppleTvControlLibrary.Protocol;
 var discovery = new MulticastCompanionDiscovery ();
 var results = await discovery.ScanAsync (TimeSpan.FromSeconds (5));
 
+// If an Apple TV IPv4 address is already known, resolve its advertised Companion TCP endpoint.
+var directDiscovery = new UnicastCompanionDiscovery (IPAddress.Parse ("192.0.2.10"));
+var directResult = await directDiscovery.ScanAsync (TimeSpan.FromSeconds (5));
+
+// Or stop the multicast lookup when this exact mDNS service instance name resolves.
+var namedResult = await MulticastCompanionDiscovery.DiscoveryAsync (
+	 "Living Room", TimeSpan.FromSeconds (5));
+
 // 2. Pair (once per device) using AppleTvDeviceManager-style orchestration in your host app,
 //    or drive SrpAuthHandler / CompanionProtocol directly for full control.
 
@@ -118,6 +127,10 @@ Version 1.1.0 is async-first. Use the `Async` API variants for all protocol oper
 connection, commands, event subscriptions, and discovery. The original synchronous APIs remain
 available for source compatibility but are obsolete; migrate to their `Async` equivalents to avoid
 blocking application threads.
+
+The WPF reference host also recovers one stale auto-connect endpoint at startup: it discovers the
+stored device name, requires its `rpmrtid` identifier to match the paired device, updates the saved
+address and port, and retries once. It never accepts a same-named device with a different identifier.
 
 See `src/AppleTv.Remote.Wpf` in the source repository for a complete reference host application
 (scan, pair, connect, and drive a remote-control UI).

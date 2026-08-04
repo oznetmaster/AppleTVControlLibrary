@@ -30,6 +30,36 @@ public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 	/// <inheritdoc/>
 	public async Task<IReadOnlyList<CompanionDiscoveryResult>> ScanAsync (TimeSpan timeout, CancellationToken cancellationToken = default)
 		{
+		return await ScanCoreAsync (timeout, static _ => false, cancellationToken).ConfigureAwait (false);
+		}
+
+	/// <summary>
+	/// Discovers a Companion Link device by its mDNS service instance name and completes as soon
+	/// as that service has been fully resolved.
+	/// </summary>
+	/// <param name="appleTvName">The exact mDNS service instance name to locate.</param>
+	/// <param name="timeout">The maximum time to wait for the named device.</param>
+	/// <param name="cancellationToken">A token to cancel the lookup.</param>
+	/// <returns>The matching device, or <see langword="null"/> when it is not discovered before the timeout.</returns>
+	public static async Task<CompanionDiscoveryResult?> DiscoveryAsync (string appleTvName, TimeSpan timeout, CancellationToken cancellationToken = default)
+		{
+		if (string.IsNullOrWhiteSpace (appleTvName))
+			{
+			throw new ArgumentException ("An Apple TV name is required.", nameof (appleTvName));
+			}
+
+		IReadOnlyList<CompanionDiscoveryResult> results = await ScanCoreAsync (
+			timeout,
+			services => services.Any (service =>
+				string.Equals (service.Type, CompanionServiceInfo.SERVICE_TYPE, StringComparison.OrdinalIgnoreCase)
+				&& string.Equals (service.Name, appleTvName, StringComparison.Ordinal)),
+			cancellationToken)
+			.ConfigureAwait (false);
+		return results.FirstOrDefault (result => string.Equals (result.Name, appleTvName, StringComparison.Ordinal));
+		}
+
+	private static async Task<IReadOnlyList<CompanionDiscoveryResult>> ScanCoreAsync (TimeSpan timeout, Func<IReadOnlyList<Service>, bool> stopWhen, CancellationToken cancellationToken)
+		{
 		List<byte[]> queries = DnsServiceQueries.CreateServiceQueries (
 			new[] { CompanionServiceInfo.SERVICE_TYPE },
 			QueryType.Ptr);
@@ -53,7 +83,7 @@ public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 
 		// pyatv/core/mdns.py (_resend_loop resends queries once per second for the duration) — line 385-408 as of pyatv 0.18.0
 		Task sendTask = ResendLoopAsync (client, groupEndpoint, queries, timeout, linkedCts.Token);
-		Task receiveTask = ReceiveLoopAsync (client, parser, linkedCts.Token);
+		Task receiveTask = ReceiveLoopAsync (client, parser, linkedCts, stopWhen);
 
 		try
 			{
@@ -113,11 +143,11 @@ public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 			}
 		}
 
-	private static async Task ReceiveLoopAsync (UdpClient client, ServiceParser parser, CancellationToken cancellationToken)
+	private static async Task ReceiveLoopAsync (UdpClient client, ServiceParser parser, CancellationTokenSource cancellationSource, Func<IReadOnlyList<Service>, bool> stopWhen)
 		{
 		try
 			{
-			while (!cancellationToken.IsCancellationRequested)
+			while (!cancellationSource.IsCancellationRequested)
 				{
 				// UdpClient.ReceiveAsync(CancellationToken) is not available on net472; this must build on both TFMs.
 #pragma warning disable CA2016
@@ -127,6 +157,10 @@ public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 					{
 					DnsMessage message = new DnsMessage ().Unpack (result.Buffer);
 					parser.AddMessage (message);
+					if (stopWhen (parser.Parse ()))
+						{
+						cancellationSource.Cancel ();
+						}
 					}
 				catch (Exception)
 					{

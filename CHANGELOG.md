@@ -2,6 +2,21 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.1.1] - 2026-08-03
+
+### Added
+
+- `UnicastCompanionDiscovery`, which queries a known Apple TV IPv4 address over mDNS and returns
+  the advertised Companion Link TCP endpoint and service metadata.
+- `MulticastCompanionDiscovery.DiscoveryAsync`, which looks up an exact mDNS service instance name
+  and completes once the matching Companion Link service is resolved.
+
+### Fixed
+
+- WPF startup auto-connect now handles a stale saved endpoint: it looks up the stored service name,
+  verifies the discovered `rpmrtid` matches the paired device, persists only the refreshed address
+  and port, and retries connection once. Unverified or ambiguous devices are not accepted.
+
 ## [1.1.0] - 2026-08-03
 
 ### Added
