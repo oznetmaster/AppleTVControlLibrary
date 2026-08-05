@@ -70,6 +70,6 @@ public class HapCredentialsTests
 	[TestMethod]
 	public void InvalidCombinationThrows ()
 		{
-		Assert.ThrowsException<InvalidCredentialsException> (() => new HapCredentials (ltpk: new byte[] { 0x01 }));
+		Assert.Throws<InvalidCredentialsException> (() => new HapCredentials (ltpk: new byte[] { 0x01 }));
 		}
 	}

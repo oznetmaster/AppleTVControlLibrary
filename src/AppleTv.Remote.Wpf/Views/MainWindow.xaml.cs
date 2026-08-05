@@ -17,7 +17,7 @@ public partial class MainWindow : Window
 	{
 	// A tap-vs-swipe threshold: movement below this distance (device-independent pixels)
 	// between mouse-down and mouse-up is treated as a click rather than a swipe.
-	private const double ClickMovementThreshold = 8.0;
+	private const double CLICK_MOVEMENT_THRESHOLD = 8.0;
 
 	private bool _isTouchpadDragging;
 	private Point _touchpadDownPosition;
@@ -114,7 +114,7 @@ public partial class MainWindow : Window
 			}
 
 		Point position = e.GetPosition (this.TouchpadSurface);
-		if (!this._touchpadMoved && (position - this._touchpadDownPosition).Length > ClickMovementThreshold)
+		if (!this._touchpadMoved && (position - this._touchpadDownPosition).Length > CLICK_MOVEMENT_THRESHOLD)
 			{
 			this._touchpadMoved = true;
 			}

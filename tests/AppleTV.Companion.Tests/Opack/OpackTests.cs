@@ -20,7 +20,7 @@ public class OpackTests
 	[TestMethod]
 	public void PackUnsupportedTypeThrows ()
 		{
-		Assert.ThrowsException<NotSupportedException> (() => AppleTvControlLibrary.Opack.Opack.Pack (new object ()));
+		Assert.Throws<NotSupportedException> (() => AppleTvControlLibrary.Opack.Opack.Pack (new object ()));
 		}
 
 	// tests/support/test_opack.py: test_pack_boolean
@@ -51,11 +51,11 @@ public class OpackTests
 	[TestMethod]
 	public void PackAbsoluteTimeThrows ()
 		{
-		Assert.ThrowsException<NotImplementedException> (() => AppleTvControlLibrary.Opack.Opack.Pack (DateTime.Now));
+		Assert.Throws<NotImplementedException> (() => AppleTvControlLibrary.Opack.Opack.Pack (DateTime.Now));
 		}
 
 	// tests/support/test_opack.py: test_pack_small_integers
-	[DataTestMethod]
+	[TestMethod]
 	[DataRow (0L, new byte[] { 0x08 })]
 	[DataRow (0xFL, new byte[] { 0x17 })]
 	[DataRow (0x27L, new byte[] { 0x2f })]
@@ -65,7 +65,7 @@ public class OpackTests
 		}
 
 	// tests/support/test_opack.py: test_pack_larger_integers
-	[DataTestMethod]
+	[TestMethod]
 	[DataRow (0x28L, new byte[] { 0x30, 0x28 })]
 	[DataRow (0x1FFL, new byte[] { 0x31, 0xff, 0x01 })]
 	[DataRow (0x1FFFFFFL, new byte[] { 0x32, 0xff, 0xff, 0xff, 0x01 })]
@@ -76,7 +76,7 @@ public class OpackTests
 		}
 
 	// tests/support/test_opack.py: test_pack_sized_integers
-	[DataTestMethod]
+	[TestMethod]
 	[DataRow (1, new byte[] { 0x30, 0x01 })]
 	[DataRow (2, new byte[] { 0x31, 0x01, 0x00 })]
 	[DataRow (4, new byte[] { 0x32, 0x01, 0x00, 0x00, 0x00 })]
@@ -210,7 +210,7 @@ public class OpackTests
 	[TestMethod]
 	public void UnpackUnsupportedTypeThrows ()
 		{
-		Assert.ThrowsException<NotSupportedException> (() =>
+		Assert.Throws<NotSupportedException> (() =>
 			AppleTvControlLibrary.Opack.Opack.Unpack (new byte[] { 0x00 }, out _));
 		}
 
@@ -233,7 +233,7 @@ public class OpackTests
 		}
 
 	// tests/support/test_opack.py: test_unpack_uid
-	[DataTestMethod]
+	[TestMethod]
 	[DataRow (new byte[] { 0xdf, 0x30, 0x01, 0x30, 0x02, 0xc1, 0x01, 0x03 })]
 	[DataRow (new byte[] { 0xdf, 0x30, 0x01, 0x30, 0x02, 0xc2, 0x01, 0x00, 0x03 })]
 	[DataRow (new byte[] { 0xdf, 0x30, 0x01, 0x30, 0x02, 0xc3, 0x01, 0x00, 0x00, 0x03 })]

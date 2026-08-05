@@ -37,7 +37,7 @@ public class CompanionApiIntegrationTests
 		using var cancellationSource = new System.Threading.CancellationTokenSource ();
 		cancellationSource.Cancel ();
 
-		await Assert.ThrowsExceptionAsync<System.Threading.Tasks.TaskCanceledException> (() =>
+		await Assert.ThrowsAsync<System.Threading.Tasks.TaskCanceledException> (() =>
 			protocol.SendOpackAsync (FrameType.E_OPACK, new Dictionary<string, object?> (), cancellationSource.Token));
 		}
 

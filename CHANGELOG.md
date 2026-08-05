@@ -2,6 +2,19 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.1.2] - 2026-08-03
+
+### Changed
+
+- Updated the test projects to MSTest 4.3.3 and its current assertion APIs.
+- Removed unused direct NuGet dependencies while retaining the pinned `plist-cil` 2.2.0 package
+  required for .NET Framework 4.7.2 compatibility.
+
+### Fixed
+
+- Replaced obsolete MSTest `DataTestMethod` attributes with `TestMethod` while preserving the
+  existing `DataRow` test coverage, eliminating MSTEST0044 analyzer warnings.
+
 ## [1.1.1] - 2026-08-03
 
 ### Added
