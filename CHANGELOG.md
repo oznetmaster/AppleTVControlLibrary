@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.1.3] - 2026-08-03
+
+### Changed
+
+- `CompanionApi.SystemStatusChanged` now raises on every pushed `SystemStatus`/`TVSystemStatus`
+  state change (e.g. `Awake` to `Screensaver`), instead of only at the collapsed on/off boundary
+  pyatv itself notifies on. `CurrentSystemStatus` always held the granular value; callers that only
+  care about on/off can still derive it by comparing against `SystemStatus.Asleep`, while callers
+  wanting finer detail are no longer prevented from observing it.
+
 ## [1.1.2] - 2026-08-03
 
 ### Changed

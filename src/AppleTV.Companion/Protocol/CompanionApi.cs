@@ -1017,8 +1017,12 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public SystemStatus CurrentSystemStatus => _currentSystemStatus;
 
 	/// <summary>
-	/// Raised whenever a pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> event updates
-	/// <see cref="CurrentSystemStatus"/>.
+	/// Raised whenever a pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> event changes
+	/// <see cref="CurrentSystemStatus"/>, including transitions between non-<see cref="SystemStatus.Asleep"/>
+	/// states (e.g. <see cref="SystemStatus.Awake"/> to <see cref="SystemStatus.Screensaver"/>). Unlike
+	/// pyatv, which only notifies on the collapsed on/off boundary, this event fires on every raw state
+	/// change; inspect <see cref="CurrentSystemStatus"/> from the handler for the granular value, or
+	/// compare it against <see cref="SystemStatus.Asleep"/> if only on/off matters.
 	/// </summary>
 	// pyatv/protocols/companion/__init__.py (_handle_system_status_update) — line 249-256 as of pyatv 0.18.0
 	public event EventHandler? SystemStatusChanged;
@@ -1111,17 +1115,14 @@ public sealed class CompanionApi : ICompanionProtocolListener
 			SystemStatus updated = (SystemStatus)ToLong (state);
 			if (updated != _currentSystemStatus)
 				{
-				// pyatv/protocols/companion/__init__.py (_system_status_to_power_state) — line 225-232 as of pyatv 0.18.0:
-				// only Asleep maps to Off; Screensaver, Awake and Idle all map to On, so only
-				// raise the event when the mapped power state actually changes (e.g. Awake ->
-				// Screensaver is not a real transition from the UI's point of view).
-				bool wasOn = _currentSystemStatus != SystemStatus.Asleep && _currentSystemStatus != SystemStatus.Unknown;
-				bool isOn = updated != SystemStatus.Asleep && updated != SystemStatus.Unknown;
+				// pyatv collapses this to an on/off PowerState and only notifies on that boundary
+				// (_system_status_to_power_state, __init__.py — line 225-232 as of pyatv 0.18.0). This
+				// library instead raises SystemStatusChanged on every raw state change (e.g. Awake ->
+				// Screensaver) and exposes the granular value via CurrentSystemStatus, so a caller that
+				// only cares about on/off can still derive it (state != SystemStatus.Asleep) while callers
+				// that want finer detail are no longer prevented from seeing it.
 				_currentSystemStatus = updated;
-				if (isOn != wasOn)
-					{
-					SystemStatusChanged?.Invoke (this, EventArgs.Empty);
-					}
+				SystemStatusChanged?.Invoke (this, EventArgs.Empty);
 				}
 			}
 		}
