@@ -52,7 +52,10 @@ wanted; it restores the two library packages automatically.
 It demonstrates the full application workflow: scan for devices, pair once, persist credentials,
 reconnect, and control a selected Apple TV. Its UI includes directional and media controls,
 capability-aware volume and mute controls, power-state updates, app launching, switchable-account
-selection, and reactive text entry when the Apple TV keyboard gains focus.
+selection, and reactive text entry when the Apple TV keyboard gains focus. It also demonstrates
+handling `CompanionApi.ConnectionClosed`: on an unexpected fault (not a user-initiated disconnect)
+it retries the connection with a bounded, increasing backoff, giving up after a few attempts if
+the device stays unreachable.
 
 <img src="https://oznetmaster.github.io/AppleTVControlLibrary/images/companion-link-remote.png" alt="Companion Link Remote WPF reference host" width="180" />
 
@@ -67,6 +70,10 @@ implementation.
 - Pair with a device (HAP pair-setup over SRP) and persist the resulting credentials.
 - Establish an encrypted session (HAP pair-verify, ChaCha20-Poly1305) and bring up a Companion
   Link session (`_systemInfo`, `_touchStart`, `_sessionStart`, `TVRCSessionStart`, `_tiStart`).
+- Notify callers when the connection is closed or lost (`CompanionApi.ConnectionClosed`), whether
+  cleanly or due to an unexpected fault, via `ConnectionClosedEventArgs.Exception`. The library
+  itself does not reconnect automatically; consumers wanting to reconnect (as the WPF reference
+  host does) must do so themselves in response to this event.
 - Send HID commands (directional pad, menu/home, volume, play/pause, Siri, etc.) and touch/swipe
   events.
 - Send media-control commands (play/pause/skip, absolute volume) gated by the device's advertised

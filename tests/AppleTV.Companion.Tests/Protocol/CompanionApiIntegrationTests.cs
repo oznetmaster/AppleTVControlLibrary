@@ -41,6 +41,52 @@ public class CompanionApiIntegrationTests
 			protocol.SendOpackAsync (FrameType.E_OPACK, new Dictionary<string, object?> (), cancellationSource.Token));
 		}
 
+	// pyatv/protocols/companion/connection.py (connection_lost, exc is not None) — line 161-167 as of
+	// pyatv 0.18.0: an unexpected transport failure must be observable by a CompanionApi consumer.
+	[TestMethod]
+	public void ConnectionClosedFiresWithExceptionWhenConnectionIsFaulted ()
+		{
+		var device = new FakeCompanionOpackDevice ();
+		var api = CreateConnectedApi (device, out CompanionProtocol protocol);
+		api.Connect ();
+
+		ConnectionClosedEventArgs? received = null;
+		api.ConnectionClosed += (sender, args) => received = args;
+
+		var failure = new InvalidOperationException ("simulated transport failure");
+		protocol.AsyncSender = _ => throw failure;
+
+		Assert.Throws<ProtocolException> (() => api.SendHidCommand (down: true, HidCommand.Select));
+
+		Assert.IsNotNull (received);
+		Assert.IsNotNull (received!.Exception);
+		Assert.AreEqual (failure, received.Exception);
+		}
+
+	// pyatv/protocols/companion/protocol.py has no direct equivalent of Dispose faulting the
+	// connection, but CompanionProtocol.Dispose intentionally faults its CompanionConnection with an
+	// ObjectDisposedException as a defined teardown signal; CompanionApi must surface that too.
+	[TestMethod]
+	public void ConnectionClosedFiresOnProtocolDispose ()
+		{
+		var device = new FakeCompanionOpackDevice ();
+		var api = CreateConnectedApi (device, out CompanionProtocol protocol);
+		api.Connect ();
+
+		bool raised = false;
+		Exception? observedException = null;
+		api.ConnectionClosed += (sender, args) =>
+			{
+			raised = true;
+			observedException = args.Exception;
+			};
+
+		protocol.Dispose ();
+
+		Assert.IsTrue (raised);
+		Assert.IsInstanceOfType<ObjectDisposedException> (observedException);
+		}
+
 	[TestMethod]
 	public async System.Threading.Tasks.Task ConnectAsyncRunsFullBringUpSequence ()
 		{

@@ -69,6 +69,18 @@ public sealed class AppleTvDeviceManager : IDisposable
 	public event EventHandler? SystemStatusChanged;
 
 	/// <summary>
+	/// Raised when the connection to the device is closed or lost, whether cleanly (e.g. the
+	/// remote end closing the socket) or unexpectedly (e.g. a transport, decrypt, or dispatch
+	/// failure). Inspect <see cref="ConnectionClosedEventArgs.Exception"/> to distinguish the two.
+	/// By the time this is raised, the manager has already released its connection (as if
+	/// <see cref="Disconnect"/> had been called); consumers wanting to reconnect must do so
+	/// themselves.
+	/// </summary>
+	// pyatv/interface.py (DeviceListener.connection_lost/connection_closed) — this library does not
+	// implement automatic reconnection; see CompanionApi.ConnectionClosed remarks.
+	public event EventHandler<ConnectionClosedEventArgs>? ConnectionClosed;
+
+	/// <summary>
 	/// Gets the connected device's current keyboard (RTI text input) focus state, tracked via
 	/// <c>_tiStarted</c>/<c>_tiStopped</c> events (and the <c>_tiStart</c> response).
 	/// <see cref="KeyboardFocusState.Unknown"/> if not connected or if no state has been
@@ -339,6 +351,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 			api.MediaControlCapabilitiesChanged += this.OnMediaControlCapabilitiesChanged;
 			api.SystemStatusChanged += this.OnSystemStatusChanged;
 			api.TextFocusStateChanged += this.OnTextFocusStateChanged;
+			api.ConnectionClosed += this.OnConnectionClosed;
 			this._transport = transport;
 			this._api = api;
 
@@ -385,6 +398,15 @@ public sealed class AppleTvDeviceManager : IDisposable
 	private void OnTextFocusStateChanged (object? sender, EventArgs e)
 		{
 		this.TextFocusStateChanged?.Invoke (this, EventArgs.Empty);
+		}
+
+	// pyatv has no automatic reconnect for Companion; on an unexpected fault we simply tear down
+	// our side (same as Disconnect()) and let the consumer decide whether/how to reconnect.
+	private void OnConnectionClosed (object? sender, ConnectionClosedEventArgs e)
+		{
+		System.Diagnostics.Debug.WriteLine ($"[AppleTvDeviceManager] ConnectionClosed (exception: {e.Exception})");
+		this.Disconnect ();
+		this.ConnectionClosed?.Invoke (this, e);
 		}
 
 	/// <summary>Sends a HID button command to the connected device.</summary>
@@ -523,6 +545,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 			this._api.MediaControlCapabilitiesChanged -= this.OnMediaControlCapabilitiesChanged;
 			this._api.SystemStatusChanged -= this.OnSystemStatusChanged;
 			this._api.TextFocusStateChanged -= this.OnTextFocusStateChanged;
+			this._api.ConnectionClosed -= this.OnConnectionClosed;
 			}
 
 		this._api = null;

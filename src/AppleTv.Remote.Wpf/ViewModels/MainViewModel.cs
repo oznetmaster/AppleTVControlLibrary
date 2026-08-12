@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -30,6 +31,20 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	private SelectableItem? _selectedAccount;
 	private bool _isPopulatingAppsOrAccounts;
 	private bool _isCurrentAccountKnown;
+	private StoredDevice? _lastConnectedDevice;
+	private CancellationTokenSource? _reconnectCts;
+
+	// pyatv itself implements no automatic reconnection for Companion (see
+	// AppleTvDeviceManager.OnConnectionClosed remarks); this bounded retry/backoff is a WPF-app-level
+	// UX affordance layered on top, not a protocol requirement.
+	private static readonly TimeSpan[] ReconnectDelays =
+		{
+		TimeSpan.FromSeconds (2),
+		TimeSpan.FromSeconds (5),
+		TimeSpan.FromSeconds (10),
+		TimeSpan.FromSeconds (20),
+		TimeSpan.FromSeconds (30),
+		};
 
 	/// <summary>Initializes a new instance of the <see cref="MainViewModel"/> class.</summary>
 	public MainViewModel ()
@@ -86,6 +101,14 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		this._deviceManager.TextFocusStateChanged += (_, _) =>
 			{
 			Application.Current?.Dispatcher.BeginInvoke (new Action (async () => await this.ApplyTextFocusStateAsync ().ConfigureAwait (true)));
+			};
+
+		// The library does not attempt automatic reconnection; an unexpected disconnect (or the
+		// remote end cleanly closing the socket) is surfaced here so the UI can reset to a
+		// disconnected state instead of silently going stale (dead buttons, frozen status text).
+		this._deviceManager.ConnectionClosed += (_, e) =>
+			{
+			Application.Current?.Dispatcher.Invoke (() => this.HandleConnectionClosed (e));
 			};
 		}
 
@@ -652,6 +675,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		try
 			{
 			await this._deviceManager.ConnectAsync (stored).ConfigureAwait (true);
+			this._lastConnectedDevice = stored;
 			this.StatusMessage = $"Connected to {stored.Name}.";
 			this.OnPropertyChanged (nameof (this.IsConnected));
 			this.DisconnectCommand.RaiseCanExecuteChanged ();
@@ -748,6 +772,11 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 
 	private void Disconnect ()
 		{
+		// A deliberate, user-initiated disconnect cancels any pending auto-reconnect and forgets
+		// the last-connected device, so the app doesn't spring back to life on its own afterward.
+		this.CancelReconnect ();
+		this._lastConnectedDevice = null;
+
 		this._deviceManager.Disconnect ();
 		this.StatusMessage = "Disconnected.";
 		this.IsMuted = false;
@@ -758,6 +787,87 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		this.DisconnectCommand.RaiseCanExecuteChanged ();
 		this.RaiseRemoteButtonStates ();
 		this.PopulateAppsAndAccounts ();
+		}
+
+	// The AppleTvDeviceManager has already torn down its own connection state (transport/api) by
+	// the time this fires - see AppleTvDeviceManager.OnConnectionClosed - so this only needs to
+	// reset the view-model-level UI state, same as a user-initiated Disconnect().
+	private void HandleConnectionClosed (ConnectionClosedEventArgs e)
+		{
+		this.StatusMessage = e.Exception is null
+			? "Disconnected."
+			: $"Connection lost: {e.Exception.Message}. Reconnecting...";
+		this.IsMuted = false;
+		this.IsAwake = false;
+		this.IsPowerStateKnown = false;
+		this.HideTextInput?.Invoke ();
+		this.OnPropertyChanged (nameof (this.IsConnected));
+		this.DisconnectCommand.RaiseCanExecuteChanged ();
+		this.RaiseRemoteButtonStates ();
+		this.PopulateAppsAndAccounts ();
+
+		// Only an unexpected fault is worth auto-reconnecting for; a clean close (e.g. the user's
+		// own Disconnect(), which already cleared _lastConnectedDevice) must not trigger one.
+		if (e.Exception is not null && this._lastConnectedDevice is StoredDevice device)
+			{
+			this.StartReconnectLoop (device);
+			}
+		}
+
+	private void CancelReconnect ()
+		{
+		this._reconnectCts?.Cancel ();
+		this._reconnectCts?.Dispose ();
+		this._reconnectCts = null;
+		}
+
+	private void StartReconnectLoop (StoredDevice stored)
+		{
+		this.CancelReconnect ();
+		CancellationTokenSource cts = new ();
+		this._reconnectCts = cts;
+		_ = this.ReconnectLoopAsync (stored, cts.Token);
+		}
+
+	private async Task ReconnectLoopAsync (StoredDevice stored, CancellationToken cancellationToken)
+		{
+		for (int attempt = 0; attempt < ReconnectDelays.Length && !cancellationToken.IsCancellationRequested; attempt++)
+			{
+			TimeSpan delay = ReconnectDelays[attempt];
+			this.StatusMessage = $"Reconnecting to {stored.Name} in {delay.TotalSeconds:0}s (attempt {attempt + 1}/{ReconnectDelays.Length})...";
+			try
+				{
+				await Task.Delay (delay, cancellationToken).ConfigureAwait (true);
+				}
+			catch (OperationCanceledException)
+				{
+				return;
+				}
+
+			if (cancellationToken.IsCancellationRequested)
+				{
+				return;
+				}
+
+			this.StatusMessage = $"Reconnecting to {stored.Name}...";
+			try
+				{
+				await this.ConnectToStoredDeviceAsync (stored).ConfigureAwait (true);
+				if (this.IsConnected)
+					{
+					return;
+					}
+				}
+			catch (Exception ex)
+				{
+				System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Reconnect attempt {attempt + 1} failed: {ex}");
+				}
+			}
+
+		if (!cancellationToken.IsCancellationRequested)
+			{
+			this.StatusMessage = $"Could not reconnect to {stored.Name}. Connect manually.";
+			}
 		}
 
 	private async Task ToggleMuteAsync ()
@@ -936,6 +1046,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// <inheritdoc/>
 	public void Dispose ()
 		{
+		this.CancelReconnect ();
 		this._deviceManager.Dispose ();
 		}
 	}

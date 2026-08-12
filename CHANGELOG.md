@@ -2,6 +2,35 @@
 
 All notable changes to this project are documented in this file.
 
+## [Unreleased]
+
+## [1.1.4] - 2026-08-04
+
+### Added
+
+- `CompanionApi.ConnectionClosed`, raised when the connection to the device is closed or lost,
+  whether cleanly (the remote end closing the socket) or unexpectedly (a transport, decrypt, or
+  dispatch failure). Mirrors pyatv's `DeviceListener.connection_lost`/`connection_closed`
+  callbacks; inspect `ConnectionClosedEventArgs.Exception` (`null` for a clean close, non-null for
+  an unexpected fault) to distinguish the two. This library does not implement automatic
+  reconnection; consumers that want to reconnect must do so themselves in response to this event.
+- `CompanionProtocol.ConnectionFaulted`, the lower-level event `CompanionApi.ConnectionClosed` is
+  built on, for callers driving `CompanionProtocol` directly without `CompanionApi`.
+- The WPF reference host now consumes `CompanionApi.ConnectionClosed` end-to-end:
+  `AppleTvDeviceManager` exposes its own `ConnectionClosed` event and tears down its connection
+  state when the underlying connection faults, and `MainViewModel` resets UI state accordingly. On
+  an unexpected fault (not a user-initiated disconnect), the view model automatically retries the
+  connection with a bounded, increasing backoff (2s/5s/10s/20s/30s), giving up with a "connect
+  manually" status message if the device stays unreachable. A manual disconnect cancels any
+  pending reconnect attempt.
+
+### Fixed
+
+- The WPF reference host's `TcpCompanionTransport` now faults the underlying `CompanionConnection`
+  when the remote end closes the socket or the read loop fails unexpectedly, instead of only
+  logging and silently exiting the read thread. This is what makes the new `ConnectionClosed`
+  notification actually fire for socket-based connections.
+
 ## [1.1.3] - 2026-08-03
 
 ### Changed

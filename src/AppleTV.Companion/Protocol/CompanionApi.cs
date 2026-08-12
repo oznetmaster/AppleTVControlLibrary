@@ -260,7 +260,21 @@ public sealed class CompanionApi : ICompanionProtocolListener
 
 		// pyatv/protocols/companion/__init__.py (self.api.listen_to("_iMC", ...) — line 436 as of pyatv 0.18.0)
 		_protocol.Listener = this;
+		_protocol.ConnectionFaulted += (sender, args) => ConnectionClosed?.Invoke (this, args);
 		}
+
+	/// <summary>
+	/// Raised when the connection to the device is closed or lost, whether cleanly (e.g. the
+	/// remote end closing the socket) or unexpectedly (e.g. a transport, decrypt, or dispatch
+	/// failure). Inspect <see cref="ConnectionClosedEventArgs.Exception"/> to distinguish the two.
+	/// </summary>
+	/// <remarks>
+	/// Mirrors pyatv's <c>DeviceListener.connection_lost</c>/<c>connection_closed</c> callbacks
+	/// (<c>pyatv/interface.py</c>). Unlike pyatv, this port does not implement automatic
+	/// reconnection; consumers that want to reconnect must do so themselves in response to this
+	/// event.
+	/// </remarks>
+	public event EventHandler<ConnectionClosedEventArgs>? ConnectionClosed;
 
 	/// <summary>Gets the stable identifier used as the <c>_systemInfo</c> <c>_i</c> field.</summary>
 	public string StableIdentifier

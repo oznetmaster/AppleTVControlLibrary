@@ -40,6 +40,37 @@ public interface ICompanionProtocolListener
 	}
 
 /// <summary>
+/// Event data for <see cref="CompanionProtocol.ConnectionFaulted"/> and
+/// <see cref="CompanionApi.ConnectionClosed"/>.
+/// </summary>
+/// <remarks>
+/// Mirrors pyatv's <c>DeviceListener.connection_lost(exc)</c> / <c>connection_closed()</c>
+/// distinction (see <c>pyatv/interface.py</c>): a <see langword="null"/> <see cref="Exception"/>
+/// means the connection was closed cleanly (the equivalent of pyatv's <c>connection_closed()</c>),
+/// while a non-null value means it was lost unexpectedly (<c>connection_lost(exc)</c>).
+/// </remarks>
+public sealed class ConnectionClosedEventArgs : EventArgs
+	{
+	/// <summary>Initializes a new instance of the <see cref="ConnectionClosedEventArgs"/> class.</summary>
+	/// <param name="exception">The exception that caused the connection to be lost, or <see langword="null"/> for a clean close.</param>
+	public ConnectionClosedEventArgs (Exception? exception)
+		{
+		Exception = exception;
+		}
+
+	/// <summary>
+	/// Gets the exception that caused the connection to be lost, or <see langword="null"/> if the
+	/// connection was closed cleanly/expectedly (e.g. via <see cref="CompanionProtocol.Dispose"/>
+	/// being an explicit teardown is still reported with an exception; only an intentional,
+	/// non-faulting close reports <see langword="null"/>).
+	/// </summary>
+	public Exception? Exception
+		{
+		get;
+		}
+	}
+
+/// <summary>
 /// Raised when a Companion protocol exchange fails.
 /// </summary>
 // pyatv/exceptions.py (ProtocolError) — line 31-33 as of pyatv 0.18.0
@@ -157,8 +188,21 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 		_srp = srp;
 		_xid = (uint)new Random ().Next (0, 65536);
 		_connection.FrameReceived += (sender, frameType, data) => OnFrameReceived (frameType, data);
-		_connection.Faulted += (sender, exception) => FaultPendingRequests (exception);
+		_connection.Faulted += (sender, exception) =>
+			{
+			FaultPendingRequests (exception);
+			ConnectionFaulted?.Invoke (this, new ConnectionClosedEventArgs (exception));
+			};
 		}
+
+	/// <summary>
+	/// Raised when the underlying <see cref="CompanionConnection"/> enters its terminal faulted
+	/// state, whether due to an unexpected transport/decrypt/dispatch failure, a clean remote
+	/// close, or disposal. See <see cref="ConnectionClosedEventArgs.Exception"/> to distinguish
+	/// an unexpected loss from an expected close.
+	/// </summary>
+	// pyatv/protocols/companion/connection.py (connection_lost) — line 161-167 as of pyatv 0.18.0
+	public event EventHandler<ConnectionClosedEventArgs>? ConnectionFaulted;
 
 	/// <summary>Gets or sets the listener notified when an event frame is received.</summary>
 	public ICompanionProtocolListener? Listener

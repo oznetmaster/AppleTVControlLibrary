@@ -104,6 +104,9 @@ public sealed class TcpCompanionTransport : IDisposable, IAsyncDisposable
 				if (read == 0)
 					{
 					System.Diagnostics.Debug.WriteLine ("[TcpCompanionTransport] Remote closed the connection (0-byte read)");
+					// pyatv/protocols/companion/connection.py (connection_lost, exc is None) — line 161-167
+					// as of pyatv 0.18.0: a 0-byte read is a clean remote close, reported without an exception.
+					this._connection.Fault (null);
 					return;
 					}
 
@@ -129,6 +132,12 @@ public sealed class TcpCompanionTransport : IDisposable, IAsyncDisposable
 			{
 			// Expected once Dispose() closes the socket while a read is in progress.
 			System.Diagnostics.Debug.WriteLine ($"[TcpCompanionTransport] Read loop stopped (disposed={this._disposed}, connected={this._client.Connected}): {ex.GetType ().Name}: {ex.Message}");
+			// pyatv/protocols/companion/connection.py (connection_lost) — line 161-167 as of pyatv 0.18.0:
+			// only report as an unexpected fault if this wasn't our own Dispose() closing the socket.
+			if (!this._disposed)
+				{
+				this._connection.Fault (ex);
+				}
 			}
 		catch (Exception ex)
 			{
@@ -136,6 +145,7 @@ public sealed class TcpCompanionTransport : IDisposable, IAsyncDisposable
 			// Previously this exception was invisible; surface it so a broken read doesn't
 			// masquerade as a downstream protocol timeout.
 			System.Diagnostics.Debug.WriteLine ($"[TcpCompanionTransport] Read loop failed unexpectedly: {ex}");
+			this._connection.Fault (ex);
 			}
 		finally
 			{
