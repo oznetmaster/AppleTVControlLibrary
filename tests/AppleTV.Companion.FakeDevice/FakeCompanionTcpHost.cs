@@ -148,6 +148,15 @@ public sealed class FakeCompanionTcpHost : IDisposable
 
 		byte[] responseFrame = _serverConnection.BuildFrame (responseFrameType, AppleTvControlLibrary.Opack.Opack.Pack (response));
 		WriteToClient (responseFrame);
+
+		// pyatv/protocols/companion/server_auth.py (handle_auth_frame) completes pair-verify once
+		// the client's M3 proof has been validated; mirror the client side's EnableEncryption call
+		// (AppleTvCompanionSession.PairVerifyAsync) so the server can decrypt/encrypt subsequent
+		// E_OPACK frames instead of only ever handling the plaintext auth handshake.
+		if (_authDevice.IsEncrypted && !_serverConnection.IsEncrypted)
+			{
+			_serverConnection.EnableEncryption (_authDevice.ServerOutputKey!, _authDevice.ServerInputKey!);
+			}
 		}
 
 	private void HandleOpackFrame (FrameType frameType, byte[] data)
