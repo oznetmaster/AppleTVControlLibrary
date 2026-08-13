@@ -9,6 +9,7 @@ using System.Threading;
 
 using AppleTvControlLibrary.Connection;
 using AppleTvControlLibrary.Opack;
+using AppleTvControlLibrary.Protocol;
 
 namespace AppleTvControlLibrary.FakeDevice;
 
@@ -49,6 +50,12 @@ public sealed class FakeCompanionTcpHost : IDisposable
 		_listener.Start ();
 
 		_serverConnection.FrameReceived += OnFrameReceived;
+
+		// tests/fake_device/companion.py (FakeCompanionState._send_rti) — line 133-134 as of
+		// pyatv 0.18.0: unsolicited events pushed by the fake device (e.g. _tiStarted/_tiStopped)
+		// must also be framed and written to the connected client, since they are not a response
+		// to a request and would otherwise never reach the client's CompanionApi.
+		_opackDevice.EventEmitted += OnDeviceEventEmitted;
 		}
 
 	/// <summary>Gets the loopback port the host is listening on.</summary>
@@ -130,6 +137,22 @@ public sealed class FakeCompanionTcpHost : IDisposable
 			}
 		}
 
+	// tests/fake_device/companion.py (FakeCompanionState._send_rti) — line 133-134 as of pyatv
+	// 0.18.0: unsolicited events (e.g. _tiStarted/_tiStopped) are pushed to the client as their
+	// own E_OPACK/Event frame rather than as a response to an in-flight request.
+	private void OnDeviceEventEmitted (string identifier, Dictionary<object, object?> content)
+		{
+		var eventFrame = new Dictionary<object, object?>
+			{
+			{ "_i", identifier },
+			{ "_t", (int)MessageType.Event },
+			{ "_c", content },
+			};
+
+		byte[] frame = _serverConnection.BuildFrame (FrameType.E_OPACK, AppleTvControlLibrary.Opack.Opack.Pack (eventFrame));
+		WriteToClient (frame);
+		}
+
 	private void HandleAuthFrame (FrameType frameType, byte[] data)
 		{
 		object? unpacked = AppleTvControlLibrary.Opack.Opack.Unpack (data, out _);
@@ -196,6 +219,7 @@ public sealed class FakeCompanionTcpHost : IDisposable
 	public void Dispose ()
 		{
 		_disposed = true;
+		_opackDevice.EventEmitted -= OnDeviceEventEmitted;
 		try
 			{
 			_listener.Stop ();
