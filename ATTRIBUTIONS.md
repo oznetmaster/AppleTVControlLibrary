@@ -1,8 +1,7 @@
 # Attributions
 
-This library is a from-scratch C# port of protocol behavior implemented by third-party open
-source projects. No source files from those projects are compiled into this library or
-distributed with it; the vendored copies used during development live in a local, git-ignored
+This library is primarily a from-scratch C# port of protocol behavior implemented by third-party
+open source projects. The vendored copies used during development live in a local, git-ignored
 `/reference` directory that is never committed or published. This file records what was
 consulted and why. Full license text for each project is reproduced in
 [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt).
@@ -25,9 +24,9 @@ comment citing the pyatv symbol it was read from (for example:
 `// pyatv/protocols/companion/api.py (HidCommand) — line 35-56 as of pyatv 0.18.0`). This is a
 maintenance index, not attribution boilerplate: it lets a future re-vendor of pyatv (or a review
 of a changed value) be resolved with a diff and a grep instead of re-deriving the protocol from
-scratch. Citing a symbol's origin is not the same as reproducing pyatv's source; no file in this
-library is a transliteration of a pyatv file, and no pyatv source ships in this library's
-package or repository.
+scratch. Citing a symbol's origin is not the same as reproducing pyatv's source; no Companion
+Link source file in this library is a transliteration of a pyatv file, and no pyatv Companion
+source ships in this library's package or repository.
 
 ## srptools
 

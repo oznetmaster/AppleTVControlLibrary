@@ -613,6 +613,19 @@
             <param name="model">The device model string reported in <c>_systemInfo</c>.</param>
             <param name="name">The device name string reported in <c>_systemInfo</c>.</param>
         </member>
+        <member name="E:AppleTvControlLibrary.Protocol.CompanionApi.ConnectionClosed">
+            <summary>
+            Raised when the connection to the device is closed or lost, whether cleanly (e.g. the
+            remote end closing the socket) or unexpectedly (e.g. a transport, decrypt, or dispatch
+            failure). Inspect <see cref="P:AppleTvControlLibrary.Protocol.ConnectionClosedEventArgs.Exception"/> to distinguish the two.
+            </summary>
+            <remarks>
+            Mirrors pyatv's <c>DeviceListener.connection_lost</c>/<c>connection_closed</c> callbacks
+            (<c>pyatv/interface.py</c>). Unlike pyatv, this port does not implement automatic
+            reconnection; consumers that want to reconnect must do so themselves in response to this
+            event.
+            </remarks>
+        </member>
         <member name="P:AppleTvControlLibrary.Protocol.CompanionApi.StableIdentifier">
             <summary>Gets the stable identifier used as the <c>_systemInfo</c> <c>_i</c> field.</summary>
         </member>
@@ -887,8 +900,12 @@
         </member>
         <member name="E:AppleTvControlLibrary.Protocol.CompanionApi.SystemStatusChanged">
             <summary>
-            Raised whenever a pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> event updates
-            <see cref="P:AppleTvControlLibrary.Protocol.CompanionApi.CurrentSystemStatus"/>.
+            Raised whenever a pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> event changes
+            <see cref="P:AppleTvControlLibrary.Protocol.CompanionApi.CurrentSystemStatus"/>, including transitions between non-<see cref="F:AppleTvControlLibrary.Protocol.SystemStatus.Asleep"/>
+            states (e.g. <see cref="F:AppleTvControlLibrary.Protocol.SystemStatus.Awake"/> to <see cref="F:AppleTvControlLibrary.Protocol.SystemStatus.Screensaver"/>). Unlike
+            pyatv, which only notifies on the collapsed on/off boundary, this event fires on every raw state
+            change; inspect <see cref="P:AppleTvControlLibrary.Protocol.CompanionApi.CurrentSystemStatus"/> from the handler for the granular value, or
+            compare it against <see cref="F:AppleTvControlLibrary.Protocol.SystemStatus.Asleep"/> if only on/off matters.
             </summary>
         </member>
         <member name="M:AppleTvControlLibrary.Protocol.CompanionApi.GetVolume">
@@ -940,6 +957,30 @@
             <summary>An event was received from the remote device.</summary>
             <param name="eventName">The event identifier (the message's <c>_i</c> field).</param>
             <param name="data">The event content (the message's <c>_c</c> field).</param>
+        </member>
+        <member name="T:AppleTvControlLibrary.Protocol.ConnectionClosedEventArgs">
+            <summary>
+            Event data for <see cref="E:AppleTvControlLibrary.Protocol.CompanionProtocol.ConnectionFaulted"/> and
+            <see cref="E:AppleTvControlLibrary.Protocol.CompanionApi.ConnectionClosed"/>.
+            </summary>
+            <remarks>
+            Mirrors pyatv's <c>DeviceListener.connection_lost(exc)</c> / <c>connection_closed()</c>
+            distinction (see <c>pyatv/interface.py</c>): a <see langword="null"/> <see cref="P:AppleTvControlLibrary.Protocol.ConnectionClosedEventArgs.Exception"/>
+            means the connection was closed cleanly (the equivalent of pyatv's <c>connection_closed()</c>),
+            while a non-null value means it was lost unexpectedly (<c>connection_lost(exc)</c>).
+            </remarks>
+        </member>
+        <member name="M:AppleTvControlLibrary.Protocol.ConnectionClosedEventArgs.#ctor(System.Exception)">
+            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Protocol.ConnectionClosedEventArgs"/> class.</summary>
+            <param name="exception">The exception that caused the connection to be lost, or <see langword="null"/> for a clean close.</param>
+        </member>
+        <member name="P:AppleTvControlLibrary.Protocol.ConnectionClosedEventArgs.Exception">
+            <summary>
+            Gets the exception that caused the connection to be lost, or <see langword="null"/> if the
+            connection was closed cleanly/expectedly (e.g. via <see cref="M:AppleTvControlLibrary.Protocol.CompanionProtocol.Dispose"/>
+            being an explicit teardown is still reported with an exception; only an intentional,
+            non-faulting close reports <see langword="null"/>).
+            </summary>
         </member>
         <member name="T:AppleTvControlLibrary.Protocol.ProtocolException">
             <summary>
@@ -1017,6 +1058,14 @@
             <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Protocol.CompanionProtocol"/> class.</summary>
             <param name="connection">The underlying framed connection.</param>
             <param name="srp">The SRP handler used for pair-verify.</param>
+        </member>
+        <member name="E:AppleTvControlLibrary.Protocol.CompanionProtocol.ConnectionFaulted">
+            <summary>
+            Raised when the underlying <see cref="T:AppleTvControlLibrary.Connection.CompanionConnection"/> enters its terminal faulted
+            state, whether due to an unexpected transport/decrypt/dispatch failure, a clean remote
+            close, or disposal. See <see cref="P:AppleTvControlLibrary.Protocol.ConnectionClosedEventArgs.Exception"/> to distinguish
+            an unexpected loss from an expected close.
+            </summary>
         </member>
         <member name="P:AppleTvControlLibrary.Protocol.CompanionProtocol.Listener">
             <summary>Gets or sets the listener notified when an event frame is received.</summary>
