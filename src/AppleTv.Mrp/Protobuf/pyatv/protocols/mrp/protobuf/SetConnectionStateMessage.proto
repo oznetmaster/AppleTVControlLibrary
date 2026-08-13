@@ -1,0 +1,19 @@
+syntax = "proto2";
+option csharp_namespace = "AppleTvControlLibrary.Mrp.Protobuf";
+
+import "pyatv/protocols/mrp/protobuf/ProtocolMessage.proto";
+
+extend ProtocolMessage {
+  optional SetConnectionStateMessage setConnectionStateMessage = 42;
+}
+
+message SetConnectionStateMessage {
+  enum ConnectionState {
+    None = 0;
+    Connecting = 1;
+    Connected = 2;
+    Disconnected = 3;
+  }
+
+  optional ConnectionState state = 1;
+}

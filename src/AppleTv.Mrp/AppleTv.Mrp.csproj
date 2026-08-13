@@ -1,0 +1,77 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<RootNamespace>AppleTvControlLibrary.Mrp</RootNamespace>
+		<AssemblyName>AppleTvControlLibrary.Mrp</AssemblyName>
+		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+		<TargetFrameworks>net472;net10.0</TargetFrameworks>
+		<IsPackable>true</IsPackable>
+		<PackageId>AppleTvControlLibrary.Mrp</PackageId>
+		<Version>0.1.0</Version>
+		<Authors>Neil Colvin</Authors>
+		<Company>Neil Colvin</Company>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageTags>appletv;mrp;api;library</PackageTags>
+		<RepositoryUrl>https://github.com/oznetmaster/AppleTvControlLibrary</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/oznetmaster/AppleTvControlLibrary</PackageProjectUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Description>MRP (Media Remote Protocol) client library for .NET Framework 4.7.2 and .NET 10. Complements AppleTvControlLibrary's Companion Link support.</Description>
+		<LangVersion>13.0</LangVersion>
+		<Nullable>enable</Nullable>
+		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+		<GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+		<AnalysisLevel>latest-recommended</AnalysisLevel>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		<CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
+		<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+		<!-- Generated protobuf code is not analyzer/style clean; exclude it from style enforcement. -->
+		<NoWarn>$(NoWarn);CS1591</NoWarn>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+		<DebugType>portable</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
+		<DebugType>none</DebugType>
+		<DebugSymbols>false</DebugSymbols>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+		<Deterministic>false</Deterministic>
+	</PropertyGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+		<Reference Include="System.Configuration" />
+		<Reference Include="System.Data.DataSetExtensions" />
+		<Reference Include="Microsoft.CSharp" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Google.Protobuf" Version="3.31.1" />
+		<PackageReference Include="Grpc.Tools" Version="2.71.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+		<PackageReference Include="IsExternalInit" Version="1.0.3">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Hafner.Compatibility.MetaPackage" Version="1.9.0" />
+		<PackageReference Include="System.Memory" Version="4.6.3" />
+		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.11" />
+	</ItemGroup>
+	<ItemGroup>
+		<Protobuf Include="Protobuf\**\*.proto" ProtoRoot="Protobuf" CompileOutputType="Messages" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="..\..\README.md" Pack="true" PackagePath="" Condition="Exists('..\..\README.md')" />
+		<None Include="..\..\LICENSE" Pack="true" PackagePath="" Condition="Exists('..\..\LICENSE')" />
+		<None Include="..\..\ATTRIBUTIONS.md" Pack="true" PackagePath="" Condition="Exists('..\..\ATTRIBUTIONS.md')" />
+		<None Include="..\..\THIRD-PARTY-NOTICES.txt" Pack="true" PackagePath="" Condition="Exists('..\..\THIRD-PARTY-NOTICES.txt')" />
+	</ItemGroup>
+
+</Project>

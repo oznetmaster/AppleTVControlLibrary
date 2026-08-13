@@ -2,9 +2,11 @@
 
 This library is primarily a from-scratch C# port of protocol behavior implemented by third-party
 open source projects. The vendored copies used during development live in a local, git-ignored
-`/reference` directory that is never committed or published. This file records what was
-consulted and why. Full license text for each project is reproduced in
-[THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt).
+`/reference` directory that is never committed or published, with one explicit exception noted
+below: the MRP `.proto` message definitions are vendored and distributed verbatim (plus a
+codegen-only namespace option), since they are schema/wire-format descriptions rather than
+ported algorithmic code. This file records what was consulted and why. Full license text for
+each project is reproduced in [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt).
 
 ## pyatv
 
@@ -27,6 +29,15 @@ of a changed value) be resolved with a diff and a grep instead of re-deriving th
 scratch. Citing a symbol's origin is not the same as reproducing pyatv's source; no Companion
 Link source file in this library is a transliteration of a pyatv file, and no pyatv Companion
 source ships in this library's package or repository.
+
+**Exception — MRP `.proto` files:** the files under
+`src/AppleTv.Mrp/Protobuf/pyatv/protocols/mrp/protobuf/` are vendored copies of pyatv 0.18.0's
+`pyatv/protocols/mrp/protobuf/*.proto` definitions, modified only by adding a `csharp_namespace`
+option per file for C# codegen (no field, tag, or message semantics were changed). These are
+Apple's MRP wire-format schema (message/field names and numeric tags) rather than pyatv's own
+algorithmic code, and are kept and distributed verbatim so that protobuf codegen produces
+byte-exact message types instead of a hand-authored, error-prone approximation. The MIT
+copyright notice above is retained and applies to this vendored content.
 
 ## srptools
 

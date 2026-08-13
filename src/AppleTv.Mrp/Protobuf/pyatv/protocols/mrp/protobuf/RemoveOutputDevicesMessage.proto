@@ -1,0 +1,13 @@
+syntax = "proto2";
+option csharp_namespace = "AppleTvControlLibrary.Mrp.Protobuf";
+
+import "pyatv/protocols/mrp/protobuf/ProtocolMessage.proto";
+
+extend ProtocolMessage {
+  optional RemoveOutputDevicesMessage removeOutputDevicesMessage = 70;
+}
+
+message RemoveOutputDevicesMessage {
+  repeated string outputDeviceUIDs = 1;
+  optional string endpointUID = 2;
+}

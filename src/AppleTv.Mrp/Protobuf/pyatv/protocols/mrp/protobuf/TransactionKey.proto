@@ -1,0 +1,7 @@
+syntax = "proto2";
+option csharp_namespace = "AppleTvControlLibrary.Mrp.Protobuf";
+
+message TransactionKey {
+    optional string identifier = 1;
+    optional bytes userData = 2;
+}

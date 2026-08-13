@@ -1,0 +1,6 @@
+syntax = "proto2";
+option csharp_namespace = "AppleTvControlLibrary.Mrp.Protobuf";
+
+message AudioFormatSettings {
+  optional bytes formatSettingsPlistData = 1;
+}

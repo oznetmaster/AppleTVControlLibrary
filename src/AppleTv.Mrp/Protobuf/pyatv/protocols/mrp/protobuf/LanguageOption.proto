@@ -1,0 +1,10 @@
+syntax = "proto2";
+option csharp_namespace = "AppleTvControlLibrary.Mrp.Protobuf";
+
+message LanguageOption {
+  optional int32 type = 1;
+  optional string languageTag = 2;
+  repeated string characteristics = 3;
+  optional string displayName = 4;
+  optional string identifier = 5;
+}

@@ -4,13 +4,21 @@ THIRD-PARTY NOTICES
 This file contains license notices for third-party projects that were consulted as a protocol
 reference during the development of this library, and/or whose packages are referenced as NuGet
 dependencies. No source code from the projects below is compiled into or distributed with this
-library except where explicitly noted as a NuGet dependency. See ATTRIBUTIONS.md for details on
-how each project was used.
+library except where explicitly noted as a NuGet dependency, or as a vendored file explicitly
+called out below. See ATTRIBUTIONS.md for details on how each project was used.
 
 -------------------------------------------------------------------------------
 pyatv 0.18.0
 https://github.com/postlund/pyatv
 -------------------------------------------------------------------------------
+
+Vendored files: the .proto message definitions under
+src/AppleTv.Mrp/Protobuf/pyatv/protocols/mrp/protobuf/ are copied, with only a
+`csharp_namespace` option added for C# codegen, from pyatv 0.18.0's
+pyatv/protocols/mrp/protobuf/ directory. These files describe Apple's MRP wire format
+(message/field names and numeric tags) and are distributed here so that protobuf codegen
+produces byte-exact, citable message types instead of hand-authored approximations. This
+copyright notice is retained per the MIT license below.
 
 MIT License
 

@@ -1,0 +1,13 @@
+syntax = "proto2";
+option csharp_namespace = "AppleTvControlLibrary.Mrp.Protobuf";
+
+import "pyatv/protocols/mrp/protobuf/ProtocolMessage.proto";
+import "pyatv/protocols/mrp/protobuf/VoiceInputDeviceDescriptorMessage.proto";
+
+extend ProtocolMessage {
+  optional RegisterVoiceInputDeviceMessage registerVoiceInputDeviceMessage = 33;
+}
+
+message RegisterVoiceInputDeviceMessage {
+  optional VoiceInputDeviceDescriptor deviceDescriptor = 1;
+}
