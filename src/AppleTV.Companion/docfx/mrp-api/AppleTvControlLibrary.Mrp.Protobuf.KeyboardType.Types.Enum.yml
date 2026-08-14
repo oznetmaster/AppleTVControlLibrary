@@ -1,0 +1,554 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  id: KeyboardType.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.Alphanet
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.AsciiCapable
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.DecimalPad
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.Default
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.EmailAddress
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.NamePhonePad
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.NumberPad
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.NumbersAndPunctuation
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.PasscodePad
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.PhonePad
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.Twitter
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.Url
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.WebSearch
+  langs:
+  - csharp
+  - vb
+  name: KeyboardType.Types.Enum
+  nameWithType: KeyboardType.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  type: Enum
+  source:
+    id: Enum
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 599
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public enum KeyboardType.Types.Enum
+    content.vb: Public Enum KeyboardType.Types.Enum
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.Default
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.Default
+  id: Default
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: KeyboardType.Types.Enum.Default
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.Default
+  type: Field
+  source:
+    id: Default
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 600
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Default")]
+
+      Default = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+    content.vb: >-
+      <OriginalName("Default")>
+
+      Default = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Default
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.AsciiCapable
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.AsciiCapable
+  id: AsciiCapable
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: AsciiCapable
+  nameWithType: KeyboardType.Types.Enum.AsciiCapable
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.AsciiCapable
+  type: Field
+  source:
+    id: AsciiCapable
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 601
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("ASCII_Capable")]
+
+      AsciiCapable = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+    content.vb: >-
+      <OriginalName("ASCII_Capable")>
+
+      AsciiCapable = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ASCII_Capable
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.NumbersAndPunctuation
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.NumbersAndPunctuation
+  id: NumbersAndPunctuation
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: NumbersAndPunctuation
+  nameWithType: KeyboardType.Types.Enum.NumbersAndPunctuation
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.NumbersAndPunctuation
+  type: Field
+  source:
+    id: NumbersAndPunctuation
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 602
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("NumbersAndPunctuation")]
+
+      NumbersAndPunctuation = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+    content.vb: >-
+      <OriginalName("NumbersAndPunctuation")>
+
+      NumbersAndPunctuation = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NumbersAndPunctuation
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.Url
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.Url
+  id: Url
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Url
+  nameWithType: KeyboardType.Types.Enum.Url
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.Url
+  type: Field
+  source:
+    id: Url
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 603
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("URL")]
+
+      Url = 3
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+    content.vb: >-
+      <OriginalName("URL")>
+
+      Url = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: URL
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.NumberPad
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.NumberPad
+  id: NumberPad
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: NumberPad
+  nameWithType: KeyboardType.Types.Enum.NumberPad
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.NumberPad
+  type: Field
+  source:
+    id: NumberPad
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 604
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("NumberPad")]
+
+      NumberPad = 4
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+    content.vb: >-
+      <OriginalName("NumberPad")>
+
+      NumberPad = 4
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NumberPad
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.PhonePad
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.PhonePad
+  id: PhonePad
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: PhonePad
+  nameWithType: KeyboardType.Types.Enum.PhonePad
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.PhonePad
+  type: Field
+  source:
+    id: PhonePad
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 605
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("PhonePad")]
+
+      PhonePad = 5
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+    content.vb: >-
+      <OriginalName("PhonePad")>
+
+      PhonePad = 5
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: PhonePad
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.NamePhonePad
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.NamePhonePad
+  id: NamePhonePad
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: NamePhonePad
+  nameWithType: KeyboardType.Types.Enum.NamePhonePad
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.NamePhonePad
+  type: Field
+  source:
+    id: NamePhonePad
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 606
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("NamePhonePad")]
+
+      NamePhonePad = 6
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+    content.vb: >-
+      <OriginalName("NamePhonePad")>
+
+      NamePhonePad = 6
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NamePhonePad
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.EmailAddress
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.EmailAddress
+  id: EmailAddress
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: EmailAddress
+  nameWithType: KeyboardType.Types.Enum.EmailAddress
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.EmailAddress
+  type: Field
+  source:
+    id: EmailAddress
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 607
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("EmailAddress")]
+
+      EmailAddress = 7
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+    content.vb: >-
+      <OriginalName("EmailAddress")>
+
+      EmailAddress = 7
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: EmailAddress
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.DecimalPad
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.DecimalPad
+  id: DecimalPad
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: DecimalPad
+  nameWithType: KeyboardType.Types.Enum.DecimalPad
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.DecimalPad
+  type: Field
+  source:
+    id: DecimalPad
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 608
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("DecimalPad")]
+
+      DecimalPad = 8
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+    content.vb: >-
+      <OriginalName("DecimalPad")>
+
+      DecimalPad = 8
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: DecimalPad
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.Twitter
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.Twitter
+  id: Twitter
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Twitter
+  nameWithType: KeyboardType.Types.Enum.Twitter
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.Twitter
+  type: Field
+  source:
+    id: Twitter
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 609
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Twitter")]
+
+      Twitter = 9
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+    content.vb: >-
+      <OriginalName("Twitter")>
+
+      Twitter = 9
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Twitter
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.WebSearch
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.WebSearch
+  id: WebSearch
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: WebSearch
+  nameWithType: KeyboardType.Types.Enum.WebSearch
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.WebSearch
+  type: Field
+  source:
+    id: WebSearch
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 610
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("WebSearch")]
+
+      WebSearch = 10
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+    content.vb: >-
+      <OriginalName("WebSearch")>
+
+      WebSearch = 10
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: WebSearch
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.Alphanet
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.Alphanet
+  id: Alphanet
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Alphanet
+  nameWithType: KeyboardType.Types.Enum.Alphanet
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.Alphanet
+  type: Field
+  source:
+    id: Alphanet
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 611
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Alphanet")]
+
+      Alphanet = 11
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+    content.vb: >-
+      <OriginalName("Alphanet")>
+
+      Alphanet = 11
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Alphanet
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.PasscodePad
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.PasscodePad
+  id: PasscodePad
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: PasscodePad
+  nameWithType: KeyboardType.Types.Enum.PasscodePad
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.PasscodePad
+  type: Field
+  source:
+    id: PasscodePad
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 612
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("PasscodePad")]
+
+      PasscodePad = 12
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+    content.vb: >-
+      <OriginalName("PasscodePad")>
+
+      PasscodePad = 12
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: PasscodePad
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.html
+  name: KeyboardType.Types.Enum
+  nameWithType: KeyboardType.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType
+    name: KeyboardType
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType
+    name: KeyboardType
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.html

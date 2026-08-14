@@ -1,0 +1,698 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  id: SendCommandStatusCode.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.AuthenticationFailure
+  - AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.CommandFailed
+  - AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.DeviceNotFound
+  - AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.InsertionPositionNotSpecified
+  - AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.InvalidInsertionPosition
+  - AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.MediaServiceUnavailable
+  - AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.NoActionableNowPlayingItem
+  - AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.NoSuchContent
+  - AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.QueueIsUserCurated
+  - AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.RequestParametersOutOfBounds
+  - AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.SkipAdProhibited
+  - AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.SkipLimitReached
+  - AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.SubscriptionRequiredForSharedQueue
+  - AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.Success
+  - AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.UikitLegacy
+  - AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.UserModifiedQueueDisabled
+  - AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.UserQueueModificationNotSupportedForCurrentItem
+  langs:
+  - csharp
+  - vb
+  name: SendCommandStatusCode.Types.Enum
+  nameWithType: SendCommandStatusCode.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  type: Enum
+  source:
+    id: Enum
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 635
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public enum SendCommandStatusCode.Types.Enum
+    content.vb: Public Enum SendCommandStatusCode.Types.Enum
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.Success
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.Success
+  id: Success
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Success
+  nameWithType: SendCommandStatusCode.Types.Enum.Success
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.Success
+  type: Field
+  source:
+    id: Success
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 636
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Success")]
+
+      Success = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    content.vb: >-
+      <OriginalName("Success")>
+
+      Success = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Success
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.NoSuchContent
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.NoSuchContent
+  id: NoSuchContent
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: NoSuchContent
+  nameWithType: SendCommandStatusCode.Types.Enum.NoSuchContent
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.NoSuchContent
+  type: Field
+  source:
+    id: NoSuchContent
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 637
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("NoSuchContent")]
+
+      NoSuchContent = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    content.vb: >-
+      <OriginalName("NoSuchContent")>
+
+      NoSuchContent = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NoSuchContent
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.CommandFailed
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.CommandFailed
+  id: CommandFailed
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: CommandFailed
+  nameWithType: SendCommandStatusCode.Types.Enum.CommandFailed
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.CommandFailed
+  type: Field
+  source:
+    id: CommandFailed
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 638
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("CommandFailed")]
+
+      CommandFailed = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    content.vb: >-
+      <OriginalName("CommandFailed")>
+
+      CommandFailed = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: CommandFailed
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.NoActionableNowPlayingItem
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.NoActionableNowPlayingItem
+  id: NoActionableNowPlayingItem
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: NoActionableNowPlayingItem
+  nameWithType: SendCommandStatusCode.Types.Enum.NoActionableNowPlayingItem
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.NoActionableNowPlayingItem
+  type: Field
+  source:
+    id: NoActionableNowPlayingItem
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 639
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("NoActionableNowPlayingItem")]
+
+      NoActionableNowPlayingItem = 10
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    content.vb: >-
+      <OriginalName("NoActionableNowPlayingItem")>
+
+      NoActionableNowPlayingItem = 10
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NoActionableNowPlayingItem
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.DeviceNotFound
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.DeviceNotFound
+  id: DeviceNotFound
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: DeviceNotFound
+  nameWithType: SendCommandStatusCode.Types.Enum.DeviceNotFound
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.DeviceNotFound
+  type: Field
+  source:
+    id: DeviceNotFound
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 640
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("DeviceNotFound")]
+
+      DeviceNotFound = 20
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    content.vb: >-
+      <OriginalName("DeviceNotFound")>
+
+      DeviceNotFound = 20
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: DeviceNotFound
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.UikitLegacy
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.UikitLegacy
+  id: UikitLegacy
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: UikitLegacy
+  nameWithType: SendCommandStatusCode.Types.Enum.UikitLegacy
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.UikitLegacy
+  type: Field
+  source:
+    id: UikitLegacy
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 641
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("UIKitLegacy")]
+
+      UikitLegacy = 3
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    content.vb: >-
+      <OriginalName("UIKitLegacy")>
+
+      UikitLegacy = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: UIKitLegacy
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.SkipAdProhibited
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.SkipAdProhibited
+  id: SkipAdProhibited
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: SkipAdProhibited
+  nameWithType: SendCommandStatusCode.Types.Enum.SkipAdProhibited
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.SkipAdProhibited
+  type: Field
+  source:
+    id: SkipAdProhibited
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 642
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("SkipAdProhibited")]
+
+      SkipAdProhibited = 100
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    content.vb: >-
+      <OriginalName("SkipAdProhibited")>
+
+      SkipAdProhibited = 100
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SkipAdProhibited
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.QueueIsUserCurated
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.QueueIsUserCurated
+  id: QueueIsUserCurated
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: QueueIsUserCurated
+  nameWithType: SendCommandStatusCode.Types.Enum.QueueIsUserCurated
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.QueueIsUserCurated
+  type: Field
+  source:
+    id: QueueIsUserCurated
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 643
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("QueueIsUserCurated")]
+
+      QueueIsUserCurated = 101
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    content.vb: >-
+      <OriginalName("QueueIsUserCurated")>
+
+      QueueIsUserCurated = 101
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: QueueIsUserCurated
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.UserModifiedQueueDisabled
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.UserModifiedQueueDisabled
+  id: UserModifiedQueueDisabled
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: UserModifiedQueueDisabled
+  nameWithType: SendCommandStatusCode.Types.Enum.UserModifiedQueueDisabled
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.UserModifiedQueueDisabled
+  type: Field
+  source:
+    id: UserModifiedQueueDisabled
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 644
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("UserModifiedQueueDisabled")]
+
+      UserModifiedQueueDisabled = 102
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    content.vb: >-
+      <OriginalName("UserModifiedQueueDisabled")>
+
+      UserModifiedQueueDisabled = 102
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: UserModifiedQueueDisabled
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.UserQueueModificationNotSupportedForCurrentItem
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.UserQueueModificationNotSupportedForCurrentItem
+  id: UserQueueModificationNotSupportedForCurrentItem
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: UserQueueModificationNotSupportedForCurrentItem
+  nameWithType: SendCommandStatusCode.Types.Enum.UserQueueModificationNotSupportedForCurrentItem
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.UserQueueModificationNotSupportedForCurrentItem
+  type: Field
+  source:
+    id: UserQueueModificationNotSupportedForCurrentItem
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 645
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("UserQueueModificationNotSupportedForCurrentItem")]
+
+      UserQueueModificationNotSupportedForCurrentItem = 103
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    content.vb: >-
+      <OriginalName("UserQueueModificationNotSupportedForCurrentItem")>
+
+      UserQueueModificationNotSupportedForCurrentItem = 103
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: UserQueueModificationNotSupportedForCurrentItem
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.SubscriptionRequiredForSharedQueue
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.SubscriptionRequiredForSharedQueue
+  id: SubscriptionRequiredForSharedQueue
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: SubscriptionRequiredForSharedQueue
+  nameWithType: SendCommandStatusCode.Types.Enum.SubscriptionRequiredForSharedQueue
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.SubscriptionRequiredForSharedQueue
+  type: Field
+  source:
+    id: SubscriptionRequiredForSharedQueue
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 646
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("SubscriptionRequiredForSharedQueue")]
+
+      SubscriptionRequiredForSharedQueue = 104
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    content.vb: >-
+      <OriginalName("SubscriptionRequiredForSharedQueue")>
+
+      SubscriptionRequiredForSharedQueue = 104
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SubscriptionRequiredForSharedQueue
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.InsertionPositionNotSpecified
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.InsertionPositionNotSpecified
+  id: InsertionPositionNotSpecified
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: InsertionPositionNotSpecified
+  nameWithType: SendCommandStatusCode.Types.Enum.InsertionPositionNotSpecified
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.InsertionPositionNotSpecified
+  type: Field
+  source:
+    id: InsertionPositionNotSpecified
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 647
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("InsertionPositionNotSpecified")]
+
+      InsertionPositionNotSpecified = 105
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    content.vb: >-
+      <OriginalName("InsertionPositionNotSpecified")>
+
+      InsertionPositionNotSpecified = 105
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: InsertionPositionNotSpecified
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.InvalidInsertionPosition
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.InvalidInsertionPosition
+  id: InvalidInsertionPosition
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: InvalidInsertionPosition
+  nameWithType: SendCommandStatusCode.Types.Enum.InvalidInsertionPosition
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.InvalidInsertionPosition
+  type: Field
+  source:
+    id: InvalidInsertionPosition
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 648
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("InvalidInsertionPosition")]
+
+      InvalidInsertionPosition = 106
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    content.vb: >-
+      <OriginalName("InvalidInsertionPosition")>
+
+      InvalidInsertionPosition = 106
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: InvalidInsertionPosition
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.RequestParametersOutOfBounds
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.RequestParametersOutOfBounds
+  id: RequestParametersOutOfBounds
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: RequestParametersOutOfBounds
+  nameWithType: SendCommandStatusCode.Types.Enum.RequestParametersOutOfBounds
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.RequestParametersOutOfBounds
+  type: Field
+  source:
+    id: RequestParametersOutOfBounds
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 649
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("RequestParametersOutOfBounds")]
+
+      RequestParametersOutOfBounds = 107
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    content.vb: >-
+      <OriginalName("RequestParametersOutOfBounds")>
+
+      RequestParametersOutOfBounds = 107
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: RequestParametersOutOfBounds
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.SkipLimitReached
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.SkipLimitReached
+  id: SkipLimitReached
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: SkipLimitReached
+  nameWithType: SendCommandStatusCode.Types.Enum.SkipLimitReached
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.SkipLimitReached
+  type: Field
+  source:
+    id: SkipLimitReached
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 650
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("SkipLimitReached")]
+
+      SkipLimitReached = 108
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    content.vb: >-
+      <OriginalName("SkipLimitReached")>
+
+      SkipLimitReached = 108
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SkipLimitReached
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.AuthenticationFailure
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.AuthenticationFailure
+  id: AuthenticationFailure
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: AuthenticationFailure
+  nameWithType: SendCommandStatusCode.Types.Enum.AuthenticationFailure
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.AuthenticationFailure
+  type: Field
+  source:
+    id: AuthenticationFailure
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 651
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("AuthenticationFailure")]
+
+      AuthenticationFailure = 401
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    content.vb: >-
+      <OriginalName("AuthenticationFailure")>
+
+      AuthenticationFailure = 401
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: AuthenticationFailure
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.MediaServiceUnavailable
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.MediaServiceUnavailable
+  id: MediaServiceUnavailable
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: MediaServiceUnavailable
+  nameWithType: SendCommandStatusCode.Types.Enum.MediaServiceUnavailable
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.MediaServiceUnavailable
+  type: Field
+  source:
+    id: MediaServiceUnavailable
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 652
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("MediaServiceUnavailable")]
+
+      MediaServiceUnavailable = 501
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    content.vb: >-
+      <OriginalName("MediaServiceUnavailable")>
+
+      MediaServiceUnavailable = 501
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: MediaServiceUnavailable
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.html
+  name: SendCommandStatusCode.Types.Enum
+  nameWithType: SendCommandStatusCode.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode
+    name: SendCommandStatusCode
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode
+    name: SendCommandStatusCode
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendCommandStatusCode.Types.Enum.html

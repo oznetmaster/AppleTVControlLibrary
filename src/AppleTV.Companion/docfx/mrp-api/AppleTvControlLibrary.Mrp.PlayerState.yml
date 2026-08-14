@@ -1,0 +1,101 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.PlayerState
+  commentId: N:AppleTvControlLibrary.Mrp.PlayerState
+  id: AppleTvControlLibrary.Mrp.PlayerState
+  children:
+  - AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener
+  - AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener
+  - AppleTvControlLibrary.Mrp.PlayerState.MrpClient
+  - AppleTvControlLibrary.Mrp.PlayerState.MrpNoAsyncListenerException
+  - AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState
+  - AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager
+  - AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater
+  langs:
+  - csharp
+  - vb
+  name: AppleTvControlLibrary.Mrp.PlayerState
+  nameWithType: AppleTvControlLibrary.Mrp.PlayerState
+  fullName: AppleTvControlLibrary.Mrp.PlayerState
+  type: Namespace
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+references:
+- uid: AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener
+  commentId: T:AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener
+  parent: AppleTvControlLibrary.Mrp.PlayerState
+  href: AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener.html
+  name: IMrpPlayerStateListener
+  nameWithType: IMrpPlayerStateListener
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState
+  commentId: T:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState
+  parent: AppleTvControlLibrary.Mrp.PlayerState
+  href: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState.html
+  name: MrpPlayerState
+  nameWithType: MrpPlayerState
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpClient
+  commentId: T:AppleTvControlLibrary.Mrp.PlayerState.MrpClient
+  parent: AppleTvControlLibrary.Mrp.PlayerState
+  href: AppleTvControlLibrary.Mrp.PlayerState.MrpClient.html
+  name: MrpClient
+  nameWithType: MrpClient
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpClient
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager
+  commentId: T:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager
+  parent: AppleTvControlLibrary.Mrp.PlayerState
+  href: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.html
+  name: MrpPlayerStateManager
+  nameWithType: MrpPlayerStateManager
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager
+- uid: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener
+  commentId: T:AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener
+  parent: AppleTvControlLibrary.Mrp.PlayerState
+  href: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.html
+  name: IMrpPushUpdaterListener
+  nameWithType: IMrpPushUpdaterListener
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpNoAsyncListenerException
+  commentId: T:AppleTvControlLibrary.Mrp.PlayerState.MrpNoAsyncListenerException
+  href: AppleTvControlLibrary.Mrp.PlayerState.MrpNoAsyncListenerException.html
+  name: MrpNoAsyncListenerException
+  nameWithType: MrpNoAsyncListenerException
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpNoAsyncListenerException
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater
+  commentId: T:AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater
+  parent: AppleTvControlLibrary.Mrp.PlayerState
+  href: AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater.html
+  name: MrpPushUpdater
+  nameWithType: MrpPushUpdater
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater
+- uid: AppleTvControlLibrary.Mrp.PlayerState
+  commentId: N:AppleTvControlLibrary.Mrp.PlayerState
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.PlayerState
+  nameWithType: AppleTvControlLibrary.Mrp.PlayerState
+  fullName: AppleTvControlLibrary.Mrp.PlayerState
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.PlayerState
+    name: PlayerState
+    href: AppleTvControlLibrary.Mrp.PlayerState.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.PlayerState
+    name: PlayerState
+    href: AppleTvControlLibrary.Mrp.PlayerState.html

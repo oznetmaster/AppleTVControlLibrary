@@ -1,0 +1,155 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.RemoteControl.RepeatState
+  commentId: T:AppleTvControlLibrary.Mrp.RemoteControl.RepeatState
+  id: RepeatState
+  parent: AppleTvControlLibrary.Mrp.RemoteControl
+  children:
+  - AppleTvControlLibrary.Mrp.RemoteControl.RepeatState.All
+  - AppleTvControlLibrary.Mrp.RemoteControl.RepeatState.Off
+  - AppleTvControlLibrary.Mrp.RemoteControl.RepeatState.Track
+  langs:
+  - csharp
+  - vb
+  name: RepeatState
+  nameWithType: RepeatState
+  fullName: AppleTvControlLibrary.Mrp.RemoteControl.RepeatState
+  type: Enum
+  source:
+    remote:
+      path: src/AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: RepeatState
+    path: ../../AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+    startLine: 20
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.RemoteControl
+  summary: Repeat mode, mirroring pyatv's <code>RepeatState</code> constant.
+  example: []
+  syntax:
+    content: public enum RepeatState
+    content.vb: Public Enum RepeatState
+- uid: AppleTvControlLibrary.Mrp.RemoteControl.RepeatState.Off
+  commentId: F:AppleTvControlLibrary.Mrp.RemoteControl.RepeatState.Off
+  id: Off
+  parent: AppleTvControlLibrary.Mrp.RemoteControl.RepeatState
+  langs:
+  - csharp
+  - vb
+  name: Off
+  nameWithType: RepeatState.Off
+  fullName: AppleTvControlLibrary.Mrp.RemoteControl.RepeatState.Off
+  type: Field
+  source:
+    remote:
+      path: src/AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Off
+    path: ../../AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+    startLine: 23
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.RemoteControl
+  summary: Repeat is off. pyatv/const.py — line 78 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Off = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.RemoteControl.RepeatState
+- uid: AppleTvControlLibrary.Mrp.RemoteControl.RepeatState.Track
+  commentId: F:AppleTvControlLibrary.Mrp.RemoteControl.RepeatState.Track
+  id: Track
+  parent: AppleTvControlLibrary.Mrp.RemoteControl.RepeatState
+  langs:
+  - csharp
+  - vb
+  name: Track
+  nameWithType: RepeatState.Track
+  fullName: AppleTvControlLibrary.Mrp.RemoteControl.RepeatState.Track
+  type: Field
+  source:
+    remote:
+      path: src/AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Track
+    path: ../../AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+    startLine: 25
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.RemoteControl
+  summary: Repeat current track or item. pyatv/const.py — line 81 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Track = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.RemoteControl.RepeatState
+- uid: AppleTvControlLibrary.Mrp.RemoteControl.RepeatState.All
+  commentId: F:AppleTvControlLibrary.Mrp.RemoteControl.RepeatState.All
+  id: All
+  parent: AppleTvControlLibrary.Mrp.RemoteControl.RepeatState
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: RepeatState.All
+  fullName: AppleTvControlLibrary.Mrp.RemoteControl.RepeatState.All
+  type: Field
+  source:
+    remote:
+      path: src/AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: All
+    path: ../../AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+    startLine: 27
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.RemoteControl
+  summary: Repeat all tracks or items. pyatv/const.py — line 84 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: All = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.RemoteControl.RepeatState
+references:
+- uid: AppleTvControlLibrary.Mrp.RemoteControl
+  commentId: N:AppleTvControlLibrary.Mrp.RemoteControl
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.RemoteControl
+  nameWithType: AppleTvControlLibrary.Mrp.RemoteControl
+  fullName: AppleTvControlLibrary.Mrp.RemoteControl
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.RemoteControl
+    name: RemoteControl
+    href: AppleTvControlLibrary.Mrp.RemoteControl.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.RemoteControl
+    name: RemoteControl
+    href: AppleTvControlLibrary.Mrp.RemoteControl.html
+- uid: AppleTvControlLibrary.Mrp.RemoteControl.RepeatState
+  commentId: T:AppleTvControlLibrary.Mrp.RemoteControl.RepeatState
+  parent: AppleTvControlLibrary.Mrp.RemoteControl
+  href: AppleTvControlLibrary.Mrp.RemoteControl.RepeatState.html
+  name: RepeatState
+  nameWithType: RepeatState
+  fullName: AppleTvControlLibrary.Mrp.RemoteControl.RepeatState

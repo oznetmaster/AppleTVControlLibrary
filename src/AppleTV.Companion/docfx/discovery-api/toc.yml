@@ -1,5 +1,24 @@
 ### YamlMime:TableOfContent
 items:
+- uid: AppleTvControlLibrary.Discovery.AirPlay
+  name: AppleTvControlLibrary.Discovery.AirPlay
+  type: Namespace
+  items:
+  - uid: AppleTvControlLibrary.Discovery.AirPlay.AirPlayDiscoveryResult
+    name: AirPlayDiscoveryResult
+    type: Class
+  - uid: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement
+    name: AirPlayPairingRequirement
+    type: Enum
+  - uid: AppleTvControlLibrary.Discovery.AirPlay.AirPlayServiceInfo
+    name: AirPlayServiceInfo
+    type: Class
+  - uid: AppleTvControlLibrary.Discovery.AirPlay.IAirPlayDiscovery
+    name: IAirPlayDiscovery
+    type: Interface
+  - uid: AppleTvControlLibrary.Discovery.AirPlay.MulticastAirPlayDiscovery
+    name: MulticastAirPlayDiscovery
+    type: Class
 - uid: AppleTvControlLibrary.Discovery.Companion
   name: AppleTvControlLibrary.Discovery.Companion
   type: Namespace
@@ -68,5 +87,24 @@ items:
     type: Class
   - uid: AppleTvControlLibrary.Discovery.Mdns.ServiceParser
     name: ServiceParser
+    type: Class
+- uid: AppleTvControlLibrary.Discovery.Mrp
+  name: AppleTvControlLibrary.Discovery.Mrp
+  type: Namespace
+  items:
+  - uid: AppleTvControlLibrary.Discovery.Mrp.IMrpDiscovery
+    name: IMrpDiscovery
+    type: Interface
+  - uid: AppleTvControlLibrary.Discovery.Mrp.MrpDiscoveryResult
+    name: MrpDiscoveryResult
+    type: Class
+  - uid: AppleTvControlLibrary.Discovery.Mrp.MrpPairingRequirement
+    name: MrpPairingRequirement
+    type: Enum
+  - uid: AppleTvControlLibrary.Discovery.Mrp.MrpServiceInfo
+    name: MrpServiceInfo
+    type: Class
+  - uid: AppleTvControlLibrary.Discovery.Mrp.MulticastMrpDiscovery
+    name: MulticastMrpDiscovery
     type: Class
 memberLayout: SamePage

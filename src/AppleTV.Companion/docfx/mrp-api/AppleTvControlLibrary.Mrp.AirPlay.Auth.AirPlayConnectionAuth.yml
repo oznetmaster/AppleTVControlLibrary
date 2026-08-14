@@ -1,0 +1,527 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayConnectionAuth
+  commentId: T:AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayConnectionAuth
+  id: AirPlayConnectionAuth
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Auth
+  children:
+  - AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayConnectionAuth.VerifyConnectionAsync(AppleTvControlLibrary.Auth.HapCredentials,AppleTvControlLibrary.Mrp.AirPlay.Http.HttpConnection)
+  langs:
+  - csharp
+  - vb
+  name: AirPlayConnectionAuth
+  nameWithType: AirPlayConnectionAuth
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayConnectionAuth
+  type: Class
+  source:
+    remote:
+      path: src/AppleTv.Mrp/AirPlay/Auth/AirPlayHapPairVerifyProcedure.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: AirPlayConnectionAuth
+    path: ../../AppleTv.Mrp/AirPlay/Auth/AirPlayHapPairVerifyProcedure.cs
+    startLine: 183
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.AirPlay.Auth
+  summary: Runs Pair-Verify on an AirPlay control connection and enables HAP session encryption on it.
+  example: []
+  syntax:
+    content: public static class AirPlayConnectionAuth
+    content.vb: Public Module AirPlayConnectionAuth
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayConnectionAuth.VerifyConnectionAsync(AppleTvControlLibrary.Auth.HapCredentials,AppleTvControlLibrary.Mrp.AirPlay.Http.HttpConnection)
+  commentId: M:AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayConnectionAuth.VerifyConnectionAsync(AppleTvControlLibrary.Auth.HapCredentials,AppleTvControlLibrary.Mrp.AirPlay.Http.HttpConnection)
+  id: VerifyConnectionAsync(AppleTvControlLibrary.Auth.HapCredentials,AppleTvControlLibrary.Mrp.AirPlay.Http.HttpConnection)
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayConnectionAuth
+  langs:
+  - csharp
+  - vb
+  name: VerifyConnectionAsync(HapCredentials, HttpConnection)
+  nameWithType: AirPlayConnectionAuth.VerifyConnectionAsync(HapCredentials, HttpConnection)
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayConnectionAuth.VerifyConnectionAsync(AppleTvControlLibrary.Auth.HapCredentials, AppleTvControlLibrary.Mrp.AirPlay.Http.HttpConnection)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/AirPlay/Auth/AirPlayHapPairVerifyProcedure.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: VerifyConnectionAsync
+    path: ../../AppleTv.Mrp/AirPlay/Auth/AirPlayHapPairVerifyProcedure.cs
+    startLine: 195
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.AirPlay.Auth
+  summary: Perform Pair-Verify on a connection and enable HAP session encryption if credentials are HAP-typed.
+  example: []
+  syntax:
+    content: public static Task<AirPlayHapPairVerifyProcedure> VerifyConnectionAsync(HapCredentials credentials, HttpConnection connection)
+    parameters:
+    - id: credentials
+      type: AppleTvControlLibrary.Auth.HapCredentials
+      description: The previously-paired credentials for the device.
+    - id: connection
+      type: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpConnection
+      description: The AirPlay control connection to verify and, on success, encrypt.
+    return:
+      type: System.Threading.Tasks.Task{AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayHapPairVerifyProcedure}
+      description: The verify procedure, so callers can derive further channel encryption keys from it.
+    content.vb: Public Shared Function VerifyConnectionAsync(credentials As HapCredentials, connection As HttpConnection) As Task(Of AirPlayHapPairVerifyProcedure)
+  overload: AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayConnectionAuth.VerifyConnectionAsync*
+references:
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Auth
+  commentId: N:AppleTvControlLibrary.Mrp.AirPlay.Auth
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.AirPlay.Auth
+  nameWithType: AppleTvControlLibrary.Mrp.AirPlay.Auth
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Auth
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay
+    name: AirPlay
+    href: AppleTvControlLibrary.Mrp.AirPlay.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay.Auth
+    name: Auth
+    href: AppleTvControlLibrary.Mrp.AirPlay.Auth.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay
+    name: AirPlay
+    href: AppleTvControlLibrary.Mrp.AirPlay.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay.Auth
+    name: Auth
+    href: AppleTvControlLibrary.Mrp.AirPlay.Auth.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayConnectionAuth.VerifyConnectionAsync*
+  commentId: Overload:AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayConnectionAuth.VerifyConnectionAsync
+  href: AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayConnectionAuth.html#AppleTvControlLibrary_Mrp_AirPlay_Auth_AirPlayConnectionAuth_VerifyConnectionAsync_AppleTvControlLibrary_Auth_HapCredentials_AppleTvControlLibrary_Mrp_AirPlay_Http_HttpConnection_
+  name: VerifyConnectionAsync
+  nameWithType: AirPlayConnectionAuth.VerifyConnectionAsync
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayConnectionAuth.VerifyConnectionAsync
+- uid: AppleTvControlLibrary.Auth.HapCredentials
+  commentId: T:AppleTvControlLibrary.Auth.HapCredentials
+  parent: AppleTvControlLibrary.Auth
+  name: HapCredentials
+  nameWithType: HapCredentials
+  fullName: AppleTvControlLibrary.Auth.HapCredentials
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpConnection
+  commentId: T:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpConnection
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Http
+  href: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpConnection.html
+  name: HttpConnection
+  nameWithType: HttpConnection
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpConnection
+- uid: System.Threading.Tasks.Task{AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayHapPairVerifyProcedure}
+  commentId: T:System.Threading.Tasks.Task{AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayHapPairVerifyProcedure}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<AirPlayHapPairVerifyProcedure>
+  nameWithType: Task<AirPlayHapPairVerifyProcedure>
+  fullName: System.Threading.Tasks.Task<AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayHapPairVerifyProcedure>
+  nameWithType.vb: Task(Of AirPlayHapPairVerifyProcedure)
+  fullName.vb: System.Threading.Tasks.Task(Of AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayHapPairVerifyProcedure)
+  name.vb: Task(Of AirPlayHapPairVerifyProcedure)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayHapPairVerifyProcedure
+    name: AirPlayHapPairVerifyProcedure
+    href: AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayHapPairVerifyProcedure.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayHapPairVerifyProcedure
+    name: AirPlayHapPairVerifyProcedure
+    href: AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayHapPairVerifyProcedure.html
+  - name: )
+- uid: AppleTvControlLibrary.Auth
+  commentId: N:AppleTvControlLibrary.Auth
+  name: AppleTvControlLibrary.Auth
+  nameWithType: AppleTvControlLibrary.Auth
+  fullName: AppleTvControlLibrary.Auth
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+  - name: .
+  - uid: AppleTvControlLibrary.Auth
+    name: Auth
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+  - name: .
+  - uid: AppleTvControlLibrary.Auth
+    name: Auth
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http
+  commentId: N:AppleTvControlLibrary.Mrp.AirPlay.Http
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.AirPlay.Http
+  nameWithType: AppleTvControlLibrary.Mrp.AirPlay.Http
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay
+    name: AirPlay
+    href: AppleTvControlLibrary.Mrp.AirPlay.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay.Http
+    name: Http
+    href: AppleTvControlLibrary.Mrp.AirPlay.Http.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay
+    name: AirPlay
+    href: AppleTvControlLibrary.Mrp.AirPlay.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay.Http
+    name: Http
+    href: AppleTvControlLibrary.Mrp.AirPlay.Http.html
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

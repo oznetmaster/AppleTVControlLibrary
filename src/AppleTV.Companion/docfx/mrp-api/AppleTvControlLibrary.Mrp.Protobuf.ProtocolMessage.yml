@@ -1,0 +1,3552 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  id: ProtocolMessage
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.#ctor
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.AuthenticationToken
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.AuthenticationTokenFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.CalculateSize
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearAuthenticationToken
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearErrorCode
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearErrorDescription
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearTimestamp
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearType
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearUniqueIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Clone
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Descriptor
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Equals(System.Object)
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorCode
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorCodeFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorDescription
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorDescriptionFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetHashCode
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetOrInitializeExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasAuthenticationToken
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasErrorCode
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasErrorDescription
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasTimestamp
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasType
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasUniqueIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Identifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.IdentifierFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Parser
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.SetExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0},``0)
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Timestamp
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.TimestampFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ToString
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Type
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.TypeFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.UniqueIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.UniqueIdentifierFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: ProtocolMessage
+  nameWithType: ProtocolMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  type: Class
+  source:
+    id: ProtocolMessage
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 408
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: 'public sealed class ProtocolMessage : IExtendableMessage<ProtocolMessage>, IMessage<ProtocolMessage>, IEquatable<ProtocolMessage>, IDeepCloneable<ProtocolMessage>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class ProtocolMessage Implements IExtendableMessage(Of ProtocolMessage), IMessage(Of ProtocolMessage), IEquatable(Of ProtocolMessage), IDeepCloneable(Of ProtocolMessage), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  - Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  - System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  - Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Parser
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Parser
+  id: Parser
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: ProtocolMessage.Parser
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Parser
+  type: Property
+  source:
+    id: Parser
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 419
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public static MessageParser<ProtocolMessage> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of ProtocolMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Parser*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Descriptor
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Descriptor
+  id: Descriptor
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: ProtocolMessage.Descriptor
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Descriptor
+  type: Property
+  source:
+    id: Descriptor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 423
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Descriptor*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.#ctor
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.#ctor
+  id: '#ctor'
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: ProtocolMessage()
+  nameWithType: ProtocolMessage.ProtocolMessage()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ProtocolMessage()
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 435
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public ProtocolMessage()
+    content.vb: Public Sub New()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.#ctor*
+  nameWithType.vb: ProtocolMessage.New()
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.New()
+  name.vb: New()
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  id: '#ctor(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)'
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: ProtocolMessage(ProtocolMessage)
+  nameWithType: ProtocolMessage.ProtocolMessage(ProtocolMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ProtocolMessage(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 443
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public ProtocolMessage(ProtocolMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    content.vb: Public Sub New(other As ProtocolMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.#ctor*
+  nameWithType.vb: ProtocolMessage.New(ProtocolMessage)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.New(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  name.vb: New(ProtocolMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Clone
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Clone
+  id: Clone
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: ProtocolMessage.Clone()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Clone()
+  type: Method
+  source:
+    id: Clone
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 458
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public ProtocolMessage Clone()
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As ProtocolMessage
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.Clone
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.TypeFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.TypeFieldNumber
+  id: TypeFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: TypeFieldNumber
+  nameWithType: ProtocolMessage.TypeFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.TypeFieldNumber
+  type: Field
+  source:
+    id: TypeFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 465
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "type" field.
+  example: []
+  syntax:
+    content: public const int TypeFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const TypeFieldNumber As Integer = 1
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Type
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Type
+  id: Type
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: ProtocolMessage.Type
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Type
+  type: Property
+  source:
+    id: Type
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 472
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Identifies which underlying message is filled in.
+  example: []
+  syntax:
+    content: public ProtocolMessage.Types.Type Type { get; set; }
+    parameters: []
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type
+    content.vb: Public Property Type As ProtocolMessage.Types.Type
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Type*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasType
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasType
+  id: HasType
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: HasType
+  nameWithType: ProtocolMessage.HasType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasType
+  type: Property
+  source:
+    id: HasType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 482
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "type" field is set
+  example: []
+  syntax:
+    content: public bool HasType { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasType As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasType*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearType
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearType
+  id: ClearType
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearType()
+  nameWithType: ProtocolMessage.ClearType()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearType()
+  type: Method
+  source:
+    id: ClearType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 488
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "type" field
+  example: []
+  syntax:
+    content: public void ClearType()
+    content.vb: Public Sub ClearType()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearType*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.IdentifierFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.IdentifierFieldNumber
+  id: IdentifierFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: IdentifierFieldNumber
+  nameWithType: ProtocolMessage.IdentifierFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.IdentifierFieldNumber
+  type: Field
+  source:
+    id: IdentifierFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 495
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "identifier" field.
+  example: []
+  syntax:
+    content: public const int IdentifierFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const IdentifierFieldNumber As Integer = 2
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Identifier
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Identifier
+  id: Identifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: Identifier
+  nameWithType: ProtocolMessage.Identifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Identifier
+  type: Property
+  source:
+    id: Identifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 499
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public string Identifier { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Identifier As String
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Identifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasIdentifier
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasIdentifier
+  id: HasIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: HasIdentifier
+  nameWithType: ProtocolMessage.HasIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasIdentifier
+  type: Property
+  source:
+    id: HasIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 508
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "identifier" field is set
+  example: []
+  syntax:
+    content: public bool HasIdentifier { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasIdentifier As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearIdentifier
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearIdentifier
+  id: ClearIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearIdentifier()
+  nameWithType: ProtocolMessage.ClearIdentifier()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearIdentifier()
+  type: Method
+  source:
+    id: ClearIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 514
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "identifier" field
+  example: []
+  syntax:
+    content: public void ClearIdentifier()
+    content.vb: Public Sub ClearIdentifier()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.AuthenticationTokenFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.AuthenticationTokenFieldNumber
+  id: AuthenticationTokenFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: AuthenticationTokenFieldNumber
+  nameWithType: ProtocolMessage.AuthenticationTokenFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.AuthenticationTokenFieldNumber
+  type: Field
+  source:
+    id: AuthenticationTokenFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 521
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "authenticationToken" field.
+  example: []
+  syntax:
+    content: public const int AuthenticationTokenFieldNumber = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const AuthenticationTokenFieldNumber As Integer = 3
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.AuthenticationToken
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.AuthenticationToken
+  id: AuthenticationToken
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: AuthenticationToken
+  nameWithType: ProtocolMessage.AuthenticationToken
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.AuthenticationToken
+  type: Property
+  source:
+    id: AuthenticationToken
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 525
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public string AuthenticationToken { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AuthenticationToken As String
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.AuthenticationToken*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasAuthenticationToken
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasAuthenticationToken
+  id: HasAuthenticationToken
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: HasAuthenticationToken
+  nameWithType: ProtocolMessage.HasAuthenticationToken
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasAuthenticationToken
+  type: Property
+  source:
+    id: HasAuthenticationToken
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 534
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "authenticationToken" field is set
+  example: []
+  syntax:
+    content: public bool HasAuthenticationToken { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasAuthenticationToken As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasAuthenticationToken*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearAuthenticationToken
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearAuthenticationToken
+  id: ClearAuthenticationToken
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearAuthenticationToken()
+  nameWithType: ProtocolMessage.ClearAuthenticationToken()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearAuthenticationToken()
+  type: Method
+  source:
+    id: ClearAuthenticationToken
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 540
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "authenticationToken" field
+  example: []
+  syntax:
+    content: public void ClearAuthenticationToken()
+    content.vb: Public Sub ClearAuthenticationToken()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearAuthenticationToken*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorCodeFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorCodeFieldNumber
+  id: ErrorCodeFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: ErrorCodeFieldNumber
+  nameWithType: ProtocolMessage.ErrorCodeFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorCodeFieldNumber
+  type: Field
+  source:
+    id: ErrorCodeFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 547
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "errorCode" field.
+  example: []
+  syntax:
+    content: public const int ErrorCodeFieldNumber = 4
+    return:
+      type: System.Int32
+    content.vb: Public Const ErrorCodeFieldNumber As Integer = 4
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorCode
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorCode
+  id: ErrorCode
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: ErrorCode
+  nameWithType: ProtocolMessage.ErrorCode
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorCode
+  type: Property
+  source:
+    id: ErrorCode
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 551
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public ErrorCode.Types.Enum ErrorCode { get; set; }
+    parameters: []
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: Public Property ErrorCode As ErrorCode.Types.Enum
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorCode*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasErrorCode
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasErrorCode
+  id: HasErrorCode
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: HasErrorCode
+  nameWithType: ProtocolMessage.HasErrorCode
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasErrorCode
+  type: Property
+  source:
+    id: HasErrorCode
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 561
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "errorCode" field is set
+  example: []
+  syntax:
+    content: public bool HasErrorCode { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasErrorCode As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasErrorCode*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearErrorCode
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearErrorCode
+  id: ClearErrorCode
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearErrorCode()
+  nameWithType: ProtocolMessage.ClearErrorCode()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearErrorCode()
+  type: Method
+  source:
+    id: ClearErrorCode
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 567
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "errorCode" field
+  example: []
+  syntax:
+    content: public void ClearErrorCode()
+    content.vb: Public Sub ClearErrorCode()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearErrorCode*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.TimestampFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.TimestampFieldNumber
+  id: TimestampFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: TimestampFieldNumber
+  nameWithType: ProtocolMessage.TimestampFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.TimestampFieldNumber
+  type: Field
+  source:
+    id: TimestampFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 574
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "timestamp" field.
+  example: []
+  syntax:
+    content: public const int TimestampFieldNumber = 5
+    return:
+      type: System.Int32
+    content.vb: Public Const TimestampFieldNumber As Integer = 5
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Timestamp
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Timestamp
+  id: Timestamp
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: ProtocolMessage.Timestamp
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Timestamp
+  type: Property
+  source:
+    id: Timestamp
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 578
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public ulong Timestamp { get; set; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public Property Timestamp As ULong
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Timestamp*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasTimestamp
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasTimestamp
+  id: HasTimestamp
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: HasTimestamp
+  nameWithType: ProtocolMessage.HasTimestamp
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasTimestamp
+  type: Property
+  source:
+    id: HasTimestamp
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 588
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "timestamp" field is set
+  example: []
+  syntax:
+    content: public bool HasTimestamp { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasTimestamp As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasTimestamp*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearTimestamp
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearTimestamp
+  id: ClearTimestamp
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearTimestamp()
+  nameWithType: ProtocolMessage.ClearTimestamp()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearTimestamp()
+  type: Method
+  source:
+    id: ClearTimestamp
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 594
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "timestamp" field
+  example: []
+  syntax:
+    content: public void ClearTimestamp()
+    content.vb: Public Sub ClearTimestamp()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearTimestamp*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorDescriptionFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorDescriptionFieldNumber
+  id: ErrorDescriptionFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: ErrorDescriptionFieldNumber
+  nameWithType: ProtocolMessage.ErrorDescriptionFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorDescriptionFieldNumber
+  type: Field
+  source:
+    id: ErrorDescriptionFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 601
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "errorDescription" field.
+  example: []
+  syntax:
+    content: public const int ErrorDescriptionFieldNumber = 78
+    return:
+      type: System.Int32
+    content.vb: Public Const ErrorDescriptionFieldNumber As Integer = 78
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorDescription
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorDescription
+  id: ErrorDescription
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: ErrorDescription
+  nameWithType: ProtocolMessage.ErrorDescription
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorDescription
+  type: Property
+  source:
+    id: ErrorDescription
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 605
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public string ErrorDescription { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ErrorDescription As String
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorDescription*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasErrorDescription
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasErrorDescription
+  id: HasErrorDescription
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: HasErrorDescription
+  nameWithType: ProtocolMessage.HasErrorDescription
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasErrorDescription
+  type: Property
+  source:
+    id: HasErrorDescription
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 614
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "errorDescription" field is set
+  example: []
+  syntax:
+    content: public bool HasErrorDescription { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasErrorDescription As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasErrorDescription*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearErrorDescription
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearErrorDescription
+  id: ClearErrorDescription
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearErrorDescription()
+  nameWithType: ProtocolMessage.ClearErrorDescription()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearErrorDescription()
+  type: Method
+  source:
+    id: ClearErrorDescription
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 620
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "errorDescription" field
+  example: []
+  syntax:
+    content: public void ClearErrorDescription()
+    content.vb: Public Sub ClearErrorDescription()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearErrorDescription*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.UniqueIdentifierFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.UniqueIdentifierFieldNumber
+  id: UniqueIdentifierFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: UniqueIdentifierFieldNumber
+  nameWithType: ProtocolMessage.UniqueIdentifierFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.UniqueIdentifierFieldNumber
+  type: Field
+  source:
+    id: UniqueIdentifierFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 627
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "uniqueIdentifier" field.
+  example: []
+  syntax:
+    content: public const int UniqueIdentifierFieldNumber = 85
+    return:
+      type: System.Int32
+    content.vb: Public Const UniqueIdentifierFieldNumber As Integer = 85
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.UniqueIdentifier
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.UniqueIdentifier
+  id: UniqueIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: UniqueIdentifier
+  nameWithType: ProtocolMessage.UniqueIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.UniqueIdentifier
+  type: Property
+  source:
+    id: UniqueIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 631
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public string UniqueIdentifier { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UniqueIdentifier As String
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.UniqueIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasUniqueIdentifier
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasUniqueIdentifier
+  id: HasUniqueIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: HasUniqueIdentifier
+  nameWithType: ProtocolMessage.HasUniqueIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasUniqueIdentifier
+  type: Property
+  source:
+    id: HasUniqueIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 640
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "uniqueIdentifier" field is set
+  example: []
+  syntax:
+    content: public bool HasUniqueIdentifier { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasUniqueIdentifier As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasUniqueIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearUniqueIdentifier
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearUniqueIdentifier
+  id: ClearUniqueIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearUniqueIdentifier()
+  nameWithType: ProtocolMessage.ClearUniqueIdentifier()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearUniqueIdentifier()
+  type: Method
+  source:
+    id: ClearUniqueIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 646
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "uniqueIdentifier" field
+  example: []
+  syntax:
+    content: public void ClearUniqueIdentifier()
+    content.vb: Public Sub ClearUniqueIdentifier()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearUniqueIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Equals(System.Object)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: ProtocolMessage.Equals(object)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Equals(object)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 652
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Equals*
+  nameWithType.vb: ProtocolMessage.Equals(Object)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Equals(Object)
+  name.vb: Equals(Object)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  id: Equals(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: Equals(ProtocolMessage)
+  nameWithType: ProtocolMessage.Equals(ProtocolMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 658
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(ProtocolMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As ProtocolMessage) As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Equals*
+  implements:
+  - System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetHashCode
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetHashCode
+  id: GetHashCode
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: ProtocolMessage.GetHashCode()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetHashCode()
+  type: Method
+  source:
+    id: GetHashCode
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 680
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetHashCode*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ToString
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ToString
+  id: ToString
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ProtocolMessage.ToString()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ToString()
+  type: Method
+  source:
+    id: ToString
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 700
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ToString*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: ProtocolMessage.WriteTo(CodedOutputStream)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    id: WriteTo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 706
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.CalculateSize
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.CalculateSize
+  id: CalculateSize
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: ProtocolMessage.CalculateSize()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.CalculateSize()
+  type: Method
+  source:
+    id: CalculateSize
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 790
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  id: MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(ProtocolMessage)
+  nameWithType: ProtocolMessage.MergeFrom(ProtocolMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  type: Method
+  source:
+    id: MergeFrom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 824
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(ProtocolMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    content.vb: Public Sub MergeFrom(other As ProtocolMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: ProtocolMessage.MergeFrom(CodedInputStream)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    id: MergeFrom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 855
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  id: GetExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: GetExtension<TValue>(Extension<ProtocolMessage, TValue>)
+  nameWithType: ProtocolMessage.GetExtension<TValue>(Extension<ProtocolMessage, TValue>)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetExtension<TValue>(Google.Protobuf.Extension<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue>)
+  type: Method
+  source:
+    id: GetExtension
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 955
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets the value of the specified extension
+  example: []
+  syntax:
+    content: public TValue GetExtension<TValue>(Extension<ProtocolMessage, TValue> extension)
+    parameters:
+    - id: extension
+      type: Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}}
+    typeParameters:
+    - id: TValue
+    return:
+      type: '{TValue}'
+    content.vb: Public Function GetExtension(Of TValue)(extension As Extension(Of ProtocolMessage, TValue)) As TValue
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetExtension*
+  implements:
+  - Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.GetExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}})
+  nameWithType.vb: ProtocolMessage.GetExtension(Of TValue)(Extension(Of ProtocolMessage, TValue))
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetExtension(Of TValue)(Google.Protobuf.Extension(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue))
+  name.vb: GetExtension(Of TValue)(Extension(Of ProtocolMessage, TValue))
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  id: GetExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: GetExtension<TValue>(RepeatedExtension<ProtocolMessage, TValue>)
+  nameWithType: ProtocolMessage.GetExtension<TValue>(RepeatedExtension<ProtocolMessage, TValue>)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetExtension<TValue>(Google.Protobuf.RepeatedExtension<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue>)
+  type: Method
+  source:
+    id: GetExtension
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 958
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: >-
+    Gets the value of the specified repeated extension or null if the extension isn't registered in this set.
+
+    For a version of this method that never returns null, use <xref href="Google.Protobuf.IExtendableMessage%601.GetOrInitializeExtension%60%601(Google.Protobuf.RepeatedExtension%7b%600%2c%60%600%7d)" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public RepeatedField<TValue> GetExtension<TValue>(RepeatedExtension<ProtocolMessage, TValue> extension)
+    parameters:
+    - id: extension
+      type: Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}}
+    typeParameters:
+    - id: TValue
+    return:
+      type: Google.Protobuf.Collections.RepeatedField{{TValue}}
+    content.vb: Public Function GetExtension(Of TValue)(extension As RepeatedExtension(Of ProtocolMessage, TValue)) As RepeatedField(Of TValue)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetExtension*
+  implements:
+  - Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.GetExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}})
+  nameWithType.vb: ProtocolMessage.GetExtension(Of TValue)(RepeatedExtension(Of ProtocolMessage, TValue))
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetExtension(Of TValue)(Google.Protobuf.RepeatedExtension(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue))
+  name.vb: GetExtension(Of TValue)(RepeatedExtension(Of ProtocolMessage, TValue))
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetOrInitializeExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetOrInitializeExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  id: GetOrInitializeExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: GetOrInitializeExtension<TValue>(RepeatedExtension<ProtocolMessage, TValue>)
+  nameWithType: ProtocolMessage.GetOrInitializeExtension<TValue>(RepeatedExtension<ProtocolMessage, TValue>)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetOrInitializeExtension<TValue>(Google.Protobuf.RepeatedExtension<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue>)
+  type: Method
+  source:
+    id: GetOrInitializeExtension
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 961
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets the value of the specified repeated extension, registering it if it hasn't already been registered.
+  example: []
+  syntax:
+    content: public RepeatedField<TValue> GetOrInitializeExtension<TValue>(RepeatedExtension<ProtocolMessage, TValue> extension)
+    parameters:
+    - id: extension
+      type: Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}}
+    typeParameters:
+    - id: TValue
+    return:
+      type: Google.Protobuf.Collections.RepeatedField{{TValue}}
+    content.vb: Public Function GetOrInitializeExtension(Of TValue)(extension As RepeatedExtension(Of ProtocolMessage, TValue)) As RepeatedField(Of TValue)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetOrInitializeExtension*
+  implements:
+  - Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.GetOrInitializeExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}})
+  nameWithType.vb: ProtocolMessage.GetOrInitializeExtension(Of TValue)(RepeatedExtension(Of ProtocolMessage, TValue))
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetOrInitializeExtension(Of TValue)(Google.Protobuf.RepeatedExtension(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue))
+  name.vb: GetOrInitializeExtension(Of TValue)(RepeatedExtension(Of ProtocolMessage, TValue))
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.SetExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0},``0)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.SetExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0},``0)
+  id: SetExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0},``0)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: SetExtension<TValue>(Extension<ProtocolMessage, TValue>, TValue)
+  nameWithType: ProtocolMessage.SetExtension<TValue>(Extension<ProtocolMessage, TValue>, TValue)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.SetExtension<TValue>(Google.Protobuf.Extension<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue>, TValue)
+  type: Method
+  source:
+    id: SetExtension
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 964
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Sets the value of the specified extension
+  example: []
+  syntax:
+    content: public void SetExtension<TValue>(Extension<ProtocolMessage, TValue> extension, TValue value)
+    parameters:
+    - id: extension
+      type: Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}}
+    - id: value
+      type: '{TValue}'
+    typeParameters:
+    - id: TValue
+    content.vb: Public Sub SetExtension(Of TValue)(extension As Extension(Of ProtocolMessage, TValue), value As TValue)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.SetExtension*
+  implements:
+  - Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.SetExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}},{TValue})
+  nameWithType.vb: ProtocolMessage.SetExtension(Of TValue)(Extension(Of ProtocolMessage, TValue), TValue)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.SetExtension(Of TValue)(Google.Protobuf.Extension(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue), TValue)
+  name.vb: SetExtension(Of TValue)(Extension(Of ProtocolMessage, TValue), TValue)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  id: HasExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: HasExtension<TValue>(Extension<ProtocolMessage, TValue>)
+  nameWithType: ProtocolMessage.HasExtension<TValue>(Extension<ProtocolMessage, TValue>)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasExtension<TValue>(Google.Protobuf.Extension<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue>)
+  type: Method
+  source:
+    id: HasExtension
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 967
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the value of the specified extension is set
+  example: []
+  syntax:
+    content: public bool HasExtension<TValue>(Extension<ProtocolMessage, TValue> extension)
+    parameters:
+    - id: extension
+      type: Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}}
+    typeParameters:
+    - id: TValue
+    return:
+      type: System.Boolean
+    content.vb: Public Function HasExtension(Of TValue)(extension As Extension(Of ProtocolMessage, TValue)) As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasExtension*
+  implements:
+  - Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.HasExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}})
+  nameWithType.vb: ProtocolMessage.HasExtension(Of TValue)(Extension(Of ProtocolMessage, TValue))
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasExtension(Of TValue)(Google.Protobuf.Extension(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue))
+  name.vb: HasExtension(Of TValue)(Extension(Of ProtocolMessage, TValue))
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  id: ClearExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearExtension<TValue>(Extension<ProtocolMessage, TValue>)
+  nameWithType: ProtocolMessage.ClearExtension<TValue>(Extension<ProtocolMessage, TValue>)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearExtension<TValue>(Google.Protobuf.Extension<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue>)
+  type: Method
+  source:
+    id: ClearExtension
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 970
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the specified extension
+  example: []
+  syntax:
+    content: public void ClearExtension<TValue>(Extension<ProtocolMessage, TValue> extension)
+    parameters:
+    - id: extension
+      type: Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}}
+    typeParameters:
+    - id: TValue
+    content.vb: Public Sub ClearExtension(Of TValue)(extension As Extension(Of ProtocolMessage, TValue))
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearExtension*
+  implements:
+  - Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.ClearExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}})
+  nameWithType.vb: ProtocolMessage.ClearExtension(Of TValue)(Extension(Of ProtocolMessage, TValue))
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearExtension(Of TValue)(Google.Protobuf.Extension(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue))
+  name.vb: ClearExtension(Of TValue)(Extension(Of ProtocolMessage, TValue))
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  id: ClearExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearExtension<TValue>(RepeatedExtension<ProtocolMessage, TValue>)
+  nameWithType: ProtocolMessage.ClearExtension<TValue>(RepeatedExtension<ProtocolMessage, TValue>)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearExtension<TValue>(Google.Protobuf.RepeatedExtension<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue>)
+  type: Method
+  source:
+    id: ClearExtension
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 973
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the specified repeated extension
+  example: []
+  syntax:
+    content: public void ClearExtension<TValue>(RepeatedExtension<ProtocolMessage, TValue> extension)
+    parameters:
+    - id: extension
+      type: Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}}
+    typeParameters:
+    - id: TValue
+    content.vb: Public Sub ClearExtension(Of TValue)(extension As RepeatedExtension(Of ProtocolMessage, TValue))
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearExtension*
+  implements:
+  - Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.ClearExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}})
+  nameWithType.vb: ProtocolMessage.ClearExtension(Of TValue)(RepeatedExtension(Of ProtocolMessage, TValue))
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearExtension(Of TValue)(Google.Protobuf.RepeatedExtension(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue))
+  name.vb: ClearExtension(Of TValue)(RepeatedExtension(Of ProtocolMessage, TValue))
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  commentId: T:Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IExtendableMessage`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: IExtendableMessage<ProtocolMessage>
+  nameWithType: IExtendableMessage<ProtocolMessage>
+  fullName: Google.Protobuf.IExtendableMessage<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>
+  nameWithType.vb: IExtendableMessage(Of ProtocolMessage)
+  fullName.vb: Google.Protobuf.IExtendableMessage(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  name.vb: IExtendableMessage(Of ProtocolMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IExtendableMessage`1
+    name: IExtendableMessage
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IExtendableMessage`1
+    name: IExtendableMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: )
+- uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  commentId: T:Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: IMessage<ProtocolMessage>
+  nameWithType: IMessage<ProtocolMessage>
+  fullName: Google.Protobuf.IMessage<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>
+  nameWithType.vb: IMessage(Of ProtocolMessage)
+  fullName.vb: Google.Protobuf.IMessage(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  name.vb: IMessage(Of ProtocolMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: )
+- uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  commentId: T:System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<ProtocolMessage>
+  nameWithType: IEquatable<ProtocolMessage>
+  fullName: System.IEquatable<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>
+  nameWithType.vb: IEquatable(Of ProtocolMessage)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  name.vb: IEquatable(Of ProtocolMessage)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  commentId: T:Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: IDeepCloneable<ProtocolMessage>
+  nameWithType: IDeepCloneable<ProtocolMessage>
+  fullName: Google.Protobuf.IDeepCloneable<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>
+  nameWithType.vb: IDeepCloneable(Of ProtocolMessage)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  name.vb: IDeepCloneable(Of ProtocolMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IExtendableMessage`1
+  commentId: T:Google.Protobuf.IExtendableMessage`1
+  isExternal: true
+  name: IExtendableMessage<T>
+  nameWithType: IExtendableMessage<T>
+  fullName: Google.Protobuf.IExtendableMessage<T>
+  nameWithType.vb: IExtendableMessage(Of T)
+  fullName.vb: Google.Protobuf.IExtendableMessage(Of T)
+  name.vb: IExtendableMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IExtendableMessage`1
+    name: IExtendableMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IExtendableMessage`1
+    name: IExtendableMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Parser*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Parser
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_Parser
+  name: Parser
+  nameWithType: ProtocolMessage.Parser
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Parser
+- uid: Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  commentId: T:Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: MessageParser<ProtocolMessage>
+  nameWithType: MessageParser<ProtocolMessage>
+  fullName: Google.Protobuf.MessageParser<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>
+  nameWithType.vb: MessageParser(Of ProtocolMessage)
+  fullName.vb: Google.Protobuf.MessageParser(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  name.vb: MessageParser(Of ProtocolMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Descriptor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Descriptor
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_Descriptor
+  name: Descriptor
+  nameWithType: ProtocolMessage.Descriptor
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.#ctor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.#ctor
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage__ctor
+  name: ProtocolMessage
+  nameWithType: ProtocolMessage.ProtocolMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ProtocolMessage
+  nameWithType.vb: ProtocolMessage.New
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.New
+  name.vb: New
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: ProtocolMessage
+  nameWithType: ProtocolMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Clone*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Clone
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_Clone
+  name: Clone
+  nameWithType: ProtocolMessage.Clone
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Clone
+- uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.Clone
+  parent: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<ProtocolMessage>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>.Clone()
+  nameWithType.vb: IDeepCloneable(Of ProtocolMessage).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Type*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Type
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_Type
+  name: Type
+  nameWithType: ProtocolMessage.Type
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Type
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: ProtocolMessage.Types.Type
+  nameWithType: ProtocolMessage.Types.Type
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type
+    name: Type
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type
+    name: Type
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasType*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasType
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_HasType
+  name: HasType
+  nameWithType: ProtocolMessage.HasType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasType
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearType*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearType
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_ClearType
+  name: ClearType
+  nameWithType: ProtocolMessage.ClearType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Identifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Identifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_Identifier
+  name: Identifier
+  nameWithType: ProtocolMessage.Identifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Identifier
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_HasIdentifier
+  name: HasIdentifier
+  nameWithType: ProtocolMessage.HasIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasIdentifier
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_ClearIdentifier
+  name: ClearIdentifier
+  nameWithType: ProtocolMessage.ClearIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearIdentifier
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.AuthenticationToken*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.AuthenticationToken
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_AuthenticationToken
+  name: AuthenticationToken
+  nameWithType: ProtocolMessage.AuthenticationToken
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.AuthenticationToken
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasAuthenticationToken*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasAuthenticationToken
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_HasAuthenticationToken
+  name: HasAuthenticationToken
+  nameWithType: ProtocolMessage.HasAuthenticationToken
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasAuthenticationToken
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearAuthenticationToken*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearAuthenticationToken
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_ClearAuthenticationToken
+  name: ClearAuthenticationToken
+  nameWithType: ProtocolMessage.ClearAuthenticationToken
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearAuthenticationToken
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorCode*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorCode
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_ErrorCode
+  name: ErrorCode
+  nameWithType: ProtocolMessage.ErrorCode
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorCode
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.html
+  name: ErrorCode.Types.Enum
+  nameWithType: ErrorCode.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode
+    name: ErrorCode
+    href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode
+    name: ErrorCode
+    href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasErrorCode*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasErrorCode
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_HasErrorCode
+  name: HasErrorCode
+  nameWithType: ProtocolMessage.HasErrorCode
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasErrorCode
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearErrorCode*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearErrorCode
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_ClearErrorCode
+  name: ClearErrorCode
+  nameWithType: ProtocolMessage.ClearErrorCode
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearErrorCode
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Timestamp*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Timestamp
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_Timestamp
+  name: Timestamp
+  nameWithType: ProtocolMessage.Timestamp
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Timestamp
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasTimestamp*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasTimestamp
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_HasTimestamp
+  name: HasTimestamp
+  nameWithType: ProtocolMessage.HasTimestamp
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasTimestamp
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearTimestamp*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearTimestamp
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_ClearTimestamp
+  name: ClearTimestamp
+  nameWithType: ProtocolMessage.ClearTimestamp
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearTimestamp
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorDescription*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorDescription
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_ErrorDescription
+  name: ErrorDescription
+  nameWithType: ProtocolMessage.ErrorDescription
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ErrorDescription
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasErrorDescription*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasErrorDescription
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_HasErrorDescription
+  name: HasErrorDescription
+  nameWithType: ProtocolMessage.HasErrorDescription
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasErrorDescription
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearErrorDescription*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearErrorDescription
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_ClearErrorDescription
+  name: ClearErrorDescription
+  nameWithType: ProtocolMessage.ClearErrorDescription
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearErrorDescription
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.UniqueIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.UniqueIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_UniqueIdentifier
+  name: UniqueIdentifier
+  nameWithType: ProtocolMessage.UniqueIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.UniqueIdentifier
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasUniqueIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasUniqueIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_HasUniqueIdentifier
+  name: HasUniqueIdentifier
+  nameWithType: ProtocolMessage.HasUniqueIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasUniqueIdentifier
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearUniqueIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearUniqueIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_ClearUniqueIdentifier
+  name: ClearUniqueIdentifier
+  nameWithType: ProtocolMessage.ClearUniqueIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearUniqueIdentifier
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Equals*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Equals
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_Equals_System_Object_
+  name: Equals
+  nameWithType: ProtocolMessage.Equals
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Equals
+- uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  commentId: M:System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  parent: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(ProtocolMessage)
+  nameWithType: IEquatable<ProtocolMessage>.Equals(ProtocolMessage)
+  fullName: System.IEquatable<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>.Equals(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  nameWithType.vb: IEquatable(Of ProtocolMessage).Equals(ProtocolMessage)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage).Equals(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  spec.csharp:
+  - uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetHashCode*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetHashCode
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_GetHashCode
+  name: GetHashCode
+  nameWithType: ProtocolMessage.GetHashCode
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ToString*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ToString
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_ToString
+  name: ToString
+  nameWithType: ProtocolMessage.ToString
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ToString
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.WriteTo*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.WriteTo
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_WriteTo_Google_Protobuf_CodedOutputStream_
+  name: WriteTo
+  nameWithType: ProtocolMessage.WriteTo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.CalculateSize*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.CalculateSize
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_CalculateSize
+  name: CalculateSize
+  nameWithType: ProtocolMessage.CalculateSize
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.MergeFrom*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.MergeFrom
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_MergeFrom_AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_
+  name: MergeFrom
+  nameWithType: ProtocolMessage.MergeFrom
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.MergeFrom
+- uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  commentId: M:Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  parent: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: MergeFrom(ProtocolMessage)
+  nameWithType: IMessage<ProtocolMessage>.MergeFrom(ProtocolMessage)
+  fullName: Google.Protobuf.IMessage<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  nameWithType.vb: IMessage(Of ProtocolMessage).MergeFrom(ProtocolMessage)
+  fullName.vb: Google.Protobuf.IMessage(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage).MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetExtension*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetExtension
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_GetExtension__1_Google_Protobuf_Extension_AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage___0__
+  name: GetExtension
+  nameWithType: ProtocolMessage.GetExtension
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetExtension
+- uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.GetExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}})
+  commentId: M:Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.GetExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  parent: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  definition: Google.Protobuf.IExtendableMessage`1.GetExtension``1(Google.Protobuf.Extension{`0,``0})
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: GetExtension<TValue>(Extension<ProtocolMessage, TValue>)
+  nameWithType: IExtendableMessage<ProtocolMessage>.GetExtension<TValue>(Extension<ProtocolMessage, TValue>)
+  fullName: Google.Protobuf.IExtendableMessage<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>.GetExtension<TValue>(Google.Protobuf.Extension<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue>)
+  nameWithType.vb: IExtendableMessage(Of ProtocolMessage).GetExtension(Of TValue)(Extension(Of ProtocolMessage, TValue))
+  fullName.vb: Google.Protobuf.IExtendableMessage(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage).GetExtension(Of TValue)(Google.Protobuf.Extension(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue))
+  name.vb: GetExtension(Of TValue)(Extension(Of ProtocolMessage, TValue))
+  spec.csharp:
+  - uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.GetExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+    name: GetExtension
+    isExternal: true
+  - name: <
+  - name: TValue
+  - name: '>'
+  - name: (
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.GetExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+    name: GetExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: (
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: )
+- uid: Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}}
+  commentId: T:Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.Extension`2
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: Extension<ProtocolMessage, TValue>
+  nameWithType: Extension<ProtocolMessage, TValue>
+  fullName: Google.Protobuf.Extension<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue>
+  nameWithType.vb: Extension(Of ProtocolMessage, TValue)
+  fullName.vb: Google.Protobuf.Extension(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue)
+  name.vb: Extension(Of ProtocolMessage, TValue)
+  spec.csharp:
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: '{TValue}'
+  commentId: '!:TValue'
+  definition: TValue
+  name: TValue
+  nameWithType: TValue
+  fullName: TValue
+- uid: Google.Protobuf.IExtendableMessage`1.GetExtension``1(Google.Protobuf.Extension{`0,``0})
+  commentId: M:Google.Protobuf.IExtendableMessage`1.GetExtension``1(Google.Protobuf.Extension{`0,``0})
+  isExternal: true
+  name: GetExtension<TValue>(Extension<T, TValue>)
+  nameWithType: IExtendableMessage<T>.GetExtension<TValue>(Extension<T, TValue>)
+  fullName: Google.Protobuf.IExtendableMessage<T>.GetExtension<TValue>(Google.Protobuf.Extension<T, TValue>)
+  nameWithType.vb: IExtendableMessage(Of T).GetExtension(Of TValue)(Extension(Of T, TValue))
+  fullName.vb: Google.Protobuf.IExtendableMessage(Of T).GetExtension(Of TValue)(Google.Protobuf.Extension(Of T, TValue))
+  name.vb: GetExtension(Of TValue)(Extension(Of T, TValue))
+  spec.csharp:
+  - uid: Google.Protobuf.IExtendableMessage`1.GetExtension``1(Google.Protobuf.Extension{`0,``0})
+    name: GetExtension
+    isExternal: true
+  - name: <
+  - name: TValue
+  - name: '>'
+  - name: (
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IExtendableMessage`1.GetExtension``1(Google.Protobuf.Extension{`0,``0})
+    name: GetExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: (
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: )
+- uid: Google.Protobuf.Extension`2
+  commentId: T:Google.Protobuf.Extension`2
+  isExternal: true
+  name: Extension<TTarget, TValue>
+  nameWithType: Extension<TTarget, TValue>
+  fullName: Google.Protobuf.Extension<TTarget, TValue>
+  nameWithType.vb: Extension(Of TTarget, TValue)
+  fullName.vb: Google.Protobuf.Extension(Of TTarget, TValue)
+  name.vb: Extension(Of TTarget, TValue)
+  spec.csharp:
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: <
+  - name: TTarget
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TTarget
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: TValue
+  name: TValue
+  nameWithType: TValue
+  fullName: TValue
+- uid: Google.Protobuf.IExtendableMessage`1.GetOrInitializeExtension``1(Google.Protobuf.RepeatedExtension{`0,``0})
+  commentId: M:Google.Protobuf.IExtendableMessage`1.GetOrInitializeExtension``1(Google.Protobuf.RepeatedExtension{`0,``0})
+  isExternal: true
+  name: GetOrInitializeExtension<TValue>(RepeatedExtension<T, TValue>)
+  nameWithType: IExtendableMessage<T>.GetOrInitializeExtension<TValue>(RepeatedExtension<T, TValue>)
+  fullName: Google.Protobuf.IExtendableMessage<T>.GetOrInitializeExtension<TValue>(Google.Protobuf.RepeatedExtension<T, TValue>)
+  nameWithType.vb: IExtendableMessage(Of T).GetOrInitializeExtension(Of TValue)(RepeatedExtension(Of T, TValue))
+  fullName.vb: Google.Protobuf.IExtendableMessage(Of T).GetOrInitializeExtension(Of TValue)(Google.Protobuf.RepeatedExtension(Of T, TValue))
+  name.vb: GetOrInitializeExtension(Of TValue)(RepeatedExtension(Of T, TValue))
+  spec.csharp:
+  - uid: Google.Protobuf.IExtendableMessage`1.GetOrInitializeExtension``1(Google.Protobuf.RepeatedExtension{`0,``0})
+    name: GetOrInitializeExtension
+    isExternal: true
+  - name: <
+  - name: TValue
+  - name: '>'
+  - name: (
+  - uid: Google.Protobuf.RepeatedExtension`2
+    name: RepeatedExtension
+    isExternal: true
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IExtendableMessage`1.GetOrInitializeExtension``1(Google.Protobuf.RepeatedExtension{`0,``0})
+    name: GetOrInitializeExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: (
+  - uid: Google.Protobuf.RepeatedExtension`2
+    name: RepeatedExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: )
+- uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.GetExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}})
+  commentId: M:Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.GetExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  parent: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  definition: Google.Protobuf.IExtendableMessage`1.GetExtension``1(Google.Protobuf.RepeatedExtension{`0,``0})
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: GetExtension<TValue>(RepeatedExtension<ProtocolMessage, TValue>)
+  nameWithType: IExtendableMessage<ProtocolMessage>.GetExtension<TValue>(RepeatedExtension<ProtocolMessage, TValue>)
+  fullName: Google.Protobuf.IExtendableMessage<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>.GetExtension<TValue>(Google.Protobuf.RepeatedExtension<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue>)
+  nameWithType.vb: IExtendableMessage(Of ProtocolMessage).GetExtension(Of TValue)(RepeatedExtension(Of ProtocolMessage, TValue))
+  fullName.vb: Google.Protobuf.IExtendableMessage(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage).GetExtension(Of TValue)(Google.Protobuf.RepeatedExtension(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue))
+  name.vb: GetExtension(Of TValue)(RepeatedExtension(Of ProtocolMessage, TValue))
+  spec.csharp:
+  - uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.GetExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+    name: GetExtension
+    isExternal: true
+  - name: <
+  - name: TValue
+  - name: '>'
+  - name: (
+  - uid: Google.Protobuf.RepeatedExtension`2
+    name: RepeatedExtension
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.GetExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+    name: GetExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: (
+  - uid: Google.Protobuf.RepeatedExtension`2
+    name: RepeatedExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: )
+- uid: Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}}
+  commentId: T:Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.RepeatedExtension`2
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: RepeatedExtension<ProtocolMessage, TValue>
+  nameWithType: RepeatedExtension<ProtocolMessage, TValue>
+  fullName: Google.Protobuf.RepeatedExtension<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue>
+  nameWithType.vb: RepeatedExtension(Of ProtocolMessage, TValue)
+  fullName.vb: Google.Protobuf.RepeatedExtension(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue)
+  name.vb: RepeatedExtension(Of ProtocolMessage, TValue)
+  spec.csharp:
+  - uid: Google.Protobuf.RepeatedExtension`2
+    name: RepeatedExtension
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.RepeatedExtension`2
+    name: RepeatedExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: Google.Protobuf.Collections.RepeatedField{{TValue}}
+  commentId: T:Google.Protobuf.Collections.RepeatedField{``0}
+  parent: Google.Protobuf.Collections
+  definition: Google.Protobuf.Collections.RepeatedField`1
+  name: RepeatedField<TValue>
+  nameWithType: RepeatedField<TValue>
+  fullName: Google.Protobuf.Collections.RepeatedField<TValue>
+  nameWithType.vb: RepeatedField(Of TValue)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of TValue)
+  name.vb: RepeatedField(Of TValue)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: Google.Protobuf.IExtendableMessage`1.GetExtension``1(Google.Protobuf.RepeatedExtension{`0,``0})
+  commentId: M:Google.Protobuf.IExtendableMessage`1.GetExtension``1(Google.Protobuf.RepeatedExtension{`0,``0})
+  isExternal: true
+  name: GetExtension<TValue>(RepeatedExtension<T, TValue>)
+  nameWithType: IExtendableMessage<T>.GetExtension<TValue>(RepeatedExtension<T, TValue>)
+  fullName: Google.Protobuf.IExtendableMessage<T>.GetExtension<TValue>(Google.Protobuf.RepeatedExtension<T, TValue>)
+  nameWithType.vb: IExtendableMessage(Of T).GetExtension(Of TValue)(RepeatedExtension(Of T, TValue))
+  fullName.vb: Google.Protobuf.IExtendableMessage(Of T).GetExtension(Of TValue)(Google.Protobuf.RepeatedExtension(Of T, TValue))
+  name.vb: GetExtension(Of TValue)(RepeatedExtension(Of T, TValue))
+  spec.csharp:
+  - uid: Google.Protobuf.IExtendableMessage`1.GetExtension``1(Google.Protobuf.RepeatedExtension{`0,``0})
+    name: GetExtension
+    isExternal: true
+  - name: <
+  - name: TValue
+  - name: '>'
+  - name: (
+  - uid: Google.Protobuf.RepeatedExtension`2
+    name: RepeatedExtension
+    isExternal: true
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IExtendableMessage`1.GetExtension``1(Google.Protobuf.RepeatedExtension{`0,``0})
+    name: GetExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: (
+  - uid: Google.Protobuf.RepeatedExtension`2
+    name: RepeatedExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: )
+- uid: Google.Protobuf.RepeatedExtension`2
+  commentId: T:Google.Protobuf.RepeatedExtension`2
+  isExternal: true
+  name: RepeatedExtension<TTarget, TValue>
+  nameWithType: RepeatedExtension<TTarget, TValue>
+  fullName: Google.Protobuf.RepeatedExtension<TTarget, TValue>
+  nameWithType.vb: RepeatedExtension(Of TTarget, TValue)
+  fullName.vb: Google.Protobuf.RepeatedExtension(Of TTarget, TValue)
+  name.vb: RepeatedExtension(Of TTarget, TValue)
+  spec.csharp:
+  - uid: Google.Protobuf.RepeatedExtension`2
+    name: RepeatedExtension
+    isExternal: true
+  - name: <
+  - name: TTarget
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.RepeatedExtension`2
+    name: RepeatedExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TTarget
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: Google.Protobuf.Collections.RepeatedField`1
+  commentId: T:Google.Protobuf.Collections.RepeatedField`1
+  isExternal: true
+  name: RepeatedField<T>
+  nameWithType: RepeatedField<T>
+  fullName: Google.Protobuf.Collections.RepeatedField<T>
+  nameWithType.vb: RepeatedField(Of T)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of T)
+  name.vb: RepeatedField(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.Collections
+  commentId: N:Google.Protobuf.Collections
+  isExternal: true
+  name: Google.Protobuf.Collections
+  nameWithType: Google.Protobuf.Collections
+  fullName: Google.Protobuf.Collections
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Collections
+    name: Collections
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Collections
+    name: Collections
+    isExternal: true
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetOrInitializeExtension*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetOrInitializeExtension
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_GetOrInitializeExtension__1_Google_Protobuf_RepeatedExtension_AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage___0__
+  name: GetOrInitializeExtension
+  nameWithType: ProtocolMessage.GetOrInitializeExtension
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.GetOrInitializeExtension
+- uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.GetOrInitializeExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}})
+  commentId: M:Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.GetOrInitializeExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  parent: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  definition: Google.Protobuf.IExtendableMessage`1.GetOrInitializeExtension``1(Google.Protobuf.RepeatedExtension{`0,``0})
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: GetOrInitializeExtension<TValue>(RepeatedExtension<ProtocolMessage, TValue>)
+  nameWithType: IExtendableMessage<ProtocolMessage>.GetOrInitializeExtension<TValue>(RepeatedExtension<ProtocolMessage, TValue>)
+  fullName: Google.Protobuf.IExtendableMessage<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>.GetOrInitializeExtension<TValue>(Google.Protobuf.RepeatedExtension<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue>)
+  nameWithType.vb: IExtendableMessage(Of ProtocolMessage).GetOrInitializeExtension(Of TValue)(RepeatedExtension(Of ProtocolMessage, TValue))
+  fullName.vb: Google.Protobuf.IExtendableMessage(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage).GetOrInitializeExtension(Of TValue)(Google.Protobuf.RepeatedExtension(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue))
+  name.vb: GetOrInitializeExtension(Of TValue)(RepeatedExtension(Of ProtocolMessage, TValue))
+  spec.csharp:
+  - uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.GetOrInitializeExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+    name: GetOrInitializeExtension
+    isExternal: true
+  - name: <
+  - name: TValue
+  - name: '>'
+  - name: (
+  - uid: Google.Protobuf.RepeatedExtension`2
+    name: RepeatedExtension
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.GetOrInitializeExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+    name: GetOrInitializeExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: (
+  - uid: Google.Protobuf.RepeatedExtension`2
+    name: RepeatedExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.SetExtension*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.SetExtension
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_SetExtension__1_Google_Protobuf_Extension_AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage___0____0_
+  name: SetExtension
+  nameWithType: ProtocolMessage.SetExtension
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.SetExtension
+- uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.SetExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}},{TValue})
+  commentId: M:Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.SetExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0},``0)
+  parent: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  definition: Google.Protobuf.IExtendableMessage`1.SetExtension``1(Google.Protobuf.Extension{`0,``0},``0)
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: SetExtension<TValue>(Extension<ProtocolMessage, TValue>, TValue)
+  nameWithType: IExtendableMessage<ProtocolMessage>.SetExtension<TValue>(Extension<ProtocolMessage, TValue>, TValue)
+  fullName: Google.Protobuf.IExtendableMessage<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>.SetExtension<TValue>(Google.Protobuf.Extension<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue>, TValue)
+  nameWithType.vb: IExtendableMessage(Of ProtocolMessage).SetExtension(Of TValue)(Extension(Of ProtocolMessage, TValue), TValue)
+  fullName.vb: Google.Protobuf.IExtendableMessage(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage).SetExtension(Of TValue)(Google.Protobuf.Extension(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue), TValue)
+  name.vb: SetExtension(Of TValue)(Extension(Of ProtocolMessage, TValue), TValue)
+  spec.csharp:
+  - uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.SetExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0},``0)
+    name: SetExtension
+    isExternal: true
+  - name: <
+  - name: TValue
+  - name: '>'
+  - name: (
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.SetExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0},``0)
+    name: SetExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: (
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: Google.Protobuf.IExtendableMessage`1.SetExtension``1(Google.Protobuf.Extension{`0,``0},``0)
+  commentId: M:Google.Protobuf.IExtendableMessage`1.SetExtension``1(Google.Protobuf.Extension{`0,``0},``0)
+  isExternal: true
+  name: SetExtension<TValue>(Extension<T, TValue>, TValue)
+  nameWithType: IExtendableMessage<T>.SetExtension<TValue>(Extension<T, TValue>, TValue)
+  fullName: Google.Protobuf.IExtendableMessage<T>.SetExtension<TValue>(Google.Protobuf.Extension<T, TValue>, TValue)
+  nameWithType.vb: IExtendableMessage(Of T).SetExtension(Of TValue)(Extension(Of T, TValue), TValue)
+  fullName.vb: Google.Protobuf.IExtendableMessage(Of T).SetExtension(Of TValue)(Google.Protobuf.Extension(Of T, TValue), TValue)
+  name.vb: SetExtension(Of TValue)(Extension(Of T, TValue), TValue)
+  spec.csharp:
+  - uid: Google.Protobuf.IExtendableMessage`1.SetExtension``1(Google.Protobuf.Extension{`0,``0},``0)
+    name: SetExtension
+    isExternal: true
+  - name: <
+  - name: TValue
+  - name: '>'
+  - name: (
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IExtendableMessage`1.SetExtension``1(Google.Protobuf.Extension{`0,``0},``0)
+    name: SetExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: (
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasExtension*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasExtension
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_HasExtension__1_Google_Protobuf_Extension_AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage___0__
+  name: HasExtension
+  nameWithType: ProtocolMessage.HasExtension
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.HasExtension
+- uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.HasExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}})
+  commentId: M:Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.HasExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  parent: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  definition: Google.Protobuf.IExtendableMessage`1.HasExtension``1(Google.Protobuf.Extension{`0,``0})
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: HasExtension<TValue>(Extension<ProtocolMessage, TValue>)
+  nameWithType: IExtendableMessage<ProtocolMessage>.HasExtension<TValue>(Extension<ProtocolMessage, TValue>)
+  fullName: Google.Protobuf.IExtendableMessage<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>.HasExtension<TValue>(Google.Protobuf.Extension<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue>)
+  nameWithType.vb: IExtendableMessage(Of ProtocolMessage).HasExtension(Of TValue)(Extension(Of ProtocolMessage, TValue))
+  fullName.vb: Google.Protobuf.IExtendableMessage(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage).HasExtension(Of TValue)(Google.Protobuf.Extension(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue))
+  name.vb: HasExtension(Of TValue)(Extension(Of ProtocolMessage, TValue))
+  spec.csharp:
+  - uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.HasExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+    name: HasExtension
+    isExternal: true
+  - name: <
+  - name: TValue
+  - name: '>'
+  - name: (
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.HasExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+    name: HasExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: (
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: )
+- uid: Google.Protobuf.IExtendableMessage`1.HasExtension``1(Google.Protobuf.Extension{`0,``0})
+  commentId: M:Google.Protobuf.IExtendableMessage`1.HasExtension``1(Google.Protobuf.Extension{`0,``0})
+  isExternal: true
+  name: HasExtension<TValue>(Extension<T, TValue>)
+  nameWithType: IExtendableMessage<T>.HasExtension<TValue>(Extension<T, TValue>)
+  fullName: Google.Protobuf.IExtendableMessage<T>.HasExtension<TValue>(Google.Protobuf.Extension<T, TValue>)
+  nameWithType.vb: IExtendableMessage(Of T).HasExtension(Of TValue)(Extension(Of T, TValue))
+  fullName.vb: Google.Protobuf.IExtendableMessage(Of T).HasExtension(Of TValue)(Google.Protobuf.Extension(Of T, TValue))
+  name.vb: HasExtension(Of TValue)(Extension(Of T, TValue))
+  spec.csharp:
+  - uid: Google.Protobuf.IExtendableMessage`1.HasExtension``1(Google.Protobuf.Extension{`0,``0})
+    name: HasExtension
+    isExternal: true
+  - name: <
+  - name: TValue
+  - name: '>'
+  - name: (
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IExtendableMessage`1.HasExtension``1(Google.Protobuf.Extension{`0,``0})
+    name: HasExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: (
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearExtension*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearExtension
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_ClearExtension__1_Google_Protobuf_Extension_AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage___0__
+  name: ClearExtension
+  nameWithType: ProtocolMessage.ClearExtension
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.ClearExtension
+- uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.ClearExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}})
+  commentId: M:Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.ClearExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  parent: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  definition: Google.Protobuf.IExtendableMessage`1.ClearExtension``1(Google.Protobuf.Extension{`0,``0})
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: ClearExtension<TValue>(Extension<ProtocolMessage, TValue>)
+  nameWithType: IExtendableMessage<ProtocolMessage>.ClearExtension<TValue>(Extension<ProtocolMessage, TValue>)
+  fullName: Google.Protobuf.IExtendableMessage<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>.ClearExtension<TValue>(Google.Protobuf.Extension<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue>)
+  nameWithType.vb: IExtendableMessage(Of ProtocolMessage).ClearExtension(Of TValue)(Extension(Of ProtocolMessage, TValue))
+  fullName.vb: Google.Protobuf.IExtendableMessage(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage).ClearExtension(Of TValue)(Google.Protobuf.Extension(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue))
+  name.vb: ClearExtension(Of TValue)(Extension(Of ProtocolMessage, TValue))
+  spec.csharp:
+  - uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.ClearExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+    name: ClearExtension
+    isExternal: true
+  - name: <
+  - name: TValue
+  - name: '>'
+  - name: (
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.ClearExtension``1(Google.Protobuf.Extension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+    name: ClearExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: (
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: )
+- uid: Google.Protobuf.IExtendableMessage`1.ClearExtension``1(Google.Protobuf.Extension{`0,``0})
+  commentId: M:Google.Protobuf.IExtendableMessage`1.ClearExtension``1(Google.Protobuf.Extension{`0,``0})
+  isExternal: true
+  name: ClearExtension<TValue>(Extension<T, TValue>)
+  nameWithType: IExtendableMessage<T>.ClearExtension<TValue>(Extension<T, TValue>)
+  fullName: Google.Protobuf.IExtendableMessage<T>.ClearExtension<TValue>(Google.Protobuf.Extension<T, TValue>)
+  nameWithType.vb: IExtendableMessage(Of T).ClearExtension(Of TValue)(Extension(Of T, TValue))
+  fullName.vb: Google.Protobuf.IExtendableMessage(Of T).ClearExtension(Of TValue)(Google.Protobuf.Extension(Of T, TValue))
+  name.vb: ClearExtension(Of TValue)(Extension(Of T, TValue))
+  spec.csharp:
+  - uid: Google.Protobuf.IExtendableMessage`1.ClearExtension``1(Google.Protobuf.Extension{`0,``0})
+    name: ClearExtension
+    isExternal: true
+  - name: <
+  - name: TValue
+  - name: '>'
+  - name: (
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IExtendableMessage`1.ClearExtension``1(Google.Protobuf.Extension{`0,``0})
+    name: ClearExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: (
+  - uid: Google.Protobuf.Extension`2
+    name: Extension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: )
+- uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.ClearExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,{TValue}})
+  commentId: M:Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.ClearExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+  parent: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  definition: Google.Protobuf.IExtendableMessage`1.ClearExtension``1(Google.Protobuf.RepeatedExtension{`0,``0})
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: ClearExtension<TValue>(RepeatedExtension<ProtocolMessage, TValue>)
+  nameWithType: IExtendableMessage<ProtocolMessage>.ClearExtension<TValue>(RepeatedExtension<ProtocolMessage, TValue>)
+  fullName: Google.Protobuf.IExtendableMessage<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>.ClearExtension<TValue>(Google.Protobuf.RepeatedExtension<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue>)
+  nameWithType.vb: IExtendableMessage(Of ProtocolMessage).ClearExtension(Of TValue)(RepeatedExtension(Of ProtocolMessage, TValue))
+  fullName.vb: Google.Protobuf.IExtendableMessage(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage).ClearExtension(Of TValue)(Google.Protobuf.RepeatedExtension(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage, TValue))
+  name.vb: ClearExtension(Of TValue)(RepeatedExtension(Of ProtocolMessage, TValue))
+  spec.csharp:
+  - uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.ClearExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+    name: ClearExtension
+    isExternal: true
+  - name: <
+  - name: TValue
+  - name: '>'
+  - name: (
+  - uid: Google.Protobuf.RepeatedExtension`2
+    name: RepeatedExtension
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IExtendableMessage{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}.ClearExtension``1(Google.Protobuf.RepeatedExtension{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage,``0})
+    name: ClearExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: (
+  - uid: Google.Protobuf.RepeatedExtension`2
+    name: RepeatedExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: )
+- uid: Google.Protobuf.IExtendableMessage`1.ClearExtension``1(Google.Protobuf.RepeatedExtension{`0,``0})
+  commentId: M:Google.Protobuf.IExtendableMessage`1.ClearExtension``1(Google.Protobuf.RepeatedExtension{`0,``0})
+  isExternal: true
+  name: ClearExtension<TValue>(RepeatedExtension<T, TValue>)
+  nameWithType: IExtendableMessage<T>.ClearExtension<TValue>(RepeatedExtension<T, TValue>)
+  fullName: Google.Protobuf.IExtendableMessage<T>.ClearExtension<TValue>(Google.Protobuf.RepeatedExtension<T, TValue>)
+  nameWithType.vb: IExtendableMessage(Of T).ClearExtension(Of TValue)(RepeatedExtension(Of T, TValue))
+  fullName.vb: Google.Protobuf.IExtendableMessage(Of T).ClearExtension(Of TValue)(Google.Protobuf.RepeatedExtension(Of T, TValue))
+  name.vb: ClearExtension(Of TValue)(RepeatedExtension(Of T, TValue))
+  spec.csharp:
+  - uid: Google.Protobuf.IExtendableMessage`1.ClearExtension``1(Google.Protobuf.RepeatedExtension{`0,``0})
+    name: ClearExtension
+    isExternal: true
+  - name: <
+  - name: TValue
+  - name: '>'
+  - name: (
+  - uid: Google.Protobuf.RepeatedExtension`2
+    name: RepeatedExtension
+    isExternal: true
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IExtendableMessage`1.ClearExtension``1(Google.Protobuf.RepeatedExtension{`0,``0})
+    name: ClearExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: (
+  - uid: Google.Protobuf.RepeatedExtension`2
+    name: RepeatedExtension
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+  - name: )

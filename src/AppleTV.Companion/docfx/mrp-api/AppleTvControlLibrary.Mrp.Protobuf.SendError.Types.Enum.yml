@@ -1,0 +1,484 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  id: SendError.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.ApplicationNotFound
+  - AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.ApplicationNotInstalled
+  - AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.ConnectionFailed
+  - AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.CouldNotLaunchApplication
+  - AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.Ignored
+  - AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.InvalidOptions
+  - AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.NoCommandHandlers
+  - AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.NoError
+  - AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.NotSupported
+  - AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.OriginDoesNotExist
+  - AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.TimedOut
+  langs:
+  - csharp
+  - vb
+  name: SendError.Types.Enum
+  nameWithType: SendError.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  type: Enum
+  source:
+    id: Enum
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 260
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public enum SendError.Types.Enum
+    content.vb: Public Enum SendError.Types.Enum
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.NoError
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.NoError
+  id: NoError
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: NoError
+  nameWithType: SendError.Types.Enum.NoError
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.NoError
+  type: Field
+  source:
+    id: NoError
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 264
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: This is None in original message definitions (no-go with python)
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("NoError")]
+
+      NoError = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+    content.vb: >-
+      <OriginalName("NoError")>
+
+      NoError = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NoError
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.ApplicationNotFound
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.ApplicationNotFound
+  id: ApplicationNotFound
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: ApplicationNotFound
+  nameWithType: SendError.Types.Enum.ApplicationNotFound
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.ApplicationNotFound
+  type: Field
+  source:
+    id: ApplicationNotFound
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 265
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("ApplicationNotFound")]
+
+      ApplicationNotFound = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+    content.vb: >-
+      <OriginalName("ApplicationNotFound")>
+
+      ApplicationNotFound = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ApplicationNotFound
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.ConnectionFailed
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.ConnectionFailed
+  id: ConnectionFailed
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: ConnectionFailed
+  nameWithType: SendError.Types.Enum.ConnectionFailed
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.ConnectionFailed
+  type: Field
+  source:
+    id: ConnectionFailed
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 266
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("ConnectionFailed")]
+
+      ConnectionFailed = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+    content.vb: >-
+      <OriginalName("ConnectionFailed")>
+
+      ConnectionFailed = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ConnectionFailed
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.Ignored
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.Ignored
+  id: Ignored
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Ignored
+  nameWithType: SendError.Types.Enum.Ignored
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.Ignored
+  type: Field
+  source:
+    id: Ignored
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 267
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Ignored")]
+
+      Ignored = 3
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+    content.vb: >-
+      <OriginalName("Ignored")>
+
+      Ignored = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Ignored
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.CouldNotLaunchApplication
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.CouldNotLaunchApplication
+  id: CouldNotLaunchApplication
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: CouldNotLaunchApplication
+  nameWithType: SendError.Types.Enum.CouldNotLaunchApplication
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.CouldNotLaunchApplication
+  type: Field
+  source:
+    id: CouldNotLaunchApplication
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 268
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("CouldNotLaunchApplication")]
+
+      CouldNotLaunchApplication = 4
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+    content.vb: >-
+      <OriginalName("CouldNotLaunchApplication")>
+
+      CouldNotLaunchApplication = 4
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: CouldNotLaunchApplication
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.TimedOut
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.TimedOut
+  id: TimedOut
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TimedOut
+  nameWithType: SendError.Types.Enum.TimedOut
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.TimedOut
+  type: Field
+  source:
+    id: TimedOut
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 269
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TimedOut")]
+
+      TimedOut = 5
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+    content.vb: >-
+      <OriginalName("TimedOut")>
+
+      TimedOut = 5
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TimedOut
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.OriginDoesNotExist
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.OriginDoesNotExist
+  id: OriginDoesNotExist
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: OriginDoesNotExist
+  nameWithType: SendError.Types.Enum.OriginDoesNotExist
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.OriginDoesNotExist
+  type: Field
+  source:
+    id: OriginDoesNotExist
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 270
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("OriginDoesNotExist")]
+
+      OriginDoesNotExist = 6
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+    content.vb: >-
+      <OriginalName("OriginDoesNotExist")>
+
+      OriginDoesNotExist = 6
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: OriginDoesNotExist
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.InvalidOptions
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.InvalidOptions
+  id: InvalidOptions
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: InvalidOptions
+  nameWithType: SendError.Types.Enum.InvalidOptions
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.InvalidOptions
+  type: Field
+  source:
+    id: InvalidOptions
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 271
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("InvalidOptions")]
+
+      InvalidOptions = 7
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+    content.vb: >-
+      <OriginalName("InvalidOptions")>
+
+      InvalidOptions = 7
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: InvalidOptions
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.NoCommandHandlers
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.NoCommandHandlers
+  id: NoCommandHandlers
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: NoCommandHandlers
+  nameWithType: SendError.Types.Enum.NoCommandHandlers
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.NoCommandHandlers
+  type: Field
+  source:
+    id: NoCommandHandlers
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 272
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("NoCommandHandlers")]
+
+      NoCommandHandlers = 8
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+    content.vb: >-
+      <OriginalName("NoCommandHandlers")>
+
+      NoCommandHandlers = 8
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NoCommandHandlers
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.ApplicationNotInstalled
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.ApplicationNotInstalled
+  id: ApplicationNotInstalled
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: ApplicationNotInstalled
+  nameWithType: SendError.Types.Enum.ApplicationNotInstalled
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.ApplicationNotInstalled
+  type: Field
+  source:
+    id: ApplicationNotInstalled
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 273
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("ApplicationNotInstalled")]
+
+      ApplicationNotInstalled = 9
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+    content.vb: >-
+      <OriginalName("ApplicationNotInstalled")>
+
+      ApplicationNotInstalled = 9
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ApplicationNotInstalled
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.NotSupported
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.NotSupported
+  id: NotSupported
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: NotSupported
+  nameWithType: SendError.Types.Enum.NotSupported
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.NotSupported
+  type: Field
+  source:
+    id: NotSupported
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendCommandResultMessage.cs
+    startLine: 274
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("NotSupported")]
+
+      NotSupported = 10
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+    content.vb: >-
+      <OriginalName("NotSupported")>
+
+      NotSupported = 10
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NotSupported
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendError.html
+  name: SendError.Types.Enum
+  nameWithType: SendError.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendError
+    name: SendError
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendError.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendError
+    name: SendError
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendError.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.html

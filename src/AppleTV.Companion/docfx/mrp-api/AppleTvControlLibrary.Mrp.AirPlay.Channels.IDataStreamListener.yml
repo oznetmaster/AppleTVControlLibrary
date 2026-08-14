@@ -1,0 +1,211 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener
+  commentId: T:AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener
+  id: IDataStreamListener
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Channels
+  children:
+  - AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.HandleConnectionLost(System.Exception)
+  - AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.HandleProtobuf(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  langs:
+  - csharp
+  - vb
+  name: IDataStreamListener
+  nameWithType: IDataStreamListener
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener
+  type: Interface
+  source:
+    remote:
+      path: src/AppleTv.Mrp/AirPlay/Channels/DataStreamChannel.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: IDataStreamListener
+    path: ../../AppleTv.Mrp/AirPlay/Channels/DataStreamChannel.cs
+    startLine: 17
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.AirPlay.Channels
+  summary: Listener interface for <xref href="AppleTvControlLibrary.Mrp.AirPlay.Channels.DataStreamChannel" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public interface IDataStreamListener
+    content.vb: Public Interface IDataStreamListener
+  derivedClasses:
+  - AppleTvControlLibrary.Mrp.AirPlay.AirPlayMrpConnection
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.HandleProtobuf(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.HandleProtobuf(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  id: HandleProtobuf(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener
+  langs:
+  - csharp
+  - vb
+  name: HandleProtobuf(ProtocolMessage)
+  nameWithType: IDataStreamListener.HandleProtobuf(ProtocolMessage)
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.HandleProtobuf(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/AirPlay/Channels/DataStreamChannel.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: HandleProtobuf
+    path: ../../AppleTv.Mrp/AirPlay/Channels/DataStreamChannel.cs
+    startLine: 22
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.AirPlay.Channels
+  summary: Handle an incoming protobuf message tunneled over the data channel.
+  example: []
+  syntax:
+    content: void HandleProtobuf(ProtocolMessage message)
+    parameters:
+    - id: message
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The decoded message.
+    content.vb: Sub HandleProtobuf(message As ProtocolMessage)
+  overload: AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.HandleProtobuf*
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.HandleConnectionLost(System.Exception)
+  commentId: M:AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.HandleConnectionLost(System.Exception)
+  id: HandleConnectionLost(System.Exception)
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener
+  langs:
+  - csharp
+  - vb
+  name: HandleConnectionLost(Exception?)
+  nameWithType: IDataStreamListener.HandleConnectionLost(Exception?)
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.HandleConnectionLost(System.Exception?)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/AirPlay/Channels/DataStreamChannel.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: HandleConnectionLost
+    path: ../../AppleTv.Mrp/AirPlay/Channels/DataStreamChannel.cs
+    startLine: 27
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.AirPlay.Channels
+  summary: Device connection was dropped.
+  example: []
+  syntax:
+    content: void HandleConnectionLost(Exception? exception)
+    parameters:
+    - id: exception
+      type: System.Exception
+      description: The exception that caused the drop, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for a clean close.
+    content.vb: Sub HandleConnectionLost(exception As Exception)
+  overload: AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.HandleConnectionLost*
+  nameWithType.vb: IDataStreamListener.HandleConnectionLost(Exception)
+  fullName.vb: AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.HandleConnectionLost(System.Exception)
+  name.vb: HandleConnectionLost(Exception)
+references:
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Channels.DataStreamChannel
+  commentId: T:AppleTvControlLibrary.Mrp.AirPlay.Channels.DataStreamChannel
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Channels
+  href: AppleTvControlLibrary.Mrp.AirPlay.Channels.DataStreamChannel.html
+  name: DataStreamChannel
+  nameWithType: DataStreamChannel
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Channels.DataStreamChannel
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Channels
+  commentId: N:AppleTvControlLibrary.Mrp.AirPlay.Channels
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.AirPlay.Channels
+  nameWithType: AppleTvControlLibrary.Mrp.AirPlay.Channels
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Channels
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay
+    name: AirPlay
+    href: AppleTvControlLibrary.Mrp.AirPlay.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay.Channels
+    name: Channels
+    href: AppleTvControlLibrary.Mrp.AirPlay.Channels.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay
+    name: AirPlay
+    href: AppleTvControlLibrary.Mrp.AirPlay.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay.Channels
+    name: Channels
+    href: AppleTvControlLibrary.Mrp.AirPlay.Channels.html
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.HandleProtobuf*
+  commentId: Overload:AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.HandleProtobuf
+  href: AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.html#AppleTvControlLibrary_Mrp_AirPlay_Channels_IDataStreamListener_HandleProtobuf_AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_
+  name: HandleProtobuf
+  nameWithType: IDataStreamListener.HandleProtobuf
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.HandleProtobuf
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: ProtocolMessage
+  nameWithType: ProtocolMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.HandleConnectionLost*
+  commentId: Overload:AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.HandleConnectionLost
+  href: AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.html#AppleTvControlLibrary_Mrp_AirPlay_Channels_IDataStreamListener_HandleConnectionLost_System_Exception_
+  name: HandleConnectionLost
+  nameWithType: IDataStreamListener.HandleConnectionLost
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Channels.IDataStreamListener.HandleConnectionLost
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

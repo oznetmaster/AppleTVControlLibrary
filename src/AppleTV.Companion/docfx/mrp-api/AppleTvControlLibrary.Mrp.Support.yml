@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Support
+  commentId: N:AppleTvControlLibrary.Mrp.Support
+  id: AppleTvControlLibrary.Mrp.Support
+  children:
+  - AppleTvControlLibrary.Mrp.Support.Variant
+  langs:
+  - csharp
+  - vb
+  name: AppleTvControlLibrary.Mrp.Support
+  nameWithType: AppleTvControlLibrary.Mrp.Support
+  fullName: AppleTvControlLibrary.Mrp.Support
+  type: Namespace
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+references:
+- uid: AppleTvControlLibrary.Mrp.Support.Variant
+  commentId: T:AppleTvControlLibrary.Mrp.Support.Variant
+  href: AppleTvControlLibrary.Mrp.Support.Variant.html
+  name: Variant
+  nameWithType: Variant
+  fullName: AppleTvControlLibrary.Mrp.Support.Variant

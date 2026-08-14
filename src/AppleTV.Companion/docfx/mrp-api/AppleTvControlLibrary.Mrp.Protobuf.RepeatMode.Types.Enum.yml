@@ -1,0 +1,230 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+  id: RepeatMode.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.All
+  - AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.Off
+  - AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.One
+  - AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.Unknown
+  langs:
+  - csharp
+  - vb
+  name: RepeatMode.Types.Enum
+  nameWithType: RepeatMode.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+  type: Enum
+  source:
+    id: Enum
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 224
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public enum RepeatMode.Types.Enum
+    content.vb: Public Enum RepeatMode.Types.Enum
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.Unknown
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.Unknown
+  id: Unknown
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: RepeatMode.Types.Enum.Unknown
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.Unknown
+  type: Field
+  source:
+    id: Unknown
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 225
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Unknown")]
+
+      Unknown = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+    content.vb: >-
+      <OriginalName("Unknown")>
+
+      Unknown = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Unknown
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.Off
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.Off
+  id: Off
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Off
+  nameWithType: RepeatMode.Types.Enum.Off
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.Off
+  type: Field
+  source:
+    id: Off
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 226
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Off")]
+
+      Off = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+    content.vb: >-
+      <OriginalName("Off")>
+
+      Off = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Off
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.One
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.One
+  id: One
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: One
+  nameWithType: RepeatMode.Types.Enum.One
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.One
+  type: Field
+  source:
+    id: One
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 227
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("One")]
+
+      One = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+    content.vb: >-
+      <OriginalName("One")>
+
+      One = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: One
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.All
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.All
+  id: All
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: RepeatMode.Types.Enum.All
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.All
+  type: Field
+  source:
+    id: All
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 228
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("All")]
+
+      All = 3
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+    content.vb: >-
+      <OriginalName("All")>
+
+      All = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: All
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.html
+  name: RepeatMode.Types.Enum
+  nameWithType: RepeatMode.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode
+    name: RepeatMode
+    href: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode
+    name: RepeatMode
+    href: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.html

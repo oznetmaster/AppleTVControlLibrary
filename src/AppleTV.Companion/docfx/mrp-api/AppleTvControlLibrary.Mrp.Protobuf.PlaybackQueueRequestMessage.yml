@@ -1,0 +1,3313 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  id: PlaybackQueueRequestMessage
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.#ctor
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkHeight
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkHeightFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkWidth
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkWidthFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CachingPolicy
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CachingPolicyFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CalculateSize
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearArtworkHeight
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearArtworkWidth
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearCachingPolicy
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeInfo
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeLanguageOptions
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeLyrics
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeMetadata
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeSections
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIsLegacyNowPlayingInfoRequest
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLabel
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLength
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLocation
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearRequestID
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearReturnContentItemAssetsInUserCompletion
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Clone
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ContentItemIdentifiers
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ContentItemIdentifiersFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Context
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ContextFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Descriptor
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Equals(System.Object)
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.GetHashCode
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasArtworkHeight
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasArtworkWidth
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasCachingPolicy
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeInfo
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeLanguageOptions
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeLyrics
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeMetadata
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeSections
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIsLegacyNowPlayingInfoRequest
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLabel
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLength
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLocation
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasRequestID
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasReturnContentItemAssetsInUserCompletion
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeInfo
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeInfoFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLanguageOptions
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLanguageOptionsFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLyrics
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLyricsFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeMetadata
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeMetadataFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeSections
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeSectionsFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IsLegacyNowPlayingInfoRequest
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IsLegacyNowPlayingInfoRequestFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Label
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.LabelFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Length
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.LengthFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Location
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.LocationFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Parser
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.PlayerPath
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.PlayerPathFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.RequestID
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.RequestIDFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ReturnContentItemAssetsInUserCompletion
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ReturnContentItemAssetsInUserCompletionFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ToString
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: PlaybackQueueRequestMessage
+  nameWithType: PlaybackQueueRequestMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  type: Class
+  source:
+    id: PlaybackQueueRequestMessage
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 61
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: 'public sealed class PlaybackQueueRequestMessage : IMessage<PlaybackQueueRequestMessage>, IEquatable<PlaybackQueueRequestMessage>, IDeepCloneable<PlaybackQueueRequestMessage>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class PlaybackQueueRequestMessage Implements IMessage(Of PlaybackQueueRequestMessage), IEquatable(Of PlaybackQueueRequestMessage), IDeepCloneable(Of PlaybackQueueRequestMessage), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}
+  - System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}
+  - Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Parser
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Parser
+  id: Parser
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: PlaybackQueueRequestMessage.Parser
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Parser
+  type: Property
+  source:
+    id: Parser
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 70
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public static MessageParser<PlaybackQueueRequestMessage> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of PlaybackQueueRequestMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Parser*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Descriptor
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Descriptor
+  id: Descriptor
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: PlaybackQueueRequestMessage.Descriptor
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Descriptor
+  type: Property
+  source:
+    id: Descriptor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 74
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Descriptor*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.#ctor
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.#ctor
+  id: '#ctor'
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: PlaybackQueueRequestMessage()
+  nameWithType: PlaybackQueueRequestMessage.PlaybackQueueRequestMessage()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.PlaybackQueueRequestMessage()
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 86
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public PlaybackQueueRequestMessage()
+    content.vb: Public Sub New()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.#ctor*
+  nameWithType.vb: PlaybackQueueRequestMessage.New()
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.New()
+  name.vb: New()
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  id: '#ctor(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)'
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: PlaybackQueueRequestMessage(PlaybackQueueRequestMessage)
+  nameWithType: PlaybackQueueRequestMessage.PlaybackQueueRequestMessage(PlaybackQueueRequestMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.PlaybackQueueRequestMessage(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 94
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public PlaybackQueueRequestMessage(PlaybackQueueRequestMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+    content.vb: Public Sub New(other As PlaybackQueueRequestMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.#ctor*
+  nameWithType.vb: PlaybackQueueRequestMessage.New(PlaybackQueueRequestMessage)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.New(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  name.vb: New(PlaybackQueueRequestMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Clone
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Clone
+  id: Clone
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: PlaybackQueueRequestMessage.Clone()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Clone()
+  type: Method
+  source:
+    id: Clone
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 118
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public PlaybackQueueRequestMessage Clone()
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As PlaybackQueueRequestMessage
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}.Clone
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.LocationFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.LocationFieldNumber
+  id: LocationFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: LocationFieldNumber
+  nameWithType: PlaybackQueueRequestMessage.LocationFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.LocationFieldNumber
+  type: Field
+  source:
+    id: LocationFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 125
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "location" field.
+  example: []
+  syntax:
+    content: public const int LocationFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const LocationFieldNumber As Integer = 1
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Location
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Location
+  id: Location
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: Location
+  nameWithType: PlaybackQueueRequestMessage.Location
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Location
+  type: Property
+  source:
+    id: Location
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 129
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public int Location { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Location As Integer
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Location*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLocation
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLocation
+  id: HasLocation
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: HasLocation
+  nameWithType: PlaybackQueueRequestMessage.HasLocation
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLocation
+  type: Property
+  source:
+    id: HasLocation
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 139
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "location" field is set
+  example: []
+  syntax:
+    content: public bool HasLocation { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasLocation As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLocation*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLocation
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLocation
+  id: ClearLocation
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearLocation()
+  nameWithType: PlaybackQueueRequestMessage.ClearLocation()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLocation()
+  type: Method
+  source:
+    id: ClearLocation
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 145
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "location" field
+  example: []
+  syntax:
+    content: public void ClearLocation()
+    content.vb: Public Sub ClearLocation()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLocation*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.LengthFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.LengthFieldNumber
+  id: LengthFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: LengthFieldNumber
+  nameWithType: PlaybackQueueRequestMessage.LengthFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.LengthFieldNumber
+  type: Field
+  source:
+    id: LengthFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 152
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "length" field.
+  example: []
+  syntax:
+    content: public const int LengthFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const LengthFieldNumber As Integer = 2
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Length
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Length
+  id: Length
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: Length
+  nameWithType: PlaybackQueueRequestMessage.Length
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Length
+  type: Property
+  source:
+    id: Length
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 156
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public int Length { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Length As Integer
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Length*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLength
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLength
+  id: HasLength
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: HasLength
+  nameWithType: PlaybackQueueRequestMessage.HasLength
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLength
+  type: Property
+  source:
+    id: HasLength
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 166
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "length" field is set
+  example: []
+  syntax:
+    content: public bool HasLength { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasLength As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLength*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLength
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLength
+  id: ClearLength
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearLength()
+  nameWithType: PlaybackQueueRequestMessage.ClearLength()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLength()
+  type: Method
+  source:
+    id: ClearLength
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 172
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "length" field
+  example: []
+  syntax:
+    content: public void ClearLength()
+    content.vb: Public Sub ClearLength()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLength*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeMetadataFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeMetadataFieldNumber
+  id: IncludeMetadataFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: IncludeMetadataFieldNumber
+  nameWithType: PlaybackQueueRequestMessage.IncludeMetadataFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeMetadataFieldNumber
+  type: Field
+  source:
+    id: IncludeMetadataFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 179
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "includeMetadata" field.
+  example: []
+  syntax:
+    content: public const int IncludeMetadataFieldNumber = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const IncludeMetadataFieldNumber As Integer = 3
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeMetadata
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeMetadata
+  id: IncludeMetadata
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: IncludeMetadata
+  nameWithType: PlaybackQueueRequestMessage.IncludeMetadata
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeMetadata
+  type: Property
+  source:
+    id: IncludeMetadata
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 183
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public bool IncludeMetadata { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeMetadata As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeMetadata*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeMetadata
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeMetadata
+  id: HasIncludeMetadata
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: HasIncludeMetadata
+  nameWithType: PlaybackQueueRequestMessage.HasIncludeMetadata
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeMetadata
+  type: Property
+  source:
+    id: HasIncludeMetadata
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 193
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "includeMetadata" field is set
+  example: []
+  syntax:
+    content: public bool HasIncludeMetadata { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasIncludeMetadata As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeMetadata*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeMetadata
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeMetadata
+  id: ClearIncludeMetadata
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearIncludeMetadata()
+  nameWithType: PlaybackQueueRequestMessage.ClearIncludeMetadata()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeMetadata()
+  type: Method
+  source:
+    id: ClearIncludeMetadata
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 199
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "includeMetadata" field
+  example: []
+  syntax:
+    content: public void ClearIncludeMetadata()
+    content.vb: Public Sub ClearIncludeMetadata()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeMetadata*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkWidthFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkWidthFieldNumber
+  id: ArtworkWidthFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ArtworkWidthFieldNumber
+  nameWithType: PlaybackQueueRequestMessage.ArtworkWidthFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkWidthFieldNumber
+  type: Field
+  source:
+    id: ArtworkWidthFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 206
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "artworkWidth" field.
+  example: []
+  syntax:
+    content: public const int ArtworkWidthFieldNumber = 4
+    return:
+      type: System.Int32
+    content.vb: Public Const ArtworkWidthFieldNumber As Integer = 4
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkWidth
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkWidth
+  id: ArtworkWidth
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ArtworkWidth
+  nameWithType: PlaybackQueueRequestMessage.ArtworkWidth
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkWidth
+  type: Property
+  source:
+    id: ArtworkWidth
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 210
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public double ArtworkWidth { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property ArtworkWidth As Double
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkWidth*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasArtworkWidth
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasArtworkWidth
+  id: HasArtworkWidth
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: HasArtworkWidth
+  nameWithType: PlaybackQueueRequestMessage.HasArtworkWidth
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasArtworkWidth
+  type: Property
+  source:
+    id: HasArtworkWidth
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 220
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "artworkWidth" field is set
+  example: []
+  syntax:
+    content: public bool HasArtworkWidth { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasArtworkWidth As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasArtworkWidth*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearArtworkWidth
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearArtworkWidth
+  id: ClearArtworkWidth
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearArtworkWidth()
+  nameWithType: PlaybackQueueRequestMessage.ClearArtworkWidth()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearArtworkWidth()
+  type: Method
+  source:
+    id: ClearArtworkWidth
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 226
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "artworkWidth" field
+  example: []
+  syntax:
+    content: public void ClearArtworkWidth()
+    content.vb: Public Sub ClearArtworkWidth()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearArtworkWidth*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkHeightFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkHeightFieldNumber
+  id: ArtworkHeightFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ArtworkHeightFieldNumber
+  nameWithType: PlaybackQueueRequestMessage.ArtworkHeightFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkHeightFieldNumber
+  type: Field
+  source:
+    id: ArtworkHeightFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 233
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "artworkHeight" field.
+  example: []
+  syntax:
+    content: public const int ArtworkHeightFieldNumber = 5
+    return:
+      type: System.Int32
+    content.vb: Public Const ArtworkHeightFieldNumber As Integer = 5
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkHeight
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkHeight
+  id: ArtworkHeight
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ArtworkHeight
+  nameWithType: PlaybackQueueRequestMessage.ArtworkHeight
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkHeight
+  type: Property
+  source:
+    id: ArtworkHeight
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 237
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public double ArtworkHeight { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property ArtworkHeight As Double
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkHeight*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasArtworkHeight
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasArtworkHeight
+  id: HasArtworkHeight
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: HasArtworkHeight
+  nameWithType: PlaybackQueueRequestMessage.HasArtworkHeight
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasArtworkHeight
+  type: Property
+  source:
+    id: HasArtworkHeight
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 247
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "artworkHeight" field is set
+  example: []
+  syntax:
+    content: public bool HasArtworkHeight { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasArtworkHeight As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasArtworkHeight*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearArtworkHeight
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearArtworkHeight
+  id: ClearArtworkHeight
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearArtworkHeight()
+  nameWithType: PlaybackQueueRequestMessage.ClearArtworkHeight()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearArtworkHeight()
+  type: Method
+  source:
+    id: ClearArtworkHeight
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 253
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "artworkHeight" field
+  example: []
+  syntax:
+    content: public void ClearArtworkHeight()
+    content.vb: Public Sub ClearArtworkHeight()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearArtworkHeight*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLyricsFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLyricsFieldNumber
+  id: IncludeLyricsFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: IncludeLyricsFieldNumber
+  nameWithType: PlaybackQueueRequestMessage.IncludeLyricsFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLyricsFieldNumber
+  type: Field
+  source:
+    id: IncludeLyricsFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 260
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "includeLyrics" field.
+  example: []
+  syntax:
+    content: public const int IncludeLyricsFieldNumber = 6
+    return:
+      type: System.Int32
+    content.vb: Public Const IncludeLyricsFieldNumber As Integer = 6
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLyrics
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLyrics
+  id: IncludeLyrics
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: IncludeLyrics
+  nameWithType: PlaybackQueueRequestMessage.IncludeLyrics
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLyrics
+  type: Property
+  source:
+    id: IncludeLyrics
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 264
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public bool IncludeLyrics { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeLyrics As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLyrics*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeLyrics
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeLyrics
+  id: HasIncludeLyrics
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: HasIncludeLyrics
+  nameWithType: PlaybackQueueRequestMessage.HasIncludeLyrics
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeLyrics
+  type: Property
+  source:
+    id: HasIncludeLyrics
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 274
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "includeLyrics" field is set
+  example: []
+  syntax:
+    content: public bool HasIncludeLyrics { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasIncludeLyrics As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeLyrics*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeLyrics
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeLyrics
+  id: ClearIncludeLyrics
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearIncludeLyrics()
+  nameWithType: PlaybackQueueRequestMessage.ClearIncludeLyrics()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeLyrics()
+  type: Method
+  source:
+    id: ClearIncludeLyrics
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 280
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "includeLyrics" field
+  example: []
+  syntax:
+    content: public void ClearIncludeLyrics()
+    content.vb: Public Sub ClearIncludeLyrics()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeLyrics*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeSectionsFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeSectionsFieldNumber
+  id: IncludeSectionsFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: IncludeSectionsFieldNumber
+  nameWithType: PlaybackQueueRequestMessage.IncludeSectionsFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeSectionsFieldNumber
+  type: Field
+  source:
+    id: IncludeSectionsFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 287
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "includeSections" field.
+  example: []
+  syntax:
+    content: public const int IncludeSectionsFieldNumber = 7
+    return:
+      type: System.Int32
+    content.vb: Public Const IncludeSectionsFieldNumber As Integer = 7
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeSections
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeSections
+  id: IncludeSections
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: IncludeSections
+  nameWithType: PlaybackQueueRequestMessage.IncludeSections
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeSections
+  type: Property
+  source:
+    id: IncludeSections
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 291
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public bool IncludeSections { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeSections As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeSections*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeSections
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeSections
+  id: HasIncludeSections
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: HasIncludeSections
+  nameWithType: PlaybackQueueRequestMessage.HasIncludeSections
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeSections
+  type: Property
+  source:
+    id: HasIncludeSections
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 301
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "includeSections" field is set
+  example: []
+  syntax:
+    content: public bool HasIncludeSections { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasIncludeSections As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeSections*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeSections
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeSections
+  id: ClearIncludeSections
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearIncludeSections()
+  nameWithType: PlaybackQueueRequestMessage.ClearIncludeSections()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeSections()
+  type: Method
+  source:
+    id: ClearIncludeSections
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 307
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "includeSections" field
+  example: []
+  syntax:
+    content: public void ClearIncludeSections()
+    content.vb: Public Sub ClearIncludeSections()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeSections*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeInfoFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeInfoFieldNumber
+  id: IncludeInfoFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: IncludeInfoFieldNumber
+  nameWithType: PlaybackQueueRequestMessage.IncludeInfoFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeInfoFieldNumber
+  type: Field
+  source:
+    id: IncludeInfoFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 314
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "includeInfo" field.
+  example: []
+  syntax:
+    content: public const int IncludeInfoFieldNumber = 8
+    return:
+      type: System.Int32
+    content.vb: Public Const IncludeInfoFieldNumber As Integer = 8
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeInfo
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeInfo
+  id: IncludeInfo
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: IncludeInfo
+  nameWithType: PlaybackQueueRequestMessage.IncludeInfo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeInfo
+  type: Property
+  source:
+    id: IncludeInfo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 318
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public bool IncludeInfo { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeInfo As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeInfo*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeInfo
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeInfo
+  id: HasIncludeInfo
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: HasIncludeInfo
+  nameWithType: PlaybackQueueRequestMessage.HasIncludeInfo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeInfo
+  type: Property
+  source:
+    id: HasIncludeInfo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 328
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "includeInfo" field is set
+  example: []
+  syntax:
+    content: public bool HasIncludeInfo { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasIncludeInfo As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeInfo*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeInfo
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeInfo
+  id: ClearIncludeInfo
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearIncludeInfo()
+  nameWithType: PlaybackQueueRequestMessage.ClearIncludeInfo()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeInfo()
+  type: Method
+  source:
+    id: ClearIncludeInfo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 334
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "includeInfo" field
+  example: []
+  syntax:
+    content: public void ClearIncludeInfo()
+    content.vb: Public Sub ClearIncludeInfo()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeInfo*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLanguageOptionsFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLanguageOptionsFieldNumber
+  id: IncludeLanguageOptionsFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: IncludeLanguageOptionsFieldNumber
+  nameWithType: PlaybackQueueRequestMessage.IncludeLanguageOptionsFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLanguageOptionsFieldNumber
+  type: Field
+  source:
+    id: IncludeLanguageOptionsFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 341
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "includeLanguageOptions" field.
+  example: []
+  syntax:
+    content: public const int IncludeLanguageOptionsFieldNumber = 9
+    return:
+      type: System.Int32
+    content.vb: Public Const IncludeLanguageOptionsFieldNumber As Integer = 9
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLanguageOptions
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLanguageOptions
+  id: IncludeLanguageOptions
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: IncludeLanguageOptions
+  nameWithType: PlaybackQueueRequestMessage.IncludeLanguageOptions
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLanguageOptions
+  type: Property
+  source:
+    id: IncludeLanguageOptions
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 345
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public bool IncludeLanguageOptions { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeLanguageOptions As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLanguageOptions*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeLanguageOptions
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeLanguageOptions
+  id: HasIncludeLanguageOptions
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: HasIncludeLanguageOptions
+  nameWithType: PlaybackQueueRequestMessage.HasIncludeLanguageOptions
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeLanguageOptions
+  type: Property
+  source:
+    id: HasIncludeLanguageOptions
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 355
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "includeLanguageOptions" field is set
+  example: []
+  syntax:
+    content: public bool HasIncludeLanguageOptions { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasIncludeLanguageOptions As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeLanguageOptions*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeLanguageOptions
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeLanguageOptions
+  id: ClearIncludeLanguageOptions
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearIncludeLanguageOptions()
+  nameWithType: PlaybackQueueRequestMessage.ClearIncludeLanguageOptions()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeLanguageOptions()
+  type: Method
+  source:
+    id: ClearIncludeLanguageOptions
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 361
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "includeLanguageOptions" field
+  example: []
+  syntax:
+    content: public void ClearIncludeLanguageOptions()
+    content.vb: Public Sub ClearIncludeLanguageOptions()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeLanguageOptions*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ContextFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ContextFieldNumber
+  id: ContextFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ContextFieldNumber
+  nameWithType: PlaybackQueueRequestMessage.ContextFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ContextFieldNumber
+  type: Field
+  source:
+    id: ContextFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 368
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "context" field.
+  example: []
+  syntax:
+    content: public const int ContextFieldNumber = 10
+    return:
+      type: System.Int32
+    content.vb: Public Const ContextFieldNumber As Integer = 10
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Context
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Context
+  id: Context
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: Context
+  nameWithType: PlaybackQueueRequestMessage.Context
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Context
+  type: Property
+  source:
+    id: Context
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 370
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public PlaybackQueueContext Context { get; set; }
+    parameters: []
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueContext
+    content.vb: Public Property Context As PlaybackQueueContext
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Context*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.RequestIDFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.RequestIDFieldNumber
+  id: RequestIDFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: RequestIDFieldNumber
+  nameWithType: PlaybackQueueRequestMessage.RequestIDFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.RequestIDFieldNumber
+  type: Field
+  source:
+    id: RequestIDFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 380
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "requestID" field.
+  example: []
+  syntax:
+    content: public const int RequestIDFieldNumber = 11
+    return:
+      type: System.Int32
+    content.vb: Public Const RequestIDFieldNumber As Integer = 11
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.RequestID
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.RequestID
+  id: RequestID
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: RequestID
+  nameWithType: PlaybackQueueRequestMessage.RequestID
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.RequestID
+  type: Property
+  source:
+    id: RequestID
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 384
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public string RequestID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RequestID As String
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.RequestID*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasRequestID
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasRequestID
+  id: HasRequestID
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: HasRequestID
+  nameWithType: PlaybackQueueRequestMessage.HasRequestID
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasRequestID
+  type: Property
+  source:
+    id: HasRequestID
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 393
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "requestID" field is set
+  example: []
+  syntax:
+    content: public bool HasRequestID { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasRequestID As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasRequestID*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearRequestID
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearRequestID
+  id: ClearRequestID
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearRequestID()
+  nameWithType: PlaybackQueueRequestMessage.ClearRequestID()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearRequestID()
+  type: Method
+  source:
+    id: ClearRequestID
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 399
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "requestID" field
+  example: []
+  syntax:
+    content: public void ClearRequestID()
+    content.vb: Public Sub ClearRequestID()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearRequestID*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ContentItemIdentifiersFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ContentItemIdentifiersFieldNumber
+  id: ContentItemIdentifiersFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ContentItemIdentifiersFieldNumber
+  nameWithType: PlaybackQueueRequestMessage.ContentItemIdentifiersFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ContentItemIdentifiersFieldNumber
+  type: Field
+  source:
+    id: ContentItemIdentifiersFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 406
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "contentItemIdentifiers" field.
+  example: []
+  syntax:
+    content: public const int ContentItemIdentifiersFieldNumber = 12
+    return:
+      type: System.Int32
+    content.vb: Public Const ContentItemIdentifiersFieldNumber As Integer = 12
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ContentItemIdentifiers
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ContentItemIdentifiers
+  id: ContentItemIdentifiers
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ContentItemIdentifiers
+  nameWithType: PlaybackQueueRequestMessage.ContentItemIdentifiers
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ContentItemIdentifiers
+  type: Property
+  source:
+    id: ContentItemIdentifiers
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 410
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public RepeatedField<string> ContentItemIdentifiers { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Collections.RepeatedField{System.String}
+    content.vb: Public ReadOnly Property ContentItemIdentifiers As RepeatedField(Of String)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ContentItemIdentifiers*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ReturnContentItemAssetsInUserCompletionFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ReturnContentItemAssetsInUserCompletionFieldNumber
+  id: ReturnContentItemAssetsInUserCompletionFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ReturnContentItemAssetsInUserCompletionFieldNumber
+  nameWithType: PlaybackQueueRequestMessage.ReturnContentItemAssetsInUserCompletionFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ReturnContentItemAssetsInUserCompletionFieldNumber
+  type: Field
+  source:
+    id: ReturnContentItemAssetsInUserCompletionFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 417
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "returnContentItemAssetsInUserCompletion" field.
+  example: []
+  syntax:
+    content: public const int ReturnContentItemAssetsInUserCompletionFieldNumber = 13
+    return:
+      type: System.Int32
+    content.vb: Public Const ReturnContentItemAssetsInUserCompletionFieldNumber As Integer = 13
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ReturnContentItemAssetsInUserCompletion
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ReturnContentItemAssetsInUserCompletion
+  id: ReturnContentItemAssetsInUserCompletion
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ReturnContentItemAssetsInUserCompletion
+  nameWithType: PlaybackQueueRequestMessage.ReturnContentItemAssetsInUserCompletion
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ReturnContentItemAssetsInUserCompletion
+  type: Property
+  source:
+    id: ReturnContentItemAssetsInUserCompletion
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 421
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public bool ReturnContentItemAssetsInUserCompletion { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property ReturnContentItemAssetsInUserCompletion As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ReturnContentItemAssetsInUserCompletion*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasReturnContentItemAssetsInUserCompletion
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasReturnContentItemAssetsInUserCompletion
+  id: HasReturnContentItemAssetsInUserCompletion
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: HasReturnContentItemAssetsInUserCompletion
+  nameWithType: PlaybackQueueRequestMessage.HasReturnContentItemAssetsInUserCompletion
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasReturnContentItemAssetsInUserCompletion
+  type: Property
+  source:
+    id: HasReturnContentItemAssetsInUserCompletion
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 431
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "returnContentItemAssetsInUserCompletion" field is set
+  example: []
+  syntax:
+    content: public bool HasReturnContentItemAssetsInUserCompletion { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasReturnContentItemAssetsInUserCompletion As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasReturnContentItemAssetsInUserCompletion*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearReturnContentItemAssetsInUserCompletion
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearReturnContentItemAssetsInUserCompletion
+  id: ClearReturnContentItemAssetsInUserCompletion
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearReturnContentItemAssetsInUserCompletion()
+  nameWithType: PlaybackQueueRequestMessage.ClearReturnContentItemAssetsInUserCompletion()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearReturnContentItemAssetsInUserCompletion()
+  type: Method
+  source:
+    id: ClearReturnContentItemAssetsInUserCompletion
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 437
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "returnContentItemAssetsInUserCompletion" field
+  example: []
+  syntax:
+    content: public void ClearReturnContentItemAssetsInUserCompletion()
+    content.vb: Public Sub ClearReturnContentItemAssetsInUserCompletion()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearReturnContentItemAssetsInUserCompletion*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.PlayerPathFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.PlayerPathFieldNumber
+  id: PlayerPathFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: PlayerPathFieldNumber
+  nameWithType: PlaybackQueueRequestMessage.PlayerPathFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.PlayerPathFieldNumber
+  type: Field
+  source:
+    id: PlayerPathFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 444
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "playerPath" field.
+  example: []
+  syntax:
+    content: public const int PlayerPathFieldNumber = 14
+    return:
+      type: System.Int32
+    content.vb: Public Const PlayerPathFieldNumber As Integer = 14
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.PlayerPath
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.PlayerPath
+  id: PlayerPath
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: PlayerPath
+  nameWithType: PlaybackQueueRequestMessage.PlayerPath
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.PlayerPath
+  type: Property
+  source:
+    id: PlayerPath
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 446
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public PlayerPath PlayerPath { get; set; }
+    parameters: []
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.PlayerPath
+    content.vb: Public Property PlayerPath As PlayerPath
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.PlayerPath*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CachingPolicyFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CachingPolicyFieldNumber
+  id: CachingPolicyFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: CachingPolicyFieldNumber
+  nameWithType: PlaybackQueueRequestMessage.CachingPolicyFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CachingPolicyFieldNumber
+  type: Field
+  source:
+    id: CachingPolicyFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 456
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "cachingPolicy" field.
+  example: []
+  syntax:
+    content: public const int CachingPolicyFieldNumber = 15
+    return:
+      type: System.Int32
+    content.vb: Public Const CachingPolicyFieldNumber As Integer = 15
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CachingPolicy
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CachingPolicy
+  id: CachingPolicy
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: CachingPolicy
+  nameWithType: PlaybackQueueRequestMessage.CachingPolicy
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CachingPolicy
+  type: Property
+  source:
+    id: CachingPolicy
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 460
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public int CachingPolicy { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property CachingPolicy As Integer
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CachingPolicy*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasCachingPolicy
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasCachingPolicy
+  id: HasCachingPolicy
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: HasCachingPolicy
+  nameWithType: PlaybackQueueRequestMessage.HasCachingPolicy
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasCachingPolicy
+  type: Property
+  source:
+    id: HasCachingPolicy
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 470
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "cachingPolicy" field is set
+  example: []
+  syntax:
+    content: public bool HasCachingPolicy { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasCachingPolicy As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasCachingPolicy*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearCachingPolicy
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearCachingPolicy
+  id: ClearCachingPolicy
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearCachingPolicy()
+  nameWithType: PlaybackQueueRequestMessage.ClearCachingPolicy()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearCachingPolicy()
+  type: Method
+  source:
+    id: ClearCachingPolicy
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 476
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "cachingPolicy" field
+  example: []
+  syntax:
+    content: public void ClearCachingPolicy()
+    content.vb: Public Sub ClearCachingPolicy()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearCachingPolicy*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.LabelFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.LabelFieldNumber
+  id: LabelFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: LabelFieldNumber
+  nameWithType: PlaybackQueueRequestMessage.LabelFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.LabelFieldNumber
+  type: Field
+  source:
+    id: LabelFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 483
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "label" field.
+  example: []
+  syntax:
+    content: public const int LabelFieldNumber = 16
+    return:
+      type: System.Int32
+    content.vb: Public Const LabelFieldNumber As Integer = 16
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Label
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Label
+  id: Label
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: PlaybackQueueRequestMessage.Label
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Label
+  type: Property
+  source:
+    id: Label
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 487
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public string Label { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Label As String
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Label*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLabel
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLabel
+  id: HasLabel
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: HasLabel
+  nameWithType: PlaybackQueueRequestMessage.HasLabel
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLabel
+  type: Property
+  source:
+    id: HasLabel
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 496
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "label" field is set
+  example: []
+  syntax:
+    content: public bool HasLabel { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasLabel As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLabel*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLabel
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLabel
+  id: ClearLabel
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearLabel()
+  nameWithType: PlaybackQueueRequestMessage.ClearLabel()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLabel()
+  type: Method
+  source:
+    id: ClearLabel
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 502
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "label" field
+  example: []
+  syntax:
+    content: public void ClearLabel()
+    content.vb: Public Sub ClearLabel()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLabel*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IsLegacyNowPlayingInfoRequestFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IsLegacyNowPlayingInfoRequestFieldNumber
+  id: IsLegacyNowPlayingInfoRequestFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: IsLegacyNowPlayingInfoRequestFieldNumber
+  nameWithType: PlaybackQueueRequestMessage.IsLegacyNowPlayingInfoRequestFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IsLegacyNowPlayingInfoRequestFieldNumber
+  type: Field
+  source:
+    id: IsLegacyNowPlayingInfoRequestFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 509
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "isLegacyNowPlayingInfoRequest" field.
+  example: []
+  syntax:
+    content: public const int IsLegacyNowPlayingInfoRequestFieldNumber = 17
+    return:
+      type: System.Int32
+    content.vb: Public Const IsLegacyNowPlayingInfoRequestFieldNumber As Integer = 17
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IsLegacyNowPlayingInfoRequest
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IsLegacyNowPlayingInfoRequest
+  id: IsLegacyNowPlayingInfoRequest
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: IsLegacyNowPlayingInfoRequest
+  nameWithType: PlaybackQueueRequestMessage.IsLegacyNowPlayingInfoRequest
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IsLegacyNowPlayingInfoRequest
+  type: Property
+  source:
+    id: IsLegacyNowPlayingInfoRequest
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 513
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public bool IsLegacyNowPlayingInfoRequest { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsLegacyNowPlayingInfoRequest As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IsLegacyNowPlayingInfoRequest*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIsLegacyNowPlayingInfoRequest
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIsLegacyNowPlayingInfoRequest
+  id: HasIsLegacyNowPlayingInfoRequest
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: HasIsLegacyNowPlayingInfoRequest
+  nameWithType: PlaybackQueueRequestMessage.HasIsLegacyNowPlayingInfoRequest
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIsLegacyNowPlayingInfoRequest
+  type: Property
+  source:
+    id: HasIsLegacyNowPlayingInfoRequest
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 523
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "isLegacyNowPlayingInfoRequest" field is set
+  example: []
+  syntax:
+    content: public bool HasIsLegacyNowPlayingInfoRequest { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasIsLegacyNowPlayingInfoRequest As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIsLegacyNowPlayingInfoRequest*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIsLegacyNowPlayingInfoRequest
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIsLegacyNowPlayingInfoRequest
+  id: ClearIsLegacyNowPlayingInfoRequest
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearIsLegacyNowPlayingInfoRequest()
+  nameWithType: PlaybackQueueRequestMessage.ClearIsLegacyNowPlayingInfoRequest()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIsLegacyNowPlayingInfoRequest()
+  type: Method
+  source:
+    id: ClearIsLegacyNowPlayingInfoRequest
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 529
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "isLegacyNowPlayingInfoRequest" field
+  example: []
+  syntax:
+    content: public void ClearIsLegacyNowPlayingInfoRequest()
+    content.vb: Public Sub ClearIsLegacyNowPlayingInfoRequest()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIsLegacyNowPlayingInfoRequest*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Equals(System.Object)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: PlaybackQueueRequestMessage.Equals(object)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Equals(object)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 535
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Equals*
+  nameWithType.vb: PlaybackQueueRequestMessage.Equals(Object)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Equals(Object)
+  name.vb: Equals(Object)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  id: Equals(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: Equals(PlaybackQueueRequestMessage)
+  nameWithType: PlaybackQueueRequestMessage.Equals(PlaybackQueueRequestMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 541
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(PlaybackQueueRequestMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As PlaybackQueueRequestMessage) As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Equals*
+  implements:
+  - System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.GetHashCode
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.GetHashCode
+  id: GetHashCode
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: PlaybackQueueRequestMessage.GetHashCode()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.GetHashCode()
+  type: Method
+  source:
+    id: GetHashCode
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 570
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.GetHashCode*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ToString
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ToString
+  id: ToString
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: PlaybackQueueRequestMessage.ToString()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ToString()
+  type: Method
+  source:
+    id: ToString
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 597
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ToString*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: PlaybackQueueRequestMessage.WriteTo(CodedOutputStream)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    id: WriteTo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 603
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CalculateSize
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CalculateSize
+  id: CalculateSize
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: PlaybackQueueRequestMessage.CalculateSize()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CalculateSize()
+  type: Method
+  source:
+    id: CalculateSize
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 755
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  id: MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(PlaybackQueueRequestMessage)
+  nameWithType: PlaybackQueueRequestMessage.MergeFrom(PlaybackQueueRequestMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  type: Method
+  source:
+    id: MergeFrom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 814
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(PlaybackQueueRequestMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+    content.vb: Public Sub MergeFrom(other As PlaybackQueueRequestMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: PlaybackQueueRequestMessage.MergeFrom(CodedInputStream)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    id: MergeFrom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\PlaybackQueueRequestMessage.cs
+    startLine: 878
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}
+  commentId: T:Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html
+  name: IMessage<PlaybackQueueRequestMessage>
+  nameWithType: IMessage<PlaybackQueueRequestMessage>
+  fullName: Google.Protobuf.IMessage<AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage>
+  nameWithType.vb: IMessage(Of PlaybackQueueRequestMessage)
+  fullName.vb: Google.Protobuf.IMessage(Of AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  name.vb: IMessage(Of PlaybackQueueRequestMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+    name: PlaybackQueueRequestMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+    name: PlaybackQueueRequestMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html
+  - name: )
+- uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}
+  commentId: T:System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<PlaybackQueueRequestMessage>
+  nameWithType: IEquatable<PlaybackQueueRequestMessage>
+  fullName: System.IEquatable<AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage>
+  nameWithType.vb: IEquatable(Of PlaybackQueueRequestMessage)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  name.vb: IEquatable(Of PlaybackQueueRequestMessage)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+    name: PlaybackQueueRequestMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+    name: PlaybackQueueRequestMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}
+  commentId: T:Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html
+  name: IDeepCloneable<PlaybackQueueRequestMessage>
+  nameWithType: IDeepCloneable<PlaybackQueueRequestMessage>
+  fullName: Google.Protobuf.IDeepCloneable<AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage>
+  nameWithType.vb: IDeepCloneable(Of PlaybackQueueRequestMessage)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  name.vb: IDeepCloneable(Of PlaybackQueueRequestMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+    name: PlaybackQueueRequestMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+    name: PlaybackQueueRequestMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Parser*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Parser
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_Parser
+  name: Parser
+  nameWithType: PlaybackQueueRequestMessage.Parser
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Parser
+- uid: Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}
+  commentId: T:Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html
+  name: MessageParser<PlaybackQueueRequestMessage>
+  nameWithType: MessageParser<PlaybackQueueRequestMessage>
+  fullName: Google.Protobuf.MessageParser<AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage>
+  nameWithType.vb: MessageParser(Of PlaybackQueueRequestMessage)
+  fullName.vb: Google.Protobuf.MessageParser(Of AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  name.vb: MessageParser(Of PlaybackQueueRequestMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+    name: PlaybackQueueRequestMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+    name: PlaybackQueueRequestMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Descriptor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Descriptor
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_Descriptor
+  name: Descriptor
+  nameWithType: PlaybackQueueRequestMessage.Descriptor
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.#ctor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.#ctor
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage__ctor
+  name: PlaybackQueueRequestMessage
+  nameWithType: PlaybackQueueRequestMessage.PlaybackQueueRequestMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.PlaybackQueueRequestMessage
+  nameWithType.vb: PlaybackQueueRequestMessage.New
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.New
+  name.vb: New
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html
+  name: PlaybackQueueRequestMessage
+  nameWithType: PlaybackQueueRequestMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Clone*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Clone
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_Clone
+  name: Clone
+  nameWithType: PlaybackQueueRequestMessage.Clone
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Clone
+- uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}.Clone
+  parent: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<PlaybackQueueRequestMessage>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage>.Clone()
+  nameWithType.vb: IDeepCloneable(Of PlaybackQueueRequestMessage).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Location*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Location
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_Location
+  name: Location
+  nameWithType: PlaybackQueueRequestMessage.Location
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Location
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLocation*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLocation
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_HasLocation
+  name: HasLocation
+  nameWithType: PlaybackQueueRequestMessage.HasLocation
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLocation
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLocation*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLocation
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ClearLocation
+  name: ClearLocation
+  nameWithType: PlaybackQueueRequestMessage.ClearLocation
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLocation
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Length*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Length
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_Length
+  name: Length
+  nameWithType: PlaybackQueueRequestMessage.Length
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Length
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLength*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLength
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_HasLength
+  name: HasLength
+  nameWithType: PlaybackQueueRequestMessage.HasLength
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLength
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLength*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLength
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ClearLength
+  name: ClearLength
+  nameWithType: PlaybackQueueRequestMessage.ClearLength
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLength
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeMetadata*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeMetadata
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_IncludeMetadata
+  name: IncludeMetadata
+  nameWithType: PlaybackQueueRequestMessage.IncludeMetadata
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeMetadata
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeMetadata*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeMetadata
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_HasIncludeMetadata
+  name: HasIncludeMetadata
+  nameWithType: PlaybackQueueRequestMessage.HasIncludeMetadata
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeMetadata
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeMetadata*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeMetadata
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ClearIncludeMetadata
+  name: ClearIncludeMetadata
+  nameWithType: PlaybackQueueRequestMessage.ClearIncludeMetadata
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeMetadata
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkWidth*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkWidth
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ArtworkWidth
+  name: ArtworkWidth
+  nameWithType: PlaybackQueueRequestMessage.ArtworkWidth
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkWidth
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasArtworkWidth*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasArtworkWidth
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_HasArtworkWidth
+  name: HasArtworkWidth
+  nameWithType: PlaybackQueueRequestMessage.HasArtworkWidth
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasArtworkWidth
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearArtworkWidth*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearArtworkWidth
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ClearArtworkWidth
+  name: ClearArtworkWidth
+  nameWithType: PlaybackQueueRequestMessage.ClearArtworkWidth
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearArtworkWidth
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkHeight*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkHeight
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ArtworkHeight
+  name: ArtworkHeight
+  nameWithType: PlaybackQueueRequestMessage.ArtworkHeight
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ArtworkHeight
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasArtworkHeight*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasArtworkHeight
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_HasArtworkHeight
+  name: HasArtworkHeight
+  nameWithType: PlaybackQueueRequestMessage.HasArtworkHeight
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasArtworkHeight
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearArtworkHeight*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearArtworkHeight
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ClearArtworkHeight
+  name: ClearArtworkHeight
+  nameWithType: PlaybackQueueRequestMessage.ClearArtworkHeight
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearArtworkHeight
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLyrics*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLyrics
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_IncludeLyrics
+  name: IncludeLyrics
+  nameWithType: PlaybackQueueRequestMessage.IncludeLyrics
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLyrics
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeLyrics*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeLyrics
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_HasIncludeLyrics
+  name: HasIncludeLyrics
+  nameWithType: PlaybackQueueRequestMessage.HasIncludeLyrics
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeLyrics
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeLyrics*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeLyrics
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ClearIncludeLyrics
+  name: ClearIncludeLyrics
+  nameWithType: PlaybackQueueRequestMessage.ClearIncludeLyrics
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeLyrics
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeSections*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeSections
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_IncludeSections
+  name: IncludeSections
+  nameWithType: PlaybackQueueRequestMessage.IncludeSections
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeSections
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeSections*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeSections
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_HasIncludeSections
+  name: HasIncludeSections
+  nameWithType: PlaybackQueueRequestMessage.HasIncludeSections
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeSections
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeSections*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeSections
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ClearIncludeSections
+  name: ClearIncludeSections
+  nameWithType: PlaybackQueueRequestMessage.ClearIncludeSections
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeSections
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeInfo*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeInfo
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_IncludeInfo
+  name: IncludeInfo
+  nameWithType: PlaybackQueueRequestMessage.IncludeInfo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeInfo
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeInfo*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeInfo
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_HasIncludeInfo
+  name: HasIncludeInfo
+  nameWithType: PlaybackQueueRequestMessage.HasIncludeInfo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeInfo
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeInfo*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeInfo
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ClearIncludeInfo
+  name: ClearIncludeInfo
+  nameWithType: PlaybackQueueRequestMessage.ClearIncludeInfo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeInfo
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLanguageOptions*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLanguageOptions
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_IncludeLanguageOptions
+  name: IncludeLanguageOptions
+  nameWithType: PlaybackQueueRequestMessage.IncludeLanguageOptions
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IncludeLanguageOptions
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeLanguageOptions*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeLanguageOptions
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_HasIncludeLanguageOptions
+  name: HasIncludeLanguageOptions
+  nameWithType: PlaybackQueueRequestMessage.HasIncludeLanguageOptions
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIncludeLanguageOptions
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeLanguageOptions*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeLanguageOptions
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ClearIncludeLanguageOptions
+  name: ClearIncludeLanguageOptions
+  nameWithType: PlaybackQueueRequestMessage.ClearIncludeLanguageOptions
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIncludeLanguageOptions
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Context*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Context
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_Context
+  name: Context
+  nameWithType: PlaybackQueueRequestMessage.Context
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Context
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueContext
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueContext
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueContext.html
+  name: PlaybackQueueContext
+  nameWithType: PlaybackQueueContext
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueContext
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.RequestID*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.RequestID
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_RequestID
+  name: RequestID
+  nameWithType: PlaybackQueueRequestMessage.RequestID
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.RequestID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasRequestID*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasRequestID
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_HasRequestID
+  name: HasRequestID
+  nameWithType: PlaybackQueueRequestMessage.HasRequestID
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasRequestID
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearRequestID*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearRequestID
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ClearRequestID
+  name: ClearRequestID
+  nameWithType: PlaybackQueueRequestMessage.ClearRequestID
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearRequestID
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ContentItemIdentifiers*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ContentItemIdentifiers
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ContentItemIdentifiers
+  name: ContentItemIdentifiers
+  nameWithType: PlaybackQueueRequestMessage.ContentItemIdentifiers
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ContentItemIdentifiers
+- uid: Google.Protobuf.Collections.RepeatedField{System.String}
+  commentId: T:Google.Protobuf.Collections.RepeatedField{System.String}
+  parent: Google.Protobuf.Collections
+  definition: Google.Protobuf.Collections.RepeatedField`1
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: RepeatedField<string>
+  nameWithType: RepeatedField<string>
+  fullName: Google.Protobuf.Collections.RepeatedField<string>
+  nameWithType.vb: RepeatedField(Of String)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of String)
+  name.vb: RepeatedField(Of String)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Google.Protobuf.Collections.RepeatedField`1
+  commentId: T:Google.Protobuf.Collections.RepeatedField`1
+  isExternal: true
+  name: RepeatedField<T>
+  nameWithType: RepeatedField<T>
+  fullName: Google.Protobuf.Collections.RepeatedField<T>
+  nameWithType.vb: RepeatedField(Of T)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of T)
+  name.vb: RepeatedField(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.Collections
+  commentId: N:Google.Protobuf.Collections
+  isExternal: true
+  name: Google.Protobuf.Collections
+  nameWithType: Google.Protobuf.Collections
+  fullName: Google.Protobuf.Collections
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Collections
+    name: Collections
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Collections
+    name: Collections
+    isExternal: true
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ReturnContentItemAssetsInUserCompletion*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ReturnContentItemAssetsInUserCompletion
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ReturnContentItemAssetsInUserCompletion
+  name: ReturnContentItemAssetsInUserCompletion
+  nameWithType: PlaybackQueueRequestMessage.ReturnContentItemAssetsInUserCompletion
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ReturnContentItemAssetsInUserCompletion
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasReturnContentItemAssetsInUserCompletion*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasReturnContentItemAssetsInUserCompletion
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_HasReturnContentItemAssetsInUserCompletion
+  name: HasReturnContentItemAssetsInUserCompletion
+  nameWithType: PlaybackQueueRequestMessage.HasReturnContentItemAssetsInUserCompletion
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasReturnContentItemAssetsInUserCompletion
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearReturnContentItemAssetsInUserCompletion*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearReturnContentItemAssetsInUserCompletion
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ClearReturnContentItemAssetsInUserCompletion
+  name: ClearReturnContentItemAssetsInUserCompletion
+  nameWithType: PlaybackQueueRequestMessage.ClearReturnContentItemAssetsInUserCompletion
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearReturnContentItemAssetsInUserCompletion
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.PlayerPath*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.PlayerPath
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_PlayerPath
+  name: PlayerPath
+  nameWithType: PlaybackQueueRequestMessage.PlayerPath
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.PlayerPath
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlayerPath
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.PlayerPath
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlayerPath.html
+  name: PlayerPath
+  nameWithType: PlayerPath
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlayerPath
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CachingPolicy*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CachingPolicy
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_CachingPolicy
+  name: CachingPolicy
+  nameWithType: PlaybackQueueRequestMessage.CachingPolicy
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CachingPolicy
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasCachingPolicy*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasCachingPolicy
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_HasCachingPolicy
+  name: HasCachingPolicy
+  nameWithType: PlaybackQueueRequestMessage.HasCachingPolicy
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasCachingPolicy
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearCachingPolicy*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearCachingPolicy
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ClearCachingPolicy
+  name: ClearCachingPolicy
+  nameWithType: PlaybackQueueRequestMessage.ClearCachingPolicy
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearCachingPolicy
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Label*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Label
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_Label
+  name: Label
+  nameWithType: PlaybackQueueRequestMessage.Label
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Label
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLabel*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLabel
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_HasLabel
+  name: HasLabel
+  nameWithType: PlaybackQueueRequestMessage.HasLabel
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasLabel
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLabel*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLabel
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ClearLabel
+  name: ClearLabel
+  nameWithType: PlaybackQueueRequestMessage.ClearLabel
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearLabel
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IsLegacyNowPlayingInfoRequest*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IsLegacyNowPlayingInfoRequest
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_IsLegacyNowPlayingInfoRequest
+  name: IsLegacyNowPlayingInfoRequest
+  nameWithType: PlaybackQueueRequestMessage.IsLegacyNowPlayingInfoRequest
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.IsLegacyNowPlayingInfoRequest
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIsLegacyNowPlayingInfoRequest*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIsLegacyNowPlayingInfoRequest
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_HasIsLegacyNowPlayingInfoRequest
+  name: HasIsLegacyNowPlayingInfoRequest
+  nameWithType: PlaybackQueueRequestMessage.HasIsLegacyNowPlayingInfoRequest
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.HasIsLegacyNowPlayingInfoRequest
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIsLegacyNowPlayingInfoRequest*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIsLegacyNowPlayingInfoRequest
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ClearIsLegacyNowPlayingInfoRequest
+  name: ClearIsLegacyNowPlayingInfoRequest
+  nameWithType: PlaybackQueueRequestMessage.ClearIsLegacyNowPlayingInfoRequest
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ClearIsLegacyNowPlayingInfoRequest
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Equals*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Equals
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_Equals_System_Object_
+  name: Equals
+  nameWithType: PlaybackQueueRequestMessage.Equals
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.Equals
+- uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  commentId: M:System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  parent: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(PlaybackQueueRequestMessage)
+  nameWithType: IEquatable<PlaybackQueueRequestMessage>.Equals(PlaybackQueueRequestMessage)
+  fullName: System.IEquatable<AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage>.Equals(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  nameWithType.vb: IEquatable(Of PlaybackQueueRequestMessage).Equals(PlaybackQueueRequestMessage)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage).Equals(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  spec.csharp:
+  - uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+    name: PlaybackQueueRequestMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+    name: PlaybackQueueRequestMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.GetHashCode*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.GetHashCode
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_GetHashCode
+  name: GetHashCode
+  nameWithType: PlaybackQueueRequestMessage.GetHashCode
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ToString*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ToString
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_ToString
+  name: ToString
+  nameWithType: PlaybackQueueRequestMessage.ToString
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.ToString
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.WriteTo*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.WriteTo
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_WriteTo_Google_Protobuf_CodedOutputStream_
+  name: WriteTo
+  nameWithType: PlaybackQueueRequestMessage.WriteTo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CalculateSize*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CalculateSize
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_CalculateSize
+  name: CalculateSize
+  nameWithType: PlaybackQueueRequestMessage.CalculateSize
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.MergeFrom*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.MergeFrom
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html#AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_MergeFrom_AppleTvControlLibrary_Mrp_Protobuf_PlaybackQueueRequestMessage_
+  name: MergeFrom
+  nameWithType: PlaybackQueueRequestMessage.MergeFrom
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.MergeFrom
+- uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  commentId: M:Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  parent: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html
+  name: MergeFrom(PlaybackQueueRequestMessage)
+  nameWithType: IMessage<PlaybackQueueRequestMessage>.MergeFrom(PlaybackQueueRequestMessage)
+  fullName: Google.Protobuf.IMessage<AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage>.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  nameWithType.vb: IMessage(Of PlaybackQueueRequestMessage).MergeFrom(PlaybackQueueRequestMessage)
+  fullName.vb: Google.Protobuf.IMessage(Of AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage).MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+    name: PlaybackQueueRequestMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage
+    name: PlaybackQueueRequestMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackQueueRequestMessage.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

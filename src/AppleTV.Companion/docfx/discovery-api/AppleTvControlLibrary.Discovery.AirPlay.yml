@@ -1,0 +1,84 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Discovery.AirPlay
+  commentId: N:AppleTvControlLibrary.Discovery.AirPlay
+  id: AppleTvControlLibrary.Discovery.AirPlay
+  children:
+  - AppleTvControlLibrary.Discovery.AirPlay.AirPlayDiscoveryResult
+  - AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement
+  - AppleTvControlLibrary.Discovery.AirPlay.AirPlayServiceInfo
+  - AppleTvControlLibrary.Discovery.AirPlay.IAirPlayDiscovery
+  - AppleTvControlLibrary.Discovery.AirPlay.MulticastAirPlayDiscovery
+  langs:
+  - csharp
+  - vb
+  name: AppleTvControlLibrary.Discovery.AirPlay
+  nameWithType: AppleTvControlLibrary.Discovery.AirPlay
+  fullName: AppleTvControlLibrary.Discovery.AirPlay
+  type: Namespace
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+references:
+- uid: AppleTvControlLibrary.Discovery.AirPlay.AirPlayDiscoveryResult
+  commentId: T:AppleTvControlLibrary.Discovery.AirPlay.AirPlayDiscoveryResult
+  parent: AppleTvControlLibrary.Discovery.AirPlay
+  href: AppleTvControlLibrary.Discovery.AirPlay.AirPlayDiscoveryResult.html
+  name: AirPlayDiscoveryResult
+  nameWithType: AirPlayDiscoveryResult
+  fullName: AppleTvControlLibrary.Discovery.AirPlay.AirPlayDiscoveryResult
+- uid: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement
+  commentId: T:AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement
+  parent: AppleTvControlLibrary.Discovery.AirPlay
+  href: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement.html
+  name: AirPlayPairingRequirement
+  nameWithType: AirPlayPairingRequirement
+  fullName: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement
+- uid: AppleTvControlLibrary.Discovery.AirPlay.AirPlayServiceInfo
+  commentId: T:AppleTvControlLibrary.Discovery.AirPlay.AirPlayServiceInfo
+  href: AppleTvControlLibrary.Discovery.AirPlay.AirPlayServiceInfo.html
+  name: AirPlayServiceInfo
+  nameWithType: AirPlayServiceInfo
+  fullName: AppleTvControlLibrary.Discovery.AirPlay.AirPlayServiceInfo
+- uid: AppleTvControlLibrary.Discovery.AirPlay.IAirPlayDiscovery
+  commentId: T:AppleTvControlLibrary.Discovery.AirPlay.IAirPlayDiscovery
+  parent: AppleTvControlLibrary.Discovery.AirPlay
+  href: AppleTvControlLibrary.Discovery.AirPlay.IAirPlayDiscovery.html
+  name: IAirPlayDiscovery
+  nameWithType: IAirPlayDiscovery
+  fullName: AppleTvControlLibrary.Discovery.AirPlay.IAirPlayDiscovery
+- uid: AppleTvControlLibrary.Discovery.AirPlay.MulticastAirPlayDiscovery
+  commentId: T:AppleTvControlLibrary.Discovery.AirPlay.MulticastAirPlayDiscovery
+  href: AppleTvControlLibrary.Discovery.AirPlay.MulticastAirPlayDiscovery.html
+  name: MulticastAirPlayDiscovery
+  nameWithType: MulticastAirPlayDiscovery
+  fullName: AppleTvControlLibrary.Discovery.AirPlay.MulticastAirPlayDiscovery
+- uid: AppleTvControlLibrary.Discovery.AirPlay
+  commentId: N:AppleTvControlLibrary.Discovery.AirPlay
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Discovery.AirPlay
+  nameWithType: AppleTvControlLibrary.Discovery.AirPlay
+  fullName: AppleTvControlLibrary.Discovery.AirPlay
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery
+    name: Discovery
+    href: AppleTvControlLibrary.Discovery.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery.AirPlay
+    name: AirPlay
+    href: AppleTvControlLibrary.Discovery.AirPlay.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery
+    name: Discovery
+    href: AppleTvControlLibrary.Discovery.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery.AirPlay
+    name: AirPlay
+    href: AppleTvControlLibrary.Discovery.AirPlay.html

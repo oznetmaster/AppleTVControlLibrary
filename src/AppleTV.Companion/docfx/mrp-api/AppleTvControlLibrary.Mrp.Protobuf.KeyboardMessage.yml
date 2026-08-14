@@ -1,0 +1,1653 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  id: KeyboardMessage
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.#ctor
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Attributes
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.AttributesFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.CalculateSize
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ClearEncryptedTextCyphertext
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ClearState
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Clone
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Descriptor
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.EncryptedTextCyphertext
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.EncryptedTextCyphertextFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Equals(System.Object)
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.GetHashCode
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.HasEncryptedTextCyphertext
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.HasState
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Parser
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.State
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.StateFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ToString
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: KeyboardMessage
+  nameWithType: KeyboardMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  type: Class
+  source:
+    id: KeyboardMessage
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1772
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: 'public sealed class KeyboardMessage : IMessage<KeyboardMessage>, IEquatable<KeyboardMessage>, IDeepCloneable<KeyboardMessage>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class KeyboardMessage Implements IMessage(Of KeyboardMessage), IEquatable(Of KeyboardMessage), IDeepCloneable(Of KeyboardMessage), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}
+  - System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}
+  - Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Parser
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Parser
+  id: Parser
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: KeyboardMessage.Parser
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Parser
+  type: Property
+  source:
+    id: Parser
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1781
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public static MessageParser<KeyboardMessage> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of KeyboardMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Parser*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Descriptor
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Descriptor
+  id: Descriptor
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: KeyboardMessage.Descriptor
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Descriptor
+  type: Property
+  source:
+    id: Descriptor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1785
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Descriptor*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.#ctor
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.#ctor
+  id: '#ctor'
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: KeyboardMessage()
+  nameWithType: KeyboardMessage.KeyboardMessage()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.KeyboardMessage()
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1797
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public KeyboardMessage()
+    content.vb: Public Sub New()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.#ctor*
+  nameWithType.vb: KeyboardMessage.New()
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.New()
+  name.vb: New()
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  id: '#ctor(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)'
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: KeyboardMessage(KeyboardMessage)
+  nameWithType: KeyboardMessage.KeyboardMessage(KeyboardMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.KeyboardMessage(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1805
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public KeyboardMessage(KeyboardMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+    content.vb: Public Sub New(other As KeyboardMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.#ctor*
+  nameWithType.vb: KeyboardMessage.New(KeyboardMessage)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.New(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  name.vb: New(KeyboardMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Clone
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Clone
+  id: Clone
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: KeyboardMessage.Clone()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Clone()
+  type: Method
+  source:
+    id: Clone
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1815
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public KeyboardMessage Clone()
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As KeyboardMessage
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}.Clone
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.StateFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.StateFieldNumber
+  id: StateFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: StateFieldNumber
+  nameWithType: KeyboardMessage.StateFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.StateFieldNumber
+  type: Field
+  source:
+    id: StateFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1822
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "state" field.
+  example: []
+  syntax:
+    content: public const int StateFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const StateFieldNumber As Integer = 1
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.State
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.State
+  id: State
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: KeyboardMessage.State
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.State
+  type: Property
+  source:
+    id: State
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1826
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public KeyboardState.Types.Enum State { get; set; }
+    parameters: []
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+    content.vb: Public Property State As KeyboardState.Types.Enum
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.State*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.HasState
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.HasState
+  id: HasState
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: HasState
+  nameWithType: KeyboardMessage.HasState
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.HasState
+  type: Property
+  source:
+    id: HasState
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1836
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "state" field is set
+  example: []
+  syntax:
+    content: public bool HasState { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasState As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.HasState*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ClearState
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ClearState
+  id: ClearState
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearState()
+  nameWithType: KeyboardMessage.ClearState()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ClearState()
+  type: Method
+  source:
+    id: ClearState
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1842
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "state" field
+  example: []
+  syntax:
+    content: public void ClearState()
+    content.vb: Public Sub ClearState()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ClearState*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.AttributesFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.AttributesFieldNumber
+  id: AttributesFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: AttributesFieldNumber
+  nameWithType: KeyboardMessage.AttributesFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.AttributesFieldNumber
+  type: Field
+  source:
+    id: AttributesFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1849
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "attributes" field.
+  example: []
+  syntax:
+    content: public const int AttributesFieldNumber = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const AttributesFieldNumber As Integer = 3
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Attributes
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Attributes
+  id: Attributes
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: Attributes
+  nameWithType: KeyboardMessage.Attributes
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Attributes
+  type: Property
+  source:
+    id: Attributes
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1851
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public TextEditingAttributes Attributes { get; set; }
+    parameters: []
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.TextEditingAttributes
+    content.vb: Public Property Attributes As TextEditingAttributes
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Attributes*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.EncryptedTextCyphertextFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.EncryptedTextCyphertextFieldNumber
+  id: EncryptedTextCyphertextFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: EncryptedTextCyphertextFieldNumber
+  nameWithType: KeyboardMessage.EncryptedTextCyphertextFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.EncryptedTextCyphertextFieldNumber
+  type: Field
+  source:
+    id: EncryptedTextCyphertextFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1861
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "encryptedTextCyphertext" field.
+  example: []
+  syntax:
+    content: public const int EncryptedTextCyphertextFieldNumber = 4
+    return:
+      type: System.Int32
+    content.vb: Public Const EncryptedTextCyphertextFieldNumber As Integer = 4
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.EncryptedTextCyphertext
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.EncryptedTextCyphertext
+  id: EncryptedTextCyphertext
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: EncryptedTextCyphertext
+  nameWithType: KeyboardMessage.EncryptedTextCyphertext
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.EncryptedTextCyphertext
+  type: Property
+  source:
+    id: EncryptedTextCyphertext
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1865
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public ByteString EncryptedTextCyphertext { get; set; }
+    parameters: []
+    return:
+      type: Google.Protobuf.ByteString
+    content.vb: Public Property EncryptedTextCyphertext As ByteString
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.EncryptedTextCyphertext*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.HasEncryptedTextCyphertext
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.HasEncryptedTextCyphertext
+  id: HasEncryptedTextCyphertext
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: HasEncryptedTextCyphertext
+  nameWithType: KeyboardMessage.HasEncryptedTextCyphertext
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.HasEncryptedTextCyphertext
+  type: Property
+  source:
+    id: HasEncryptedTextCyphertext
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1874
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "encryptedTextCyphertext" field is set
+  example: []
+  syntax:
+    content: public bool HasEncryptedTextCyphertext { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasEncryptedTextCyphertext As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.HasEncryptedTextCyphertext*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ClearEncryptedTextCyphertext
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ClearEncryptedTextCyphertext
+  id: ClearEncryptedTextCyphertext
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearEncryptedTextCyphertext()
+  nameWithType: KeyboardMessage.ClearEncryptedTextCyphertext()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ClearEncryptedTextCyphertext()
+  type: Method
+  source:
+    id: ClearEncryptedTextCyphertext
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1880
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "encryptedTextCyphertext" field
+  example: []
+  syntax:
+    content: public void ClearEncryptedTextCyphertext()
+    content.vb: Public Sub ClearEncryptedTextCyphertext()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ClearEncryptedTextCyphertext*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Equals(System.Object)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: KeyboardMessage.Equals(object)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Equals(object)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1886
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Equals*
+  nameWithType.vb: KeyboardMessage.Equals(Object)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Equals(Object)
+  name.vb: Equals(Object)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  id: Equals(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: Equals(KeyboardMessage)
+  nameWithType: KeyboardMessage.Equals(KeyboardMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1892
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(KeyboardMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As KeyboardMessage) As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Equals*
+  implements:
+  - System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.GetHashCode
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.GetHashCode
+  id: GetHashCode
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: KeyboardMessage.GetHashCode()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.GetHashCode()
+  type: Method
+  source:
+    id: GetHashCode
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1907
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.GetHashCode*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ToString
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ToString
+  id: ToString
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: KeyboardMessage.ToString()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ToString()
+  type: Method
+  source:
+    id: ToString
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1920
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ToString*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: KeyboardMessage.WriteTo(CodedOutputStream)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    id: WriteTo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1926
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.CalculateSize
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.CalculateSize
+  id: CalculateSize
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: KeyboardMessage.CalculateSize()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.CalculateSize()
+  type: Method
+  source:
+    id: CalculateSize
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1972
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  id: MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(KeyboardMessage)
+  nameWithType: KeyboardMessage.MergeFrom(KeyboardMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  type: Method
+  source:
+    id: MergeFrom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1991
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(KeyboardMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+    content.vb: Public Sub MergeFrom(other As KeyboardMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: KeyboardMessage.MergeFrom(CodedInputStream)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    id: MergeFrom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 2012
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}
+  commentId: T:Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html
+  name: IMessage<KeyboardMessage>
+  nameWithType: IMessage<KeyboardMessage>
+  fullName: Google.Protobuf.IMessage<AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage>
+  nameWithType.vb: IMessage(Of KeyboardMessage)
+  fullName.vb: Google.Protobuf.IMessage(Of AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  name.vb: IMessage(Of KeyboardMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+    name: KeyboardMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+    name: KeyboardMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html
+  - name: )
+- uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}
+  commentId: T:System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<KeyboardMessage>
+  nameWithType: IEquatable<KeyboardMessage>
+  fullName: System.IEquatable<AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage>
+  nameWithType.vb: IEquatable(Of KeyboardMessage)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  name.vb: IEquatable(Of KeyboardMessage)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+    name: KeyboardMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+    name: KeyboardMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}
+  commentId: T:Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html
+  name: IDeepCloneable<KeyboardMessage>
+  nameWithType: IDeepCloneable<KeyboardMessage>
+  fullName: Google.Protobuf.IDeepCloneable<AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage>
+  nameWithType.vb: IDeepCloneable(Of KeyboardMessage)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  name.vb: IDeepCloneable(Of KeyboardMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+    name: KeyboardMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+    name: KeyboardMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Parser*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Parser
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html#AppleTvControlLibrary_Mrp_Protobuf_KeyboardMessage_Parser
+  name: Parser
+  nameWithType: KeyboardMessage.Parser
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Parser
+- uid: Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}
+  commentId: T:Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html
+  name: MessageParser<KeyboardMessage>
+  nameWithType: MessageParser<KeyboardMessage>
+  fullName: Google.Protobuf.MessageParser<AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage>
+  nameWithType.vb: MessageParser(Of KeyboardMessage)
+  fullName.vb: Google.Protobuf.MessageParser(Of AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  name.vb: MessageParser(Of KeyboardMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+    name: KeyboardMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+    name: KeyboardMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Descriptor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Descriptor
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html#AppleTvControlLibrary_Mrp_Protobuf_KeyboardMessage_Descriptor
+  name: Descriptor
+  nameWithType: KeyboardMessage.Descriptor
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.#ctor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.#ctor
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html#AppleTvControlLibrary_Mrp_Protobuf_KeyboardMessage__ctor
+  name: KeyboardMessage
+  nameWithType: KeyboardMessage.KeyboardMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.KeyboardMessage
+  nameWithType.vb: KeyboardMessage.New
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.New
+  name.vb: New
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html
+  name: KeyboardMessage
+  nameWithType: KeyboardMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Clone*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Clone
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html#AppleTvControlLibrary_Mrp_Protobuf_KeyboardMessage_Clone
+  name: Clone
+  nameWithType: KeyboardMessage.Clone
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Clone
+- uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}.Clone
+  parent: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<KeyboardMessage>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage>.Clone()
+  nameWithType.vb: IDeepCloneable(Of KeyboardMessage).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.State*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.State
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html#AppleTvControlLibrary_Mrp_Protobuf_KeyboardMessage_State
+  name: State
+  nameWithType: KeyboardMessage.State
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.State
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.html
+  name: KeyboardState.Types.Enum
+  nameWithType: KeyboardState.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState
+    name: KeyboardState
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState
+    name: KeyboardState
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.HasState*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.HasState
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html#AppleTvControlLibrary_Mrp_Protobuf_KeyboardMessage_HasState
+  name: HasState
+  nameWithType: KeyboardMessage.HasState
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.HasState
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ClearState*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ClearState
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html#AppleTvControlLibrary_Mrp_Protobuf_KeyboardMessage_ClearState
+  name: ClearState
+  nameWithType: KeyboardMessage.ClearState
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ClearState
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Attributes*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Attributes
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html#AppleTvControlLibrary_Mrp_Protobuf_KeyboardMessage_Attributes
+  name: Attributes
+  nameWithType: KeyboardMessage.Attributes
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Attributes
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextEditingAttributes
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.TextEditingAttributes
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextEditingAttributes.html
+  name: TextEditingAttributes
+  nameWithType: TextEditingAttributes
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextEditingAttributes
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.EncryptedTextCyphertext*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.EncryptedTextCyphertext
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html#AppleTvControlLibrary_Mrp_Protobuf_KeyboardMessage_EncryptedTextCyphertext
+  name: EncryptedTextCyphertext
+  nameWithType: KeyboardMessage.EncryptedTextCyphertext
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.EncryptedTextCyphertext
+- uid: Google.Protobuf.ByteString
+  commentId: T:Google.Protobuf.ByteString
+  parent: Google.Protobuf
+  isExternal: true
+  name: ByteString
+  nameWithType: ByteString
+  fullName: Google.Protobuf.ByteString
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.HasEncryptedTextCyphertext*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.HasEncryptedTextCyphertext
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html#AppleTvControlLibrary_Mrp_Protobuf_KeyboardMessage_HasEncryptedTextCyphertext
+  name: HasEncryptedTextCyphertext
+  nameWithType: KeyboardMessage.HasEncryptedTextCyphertext
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.HasEncryptedTextCyphertext
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ClearEncryptedTextCyphertext*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ClearEncryptedTextCyphertext
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html#AppleTvControlLibrary_Mrp_Protobuf_KeyboardMessage_ClearEncryptedTextCyphertext
+  name: ClearEncryptedTextCyphertext
+  nameWithType: KeyboardMessage.ClearEncryptedTextCyphertext
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ClearEncryptedTextCyphertext
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Equals*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Equals
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html#AppleTvControlLibrary_Mrp_Protobuf_KeyboardMessage_Equals_System_Object_
+  name: Equals
+  nameWithType: KeyboardMessage.Equals
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.Equals
+- uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  commentId: M:System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  parent: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(KeyboardMessage)
+  nameWithType: IEquatable<KeyboardMessage>.Equals(KeyboardMessage)
+  fullName: System.IEquatable<AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage>.Equals(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  nameWithType.vb: IEquatable(Of KeyboardMessage).Equals(KeyboardMessage)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage).Equals(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  spec.csharp:
+  - uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+    name: KeyboardMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+    name: KeyboardMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.GetHashCode*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.GetHashCode
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html#AppleTvControlLibrary_Mrp_Protobuf_KeyboardMessage_GetHashCode
+  name: GetHashCode
+  nameWithType: KeyboardMessage.GetHashCode
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ToString*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ToString
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html#AppleTvControlLibrary_Mrp_Protobuf_KeyboardMessage_ToString
+  name: ToString
+  nameWithType: KeyboardMessage.ToString
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.WriteTo*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.WriteTo
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html#AppleTvControlLibrary_Mrp_Protobuf_KeyboardMessage_WriteTo_Google_Protobuf_CodedOutputStream_
+  name: WriteTo
+  nameWithType: KeyboardMessage.WriteTo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.CalculateSize*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.CalculateSize
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html#AppleTvControlLibrary_Mrp_Protobuf_KeyboardMessage_CalculateSize
+  name: CalculateSize
+  nameWithType: KeyboardMessage.CalculateSize
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.MergeFrom*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.MergeFrom
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html#AppleTvControlLibrary_Mrp_Protobuf_KeyboardMessage_MergeFrom_AppleTvControlLibrary_Mrp_Protobuf_KeyboardMessage_
+  name: MergeFrom
+  nameWithType: KeyboardMessage.MergeFrom
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.MergeFrom
+- uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  commentId: M:Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  parent: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html
+  name: MergeFrom(KeyboardMessage)
+  nameWithType: IMessage<KeyboardMessage>.MergeFrom(KeyboardMessage)
+  fullName: Google.Protobuf.IMessage<AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage>.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  nameWithType.vb: IMessage(Of KeyboardMessage).MergeFrom(KeyboardMessage)
+  fullName.vb: Google.Protobuf.IMessage(Of AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage).MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+    name: KeyboardMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage
+    name: KeyboardMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardMessage.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

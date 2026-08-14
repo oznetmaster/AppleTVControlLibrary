@@ -1,0 +1,223 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpSendAndReceive
+  commentId: T:AppleTvControlLibrary.Mrp.Auth.MrpSendAndReceive
+  id: MrpSendAndReceive
+  parent: AppleTvControlLibrary.Mrp.Auth
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: MrpSendAndReceive
+  nameWithType: MrpSendAndReceive
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpSendAndReceive
+  type: Delegate
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpAuth.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: MrpSendAndReceive
+    path: ../../AppleTv.Mrp/Auth/MrpAuth.cs
+    startLine: 24
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Sends a CRYPTO_PAIRING_MESSAGE and returns the corresponding response message.
+  remarks: >-
+    pyatv correlates pairing exchanges through <code>protocol.send_and_receive(msg, generate_identifier=False)</code>
+
+    (pyatv/protocols/mrp/auth.py — lines 41, 58, 73, 82, 103, 116 as of pyatv 0.18.0); the caller of
+
+    <xref href="AppleTvControlLibrary.Mrp.Auth.MrpPairSetupProcedure" data-throw-if-not-resolved="false"></xref>/<xref href="AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure" data-throw-if-not-resolved="false"></xref> is expected to provide an
+
+    equivalent request/response correlation over the underlying <code>MrpConnection</code>/<code>MrpProtocol</code>.
+  example: []
+  syntax:
+    content: public delegate Task<ProtocolMessage> MrpSendAndReceive(ProtocolMessage message)
+    parameters:
+    - id: message
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The message to send.
+    return:
+      type: System.Threading.Tasks.Task{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+      description: The response message received from the device.
+    content.vb: Public Delegate Function MrpSendAndReceive(message As ProtocolMessage) As Task(Of ProtocolMessage)
+references:
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpPairSetupProcedure
+  commentId: T:AppleTvControlLibrary.Mrp.Auth.MrpPairSetupProcedure
+  href: AppleTvControlLibrary.Mrp.Auth.MrpPairSetupProcedure.html
+  name: MrpPairSetupProcedure
+  nameWithType: MrpPairSetupProcedure
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpPairSetupProcedure
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure
+  commentId: T:AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure
+  href: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.html
+  name: MrpPairVerifyProcedure
+  nameWithType: MrpPairVerifyProcedure
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure
+- uid: AppleTvControlLibrary.Mrp.Auth
+  commentId: N:AppleTvControlLibrary.Mrp.Auth
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Auth
+  nameWithType: AppleTvControlLibrary.Mrp.Auth
+  fullName: AppleTvControlLibrary.Mrp.Auth
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Auth
+    name: Auth
+    href: AppleTvControlLibrary.Mrp.Auth.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Auth
+    name: Auth
+    href: AppleTvControlLibrary.Mrp.Auth.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: ProtocolMessage
+  nameWithType: ProtocolMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+- uid: System.Threading.Tasks.Task{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  commentId: T:System.Threading.Tasks.Task{AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ProtocolMessage>
+  nameWithType: Task<ProtocolMessage>
+  fullName: System.Threading.Tasks.Task<AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>
+  nameWithType.vb: Task(Of ProtocolMessage)
+  fullName.vb: System.Threading.Tasks.Task(Of AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  name.vb: Task(Of ProtocolMessage)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

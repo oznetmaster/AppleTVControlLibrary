@@ -1,0 +1,2322 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  id: ErrorCode.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.AddingOrRemovingDevicesFromTheAvOutputContextHasFailed
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.AuthenticationTokenIsInvalid
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.ClientDoesNotExist
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.CoderMustSupportKeyValueCoding
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.ConnectionBlockedByServer
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.CouldNotFindTheGivenOutputdevice
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.CouldNotFindTheSpecifiedNowPlayingClient
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.CouldNotFindTheSpecifiedNowPlayingPlayer
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.EncryptionFailure
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.EndpointDoesNotExist
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.EndpointVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.FailedToConnectToRemoteDevice
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.FailedToRegisterCustomOrigin
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.FailedToRemoveCustomOrigin
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.FailedToSetPickedRoute
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.InvalidOperation
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.MravendpointWasDeallocatedWhileWaitingForDeviceToConnect
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.NoError
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OneOrMoreSpecifiedOutputDevicesAreNotGroupable
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OperationNotPermitted
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OperationRequiresAclientCallbackToHaveBeenRegistered
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OperationRequiresAclientDataSourceToHaveBeenRegistered
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OriginDoesNotExist
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OtherUnknownError
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OutputContextModificationCausedAdeviceToBecomeAproxyGroupPlayer
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OutputContextModificationCausedAdeviceToNoLongerBeAproxyGroupPlayer
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OutputContextModificationRequestedNoTopologyChange
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OutputDeviceVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.PairingFunctionalityIsLockedDueToSecurityReasons
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.PairingWithThisDeviceIsBlocked
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.RecordingSessionIsAlreadyInProgressOnThisDevice
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.RequestedDataIsOutOfDateAndShouldBeRequestedAgain
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheAppHasNotSetupAbrowsableContentEndpoint
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheApplicationActivityDoesNotExist
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheClientHasDisconnected
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheClientsApplicationCancelledTheOperation
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheClientsApplicationVersionIsTooOld
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheClientsOperatingSystemVersionIsTooOld
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheConnectionHasBeenCancelledByTheClient
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheConnectionTimedout
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheDeviceIsGoingToSleep
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheDeviceIsNotCurrentlyRecording
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheDeviceIsNotPaired
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheDevicesEnforcedVolumeLimitHasBeenExceeded
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheNotficationHasNotBeenWhitelistedByTheServer
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheOperationTimedOut
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.ThePinPairingDialogWasRemovedByAtimeoutBeforePairingOccoured
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.ThePinPairingDialogWasRemovedByTheUserBeforePairingOccoured
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheRequestedBrowsableContentApiIsNotSupportedByTheApplication
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheServerHasDisconnected
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedContentItemDoesNotExist
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedOffsetIsInvalid
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedOutputContextDoesNotSupportAddingMoreThanOneOutputDevice
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedOutputContextIsInvalid
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedPlayerPathObjectWasInvalid
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheVoiceInputDeviceIsNotRegisteredOrDoesNotExist
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.UnknownError
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.UnsupportedOperation
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.VoiceInputEndpointDoesNotExist
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.VolumeIsAlreadyAtTheMaximumValue
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.VolumeIsAlreadyMuted
+  - AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.VolumeValueIsOutOfRange
+  langs:
+  - csharp
+  - vb
+  name: ErrorCode.Types.Enum
+  nameWithType: ErrorCode.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  type: Enum
+  source:
+    id: Enum
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 332
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public enum ErrorCode.Types.Enum
+    content.vb: Public Enum ErrorCode.Types.Enum
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.NoError
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.NoError
+  id: NoError
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: NoError
+  nameWithType: ErrorCode.Types.Enum.NoError
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.NoError
+  type: Field
+  source:
+    id: NoError
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 333
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("NoError")]
+
+      NoError = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("NoError")>
+
+      NoError = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NoError
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.UnknownError
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.UnknownError
+  id: UnknownError
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: UnknownError
+  nameWithType: ErrorCode.Types.Enum.UnknownError
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.UnknownError
+  type: Field
+  source:
+    id: UnknownError
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 334
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("UnknownError")]
+
+      UnknownError = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("UnknownError")>
+
+      UnknownError = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: UnknownError
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.InvalidOperation
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.InvalidOperation
+  id: InvalidOperation
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: InvalidOperation
+  nameWithType: ErrorCode.Types.Enum.InvalidOperation
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.InvalidOperation
+  type: Field
+  source:
+    id: InvalidOperation
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 335
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("InvalidOperation")]
+
+      InvalidOperation = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("InvalidOperation")>
+
+      InvalidOperation = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: InvalidOperation
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OperationNotPermitted
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OperationNotPermitted
+  id: OperationNotPermitted
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: OperationNotPermitted
+  nameWithType: ErrorCode.Types.Enum.OperationNotPermitted
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OperationNotPermitted
+  type: Field
+  source:
+    id: OperationNotPermitted
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 336
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("OperationNotPermitted")]
+
+      OperationNotPermitted = 3
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("OperationNotPermitted")>
+
+      OperationNotPermitted = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: OperationNotPermitted
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.ClientDoesNotExist
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.ClientDoesNotExist
+  id: ClientDoesNotExist
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: ClientDoesNotExist
+  nameWithType: ErrorCode.Types.Enum.ClientDoesNotExist
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.ClientDoesNotExist
+  type: Field
+  source:
+    id: ClientDoesNotExist
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 337
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("ClientDoesNotExist")]
+
+      ClientDoesNotExist = 4
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("ClientDoesNotExist")>
+
+      ClientDoesNotExist = 4
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ClientDoesNotExist
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OriginDoesNotExist
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OriginDoesNotExist
+  id: OriginDoesNotExist
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: OriginDoesNotExist
+  nameWithType: ErrorCode.Types.Enum.OriginDoesNotExist
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OriginDoesNotExist
+  type: Field
+  source:
+    id: OriginDoesNotExist
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 338
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("OriginDoesNotExist")]
+
+      OriginDoesNotExist = 5
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("OriginDoesNotExist")>
+
+      OriginDoesNotExist = 5
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: OriginDoesNotExist
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.UnsupportedOperation
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.UnsupportedOperation
+  id: UnsupportedOperation
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: UnsupportedOperation
+  nameWithType: ErrorCode.Types.Enum.UnsupportedOperation
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.UnsupportedOperation
+  type: Field
+  source:
+    id: UnsupportedOperation
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 339
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("UnsupportedOperation")]
+
+      UnsupportedOperation = 6
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("UnsupportedOperation")>
+
+      UnsupportedOperation = 6
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: UnsupportedOperation
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.FailedToSetPickedRoute
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.FailedToSetPickedRoute
+  id: FailedToSetPickedRoute
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: FailedToSetPickedRoute
+  nameWithType: ErrorCode.Types.Enum.FailedToSetPickedRoute
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.FailedToSetPickedRoute
+  type: Field
+  source:
+    id: FailedToSetPickedRoute
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 340
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("FailedToSetPickedRoute")]
+
+      FailedToSetPickedRoute = 7
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("FailedToSetPickedRoute")>
+
+      FailedToSetPickedRoute = 7
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: FailedToSetPickedRoute
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.FailedToRegisterCustomOrigin
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.FailedToRegisterCustomOrigin
+  id: FailedToRegisterCustomOrigin
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: FailedToRegisterCustomOrigin
+  nameWithType: ErrorCode.Types.Enum.FailedToRegisterCustomOrigin
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.FailedToRegisterCustomOrigin
+  type: Field
+  source:
+    id: FailedToRegisterCustomOrigin
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 341
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("FailedToRegisterCustomOrigin")]
+
+      FailedToRegisterCustomOrigin = 8
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("FailedToRegisterCustomOrigin")>
+
+      FailedToRegisterCustomOrigin = 8
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: FailedToRegisterCustomOrigin
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.FailedToRemoveCustomOrigin
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.FailedToRemoveCustomOrigin
+  id: FailedToRemoveCustomOrigin
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: FailedToRemoveCustomOrigin
+  nameWithType: ErrorCode.Types.Enum.FailedToRemoveCustomOrigin
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.FailedToRemoveCustomOrigin
+  type: Field
+  source:
+    id: FailedToRemoveCustomOrigin
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 342
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("FailedToRemoveCustomOrigin")]
+
+      FailedToRemoveCustomOrigin = 9
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("FailedToRemoveCustomOrigin")>
+
+      FailedToRemoveCustomOrigin = 9
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: FailedToRemoveCustomOrigin
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheApplicationActivityDoesNotExist
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheApplicationActivityDoesNotExist
+  id: TheApplicationActivityDoesNotExist
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheApplicationActivityDoesNotExist
+  nameWithType: ErrorCode.Types.Enum.TheApplicationActivityDoesNotExist
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheApplicationActivityDoesNotExist
+  type: Field
+  source:
+    id: TheApplicationActivityDoesNotExist
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 343
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheApplicationActivityDoesNotExist")]
+
+      TheApplicationActivityDoesNotExist = 10
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheApplicationActivityDoesNotExist")>
+
+      TheApplicationActivityDoesNotExist = 10
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheApplicationActivityDoesNotExist
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheAppHasNotSetupAbrowsableContentEndpoint
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheAppHasNotSetupAbrowsableContentEndpoint
+  id: TheAppHasNotSetupAbrowsableContentEndpoint
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheAppHasNotSetupAbrowsableContentEndpoint
+  nameWithType: ErrorCode.Types.Enum.TheAppHasNotSetupAbrowsableContentEndpoint
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheAppHasNotSetupAbrowsableContentEndpoint
+  type: Field
+  source:
+    id: TheAppHasNotSetupAbrowsableContentEndpoint
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 344
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheAppHasNotSetupABrowsableContentEndpoint")]
+
+      TheAppHasNotSetupAbrowsableContentEndpoint = 11
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheAppHasNotSetupABrowsableContentEndpoint")>
+
+      TheAppHasNotSetupAbrowsableContentEndpoint = 11
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheAppHasNotSetupABrowsableContentEndpoint
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheRequestedBrowsableContentApiIsNotSupportedByTheApplication
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheRequestedBrowsableContentApiIsNotSupportedByTheApplication
+  id: TheRequestedBrowsableContentApiIsNotSupportedByTheApplication
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheRequestedBrowsableContentApiIsNotSupportedByTheApplication
+  nameWithType: ErrorCode.Types.Enum.TheRequestedBrowsableContentApiIsNotSupportedByTheApplication
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheRequestedBrowsableContentApiIsNotSupportedByTheApplication
+  type: Field
+  source:
+    id: TheRequestedBrowsableContentApiIsNotSupportedByTheApplication
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 345
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheRequestedBrowsableContentApiIsNotSupportedByTheApplication")]
+
+      TheRequestedBrowsableContentApiIsNotSupportedByTheApplication = 12
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheRequestedBrowsableContentApiIsNotSupportedByTheApplication")>
+
+      TheRequestedBrowsableContentApiIsNotSupportedByTheApplication = 12
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheRequestedBrowsableContentApiIsNotSupportedByTheApplication
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheNotficationHasNotBeenWhitelistedByTheServer
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheNotficationHasNotBeenWhitelistedByTheServer
+  id: TheNotficationHasNotBeenWhitelistedByTheServer
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheNotficationHasNotBeenWhitelistedByTheServer
+  nameWithType: ErrorCode.Types.Enum.TheNotficationHasNotBeenWhitelistedByTheServer
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheNotficationHasNotBeenWhitelistedByTheServer
+  type: Field
+  source:
+    id: TheNotficationHasNotBeenWhitelistedByTheServer
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 346
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheNotficationHasNotBeenWhitelistedByTheServer")]
+
+      TheNotficationHasNotBeenWhitelistedByTheServer = 13
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheNotficationHasNotBeenWhitelistedByTheServer")>
+
+      TheNotficationHasNotBeenWhitelistedByTheServer = 13
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheNotficationHasNotBeenWhitelistedByTheServer
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OperationRequiresAclientCallbackToHaveBeenRegistered
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OperationRequiresAclientCallbackToHaveBeenRegistered
+  id: OperationRequiresAclientCallbackToHaveBeenRegistered
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: OperationRequiresAclientCallbackToHaveBeenRegistered
+  nameWithType: ErrorCode.Types.Enum.OperationRequiresAclientCallbackToHaveBeenRegistered
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OperationRequiresAclientCallbackToHaveBeenRegistered
+  type: Field
+  source:
+    id: OperationRequiresAclientCallbackToHaveBeenRegistered
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 347
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("OperationRequiresAClientCallbackToHaveBeenRegistered")]
+
+      OperationRequiresAclientCallbackToHaveBeenRegistered = 14
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("OperationRequiresAClientCallbackToHaveBeenRegistered")>
+
+      OperationRequiresAclientCallbackToHaveBeenRegistered = 14
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: OperationRequiresAClientCallbackToHaveBeenRegistered
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OperationRequiresAclientDataSourceToHaveBeenRegistered
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OperationRequiresAclientDataSourceToHaveBeenRegistered
+  id: OperationRequiresAclientDataSourceToHaveBeenRegistered
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: OperationRequiresAclientDataSourceToHaveBeenRegistered
+  nameWithType: ErrorCode.Types.Enum.OperationRequiresAclientDataSourceToHaveBeenRegistered
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OperationRequiresAclientDataSourceToHaveBeenRegistered
+  type: Field
+  source:
+    id: OperationRequiresAclientDataSourceToHaveBeenRegistered
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 348
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("OperationRequiresAClientDataSourceToHaveBeenRegistered")]
+
+      OperationRequiresAclientDataSourceToHaveBeenRegistered = 15
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("OperationRequiresAClientDataSourceToHaveBeenRegistered")>
+
+      OperationRequiresAclientDataSourceToHaveBeenRegistered = 15
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: OperationRequiresAClientDataSourceToHaveBeenRegistered
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.RequestedDataIsOutOfDateAndShouldBeRequestedAgain
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.RequestedDataIsOutOfDateAndShouldBeRequestedAgain
+  id: RequestedDataIsOutOfDateAndShouldBeRequestedAgain
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: RequestedDataIsOutOfDateAndShouldBeRequestedAgain
+  nameWithType: ErrorCode.Types.Enum.RequestedDataIsOutOfDateAndShouldBeRequestedAgain
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.RequestedDataIsOutOfDateAndShouldBeRequestedAgain
+  type: Field
+  source:
+    id: RequestedDataIsOutOfDateAndShouldBeRequestedAgain
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 349
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("RequestedDataIsOutOfDateAndShouldBeRequestedAgain")]
+
+      RequestedDataIsOutOfDateAndShouldBeRequestedAgain = 16
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("RequestedDataIsOutOfDateAndShouldBeRequestedAgain")>
+
+      RequestedDataIsOutOfDateAndShouldBeRequestedAgain = 16
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: RequestedDataIsOutOfDateAndShouldBeRequestedAgain
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheDevicesEnforcedVolumeLimitHasBeenExceeded
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheDevicesEnforcedVolumeLimitHasBeenExceeded
+  id: TheDevicesEnforcedVolumeLimitHasBeenExceeded
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheDevicesEnforcedVolumeLimitHasBeenExceeded
+  nameWithType: ErrorCode.Types.Enum.TheDevicesEnforcedVolumeLimitHasBeenExceeded
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheDevicesEnforcedVolumeLimitHasBeenExceeded
+  type: Field
+  source:
+    id: TheDevicesEnforcedVolumeLimitHasBeenExceeded
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 353
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: The system will ignore the volume adjustment until overridden.
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("TheDevicesEnforcedVolumeLimitHasBeenExceeded")]
+
+      TheDevicesEnforcedVolumeLimitHasBeenExceeded = 17
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheDevicesEnforcedVolumeLimitHasBeenExceeded")>
+
+      TheDevicesEnforcedVolumeLimitHasBeenExceeded = 17
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheDevicesEnforcedVolumeLimitHasBeenExceeded
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.VolumeValueIsOutOfRange
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.VolumeValueIsOutOfRange
+  id: VolumeValueIsOutOfRange
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: VolumeValueIsOutOfRange
+  nameWithType: ErrorCode.Types.Enum.VolumeValueIsOutOfRange
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.VolumeValueIsOutOfRange
+  type: Field
+  source:
+    id: VolumeValueIsOutOfRange
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 357
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: between 0.0 and 1.0, where 1.0 is the loudest
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("VolumeValueIsOutOfRange")]
+
+      VolumeValueIsOutOfRange = 18
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("VolumeValueIsOutOfRange")>
+
+      VolumeValueIsOutOfRange = 18
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: VolumeValueIsOutOfRange
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.VolumeIsAlreadyAtTheMaximumValue
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.VolumeIsAlreadyAtTheMaximumValue
+  id: VolumeIsAlreadyAtTheMaximumValue
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: VolumeIsAlreadyAtTheMaximumValue
+  nameWithType: ErrorCode.Types.Enum.VolumeIsAlreadyAtTheMaximumValue
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.VolumeIsAlreadyAtTheMaximumValue
+  type: Field
+  source:
+    id: VolumeIsAlreadyAtTheMaximumValue
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 358
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("VolumeIsAlreadyAtTheMaximumValue")]
+
+      VolumeIsAlreadyAtTheMaximumValue = 19
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("VolumeIsAlreadyAtTheMaximumValue")>
+
+      VolumeIsAlreadyAtTheMaximumValue = 19
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: VolumeIsAlreadyAtTheMaximumValue
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.VolumeIsAlreadyMuted
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.VolumeIsAlreadyMuted
+  id: VolumeIsAlreadyMuted
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: VolumeIsAlreadyMuted
+  nameWithType: ErrorCode.Types.Enum.VolumeIsAlreadyMuted
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.VolumeIsAlreadyMuted
+  type: Field
+  source:
+    id: VolumeIsAlreadyMuted
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 359
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("VolumeIsAlreadyMuted")]
+
+      VolumeIsAlreadyMuted = 20
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("VolumeIsAlreadyMuted")>
+
+      VolumeIsAlreadyMuted = 20
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: VolumeIsAlreadyMuted
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.VoiceInputEndpointDoesNotExist
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.VoiceInputEndpointDoesNotExist
+  id: VoiceInputEndpointDoesNotExist
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: VoiceInputEndpointDoesNotExist
+  nameWithType: ErrorCode.Types.Enum.VoiceInputEndpointDoesNotExist
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.VoiceInputEndpointDoesNotExist
+  type: Field
+  source:
+    id: VoiceInputEndpointDoesNotExist
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 360
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("VoiceInputEndpointDoesNotExist")]
+
+      VoiceInputEndpointDoesNotExist = 21
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("VoiceInputEndpointDoesNotExist")>
+
+      VoiceInputEndpointDoesNotExist = 21
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: VoiceInputEndpointDoesNotExist
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheVoiceInputDeviceIsNotRegisteredOrDoesNotExist
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheVoiceInputDeviceIsNotRegisteredOrDoesNotExist
+  id: TheVoiceInputDeviceIsNotRegisteredOrDoesNotExist
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheVoiceInputDeviceIsNotRegisteredOrDoesNotExist
+  nameWithType: ErrorCode.Types.Enum.TheVoiceInputDeviceIsNotRegisteredOrDoesNotExist
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheVoiceInputDeviceIsNotRegisteredOrDoesNotExist
+  type: Field
+  source:
+    id: TheVoiceInputDeviceIsNotRegisteredOrDoesNotExist
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 361
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheVoiceInputDeviceIsNotRegisteredOrDoesNotExist")]
+
+      TheVoiceInputDeviceIsNotRegisteredOrDoesNotExist = 22
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheVoiceInputDeviceIsNotRegisteredOrDoesNotExist")>
+
+      TheVoiceInputDeviceIsNotRegisteredOrDoesNotExist = 22
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheVoiceInputDeviceIsNotRegisteredOrDoesNotExist
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.EncryptionFailure
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.EncryptionFailure
+  id: EncryptionFailure
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: EncryptionFailure
+  nameWithType: ErrorCode.Types.Enum.EncryptionFailure
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.EncryptionFailure
+  type: Field
+  source:
+    id: EncryptionFailure
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 362
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("EncryptionFailure")]
+
+      EncryptionFailure = 23
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("EncryptionFailure")>
+
+      EncryptionFailure = 23
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: EncryptionFailure
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.EndpointDoesNotExist
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.EndpointDoesNotExist
+  id: EndpointDoesNotExist
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: EndpointDoesNotExist
+  nameWithType: ErrorCode.Types.Enum.EndpointDoesNotExist
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.EndpointDoesNotExist
+  type: Field
+  source:
+    id: EndpointDoesNotExist
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 363
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("EndpointDoesNotExist")]
+
+      EndpointDoesNotExist = 24
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("EndpointDoesNotExist")>
+
+      EndpointDoesNotExist = 24
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: EndpointDoesNotExist
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheClientsApplicationCancelledTheOperation
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheClientsApplicationCancelledTheOperation
+  id: TheClientsApplicationCancelledTheOperation
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheClientsApplicationCancelledTheOperation
+  nameWithType: ErrorCode.Types.Enum.TheClientsApplicationCancelledTheOperation
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheClientsApplicationCancelledTheOperation
+  type: Field
+  source:
+    id: TheClientsApplicationCancelledTheOperation
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 364
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheClientsApplicationCancelledTheOperation")]
+
+      TheClientsApplicationCancelledTheOperation = 25
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheClientsApplicationCancelledTheOperation")>
+
+      TheClientsApplicationCancelledTheOperation = 25
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheClientsApplicationCancelledTheOperation
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheOperationTimedOut
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheOperationTimedOut
+  id: TheOperationTimedOut
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheOperationTimedOut
+  nameWithType: ErrorCode.Types.Enum.TheOperationTimedOut
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheOperationTimedOut
+  type: Field
+  source:
+    id: TheOperationTimedOut
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 365
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheOperationTimedOut")]
+
+      TheOperationTimedOut = 26
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheOperationTimedOut")>
+
+      TheOperationTimedOut = 26
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheOperationTimedOut
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedPlayerPathObjectWasInvalid
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedPlayerPathObjectWasInvalid
+  id: TheSpecifiedPlayerPathObjectWasInvalid
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheSpecifiedPlayerPathObjectWasInvalid
+  nameWithType: ErrorCode.Types.Enum.TheSpecifiedPlayerPathObjectWasInvalid
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedPlayerPathObjectWasInvalid
+  type: Field
+  source:
+    id: TheSpecifiedPlayerPathObjectWasInvalid
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 366
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheSpecifiedPlayerPathObjectWasInvalid")]
+
+      TheSpecifiedPlayerPathObjectWasInvalid = 27
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheSpecifiedPlayerPathObjectWasInvalid")>
+
+      TheSpecifiedPlayerPathObjectWasInvalid = 27
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheSpecifiedPlayerPathObjectWasInvalid
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.AddingOrRemovingDevicesFromTheAvOutputContextHasFailed
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.AddingOrRemovingDevicesFromTheAvOutputContextHasFailed
+  id: AddingOrRemovingDevicesFromTheAvOutputContextHasFailed
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: AddingOrRemovingDevicesFromTheAvOutputContextHasFailed
+  nameWithType: ErrorCode.Types.Enum.AddingOrRemovingDevicesFromTheAvOutputContextHasFailed
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.AddingOrRemovingDevicesFromTheAvOutputContextHasFailed
+  type: Field
+  source:
+    id: AddingOrRemovingDevicesFromTheAvOutputContextHasFailed
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 367
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("AddingOrRemovingDevicesFromTheAvOutputContextHasFailed")]
+
+      AddingOrRemovingDevicesFromTheAvOutputContextHasFailed = 28
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("AddingOrRemovingDevicesFromTheAvOutputContextHasFailed")>
+
+      AddingOrRemovingDevicesFromTheAvOutputContextHasFailed = 28
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: AddingOrRemovingDevicesFromTheAvOutputContextHasFailed
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.CouldNotFindTheSpecifiedNowPlayingPlayer
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.CouldNotFindTheSpecifiedNowPlayingPlayer
+  id: CouldNotFindTheSpecifiedNowPlayingPlayer
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: CouldNotFindTheSpecifiedNowPlayingPlayer
+  nameWithType: ErrorCode.Types.Enum.CouldNotFindTheSpecifiedNowPlayingPlayer
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.CouldNotFindTheSpecifiedNowPlayingPlayer
+  type: Field
+  source:
+    id: CouldNotFindTheSpecifiedNowPlayingPlayer
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 368
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("CouldNotFindTheSpecifiedNowPlayingPlayer")]
+
+      CouldNotFindTheSpecifiedNowPlayingPlayer = 29
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("CouldNotFindTheSpecifiedNowPlayingPlayer")>
+
+      CouldNotFindTheSpecifiedNowPlayingPlayer = 29
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: CouldNotFindTheSpecifiedNowPlayingPlayer
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedContentItemDoesNotExist
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedContentItemDoesNotExist
+  id: TheSpecifiedContentItemDoesNotExist
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheSpecifiedContentItemDoesNotExist
+  nameWithType: ErrorCode.Types.Enum.TheSpecifiedContentItemDoesNotExist
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedContentItemDoesNotExist
+  type: Field
+  source:
+    id: TheSpecifiedContentItemDoesNotExist
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 369
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheSpecifiedContentItemDoesNotExist")]
+
+      TheSpecifiedContentItemDoesNotExist = 30
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheSpecifiedContentItemDoesNotExist")>
+
+      TheSpecifiedContentItemDoesNotExist = 30
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheSpecifiedContentItemDoesNotExist
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedOffsetIsInvalid
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedOffsetIsInvalid
+  id: TheSpecifiedOffsetIsInvalid
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheSpecifiedOffsetIsInvalid
+  nameWithType: ErrorCode.Types.Enum.TheSpecifiedOffsetIsInvalid
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedOffsetIsInvalid
+  type: Field
+  source:
+    id: TheSpecifiedOffsetIsInvalid
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 370
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheSpecifiedOffsetIsInvalid")]
+
+      TheSpecifiedOffsetIsInvalid = 31
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheSpecifiedOffsetIsInvalid")>
+
+      TheSpecifiedOffsetIsInvalid = 31
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheSpecifiedOffsetIsInvalid
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedOutputContextIsInvalid
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedOutputContextIsInvalid
+  id: TheSpecifiedOutputContextIsInvalid
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheSpecifiedOutputContextIsInvalid
+  nameWithType: ErrorCode.Types.Enum.TheSpecifiedOutputContextIsInvalid
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedOutputContextIsInvalid
+  type: Field
+  source:
+    id: TheSpecifiedOutputContextIsInvalid
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 371
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheSpecifiedOutputContextIsInvalid")]
+
+      TheSpecifiedOutputContextIsInvalid = 32
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheSpecifiedOutputContextIsInvalid")>
+
+      TheSpecifiedOutputContextIsInvalid = 32
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheSpecifiedOutputContextIsInvalid
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OneOrMoreSpecifiedOutputDevicesAreNotGroupable
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OneOrMoreSpecifiedOutputDevicesAreNotGroupable
+  id: OneOrMoreSpecifiedOutputDevicesAreNotGroupable
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: OneOrMoreSpecifiedOutputDevicesAreNotGroupable
+  nameWithType: ErrorCode.Types.Enum.OneOrMoreSpecifiedOutputDevicesAreNotGroupable
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OneOrMoreSpecifiedOutputDevicesAreNotGroupable
+  type: Field
+  source:
+    id: OneOrMoreSpecifiedOutputDevicesAreNotGroupable
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 372
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("OneOrMoreSpecifiedOutputDevicesAreNotGroupable")]
+
+      OneOrMoreSpecifiedOutputDevicesAreNotGroupable = 33
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("OneOrMoreSpecifiedOutputDevicesAreNotGroupable")>
+
+      OneOrMoreSpecifiedOutputDevicesAreNotGroupable = 33
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: OneOrMoreSpecifiedOutputDevicesAreNotGroupable
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedOutputContextDoesNotSupportAddingMoreThanOneOutputDevice
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedOutputContextDoesNotSupportAddingMoreThanOneOutputDevice
+  id: TheSpecifiedOutputContextDoesNotSupportAddingMoreThanOneOutputDevice
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheSpecifiedOutputContextDoesNotSupportAddingMoreThanOneOutputDevice
+  nameWithType: ErrorCode.Types.Enum.TheSpecifiedOutputContextDoesNotSupportAddingMoreThanOneOutputDevice
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheSpecifiedOutputContextDoesNotSupportAddingMoreThanOneOutputDevice
+  type: Field
+  source:
+    id: TheSpecifiedOutputContextDoesNotSupportAddingMoreThanOneOutputDevice
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 373
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheSpecifiedOutputContextDoesNotSupportAddingMoreThanOneOutputDevice")]
+
+      TheSpecifiedOutputContextDoesNotSupportAddingMoreThanOneOutputDevice = 34
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheSpecifiedOutputContextDoesNotSupportAddingMoreThanOneOutputDevice")>
+
+      TheSpecifiedOutputContextDoesNotSupportAddingMoreThanOneOutputDevice = 34
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheSpecifiedOutputContextDoesNotSupportAddingMoreThanOneOutputDevice
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.CouldNotFindTheSpecifiedNowPlayingClient
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.CouldNotFindTheSpecifiedNowPlayingClient
+  id: CouldNotFindTheSpecifiedNowPlayingClient
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: CouldNotFindTheSpecifiedNowPlayingClient
+  nameWithType: ErrorCode.Types.Enum.CouldNotFindTheSpecifiedNowPlayingClient
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.CouldNotFindTheSpecifiedNowPlayingClient
+  type: Field
+  source:
+    id: CouldNotFindTheSpecifiedNowPlayingClient
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 374
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("CouldNotFindTheSpecifiedNowPlayingClient")]
+
+      CouldNotFindTheSpecifiedNowPlayingClient = 35
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("CouldNotFindTheSpecifiedNowPlayingClient")>
+
+      CouldNotFindTheSpecifiedNowPlayingClient = 35
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: CouldNotFindTheSpecifiedNowPlayingClient
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.EndpointVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.EndpointVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable
+  id: EndpointVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: EndpointVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable
+  nameWithType: ErrorCode.Types.Enum.EndpointVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.EndpointVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable
+  type: Field
+  source:
+    id: EndpointVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 375
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("EndpointVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable")]
+
+      EndpointVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable = 36
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("EndpointVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable")>
+
+      EndpointVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable = 36
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: EndpointVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OutputDeviceVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OutputDeviceVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable
+  id: OutputDeviceVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: OutputDeviceVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable
+  nameWithType: ErrorCode.Types.Enum.OutputDeviceVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OutputDeviceVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable
+  type: Field
+  source:
+    id: OutputDeviceVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 376
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("OutputDeviceVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable")]
+
+      OutputDeviceVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable = 37
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("OutputDeviceVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable")>
+
+      OutputDeviceVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable = 37
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: OutputDeviceVolumeControlIsOnlyPossibleIfTheEndpointIsPickedOrRemoteControllable
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.CoderMustSupportKeyValueCoding
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.CoderMustSupportKeyValueCoding
+  id: CoderMustSupportKeyValueCoding
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: CoderMustSupportKeyValueCoding
+  nameWithType: ErrorCode.Types.Enum.CoderMustSupportKeyValueCoding
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.CoderMustSupportKeyValueCoding
+  type: Field
+  source:
+    id: CoderMustSupportKeyValueCoding
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 377
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("CoderMustSupportKeyValueCoding")]
+
+      CoderMustSupportKeyValueCoding = 38
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("CoderMustSupportKeyValueCoding")>
+
+      CoderMustSupportKeyValueCoding = 38
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: CoderMustSupportKeyValueCoding
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.CouldNotFindTheGivenOutputdevice
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.CouldNotFindTheGivenOutputdevice
+  id: CouldNotFindTheGivenOutputdevice
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: CouldNotFindTheGivenOutputdevice
+  nameWithType: ErrorCode.Types.Enum.CouldNotFindTheGivenOutputdevice
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.CouldNotFindTheGivenOutputdevice
+  type: Field
+  source:
+    id: CouldNotFindTheGivenOutputdevice
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 378
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("CouldNotFindTheGivenOutputdevice")]
+
+      CouldNotFindTheGivenOutputdevice = 39
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("CouldNotFindTheGivenOutputdevice")>
+
+      CouldNotFindTheGivenOutputdevice = 39
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: CouldNotFindTheGivenOutputdevice
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.FailedToConnectToRemoteDevice
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.FailedToConnectToRemoteDevice
+  id: FailedToConnectToRemoteDevice
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: FailedToConnectToRemoteDevice
+  nameWithType: ErrorCode.Types.Enum.FailedToConnectToRemoteDevice
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.FailedToConnectToRemoteDevice
+  type: Field
+  source:
+    id: FailedToConnectToRemoteDevice
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 379
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("FailedToConnectToRemoteDevice")]
+
+      FailedToConnectToRemoteDevice = 100
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("FailedToConnectToRemoteDevice")>
+
+      FailedToConnectToRemoteDevice = 100
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: FailedToConnectToRemoteDevice
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.AuthenticationTokenIsInvalid
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.AuthenticationTokenIsInvalid
+  id: AuthenticationTokenIsInvalid
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: AuthenticationTokenIsInvalid
+  nameWithType: ErrorCode.Types.Enum.AuthenticationTokenIsInvalid
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.AuthenticationTokenIsInvalid
+  type: Field
+  source:
+    id: AuthenticationTokenIsInvalid
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 380
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("AuthenticationTokenIsInvalid")]
+
+      AuthenticationTokenIsInvalid = 101
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("AuthenticationTokenIsInvalid")>
+
+      AuthenticationTokenIsInvalid = 101
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: AuthenticationTokenIsInvalid
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.RecordingSessionIsAlreadyInProgressOnThisDevice
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.RecordingSessionIsAlreadyInProgressOnThisDevice
+  id: RecordingSessionIsAlreadyInProgressOnThisDevice
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: RecordingSessionIsAlreadyInProgressOnThisDevice
+  nameWithType: ErrorCode.Types.Enum.RecordingSessionIsAlreadyInProgressOnThisDevice
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.RecordingSessionIsAlreadyInProgressOnThisDevice
+  type: Field
+  source:
+    id: RecordingSessionIsAlreadyInProgressOnThisDevice
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 381
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("RecordingSessionIsAlreadyInProgressOnThisDevice")]
+
+      RecordingSessionIsAlreadyInProgressOnThisDevice = 102
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("RecordingSessionIsAlreadyInProgressOnThisDevice")>
+
+      RecordingSessionIsAlreadyInProgressOnThisDevice = 102
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: RecordingSessionIsAlreadyInProgressOnThisDevice
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheDeviceIsNotCurrentlyRecording
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheDeviceIsNotCurrentlyRecording
+  id: TheDeviceIsNotCurrentlyRecording
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheDeviceIsNotCurrentlyRecording
+  nameWithType: ErrorCode.Types.Enum.TheDeviceIsNotCurrentlyRecording
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheDeviceIsNotCurrentlyRecording
+  type: Field
+  source:
+    id: TheDeviceIsNotCurrentlyRecording
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 382
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheDeviceIsNotCurrentlyRecording")]
+
+      TheDeviceIsNotCurrentlyRecording = 103
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheDeviceIsNotCurrentlyRecording")>
+
+      TheDeviceIsNotCurrentlyRecording = 103
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheDeviceIsNotCurrentlyRecording
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheClientHasDisconnected
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheClientHasDisconnected
+  id: TheClientHasDisconnected
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheClientHasDisconnected
+  nameWithType: ErrorCode.Types.Enum.TheClientHasDisconnected
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheClientHasDisconnected
+  type: Field
+  source:
+    id: TheClientHasDisconnected
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 383
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheClientHasDisconnected")]
+
+      TheClientHasDisconnected = 104
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheClientHasDisconnected")>
+
+      TheClientHasDisconnected = 104
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheClientHasDisconnected
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheServerHasDisconnected
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheServerHasDisconnected
+  id: TheServerHasDisconnected
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheServerHasDisconnected
+  nameWithType: ErrorCode.Types.Enum.TheServerHasDisconnected
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheServerHasDisconnected
+  type: Field
+  source:
+    id: TheServerHasDisconnected
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 384
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheServerHasDisconnected")]
+
+      TheServerHasDisconnected = 105
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheServerHasDisconnected")>
+
+      TheServerHasDisconnected = 105
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheServerHasDisconnected
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheConnectionHasBeenCancelledByTheClient
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheConnectionHasBeenCancelledByTheClient
+  id: TheConnectionHasBeenCancelledByTheClient
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheConnectionHasBeenCancelledByTheClient
+  nameWithType: ErrorCode.Types.Enum.TheConnectionHasBeenCancelledByTheClient
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheConnectionHasBeenCancelledByTheClient
+  type: Field
+  source:
+    id: TheConnectionHasBeenCancelledByTheClient
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 385
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheConnectionHasBeenCancelledByTheClient")]
+
+      TheConnectionHasBeenCancelledByTheClient = 106
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheConnectionHasBeenCancelledByTheClient")>
+
+      TheConnectionHasBeenCancelledByTheClient = 106
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheConnectionHasBeenCancelledByTheClient
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.PairingFunctionalityIsLockedDueToSecurityReasons
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.PairingFunctionalityIsLockedDueToSecurityReasons
+  id: PairingFunctionalityIsLockedDueToSecurityReasons
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: PairingFunctionalityIsLockedDueToSecurityReasons
+  nameWithType: ErrorCode.Types.Enum.PairingFunctionalityIsLockedDueToSecurityReasons
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.PairingFunctionalityIsLockedDueToSecurityReasons
+  type: Field
+  source:
+    id: PairingFunctionalityIsLockedDueToSecurityReasons
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 386
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("PairingFunctionalityIsLockedDueToSecurityReasons")]
+
+      PairingFunctionalityIsLockedDueToSecurityReasons = 107
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("PairingFunctionalityIsLockedDueToSecurityReasons")>
+
+      PairingFunctionalityIsLockedDueToSecurityReasons = 107
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: PairingFunctionalityIsLockedDueToSecurityReasons
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheClientsOperatingSystemVersionIsTooOld
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheClientsOperatingSystemVersionIsTooOld
+  id: TheClientsOperatingSystemVersionIsTooOld
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheClientsOperatingSystemVersionIsTooOld
+  nameWithType: ErrorCode.Types.Enum.TheClientsOperatingSystemVersionIsTooOld
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheClientsOperatingSystemVersionIsTooOld
+  type: Field
+  source:
+    id: TheClientsOperatingSystemVersionIsTooOld
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 387
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheClientsOperatingSystemVersionIsTooOld")]
+
+      TheClientsOperatingSystemVersionIsTooOld = 108
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheClientsOperatingSystemVersionIsTooOld")>
+
+      TheClientsOperatingSystemVersionIsTooOld = 108
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheClientsOperatingSystemVersionIsTooOld
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheClientsApplicationVersionIsTooOld
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheClientsApplicationVersionIsTooOld
+  id: TheClientsApplicationVersionIsTooOld
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheClientsApplicationVersionIsTooOld
+  nameWithType: ErrorCode.Types.Enum.TheClientsApplicationVersionIsTooOld
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheClientsApplicationVersionIsTooOld
+  type: Field
+  source:
+    id: TheClientsApplicationVersionIsTooOld
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 388
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheClientsApplicationVersionIsTooOld")]
+
+      TheClientsApplicationVersionIsTooOld = 109
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheClientsApplicationVersionIsTooOld")>
+
+      TheClientsApplicationVersionIsTooOld = 109
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheClientsApplicationVersionIsTooOld
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheDeviceIsNotPaired
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheDeviceIsNotPaired
+  id: TheDeviceIsNotPaired
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheDeviceIsNotPaired
+  nameWithType: ErrorCode.Types.Enum.TheDeviceIsNotPaired
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheDeviceIsNotPaired
+  type: Field
+  source:
+    id: TheDeviceIsNotPaired
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 389
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheDeviceIsNotPaired")]
+
+      TheDeviceIsNotPaired = 110
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheDeviceIsNotPaired")>
+
+      TheDeviceIsNotPaired = 110
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheDeviceIsNotPaired
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.ThePinPairingDialogWasRemovedByTheUserBeforePairingOccoured
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.ThePinPairingDialogWasRemovedByTheUserBeforePairingOccoured
+  id: ThePinPairingDialogWasRemovedByTheUserBeforePairingOccoured
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: ThePinPairingDialogWasRemovedByTheUserBeforePairingOccoured
+  nameWithType: ErrorCode.Types.Enum.ThePinPairingDialogWasRemovedByTheUserBeforePairingOccoured
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.ThePinPairingDialogWasRemovedByTheUserBeforePairingOccoured
+  type: Field
+  source:
+    id: ThePinPairingDialogWasRemovedByTheUserBeforePairingOccoured
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 390
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("ThePinPairingDialogWasRemovedByTheUserBeforePairingOccoured")]
+
+      ThePinPairingDialogWasRemovedByTheUserBeforePairingOccoured = 111
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("ThePinPairingDialogWasRemovedByTheUserBeforePairingOccoured")>
+
+      ThePinPairingDialogWasRemovedByTheUserBeforePairingOccoured = 111
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ThePinPairingDialogWasRemovedByTheUserBeforePairingOccoured
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.ThePinPairingDialogWasRemovedByAtimeoutBeforePairingOccoured
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.ThePinPairingDialogWasRemovedByAtimeoutBeforePairingOccoured
+  id: ThePinPairingDialogWasRemovedByAtimeoutBeforePairingOccoured
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: ThePinPairingDialogWasRemovedByAtimeoutBeforePairingOccoured
+  nameWithType: ErrorCode.Types.Enum.ThePinPairingDialogWasRemovedByAtimeoutBeforePairingOccoured
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.ThePinPairingDialogWasRemovedByAtimeoutBeforePairingOccoured
+  type: Field
+  source:
+    id: ThePinPairingDialogWasRemovedByAtimeoutBeforePairingOccoured
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 391
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("ThePinPairingDialogWasRemovedByATimeoutBeforePairingOccoured")]
+
+      ThePinPairingDialogWasRemovedByAtimeoutBeforePairingOccoured = 112
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("ThePinPairingDialogWasRemovedByATimeoutBeforePairingOccoured")>
+
+      ThePinPairingDialogWasRemovedByAtimeoutBeforePairingOccoured = 112
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ThePinPairingDialogWasRemovedByATimeoutBeforePairingOccoured
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheConnectionTimedout
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheConnectionTimedout
+  id: TheConnectionTimedout
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheConnectionTimedout
+  nameWithType: ErrorCode.Types.Enum.TheConnectionTimedout
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheConnectionTimedout
+  type: Field
+  source:
+    id: TheConnectionTimedout
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 392
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheConnectionTimedout")]
+
+      TheConnectionTimedout = 113
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheConnectionTimedout")>
+
+      TheConnectionTimedout = 113
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheConnectionTimedout
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.PairingWithThisDeviceIsBlocked
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.PairingWithThisDeviceIsBlocked
+  id: PairingWithThisDeviceIsBlocked
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: PairingWithThisDeviceIsBlocked
+  nameWithType: ErrorCode.Types.Enum.PairingWithThisDeviceIsBlocked
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.PairingWithThisDeviceIsBlocked
+  type: Field
+  source:
+    id: PairingWithThisDeviceIsBlocked
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 393
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("PairingWithThisDeviceIsBlocked")]
+
+      PairingWithThisDeviceIsBlocked = 114
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("PairingWithThisDeviceIsBlocked")>
+
+      PairingWithThisDeviceIsBlocked = 114
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: PairingWithThisDeviceIsBlocked
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheDeviceIsGoingToSleep
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheDeviceIsGoingToSleep
+  id: TheDeviceIsGoingToSleep
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TheDeviceIsGoingToSleep
+  nameWithType: ErrorCode.Types.Enum.TheDeviceIsGoingToSleep
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.TheDeviceIsGoingToSleep
+  type: Field
+  source:
+    id: TheDeviceIsGoingToSleep
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 394
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TheDeviceIsGoingToSleep")]
+
+      TheDeviceIsGoingToSleep = 115
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("TheDeviceIsGoingToSleep")>
+
+      TheDeviceIsGoingToSleep = 115
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TheDeviceIsGoingToSleep
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.ConnectionBlockedByServer
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.ConnectionBlockedByServer
+  id: ConnectionBlockedByServer
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: ConnectionBlockedByServer
+  nameWithType: ErrorCode.Types.Enum.ConnectionBlockedByServer
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.ConnectionBlockedByServer
+  type: Field
+  source:
+    id: ConnectionBlockedByServer
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 395
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("ConnectionBlockedByServer")]
+
+      ConnectionBlockedByServer = 116
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("ConnectionBlockedByServer")>
+
+      ConnectionBlockedByServer = 116
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ConnectionBlockedByServer
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.MravendpointWasDeallocatedWhileWaitingForDeviceToConnect
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.MravendpointWasDeallocatedWhileWaitingForDeviceToConnect
+  id: MravendpointWasDeallocatedWhileWaitingForDeviceToConnect
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: MravendpointWasDeallocatedWhileWaitingForDeviceToConnect
+  nameWithType: ErrorCode.Types.Enum.MravendpointWasDeallocatedWhileWaitingForDeviceToConnect
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.MravendpointWasDeallocatedWhileWaitingForDeviceToConnect
+  type: Field
+  source:
+    id: MravendpointWasDeallocatedWhileWaitingForDeviceToConnect
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 396
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("MravendpointWasDeallocatedWhileWaitingForDeviceToConnect")]
+
+      MravendpointWasDeallocatedWhileWaitingForDeviceToConnect = 117
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("MravendpointWasDeallocatedWhileWaitingForDeviceToConnect")>
+
+      MravendpointWasDeallocatedWhileWaitingForDeviceToConnect = 117
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: MravendpointWasDeallocatedWhileWaitingForDeviceToConnect
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OutputContextModificationCausedAdeviceToNoLongerBeAproxyGroupPlayer
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OutputContextModificationCausedAdeviceToNoLongerBeAproxyGroupPlayer
+  id: OutputContextModificationCausedAdeviceToNoLongerBeAproxyGroupPlayer
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: OutputContextModificationCausedAdeviceToNoLongerBeAproxyGroupPlayer
+  nameWithType: ErrorCode.Types.Enum.OutputContextModificationCausedAdeviceToNoLongerBeAproxyGroupPlayer
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OutputContextModificationCausedAdeviceToNoLongerBeAproxyGroupPlayer
+  type: Field
+  source:
+    id: OutputContextModificationCausedAdeviceToNoLongerBeAproxyGroupPlayer
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 397
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("OutputContextModificationCausedADeviceToNoLongerBeAProxyGroupPlayer")]
+
+      OutputContextModificationCausedAdeviceToNoLongerBeAproxyGroupPlayer = 200
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("OutputContextModificationCausedADeviceToNoLongerBeAProxyGroupPlayer")>
+
+      OutputContextModificationCausedAdeviceToNoLongerBeAproxyGroupPlayer = 200
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: OutputContextModificationCausedADeviceToNoLongerBeAProxyGroupPlayer
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OutputContextModificationCausedAdeviceToBecomeAproxyGroupPlayer
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OutputContextModificationCausedAdeviceToBecomeAproxyGroupPlayer
+  id: OutputContextModificationCausedAdeviceToBecomeAproxyGroupPlayer
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: OutputContextModificationCausedAdeviceToBecomeAproxyGroupPlayer
+  nameWithType: ErrorCode.Types.Enum.OutputContextModificationCausedAdeviceToBecomeAproxyGroupPlayer
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OutputContextModificationCausedAdeviceToBecomeAproxyGroupPlayer
+  type: Field
+  source:
+    id: OutputContextModificationCausedAdeviceToBecomeAproxyGroupPlayer
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 398
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("OutputContextModificationCausedADeviceToBecomeAProxyGroupPlayer")]
+
+      OutputContextModificationCausedAdeviceToBecomeAproxyGroupPlayer = 201
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("OutputContextModificationCausedADeviceToBecomeAProxyGroupPlayer")>
+
+      OutputContextModificationCausedAdeviceToBecomeAproxyGroupPlayer = 201
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: OutputContextModificationCausedADeviceToBecomeAProxyGroupPlayer
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OutputContextModificationRequestedNoTopologyChange
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OutputContextModificationRequestedNoTopologyChange
+  id: OutputContextModificationRequestedNoTopologyChange
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: OutputContextModificationRequestedNoTopologyChange
+  nameWithType: ErrorCode.Types.Enum.OutputContextModificationRequestedNoTopologyChange
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OutputContextModificationRequestedNoTopologyChange
+  type: Field
+  source:
+    id: OutputContextModificationRequestedNoTopologyChange
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 399
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("OutputContextModificationRequestedNoTopologyChange")]
+
+      OutputContextModificationRequestedNoTopologyChange = 202
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("OutputContextModificationRequestedNoTopologyChange")>
+
+      OutputContextModificationRequestedNoTopologyChange = 202
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: OutputContextModificationRequestedNoTopologyChange
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OtherUnknownError
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OtherUnknownError
+  id: OtherUnknownError
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: OtherUnknownError
+  nameWithType: ErrorCode.Types.Enum.OtherUnknownError
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.OtherUnknownError
+  type: Field
+  source:
+    id: OtherUnknownError
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ProtocolMessage.cs
+    startLine: 400
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("OtherUnknownError")]
+
+      OtherUnknownError = 299
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    content.vb: >-
+      <OriginalName("OtherUnknownError")>
+
+      OtherUnknownError = 299
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: OtherUnknownError
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.html
+  name: ErrorCode.Types.Enum
+  nameWithType: ErrorCode.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode
+    name: ErrorCode
+    href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode
+    name: ErrorCode
+    href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.html

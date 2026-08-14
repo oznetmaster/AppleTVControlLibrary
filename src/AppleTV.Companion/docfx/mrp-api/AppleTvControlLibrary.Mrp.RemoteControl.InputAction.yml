@@ -1,0 +1,155 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.RemoteControl.InputAction
+  commentId: T:AppleTvControlLibrary.Mrp.RemoteControl.InputAction
+  id: InputAction
+  parent: AppleTvControlLibrary.Mrp.RemoteControl
+  children:
+  - AppleTvControlLibrary.Mrp.RemoteControl.InputAction.DoubleTap
+  - AppleTvControlLibrary.Mrp.RemoteControl.InputAction.Hold
+  - AppleTvControlLibrary.Mrp.RemoteControl.InputAction.SingleTap
+  langs:
+  - csharp
+  - vb
+  name: InputAction
+  nameWithType: InputAction
+  fullName: AppleTvControlLibrary.Mrp.RemoteControl.InputAction
+  type: Enum
+  source:
+    remote:
+      path: src/AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: InputAction
+    path: ../../AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+    startLine: 48
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.RemoteControl
+  summary: Type of input when pressing a button, mirroring pyatv's <code>InputAction</code> constant.
+  example: []
+  syntax:
+    content: public enum InputAction
+    content.vb: Public Enum InputAction
+- uid: AppleTvControlLibrary.Mrp.RemoteControl.InputAction.SingleTap
+  commentId: F:AppleTvControlLibrary.Mrp.RemoteControl.InputAction.SingleTap
+  id: SingleTap
+  parent: AppleTvControlLibrary.Mrp.RemoteControl.InputAction
+  langs:
+  - csharp
+  - vb
+  name: SingleTap
+  nameWithType: InputAction.SingleTap
+  fullName: AppleTvControlLibrary.Mrp.RemoteControl.InputAction.SingleTap
+  type: Field
+  source:
+    remote:
+      path: src/AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: SingleTap
+    path: ../../AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+    startLine: 51
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.RemoteControl
+  summary: Press and release quickly. pyatv/const.py — line 203 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: SingleTap = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.RemoteControl.InputAction
+- uid: AppleTvControlLibrary.Mrp.RemoteControl.InputAction.DoubleTap
+  commentId: F:AppleTvControlLibrary.Mrp.RemoteControl.InputAction.DoubleTap
+  id: DoubleTap
+  parent: AppleTvControlLibrary.Mrp.RemoteControl.InputAction
+  langs:
+  - csharp
+  - vb
+  name: DoubleTap
+  nameWithType: InputAction.DoubleTap
+  fullName: AppleTvControlLibrary.Mrp.RemoteControl.InputAction.DoubleTap
+  type: Field
+  source:
+    remote:
+      path: src/AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: DoubleTap
+    path: ../../AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+    startLine: 53
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.RemoteControl
+  summary: Press and release twice quickly. pyatv/const.py — line 206 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: DoubleTap = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.RemoteControl.InputAction
+- uid: AppleTvControlLibrary.Mrp.RemoteControl.InputAction.Hold
+  commentId: F:AppleTvControlLibrary.Mrp.RemoteControl.InputAction.Hold
+  id: Hold
+  parent: AppleTvControlLibrary.Mrp.RemoteControl.InputAction
+  langs:
+  - csharp
+  - vb
+  name: Hold
+  nameWithType: InputAction.Hold
+  fullName: AppleTvControlLibrary.Mrp.RemoteControl.InputAction.Hold
+  type: Field
+  source:
+    remote:
+      path: src/AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Hold
+    path: ../../AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+    startLine: 55
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.RemoteControl
+  summary: Press and hold for one second before releasing. pyatv/const.py — line 209 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Hold = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.RemoteControl.InputAction
+references:
+- uid: AppleTvControlLibrary.Mrp.RemoteControl
+  commentId: N:AppleTvControlLibrary.Mrp.RemoteControl
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.RemoteControl
+  nameWithType: AppleTvControlLibrary.Mrp.RemoteControl
+  fullName: AppleTvControlLibrary.Mrp.RemoteControl
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.RemoteControl
+    name: RemoteControl
+    href: AppleTvControlLibrary.Mrp.RemoteControl.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.RemoteControl
+    name: RemoteControl
+    href: AppleTvControlLibrary.Mrp.RemoteControl.html
+- uid: AppleTvControlLibrary.Mrp.RemoteControl.InputAction
+  commentId: T:AppleTvControlLibrary.Mrp.RemoteControl.InputAction
+  parent: AppleTvControlLibrary.Mrp.RemoteControl
+  href: AppleTvControlLibrary.Mrp.RemoteControl.InputAction.html
+  name: InputAction
+  nameWithType: InputAction
+  fullName: AppleTvControlLibrary.Mrp.RemoteControl.InputAction

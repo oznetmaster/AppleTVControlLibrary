@@ -1,0 +1,2661 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  id: TextInputTraits
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.#ctor
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.#ctor(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.AutocapitalizationType
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.AutocapitalizationTypeFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Autocorrection
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.AutocorrectionFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.CalculateSize
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearAutocapitalizationType
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearAutocorrection
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearEnablesReturnKeyAutomatically
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearKeyboardType
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearReturnKeyType
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearSecureTextEntry
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearSpellchecking
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearValidTextRangeLength
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearValidTextRangeLocation
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Clone
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Descriptor
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.EnablesReturnKeyAutomatically
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.EnablesReturnKeyAutomaticallyFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Equals(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Equals(System.Object)
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.GetHashCode
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasAutocapitalizationType
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasAutocorrection
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasEnablesReturnKeyAutomatically
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasKeyboardType
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasReturnKeyType
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasSecureTextEntry
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasSpellchecking
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasValidTextRangeLength
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasValidTextRangeLocation
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.KeyboardType
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.KeyboardTypeFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.MergeFrom(Google.Protobuf.CodedInputStream)
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.PINEntrySeparatorIndexes
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.PINEntrySeparatorIndexesFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Parser
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ReturnKeyType
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ReturnKeyTypeFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.SecureTextEntry
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.SecureTextEntryFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Spellchecking
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.SpellcheckingFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ToString
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLength
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLengthFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLocation
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLocationFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: TextInputTraits
+  nameWithType: TextInputTraits
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  type: Class
+  source:
+    id: TextInputTraits
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 804
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: 'public sealed class TextInputTraits : IMessage<TextInputTraits>, IEquatable<TextInputTraits>, IDeepCloneable<TextInputTraits>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class TextInputTraits Implements IMessage(Of TextInputTraits), IEquatable(Of TextInputTraits), IDeepCloneable(Of TextInputTraits), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}
+  - System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}
+  - Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Parser
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Parser
+  id: Parser
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: TextInputTraits.Parser
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Parser
+  type: Property
+  source:
+    id: Parser
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 813
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public static MessageParser<TextInputTraits> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of TextInputTraits)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Parser*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Descriptor
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Descriptor
+  id: Descriptor
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: TextInputTraits.Descriptor
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Descriptor
+  type: Property
+  source:
+    id: Descriptor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 817
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Descriptor*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.#ctor
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.#ctor
+  id: '#ctor'
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: TextInputTraits()
+  nameWithType: TextInputTraits.TextInputTraits()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.TextInputTraits()
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 829
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public TextInputTraits()
+    content.vb: Public Sub New()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.#ctor*
+  nameWithType.vb: TextInputTraits.New()
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.New()
+  name.vb: New()
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.#ctor(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.#ctor(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  id: '#ctor(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)'
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: TextInputTraits(TextInputTraits)
+  nameWithType: TextInputTraits.TextInputTraits(TextInputTraits)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.TextInputTraits(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 837
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public TextInputTraits(TextInputTraits other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+    content.vb: Public Sub New(other As TextInputTraits)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.#ctor*
+  nameWithType.vb: TextInputTraits.New(TextInputTraits)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.New(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  name.vb: New(TextInputTraits)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Clone
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Clone
+  id: Clone
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: TextInputTraits.Clone()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Clone()
+  type: Method
+  source:
+    id: Clone
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 854
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public TextInputTraits Clone()
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As TextInputTraits
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}.Clone
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.AutocapitalizationTypeFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.AutocapitalizationTypeFieldNumber
+  id: AutocapitalizationTypeFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: AutocapitalizationTypeFieldNumber
+  nameWithType: TextInputTraits.AutocapitalizationTypeFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.AutocapitalizationTypeFieldNumber
+  type: Field
+  source:
+    id: AutocapitalizationTypeFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 861
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "autocapitalizationType" field.
+  example: []
+  syntax:
+    content: public const int AutocapitalizationTypeFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const AutocapitalizationTypeFieldNumber As Integer = 1
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.AutocapitalizationType
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.AutocapitalizationType
+  id: AutocapitalizationType
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: AutocapitalizationType
+  nameWithType: TextInputTraits.AutocapitalizationType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.AutocapitalizationType
+  type: Property
+  source:
+    id: AutocapitalizationType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 865
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public AutocapitalizationType.Types.Enum AutocapitalizationType { get; set; }
+    parameters: []
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.AutocapitalizationType.Types.Enum
+    content.vb: Public Property AutocapitalizationType As AutocapitalizationType.Types.Enum
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.AutocapitalizationType*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasAutocapitalizationType
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasAutocapitalizationType
+  id: HasAutocapitalizationType
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: HasAutocapitalizationType
+  nameWithType: TextInputTraits.HasAutocapitalizationType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasAutocapitalizationType
+  type: Property
+  source:
+    id: HasAutocapitalizationType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 875
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "autocapitalizationType" field is set
+  example: []
+  syntax:
+    content: public bool HasAutocapitalizationType { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasAutocapitalizationType As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasAutocapitalizationType*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearAutocapitalizationType
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearAutocapitalizationType
+  id: ClearAutocapitalizationType
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: ClearAutocapitalizationType()
+  nameWithType: TextInputTraits.ClearAutocapitalizationType()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearAutocapitalizationType()
+  type: Method
+  source:
+    id: ClearAutocapitalizationType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 881
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "autocapitalizationType" field
+  example: []
+  syntax:
+    content: public void ClearAutocapitalizationType()
+    content.vb: Public Sub ClearAutocapitalizationType()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearAutocapitalizationType*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.KeyboardTypeFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.KeyboardTypeFieldNumber
+  id: KeyboardTypeFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: KeyboardTypeFieldNumber
+  nameWithType: TextInputTraits.KeyboardTypeFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.KeyboardTypeFieldNumber
+  type: Field
+  source:
+    id: KeyboardTypeFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 888
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "keyboardType" field.
+  example: []
+  syntax:
+    content: public const int KeyboardTypeFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const KeyboardTypeFieldNumber As Integer = 2
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.KeyboardType
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.KeyboardType
+  id: KeyboardType
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: KeyboardType
+  nameWithType: TextInputTraits.KeyboardType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.KeyboardType
+  type: Property
+  source:
+    id: KeyboardType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 892
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public KeyboardType.Types.Enum KeyboardType { get; set; }
+    parameters: []
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+    content.vb: Public Property KeyboardType As KeyboardType.Types.Enum
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.KeyboardType*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasKeyboardType
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasKeyboardType
+  id: HasKeyboardType
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: HasKeyboardType
+  nameWithType: TextInputTraits.HasKeyboardType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasKeyboardType
+  type: Property
+  source:
+    id: HasKeyboardType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 902
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "keyboardType" field is set
+  example: []
+  syntax:
+    content: public bool HasKeyboardType { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasKeyboardType As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasKeyboardType*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearKeyboardType
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearKeyboardType
+  id: ClearKeyboardType
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: ClearKeyboardType()
+  nameWithType: TextInputTraits.ClearKeyboardType()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearKeyboardType()
+  type: Method
+  source:
+    id: ClearKeyboardType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 908
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "keyboardType" field
+  example: []
+  syntax:
+    content: public void ClearKeyboardType()
+    content.vb: Public Sub ClearKeyboardType()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearKeyboardType*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ReturnKeyTypeFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ReturnKeyTypeFieldNumber
+  id: ReturnKeyTypeFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: ReturnKeyTypeFieldNumber
+  nameWithType: TextInputTraits.ReturnKeyTypeFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ReturnKeyTypeFieldNumber
+  type: Field
+  source:
+    id: ReturnKeyTypeFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 915
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "returnKeyType" field.
+  example: []
+  syntax:
+    content: public const int ReturnKeyTypeFieldNumber = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const ReturnKeyTypeFieldNumber As Integer = 3
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ReturnKeyType
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ReturnKeyType
+  id: ReturnKeyType
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: ReturnKeyType
+  nameWithType: TextInputTraits.ReturnKeyType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ReturnKeyType
+  type: Property
+  source:
+    id: ReturnKeyType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 919
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public ReturnKeyType.Types.Enum ReturnKeyType { get; set; }
+    parameters: []
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+    content.vb: Public Property ReturnKeyType As ReturnKeyType.Types.Enum
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ReturnKeyType*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasReturnKeyType
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasReturnKeyType
+  id: HasReturnKeyType
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: HasReturnKeyType
+  nameWithType: TextInputTraits.HasReturnKeyType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasReturnKeyType
+  type: Property
+  source:
+    id: HasReturnKeyType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 929
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "returnKeyType" field is set
+  example: []
+  syntax:
+    content: public bool HasReturnKeyType { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasReturnKeyType As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasReturnKeyType*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearReturnKeyType
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearReturnKeyType
+  id: ClearReturnKeyType
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: ClearReturnKeyType()
+  nameWithType: TextInputTraits.ClearReturnKeyType()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearReturnKeyType()
+  type: Method
+  source:
+    id: ClearReturnKeyType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 935
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "returnKeyType" field
+  example: []
+  syntax:
+    content: public void ClearReturnKeyType()
+    content.vb: Public Sub ClearReturnKeyType()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearReturnKeyType*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.AutocorrectionFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.AutocorrectionFieldNumber
+  id: AutocorrectionFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: AutocorrectionFieldNumber
+  nameWithType: TextInputTraits.AutocorrectionFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.AutocorrectionFieldNumber
+  type: Field
+  source:
+    id: AutocorrectionFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 942
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "autocorrection" field.
+  example: []
+  syntax:
+    content: public const int AutocorrectionFieldNumber = 4
+    return:
+      type: System.Int32
+    content.vb: Public Const AutocorrectionFieldNumber As Integer = 4
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Autocorrection
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Autocorrection
+  id: Autocorrection
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: Autocorrection
+  nameWithType: TextInputTraits.Autocorrection
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Autocorrection
+  type: Property
+  source:
+    id: Autocorrection
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 946
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public bool Autocorrection { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Autocorrection As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Autocorrection*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasAutocorrection
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasAutocorrection
+  id: HasAutocorrection
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: HasAutocorrection
+  nameWithType: TextInputTraits.HasAutocorrection
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasAutocorrection
+  type: Property
+  source:
+    id: HasAutocorrection
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 956
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "autocorrection" field is set
+  example: []
+  syntax:
+    content: public bool HasAutocorrection { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasAutocorrection As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasAutocorrection*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearAutocorrection
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearAutocorrection
+  id: ClearAutocorrection
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: ClearAutocorrection()
+  nameWithType: TextInputTraits.ClearAutocorrection()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearAutocorrection()
+  type: Method
+  source:
+    id: ClearAutocorrection
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 962
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "autocorrection" field
+  example: []
+  syntax:
+    content: public void ClearAutocorrection()
+    content.vb: Public Sub ClearAutocorrection()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearAutocorrection*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.SpellcheckingFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.SpellcheckingFieldNumber
+  id: SpellcheckingFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: SpellcheckingFieldNumber
+  nameWithType: TextInputTraits.SpellcheckingFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.SpellcheckingFieldNumber
+  type: Field
+  source:
+    id: SpellcheckingFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 969
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "spellchecking" field.
+  example: []
+  syntax:
+    content: public const int SpellcheckingFieldNumber = 5
+    return:
+      type: System.Int32
+    content.vb: Public Const SpellcheckingFieldNumber As Integer = 5
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Spellchecking
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Spellchecking
+  id: Spellchecking
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: Spellchecking
+  nameWithType: TextInputTraits.Spellchecking
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Spellchecking
+  type: Property
+  source:
+    id: Spellchecking
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 973
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public bool Spellchecking { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Spellchecking As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Spellchecking*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasSpellchecking
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasSpellchecking
+  id: HasSpellchecking
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: HasSpellchecking
+  nameWithType: TextInputTraits.HasSpellchecking
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasSpellchecking
+  type: Property
+  source:
+    id: HasSpellchecking
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 983
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "spellchecking" field is set
+  example: []
+  syntax:
+    content: public bool HasSpellchecking { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasSpellchecking As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasSpellchecking*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearSpellchecking
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearSpellchecking
+  id: ClearSpellchecking
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: ClearSpellchecking()
+  nameWithType: TextInputTraits.ClearSpellchecking()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearSpellchecking()
+  type: Method
+  source:
+    id: ClearSpellchecking
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 989
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "spellchecking" field
+  example: []
+  syntax:
+    content: public void ClearSpellchecking()
+    content.vb: Public Sub ClearSpellchecking()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearSpellchecking*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.EnablesReturnKeyAutomaticallyFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.EnablesReturnKeyAutomaticallyFieldNumber
+  id: EnablesReturnKeyAutomaticallyFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: EnablesReturnKeyAutomaticallyFieldNumber
+  nameWithType: TextInputTraits.EnablesReturnKeyAutomaticallyFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.EnablesReturnKeyAutomaticallyFieldNumber
+  type: Field
+  source:
+    id: EnablesReturnKeyAutomaticallyFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 996
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "enablesReturnKeyAutomatically" field.
+  example: []
+  syntax:
+    content: public const int EnablesReturnKeyAutomaticallyFieldNumber = 6
+    return:
+      type: System.Int32
+    content.vb: Public Const EnablesReturnKeyAutomaticallyFieldNumber As Integer = 6
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.EnablesReturnKeyAutomatically
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.EnablesReturnKeyAutomatically
+  id: EnablesReturnKeyAutomatically
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: EnablesReturnKeyAutomatically
+  nameWithType: TextInputTraits.EnablesReturnKeyAutomatically
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.EnablesReturnKeyAutomatically
+  type: Property
+  source:
+    id: EnablesReturnKeyAutomatically
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1000
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public bool EnablesReturnKeyAutomatically { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property EnablesReturnKeyAutomatically As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.EnablesReturnKeyAutomatically*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasEnablesReturnKeyAutomatically
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasEnablesReturnKeyAutomatically
+  id: HasEnablesReturnKeyAutomatically
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: HasEnablesReturnKeyAutomatically
+  nameWithType: TextInputTraits.HasEnablesReturnKeyAutomatically
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasEnablesReturnKeyAutomatically
+  type: Property
+  source:
+    id: HasEnablesReturnKeyAutomatically
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1010
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "enablesReturnKeyAutomatically" field is set
+  example: []
+  syntax:
+    content: public bool HasEnablesReturnKeyAutomatically { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasEnablesReturnKeyAutomatically As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasEnablesReturnKeyAutomatically*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearEnablesReturnKeyAutomatically
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearEnablesReturnKeyAutomatically
+  id: ClearEnablesReturnKeyAutomatically
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: ClearEnablesReturnKeyAutomatically()
+  nameWithType: TextInputTraits.ClearEnablesReturnKeyAutomatically()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearEnablesReturnKeyAutomatically()
+  type: Method
+  source:
+    id: ClearEnablesReturnKeyAutomatically
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1016
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "enablesReturnKeyAutomatically" field
+  example: []
+  syntax:
+    content: public void ClearEnablesReturnKeyAutomatically()
+    content.vb: Public Sub ClearEnablesReturnKeyAutomatically()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearEnablesReturnKeyAutomatically*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.SecureTextEntryFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.SecureTextEntryFieldNumber
+  id: SecureTextEntryFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: SecureTextEntryFieldNumber
+  nameWithType: TextInputTraits.SecureTextEntryFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.SecureTextEntryFieldNumber
+  type: Field
+  source:
+    id: SecureTextEntryFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1023
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "secureTextEntry" field.
+  example: []
+  syntax:
+    content: public const int SecureTextEntryFieldNumber = 7
+    return:
+      type: System.Int32
+    content.vb: Public Const SecureTextEntryFieldNumber As Integer = 7
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.SecureTextEntry
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.SecureTextEntry
+  id: SecureTextEntry
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: SecureTextEntry
+  nameWithType: TextInputTraits.SecureTextEntry
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.SecureTextEntry
+  type: Property
+  source:
+    id: SecureTextEntry
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1027
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public bool SecureTextEntry { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SecureTextEntry As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.SecureTextEntry*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasSecureTextEntry
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasSecureTextEntry
+  id: HasSecureTextEntry
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: HasSecureTextEntry
+  nameWithType: TextInputTraits.HasSecureTextEntry
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasSecureTextEntry
+  type: Property
+  source:
+    id: HasSecureTextEntry
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1037
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "secureTextEntry" field is set
+  example: []
+  syntax:
+    content: public bool HasSecureTextEntry { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasSecureTextEntry As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasSecureTextEntry*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearSecureTextEntry
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearSecureTextEntry
+  id: ClearSecureTextEntry
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: ClearSecureTextEntry()
+  nameWithType: TextInputTraits.ClearSecureTextEntry()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearSecureTextEntry()
+  type: Method
+  source:
+    id: ClearSecureTextEntry
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1043
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "secureTextEntry" field
+  example: []
+  syntax:
+    content: public void ClearSecureTextEntry()
+    content.vb: Public Sub ClearSecureTextEntry()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearSecureTextEntry*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLocationFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLocationFieldNumber
+  id: ValidTextRangeLocationFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: ValidTextRangeLocationFieldNumber
+  nameWithType: TextInputTraits.ValidTextRangeLocationFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLocationFieldNumber
+  type: Field
+  source:
+    id: ValidTextRangeLocationFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1050
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "validTextRangeLocation" field.
+  example: []
+  syntax:
+    content: public const int ValidTextRangeLocationFieldNumber = 8
+    return:
+      type: System.Int32
+    content.vb: Public Const ValidTextRangeLocationFieldNumber As Integer = 8
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLocation
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLocation
+  id: ValidTextRangeLocation
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: ValidTextRangeLocation
+  nameWithType: TextInputTraits.ValidTextRangeLocation
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLocation
+  type: Property
+  source:
+    id: ValidTextRangeLocation
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1054
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public ulong ValidTextRangeLocation { get; set; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public Property ValidTextRangeLocation As ULong
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLocation*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasValidTextRangeLocation
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasValidTextRangeLocation
+  id: HasValidTextRangeLocation
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: HasValidTextRangeLocation
+  nameWithType: TextInputTraits.HasValidTextRangeLocation
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasValidTextRangeLocation
+  type: Property
+  source:
+    id: HasValidTextRangeLocation
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1064
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "validTextRangeLocation" field is set
+  example: []
+  syntax:
+    content: public bool HasValidTextRangeLocation { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasValidTextRangeLocation As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasValidTextRangeLocation*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearValidTextRangeLocation
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearValidTextRangeLocation
+  id: ClearValidTextRangeLocation
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: ClearValidTextRangeLocation()
+  nameWithType: TextInputTraits.ClearValidTextRangeLocation()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearValidTextRangeLocation()
+  type: Method
+  source:
+    id: ClearValidTextRangeLocation
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1070
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "validTextRangeLocation" field
+  example: []
+  syntax:
+    content: public void ClearValidTextRangeLocation()
+    content.vb: Public Sub ClearValidTextRangeLocation()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearValidTextRangeLocation*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLengthFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLengthFieldNumber
+  id: ValidTextRangeLengthFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: ValidTextRangeLengthFieldNumber
+  nameWithType: TextInputTraits.ValidTextRangeLengthFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLengthFieldNumber
+  type: Field
+  source:
+    id: ValidTextRangeLengthFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1077
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "validTextRangeLength" field.
+  example: []
+  syntax:
+    content: public const int ValidTextRangeLengthFieldNumber = 9
+    return:
+      type: System.Int32
+    content.vb: Public Const ValidTextRangeLengthFieldNumber As Integer = 9
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLength
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLength
+  id: ValidTextRangeLength
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: ValidTextRangeLength
+  nameWithType: TextInputTraits.ValidTextRangeLength
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLength
+  type: Property
+  source:
+    id: ValidTextRangeLength
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1081
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public ulong ValidTextRangeLength { get; set; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public Property ValidTextRangeLength As ULong
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLength*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasValidTextRangeLength
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasValidTextRangeLength
+  id: HasValidTextRangeLength
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: HasValidTextRangeLength
+  nameWithType: TextInputTraits.HasValidTextRangeLength
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasValidTextRangeLength
+  type: Property
+  source:
+    id: HasValidTextRangeLength
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1091
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "validTextRangeLength" field is set
+  example: []
+  syntax:
+    content: public bool HasValidTextRangeLength { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasValidTextRangeLength As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasValidTextRangeLength*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearValidTextRangeLength
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearValidTextRangeLength
+  id: ClearValidTextRangeLength
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: ClearValidTextRangeLength()
+  nameWithType: TextInputTraits.ClearValidTextRangeLength()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearValidTextRangeLength()
+  type: Method
+  source:
+    id: ClearValidTextRangeLength
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1097
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "validTextRangeLength" field
+  example: []
+  syntax:
+    content: public void ClearValidTextRangeLength()
+    content.vb: Public Sub ClearValidTextRangeLength()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearValidTextRangeLength*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.PINEntrySeparatorIndexesFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.PINEntrySeparatorIndexesFieldNumber
+  id: PINEntrySeparatorIndexesFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: PINEntrySeparatorIndexesFieldNumber
+  nameWithType: TextInputTraits.PINEntrySeparatorIndexesFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.PINEntrySeparatorIndexesFieldNumber
+  type: Field
+  source:
+    id: PINEntrySeparatorIndexesFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1104
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "pINEntrySeparatorIndexes" field.
+  example: []
+  syntax:
+    content: public const int PINEntrySeparatorIndexesFieldNumber = 10
+    return:
+      type: System.Int32
+    content.vb: Public Const PINEntrySeparatorIndexesFieldNumber As Integer = 10
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.PINEntrySeparatorIndexes
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.PINEntrySeparatorIndexes
+  id: PINEntrySeparatorIndexes
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: PINEntrySeparatorIndexes
+  nameWithType: TextInputTraits.PINEntrySeparatorIndexes
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.PINEntrySeparatorIndexes
+  type: Property
+  source:
+    id: PINEntrySeparatorIndexes
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1108
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public RepeatedField<ulong> PINEntrySeparatorIndexes { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Collections.RepeatedField{System.UInt64}
+    content.vb: Public ReadOnly Property PINEntrySeparatorIndexes As RepeatedField(Of ULong)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.PINEntrySeparatorIndexes*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Equals(System.Object)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: TextInputTraits.Equals(object)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Equals(object)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1114
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Equals*
+  nameWithType.vb: TextInputTraits.Equals(Object)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Equals(Object)
+  name.vb: Equals(Object)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Equals(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Equals(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  id: Equals(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: Equals(TextInputTraits)
+  nameWithType: TextInputTraits.Equals(TextInputTraits)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Equals(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1120
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(TextInputTraits other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As TextInputTraits) As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Equals*
+  implements:
+  - System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}.Equals(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.GetHashCode
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.GetHashCode
+  id: GetHashCode
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: TextInputTraits.GetHashCode()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.GetHashCode()
+  type: Method
+  source:
+    id: GetHashCode
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1142
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.GetHashCode*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ToString
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ToString
+  id: ToString
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: TextInputTraits.ToString()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ToString()
+  type: Method
+  source:
+    id: ToString
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1162
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ToString*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: TextInputTraits.WriteTo(CodedOutputStream)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    id: WriteTo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1168
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.CalculateSize
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.CalculateSize
+  id: CalculateSize
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: TextInputTraits.CalculateSize()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.CalculateSize()
+  type: Method
+  source:
+    id: CalculateSize
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1264
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  id: MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(TextInputTraits)
+  nameWithType: TextInputTraits.MergeFrom(TextInputTraits)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  type: Method
+  source:
+    id: MergeFrom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1302
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(TextInputTraits other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+    content.vb: Public Sub MergeFrom(other As TextInputTraits)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: TextInputTraits.MergeFrom(CodedInputStream)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    id: MergeFrom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 1339
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}
+  commentId: T:Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html
+  name: IMessage<TextInputTraits>
+  nameWithType: IMessage<TextInputTraits>
+  fullName: Google.Protobuf.IMessage<AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits>
+  nameWithType.vb: IMessage(Of TextInputTraits)
+  fullName.vb: Google.Protobuf.IMessage(Of AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  name.vb: IMessage(Of TextInputTraits)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+    name: TextInputTraits
+    href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+    name: TextInputTraits
+    href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html
+  - name: )
+- uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}
+  commentId: T:System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<TextInputTraits>
+  nameWithType: IEquatable<TextInputTraits>
+  fullName: System.IEquatable<AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits>
+  nameWithType.vb: IEquatable(Of TextInputTraits)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  name.vb: IEquatable(Of TextInputTraits)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+    name: TextInputTraits
+    href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+    name: TextInputTraits
+    href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}
+  commentId: T:Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html
+  name: IDeepCloneable<TextInputTraits>
+  nameWithType: IDeepCloneable<TextInputTraits>
+  fullName: Google.Protobuf.IDeepCloneable<AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits>
+  nameWithType.vb: IDeepCloneable(Of TextInputTraits)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  name.vb: IDeepCloneable(Of TextInputTraits)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+    name: TextInputTraits
+    href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+    name: TextInputTraits
+    href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Parser*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Parser
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_Parser
+  name: Parser
+  nameWithType: TextInputTraits.Parser
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Parser
+- uid: Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}
+  commentId: T:Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html
+  name: MessageParser<TextInputTraits>
+  nameWithType: MessageParser<TextInputTraits>
+  fullName: Google.Protobuf.MessageParser<AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits>
+  nameWithType.vb: MessageParser(Of TextInputTraits)
+  fullName.vb: Google.Protobuf.MessageParser(Of AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  name.vb: MessageParser(Of TextInputTraits)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+    name: TextInputTraits
+    href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+    name: TextInputTraits
+    href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Descriptor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Descriptor
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_Descriptor
+  name: Descriptor
+  nameWithType: TextInputTraits.Descriptor
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.#ctor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.#ctor
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits__ctor
+  name: TextInputTraits
+  nameWithType: TextInputTraits.TextInputTraits
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.TextInputTraits
+  nameWithType.vb: TextInputTraits.New
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.New
+  name.vb: New
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html
+  name: TextInputTraits
+  nameWithType: TextInputTraits
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Clone*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Clone
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_Clone
+  name: Clone
+  nameWithType: TextInputTraits.Clone
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Clone
+- uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}.Clone
+  parent: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<TextInputTraits>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits>.Clone()
+  nameWithType.vb: IDeepCloneable(Of TextInputTraits).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.AutocapitalizationType*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.AutocapitalizationType
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_AutocapitalizationType
+  name: AutocapitalizationType
+  nameWithType: TextInputTraits.AutocapitalizationType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.AutocapitalizationType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AutocapitalizationType.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.AutocapitalizationType.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.AutocapitalizationType.html
+  name: AutocapitalizationType.Types.Enum
+  nameWithType: AutocapitalizationType.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AutocapitalizationType.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.AutocapitalizationType
+    name: AutocapitalizationType
+    href: AppleTvControlLibrary.Mrp.Protobuf.AutocapitalizationType.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.AutocapitalizationType.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.AutocapitalizationType.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.AutocapitalizationType.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.AutocapitalizationType.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.AutocapitalizationType
+    name: AutocapitalizationType
+    href: AppleTvControlLibrary.Mrp.Protobuf.AutocapitalizationType.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.AutocapitalizationType.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.AutocapitalizationType.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.AutocapitalizationType.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.AutocapitalizationType.Types.Enum.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasAutocapitalizationType*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasAutocapitalizationType
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_HasAutocapitalizationType
+  name: HasAutocapitalizationType
+  nameWithType: TextInputTraits.HasAutocapitalizationType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasAutocapitalizationType
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearAutocapitalizationType*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearAutocapitalizationType
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_ClearAutocapitalizationType
+  name: ClearAutocapitalizationType
+  nameWithType: TextInputTraits.ClearAutocapitalizationType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearAutocapitalizationType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.KeyboardType*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.KeyboardType
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_KeyboardType
+  name: KeyboardType
+  nameWithType: TextInputTraits.KeyboardType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.KeyboardType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.html
+  name: KeyboardType.Types.Enum
+  nameWithType: KeyboardType.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType
+    name: KeyboardType
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType
+    name: KeyboardType
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardType.Types.Enum.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasKeyboardType*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasKeyboardType
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_HasKeyboardType
+  name: HasKeyboardType
+  nameWithType: TextInputTraits.HasKeyboardType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasKeyboardType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearKeyboardType*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearKeyboardType
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_ClearKeyboardType
+  name: ClearKeyboardType
+  nameWithType: TextInputTraits.ClearKeyboardType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearKeyboardType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ReturnKeyType*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ReturnKeyType
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_ReturnKeyType
+  name: ReturnKeyType
+  nameWithType: TextInputTraits.ReturnKeyType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ReturnKeyType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.html
+  name: ReturnKeyType.Types.Enum
+  nameWithType: ReturnKeyType.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType
+    name: ReturnKeyType
+    href: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType
+    name: ReturnKeyType
+    href: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasReturnKeyType*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasReturnKeyType
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_HasReturnKeyType
+  name: HasReturnKeyType
+  nameWithType: TextInputTraits.HasReturnKeyType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasReturnKeyType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearReturnKeyType*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearReturnKeyType
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_ClearReturnKeyType
+  name: ClearReturnKeyType
+  nameWithType: TextInputTraits.ClearReturnKeyType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearReturnKeyType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Autocorrection*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Autocorrection
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_Autocorrection
+  name: Autocorrection
+  nameWithType: TextInputTraits.Autocorrection
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Autocorrection
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasAutocorrection*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasAutocorrection
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_HasAutocorrection
+  name: HasAutocorrection
+  nameWithType: TextInputTraits.HasAutocorrection
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasAutocorrection
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearAutocorrection*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearAutocorrection
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_ClearAutocorrection
+  name: ClearAutocorrection
+  nameWithType: TextInputTraits.ClearAutocorrection
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearAutocorrection
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Spellchecking*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Spellchecking
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_Spellchecking
+  name: Spellchecking
+  nameWithType: TextInputTraits.Spellchecking
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Spellchecking
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasSpellchecking*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasSpellchecking
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_HasSpellchecking
+  name: HasSpellchecking
+  nameWithType: TextInputTraits.HasSpellchecking
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasSpellchecking
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearSpellchecking*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearSpellchecking
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_ClearSpellchecking
+  name: ClearSpellchecking
+  nameWithType: TextInputTraits.ClearSpellchecking
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearSpellchecking
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.EnablesReturnKeyAutomatically*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.EnablesReturnKeyAutomatically
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_EnablesReturnKeyAutomatically
+  name: EnablesReturnKeyAutomatically
+  nameWithType: TextInputTraits.EnablesReturnKeyAutomatically
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.EnablesReturnKeyAutomatically
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasEnablesReturnKeyAutomatically*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasEnablesReturnKeyAutomatically
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_HasEnablesReturnKeyAutomatically
+  name: HasEnablesReturnKeyAutomatically
+  nameWithType: TextInputTraits.HasEnablesReturnKeyAutomatically
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasEnablesReturnKeyAutomatically
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearEnablesReturnKeyAutomatically*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearEnablesReturnKeyAutomatically
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_ClearEnablesReturnKeyAutomatically
+  name: ClearEnablesReturnKeyAutomatically
+  nameWithType: TextInputTraits.ClearEnablesReturnKeyAutomatically
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearEnablesReturnKeyAutomatically
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.SecureTextEntry*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.SecureTextEntry
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_SecureTextEntry
+  name: SecureTextEntry
+  nameWithType: TextInputTraits.SecureTextEntry
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.SecureTextEntry
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasSecureTextEntry*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasSecureTextEntry
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_HasSecureTextEntry
+  name: HasSecureTextEntry
+  nameWithType: TextInputTraits.HasSecureTextEntry
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasSecureTextEntry
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearSecureTextEntry*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearSecureTextEntry
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_ClearSecureTextEntry
+  name: ClearSecureTextEntry
+  nameWithType: TextInputTraits.ClearSecureTextEntry
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearSecureTextEntry
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLocation*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLocation
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_ValidTextRangeLocation
+  name: ValidTextRangeLocation
+  nameWithType: TextInputTraits.ValidTextRangeLocation
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLocation
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasValidTextRangeLocation*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasValidTextRangeLocation
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_HasValidTextRangeLocation
+  name: HasValidTextRangeLocation
+  nameWithType: TextInputTraits.HasValidTextRangeLocation
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasValidTextRangeLocation
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearValidTextRangeLocation*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearValidTextRangeLocation
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_ClearValidTextRangeLocation
+  name: ClearValidTextRangeLocation
+  nameWithType: TextInputTraits.ClearValidTextRangeLocation
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearValidTextRangeLocation
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLength*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLength
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_ValidTextRangeLength
+  name: ValidTextRangeLength
+  nameWithType: TextInputTraits.ValidTextRangeLength
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ValidTextRangeLength
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasValidTextRangeLength*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasValidTextRangeLength
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_HasValidTextRangeLength
+  name: HasValidTextRangeLength
+  nameWithType: TextInputTraits.HasValidTextRangeLength
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.HasValidTextRangeLength
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearValidTextRangeLength*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearValidTextRangeLength
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_ClearValidTextRangeLength
+  name: ClearValidTextRangeLength
+  nameWithType: TextInputTraits.ClearValidTextRangeLength
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ClearValidTextRangeLength
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.PINEntrySeparatorIndexes*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.PINEntrySeparatorIndexes
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_PINEntrySeparatorIndexes
+  name: PINEntrySeparatorIndexes
+  nameWithType: TextInputTraits.PINEntrySeparatorIndexes
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.PINEntrySeparatorIndexes
+- uid: Google.Protobuf.Collections.RepeatedField{System.UInt64}
+  commentId: T:Google.Protobuf.Collections.RepeatedField{System.UInt64}
+  parent: Google.Protobuf.Collections
+  definition: Google.Protobuf.Collections.RepeatedField`1
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: RepeatedField<ulong>
+  nameWithType: RepeatedField<ulong>
+  fullName: Google.Protobuf.Collections.RepeatedField<ulong>
+  nameWithType.vb: RepeatedField(Of ULong)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of ULong)
+  name.vb: RepeatedField(Of ULong)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - uid: System.UInt64
+    name: ulong
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint64
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.UInt64
+    name: ULong
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint64
+  - name: )
+- uid: Google.Protobuf.Collections.RepeatedField`1
+  commentId: T:Google.Protobuf.Collections.RepeatedField`1
+  isExternal: true
+  name: RepeatedField<T>
+  nameWithType: RepeatedField<T>
+  fullName: Google.Protobuf.Collections.RepeatedField<T>
+  nameWithType.vb: RepeatedField(Of T)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of T)
+  name.vb: RepeatedField(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.Collections
+  commentId: N:Google.Protobuf.Collections
+  isExternal: true
+  name: Google.Protobuf.Collections
+  nameWithType: Google.Protobuf.Collections
+  fullName: Google.Protobuf.Collections
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Collections
+    name: Collections
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Collections
+    name: Collections
+    isExternal: true
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Equals*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Equals
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_Equals_System_Object_
+  name: Equals
+  nameWithType: TextInputTraits.Equals
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.Equals
+- uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}.Equals(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  commentId: M:System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}.Equals(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  parent: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(TextInputTraits)
+  nameWithType: IEquatable<TextInputTraits>.Equals(TextInputTraits)
+  fullName: System.IEquatable<AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits>.Equals(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  nameWithType.vb: IEquatable(Of TextInputTraits).Equals(TextInputTraits)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits).Equals(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  spec.csharp:
+  - uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}.Equals(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+    name: TextInputTraits
+    href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}.Equals(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+    name: TextInputTraits
+    href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.GetHashCode*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.GetHashCode
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_GetHashCode
+  name: GetHashCode
+  nameWithType: TextInputTraits.GetHashCode
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ToString*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ToString
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_ToString
+  name: ToString
+  nameWithType: TextInputTraits.ToString
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.WriteTo*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.WriteTo
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_WriteTo_Google_Protobuf_CodedOutputStream_
+  name: WriteTo
+  nameWithType: TextInputTraits.WriteTo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.CalculateSize*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.CalculateSize
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_CalculateSize
+  name: CalculateSize
+  nameWithType: TextInputTraits.CalculateSize
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.MergeFrom*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.MergeFrom
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html#AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_MergeFrom_AppleTvControlLibrary_Mrp_Protobuf_TextInputTraits_
+  name: MergeFrom
+  nameWithType: TextInputTraits.MergeFrom
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.MergeFrom
+- uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  commentId: M:Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  parent: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html
+  name: MergeFrom(TextInputTraits)
+  nameWithType: IMessage<TextInputTraits>.MergeFrom(TextInputTraits)
+  fullName: Google.Protobuf.IMessage<AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits>.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  nameWithType.vb: IMessage(Of TextInputTraits).MergeFrom(TextInputTraits)
+  fullName.vb: Google.Protobuf.IMessage(Of AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits).MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+    name: TextInputTraits
+    href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits
+    name: TextInputTraits
+    href: AppleTvControlLibrary.Mrp.Protobuf.TextInputTraits.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

@@ -1,0 +1,174 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener
+  commentId: T:AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener
+  id: IMrpPushUpdaterListener
+  parent: AppleTvControlLibrary.Mrp.PlayerState
+  children:
+  - AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.PlaystatusError(AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater,System.Exception)
+  - AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.PlaystatusUpdate(AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState)
+  langs:
+  - csharp
+  - vb
+  name: IMrpPushUpdaterListener
+  nameWithType: IMrpPushUpdaterListener
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener
+  type: Interface
+  source:
+    remote:
+      path: src/AppleTv.Mrp/PlayerState/MrpPushUpdater.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: IMrpPushUpdaterListener
+    path: ../../AppleTv.Mrp/PlayerState/MrpPushUpdater.cs
+    startLine: 12
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.PlayerState
+  summary: >-
+    Listener interface for <xref href="AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater" data-throw-if-not-resolved="false"></xref>, mirroring pyatv's
+
+    <code>PushListener</code> (playstatus_update/playstatus_error) callback pair.
+  example: []
+  syntax:
+    content: public interface IMrpPushUpdaterListener
+    content.vb: Public Interface IMrpPushUpdaterListener
+- uid: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.PlaystatusUpdate(AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState)
+  commentId: M:AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.PlaystatusUpdate(AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState)
+  id: PlaystatusUpdate(AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState)
+  parent: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener
+  langs:
+  - csharp
+  - vb
+  name: PlaystatusUpdate(MrpPlayerState)
+  nameWithType: IMrpPushUpdaterListener.PlaystatusUpdate(MrpPlayerState)
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.PlaystatusUpdate(AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/PlayerState/MrpPushUpdater.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: PlaystatusUpdate
+    path: ../../AppleTv.Mrp/PlayerState/MrpPushUpdater.cs
+    startLine: 17
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.PlayerState
+  summary: Called with the state of the currently active player whenever it changes.
+  example: []
+  syntax:
+    content: void PlaystatusUpdate(MrpPlayerState playing)
+    parameters:
+    - id: playing
+      type: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState
+      description: The current player state.
+    content.vb: Sub PlaystatusUpdate(playing As MrpPlayerState)
+  overload: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.PlaystatusUpdate*
+- uid: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.PlaystatusError(AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater,System.Exception)
+  commentId: M:AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.PlaystatusError(AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater,System.Exception)
+  id: PlaystatusError(AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater,System.Exception)
+  parent: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener
+  langs:
+  - csharp
+  - vb
+  name: PlaystatusError(MrpPushUpdater, Exception)
+  nameWithType: IMrpPushUpdaterListener.PlaystatusError(MrpPushUpdater, Exception)
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.PlaystatusError(AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater, System.Exception)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/PlayerState/MrpPushUpdater.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: PlaystatusError
+    path: ../../AppleTv.Mrp/PlayerState/MrpPushUpdater.cs
+    startLine: 23
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.PlayerState
+  summary: Called when producing an update failed for a reason other than cancellation.
+  example: []
+  syntax:
+    content: void PlaystatusError(MrpPushUpdater updater, Exception exception)
+    parameters:
+    - id: updater
+      type: AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater
+      description: The updater that failed to produce an update.
+    - id: exception
+      type: System.Exception
+      description: The exception describing the failure.
+    content.vb: Sub PlaystatusError(updater As MrpPushUpdater, exception As Exception)
+  overload: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.PlaystatusError*
+references:
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater
+  commentId: T:AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater
+  parent: AppleTvControlLibrary.Mrp.PlayerState
+  href: AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater.html
+  name: MrpPushUpdater
+  nameWithType: MrpPushUpdater
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater
+- uid: AppleTvControlLibrary.Mrp.PlayerState
+  commentId: N:AppleTvControlLibrary.Mrp.PlayerState
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.PlayerState
+  nameWithType: AppleTvControlLibrary.Mrp.PlayerState
+  fullName: AppleTvControlLibrary.Mrp.PlayerState
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.PlayerState
+    name: PlayerState
+    href: AppleTvControlLibrary.Mrp.PlayerState.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.PlayerState
+    name: PlayerState
+    href: AppleTvControlLibrary.Mrp.PlayerState.html
+- uid: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.PlaystatusUpdate*
+  commentId: Overload:AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.PlaystatusUpdate
+  href: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.html#AppleTvControlLibrary_Mrp_PlayerState_IMrpPushUpdaterListener_PlaystatusUpdate_AppleTvControlLibrary_Mrp_PlayerState_MrpPlayerState_
+  name: PlaystatusUpdate
+  nameWithType: IMrpPushUpdaterListener.PlaystatusUpdate
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.PlaystatusUpdate
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState
+  commentId: T:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState
+  parent: AppleTvControlLibrary.Mrp.PlayerState
+  href: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState.html
+  name: MrpPlayerState
+  nameWithType: MrpPlayerState
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState
+- uid: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.PlaystatusError*
+  commentId: Overload:AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.PlaystatusError
+  href: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.html#AppleTvControlLibrary_Mrp_PlayerState_IMrpPushUpdaterListener_PlaystatusError_AppleTvControlLibrary_Mrp_PlayerState_MrpPushUpdater_System_Exception_
+  name: PlaystatusError
+  nameWithType: IMrpPushUpdaterListener.PlaystatusError
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener.PlaystatusError
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

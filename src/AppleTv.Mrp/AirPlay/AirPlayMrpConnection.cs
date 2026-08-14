@@ -16,7 +16,8 @@ namespace AppleTvControlLibrary.Mrp.AirPlay;
 /// <summary>
 /// MRP connection implemented as a channel/stream tunneled over an AirPlay 2 data-stream
 /// channel, rather than a raw TCP socket. This is the adapter that lets <see cref="Mrp.Protocol.MrpProtocol"/>
-/// be driven by an already-established <see cref="Ap2Session"/> instead of <see cref="Transport.TcpMrpTransport"/>.
+/// be driven by an already-established <see cref="Ap2Session"/> instead of the retired raw-TCP
+/// <c>TcpMrpTransport</c> (see <c>archive/mrp-tcp-transport</c>).
 /// </summary>
 // pyatv/protocols/airplay/mrp_connection.py (AirPlayMrpConnection) — line 16-75 as of pyatv 0.18.0
 public sealed class AirPlayMrpConnection : IMrpFrameConnection, IDataStreamListener, IDisposable

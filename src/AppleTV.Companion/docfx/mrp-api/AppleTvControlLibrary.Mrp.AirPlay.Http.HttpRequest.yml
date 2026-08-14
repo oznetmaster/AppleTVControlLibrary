@@ -1,0 +1,735 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest
+  commentId: T:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest
+  id: HttpRequest
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Http
+  children:
+  - AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.#ctor(System.String,System.String,System.String,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Byte[])
+  - AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Body
+  - AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Headers
+  - AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Method
+  - AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Path
+  - AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Protocol
+  - AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Version
+  langs:
+  - csharp
+  - vb
+  name: HttpRequest
+  nameWithType: HttpRequest
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest
+  type: Class
+  source:
+    remote:
+      path: src/AppleTv.Mrp/AirPlay/Http/HttpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: HttpRequest
+    path: ../../AppleTv.Mrp/AirPlay/Http/HttpMessages.cs
+    startLine: 53
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.AirPlay.Http
+  summary: >-
+    A generic HTTP request message, as used by the RTSP-over-HTTP control connection of an
+
+    AirPlay 2 session.
+  example: []
+  syntax:
+    content: public sealed class HttpRequest
+    content.vb: Public NotInheritable Class HttpRequest
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.#ctor(System.String,System.String,System.String,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Byte[])
+  commentId: M:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.#ctor(System.String,System.String,System.String,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Byte[])
+  id: '#ctor(System.String,System.String,System.String,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Byte[])'
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest
+  langs:
+  - csharp
+  - vb
+  name: HttpRequest(string, string, string, string, IReadOnlyDictionary<string, string>, byte[])
+  nameWithType: HttpRequest.HttpRequest(string, string, string, string, IReadOnlyDictionary<string, string>, byte[])
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.HttpRequest(string, string, string, string, System.Collections.Generic.IReadOnlyDictionary<string, string>, byte[])
+  type: Constructor
+  source:
+    remote:
+      path: src/AppleTv.Mrp/AirPlay/Http/HttpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: .ctor
+    path: ../../AppleTv.Mrp/AirPlay/Http/HttpMessages.cs
+    startLine: 56
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.AirPlay.Http
+  summary: Initializes a new instance of the <xref href="AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public HttpRequest(string method, string path, string protocol, string version, IReadOnlyDictionary<string, string> headers, byte[] body)
+    parameters:
+    - id: method
+      type: System.String
+    - id: path
+      type: System.String
+    - id: protocol
+      type: System.String
+    - id: version
+      type: System.String
+    - id: headers
+      type: System.Collections.Generic.IReadOnlyDictionary{System.String,System.String}
+    - id: body
+      type: System.Byte[]
+    content.vb: Public Sub New(method As String, path As String, protocol As String, version As String, headers As IReadOnlyDictionary(Of String, String), body As Byte())
+  overload: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.#ctor*
+  nameWithType.vb: HttpRequest.New(String, String, String, String, IReadOnlyDictionary(Of String, String), Byte())
+  fullName.vb: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.New(String, String, String, String, System.Collections.Generic.IReadOnlyDictionary(Of String, String), Byte())
+  name.vb: New(String, String, String, String, IReadOnlyDictionary(Of String, String), Byte())
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Method
+  commentId: P:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Method
+  id: Method
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest
+  langs:
+  - csharp
+  - vb
+  name: Method
+  nameWithType: HttpRequest.Method
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Method
+  type: Property
+  source:
+    remote:
+      path: src/AppleTv.Mrp/AirPlay/Http/HttpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Method
+    path: ../../AppleTv.Mrp/AirPlay/Http/HttpMessages.cs
+    startLine: 67
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.AirPlay.Http
+  summary: Gets the request method (e.g. "GET", "SETUP").
+  example: []
+  syntax:
+    content: public string Method { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Method As String
+  overload: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Method*
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Path
+  commentId: P:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Path
+  id: Path
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest
+  langs:
+  - csharp
+  - vb
+  name: Path
+  nameWithType: HttpRequest.Path
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Path
+  type: Property
+  source:
+    remote:
+      path: src/AppleTv.Mrp/AirPlay/Http/HttpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Path
+    path: ../../AppleTv.Mrp/AirPlay/Http/HttpMessages.cs
+    startLine: 70
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.AirPlay.Http
+  summary: Gets the request path/URI.
+  example: []
+  syntax:
+    content: public string Path { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Path As String
+  overload: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Path*
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Protocol
+  commentId: P:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Protocol
+  id: Protocol
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest
+  langs:
+  - csharp
+  - vb
+  name: Protocol
+  nameWithType: HttpRequest.Protocol
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Protocol
+  type: Property
+  source:
+    remote:
+      path: src/AppleTv.Mrp/AirPlay/Http/HttpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Protocol
+    path: ../../AppleTv.Mrp/AirPlay/Http/HttpMessages.cs
+    startLine: 73
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.AirPlay.Http
+  summary: Gets the protocol name (e.g. "HTTP" or "RTSP").
+  example: []
+  syntax:
+    content: public string Protocol { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Protocol As String
+  overload: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Protocol*
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Version
+  commentId: P:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Version
+  id: Version
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: HttpRequest.Version
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Version
+  type: Property
+  source:
+    remote:
+      path: src/AppleTv.Mrp/AirPlay/Http/HttpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Version
+    path: ../../AppleTv.Mrp/AirPlay/Http/HttpMessages.cs
+    startLine: 76
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.AirPlay.Http
+  summary: Gets the protocol version (e.g. "1.1" or "1.0").
+  example: []
+  syntax:
+    content: public string Version { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Version As String
+  overload: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Version*
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Headers
+  commentId: P:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Headers
+  id: Headers
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest
+  langs:
+  - csharp
+  - vb
+  name: Headers
+  nameWithType: HttpRequest.Headers
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Headers
+  type: Property
+  source:
+    remote:
+      path: src/AppleTv.Mrp/AirPlay/Http/HttpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Headers
+    path: ../../AppleTv.Mrp/AirPlay/Http/HttpMessages.cs
+    startLine: 79
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.AirPlay.Http
+  summary: Gets the request headers, keyed case-insensitively.
+  example: []
+  syntax:
+    content: public IReadOnlyDictionary<string, string> Headers { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyDictionary{System.String,System.String}
+    content.vb: Public ReadOnly Property Headers As IReadOnlyDictionary(Of String, String)
+  overload: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Headers*
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Body
+  commentId: P:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Body
+  id: Body
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest
+  langs:
+  - csharp
+  - vb
+  name: Body
+  nameWithType: HttpRequest.Body
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Body
+  type: Property
+  source:
+    remote:
+      path: src/AppleTv.Mrp/AirPlay/Http/HttpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Body
+    path: ../../AppleTv.Mrp/AirPlay/Http/HttpMessages.cs
+    startLine: 82
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.AirPlay.Http
+  summary: Gets the request body.
+  example: []
+  syntax:
+    content: public byte[] Body { get; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: Public ReadOnly Property Body As Byte()
+  overload: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Body*
+references:
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http
+  commentId: N:AppleTvControlLibrary.Mrp.AirPlay.Http
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.AirPlay.Http
+  nameWithType: AppleTvControlLibrary.Mrp.AirPlay.Http
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay
+    name: AirPlay
+    href: AppleTvControlLibrary.Mrp.AirPlay.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay.Http
+    name: Http
+    href: AppleTvControlLibrary.Mrp.AirPlay.Http.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay
+    name: AirPlay
+    href: AppleTvControlLibrary.Mrp.AirPlay.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay.Http
+    name: Http
+    href: AppleTvControlLibrary.Mrp.AirPlay.Http.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest
+  commentId: T:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Http
+  href: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.html
+  name: HttpRequest
+  nameWithType: HttpRequest
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.#ctor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.#ctor
+  href: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.html#AppleTvControlLibrary_Mrp_AirPlay_Http_HttpRequest__ctor_System_String_System_String_System_String_System_String_System_Collections_Generic_IReadOnlyDictionary_System_String_System_String__System_Byte___
+  name: HttpRequest
+  nameWithType: HttpRequest.HttpRequest
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.HttpRequest
+  nameWithType.vb: HttpRequest.New
+  fullName.vb: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.IReadOnlyDictionary{System.String,System.String}
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary{System.String,System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<string, string>
+  nameWithType: IReadOnlyDictionary<string, string>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<string, string>
+  nameWithType.vb: IReadOnlyDictionary(Of String, String)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of String, String)
+  name.vb: IReadOnlyDictionary(Of String, String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyDictionary`2
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<TKey, TValue>
+  nameWithType: IReadOnlyDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>
+  nameWithType.vb: IReadOnlyDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of TKey, TValue)
+  name.vb: IReadOnlyDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Method*
+  commentId: Overload:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Method
+  href: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.html#AppleTvControlLibrary_Mrp_AirPlay_Http_HttpRequest_Method
+  name: Method
+  nameWithType: HttpRequest.Method
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Method
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Path*
+  commentId: Overload:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Path
+  href: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.html#AppleTvControlLibrary_Mrp_AirPlay_Http_HttpRequest_Path
+  name: Path
+  nameWithType: HttpRequest.Path
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Path
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Protocol*
+  commentId: Overload:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Protocol
+  href: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.html#AppleTvControlLibrary_Mrp_AirPlay_Http_HttpRequest_Protocol
+  name: Protocol
+  nameWithType: HttpRequest.Protocol
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Protocol
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Version*
+  commentId: Overload:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Version
+  href: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.html#AppleTvControlLibrary_Mrp_AirPlay_Http_HttpRequest_Version
+  name: Version
+  nameWithType: HttpRequest.Version
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Version
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Headers*
+  commentId: Overload:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Headers
+  href: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.html#AppleTvControlLibrary_Mrp_AirPlay_Http_HttpRequest_Headers
+  name: Headers
+  nameWithType: HttpRequest.Headers
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Headers
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Body*
+  commentId: Overload:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Body
+  href: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.html#AppleTvControlLibrary_Mrp_AirPlay_Http_HttpRequest_Body
+  name: Body
+  nameWithType: HttpRequest.Body
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Body

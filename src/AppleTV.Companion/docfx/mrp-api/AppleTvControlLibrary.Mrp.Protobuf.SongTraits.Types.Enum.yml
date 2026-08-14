@@ -1,0 +1,338 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+  id: SongTraits.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.AppleDigitialMaster
+  - AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.Atmos
+  - AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.HighResolutionLossless
+  - AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.Lossless
+  - AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.None
+  - AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.Spatial
+  - AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.Surround
+  langs:
+  - csharp
+  - vb
+  name: SongTraits.Types.Enum
+  nameWithType: SongTraits.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+  type: Enum
+  source:
+    id: Enum
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 971
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public enum SongTraits.Types.Enum
+    content.vb: Public Enum SongTraits.Types.Enum
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.None
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.None
+  id: None
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: SongTraits.Types.Enum.None
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.None
+  type: Field
+  source:
+    id: None
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 972
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("None")]
+
+      None = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+    content.vb: >-
+      <OriginalName("None")>
+
+      None = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: None
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.AppleDigitialMaster
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.AppleDigitialMaster
+  id: AppleDigitialMaster
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: AppleDigitialMaster
+  nameWithType: SongTraits.Types.Enum.AppleDigitialMaster
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.AppleDigitialMaster
+  type: Field
+  source:
+    id: AppleDigitialMaster
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 973
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("AppleDigitialMaster")]
+
+      AppleDigitialMaster = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+    content.vb: >-
+      <OriginalName("AppleDigitialMaster")>
+
+      AppleDigitialMaster = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: AppleDigitialMaster
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.Lossless
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.Lossless
+  id: Lossless
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Lossless
+  nameWithType: SongTraits.Types.Enum.Lossless
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.Lossless
+  type: Field
+  source:
+    id: Lossless
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 974
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Lossless")]
+
+      Lossless = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+    content.vb: >-
+      <OriginalName("Lossless")>
+
+      Lossless = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Lossless
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.HighResolutionLossless
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.HighResolutionLossless
+  id: HighResolutionLossless
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: HighResolutionLossless
+  nameWithType: SongTraits.Types.Enum.HighResolutionLossless
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.HighResolutionLossless
+  type: Field
+  source:
+    id: HighResolutionLossless
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 975
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("HighResolutionLossless")]
+
+      HighResolutionLossless = 4
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+    content.vb: >-
+      <OriginalName("HighResolutionLossless")>
+
+      HighResolutionLossless = 4
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: HighResolutionLossless
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.Spatial
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.Spatial
+  id: Spatial
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Spatial
+  nameWithType: SongTraits.Types.Enum.Spatial
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.Spatial
+  type: Field
+  source:
+    id: Spatial
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 976
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Spatial")]
+
+      Spatial = 8
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+    content.vb: >-
+      <OriginalName("Spatial")>
+
+      Spatial = 8
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Spatial
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.Atmos
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.Atmos
+  id: Atmos
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Atmos
+  nameWithType: SongTraits.Types.Enum.Atmos
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.Atmos
+  type: Field
+  source:
+    id: Atmos
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 977
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Atmos")]
+
+      Atmos = 16
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+    content.vb: >-
+      <OriginalName("Atmos")>
+
+      Atmos = 16
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Atmos
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.Surround
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.Surround
+  id: Surround
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Surround
+  nameWithType: SongTraits.Types.Enum.Surround
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.Surround
+  type: Field
+  source:
+    id: Surround
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 978
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Surround")]
+
+      Surround = 32
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+    content.vb: >-
+      <OriginalName("Surround")>
+
+      Surround = 32
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Surround
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.html
+  name: SongTraits.Types.Enum
+  nameWithType: SongTraits.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SongTraits
+    name: SongTraits
+    href: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SongTraits
+    name: SongTraits
+    href: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.SongTraits.Types.Enum.html

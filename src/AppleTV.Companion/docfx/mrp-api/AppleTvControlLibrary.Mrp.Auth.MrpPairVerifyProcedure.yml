@@ -1,0 +1,660 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure
+  commentId: T:AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure
+  id: MrpPairVerifyProcedure
+  parent: AppleTvControlLibrary.Mrp.Auth
+  children:
+  - AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.#ctor(AppleTvControlLibrary.Mrp.Auth.MrpSendAndReceive,AppleTvControlLibrary.Auth.SrpAuthHandler,AppleTvControlLibrary.Auth.HapCredentials)
+  - AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.EncryptionKeys(System.String,System.String,System.String)
+  - AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.VerifyCredentialsAsync
+  langs:
+  - csharp
+  - vb
+  name: MrpPairVerifyProcedure
+  nameWithType: MrpPairVerifyProcedure
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure
+  type: Class
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpAuth.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: MrpPairVerifyProcedure
+    path: ../../AppleTv.Mrp/Auth/MrpAuth.cs
+    startLine: 120
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Verify credentials and derive new encryption keys for an MRP session.
+  example: []
+  syntax:
+    content: public sealed class MrpPairVerifyProcedure
+    content.vb: Public NotInheritable Class MrpPairVerifyProcedure
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.#ctor(AppleTvControlLibrary.Mrp.Auth.MrpSendAndReceive,AppleTvControlLibrary.Auth.SrpAuthHandler,AppleTvControlLibrary.Auth.HapCredentials)
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.#ctor(AppleTvControlLibrary.Mrp.Auth.MrpSendAndReceive,AppleTvControlLibrary.Auth.SrpAuthHandler,AppleTvControlLibrary.Auth.HapCredentials)
+  id: '#ctor(AppleTvControlLibrary.Mrp.Auth.MrpSendAndReceive,AppleTvControlLibrary.Auth.SrpAuthHandler,AppleTvControlLibrary.Auth.HapCredentials)'
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure
+  langs:
+  - csharp
+  - vb
+  name: MrpPairVerifyProcedure(MrpSendAndReceive, SrpAuthHandler, HapCredentials)
+  nameWithType: MrpPairVerifyProcedure.MrpPairVerifyProcedure(MrpSendAndReceive, SrpAuthHandler, HapCredentials)
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.MrpPairVerifyProcedure(AppleTvControlLibrary.Mrp.Auth.MrpSendAndReceive, AppleTvControlLibrary.Auth.SrpAuthHandler, AppleTvControlLibrary.Auth.HapCredentials)
+  type: Constructor
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpAuth.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: .ctor
+    path: ../../AppleTv.Mrp/Auth/MrpAuth.cs
+    startLine: 131
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Initializes a new instance of the <xref href="AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public MrpPairVerifyProcedure(MrpSendAndReceive sendAndReceive, SrpAuthHandler srp, HapCredentials credentials)
+    parameters:
+    - id: sendAndReceive
+      type: AppleTvControlLibrary.Mrp.Auth.MrpSendAndReceive
+      description: Callback used to send a message and await its response.
+    - id: srp
+      type: AppleTvControlLibrary.Auth.SrpAuthHandler
+      description: The SRP handler used to perform the verify crypto.
+    - id: credentials
+      type: AppleTvControlLibrary.Auth.HapCredentials
+      description: The previously paired credentials to verify.
+    content.vb: Public Sub New(sendAndReceive As MrpSendAndReceive, srp As SrpAuthHandler, credentials As HapCredentials)
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.#ctor*
+  nameWithType.vb: MrpPairVerifyProcedure.New(MrpSendAndReceive, SrpAuthHandler, HapCredentials)
+  fullName.vb: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.New(AppleTvControlLibrary.Mrp.Auth.MrpSendAndReceive, AppleTvControlLibrary.Auth.SrpAuthHandler, AppleTvControlLibrary.Auth.HapCredentials)
+  name.vb: New(MrpSendAndReceive, SrpAuthHandler, HapCredentials)
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.VerifyCredentialsAsync
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.VerifyCredentialsAsync
+  id: VerifyCredentialsAsync
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure
+  langs:
+  - csharp
+  - vb
+  name: VerifyCredentialsAsync()
+  nameWithType: MrpPairVerifyProcedure.VerifyCredentialsAsync()
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.VerifyCredentialsAsync()
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpAuth.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: VerifyCredentialsAsync
+    path: ../../AppleTv.Mrp/Auth/MrpAuth.cs
+    startLine: 141
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Verify credentials with the device.
+  example: []
+  syntax:
+    content: public Task<bool> VerifyCredentialsAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if verification succeeded.
+    content.vb: Public Function VerifyCredentialsAsync() As Task(Of Boolean)
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.VerifyCredentialsAsync*
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.EncryptionKeys(System.String,System.String,System.String)
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.EncryptionKeys(System.String,System.String,System.String)
+  id: EncryptionKeys(System.String,System.String,System.String)
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure
+  langs:
+  - csharp
+  - vb
+  name: EncryptionKeys(string, string, string)
+  nameWithType: MrpPairVerifyProcedure.EncryptionKeys(string, string, string)
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.EncryptionKeys(string, string, string)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpAuth.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: EncryptionKeys
+    path: ../../AppleTv.Mrp/Auth/MrpAuth.cs
+    startLine: 176
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Return derived encryption keys (output, input) for the encrypted session.
+  example: []
+  syntax:
+    content: public (byte[] OutputKey, byte[] InputKey) EncryptionKeys(string salt, string outputInfo, string inputInfo)
+    parameters:
+    - id: salt
+      type: System.String
+      description: The HKDF salt string.
+    - id: outputInfo
+      type: System.String
+      description: The HKDF info string used to derive the output key.
+    - id: inputInfo
+      type: System.String
+      description: The HKDF info string used to derive the input key.
+    return:
+      type: System.ValueTuple{System.Byte[],System.Byte[]}
+      description: A tuple of (output key, input key).
+    content.vb: Public Function EncryptionKeys(salt As String, outputInfo As String, inputInfo As String) As (OutputKey As Byte(), InputKey As Byte())
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.EncryptionKeys*
+  nameWithType.vb: MrpPairVerifyProcedure.EncryptionKeys(String, String, String)
+  fullName.vb: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.EncryptionKeys(String, String, String)
+  name.vb: EncryptionKeys(String, String, String)
+references:
+- uid: AppleTvControlLibrary.Mrp.Auth
+  commentId: N:AppleTvControlLibrary.Mrp.Auth
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Auth
+  nameWithType: AppleTvControlLibrary.Mrp.Auth
+  fullName: AppleTvControlLibrary.Mrp.Auth
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Auth
+    name: Auth
+    href: AppleTvControlLibrary.Mrp.Auth.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Auth
+    name: Auth
+    href: AppleTvControlLibrary.Mrp.Auth.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure
+  commentId: T:AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure
+  href: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.html
+  name: MrpPairVerifyProcedure
+  nameWithType: MrpPairVerifyProcedure
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.#ctor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.#ctor
+  href: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.html#AppleTvControlLibrary_Mrp_Auth_MrpPairVerifyProcedure__ctor_AppleTvControlLibrary_Mrp_Auth_MrpSendAndReceive_AppleTvControlLibrary_Auth_SrpAuthHandler_AppleTvControlLibrary_Auth_HapCredentials_
+  name: MrpPairVerifyProcedure
+  nameWithType: MrpPairVerifyProcedure.MrpPairVerifyProcedure
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.MrpPairVerifyProcedure
+  nameWithType.vb: MrpPairVerifyProcedure.New
+  fullName.vb: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.New
+  name.vb: New
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpSendAndReceive
+  commentId: T:AppleTvControlLibrary.Mrp.Auth.MrpSendAndReceive
+  parent: AppleTvControlLibrary.Mrp.Auth
+  href: AppleTvControlLibrary.Mrp.Auth.MrpSendAndReceive.html
+  name: MrpSendAndReceive
+  nameWithType: MrpSendAndReceive
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpSendAndReceive
+- uid: AppleTvControlLibrary.Auth.SrpAuthHandler
+  commentId: T:AppleTvControlLibrary.Auth.SrpAuthHandler
+  parent: AppleTvControlLibrary.Auth
+  name: SrpAuthHandler
+  nameWithType: SrpAuthHandler
+  fullName: AppleTvControlLibrary.Auth.SrpAuthHandler
+- uid: AppleTvControlLibrary.Auth.HapCredentials
+  commentId: T:AppleTvControlLibrary.Auth.HapCredentials
+  parent: AppleTvControlLibrary.Auth
+  name: HapCredentials
+  nameWithType: HapCredentials
+  fullName: AppleTvControlLibrary.Auth.HapCredentials
+- uid: AppleTvControlLibrary.Auth
+  commentId: N:AppleTvControlLibrary.Auth
+  name: AppleTvControlLibrary.Auth
+  nameWithType: AppleTvControlLibrary.Auth
+  fullName: AppleTvControlLibrary.Auth
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+  - name: .
+  - uid: AppleTvControlLibrary.Auth
+    name: Auth
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+  - name: .
+  - uid: AppleTvControlLibrary.Auth
+    name: Auth
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.VerifyCredentialsAsync*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.VerifyCredentialsAsync
+  href: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.html#AppleTvControlLibrary_Mrp_Auth_MrpPairVerifyProcedure_VerifyCredentialsAsync
+  name: VerifyCredentialsAsync
+  nameWithType: MrpPairVerifyProcedure.VerifyCredentialsAsync
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.VerifyCredentialsAsync
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.EncryptionKeys*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.EncryptionKeys
+  href: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.html#AppleTvControlLibrary_Mrp_Auth_MrpPairVerifyProcedure_EncryptionKeys_System_String_System_String_System_String_
+  name: EncryptionKeys
+  nameWithType: MrpPairVerifyProcedure.EncryptionKeys
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.EncryptionKeys
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.ValueTuple{System.Byte[],System.Byte[]}
+  commentId: T:System.ValueTuple{System.Byte[],System.Byte[]}
+  parent: System
+  definition: System.ValueTuple`2
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: (byte[] OutputKey, byte[] InputKey)
+  nameWithType: (byte[] OutputKey, byte[] InputKey)
+  fullName: (byte[] OutputKey, byte[] InputKey)
+  nameWithType.vb: (OutputKey As Byte(), InputKey As Byte())
+  fullName.vb: (OutputKey As Byte(), InputKey As Byte())
+  name.vb: (OutputKey As Byte(), InputKey As Byte())
+  spec.csharp:
+  - name: (
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: " "
+  - uid: System.ValueTuple{System.Byte[],System.Byte[]}.OutputKey
+    name: OutputKey
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.byte[]-.outputkey
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: " "
+  - uid: System.ValueTuple{System.Byte[],System.Byte[]}.InputKey
+    name: InputKey
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.byte[]-.inputkey
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{System.Byte[],System.Byte[]}.OutputKey
+    name: OutputKey
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.byte[]-.outputkey
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.Byte[],System.Byte[]}.InputKey
+    name: InputKey
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.byte[],system.byte[]-.inputkey
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: )
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )

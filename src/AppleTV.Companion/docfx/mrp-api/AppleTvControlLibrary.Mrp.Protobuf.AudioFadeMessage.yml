@@ -1,0 +1,1492 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  id: AudioFadeMessage
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.#ctor
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.CalculateSize
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.ClearFadeType
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Clone
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Descriptor
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Equals(System.Object)
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.FadeType
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.FadeTypeFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.GetHashCode
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.HasFadeType
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Parser
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.PlayerPath
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.PlayerPathFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.ToString
+  - AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: AudioFadeMessage
+  nameWithType: AudioFadeMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  type: Class
+  source:
+    id: AudioFadeMessage
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 50
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: 'public sealed class AudioFadeMessage : IMessage<AudioFadeMessage>, IEquatable<AudioFadeMessage>, IDeepCloneable<AudioFadeMessage>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class AudioFadeMessage Implements IMessage(Of AudioFadeMessage), IEquatable(Of AudioFadeMessage), IDeepCloneable(Of AudioFadeMessage), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}
+  - System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}
+  - Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Parser
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Parser
+  id: Parser
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: AudioFadeMessage.Parser
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Parser
+  type: Property
+  source:
+    id: Parser
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 59
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public static MessageParser<AudioFadeMessage> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of AudioFadeMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Parser*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Descriptor
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Descriptor
+  id: Descriptor
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: AudioFadeMessage.Descriptor
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Descriptor
+  type: Property
+  source:
+    id: Descriptor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 63
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Descriptor*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.#ctor
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.#ctor
+  id: '#ctor'
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: AudioFadeMessage()
+  nameWithType: AudioFadeMessage.AudioFadeMessage()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.AudioFadeMessage()
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 75
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public AudioFadeMessage()
+    content.vb: Public Sub New()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.#ctor*
+  nameWithType.vb: AudioFadeMessage.New()
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.New()
+  name.vb: New()
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  id: '#ctor(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)'
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: AudioFadeMessage(AudioFadeMessage)
+  nameWithType: AudioFadeMessage.AudioFadeMessage(AudioFadeMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.AudioFadeMessage(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 83
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public AudioFadeMessage(AudioFadeMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+    content.vb: Public Sub New(other As AudioFadeMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.#ctor*
+  nameWithType.vb: AudioFadeMessage.New(AudioFadeMessage)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.New(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  name.vb: New(AudioFadeMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Clone
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Clone
+  id: Clone
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: AudioFadeMessage.Clone()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Clone()
+  type: Method
+  source:
+    id: Clone
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 92
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public AudioFadeMessage Clone()
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As AudioFadeMessage
+  overload: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}.Clone
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.PlayerPathFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.PlayerPathFieldNumber
+  id: PlayerPathFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: PlayerPathFieldNumber
+  nameWithType: AudioFadeMessage.PlayerPathFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.PlayerPathFieldNumber
+  type: Field
+  source:
+    id: PlayerPathFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 99
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "playerPath" field.
+  example: []
+  syntax:
+    content: public const int PlayerPathFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const PlayerPathFieldNumber As Integer = 1
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.PlayerPath
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.PlayerPath
+  id: PlayerPath
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: PlayerPath
+  nameWithType: AudioFadeMessage.PlayerPath
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.PlayerPath
+  type: Property
+  source:
+    id: PlayerPath
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 101
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public PlayerPath PlayerPath { get; set; }
+    parameters: []
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.PlayerPath
+    content.vb: Public Property PlayerPath As PlayerPath
+  overload: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.PlayerPath*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.FadeTypeFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.FadeTypeFieldNumber
+  id: FadeTypeFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: FadeTypeFieldNumber
+  nameWithType: AudioFadeMessage.FadeTypeFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.FadeTypeFieldNumber
+  type: Field
+  source:
+    id: FadeTypeFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 111
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "fadeType" field.
+  example: []
+  syntax:
+    content: public const int FadeTypeFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const FadeTypeFieldNumber As Integer = 2
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.FadeType
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.FadeType
+  id: FadeType
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: FadeType
+  nameWithType: AudioFadeMessage.FadeType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.FadeType
+  type: Property
+  source:
+    id: FadeType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 115
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public int FadeType { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property FadeType As Integer
+  overload: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.FadeType*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.HasFadeType
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.HasFadeType
+  id: HasFadeType
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: HasFadeType
+  nameWithType: AudioFadeMessage.HasFadeType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.HasFadeType
+  type: Property
+  source:
+    id: HasFadeType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 125
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "fadeType" field is set
+  example: []
+  syntax:
+    content: public bool HasFadeType { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasFadeType As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.HasFadeType*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.ClearFadeType
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.ClearFadeType
+  id: ClearFadeType
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearFadeType()
+  nameWithType: AudioFadeMessage.ClearFadeType()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.ClearFadeType()
+  type: Method
+  source:
+    id: ClearFadeType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 131
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "fadeType" field
+  example: []
+  syntax:
+    content: public void ClearFadeType()
+    content.vb: Public Sub ClearFadeType()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.ClearFadeType*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Equals(System.Object)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: AudioFadeMessage.Equals(object)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Equals(object)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 137
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Equals*
+  nameWithType.vb: AudioFadeMessage.Equals(Object)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Equals(Object)
+  name.vb: Equals(Object)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  id: Equals(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: Equals(AudioFadeMessage)
+  nameWithType: AudioFadeMessage.Equals(AudioFadeMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 143
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(AudioFadeMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As AudioFadeMessage) As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Equals*
+  implements:
+  - System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.GetHashCode
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.GetHashCode
+  id: GetHashCode
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: AudioFadeMessage.GetHashCode()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.GetHashCode()
+  type: Method
+  source:
+    id: GetHashCode
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 157
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.GetHashCode*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.ToString
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.ToString
+  id: ToString
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: AudioFadeMessage.ToString()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.ToString()
+  type: Method
+  source:
+    id: ToString
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 169
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.ToString*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: AudioFadeMessage.WriteTo(CodedOutputStream)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    id: WriteTo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 175
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.CalculateSize
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.CalculateSize
+  id: CalculateSize
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: AudioFadeMessage.CalculateSize()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.CalculateSize()
+  type: Method
+  source:
+    id: CalculateSize
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 213
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  id: MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(AudioFadeMessage)
+  nameWithType: AudioFadeMessage.MergeFrom(AudioFadeMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  type: Method
+  source:
+    id: MergeFrom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 229
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(AudioFadeMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+    content.vb: Public Sub MergeFrom(other As AudioFadeMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: AudioFadeMessage.MergeFrom(CodedInputStream)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    id: MergeFrom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\AudioFadeMessage.cs
+    startLine: 247
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}
+  commentId: T:Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html
+  name: IMessage<AudioFadeMessage>
+  nameWithType: IMessage<AudioFadeMessage>
+  fullName: Google.Protobuf.IMessage<AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage>
+  nameWithType.vb: IMessage(Of AudioFadeMessage)
+  fullName.vb: Google.Protobuf.IMessage(Of AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  name.vb: IMessage(Of AudioFadeMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+    name: AudioFadeMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+    name: AudioFadeMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html
+  - name: )
+- uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}
+  commentId: T:System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<AudioFadeMessage>
+  nameWithType: IEquatable<AudioFadeMessage>
+  fullName: System.IEquatable<AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage>
+  nameWithType.vb: IEquatable(Of AudioFadeMessage)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  name.vb: IEquatable(Of AudioFadeMessage)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+    name: AudioFadeMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+    name: AudioFadeMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}
+  commentId: T:Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html
+  name: IDeepCloneable<AudioFadeMessage>
+  nameWithType: IDeepCloneable<AudioFadeMessage>
+  fullName: Google.Protobuf.IDeepCloneable<AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage>
+  nameWithType.vb: IDeepCloneable(Of AudioFadeMessage)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  name.vb: IDeepCloneable(Of AudioFadeMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+    name: AudioFadeMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+    name: AudioFadeMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Parser*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Parser
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html#AppleTvControlLibrary_Mrp_Protobuf_AudioFadeMessage_Parser
+  name: Parser
+  nameWithType: AudioFadeMessage.Parser
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Parser
+- uid: Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}
+  commentId: T:Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html
+  name: MessageParser<AudioFadeMessage>
+  nameWithType: MessageParser<AudioFadeMessage>
+  fullName: Google.Protobuf.MessageParser<AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage>
+  nameWithType.vb: MessageParser(Of AudioFadeMessage)
+  fullName.vb: Google.Protobuf.MessageParser(Of AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  name.vb: MessageParser(Of AudioFadeMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+    name: AudioFadeMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+    name: AudioFadeMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Descriptor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Descriptor
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html#AppleTvControlLibrary_Mrp_Protobuf_AudioFadeMessage_Descriptor
+  name: Descriptor
+  nameWithType: AudioFadeMessage.Descriptor
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.#ctor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.#ctor
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html#AppleTvControlLibrary_Mrp_Protobuf_AudioFadeMessage__ctor
+  name: AudioFadeMessage
+  nameWithType: AudioFadeMessage.AudioFadeMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.AudioFadeMessage
+  nameWithType.vb: AudioFadeMessage.New
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.New
+  name.vb: New
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html
+  name: AudioFadeMessage
+  nameWithType: AudioFadeMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Clone*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Clone
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html#AppleTvControlLibrary_Mrp_Protobuf_AudioFadeMessage_Clone
+  name: Clone
+  nameWithType: AudioFadeMessage.Clone
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Clone
+- uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}.Clone
+  parent: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<AudioFadeMessage>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage>.Clone()
+  nameWithType.vb: IDeepCloneable(Of AudioFadeMessage).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.PlayerPath*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.PlayerPath
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html#AppleTvControlLibrary_Mrp_Protobuf_AudioFadeMessage_PlayerPath
+  name: PlayerPath
+  nameWithType: AudioFadeMessage.PlayerPath
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.PlayerPath
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlayerPath
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.PlayerPath
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlayerPath.html
+  name: PlayerPath
+  nameWithType: PlayerPath
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlayerPath
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.FadeType*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.FadeType
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html#AppleTvControlLibrary_Mrp_Protobuf_AudioFadeMessage_FadeType
+  name: FadeType
+  nameWithType: AudioFadeMessage.FadeType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.FadeType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.HasFadeType*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.HasFadeType
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html#AppleTvControlLibrary_Mrp_Protobuf_AudioFadeMessage_HasFadeType
+  name: HasFadeType
+  nameWithType: AudioFadeMessage.HasFadeType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.HasFadeType
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.ClearFadeType*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.ClearFadeType
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html#AppleTvControlLibrary_Mrp_Protobuf_AudioFadeMessage_ClearFadeType
+  name: ClearFadeType
+  nameWithType: AudioFadeMessage.ClearFadeType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.ClearFadeType
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Equals*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Equals
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html#AppleTvControlLibrary_Mrp_Protobuf_AudioFadeMessage_Equals_System_Object_
+  name: Equals
+  nameWithType: AudioFadeMessage.Equals
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.Equals
+- uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  commentId: M:System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  parent: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(AudioFadeMessage)
+  nameWithType: IEquatable<AudioFadeMessage>.Equals(AudioFadeMessage)
+  fullName: System.IEquatable<AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage>.Equals(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  nameWithType.vb: IEquatable(Of AudioFadeMessage).Equals(AudioFadeMessage)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage).Equals(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  spec.csharp:
+  - uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+    name: AudioFadeMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+    name: AudioFadeMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.GetHashCode*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.GetHashCode
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html#AppleTvControlLibrary_Mrp_Protobuf_AudioFadeMessage_GetHashCode
+  name: GetHashCode
+  nameWithType: AudioFadeMessage.GetHashCode
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.ToString*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.ToString
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html#AppleTvControlLibrary_Mrp_Protobuf_AudioFadeMessage_ToString
+  name: ToString
+  nameWithType: AudioFadeMessage.ToString
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.WriteTo*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.WriteTo
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html#AppleTvControlLibrary_Mrp_Protobuf_AudioFadeMessage_WriteTo_Google_Protobuf_CodedOutputStream_
+  name: WriteTo
+  nameWithType: AudioFadeMessage.WriteTo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.CalculateSize*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.CalculateSize
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html#AppleTvControlLibrary_Mrp_Protobuf_AudioFadeMessage_CalculateSize
+  name: CalculateSize
+  nameWithType: AudioFadeMessage.CalculateSize
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.MergeFrom*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.MergeFrom
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html#AppleTvControlLibrary_Mrp_Protobuf_AudioFadeMessage_MergeFrom_AppleTvControlLibrary_Mrp_Protobuf_AudioFadeMessage_
+  name: MergeFrom
+  nameWithType: AudioFadeMessage.MergeFrom
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.MergeFrom
+- uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  commentId: M:Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  parent: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html
+  name: MergeFrom(AudioFadeMessage)
+  nameWithType: IMessage<AudioFadeMessage>.MergeFrom(AudioFadeMessage)
+  fullName: Google.Protobuf.IMessage<AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage>.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  nameWithType.vb: IMessage(Of AudioFadeMessage).MergeFrom(AudioFadeMessage)
+  fullName.vb: Google.Protobuf.IMessage(Of AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage).MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+    name: AudioFadeMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage
+    name: AudioFadeMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.AudioFadeMessage.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

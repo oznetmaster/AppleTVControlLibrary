@@ -1,0 +1,230 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum
+  id: QueueEndAction.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum.AutoPlay
+  - AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum.ClearAction
+  - AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum.None
+  - AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum.Reset
+  langs:
+  - csharp
+  - vb
+  name: QueueEndAction.Types.Enum
+  nameWithType: QueueEndAction.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum
+  type: Enum
+  source:
+    id: Enum
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 323
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public enum QueueEndAction.Types.Enum
+    content.vb: Public Enum QueueEndAction.Types.Enum
+- uid: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum.ClearAction
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum.ClearAction
+  id: ClearAction
+  parent: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: ClearAction
+  nameWithType: QueueEndAction.Types.Enum.ClearAction
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum.ClearAction
+  type: Field
+  source:
+    id: ClearAction
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 324
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("ClearAction")]
+
+      ClearAction = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum
+    content.vb: >-
+      <OriginalName("ClearAction")>
+
+      ClearAction = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ClearAction
+- uid: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum.None
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum.None
+  id: None
+  parent: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: QueueEndAction.Types.Enum.None
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum.None
+  type: Field
+  source:
+    id: None
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 325
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("None")]
+
+      None = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum
+    content.vb: >-
+      <OriginalName("None")>
+
+      None = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: None
+- uid: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum.Reset
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum.Reset
+  id: Reset
+  parent: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Reset
+  nameWithType: QueueEndAction.Types.Enum.Reset
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum.Reset
+  type: Field
+  source:
+    id: Reset
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 326
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Reset")]
+
+      Reset = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum
+    content.vb: >-
+      <OriginalName("Reset")>
+
+      Reset = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Reset
+- uid: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum.AutoPlay
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum.AutoPlay
+  id: AutoPlay
+  parent: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: AutoPlay
+  nameWithType: QueueEndAction.Types.Enum.AutoPlay
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum.AutoPlay
+  type: Field
+  source:
+    id: AutoPlay
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 327
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("AutoPlay")]
+
+      AutoPlay = 3
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum
+    content.vb: >-
+      <OriginalName("AutoPlay")>
+
+      AutoPlay = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: AutoPlay
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.html
+  name: QueueEndAction.Types.Enum
+  nameWithType: QueueEndAction.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction
+    name: QueueEndAction
+    href: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction
+    name: QueueEndAction
+    href: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.QueueEndAction.Types.Enum.html

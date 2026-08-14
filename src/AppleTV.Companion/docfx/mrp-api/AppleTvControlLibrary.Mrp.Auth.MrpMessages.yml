@@ -1,0 +1,1552 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  commentId: T:AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  id: MrpMessages
+  parent: AppleTvControlLibrary.Mrp.Auth
+  children:
+  - AppleTvControlLibrary.Mrp.Auth.MrpMessages.ClientUpdatesConfig(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  - AppleTvControlLibrary.Mrp.Auth.MrpMessages.Command(AppleTvControlLibrary.Mrp.Protobuf.Command,System.Action{AppleTvControlLibrary.Mrp.Protobuf.CommandOptions})
+  - AppleTvControlLibrary.Mrp.Auth.MrpMessages.CommandResult(System.String,AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum)
+  - AppleTvControlLibrary.Mrp.Auth.MrpMessages.Create(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type,AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum,System.String)
+  - AppleTvControlLibrary.Mrp.Auth.MrpMessages.CryptoPairing(System.Collections.Generic.Dictionary{System.Int32,System.Byte[]},System.Boolean)
+  - AppleTvControlLibrary.Mrp.Auth.MrpMessages.DeviceInformation(System.String,System.String,System.String,System.Boolean)
+  - AppleTvControlLibrary.Mrp.Auth.MrpMessages.GetKeyboardSession
+  - AppleTvControlLibrary.Mrp.Auth.MrpMessages.GetPairingData(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  - AppleTvControlLibrary.Mrp.Auth.MrpMessages.PlaybackQueueRequest(System.Int32,System.Int32,System.Int32)
+  - AppleTvControlLibrary.Mrp.Auth.MrpMessages.Repeat(AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum)
+  - AppleTvControlLibrary.Mrp.Auth.MrpMessages.SeekToPosition(System.Double)
+  - AppleTvControlLibrary.Mrp.Auth.MrpMessages.SendButton(System.Int32,System.Int32,System.Boolean)
+  - AppleTvControlLibrary.Mrp.Auth.MrpMessages.SendHidEvent(System.Int32,System.Int32,System.Boolean)
+  - AppleTvControlLibrary.Mrp.Auth.MrpMessages.SetConnectionState
+  - AppleTvControlLibrary.Mrp.Auth.MrpMessages.SetVolume(System.String,System.Single)
+  - AppleTvControlLibrary.Mrp.Auth.MrpMessages.Shuffle(AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum)
+  - AppleTvControlLibrary.Mrp.Auth.MrpMessages.WakeDevice
+  langs:
+  - csharp
+  - vb
+  name: MrpMessages
+  nameWithType: MrpMessages
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  type: Class
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: MrpMessages
+    path: ../../AppleTv.Mrp/Auth/MrpMessages.cs
+    startLine: 16
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Helper code for dealing with the subset of MRP protobuf messages needed for pairing.
+  example: []
+  syntax:
+    content: public static class MrpMessages
+    content.vb: Public Module MrpMessages
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Create(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type,AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum,System.String)
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpMessages.Create(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type,AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum,System.String)
+  id: Create(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type,AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum,System.String)
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  langs:
+  - csharp
+  - vb
+  name: Create(Type, Enum, string?)
+  nameWithType: MrpMessages.Create(ProtocolMessage.Types.Type, ErrorCode.Types.Enum, string?)
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Create(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type, AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum, string?)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Create
+    path: ../../AppleTv.Mrp/Auth/MrpMessages.cs
+    startLine: 24
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Create a ProtocolMessage of the given type.
+  example: []
+  syntax:
+    content: public static ProtocolMessage Create(ProtocolMessage.Types.Type messageType, ErrorCode.Types.Enum errorCode = Enum.NoError, string? identifier = null)
+    parameters:
+    - id: messageType
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type
+      description: The message type to set.
+    - id: errorCode
+      type: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+      description: The error code to set.
+    - id: identifier
+      type: System.String
+      description: An optional message identifier to correlate a response to a request.
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The created message.
+    content.vb: Public Shared Function Create(messageType As ProtocolMessage.Types.Type, errorCode As ErrorCode.Types.Enum = Enum.NoError, identifier As String = Nothing) As ProtocolMessage
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Create*
+  nameWithType.vb: MrpMessages.Create(ProtocolMessage.Types.Type, ErrorCode.Types.Enum, String)
+  fullName.vb: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Create(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type, AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum, String)
+  name.vb: Create(Type, Enum, String)
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.CryptoPairing(System.Collections.Generic.Dictionary{System.Int32,System.Byte[]},System.Boolean)
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpMessages.CryptoPairing(System.Collections.Generic.Dictionary{System.Int32,System.Byte[]},System.Boolean)
+  id: CryptoPairing(System.Collections.Generic.Dictionary{System.Int32,System.Byte[]},System.Boolean)
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  langs:
+  - csharp
+  - vb
+  name: CryptoPairing(Dictionary<int, byte[]>, bool)
+  nameWithType: MrpMessages.CryptoPairing(Dictionary<int, byte[]>, bool)
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.CryptoPairing(System.Collections.Generic.Dictionary<int, byte[]>, bool)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: CryptoPairing
+    path: ../../AppleTv.Mrp/Auth/MrpMessages.cs
+    startLine: 46
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Create a new CRYPTO_PAIRING_MESSAGE.
+  example: []
+  syntax:
+    content: public static ProtocolMessage CryptoPairing(Dictionary<int, byte[]> pairingData, bool isPairing = false)
+    parameters:
+    - id: pairingData
+      type: System.Collections.Generic.Dictionary{System.Int32,System.Byte[]}
+      description: The TLV8 fields to encode into the message's pairingData field.
+    - id: isPairing
+      type: System.Boolean
+      description: Whether this message is part of pair-setup (as opposed to pair-verify).
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The created message.
+    content.vb: Public Shared Function CryptoPairing(pairingData As Dictionary(Of Integer, Byte()), isPairing As Boolean = False) As ProtocolMessage
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpMessages.CryptoPairing*
+  nameWithType.vb: MrpMessages.CryptoPairing(Dictionary(Of Integer, Byte()), Boolean)
+  fullName.vb: AppleTvControlLibrary.Mrp.Auth.MrpMessages.CryptoPairing(System.Collections.Generic.Dictionary(Of Integer, Byte()), Boolean)
+  name.vb: CryptoPairing(Dictionary(Of Integer, Byte()), Boolean)
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.DeviceInformation(System.String,System.String,System.String,System.Boolean)
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpMessages.DeviceInformation(System.String,System.String,System.String,System.Boolean)
+  id: DeviceInformation(System.String,System.String,System.String,System.Boolean)
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  langs:
+  - csharp
+  - vb
+  name: DeviceInformation(string, string, string, bool)
+  nameWithType: MrpMessages.DeviceInformation(string, string, string, bool)
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.DeviceInformation(string, string, string, bool)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: DeviceInformation
+    path: ../../AppleTv.Mrp/Auth/MrpMessages.cs
+    startLine: 70
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Create a new DEVICE_INFO_MESSAGE (or DEVICE_INFO_UPDATE_MESSAGE).
+  example: []
+  syntax:
+    content: public static ProtocolMessage DeviceInformation(string name, string systemBuildVersion, string identifier, bool update = false)
+    parameters:
+    - id: name
+      type: System.String
+      description: The device name to report.
+    - id: systemBuildVersion
+      type: System.String
+      description: The system build version to report.
+    - id: identifier
+      type: System.String
+      description: The unique device identifier.
+    - id: update
+      type: System.Boolean
+      description: Whether to build a DEVICE_INFO_UPDATE_MESSAGE instead of DEVICE_INFO_MESSAGE.
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The created message, with the DeviceInfoMessage extension populated.
+    content.vb: Public Shared Function DeviceInformation(name As String, systemBuildVersion As String, identifier As String, update As Boolean = False) As ProtocolMessage
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpMessages.DeviceInformation*
+  nameWithType.vb: MrpMessages.DeviceInformation(String, String, String, Boolean)
+  fullName.vb: AppleTvControlLibrary.Mrp.Auth.MrpMessages.DeviceInformation(String, String, String, Boolean)
+  name.vb: DeviceInformation(String, String, String, Boolean)
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.CommandResult(System.String,AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum)
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpMessages.CommandResult(System.String,AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum)
+  id: CommandResult(System.String,AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum)
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  langs:
+  - csharp
+  - vb
+  name: CommandResult(string, Enum)
+  nameWithType: MrpMessages.CommandResult(string, SendError.Types.Enum)
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.CommandResult(string, AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: CommandResult
+    path: ../../AppleTv.Mrp/Auth/MrpMessages.cs
+    startLine: 103
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Create a new SEND_COMMAND_RESULT_MESSAGE.
+  example: []
+  syntax:
+    content: public static ProtocolMessage CommandResult(string identifier, SendError.Types.Enum sendError = Enum.NoError)
+    parameters:
+    - id: identifier
+      type: System.String
+      description: The identifier of the SEND_COMMAND_MESSAGE being answered.
+    - id: sendError
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+      description: The error code to report, or <xref href="AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.NoError" data-throw-if-not-resolved="false"></xref> on success.
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The created message.
+    content.vb: Public Shared Function CommandResult(identifier As String, sendError As SendError.Types.Enum = Enum.NoError) As ProtocolMessage
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpMessages.CommandResult*
+  nameWithType.vb: MrpMessages.CommandResult(String, SendError.Types.Enum)
+  fullName.vb: AppleTvControlLibrary.Mrp.Auth.MrpMessages.CommandResult(String, AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum)
+  name.vb: CommandResult(String, Enum)
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.WakeDevice
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpMessages.WakeDevice
+  id: WakeDevice
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  langs:
+  - csharp
+  - vb
+  name: WakeDevice()
+  nameWithType: MrpMessages.WakeDevice()
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.WakeDevice()
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: WakeDevice
+    path: ../../AppleTv.Mrp/Auth/MrpMessages.cs
+    startLine: 119
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Create a new WAKE_DEVICE_MESSAGE.
+  example: []
+  syntax:
+    content: public static ProtocolMessage WakeDevice()
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The created message.
+    content.vb: Public Shared Function WakeDevice() As ProtocolMessage
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpMessages.WakeDevice*
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SetConnectionState
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpMessages.SetConnectionState
+  id: SetConnectionState
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  langs:
+  - csharp
+  - vb
+  name: SetConnectionState()
+  nameWithType: MrpMessages.SetConnectionState()
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SetConnectionState()
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: SetConnectionState
+    path: ../../AppleTv.Mrp/Auth/MrpMessages.cs
+    startLine: 127
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Create a new SET_CONNECTION_STATE_MESSAGE with state set to Connected.
+  example: []
+  syntax:
+    content: public static ProtocolMessage SetConnectionState()
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The created message.
+    content.vb: Public Shared Function SetConnectionState() As ProtocolMessage
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SetConnectionState*
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.GetKeyboardSession
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpMessages.GetKeyboardSession
+  id: GetKeyboardSession
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  langs:
+  - csharp
+  - vb
+  name: GetKeyboardSession()
+  nameWithType: MrpMessages.GetKeyboardSession()
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.GetKeyboardSession()
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: GetKeyboardSession
+    path: ../../AppleTv.Mrp/Auth/MrpMessages.cs
+    startLine: 142
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Create a new GET_KEYBOARD_SESSION_MESSAGE.
+  example: []
+  syntax:
+    content: public static ProtocolMessage GetKeyboardSession()
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The created message.
+    content.vb: Public Shared Function GetKeyboardSession() As ProtocolMessage
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpMessages.GetKeyboardSession*
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.ClientUpdatesConfig(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpMessages.ClientUpdatesConfig(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  id: ClientUpdatesConfig(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  langs:
+  - csharp
+  - vb
+  name: ClientUpdatesConfig(bool, bool, bool, bool, bool)
+  nameWithType: MrpMessages.ClientUpdatesConfig(bool, bool, bool, bool, bool)
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.ClientUpdatesConfig(bool, bool, bool, bool, bool)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: ClientUpdatesConfig
+    path: ../../AppleTv.Mrp/Auth/MrpMessages.cs
+    startLine: 155
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Create a new CLIENT_UPDATES_CONFIG_MESSAGE.
+  example: []
+  syntax:
+    content: public static ProtocolMessage ClientUpdatesConfig(bool artwork = true, bool nowPlaying = false, bool volume = true, bool keyboard = true, bool outputDeviceUpdates = true)
+    parameters:
+    - id: artwork
+      type: System.Boolean
+      description: Whether to subscribe to artwork updates.
+    - id: nowPlaying
+      type: System.Boolean
+      description: Whether to subscribe to now-playing updates.
+    - id: volume
+      type: System.Boolean
+      description: Whether to subscribe to volume updates.
+    - id: keyboard
+      type: System.Boolean
+      description: Whether to subscribe to keyboard updates.
+    - id: outputDeviceUpdates
+      type: System.Boolean
+      description: Whether to subscribe to output device updates.
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The created message.
+    content.vb: Public Shared Function ClientUpdatesConfig(artwork As Boolean = True, nowPlaying As Boolean = False, volume As Boolean = True, keyboard As Boolean = True, outputDeviceUpdates As Boolean = True) As ProtocolMessage
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpMessages.ClientUpdatesConfig*
+  nameWithType.vb: MrpMessages.ClientUpdatesConfig(Boolean, Boolean, Boolean, Boolean, Boolean)
+  fullName.vb: AppleTvControlLibrary.Mrp.Auth.MrpMessages.ClientUpdatesConfig(Boolean, Boolean, Boolean, Boolean, Boolean)
+  name.vb: ClientUpdatesConfig(Boolean, Boolean, Boolean, Boolean, Boolean)
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.PlaybackQueueRequest(System.Int32,System.Int32,System.Int32)
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpMessages.PlaybackQueueRequest(System.Int32,System.Int32,System.Int32)
+  id: PlaybackQueueRequest(System.Int32,System.Int32,System.Int32)
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  langs:
+  - csharp
+  - vb
+  name: PlaybackQueueRequest(int, int, int)
+  nameWithType: MrpMessages.PlaybackQueueRequest(int, int, int)
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.PlaybackQueueRequest(int, int, int)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: PlaybackQueueRequest
+    path: ../../AppleTv.Mrp/Auth/MrpMessages.cs
+    startLine: 177
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Create a new PLAYBACK_QUEUE_REQUEST_MESSAGE, used to explicitly fetch artwork bytes for an item.
+  example: []
+  syntax:
+    content: public static ProtocolMessage PlaybackQueueRequest(int location, int width = -1, int height = 400)
+    parameters:
+    - id: location
+      type: System.Int32
+      description: The queue location (index) of the item to fetch.
+    - id: width
+      type: System.Int32
+      description: The requested artwork width, or -1 for no preference.
+    - id: height
+      type: System.Int32
+      description: The requested artwork height, or -1 for no preference.
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The created message.
+    content.vb: Public Shared Function PlaybackQueueRequest(location As Integer, width As Integer = -1, height As Integer = 400) As ProtocolMessage
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpMessages.PlaybackQueueRequest*
+  nameWithType.vb: MrpMessages.PlaybackQueueRequest(Integer, Integer, Integer)
+  fullName.vb: AppleTvControlLibrary.Mrp.Auth.MrpMessages.PlaybackQueueRequest(Integer, Integer, Integer)
+  name.vb: PlaybackQueueRequest(Integer, Integer, Integer)
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.GetPairingData(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpMessages.GetPairingData(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  id: GetPairingData(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  langs:
+  - csharp
+  - vb
+  name: GetPairingData(ProtocolMessage)
+  nameWithType: MrpMessages.GetPairingData(ProtocolMessage)
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.GetPairingData(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: GetPairingData
+    path: ../../AppleTv.Mrp/Auth/MrpMessages.cs
+    startLine: 198
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Extract the CryptoPairingMessage extension from a ProtocolMessage and decode its TLV8 pairing data.
+  example: []
+  syntax:
+    content: public static Dictionary<int, byte[]> GetPairingData(ProtocolMessage message)
+    parameters:
+    - id: message
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The received message.
+    return:
+      type: System.Collections.Generic.Dictionary{System.Int32,System.Byte[]}
+      description: The decoded TLV8 fields.
+    content.vb: Public Shared Function GetPairingData(message As ProtocolMessage) As Dictionary(Of Integer, Byte())
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpMessages.GetPairingData*
+  exceptions:
+  - type: AppleTvControlLibrary.Auth.AuthenticationException
+    commentId: T:AppleTvControlLibrary.Auth.AuthenticationException
+    description: Thrown if the pairing data contains a TlvValue.Error entry.
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SendHidEvent(System.Int32,System.Int32,System.Boolean)
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpMessages.SendHidEvent(System.Int32,System.Int32,System.Boolean)
+  id: SendHidEvent(System.Int32,System.Int32,System.Boolean)
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  langs:
+  - csharp
+  - vb
+  name: SendHidEvent(int, int, bool)
+  nameWithType: MrpMessages.SendHidEvent(int, int, bool)
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SendHidEvent(int, int, bool)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: SendHidEvent
+    path: ../../AppleTv.Mrp/Auth/MrpMessages.cs
+    startLine: 217
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Create a new SEND_HID_EVENT_MESSAGE for the given HID usage page/usage.
+  example: []
+  syntax:
+    content: public static ProtocolMessage SendHidEvent(int usePage, int usage, bool down)
+    parameters:
+    - id: usePage
+      type: System.Int32
+      description: The HID usage page.
+    - id: usage
+      type: System.Int32
+      description: The HID usage within the page.
+    - id: down
+      type: System.Boolean
+      description: Whether this is a key-down (as opposed to key-up) event.
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The created message.
+    content.vb: Public Shared Function SendHidEvent(usePage As Integer, usage As Integer, down As Boolean) As ProtocolMessage
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SendHidEvent*
+  nameWithType.vb: MrpMessages.SendHidEvent(Integer, Integer, Boolean)
+  fullName.vb: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SendHidEvent(Integer, Integer, Boolean)
+  name.vb: SendHidEvent(Integer, Integer, Boolean)
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SendButton(System.Int32,System.Int32,System.Boolean)
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpMessages.SendButton(System.Int32,System.Int32,System.Boolean)
+  id: SendButton(System.Int32,System.Int32,System.Boolean)
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  langs:
+  - csharp
+  - vb
+  name: SendButton(int, int, bool)
+  nameWithType: MrpMessages.SendButton(int, int, bool)
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SendButton(int, int, bool)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: SendButton
+    path: ../../AppleTv.Mrp/Auth/MrpMessages.cs
+    startLine: 262
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Create a new SEND_BUTTON_EVENT_MESSAGE.
+  example: []
+  syntax:
+    content: public static ProtocolMessage SendButton(int usagePage, int usage, bool buttonDown)
+    parameters:
+    - id: usagePage
+      type: System.Int32
+      description: The HID usage page.
+    - id: usage
+      type: System.Int32
+      description: The HID usage within the page.
+    - id: buttonDown
+      type: System.Boolean
+      description: Whether this is a button-down (as opposed to button-up) event.
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The created message.
+    content.vb: Public Shared Function SendButton(usagePage As Integer, usage As Integer, buttonDown As Boolean) As ProtocolMessage
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SendButton*
+  nameWithType.vb: MrpMessages.SendButton(Integer, Integer, Boolean)
+  fullName.vb: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SendButton(Integer, Integer, Boolean)
+  name.vb: SendButton(Integer, Integer, Boolean)
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Command(AppleTvControlLibrary.Mrp.Protobuf.Command,System.Action{AppleTvControlLibrary.Mrp.Protobuf.CommandOptions})
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpMessages.Command(AppleTvControlLibrary.Mrp.Protobuf.Command,System.Action{AppleTvControlLibrary.Mrp.Protobuf.CommandOptions})
+  id: Command(AppleTvControlLibrary.Mrp.Protobuf.Command,System.Action{AppleTvControlLibrary.Mrp.Protobuf.CommandOptions})
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  langs:
+  - csharp
+  - vb
+  name: Command(Command, Action<CommandOptions>?)
+  nameWithType: MrpMessages.Command(Command, Action<CommandOptions>?)
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Command(AppleTvControlLibrary.Mrp.Protobuf.Command, System.Action<AppleTvControlLibrary.Mrp.Protobuf.CommandOptions>?)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Command
+    path: ../../AppleTv.Mrp/Auth/MrpMessages.cs
+    startLine: 281
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Create a new SEND_COMMAND_MESSAGE for a playback command.
+  example: []
+  syntax:
+    content: public static ProtocolMessage Command(Command command, Action<CommandOptions>? configureOptions = null)
+    parameters:
+    - id: command
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+      description: The command to send.
+    - id: configureOptions
+      type: System.Action{AppleTvControlLibrary.Mrp.Protobuf.CommandOptions}
+      description: An optional callback used to populate the command's options.
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The created message.
+    content.vb: Public Shared Function Command(command As Command, configureOptions As Action(Of CommandOptions) = Nothing) As ProtocolMessage
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Command*
+  nameWithType.vb: MrpMessages.Command(Command, Action(Of CommandOptions))
+  fullName.vb: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Command(AppleTvControlLibrary.Mrp.Protobuf.Command, System.Action(Of AppleTvControlLibrary.Mrp.Protobuf.CommandOptions))
+  name.vb: Command(Command, Action(Of CommandOptions))
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Repeat(AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum)
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpMessages.Repeat(AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum)
+  id: Repeat(AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum)
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  langs:
+  - csharp
+  - vb
+  name: Repeat(Enum)
+  nameWithType: MrpMessages.Repeat(RepeatMode.Types.Enum)
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Repeat(AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Repeat
+    path: ../../AppleTv.Mrp/Auth/MrpMessages.cs
+    startLine: 300
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Create a SEND_COMMAND_MESSAGE that changes the repeat mode of the current player.
+  example: []
+  syntax:
+    content: public static ProtocolMessage Repeat(RepeatMode.Types.Enum mode)
+    parameters:
+    - id: mode
+      type: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+      description: The repeat mode to set.
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The created message.
+    content.vb: Public Shared Function Repeat(mode As RepeatMode.Types.Enum) As ProtocolMessage
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Repeat*
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Shuffle(AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum)
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpMessages.Shuffle(AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum)
+  id: Shuffle(AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum)
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  langs:
+  - csharp
+  - vb
+  name: Shuffle(Enum)
+  nameWithType: MrpMessages.Shuffle(ShuffleMode.Types.Enum)
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Shuffle(AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Shuffle
+    path: ../../AppleTv.Mrp/Auth/MrpMessages.cs
+    startLine: 313
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Create a SEND_COMMAND_MESSAGE that changes the shuffle mode of the current player.
+  example: []
+  syntax:
+    content: public static ProtocolMessage Shuffle(ShuffleMode.Types.Enum state)
+    parameters:
+    - id: state
+      type: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+      description: The shuffle mode to set.
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The created message.
+    content.vb: Public Shared Function Shuffle(state As ShuffleMode.Types.Enum) As ProtocolMessage
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Shuffle*
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SeekToPosition(System.Double)
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpMessages.SeekToPosition(System.Double)
+  id: SeekToPosition(System.Double)
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  langs:
+  - csharp
+  - vb
+  name: SeekToPosition(double)
+  nameWithType: MrpMessages.SeekToPosition(double)
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SeekToPosition(double)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: SeekToPosition
+    path: ../../AppleTv.Mrp/Auth/MrpMessages.cs
+    startLine: 326
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Create a SEND_COMMAND_MESSAGE that seeks to an absolute position in the current stream.
+  example: []
+  syntax:
+    content: public static ProtocolMessage SeekToPosition(double position)
+    parameters:
+    - id: position
+      type: System.Double
+      description: The playback position, in seconds.
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The created message.
+    content.vb: Public Shared Function SeekToPosition(position As Double) As ProtocolMessage
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SeekToPosition*
+  nameWithType.vb: MrpMessages.SeekToPosition(Double)
+  fullName.vb: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SeekToPosition(Double)
+  name.vb: SeekToPosition(Double)
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SetVolume(System.String,System.Single)
+  commentId: M:AppleTvControlLibrary.Mrp.Auth.MrpMessages.SetVolume(System.String,System.Single)
+  id: SetVolume(System.String,System.Single)
+  parent: AppleTvControlLibrary.Mrp.Auth.MrpMessages
+  langs:
+  - csharp
+  - vb
+  name: SetVolume(string, float)
+  nameWithType: MrpMessages.SetVolume(string, float)
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SetVolume(string, float)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/Auth/MrpMessages.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: SetVolume
+    path: ../../AppleTv.Mrp/Auth/MrpMessages.cs
+    startLine: 339
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Auth
+  summary: Create a new SET_VOLUME_MESSAGE to change the volume on a specific output device.
+  example: []
+  syntax:
+    content: public static ProtocolMessage SetVolume(string deviceUid, float volume)
+    parameters:
+    - id: deviceUid
+      type: System.String
+      description: The output device identifier.
+    - id: volume
+      type: System.Single
+      description: The volume level, in the range 0.0-1.0.
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The created message.
+    content.vb: Public Shared Function SetVolume(deviceUid As String, volume As Single) As ProtocolMessage
+  overload: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SetVolume*
+  nameWithType.vb: MrpMessages.SetVolume(String, Single)
+  fullName.vb: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SetVolume(String, Single)
+  name.vb: SetVolume(String, Single)
+references:
+- uid: AppleTvControlLibrary.Mrp.Auth
+  commentId: N:AppleTvControlLibrary.Mrp.Auth
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Auth
+  nameWithType: AppleTvControlLibrary.Mrp.Auth
+  fullName: AppleTvControlLibrary.Mrp.Auth
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Auth
+    name: Auth
+    href: AppleTvControlLibrary.Mrp.Auth.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Auth
+    name: Auth
+    href: AppleTvControlLibrary.Mrp.Auth.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Create*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpMessages.Create
+  href: AppleTvControlLibrary.Mrp.Auth.MrpMessages.html#AppleTvControlLibrary_Mrp_Auth_MrpMessages_Create_AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_Types_Type_AppleTvControlLibrary_Mrp_Protobuf_ErrorCode_Types_Enum_System_String_
+  name: Create
+  nameWithType: MrpMessages.Create
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Create
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: ProtocolMessage.Types.Type
+  nameWithType: ProtocolMessage.Types.Type
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type
+    name: Type
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type
+    name: Type
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.Types.Type.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.html
+  name: ErrorCode.Types.Enum
+  nameWithType: ErrorCode.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode
+    name: ErrorCode
+    href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode
+    name: ErrorCode
+    href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.ErrorCode.Types.Enum.html
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: ProtocolMessage
+  nameWithType: ProtocolMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.CryptoPairing*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpMessages.CryptoPairing
+  href: AppleTvControlLibrary.Mrp.Auth.MrpMessages.html#AppleTvControlLibrary_Mrp_Auth_MrpMessages_CryptoPairing_System_Collections_Generic_Dictionary_System_Int32_System_Byte____System_Boolean_
+  name: CryptoPairing
+  nameWithType: MrpMessages.CryptoPairing
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.CryptoPairing
+- uid: System.Collections.Generic.Dictionary{System.Int32,System.Byte[]}
+  commentId: T:System.Collections.Generic.Dictionary{System.Int32,System.Byte[]}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<int, byte[]>
+  nameWithType: Dictionary<int, byte[]>
+  fullName: System.Collections.Generic.Dictionary<int, byte[]>
+  nameWithType.vb: Dictionary(Of Integer, Byte())
+  fullName.vb: System.Collections.Generic.Dictionary(Of Integer, Byte())
+  name.vb: Dictionary(Of Integer, Byte())
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.DeviceInformation*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpMessages.DeviceInformation
+  href: AppleTvControlLibrary.Mrp.Auth.MrpMessages.html#AppleTvControlLibrary_Mrp_Auth_MrpMessages_DeviceInformation_System_String_System_String_System_String_System_Boolean_
+  name: DeviceInformation
+  nameWithType: MrpMessages.DeviceInformation
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.DeviceInformation
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.NoError
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.NoError
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.html#AppleTvControlLibrary_Mrp_Protobuf_SendError_Types_Enum_NoError
+  name: NoError
+  nameWithType: SendError.Types.Enum.NoError
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.NoError
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.CommandResult*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpMessages.CommandResult
+  href: AppleTvControlLibrary.Mrp.Auth.MrpMessages.html#AppleTvControlLibrary_Mrp_Auth_MrpMessages_CommandResult_System_String_AppleTvControlLibrary_Mrp_Protobuf_SendError_Types_Enum_
+  name: CommandResult
+  nameWithType: MrpMessages.CommandResult
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.CommandResult
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendError.html
+  name: SendError.Types.Enum
+  nameWithType: SendError.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendError
+    name: SendError
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendError.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendError
+    name: SendError
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendError.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendError.Types.Enum.html
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.WakeDevice*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpMessages.WakeDevice
+  href: AppleTvControlLibrary.Mrp.Auth.MrpMessages.html#AppleTvControlLibrary_Mrp_Auth_MrpMessages_WakeDevice
+  name: WakeDevice
+  nameWithType: MrpMessages.WakeDevice
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.WakeDevice
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SetConnectionState*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpMessages.SetConnectionState
+  href: AppleTvControlLibrary.Mrp.Auth.MrpMessages.html#AppleTvControlLibrary_Mrp_Auth_MrpMessages_SetConnectionState
+  name: SetConnectionState
+  nameWithType: MrpMessages.SetConnectionState
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SetConnectionState
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.GetKeyboardSession*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpMessages.GetKeyboardSession
+  href: AppleTvControlLibrary.Mrp.Auth.MrpMessages.html#AppleTvControlLibrary_Mrp_Auth_MrpMessages_GetKeyboardSession
+  name: GetKeyboardSession
+  nameWithType: MrpMessages.GetKeyboardSession
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.GetKeyboardSession
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.ClientUpdatesConfig*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpMessages.ClientUpdatesConfig
+  href: AppleTvControlLibrary.Mrp.Auth.MrpMessages.html#AppleTvControlLibrary_Mrp_Auth_MrpMessages_ClientUpdatesConfig_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_
+  name: ClientUpdatesConfig
+  nameWithType: MrpMessages.ClientUpdatesConfig
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.ClientUpdatesConfig
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.PlaybackQueueRequest*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpMessages.PlaybackQueueRequest
+  href: AppleTvControlLibrary.Mrp.Auth.MrpMessages.html#AppleTvControlLibrary_Mrp_Auth_MrpMessages_PlaybackQueueRequest_System_Int32_System_Int32_System_Int32_
+  name: PlaybackQueueRequest
+  nameWithType: MrpMessages.PlaybackQueueRequest
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.PlaybackQueueRequest
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: AppleTvControlLibrary.Auth.AuthenticationException
+  commentId: T:AppleTvControlLibrary.Auth.AuthenticationException
+  name: AuthenticationException
+  nameWithType: AuthenticationException
+  fullName: AppleTvControlLibrary.Auth.AuthenticationException
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.GetPairingData*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpMessages.GetPairingData
+  href: AppleTvControlLibrary.Mrp.Auth.MrpMessages.html#AppleTvControlLibrary_Mrp_Auth_MrpMessages_GetPairingData_AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_
+  name: GetPairingData
+  nameWithType: MrpMessages.GetPairingData
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.GetPairingData
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SendHidEvent*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpMessages.SendHidEvent
+  href: AppleTvControlLibrary.Mrp.Auth.MrpMessages.html#AppleTvControlLibrary_Mrp_Auth_MrpMessages_SendHidEvent_System_Int32_System_Int32_System_Boolean_
+  name: SendHidEvent
+  nameWithType: MrpMessages.SendHidEvent
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SendHidEvent
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SendButton*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpMessages.SendButton
+  href: AppleTvControlLibrary.Mrp.Auth.MrpMessages.html#AppleTvControlLibrary_Mrp_Auth_MrpMessages_SendButton_System_Int32_System_Int32_System_Boolean_
+  name: SendButton
+  nameWithType: MrpMessages.SendButton
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SendButton
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Command*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpMessages.Command
+  href: AppleTvControlLibrary.Mrp.Auth.MrpMessages.html#AppleTvControlLibrary_Mrp_Auth_MrpMessages_Command_AppleTvControlLibrary_Mrp_Protobuf_Command_System_Action_AppleTvControlLibrary_Mrp_Protobuf_CommandOptions__
+  name: Command
+  nameWithType: MrpMessages.Command
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Command
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.Command
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.Command.html
+  name: Command
+  nameWithType: Command
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command
+- uid: System.Action{AppleTvControlLibrary.Mrp.Protobuf.CommandOptions}
+  commentId: T:System.Action{AppleTvControlLibrary.Mrp.Protobuf.CommandOptions}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<CommandOptions>
+  nameWithType: Action<CommandOptions>
+  fullName: System.Action<AppleTvControlLibrary.Mrp.Protobuf.CommandOptions>
+  nameWithType.vb: Action(Of CommandOptions)
+  fullName.vb: System.Action(Of AppleTvControlLibrary.Mrp.Protobuf.CommandOptions)
+  name.vb: Action(Of CommandOptions)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.CommandOptions
+    name: CommandOptions
+    href: AppleTvControlLibrary.Mrp.Protobuf.CommandOptions.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.CommandOptions
+    name: CommandOptions
+    href: AppleTvControlLibrary.Mrp.Protobuf.CommandOptions.html
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Repeat*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpMessages.Repeat
+  href: AppleTvControlLibrary.Mrp.Auth.MrpMessages.html#AppleTvControlLibrary_Mrp_Auth_MrpMessages_Repeat_AppleTvControlLibrary_Mrp_Protobuf_RepeatMode_Types_Enum_
+  name: Repeat
+  nameWithType: MrpMessages.Repeat
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Repeat
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.html
+  name: RepeatMode.Types.Enum
+  nameWithType: RepeatMode.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode
+    name: RepeatMode
+    href: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode
+    name: RepeatMode
+    href: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.RepeatMode.Types.Enum.html
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Shuffle*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpMessages.Shuffle
+  href: AppleTvControlLibrary.Mrp.Auth.MrpMessages.html#AppleTvControlLibrary_Mrp_Auth_MrpMessages_Shuffle_AppleTvControlLibrary_Mrp_Protobuf_ShuffleMode_Types_Enum_
+  name: Shuffle
+  nameWithType: MrpMessages.Shuffle
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.Shuffle
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.html
+  name: ShuffleMode.Types.Enum
+  nameWithType: ShuffleMode.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode
+    name: ShuffleMode
+    href: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode
+    name: ShuffleMode
+    href: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.html
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SeekToPosition*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpMessages.SeekToPosition
+  href: AppleTvControlLibrary.Mrp.Auth.MrpMessages.html#AppleTvControlLibrary_Mrp_Auth_MrpMessages_SeekToPosition_System_Double_
+  name: SeekToPosition
+  nameWithType: MrpMessages.SeekToPosition
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SeekToPosition
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SetVolume*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Auth.MrpMessages.SetVolume
+  href: AppleTvControlLibrary.Mrp.Auth.MrpMessages.html#AppleTvControlLibrary_Mrp_Auth_MrpMessages_SetVolume_System_String_System_Single_
+  name: SetVolume
+  nameWithType: MrpMessages.SetVolume
+  fullName: AppleTvControlLibrary.Mrp.Auth.MrpMessages.SetVolume
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single

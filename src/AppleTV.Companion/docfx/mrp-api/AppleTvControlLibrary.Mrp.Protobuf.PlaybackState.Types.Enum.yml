@@ -1,0 +1,302 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+  id: PlaybackState.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Interrupted
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Paused
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Playing
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Seeking
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Stopped
+  - AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Unknown
+  langs:
+  - csharp
+  - vb
+  name: PlaybackState.Types.Enum
+  nameWithType: PlaybackState.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+  type: Enum
+  source:
+    id: Enum
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 1126
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public enum PlaybackState.Types.Enum
+    content.vb: Public Enum PlaybackState.Types.Enum
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Unknown
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Unknown
+  id: Unknown
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: PlaybackState.Types.Enum.Unknown
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Unknown
+  type: Field
+  source:
+    id: Unknown
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 1127
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Unknown")]
+
+      Unknown = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+    content.vb: >-
+      <OriginalName("Unknown")>
+
+      Unknown = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Unknown
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Playing
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Playing
+  id: Playing
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Playing
+  nameWithType: PlaybackState.Types.Enum.Playing
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Playing
+  type: Field
+  source:
+    id: Playing
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 1128
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Playing")]
+
+      Playing = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+    content.vb: >-
+      <OriginalName("Playing")>
+
+      Playing = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Playing
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Paused
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Paused
+  id: Paused
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Paused
+  nameWithType: PlaybackState.Types.Enum.Paused
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Paused
+  type: Field
+  source:
+    id: Paused
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 1129
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Paused")]
+
+      Paused = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+    content.vb: >-
+      <OriginalName("Paused")>
+
+      Paused = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Paused
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Stopped
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Stopped
+  id: Stopped
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Stopped
+  nameWithType: PlaybackState.Types.Enum.Stopped
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Stopped
+  type: Field
+  source:
+    id: Stopped
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 1130
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Stopped")]
+
+      Stopped = 3
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+    content.vb: >-
+      <OriginalName("Stopped")>
+
+      Stopped = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Stopped
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Interrupted
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Interrupted
+  id: Interrupted
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Interrupted
+  nameWithType: PlaybackState.Types.Enum.Interrupted
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Interrupted
+  type: Field
+  source:
+    id: Interrupted
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 1131
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Interrupted")]
+
+      Interrupted = 4
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+    content.vb: >-
+      <OriginalName("Interrupted")>
+
+      Interrupted = 4
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Interrupted
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Seeking
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Seeking
+  id: Seeking
+  parent: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Seeking
+  nameWithType: PlaybackState.Types.Enum.Seeking
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Seeking
+  type: Field
+  source:
+    id: Seeking
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 1132
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Seeking")]
+
+      Seeking = 5
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+    content.vb: >-
+      <OriginalName("Seeking")>
+
+      Seeking = 5
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Seeking
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.html
+  name: PlaybackState.Types.Enum
+  nameWithType: PlaybackState.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState
+    name: PlaybackState
+    href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState
+    name: PlaybackState
+    href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.html

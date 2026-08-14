@@ -1,0 +1,266 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum
+  id: FormatTier.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.HighQualityStereo
+  - AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.HighResolutionLossless
+  - AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.Lossless
+  - AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.LowBandwidthStereo
+  - AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.Spatial
+  langs:
+  - csharp
+  - vb
+  name: FormatTier.Types.Enum
+  nameWithType: FormatTier.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum
+  type: Enum
+  source:
+    id: Enum
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 1684
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public enum FormatTier.Types.Enum
+    content.vb: Public Enum FormatTier.Types.Enum
+- uid: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.LowBandwidthStereo
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.LowBandwidthStereo
+  id: LowBandwidthStereo
+  parent: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: LowBandwidthStereo
+  nameWithType: FormatTier.Types.Enum.LowBandwidthStereo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.LowBandwidthStereo
+  type: Field
+  source:
+    id: LowBandwidthStereo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 1685
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("LowBandwidthStereo")]
+
+      LowBandwidthStereo = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum
+    content.vb: >-
+      <OriginalName("LowBandwidthStereo")>
+
+      LowBandwidthStereo = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: LowBandwidthStereo
+- uid: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.HighQualityStereo
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.HighQualityStereo
+  id: HighQualityStereo
+  parent: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: HighQualityStereo
+  nameWithType: FormatTier.Types.Enum.HighQualityStereo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.HighQualityStereo
+  type: Field
+  source:
+    id: HighQualityStereo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 1686
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("HighQualityStereo")]
+
+      HighQualityStereo = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum
+    content.vb: >-
+      <OriginalName("HighQualityStereo")>
+
+      HighQualityStereo = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: HighQualityStereo
+- uid: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.Lossless
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.Lossless
+  id: Lossless
+  parent: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Lossless
+  nameWithType: FormatTier.Types.Enum.Lossless
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.Lossless
+  type: Field
+  source:
+    id: Lossless
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 1687
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Lossless")]
+
+      Lossless = 4
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum
+    content.vb: >-
+      <OriginalName("Lossless")>
+
+      Lossless = 4
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Lossless
+- uid: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.HighResolutionLossless
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.HighResolutionLossless
+  id: HighResolutionLossless
+  parent: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: HighResolutionLossless
+  nameWithType: FormatTier.Types.Enum.HighResolutionLossless
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.HighResolutionLossless
+  type: Field
+  source:
+    id: HighResolutionLossless
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 1688
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("HighResolutionLossless")]
+
+      HighResolutionLossless = 8
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum
+    content.vb: >-
+      <OriginalName("HighResolutionLossless")>
+
+      HighResolutionLossless = 8
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: HighResolutionLossless
+- uid: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.Spatial
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.Spatial
+  id: Spatial
+  parent: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Spatial
+  nameWithType: FormatTier.Types.Enum.Spatial
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.Spatial
+  type: Field
+  source:
+    id: Spatial
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 1689
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Spatial")]
+
+      Spatial = 16
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum
+    content.vb: >-
+      <OriginalName("Spatial")>
+
+      Spatial = 16
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Spatial
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.html
+  name: FormatTier.Types.Enum
+  nameWithType: FormatTier.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.FormatTier
+    name: FormatTier
+    href: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.FormatTier
+    name: FormatTier
+    href: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.FormatTier.Types.Enum.html

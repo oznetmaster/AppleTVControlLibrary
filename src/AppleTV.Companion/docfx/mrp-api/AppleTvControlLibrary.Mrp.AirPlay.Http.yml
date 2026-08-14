@@ -1,0 +1,92 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http
+  commentId: N:AppleTvControlLibrary.Mrp.AirPlay.Http
+  id: AppleTvControlLibrary.Mrp.AirPlay.Http
+  children:
+  - AppleTvControlLibrary.Mrp.AirPlay.Http.HttpConnection
+  - AppleTvControlLibrary.Mrp.AirPlay.Http.HttpMessages
+  - AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest
+  - AppleTvControlLibrary.Mrp.AirPlay.Http.HttpResponse
+  - AppleTvControlLibrary.Mrp.AirPlay.Http.PlistBody
+  langs:
+  - csharp
+  - vb
+  name: AppleTvControlLibrary.Mrp.AirPlay.Http
+  nameWithType: AppleTvControlLibrary.Mrp.AirPlay.Http
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http
+  type: Namespace
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+references:
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpConnection
+  commentId: T:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpConnection
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Http
+  href: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpConnection.html
+  name: HttpConnection
+  nameWithType: HttpConnection
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpConnection
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpResponse
+  commentId: T:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpResponse
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Http
+  href: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpResponse.html
+  name: HttpResponse
+  nameWithType: HttpResponse
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpResponse
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest
+  commentId: T:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest
+  parent: AppleTvControlLibrary.Mrp.AirPlay.Http
+  href: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.html
+  name: HttpRequest
+  nameWithType: HttpRequest
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpMessages
+  commentId: T:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpMessages
+  href: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpMessages.html
+  name: HttpMessages
+  nameWithType: HttpMessages
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.HttpMessages
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http.PlistBody
+  commentId: T:AppleTvControlLibrary.Mrp.AirPlay.Http.PlistBody
+  href: AppleTvControlLibrary.Mrp.AirPlay.Http.PlistBody.html
+  name: PlistBody
+  nameWithType: PlistBody
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http.PlistBody
+- uid: AppleTvControlLibrary.Mrp.AirPlay.Http
+  commentId: N:AppleTvControlLibrary.Mrp.AirPlay.Http
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.AirPlay.Http
+  nameWithType: AppleTvControlLibrary.Mrp.AirPlay.Http
+  fullName: AppleTvControlLibrary.Mrp.AirPlay.Http
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay
+    name: AirPlay
+    href: AppleTvControlLibrary.Mrp.AirPlay.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay.Http
+    name: Http
+    href: AppleTvControlLibrary.Mrp.AirPlay.Http.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay
+    name: AirPlay
+    href: AppleTvControlLibrary.Mrp.AirPlay.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.AirPlay.Http
+    name: Http
+    href: AppleTvControlLibrary.Mrp.AirPlay.Http.html

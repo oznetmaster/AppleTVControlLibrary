@@ -1,0 +1,1702 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  id: RemoteTextInputMessage
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.#ctor
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.CalculateSize
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearData
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearTimestamp
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearVersion
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Clone
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Data
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.DataFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Descriptor
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Equals(System.Object)
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.GetHashCode
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasData
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasTimestamp
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasVersion
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Parser
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Timestamp
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.TimestampFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ToString
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Version
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.VersionFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: RemoteTextInputMessage
+  nameWithType: RemoteTextInputMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  type: Class
+  source:
+    id: RemoteTextInputMessage
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 49
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: 'public sealed class RemoteTextInputMessage : IMessage<RemoteTextInputMessage>, IEquatable<RemoteTextInputMessage>, IDeepCloneable<RemoteTextInputMessage>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class RemoteTextInputMessage Implements IMessage(Of RemoteTextInputMessage), IEquatable(Of RemoteTextInputMessage), IDeepCloneable(Of RemoteTextInputMessage), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}
+  - System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}
+  - Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Parser
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Parser
+  id: Parser
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: RemoteTextInputMessage.Parser
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Parser
+  type: Property
+  source:
+    id: Parser
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 58
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public static MessageParser<RemoteTextInputMessage> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of RemoteTextInputMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Parser*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Descriptor
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Descriptor
+  id: Descriptor
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: RemoteTextInputMessage.Descriptor
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Descriptor
+  type: Property
+  source:
+    id: Descriptor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 62
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Descriptor*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.#ctor
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.#ctor
+  id: '#ctor'
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: RemoteTextInputMessage()
+  nameWithType: RemoteTextInputMessage.RemoteTextInputMessage()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.RemoteTextInputMessage()
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 74
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public RemoteTextInputMessage()
+    content.vb: Public Sub New()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.#ctor*
+  nameWithType.vb: RemoteTextInputMessage.New()
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.New()
+  name.vb: New()
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  id: '#ctor(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)'
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: RemoteTextInputMessage(RemoteTextInputMessage)
+  nameWithType: RemoteTextInputMessage.RemoteTextInputMessage(RemoteTextInputMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.RemoteTextInputMessage(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 82
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public RemoteTextInputMessage(RemoteTextInputMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+    content.vb: Public Sub New(other As RemoteTextInputMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.#ctor*
+  nameWithType.vb: RemoteTextInputMessage.New(RemoteTextInputMessage)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.New(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  name.vb: New(RemoteTextInputMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Clone
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Clone
+  id: Clone
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: RemoteTextInputMessage.Clone()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Clone()
+  type: Method
+  source:
+    id: Clone
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 92
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public RemoteTextInputMessage Clone()
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As RemoteTextInputMessage
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}.Clone
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.TimestampFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.TimestampFieldNumber
+  id: TimestampFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: TimestampFieldNumber
+  nameWithType: RemoteTextInputMessage.TimestampFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.TimestampFieldNumber
+  type: Field
+  source:
+    id: TimestampFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 99
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "timestamp" field.
+  example: []
+  syntax:
+    content: public const int TimestampFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const TimestampFieldNumber As Integer = 1
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Timestamp
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Timestamp
+  id: Timestamp
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: RemoteTextInputMessage.Timestamp
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Timestamp
+  type: Property
+  source:
+    id: Timestamp
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 103
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public double Timestamp { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Timestamp As Double
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Timestamp*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasTimestamp
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasTimestamp
+  id: HasTimestamp
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: HasTimestamp
+  nameWithType: RemoteTextInputMessage.HasTimestamp
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasTimestamp
+  type: Property
+  source:
+    id: HasTimestamp
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 113
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "timestamp" field is set
+  example: []
+  syntax:
+    content: public bool HasTimestamp { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasTimestamp As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasTimestamp*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearTimestamp
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearTimestamp
+  id: ClearTimestamp
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearTimestamp()
+  nameWithType: RemoteTextInputMessage.ClearTimestamp()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearTimestamp()
+  type: Method
+  source:
+    id: ClearTimestamp
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 119
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "timestamp" field
+  example: []
+  syntax:
+    content: public void ClearTimestamp()
+    content.vb: Public Sub ClearTimestamp()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearTimestamp*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.VersionFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.VersionFieldNumber
+  id: VersionFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: VersionFieldNumber
+  nameWithType: RemoteTextInputMessage.VersionFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.VersionFieldNumber
+  type: Field
+  source:
+    id: VersionFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 126
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "version" field.
+  example: []
+  syntax:
+    content: public const int VersionFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const VersionFieldNumber As Integer = 2
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Version
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Version
+  id: Version
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: RemoteTextInputMessage.Version
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Version
+  type: Property
+  source:
+    id: Version
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 130
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public ulong Version { get; set; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public Property Version As ULong
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Version*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasVersion
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasVersion
+  id: HasVersion
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: HasVersion
+  nameWithType: RemoteTextInputMessage.HasVersion
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasVersion
+  type: Property
+  source:
+    id: HasVersion
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 140
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "version" field is set
+  example: []
+  syntax:
+    content: public bool HasVersion { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasVersion As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasVersion*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearVersion
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearVersion
+  id: ClearVersion
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearVersion()
+  nameWithType: RemoteTextInputMessage.ClearVersion()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearVersion()
+  type: Method
+  source:
+    id: ClearVersion
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 146
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "version" field
+  example: []
+  syntax:
+    content: public void ClearVersion()
+    content.vb: Public Sub ClearVersion()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearVersion*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.DataFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.DataFieldNumber
+  id: DataFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: DataFieldNumber
+  nameWithType: RemoteTextInputMessage.DataFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.DataFieldNumber
+  type: Field
+  source:
+    id: DataFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 153
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "data" field.
+  example: []
+  syntax:
+    content: public const int DataFieldNumber = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const DataFieldNumber As Integer = 3
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Data
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Data
+  id: Data
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: RemoteTextInputMessage.Data
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Data
+  type: Property
+  source:
+    id: Data
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 157
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public ByteString Data { get; set; }
+    parameters: []
+    return:
+      type: Google.Protobuf.ByteString
+    content.vb: Public Property Data As ByteString
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Data*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasData
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasData
+  id: HasData
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: HasData
+  nameWithType: RemoteTextInputMessage.HasData
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasData
+  type: Property
+  source:
+    id: HasData
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 166
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "data" field is set
+  example: []
+  syntax:
+    content: public bool HasData { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasData As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasData*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearData
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearData
+  id: ClearData
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearData()
+  nameWithType: RemoteTextInputMessage.ClearData()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearData()
+  type: Method
+  source:
+    id: ClearData
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 172
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "data" field
+  example: []
+  syntax:
+    content: public void ClearData()
+    content.vb: Public Sub ClearData()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearData*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Equals(System.Object)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: RemoteTextInputMessage.Equals(object)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Equals(object)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 178
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Equals*
+  nameWithType.vb: RemoteTextInputMessage.Equals(Object)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Equals(Object)
+  name.vb: Equals(Object)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  id: Equals(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: Equals(RemoteTextInputMessage)
+  nameWithType: RemoteTextInputMessage.Equals(RemoteTextInputMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 184
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(RemoteTextInputMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As RemoteTextInputMessage) As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Equals*
+  implements:
+  - System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.GetHashCode
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.GetHashCode
+  id: GetHashCode
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: RemoteTextInputMessage.GetHashCode()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.GetHashCode()
+  type: Method
+  source:
+    id: GetHashCode
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 199
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.GetHashCode*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ToString
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ToString
+  id: ToString
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: RemoteTextInputMessage.ToString()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ToString()
+  type: Method
+  source:
+    id: ToString
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 212
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ToString*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: RemoteTextInputMessage.WriteTo(CodedOutputStream)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    id: WriteTo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 218
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.CalculateSize
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.CalculateSize
+  id: CalculateSize
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: RemoteTextInputMessage.CalculateSize()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.CalculateSize()
+  type: Method
+  source:
+    id: CalculateSize
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 264
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  id: MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(RemoteTextInputMessage)
+  nameWithType: RemoteTextInputMessage.MergeFrom(RemoteTextInputMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  type: Method
+  source:
+    id: MergeFrom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 283
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(RemoteTextInputMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+    content.vb: Public Sub MergeFrom(other As RemoteTextInputMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: RemoteTextInputMessage.MergeFrom(CodedInputStream)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    id: MergeFrom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\RemoteTextInputMessage.cs
+    startLine: 301
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}
+  commentId: T:Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html
+  name: IMessage<RemoteTextInputMessage>
+  nameWithType: IMessage<RemoteTextInputMessage>
+  fullName: Google.Protobuf.IMessage<AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage>
+  nameWithType.vb: IMessage(Of RemoteTextInputMessage)
+  fullName.vb: Google.Protobuf.IMessage(Of AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  name.vb: IMessage(Of RemoteTextInputMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+    name: RemoteTextInputMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+    name: RemoteTextInputMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html
+  - name: )
+- uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}
+  commentId: T:System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<RemoteTextInputMessage>
+  nameWithType: IEquatable<RemoteTextInputMessage>
+  fullName: System.IEquatable<AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage>
+  nameWithType.vb: IEquatable(Of RemoteTextInputMessage)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  name.vb: IEquatable(Of RemoteTextInputMessage)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+    name: RemoteTextInputMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+    name: RemoteTextInputMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}
+  commentId: T:Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html
+  name: IDeepCloneable<RemoteTextInputMessage>
+  nameWithType: IDeepCloneable<RemoteTextInputMessage>
+  fullName: Google.Protobuf.IDeepCloneable<AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage>
+  nameWithType.vb: IDeepCloneable(Of RemoteTextInputMessage)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  name.vb: IDeepCloneable(Of RemoteTextInputMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+    name: RemoteTextInputMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+    name: RemoteTextInputMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Parser*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Parser
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_Parser
+  name: Parser
+  nameWithType: RemoteTextInputMessage.Parser
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Parser
+- uid: Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}
+  commentId: T:Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html
+  name: MessageParser<RemoteTextInputMessage>
+  nameWithType: MessageParser<RemoteTextInputMessage>
+  fullName: Google.Protobuf.MessageParser<AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage>
+  nameWithType.vb: MessageParser(Of RemoteTextInputMessage)
+  fullName.vb: Google.Protobuf.MessageParser(Of AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  name.vb: MessageParser(Of RemoteTextInputMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+    name: RemoteTextInputMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+    name: RemoteTextInputMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Descriptor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Descriptor
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_Descriptor
+  name: Descriptor
+  nameWithType: RemoteTextInputMessage.Descriptor
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.#ctor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.#ctor
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage__ctor
+  name: RemoteTextInputMessage
+  nameWithType: RemoteTextInputMessage.RemoteTextInputMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.RemoteTextInputMessage
+  nameWithType.vb: RemoteTextInputMessage.New
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.New
+  name.vb: New
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html
+  name: RemoteTextInputMessage
+  nameWithType: RemoteTextInputMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Clone*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Clone
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_Clone
+  name: Clone
+  nameWithType: RemoteTextInputMessage.Clone
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Clone
+- uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}.Clone
+  parent: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<RemoteTextInputMessage>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage>.Clone()
+  nameWithType.vb: IDeepCloneable(Of RemoteTextInputMessage).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Timestamp*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Timestamp
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_Timestamp
+  name: Timestamp
+  nameWithType: RemoteTextInputMessage.Timestamp
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Timestamp
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasTimestamp*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasTimestamp
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_HasTimestamp
+  name: HasTimestamp
+  nameWithType: RemoteTextInputMessage.HasTimestamp
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasTimestamp
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearTimestamp*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearTimestamp
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_ClearTimestamp
+  name: ClearTimestamp
+  nameWithType: RemoteTextInputMessage.ClearTimestamp
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearTimestamp
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Version*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Version
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_Version
+  name: Version
+  nameWithType: RemoteTextInputMessage.Version
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Version
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasVersion*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasVersion
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_HasVersion
+  name: HasVersion
+  nameWithType: RemoteTextInputMessage.HasVersion
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasVersion
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearVersion*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearVersion
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_ClearVersion
+  name: ClearVersion
+  nameWithType: RemoteTextInputMessage.ClearVersion
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearVersion
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Data*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Data
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_Data
+  name: Data
+  nameWithType: RemoteTextInputMessage.Data
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Data
+- uid: Google.Protobuf.ByteString
+  commentId: T:Google.Protobuf.ByteString
+  parent: Google.Protobuf
+  isExternal: true
+  name: ByteString
+  nameWithType: ByteString
+  fullName: Google.Protobuf.ByteString
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasData*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasData
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_HasData
+  name: HasData
+  nameWithType: RemoteTextInputMessage.HasData
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.HasData
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearData*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearData
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_ClearData
+  name: ClearData
+  nameWithType: RemoteTextInputMessage.ClearData
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ClearData
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Equals*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Equals
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_Equals_System_Object_
+  name: Equals
+  nameWithType: RemoteTextInputMessage.Equals
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.Equals
+- uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  commentId: M:System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  parent: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(RemoteTextInputMessage)
+  nameWithType: IEquatable<RemoteTextInputMessage>.Equals(RemoteTextInputMessage)
+  fullName: System.IEquatable<AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage>.Equals(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  nameWithType.vb: IEquatable(Of RemoteTextInputMessage).Equals(RemoteTextInputMessage)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage).Equals(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  spec.csharp:
+  - uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+    name: RemoteTextInputMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+    name: RemoteTextInputMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.GetHashCode*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.GetHashCode
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_GetHashCode
+  name: GetHashCode
+  nameWithType: RemoteTextInputMessage.GetHashCode
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ToString*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ToString
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_ToString
+  name: ToString
+  nameWithType: RemoteTextInputMessage.ToString
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.WriteTo*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.WriteTo
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_WriteTo_Google_Protobuf_CodedOutputStream_
+  name: WriteTo
+  nameWithType: RemoteTextInputMessage.WriteTo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.CalculateSize*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.CalculateSize
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_CalculateSize
+  name: CalculateSize
+  nameWithType: RemoteTextInputMessage.CalculateSize
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.MergeFrom*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.MergeFrom
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html#AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_MergeFrom_AppleTvControlLibrary_Mrp_Protobuf_RemoteTextInputMessage_
+  name: MergeFrom
+  nameWithType: RemoteTextInputMessage.MergeFrom
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.MergeFrom
+- uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  commentId: M:Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  parent: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html
+  name: MergeFrom(RemoteTextInputMessage)
+  nameWithType: IMessage<RemoteTextInputMessage>.MergeFrom(RemoteTextInputMessage)
+  fullName: Google.Protobuf.IMessage<AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage>.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  nameWithType.vb: IMessage(Of RemoteTextInputMessage).MergeFrom(RemoteTextInputMessage)
+  fullName.vb: Google.Protobuf.IMessage(Of AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage).MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+    name: RemoteTextInputMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage
+    name: RemoteTextInputMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.RemoteTextInputMessage.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

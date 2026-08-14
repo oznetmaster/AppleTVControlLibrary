@@ -1,0 +1,848 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager
+  commentId: T:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager
+  id: MrpPlayerStateManager
+  parent: AppleTvControlLibrary.Mrp.PlayerState
+  children:
+  - AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Client
+  - AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.DefaultPlayerId
+  - AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.GetClient(AppleTvControlLibrary.Mrp.Protobuf.NowPlayingClient)
+  - AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.GetPlayer(AppleTvControlLibrary.Mrp.Protobuf.PlayerPath)
+  - AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Listener
+  - AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.MessageReceived(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  - AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Playing
+  - AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlAbsolute
+  - AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlAvailable
+  - AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlRelative
+  langs:
+  - csharp
+  - vb
+  name: MrpPlayerStateManager
+  nameWithType: MrpPlayerStateManager
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager
+  type: Class
+  source:
+    remote:
+      path: src/AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: MrpPlayerStateManager
+    path: ../../AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+    startLine: 445
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.PlayerState
+  summary: >-
+    Manages state of all media players, dispatching MRP state-update messages onto
+
+    <xref href="AppleTvControlLibrary.Mrp.PlayerState.MrpClient" data-throw-if-not-resolved="false"></xref>/<xref href="AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState" data-throw-if-not-resolved="false"></xref> instances and notifying a listener
+
+    whenever state relevant to the active client/player changes.
+  remarks: >-
+    Implements <xref href="AppleTvControlLibrary.Mrp.Protocol.IMrpProtocolListener" data-throw-if-not-resolved="false"></xref> directly and should be assigned to
+
+    <xref href="AppleTvControlLibrary.Mrp.Protocol.MrpProtocol.Listener" data-throw-if-not-resolved="false"></xref> (or chained via a multiplexing listener), since
+
+    <xref href="AppleTvControlLibrary.Mrp.Protocol.MrpProtocol" data-throw-if-not-resolved="false"></xref> — unlike pyatv's <code>MessageDispatcher</code> — exposes a single
+
+    unsolicited-message sink rather than per-type registration.
+  example: []
+  syntax:
+    content: 'public sealed class MrpPlayerStateManager : IMrpProtocolListener'
+    content.vb: Public NotInheritable Class MrpPlayerStateManager Implements IMrpProtocolListener
+  inheritance:
+  - System.Object
+  implements:
+  - AppleTvControlLibrary.Mrp.Protocol.IMrpProtocolListener
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.DefaultPlayerId
+  commentId: F:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.DefaultPlayerId
+  id: DefaultPlayerId
+  parent: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager
+  langs:
+  - csharp
+  - vb
+  name: DefaultPlayerId
+  nameWithType: MrpPlayerStateManager.DefaultPlayerId
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.DefaultPlayerId
+  type: Field
+  source:
+    remote:
+      path: src/AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: DefaultPlayerId
+    path: ../../AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+    startLine: 449
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.PlayerState
+  summary: The identifier used by MediaRemote for the default (queue-less) player.
+  example: []
+  syntax:
+    content: public const string DefaultPlayerId = "MediaRemote-DefaultPlayer"
+    return:
+      type: System.String
+    content.vb: Public Const DefaultPlayerId As String = "MediaRemote-DefaultPlayer"
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Listener
+  commentId: P:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Listener
+  id: Listener
+  parent: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager
+  langs:
+  - csharp
+  - vb
+  name: Listener
+  nameWithType: MrpPlayerStateManager.Listener
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Listener
+  type: Property
+  source:
+    remote:
+      path: src/AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Listener
+    path: ../../AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+    startLine: 455
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.PlayerState
+  summary: Gets or sets the listener notified when relevant player state changes.
+  example: []
+  syntax:
+    content: public IMrpPlayerStateListener? Listener { get; set; }
+    parameters: []
+    return:
+      type: AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener
+    content.vb: Public Property Listener As IMrpPlayerStateListener
+  overload: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Listener*
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Client
+  commentId: P:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Client
+  id: Client
+  parent: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager
+  langs:
+  - csharp
+  - vb
+  name: Client
+  nameWithType: MrpPlayerStateManager.Client
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Client
+  type: Property
+  source:
+    remote:
+      path: src/AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Client
+    path: ../../AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+    startLine: 463
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.PlayerState
+  summary: Gets the currently active client, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if none is active.
+  example: []
+  syntax:
+    content: public MrpClient? Client { get; }
+    parameters: []
+    return:
+      type: AppleTvControlLibrary.Mrp.PlayerState.MrpClient
+    content.vb: Public Property Client As MrpClient
+  overload: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Client*
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Playing
+  commentId: P:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Playing
+  id: Playing
+  parent: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager
+  langs:
+  - csharp
+  - vb
+  name: Playing
+  nameWithType: MrpPlayerStateManager.Playing
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Playing
+  type: Property
+  source:
+    remote:
+      path: src/AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Playing
+    path: ../../AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+    startLine: 471
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.PlayerState
+  summary: Gets the player state for the active media player.
+  example: []
+  syntax:
+    content: public MrpPlayerState Playing { get; }
+    parameters: []
+    return:
+      type: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState
+    content.vb: Public ReadOnly Property Playing As MrpPlayerState
+  overload: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Playing*
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlAvailable
+  commentId: P:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlAvailable
+  id: VolumeControlAvailable
+  parent: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager
+  langs:
+  - csharp
+  - vb
+  name: VolumeControlAvailable
+  nameWithType: MrpPlayerStateManager.VolumeControlAvailable
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlAvailable
+  type: Property
+  source:
+    remote:
+      path: src/AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: VolumeControlAvailable
+    path: ../../AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+    startLine: 476
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.PlayerState
+  summary: Gets a value indicating whether the device currently reports volume control as available.
+  example: []
+  syntax:
+    content: public bool VolumeControlAvailable { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property VolumeControlAvailable As Boolean
+  overload: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlAvailable*
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlAbsolute
+  commentId: P:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlAbsolute
+  id: VolumeControlAbsolute
+  parent: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager
+  langs:
+  - csharp
+  - vb
+  name: VolumeControlAbsolute
+  nameWithType: MrpPlayerStateManager.VolumeControlAbsolute
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlAbsolute
+  type: Property
+  source:
+    remote:
+      path: src/AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: VolumeControlAbsolute
+    path: ../../AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+    startLine: 484
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.PlayerState
+  summary: Gets a value indicating whether absolute volume control is available.
+  example: []
+  syntax:
+    content: public bool VolumeControlAbsolute { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property VolumeControlAbsolute As Boolean
+  overload: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlAbsolute*
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlRelative
+  commentId: P:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlRelative
+  id: VolumeControlRelative
+  parent: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager
+  langs:
+  - csharp
+  - vb
+  name: VolumeControlRelative
+  nameWithType: MrpPlayerStateManager.VolumeControlRelative
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlRelative
+  type: Property
+  source:
+    remote:
+      path: src/AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: VolumeControlRelative
+    path: ../../AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+    startLine: 492
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.PlayerState
+  summary: Gets a value indicating whether relative volume control is available.
+  example: []
+  syntax:
+    content: public bool VolumeControlRelative { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property VolumeControlRelative As Boolean
+  overload: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlRelative*
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.GetClient(AppleTvControlLibrary.Mrp.Protobuf.NowPlayingClient)
+  commentId: M:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.GetClient(AppleTvControlLibrary.Mrp.Protobuf.NowPlayingClient)
+  id: GetClient(AppleTvControlLibrary.Mrp.Protobuf.NowPlayingClient)
+  parent: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager
+  langs:
+  - csharp
+  - vb
+  name: GetClient(NowPlayingClient)
+  nameWithType: MrpPlayerStateManager.GetClient(NowPlayingClient)
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.GetClient(AppleTvControlLibrary.Mrp.Protobuf.NowPlayingClient)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: GetClient
+    path: ../../AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+    startLine: 501
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.PlayerState
+  summary: Returns the client for a given <xref href="AppleTvControlLibrary.Mrp.Protobuf.NowPlayingClient" data-throw-if-not-resolved="false"></xref>, creating it if needed.
+  example: []
+  syntax:
+    content: public MrpClient GetClient(NowPlayingClient client)
+    parameters:
+    - id: client
+      type: AppleTvControlLibrary.Mrp.Protobuf.NowPlayingClient
+      description: The client identity to look up.
+    return:
+      type: AppleTvControlLibrary.Mrp.PlayerState.MrpClient
+    content.vb: Public Function GetClient(client As NowPlayingClient) As MrpClient
+  overload: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.GetClient*
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.GetPlayer(AppleTvControlLibrary.Mrp.Protobuf.PlayerPath)
+  commentId: M:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.GetPlayer(AppleTvControlLibrary.Mrp.Protobuf.PlayerPath)
+  id: GetPlayer(AppleTvControlLibrary.Mrp.Protobuf.PlayerPath)
+  parent: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager
+  langs:
+  - csharp
+  - vb
+  name: GetPlayer(PlayerPath)
+  nameWithType: MrpPlayerStateManager.GetPlayer(PlayerPath)
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.GetPlayer(AppleTvControlLibrary.Mrp.Protobuf.PlayerPath)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: GetPlayer
+    path: ../../AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+    startLine: 516
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.PlayerState
+  summary: Returns the player for a given <xref href="AppleTvControlLibrary.Mrp.Protobuf.PlayerPath" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public MrpPlayerState GetPlayer(PlayerPath playerPath)
+    parameters:
+    - id: playerPath
+      type: AppleTvControlLibrary.Mrp.Protobuf.PlayerPath
+      description: The player path to resolve.
+    return:
+      type: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState
+    content.vb: Public Function GetPlayer(playerPath As PlayerPath) As MrpPlayerState
+  overload: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.GetPlayer*
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.MessageReceived(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.MessageReceived(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  id: MessageReceived(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  parent: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager
+  langs:
+  - csharp
+  - vb
+  name: MessageReceived(ProtocolMessage)
+  nameWithType: MrpPlayerStateManager.MessageReceived(ProtocolMessage)
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.MessageReceived(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: MessageReceived
+    path: ../../AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+    startLine: 520
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.PlayerState
+  summary: An unsolicited message was received from the device.
+  example: []
+  syntax:
+    content: public void MessageReceived(ProtocolMessage message)
+    parameters:
+    - id: message
+      type: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+      description: The decoded message.
+    content.vb: Public Sub MessageReceived(message As ProtocolMessage)
+  overload: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.MessageReceived*
+  implements:
+  - AppleTvControlLibrary.Mrp.Protocol.IMrpProtocolListener.MessageReceived(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+references:
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpClient
+  commentId: T:AppleTvControlLibrary.Mrp.PlayerState.MrpClient
+  parent: AppleTvControlLibrary.Mrp.PlayerState
+  href: AppleTvControlLibrary.Mrp.PlayerState.MrpClient.html
+  name: MrpClient
+  nameWithType: MrpClient
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpClient
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState
+  commentId: T:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState
+  parent: AppleTvControlLibrary.Mrp.PlayerState
+  href: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState.html
+  name: MrpPlayerState
+  nameWithType: MrpPlayerState
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerState
+- uid: AppleTvControlLibrary.Mrp.Protocol.IMrpProtocolListener
+  commentId: T:AppleTvControlLibrary.Mrp.Protocol.IMrpProtocolListener
+  parent: AppleTvControlLibrary.Mrp.Protocol
+  href: AppleTvControlLibrary.Mrp.Protocol.IMrpProtocolListener.html
+  name: IMrpProtocolListener
+  nameWithType: IMrpProtocolListener
+  fullName: AppleTvControlLibrary.Mrp.Protocol.IMrpProtocolListener
+- uid: AppleTvControlLibrary.Mrp.Protocol.MrpProtocol.Listener
+  commentId: P:AppleTvControlLibrary.Mrp.Protocol.MrpProtocol.Listener
+  href: AppleTvControlLibrary.Mrp.Protocol.MrpProtocol.html#AppleTvControlLibrary_Mrp_Protocol_MrpProtocol_Listener
+  name: Listener
+  nameWithType: MrpProtocol.Listener
+  fullName: AppleTvControlLibrary.Mrp.Protocol.MrpProtocol.Listener
+- uid: AppleTvControlLibrary.Mrp.Protocol.MrpProtocol
+  commentId: T:AppleTvControlLibrary.Mrp.Protocol.MrpProtocol
+  parent: AppleTvControlLibrary.Mrp.Protocol
+  href: AppleTvControlLibrary.Mrp.Protocol.MrpProtocol.html
+  name: MrpProtocol
+  nameWithType: MrpProtocol
+  fullName: AppleTvControlLibrary.Mrp.Protocol.MrpProtocol
+- uid: AppleTvControlLibrary.Mrp.PlayerState
+  commentId: N:AppleTvControlLibrary.Mrp.PlayerState
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.PlayerState
+  nameWithType: AppleTvControlLibrary.Mrp.PlayerState
+  fullName: AppleTvControlLibrary.Mrp.PlayerState
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.PlayerState
+    name: PlayerState
+    href: AppleTvControlLibrary.Mrp.PlayerState.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.PlayerState
+    name: PlayerState
+    href: AppleTvControlLibrary.Mrp.PlayerState.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protocol
+  commentId: N:AppleTvControlLibrary.Mrp.Protocol
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protocol
+  nameWithType: AppleTvControlLibrary.Mrp.Protocol
+  fullName: AppleTvControlLibrary.Mrp.Protocol
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protocol
+    name: Protocol
+    href: AppleTvControlLibrary.Mrp.Protocol.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protocol
+    name: Protocol
+    href: AppleTvControlLibrary.Mrp.Protocol.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Listener*
+  commentId: Overload:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Listener
+  href: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.html#AppleTvControlLibrary_Mrp_PlayerState_MrpPlayerStateManager_Listener
+  name: Listener
+  nameWithType: MrpPlayerStateManager.Listener
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Listener
+- uid: AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener
+  commentId: T:AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener
+  parent: AppleTvControlLibrary.Mrp.PlayerState
+  href: AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener.html
+  name: IMrpPlayerStateListener
+  nameWithType: IMrpPlayerStateListener
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Client*
+  commentId: Overload:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Client
+  href: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.html#AppleTvControlLibrary_Mrp_PlayerState_MrpPlayerStateManager_Client
+  name: Client
+  nameWithType: MrpPlayerStateManager.Client
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Client
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Playing*
+  commentId: Overload:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Playing
+  href: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.html#AppleTvControlLibrary_Mrp_PlayerState_MrpPlayerStateManager_Playing
+  name: Playing
+  nameWithType: MrpPlayerStateManager.Playing
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.Playing
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlAvailable*
+  commentId: Overload:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlAvailable
+  href: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.html#AppleTvControlLibrary_Mrp_PlayerState_MrpPlayerStateManager_VolumeControlAvailable
+  name: VolumeControlAvailable
+  nameWithType: MrpPlayerStateManager.VolumeControlAvailable
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlAvailable
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlAbsolute*
+  commentId: Overload:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlAbsolute
+  href: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.html#AppleTvControlLibrary_Mrp_PlayerState_MrpPlayerStateManager_VolumeControlAbsolute
+  name: VolumeControlAbsolute
+  nameWithType: MrpPlayerStateManager.VolumeControlAbsolute
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlAbsolute
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlRelative*
+  commentId: Overload:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlRelative
+  href: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.html#AppleTvControlLibrary_Mrp_PlayerState_MrpPlayerStateManager_VolumeControlRelative
+  name: VolumeControlRelative
+  nameWithType: MrpPlayerStateManager.VolumeControlRelative
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.VolumeControlRelative
+- uid: AppleTvControlLibrary.Mrp.Protobuf.NowPlayingClient
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.NowPlayingClient
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.NowPlayingClient.html
+  name: NowPlayingClient
+  nameWithType: NowPlayingClient
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.NowPlayingClient
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.GetClient*
+  commentId: Overload:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.GetClient
+  href: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.html#AppleTvControlLibrary_Mrp_PlayerState_MrpPlayerStateManager_GetClient_AppleTvControlLibrary_Mrp_Protobuf_NowPlayingClient_
+  name: GetClient
+  nameWithType: MrpPlayerStateManager.GetClient
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.GetClient
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.PlayerPath
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.PlayerPath
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.PlayerPath.html
+  name: PlayerPath
+  nameWithType: PlayerPath
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.PlayerPath
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.GetPlayer*
+  commentId: Overload:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.GetPlayer
+  href: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.html#AppleTvControlLibrary_Mrp_PlayerState_MrpPlayerStateManager_GetPlayer_AppleTvControlLibrary_Mrp_Protobuf_PlayerPath_
+  name: GetPlayer
+  nameWithType: MrpPlayerStateManager.GetPlayer
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.GetPlayer
+- uid: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.MessageReceived*
+  commentId: Overload:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.MessageReceived
+  href: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.html#AppleTvControlLibrary_Mrp_PlayerState_MrpPlayerStateManager_MessageReceived_AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_
+  name: MessageReceived
+  nameWithType: MrpPlayerStateManager.MessageReceived
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager.MessageReceived
+- uid: AppleTvControlLibrary.Mrp.Protocol.IMrpProtocolListener.MessageReceived(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protocol.IMrpProtocolListener.MessageReceived(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  parent: AppleTvControlLibrary.Mrp.Protocol.IMrpProtocolListener
+  href: AppleTvControlLibrary.Mrp.Protocol.IMrpProtocolListener.html#AppleTvControlLibrary_Mrp_Protocol_IMrpProtocolListener_MessageReceived_AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_
+  name: MessageReceived(ProtocolMessage)
+  nameWithType: IMrpProtocolListener.MessageReceived(ProtocolMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protocol.IMrpProtocolListener.MessageReceived(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protocol.IMrpProtocolListener.MessageReceived(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+    name: MessageReceived
+    href: AppleTvControlLibrary.Mrp.Protocol.IMrpProtocolListener.html#AppleTvControlLibrary_Mrp_Protocol_IMrpProtocolListener_MessageReceived_AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: )
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protocol.IMrpProtocolListener.MessageReceived(AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage)
+    name: MessageReceived
+    href: AppleTvControlLibrary.Mrp.Protocol.IMrpProtocolListener.html#AppleTvControlLibrary_Mrp_Protocol_IMrpProtocolListener_MessageReceived_AppleTvControlLibrary_Mrp_Protobuf_ProtocolMessage_
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+    name: ProtocolMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage.html
+  name: ProtocolMessage
+  nameWithType: ProtocolMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage

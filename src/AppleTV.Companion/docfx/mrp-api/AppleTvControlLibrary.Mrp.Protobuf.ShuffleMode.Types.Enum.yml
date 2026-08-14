@@ -1,0 +1,230 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+  id: ShuffleMode.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.Albums
+  - AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.Off
+  - AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.Songs
+  - AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.Unknown
+  langs:
+  - csharp
+  - vb
+  name: ShuffleMode.Types.Enum
+  nameWithType: ShuffleMode.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+  type: Enum
+  source:
+    id: Enum
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 400
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public enum ShuffleMode.Types.Enum
+    content.vb: Public Enum ShuffleMode.Types.Enum
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.Unknown
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.Unknown
+  id: Unknown
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: ShuffleMode.Types.Enum.Unknown
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.Unknown
+  type: Field
+  source:
+    id: Unknown
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 401
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Unknown")]
+
+      Unknown = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+    content.vb: >-
+      <OriginalName("Unknown")>
+
+      Unknown = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Unknown
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.Off
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.Off
+  id: Off
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Off
+  nameWithType: ShuffleMode.Types.Enum.Off
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.Off
+  type: Field
+  source:
+    id: Off
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 402
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Off")]
+
+      Off = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+    content.vb: >-
+      <OriginalName("Off")>
+
+      Off = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Off
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.Albums
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.Albums
+  id: Albums
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Albums
+  nameWithType: ShuffleMode.Types.Enum.Albums
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.Albums
+  type: Field
+  source:
+    id: Albums
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 403
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Albums")]
+
+      Albums = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+    content.vb: >-
+      <OriginalName("Albums")>
+
+      Albums = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Albums
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.Songs
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.Songs
+  id: Songs
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Songs
+  nameWithType: ShuffleMode.Types.Enum.Songs
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.Songs
+  type: Field
+  source:
+    id: Songs
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 404
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Songs")]
+
+      Songs = 3
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+    content.vb: >-
+      <OriginalName("Songs")>
+
+      Songs = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Songs
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.html
+  name: ShuffleMode.Types.Enum
+  nameWithType: ShuffleMode.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode
+    name: ShuffleMode
+    href: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode
+    name: ShuffleMode
+    href: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.ShuffleMode.Types.Enum.html

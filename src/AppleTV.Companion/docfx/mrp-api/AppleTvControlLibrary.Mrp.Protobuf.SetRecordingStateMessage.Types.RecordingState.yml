@@ -1,0 +1,194 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState
+  id: SetRecordingStateMessage.Types.RecordingState
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState.NotRecording
+  - AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState.Recording
+  - AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState.Unknown
+  langs:
+  - csharp
+  - vb
+  name: SetRecordingStateMessage.Types.RecordingState
+  nameWithType: SetRecordingStateMessage.Types.RecordingState
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState
+  type: Enum
+  source:
+    id: RecordingState
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SetRecordingStateMessage.cs
+    startLine: 269
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public enum SetRecordingStateMessage.Types.RecordingState
+    content.vb: Public Enum SetRecordingStateMessage.Types.RecordingState
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState.Unknown
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState.Unknown
+  id: Unknown
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: SetRecordingStateMessage.Types.RecordingState.Unknown
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState.Unknown
+  type: Field
+  source:
+    id: Unknown
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SetRecordingStateMessage.cs
+    startLine: 270
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Unknown")]
+
+      Unknown = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState
+    content.vb: >-
+      <OriginalName("Unknown")>
+
+      Unknown = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Unknown
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState.Recording
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState.Recording
+  id: Recording
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState
+  langs:
+  - csharp
+  - vb
+  name: Recording
+  nameWithType: SetRecordingStateMessage.Types.RecordingState.Recording
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState.Recording
+  type: Field
+  source:
+    id: Recording
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SetRecordingStateMessage.cs
+    startLine: 271
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Recording")]
+
+      Recording = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState
+    content.vb: >-
+      <OriginalName("Recording")>
+
+      Recording = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Recording
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState.NotRecording
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState.NotRecording
+  id: NotRecording
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState
+  langs:
+  - csharp
+  - vb
+  name: NotRecording
+  nameWithType: SetRecordingStateMessage.Types.RecordingState.NotRecording
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState.NotRecording
+  type: Field
+  source:
+    id: NotRecording
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SetRecordingStateMessage.cs
+    startLine: 272
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("NotRecording")]
+
+      NotRecording = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState
+    content.vb: >-
+      <OriginalName("NotRecording")>
+
+      NotRecording = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NotRecording
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.html
+  name: SetRecordingStateMessage.Types.RecordingState
+  nameWithType: SetRecordingStateMessage.Types.RecordingState
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage
+    name: SetRecordingStateMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState
+    name: RecordingState
+    href: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage
+    name: SetRecordingStateMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState
+    name: RecordingState
+    href: AppleTvControlLibrary.Mrp.Protobuf.SetRecordingStateMessage.Types.RecordingState.html

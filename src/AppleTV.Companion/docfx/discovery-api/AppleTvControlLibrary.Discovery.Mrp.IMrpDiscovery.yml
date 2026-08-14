@@ -1,0 +1,275 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Discovery.Mrp.IMrpDiscovery
+  commentId: T:AppleTvControlLibrary.Discovery.Mrp.IMrpDiscovery
+  id: IMrpDiscovery
+  parent: AppleTvControlLibrary.Discovery.Mrp
+  children:
+  - AppleTvControlLibrary.Discovery.Mrp.IMrpDiscovery.ScanAsync(System.TimeSpan,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IMrpDiscovery
+  nameWithType: IMrpDiscovery
+  fullName: AppleTvControlLibrary.Discovery.Mrp.IMrpDiscovery
+  type: Interface
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Mrp/IMrpDiscovery.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: IMrpDiscovery
+    path: ../../AppleTV.Companion.Discovery/Mrp/IMrpDiscovery.cs
+    startLine: 15
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Mrp
+  summary: >-
+    Discovers MRP (Media Remote Protocol) devices on the local network. Kept behind an interface
+
+    so multicast discovery - the least portable part of the library - can be swapped for a
+
+    static address on hosts where multicast/mDNS isn't available or reliable.
+  example: []
+  syntax:
+    content: public interface IMrpDiscovery
+    content.vb: Public Interface IMrpDiscovery
+  derivedClasses:
+  - AppleTvControlLibrary.Discovery.Mrp.MulticastMrpDiscovery
+- uid: AppleTvControlLibrary.Discovery.Mrp.IMrpDiscovery.ScanAsync(System.TimeSpan,System.Threading.CancellationToken)
+  commentId: M:AppleTvControlLibrary.Discovery.Mrp.IMrpDiscovery.ScanAsync(System.TimeSpan,System.Threading.CancellationToken)
+  id: ScanAsync(System.TimeSpan,System.Threading.CancellationToken)
+  parent: AppleTvControlLibrary.Discovery.Mrp.IMrpDiscovery
+  langs:
+  - csharp
+  - vb
+  name: ScanAsync(TimeSpan, CancellationToken)
+  nameWithType: IMrpDiscovery.ScanAsync(TimeSpan, CancellationToken)
+  fullName: AppleTvControlLibrary.Discovery.Mrp.IMrpDiscovery.ScanAsync(System.TimeSpan, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/Mrp/IMrpDiscovery.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: ScanAsync
+    path: ../../AppleTV.Companion.Discovery/Mrp/IMrpDiscovery.cs
+    startLine: 21
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.Mrp
+  summary: Scans the network for MRP devices.
+  example: []
+  syntax:
+    content: Task<IReadOnlyList<MrpDiscoveryResult>> ScanAsync(TimeSpan timeout, CancellationToken cancellationToken = default)
+    parameters:
+    - id: timeout
+      type: System.TimeSpan
+      description: How long to wait for responses.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A token to cancel the scan.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{AppleTvControlLibrary.Discovery.Mrp.MrpDiscoveryResult}}
+      description: The discovered MRP devices.
+    content.vb: Function ScanAsync(timeout As TimeSpan, cancellationToken As CancellationToken = Nothing) As Task(Of IReadOnlyList(Of MrpDiscoveryResult))
+  overload: AppleTvControlLibrary.Discovery.Mrp.IMrpDiscovery.ScanAsync*
+references:
+- uid: AppleTvControlLibrary.Discovery.Mrp
+  commentId: N:AppleTvControlLibrary.Discovery.Mrp
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Discovery.Mrp
+  nameWithType: AppleTvControlLibrary.Discovery.Mrp
+  fullName: AppleTvControlLibrary.Discovery.Mrp
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery
+    name: Discovery
+    href: AppleTvControlLibrary.Discovery.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Discovery.Mrp.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery
+    name: Discovery
+    href: AppleTvControlLibrary.Discovery.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Discovery.Mrp.html
+- uid: AppleTvControlLibrary.Discovery.Mrp.IMrpDiscovery.ScanAsync*
+  commentId: Overload:AppleTvControlLibrary.Discovery.Mrp.IMrpDiscovery.ScanAsync
+  href: AppleTvControlLibrary.Discovery.Mrp.IMrpDiscovery.html#AppleTvControlLibrary_Discovery_Mrp_IMrpDiscovery_ScanAsync_System_TimeSpan_System_Threading_CancellationToken_
+  name: ScanAsync
+  nameWithType: IMrpDiscovery.ScanAsync
+  fullName: AppleTvControlLibrary.Discovery.Mrp.IMrpDiscovery.ScanAsync
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{AppleTvControlLibrary.Discovery.Mrp.MrpDiscoveryResult}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{AppleTvControlLibrary.Discovery.Mrp.MrpDiscoveryResult}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IReadOnlyList<MrpDiscoveryResult>>
+  nameWithType: Task<IReadOnlyList<MrpDiscoveryResult>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<AppleTvControlLibrary.Discovery.Mrp.MrpDiscoveryResult>>
+  nameWithType.vb: Task(Of IReadOnlyList(Of MrpDiscoveryResult))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyList(Of AppleTvControlLibrary.Discovery.Mrp.MrpDiscoveryResult))
+  name.vb: Task(Of IReadOnlyList(Of MrpDiscoveryResult))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: AppleTvControlLibrary.Discovery.Mrp.MrpDiscoveryResult
+    name: MrpDiscoveryResult
+    href: AppleTvControlLibrary.Discovery.Mrp.MrpDiscoveryResult.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Discovery.Mrp.MrpDiscoveryResult
+    name: MrpDiscoveryResult
+    href: AppleTvControlLibrary.Discovery.Mrp.MrpDiscoveryResult.html
+  - name: )
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

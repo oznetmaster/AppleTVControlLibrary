@@ -1,0 +1,122 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types.Enum
+  id: ModifyOutputContextRequestType.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types.Enum.SharedAudioPresentation
+  langs:
+  - csharp
+  - vb
+  name: ModifyOutputContextRequestType.Types.Enum
+  nameWithType: ModifyOutputContextRequestType.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types.Enum
+  type: Enum
+  source:
+    id: Enum
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ModifyOutputContextRequestMessage.cs
+    startLine: 221
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public enum ModifyOutputContextRequestType.Types.Enum
+    content.vb: Public Enum ModifyOutputContextRequestType.Types.Enum
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types.Enum.SharedAudioPresentation
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types.Enum.SharedAudioPresentation
+  id: SharedAudioPresentation
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: SharedAudioPresentation
+  nameWithType: ModifyOutputContextRequestType.Types.Enum.SharedAudioPresentation
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types.Enum.SharedAudioPresentation
+  type: Field
+  source:
+    id: SharedAudioPresentation
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ModifyOutputContextRequestMessage.cs
+    startLine: 222
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("SharedAudioPresentation")]
+
+      SharedAudioPresentation = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types.Enum
+    content.vb: >-
+      <OriginalName("SharedAudioPresentation")>
+
+      SharedAudioPresentation = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SharedAudioPresentation
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.html
+  name: ModifyOutputContextRequestType.Types.Enum
+  nameWithType: ModifyOutputContextRequestType.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType
+    name: ModifyOutputContextRequestType
+    href: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType
+    name: ModifyOutputContextRequestType
+    href: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.ModifyOutputContextRequestType.Types.Enum.html

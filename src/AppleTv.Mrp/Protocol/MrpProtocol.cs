@@ -112,12 +112,12 @@ public sealed class MrpInfoSettings
 /// <summary>
 /// Protocol logic related to MRP: connects, performs the initial DEVICE_INFORMATION exchange,
 /// enables encryption via pair-verify, sends the post-encryption bootstrap messages, and
-/// provides request/response correlation plus unsolicited-message dispatch on top of
-/// <see cref="MrpConnection"/>.
+/// provides request/response correlation plus unsolicited-message dispatch on top of the
+/// underlying <see cref="IMrpFrameConnection"/>.
 /// </summary>
 /// <remarks>
 /// This type has no socket I/O of its own; a caller supplies <see cref="AsyncSender"/> to
-/// transmit framed bytes and feeds inbound bytes to the underlying <see cref="MrpConnection"/>
+/// transmit framed bytes and feeds inbound bytes to the underlying <see cref="IMrpFrameConnection"/>
 /// (via <see cref="Connection"/>), mirroring the transport-agnostic design already used by
 /// AppleTv.Companion's <c>CompanionProtocol</c>.
 /// </remarks>
@@ -134,7 +134,7 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 	private CancellationTokenSource? _heartbeatCts;
 
 	/// <summary>Initializes a new instance of the <see cref="MrpProtocol"/> class.</summary>
-	/// <param name="connection">The underlying framed connection. May be a raw-TCP <see cref="MrpConnection"/> or an AirPlay-tunneled connection.</param>
+	/// <param name="connection">The underlying framed connection. May be an AirPlay-tunneled connection, or historically the retired raw-TCP <c>MrpConnection</c> (see <c>archive/mrp-tcp-transport</c>).</param>
 	/// <param name="srp">The SRP handler used for pair-verify and key derivation.</param>
 	/// <param name="info">Client information reported in the initial DEVICE_INFORMATION message.</param>
 	// pyatv/protocols/mrp/protocol.py (__init__) — line 104-121 as of pyatv 0.18.0

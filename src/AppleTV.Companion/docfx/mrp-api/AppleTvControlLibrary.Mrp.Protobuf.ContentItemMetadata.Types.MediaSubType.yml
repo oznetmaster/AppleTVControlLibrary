@@ -1,0 +1,266 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType
+  id: ContentItemMetadata.Types.MediaSubType
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.AudioBook
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.ItunesU
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.Music
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.Podcast
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.UnknownMediaSubType
+  langs:
+  - csharp
+  - vb
+  name: ContentItemMetadata.Types.MediaSubType
+  nameWithType: ContentItemMetadata.Types.MediaSubType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType
+  type: Enum
+  source:
+    id: MediaSubType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 7258
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public enum ContentItemMetadata.Types.MediaSubType
+    content.vb: Public Enum ContentItemMetadata.Types.MediaSubType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.UnknownMediaSubType
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.UnknownMediaSubType
+  id: UnknownMediaSubType
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType
+  langs:
+  - csharp
+  - vb
+  name: UnknownMediaSubType
+  nameWithType: ContentItemMetadata.Types.MediaSubType.UnknownMediaSubType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.UnknownMediaSubType
+  type: Field
+  source:
+    id: UnknownMediaSubType
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 7259
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("UnknownMediaSubType")]
+
+      UnknownMediaSubType = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType
+    content.vb: >-
+      <OriginalName("UnknownMediaSubType")>
+
+      UnknownMediaSubType = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: UnknownMediaSubType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.Music
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.Music
+  id: Music
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType
+  langs:
+  - csharp
+  - vb
+  name: Music
+  nameWithType: ContentItemMetadata.Types.MediaSubType.Music
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.Music
+  type: Field
+  source:
+    id: Music
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 7260
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Music")]
+
+      Music = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType
+    content.vb: >-
+      <OriginalName("Music")>
+
+      Music = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Music
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.Podcast
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.Podcast
+  id: Podcast
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType
+  langs:
+  - csharp
+  - vb
+  name: Podcast
+  nameWithType: ContentItemMetadata.Types.MediaSubType.Podcast
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.Podcast
+  type: Field
+  source:
+    id: Podcast
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 7261
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Podcast")]
+
+      Podcast = 4
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType
+    content.vb: >-
+      <OriginalName("Podcast")>
+
+      Podcast = 4
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Podcast
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.AudioBook
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.AudioBook
+  id: AudioBook
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType
+  langs:
+  - csharp
+  - vb
+  name: AudioBook
+  nameWithType: ContentItemMetadata.Types.MediaSubType.AudioBook
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.AudioBook
+  type: Field
+  source:
+    id: AudioBook
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 7262
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("AudioBook")]
+
+      AudioBook = 5
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType
+    content.vb: >-
+      <OriginalName("AudioBook")>
+
+      AudioBook = 5
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: AudioBook
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.ItunesU
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.ItunesU
+  id: ItunesU
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType
+  langs:
+  - csharp
+  - vb
+  name: ItunesU
+  nameWithType: ContentItemMetadata.Types.MediaSubType.ItunesU
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.ItunesU
+  type: Field
+  source:
+    id: ItunesU
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItemMetadata.cs
+    startLine: 7263
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("ITunesU")]
+
+      ItunesU = 6
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType
+    content.vb: >-
+      <OriginalName("ITunesU")>
+
+      ItunesU = 6
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ITunesU
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.html
+  name: ContentItemMetadata.Types.MediaSubType
+  nameWithType: ContentItemMetadata.Types.MediaSubType
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata
+    name: ContentItemMetadata
+    href: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType
+    name: MediaSubType
+    href: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata
+    name: ContentItemMetadata
+    href: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType
+    name: MediaSubType
+    href: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.Types.MediaSubType.html

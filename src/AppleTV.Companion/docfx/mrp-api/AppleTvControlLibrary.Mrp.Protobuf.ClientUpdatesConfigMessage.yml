@@ -1,0 +1,1919 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  id: ClientUpdatesConfigMessage
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.#ctor
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ArtworkUpdates
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ArtworkUpdatesFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.CalculateSize
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearArtworkUpdates
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearKeyboardUpdates
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearNowPlayingUpdates
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearOutputDeviceUpdates
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearVolumeUpdates
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Clone
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Descriptor
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Equals(System.Object)
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.GetHashCode
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasArtworkUpdates
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasKeyboardUpdates
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasNowPlayingUpdates
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasOutputDeviceUpdates
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasVolumeUpdates
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.KeyboardUpdates
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.KeyboardUpdatesFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.NowPlayingUpdates
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.NowPlayingUpdatesFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.OutputDeviceUpdates
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.OutputDeviceUpdatesFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Parser
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ToString
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.VolumeUpdates
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.VolumeUpdatesFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: ClientUpdatesConfigMessage
+  nameWithType: ClientUpdatesConfigMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  type: Class
+  source:
+    id: ClientUpdatesConfigMessage
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 51
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: 'public sealed class ClientUpdatesConfigMessage : IMessage<ClientUpdatesConfigMessage>, IEquatable<ClientUpdatesConfigMessage>, IDeepCloneable<ClientUpdatesConfigMessage>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class ClientUpdatesConfigMessage Implements IMessage(Of ClientUpdatesConfigMessage), IEquatable(Of ClientUpdatesConfigMessage), IDeepCloneable(Of ClientUpdatesConfigMessage), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}
+  - System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}
+  - Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Parser
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Parser
+  id: Parser
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: ClientUpdatesConfigMessage.Parser
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Parser
+  type: Property
+  source:
+    id: Parser
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 60
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public static MessageParser<ClientUpdatesConfigMessage> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of ClientUpdatesConfigMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Parser*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Descriptor
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Descriptor
+  id: Descriptor
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: ClientUpdatesConfigMessage.Descriptor
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Descriptor
+  type: Property
+  source:
+    id: Descriptor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 64
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Descriptor*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.#ctor
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.#ctor
+  id: '#ctor'
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: ClientUpdatesConfigMessage()
+  nameWithType: ClientUpdatesConfigMessage.ClientUpdatesConfigMessage()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClientUpdatesConfigMessage()
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 76
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public ClientUpdatesConfigMessage()
+    content.vb: Public Sub New()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.#ctor*
+  nameWithType.vb: ClientUpdatesConfigMessage.New()
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.New()
+  name.vb: New()
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  id: '#ctor(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)'
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: ClientUpdatesConfigMessage(ClientUpdatesConfigMessage)
+  nameWithType: ClientUpdatesConfigMessage.ClientUpdatesConfigMessage(ClientUpdatesConfigMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClientUpdatesConfigMessage(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 84
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public ClientUpdatesConfigMessage(ClientUpdatesConfigMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+    content.vb: Public Sub New(other As ClientUpdatesConfigMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.#ctor*
+  nameWithType.vb: ClientUpdatesConfigMessage.New(ClientUpdatesConfigMessage)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.New(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  name.vb: New(ClientUpdatesConfigMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Clone
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Clone
+  id: Clone
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: ClientUpdatesConfigMessage.Clone()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Clone()
+  type: Method
+  source:
+    id: Clone
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 96
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public ClientUpdatesConfigMessage Clone()
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As ClientUpdatesConfigMessage
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}.Clone
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ArtworkUpdatesFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ArtworkUpdatesFieldNumber
+  id: ArtworkUpdatesFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: ArtworkUpdatesFieldNumber
+  nameWithType: ClientUpdatesConfigMessage.ArtworkUpdatesFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ArtworkUpdatesFieldNumber
+  type: Field
+  source:
+    id: ArtworkUpdatesFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 103
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "artworkUpdates" field.
+  example: []
+  syntax:
+    content: public const int ArtworkUpdatesFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const ArtworkUpdatesFieldNumber As Integer = 1
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ArtworkUpdates
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ArtworkUpdates
+  id: ArtworkUpdates
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: ArtworkUpdates
+  nameWithType: ClientUpdatesConfigMessage.ArtworkUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ArtworkUpdates
+  type: Property
+  source:
+    id: ArtworkUpdates
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 107
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public bool ArtworkUpdates { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property ArtworkUpdates As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ArtworkUpdates*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasArtworkUpdates
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasArtworkUpdates
+  id: HasArtworkUpdates
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: HasArtworkUpdates
+  nameWithType: ClientUpdatesConfigMessage.HasArtworkUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasArtworkUpdates
+  type: Property
+  source:
+    id: HasArtworkUpdates
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 117
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "artworkUpdates" field is set
+  example: []
+  syntax:
+    content: public bool HasArtworkUpdates { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasArtworkUpdates As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasArtworkUpdates*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearArtworkUpdates
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearArtworkUpdates
+  id: ClearArtworkUpdates
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearArtworkUpdates()
+  nameWithType: ClientUpdatesConfigMessage.ClearArtworkUpdates()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearArtworkUpdates()
+  type: Method
+  source:
+    id: ClearArtworkUpdates
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 123
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "artworkUpdates" field
+  example: []
+  syntax:
+    content: public void ClearArtworkUpdates()
+    content.vb: Public Sub ClearArtworkUpdates()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearArtworkUpdates*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.NowPlayingUpdatesFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.NowPlayingUpdatesFieldNumber
+  id: NowPlayingUpdatesFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: NowPlayingUpdatesFieldNumber
+  nameWithType: ClientUpdatesConfigMessage.NowPlayingUpdatesFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.NowPlayingUpdatesFieldNumber
+  type: Field
+  source:
+    id: NowPlayingUpdatesFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 130
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "nowPlayingUpdates" field.
+  example: []
+  syntax:
+    content: public const int NowPlayingUpdatesFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const NowPlayingUpdatesFieldNumber As Integer = 2
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.NowPlayingUpdates
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.NowPlayingUpdates
+  id: NowPlayingUpdates
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: NowPlayingUpdates
+  nameWithType: ClientUpdatesConfigMessage.NowPlayingUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.NowPlayingUpdates
+  type: Property
+  source:
+    id: NowPlayingUpdates
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 134
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public bool NowPlayingUpdates { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property NowPlayingUpdates As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.NowPlayingUpdates*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasNowPlayingUpdates
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasNowPlayingUpdates
+  id: HasNowPlayingUpdates
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: HasNowPlayingUpdates
+  nameWithType: ClientUpdatesConfigMessage.HasNowPlayingUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasNowPlayingUpdates
+  type: Property
+  source:
+    id: HasNowPlayingUpdates
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 144
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "nowPlayingUpdates" field is set
+  example: []
+  syntax:
+    content: public bool HasNowPlayingUpdates { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasNowPlayingUpdates As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasNowPlayingUpdates*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearNowPlayingUpdates
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearNowPlayingUpdates
+  id: ClearNowPlayingUpdates
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearNowPlayingUpdates()
+  nameWithType: ClientUpdatesConfigMessage.ClearNowPlayingUpdates()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearNowPlayingUpdates()
+  type: Method
+  source:
+    id: ClearNowPlayingUpdates
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 150
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "nowPlayingUpdates" field
+  example: []
+  syntax:
+    content: public void ClearNowPlayingUpdates()
+    content.vb: Public Sub ClearNowPlayingUpdates()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearNowPlayingUpdates*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.VolumeUpdatesFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.VolumeUpdatesFieldNumber
+  id: VolumeUpdatesFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: VolumeUpdatesFieldNumber
+  nameWithType: ClientUpdatesConfigMessage.VolumeUpdatesFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.VolumeUpdatesFieldNumber
+  type: Field
+  source:
+    id: VolumeUpdatesFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 157
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "volumeUpdates" field.
+  example: []
+  syntax:
+    content: public const int VolumeUpdatesFieldNumber = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const VolumeUpdatesFieldNumber As Integer = 3
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.VolumeUpdates
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.VolumeUpdates
+  id: VolumeUpdates
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: VolumeUpdates
+  nameWithType: ClientUpdatesConfigMessage.VolumeUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.VolumeUpdates
+  type: Property
+  source:
+    id: VolumeUpdates
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 161
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public bool VolumeUpdates { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property VolumeUpdates As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.VolumeUpdates*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasVolumeUpdates
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasVolumeUpdates
+  id: HasVolumeUpdates
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: HasVolumeUpdates
+  nameWithType: ClientUpdatesConfigMessage.HasVolumeUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasVolumeUpdates
+  type: Property
+  source:
+    id: HasVolumeUpdates
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 171
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "volumeUpdates" field is set
+  example: []
+  syntax:
+    content: public bool HasVolumeUpdates { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasVolumeUpdates As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasVolumeUpdates*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearVolumeUpdates
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearVolumeUpdates
+  id: ClearVolumeUpdates
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearVolumeUpdates()
+  nameWithType: ClientUpdatesConfigMessage.ClearVolumeUpdates()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearVolumeUpdates()
+  type: Method
+  source:
+    id: ClearVolumeUpdates
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 177
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "volumeUpdates" field
+  example: []
+  syntax:
+    content: public void ClearVolumeUpdates()
+    content.vb: Public Sub ClearVolumeUpdates()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearVolumeUpdates*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.KeyboardUpdatesFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.KeyboardUpdatesFieldNumber
+  id: KeyboardUpdatesFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: KeyboardUpdatesFieldNumber
+  nameWithType: ClientUpdatesConfigMessage.KeyboardUpdatesFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.KeyboardUpdatesFieldNumber
+  type: Field
+  source:
+    id: KeyboardUpdatesFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 184
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "keyboardUpdates" field.
+  example: []
+  syntax:
+    content: public const int KeyboardUpdatesFieldNumber = 4
+    return:
+      type: System.Int32
+    content.vb: Public Const KeyboardUpdatesFieldNumber As Integer = 4
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.KeyboardUpdates
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.KeyboardUpdates
+  id: KeyboardUpdates
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: KeyboardUpdates
+  nameWithType: ClientUpdatesConfigMessage.KeyboardUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.KeyboardUpdates
+  type: Property
+  source:
+    id: KeyboardUpdates
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 188
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public bool KeyboardUpdates { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property KeyboardUpdates As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.KeyboardUpdates*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasKeyboardUpdates
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasKeyboardUpdates
+  id: HasKeyboardUpdates
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: HasKeyboardUpdates
+  nameWithType: ClientUpdatesConfigMessage.HasKeyboardUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasKeyboardUpdates
+  type: Property
+  source:
+    id: HasKeyboardUpdates
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 198
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "keyboardUpdates" field is set
+  example: []
+  syntax:
+    content: public bool HasKeyboardUpdates { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasKeyboardUpdates As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasKeyboardUpdates*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearKeyboardUpdates
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearKeyboardUpdates
+  id: ClearKeyboardUpdates
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearKeyboardUpdates()
+  nameWithType: ClientUpdatesConfigMessage.ClearKeyboardUpdates()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearKeyboardUpdates()
+  type: Method
+  source:
+    id: ClearKeyboardUpdates
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 204
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "keyboardUpdates" field
+  example: []
+  syntax:
+    content: public void ClearKeyboardUpdates()
+    content.vb: Public Sub ClearKeyboardUpdates()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearKeyboardUpdates*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.OutputDeviceUpdatesFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.OutputDeviceUpdatesFieldNumber
+  id: OutputDeviceUpdatesFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: OutputDeviceUpdatesFieldNumber
+  nameWithType: ClientUpdatesConfigMessage.OutputDeviceUpdatesFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.OutputDeviceUpdatesFieldNumber
+  type: Field
+  source:
+    id: OutputDeviceUpdatesFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 211
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "outputDeviceUpdates" field.
+  example: []
+  syntax:
+    content: public const int OutputDeviceUpdatesFieldNumber = 5
+    return:
+      type: System.Int32
+    content.vb: Public Const OutputDeviceUpdatesFieldNumber As Integer = 5
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.OutputDeviceUpdates
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.OutputDeviceUpdates
+  id: OutputDeviceUpdates
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: OutputDeviceUpdates
+  nameWithType: ClientUpdatesConfigMessage.OutputDeviceUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.OutputDeviceUpdates
+  type: Property
+  source:
+    id: OutputDeviceUpdates
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 215
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public bool OutputDeviceUpdates { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property OutputDeviceUpdates As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.OutputDeviceUpdates*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasOutputDeviceUpdates
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasOutputDeviceUpdates
+  id: HasOutputDeviceUpdates
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: HasOutputDeviceUpdates
+  nameWithType: ClientUpdatesConfigMessage.HasOutputDeviceUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasOutputDeviceUpdates
+  type: Property
+  source:
+    id: HasOutputDeviceUpdates
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 225
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "outputDeviceUpdates" field is set
+  example: []
+  syntax:
+    content: public bool HasOutputDeviceUpdates { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasOutputDeviceUpdates As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasOutputDeviceUpdates*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearOutputDeviceUpdates
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearOutputDeviceUpdates
+  id: ClearOutputDeviceUpdates
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearOutputDeviceUpdates()
+  nameWithType: ClientUpdatesConfigMessage.ClearOutputDeviceUpdates()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearOutputDeviceUpdates()
+  type: Method
+  source:
+    id: ClearOutputDeviceUpdates
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 231
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "outputDeviceUpdates" field
+  example: []
+  syntax:
+    content: public void ClearOutputDeviceUpdates()
+    content.vb: Public Sub ClearOutputDeviceUpdates()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearOutputDeviceUpdates*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Equals(System.Object)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: ClientUpdatesConfigMessage.Equals(object)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Equals(object)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 237
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Equals*
+  nameWithType.vb: ClientUpdatesConfigMessage.Equals(Object)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Equals(Object)
+  name.vb: Equals(Object)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  id: Equals(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: Equals(ClientUpdatesConfigMessage)
+  nameWithType: ClientUpdatesConfigMessage.Equals(ClientUpdatesConfigMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 243
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(ClientUpdatesConfigMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As ClientUpdatesConfigMessage) As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Equals*
+  implements:
+  - System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.GetHashCode
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.GetHashCode
+  id: GetHashCode
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: ClientUpdatesConfigMessage.GetHashCode()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.GetHashCode()
+  type: Method
+  source:
+    id: GetHashCode
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 260
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.GetHashCode*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ToString
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ToString
+  id: ToString
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ClientUpdatesConfigMessage.ToString()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ToString()
+  type: Method
+  source:
+    id: ToString
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 275
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ToString*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: ClientUpdatesConfigMessage.WriteTo(CodedOutputStream)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    id: WriteTo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 281
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.CalculateSize
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.CalculateSize
+  id: CalculateSize
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: ClientUpdatesConfigMessage.CalculateSize()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.CalculateSize()
+  type: Method
+  source:
+    id: CalculateSize
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 343
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  id: MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(ClientUpdatesConfigMessage)
+  nameWithType: ClientUpdatesConfigMessage.MergeFrom(ClientUpdatesConfigMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  type: Method
+  source:
+    id: MergeFrom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 368
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(ClientUpdatesConfigMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+    content.vb: Public Sub MergeFrom(other As ClientUpdatesConfigMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: ClientUpdatesConfigMessage.MergeFrom(CodedInputStream)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    id: MergeFrom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ClientUpdatesConfigMessage.cs
+    startLine: 392
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}
+  commentId: T:Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html
+  name: IMessage<ClientUpdatesConfigMessage>
+  nameWithType: IMessage<ClientUpdatesConfigMessage>
+  fullName: Google.Protobuf.IMessage<AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage>
+  nameWithType.vb: IMessage(Of ClientUpdatesConfigMessage)
+  fullName.vb: Google.Protobuf.IMessage(Of AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  name.vb: IMessage(Of ClientUpdatesConfigMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+    name: ClientUpdatesConfigMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+    name: ClientUpdatesConfigMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html
+  - name: )
+- uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}
+  commentId: T:System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<ClientUpdatesConfigMessage>
+  nameWithType: IEquatable<ClientUpdatesConfigMessage>
+  fullName: System.IEquatable<AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage>
+  nameWithType.vb: IEquatable(Of ClientUpdatesConfigMessage)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  name.vb: IEquatable(Of ClientUpdatesConfigMessage)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+    name: ClientUpdatesConfigMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+    name: ClientUpdatesConfigMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}
+  commentId: T:Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html
+  name: IDeepCloneable<ClientUpdatesConfigMessage>
+  nameWithType: IDeepCloneable<ClientUpdatesConfigMessage>
+  fullName: Google.Protobuf.IDeepCloneable<AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage>
+  nameWithType.vb: IDeepCloneable(Of ClientUpdatesConfigMessage)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  name.vb: IDeepCloneable(Of ClientUpdatesConfigMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+    name: ClientUpdatesConfigMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+    name: ClientUpdatesConfigMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Parser*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Parser
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_Parser
+  name: Parser
+  nameWithType: ClientUpdatesConfigMessage.Parser
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Parser
+- uid: Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}
+  commentId: T:Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html
+  name: MessageParser<ClientUpdatesConfigMessage>
+  nameWithType: MessageParser<ClientUpdatesConfigMessage>
+  fullName: Google.Protobuf.MessageParser<AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage>
+  nameWithType.vb: MessageParser(Of ClientUpdatesConfigMessage)
+  fullName.vb: Google.Protobuf.MessageParser(Of AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  name.vb: MessageParser(Of ClientUpdatesConfigMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+    name: ClientUpdatesConfigMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+    name: ClientUpdatesConfigMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Descriptor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Descriptor
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_Descriptor
+  name: Descriptor
+  nameWithType: ClientUpdatesConfigMessage.Descriptor
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.#ctor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.#ctor
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage__ctor
+  name: ClientUpdatesConfigMessage
+  nameWithType: ClientUpdatesConfigMessage.ClientUpdatesConfigMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClientUpdatesConfigMessage
+  nameWithType.vb: ClientUpdatesConfigMessage.New
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.New
+  name.vb: New
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html
+  name: ClientUpdatesConfigMessage
+  nameWithType: ClientUpdatesConfigMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Clone*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Clone
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_Clone
+  name: Clone
+  nameWithType: ClientUpdatesConfigMessage.Clone
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Clone
+- uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}.Clone
+  parent: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<ClientUpdatesConfigMessage>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage>.Clone()
+  nameWithType.vb: IDeepCloneable(Of ClientUpdatesConfigMessage).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ArtworkUpdates*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ArtworkUpdates
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_ArtworkUpdates
+  name: ArtworkUpdates
+  nameWithType: ClientUpdatesConfigMessage.ArtworkUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ArtworkUpdates
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasArtworkUpdates*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasArtworkUpdates
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_HasArtworkUpdates
+  name: HasArtworkUpdates
+  nameWithType: ClientUpdatesConfigMessage.HasArtworkUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasArtworkUpdates
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearArtworkUpdates*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearArtworkUpdates
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_ClearArtworkUpdates
+  name: ClearArtworkUpdates
+  nameWithType: ClientUpdatesConfigMessage.ClearArtworkUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearArtworkUpdates
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.NowPlayingUpdates*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.NowPlayingUpdates
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_NowPlayingUpdates
+  name: NowPlayingUpdates
+  nameWithType: ClientUpdatesConfigMessage.NowPlayingUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.NowPlayingUpdates
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasNowPlayingUpdates*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasNowPlayingUpdates
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_HasNowPlayingUpdates
+  name: HasNowPlayingUpdates
+  nameWithType: ClientUpdatesConfigMessage.HasNowPlayingUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasNowPlayingUpdates
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearNowPlayingUpdates*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearNowPlayingUpdates
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_ClearNowPlayingUpdates
+  name: ClearNowPlayingUpdates
+  nameWithType: ClientUpdatesConfigMessage.ClearNowPlayingUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearNowPlayingUpdates
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.VolumeUpdates*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.VolumeUpdates
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_VolumeUpdates
+  name: VolumeUpdates
+  nameWithType: ClientUpdatesConfigMessage.VolumeUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.VolumeUpdates
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasVolumeUpdates*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasVolumeUpdates
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_HasVolumeUpdates
+  name: HasVolumeUpdates
+  nameWithType: ClientUpdatesConfigMessage.HasVolumeUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasVolumeUpdates
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearVolumeUpdates*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearVolumeUpdates
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_ClearVolumeUpdates
+  name: ClearVolumeUpdates
+  nameWithType: ClientUpdatesConfigMessage.ClearVolumeUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearVolumeUpdates
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.KeyboardUpdates*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.KeyboardUpdates
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_KeyboardUpdates
+  name: KeyboardUpdates
+  nameWithType: ClientUpdatesConfigMessage.KeyboardUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.KeyboardUpdates
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasKeyboardUpdates*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasKeyboardUpdates
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_HasKeyboardUpdates
+  name: HasKeyboardUpdates
+  nameWithType: ClientUpdatesConfigMessage.HasKeyboardUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasKeyboardUpdates
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearKeyboardUpdates*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearKeyboardUpdates
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_ClearKeyboardUpdates
+  name: ClearKeyboardUpdates
+  nameWithType: ClientUpdatesConfigMessage.ClearKeyboardUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearKeyboardUpdates
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.OutputDeviceUpdates*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.OutputDeviceUpdates
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_OutputDeviceUpdates
+  name: OutputDeviceUpdates
+  nameWithType: ClientUpdatesConfigMessage.OutputDeviceUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.OutputDeviceUpdates
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasOutputDeviceUpdates*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasOutputDeviceUpdates
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_HasOutputDeviceUpdates
+  name: HasOutputDeviceUpdates
+  nameWithType: ClientUpdatesConfigMessage.HasOutputDeviceUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.HasOutputDeviceUpdates
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearOutputDeviceUpdates*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearOutputDeviceUpdates
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_ClearOutputDeviceUpdates
+  name: ClearOutputDeviceUpdates
+  nameWithType: ClientUpdatesConfigMessage.ClearOutputDeviceUpdates
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ClearOutputDeviceUpdates
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Equals*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Equals
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_Equals_System_Object_
+  name: Equals
+  nameWithType: ClientUpdatesConfigMessage.Equals
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.Equals
+- uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  commentId: M:System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  parent: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(ClientUpdatesConfigMessage)
+  nameWithType: IEquatable<ClientUpdatesConfigMessage>.Equals(ClientUpdatesConfigMessage)
+  fullName: System.IEquatable<AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage>.Equals(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  nameWithType.vb: IEquatable(Of ClientUpdatesConfigMessage).Equals(ClientUpdatesConfigMessage)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage).Equals(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  spec.csharp:
+  - uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+    name: ClientUpdatesConfigMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+    name: ClientUpdatesConfigMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.GetHashCode*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.GetHashCode
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_GetHashCode
+  name: GetHashCode
+  nameWithType: ClientUpdatesConfigMessage.GetHashCode
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ToString*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ToString
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_ToString
+  name: ToString
+  nameWithType: ClientUpdatesConfigMessage.ToString
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.WriteTo*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.WriteTo
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_WriteTo_Google_Protobuf_CodedOutputStream_
+  name: WriteTo
+  nameWithType: ClientUpdatesConfigMessage.WriteTo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.CalculateSize*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.CalculateSize
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_CalculateSize
+  name: CalculateSize
+  nameWithType: ClientUpdatesConfigMessage.CalculateSize
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.MergeFrom*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.MergeFrom
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html#AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_MergeFrom_AppleTvControlLibrary_Mrp_Protobuf_ClientUpdatesConfigMessage_
+  name: MergeFrom
+  nameWithType: ClientUpdatesConfigMessage.MergeFrom
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.MergeFrom
+- uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  commentId: M:Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  parent: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html
+  name: MergeFrom(ClientUpdatesConfigMessage)
+  nameWithType: IMessage<ClientUpdatesConfigMessage>.MergeFrom(ClientUpdatesConfigMessage)
+  fullName: Google.Protobuf.IMessage<AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage>.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  nameWithType.vb: IMessage(Of ClientUpdatesConfigMessage).MergeFrom(ClientUpdatesConfigMessage)
+  fullName.vb: Google.Protobuf.IMessage(Of AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage).MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+    name: ClientUpdatesConfigMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage
+    name: ClientUpdatesConfigMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.ClientUpdatesConfigMessage.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

@@ -1,0 +1,268 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase
+  id: SendPackedVirtualTouchEventMessage.Types.Phase
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Began
+  - AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Cancelled
+  - AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Ended
+  - AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Moved
+  - AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Stationary
+  langs:
+  - csharp
+  - vb
+  name: SendPackedVirtualTouchEventMessage.Types.Phase
+  nameWithType: SendPackedVirtualTouchEventMessage.Types.Phase
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase
+  type: Enum
+  source:
+    id: Phase
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendPackedVirtualTouchEventMessage.cs
+    startLine: 274
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Corresponds to "phase" in data
+  example: []
+  syntax:
+    content: public enum SendPackedVirtualTouchEventMessage.Types.Phase
+    content.vb: Public Enum SendPackedVirtualTouchEventMessage.Types.Phase
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Began
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Began
+  id: Began
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase
+  langs:
+  - csharp
+  - vb
+  name: Began
+  nameWithType: SendPackedVirtualTouchEventMessage.Types.Phase.Began
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Began
+  type: Field
+  source:
+    id: Began
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendPackedVirtualTouchEventMessage.cs
+    startLine: 275
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Began")]
+
+      Began = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase
+    content.vb: >-
+      <OriginalName("Began")>
+
+      Began = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Began
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Moved
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Moved
+  id: Moved
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase
+  langs:
+  - csharp
+  - vb
+  name: Moved
+  nameWithType: SendPackedVirtualTouchEventMessage.Types.Phase.Moved
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Moved
+  type: Field
+  source:
+    id: Moved
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendPackedVirtualTouchEventMessage.cs
+    startLine: 276
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Moved")]
+
+      Moved = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase
+    content.vb: >-
+      <OriginalName("Moved")>
+
+      Moved = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Moved
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Stationary
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Stationary
+  id: Stationary
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase
+  langs:
+  - csharp
+  - vb
+  name: Stationary
+  nameWithType: SendPackedVirtualTouchEventMessage.Types.Phase.Stationary
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Stationary
+  type: Field
+  source:
+    id: Stationary
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendPackedVirtualTouchEventMessage.cs
+    startLine: 277
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Stationary")]
+
+      Stationary = 3
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase
+    content.vb: >-
+      <OriginalName("Stationary")>
+
+      Stationary = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Stationary
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Ended
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Ended
+  id: Ended
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase
+  langs:
+  - csharp
+  - vb
+  name: Ended
+  nameWithType: SendPackedVirtualTouchEventMessage.Types.Phase.Ended
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Ended
+  type: Field
+  source:
+    id: Ended
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendPackedVirtualTouchEventMessage.cs
+    startLine: 278
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Ended")]
+
+      Ended = 4
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase
+    content.vb: >-
+      <OriginalName("Ended")>
+
+      Ended = 4
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Ended
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Cancelled
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Cancelled
+  id: Cancelled
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase
+  langs:
+  - csharp
+  - vb
+  name: Cancelled
+  nameWithType: SendPackedVirtualTouchEventMessage.Types.Phase.Cancelled
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.Cancelled
+  type: Field
+  source:
+    id: Cancelled
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendPackedVirtualTouchEventMessage.cs
+    startLine: 279
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Cancelled")]
+
+      Cancelled = 5
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase
+    content.vb: >-
+      <OriginalName("Cancelled")>
+
+      Cancelled = 5
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Cancelled
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.html
+  name: SendPackedVirtualTouchEventMessage.Types.Phase
+  nameWithType: SendPackedVirtualTouchEventMessage.Types.Phase
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage
+    name: SendPackedVirtualTouchEventMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase
+    name: Phase
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage
+    name: SendPackedVirtualTouchEventMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase
+    name: Phase
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendPackedVirtualTouchEventMessage.Types.Phase.html

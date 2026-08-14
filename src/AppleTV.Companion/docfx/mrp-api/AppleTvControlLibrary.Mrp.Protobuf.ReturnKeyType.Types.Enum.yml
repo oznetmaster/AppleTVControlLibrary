@@ -1,0 +1,518 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  id: ReturnKeyType.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Continue
+  - AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Default
+  - AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Done
+  - AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.EmergencyCall
+  - AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Go
+  - AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Google
+  - AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Join
+  - AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Next
+  - AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Route
+  - AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Search
+  - AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Send
+  - AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Yahoo
+  langs:
+  - csharp
+  - vb
+  name: ReturnKeyType.Types.Enum
+  nameWithType: ReturnKeyType.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  type: Enum
+  source:
+    id: Enum
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 784
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public enum ReturnKeyType.Types.Enum
+    content.vb: Public Enum ReturnKeyType.Types.Enum
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Default
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Default
+  id: Default
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: ReturnKeyType.Types.Enum.Default
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Default
+  type: Field
+  source:
+    id: Default
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 785
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Default")]
+
+      Default = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+    content.vb: >-
+      <OriginalName("Default")>
+
+      Default = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Default
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Go
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Go
+  id: Go
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Go
+  nameWithType: ReturnKeyType.Types.Enum.Go
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Go
+  type: Field
+  source:
+    id: Go
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 786
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Go")]
+
+      Go = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+    content.vb: >-
+      <OriginalName("Go")>
+
+      Go = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Go
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Google
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Google
+  id: Google
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Google
+  nameWithType: ReturnKeyType.Types.Enum.Google
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Google
+  type: Field
+  source:
+    id: Google
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 787
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Google")]
+
+      Google = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+    content.vb: >-
+      <OriginalName("Google")>
+
+      Google = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Google
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Join
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Join
+  id: Join
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Join
+  nameWithType: ReturnKeyType.Types.Enum.Join
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Join
+  type: Field
+  source:
+    id: Join
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 788
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Join")]
+
+      Join = 3
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+    content.vb: >-
+      <OriginalName("Join")>
+
+      Join = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Join
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Next
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Next
+  id: Next
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Next
+  nameWithType: ReturnKeyType.Types.Enum.Next
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Next
+  type: Field
+  source:
+    id: Next
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 789
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Next")]
+
+      Next = 4
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+    content.vb: >-
+      <OriginalName("Next")>
+
+      Next = 4
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Next
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Route
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Route
+  id: Route
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Route
+  nameWithType: ReturnKeyType.Types.Enum.Route
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Route
+  type: Field
+  source:
+    id: Route
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 790
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Route")]
+
+      Route = 5
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+    content.vb: >-
+      <OriginalName("Route")>
+
+      Route = 5
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Route
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Search
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Search
+  id: Search
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Search
+  nameWithType: ReturnKeyType.Types.Enum.Search
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Search
+  type: Field
+  source:
+    id: Search
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 791
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Search")]
+
+      Search = 6
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+    content.vb: >-
+      <OriginalName("Search")>
+
+      Search = 6
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Search
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Send
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Send
+  id: Send
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Send
+  nameWithType: ReturnKeyType.Types.Enum.Send
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Send
+  type: Field
+  source:
+    id: Send
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 792
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Send")]
+
+      Send = 7
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+    content.vb: >-
+      <OriginalName("Send")>
+
+      Send = 7
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Send
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Yahoo
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Yahoo
+  id: Yahoo
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Yahoo
+  nameWithType: ReturnKeyType.Types.Enum.Yahoo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Yahoo
+  type: Field
+  source:
+    id: Yahoo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 793
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Yahoo")]
+
+      Yahoo = 8
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+    content.vb: >-
+      <OriginalName("Yahoo")>
+
+      Yahoo = 8
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Yahoo
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Done
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Done
+  id: Done
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Done
+  nameWithType: ReturnKeyType.Types.Enum.Done
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Done
+  type: Field
+  source:
+    id: Done
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 794
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Done")]
+
+      Done = 9
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+    content.vb: >-
+      <OriginalName("Done")>
+
+      Done = 9
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Done
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.EmergencyCall
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.EmergencyCall
+  id: EmergencyCall
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: EmergencyCall
+  nameWithType: ReturnKeyType.Types.Enum.EmergencyCall
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.EmergencyCall
+  type: Field
+  source:
+    id: EmergencyCall
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 795
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("EmergencyCall")]
+
+      EmergencyCall = 10
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+    content.vb: >-
+      <OriginalName("EmergencyCall")>
+
+      EmergencyCall = 10
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: EmergencyCall
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Continue
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Continue
+  id: Continue
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Continue
+  nameWithType: ReturnKeyType.Types.Enum.Continue
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.Continue
+  type: Field
+  source:
+    id: Continue
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 796
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Continue")]
+
+      Continue = 11
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+    content.vb: >-
+      <OriginalName("Continue")>
+
+      Continue = 11
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Continue
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.html
+  name: ReturnKeyType.Types.Enum
+  nameWithType: ReturnKeyType.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType
+    name: ReturnKeyType
+    href: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType
+    name: ReturnKeyType
+    href: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.ReturnKeyType.Types.Enum.html

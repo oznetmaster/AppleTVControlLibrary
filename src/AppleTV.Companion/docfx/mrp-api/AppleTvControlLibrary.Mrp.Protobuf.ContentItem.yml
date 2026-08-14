@@ -1,0 +1,2721 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  id: ContentItem
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.#ctor
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.#ctor(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AncestorIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AncestorIdentifierFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkData
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataHeight
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataHeightFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataWidth
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataWidthFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AvailableLanguageOptions
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AvailableLanguageOptionsFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CalculateSize
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearAncestorIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkData
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkDataHeight
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkDataWidth
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearInfo
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearParentIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearQueueIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearRequestIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Clone
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CurrentLanguageOptions
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CurrentLanguageOptionsFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Descriptor
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Equals(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Equals(System.Object)
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.GetHashCode
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasAncestorIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkData
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkDataHeight
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkDataWidth
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasInfo
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasParentIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasQueueIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasRequestIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Identifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.IdentifierFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Info
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.InfoFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.MergeFrom(Google.Protobuf.CodedInputStream)
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Metadata
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.MetadataFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ParentIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ParentIdentifierFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Parser
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.QueueIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.QueueIdentifierFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.RequestIdentifier
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.RequestIdentifierFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ToString
+  - AppleTvControlLibrary.Mrp.Protobuf.ContentItem.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: ContentItem
+  nameWithType: ContentItem
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  type: Class
+  source:
+    id: ContentItem
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 340
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: 'public sealed class ContentItem : IMessage<ContentItem>, IEquatable<ContentItem>, IDeepCloneable<ContentItem>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class ContentItem Implements IMessage(Of ContentItem), IEquatable(Of ContentItem), IDeepCloneable(Of ContentItem), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}
+  - System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}
+  - Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Parser
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Parser
+  id: Parser
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: ContentItem.Parser
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Parser
+  type: Property
+  source:
+    id: Parser
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 349
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public static MessageParser<ContentItem> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of ContentItem)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Parser*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Descriptor
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Descriptor
+  id: Descriptor
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: ContentItem.Descriptor
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Descriptor
+  type: Property
+  source:
+    id: Descriptor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 353
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Descriptor*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.#ctor
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.#ctor
+  id: '#ctor'
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ContentItem()
+  nameWithType: ContentItem.ContentItem()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ContentItem()
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 365
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public ContentItem()
+    content.vb: Public Sub New()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.#ctor*
+  nameWithType.vb: ContentItem.New()
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.New()
+  name.vb: New()
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.#ctor(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.#ctor(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  id: '#ctor(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)'
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ContentItem(ContentItem)
+  nameWithType: ContentItem.ContentItem(ContentItem)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ContentItem(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 373
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public ContentItem(ContentItem other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+    content.vb: Public Sub New(other As ContentItem)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.#ctor*
+  nameWithType.vb: ContentItem.New(ContentItem)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.New(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  name.vb: New(ContentItem)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Clone
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Clone
+  id: Clone
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: ContentItem.Clone()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Clone()
+  type: Method
+  source:
+    id: Clone
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 392
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public ContentItem Clone()
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As ContentItem
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}.Clone
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.IdentifierFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.IdentifierFieldNumber
+  id: IdentifierFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: IdentifierFieldNumber
+  nameWithType: ContentItem.IdentifierFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.IdentifierFieldNumber
+  type: Field
+  source:
+    id: IdentifierFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 399
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "identifier" field.
+  example: []
+  syntax:
+    content: public const int IdentifierFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const IdentifierFieldNumber As Integer = 1
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Identifier
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Identifier
+  id: Identifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: Identifier
+  nameWithType: ContentItem.Identifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Identifier
+  type: Property
+  source:
+    id: Identifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 403
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public string Identifier { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Identifier As String
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Identifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasIdentifier
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasIdentifier
+  id: HasIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: HasIdentifier
+  nameWithType: ContentItem.HasIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasIdentifier
+  type: Property
+  source:
+    id: HasIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 412
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "identifier" field is set
+  example: []
+  syntax:
+    content: public bool HasIdentifier { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasIdentifier As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearIdentifier
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearIdentifier
+  id: ClearIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ClearIdentifier()
+  nameWithType: ContentItem.ClearIdentifier()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearIdentifier()
+  type: Method
+  source:
+    id: ClearIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 418
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "identifier" field
+  example: []
+  syntax:
+    content: public void ClearIdentifier()
+    content.vb: Public Sub ClearIdentifier()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.MetadataFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.MetadataFieldNumber
+  id: MetadataFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: MetadataFieldNumber
+  nameWithType: ContentItem.MetadataFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.MetadataFieldNumber
+  type: Field
+  source:
+    id: MetadataFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 425
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "metadata" field.
+  example: []
+  syntax:
+    content: public const int MetadataFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const MetadataFieldNumber As Integer = 2
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Metadata
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Metadata
+  id: Metadata
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: Metadata
+  nameWithType: ContentItem.Metadata
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Metadata
+  type: Property
+  source:
+    id: Metadata
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 427
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public ContentItemMetadata Metadata { get; set; }
+    parameters: []
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata
+    content.vb: Public Property Metadata As ContentItemMetadata
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Metadata*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataFieldNumber
+  id: ArtworkDataFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ArtworkDataFieldNumber
+  nameWithType: ContentItem.ArtworkDataFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataFieldNumber
+  type: Field
+  source:
+    id: ArtworkDataFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 437
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "artworkData" field.
+  example: []
+  syntax:
+    content: public const int ArtworkDataFieldNumber = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const ArtworkDataFieldNumber As Integer = 3
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkData
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkData
+  id: ArtworkData
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ArtworkData
+  nameWithType: ContentItem.ArtworkData
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkData
+  type: Property
+  source:
+    id: ArtworkData
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 441
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public ByteString ArtworkData { get; set; }
+    parameters: []
+    return:
+      type: Google.Protobuf.ByteString
+    content.vb: Public Property ArtworkData As ByteString
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkData*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkData
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkData
+  id: HasArtworkData
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: HasArtworkData
+  nameWithType: ContentItem.HasArtworkData
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkData
+  type: Property
+  source:
+    id: HasArtworkData
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 450
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "artworkData" field is set
+  example: []
+  syntax:
+    content: public bool HasArtworkData { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasArtworkData As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkData*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkData
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkData
+  id: ClearArtworkData
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ClearArtworkData()
+  nameWithType: ContentItem.ClearArtworkData()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkData()
+  type: Method
+  source:
+    id: ClearArtworkData
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 456
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "artworkData" field
+  example: []
+  syntax:
+    content: public void ClearArtworkData()
+    content.vb: Public Sub ClearArtworkData()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkData*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.InfoFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.InfoFieldNumber
+  id: InfoFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: InfoFieldNumber
+  nameWithType: ContentItem.InfoFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.InfoFieldNumber
+  type: Field
+  source:
+    id: InfoFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 463
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "info" field.
+  example: []
+  syntax:
+    content: public const int InfoFieldNumber = 4
+    return:
+      type: System.Int32
+    content.vb: Public Const InfoFieldNumber As Integer = 4
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Info
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Info
+  id: Info
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: Info
+  nameWithType: ContentItem.Info
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Info
+  type: Property
+  source:
+    id: Info
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 467
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public string Info { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Info As String
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Info*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasInfo
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasInfo
+  id: HasInfo
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: HasInfo
+  nameWithType: ContentItem.HasInfo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasInfo
+  type: Property
+  source:
+    id: HasInfo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 476
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "info" field is set
+  example: []
+  syntax:
+    content: public bool HasInfo { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasInfo As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasInfo*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearInfo
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearInfo
+  id: ClearInfo
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ClearInfo()
+  nameWithType: ContentItem.ClearInfo()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearInfo()
+  type: Method
+  source:
+    id: ClearInfo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 482
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "info" field
+  example: []
+  syntax:
+    content: public void ClearInfo()
+    content.vb: Public Sub ClearInfo()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearInfo*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AvailableLanguageOptionsFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AvailableLanguageOptionsFieldNumber
+  id: AvailableLanguageOptionsFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: AvailableLanguageOptionsFieldNumber
+  nameWithType: ContentItem.AvailableLanguageOptionsFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AvailableLanguageOptionsFieldNumber
+  type: Field
+  source:
+    id: AvailableLanguageOptionsFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 489
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "availableLanguageOptions" field.
+  example: []
+  syntax:
+    content: public const int AvailableLanguageOptionsFieldNumber = 5
+    return:
+      type: System.Int32
+    content.vb: Public Const AvailableLanguageOptionsFieldNumber As Integer = 5
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AvailableLanguageOptions
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AvailableLanguageOptions
+  id: AvailableLanguageOptions
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: AvailableLanguageOptions
+  nameWithType: ContentItem.AvailableLanguageOptions
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AvailableLanguageOptions
+  type: Property
+  source:
+    id: AvailableLanguageOptions
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 493
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public RepeatedField<LanguageOptionGroup> AvailableLanguageOptions { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Collections.RepeatedField{AppleTvControlLibrary.Mrp.Protobuf.LanguageOptionGroup}
+    content.vb: Public ReadOnly Property AvailableLanguageOptions As RepeatedField(Of LanguageOptionGroup)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AvailableLanguageOptions*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CurrentLanguageOptionsFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CurrentLanguageOptionsFieldNumber
+  id: CurrentLanguageOptionsFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: CurrentLanguageOptionsFieldNumber
+  nameWithType: ContentItem.CurrentLanguageOptionsFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CurrentLanguageOptionsFieldNumber
+  type: Field
+  source:
+    id: CurrentLanguageOptionsFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 500
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "currentLanguageOptions" field.
+  example: []
+  syntax:
+    content: public const int CurrentLanguageOptionsFieldNumber = 6
+    return:
+      type: System.Int32
+    content.vb: Public Const CurrentLanguageOptionsFieldNumber As Integer = 6
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CurrentLanguageOptions
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CurrentLanguageOptions
+  id: CurrentLanguageOptions
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: CurrentLanguageOptions
+  nameWithType: ContentItem.CurrentLanguageOptions
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CurrentLanguageOptions
+  type: Property
+  source:
+    id: CurrentLanguageOptions
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 504
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public RepeatedField<LanguageOption> CurrentLanguageOptions { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Collections.RepeatedField{AppleTvControlLibrary.Mrp.Protobuf.LanguageOption}
+    content.vb: Public ReadOnly Property CurrentLanguageOptions As RepeatedField(Of LanguageOption)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CurrentLanguageOptions*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ParentIdentifierFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ParentIdentifierFieldNumber
+  id: ParentIdentifierFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ParentIdentifierFieldNumber
+  nameWithType: ContentItem.ParentIdentifierFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ParentIdentifierFieldNumber
+  type: Field
+  source:
+    id: ParentIdentifierFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 511
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "parentIdentifier" field.
+  example: []
+  syntax:
+    content: public const int ParentIdentifierFieldNumber = 9
+    return:
+      type: System.Int32
+    content.vb: Public Const ParentIdentifierFieldNumber As Integer = 9
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ParentIdentifier
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ParentIdentifier
+  id: ParentIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ParentIdentifier
+  nameWithType: ContentItem.ParentIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ParentIdentifier
+  type: Property
+  source:
+    id: ParentIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 519
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: >-
+    optional Lyrics lyrics = 7;
+
+    repeated Sections sections = 8;
+  example: []
+  syntax:
+    content: public string ParentIdentifier { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ParentIdentifier As String
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ParentIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasParentIdentifier
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasParentIdentifier
+  id: HasParentIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: HasParentIdentifier
+  nameWithType: ContentItem.HasParentIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasParentIdentifier
+  type: Property
+  source:
+    id: HasParentIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 528
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "parentIdentifier" field is set
+  example: []
+  syntax:
+    content: public bool HasParentIdentifier { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasParentIdentifier As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasParentIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearParentIdentifier
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearParentIdentifier
+  id: ClearParentIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ClearParentIdentifier()
+  nameWithType: ContentItem.ClearParentIdentifier()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearParentIdentifier()
+  type: Method
+  source:
+    id: ClearParentIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 534
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "parentIdentifier" field
+  example: []
+  syntax:
+    content: public void ClearParentIdentifier()
+    content.vb: Public Sub ClearParentIdentifier()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearParentIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AncestorIdentifierFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AncestorIdentifierFieldNumber
+  id: AncestorIdentifierFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: AncestorIdentifierFieldNumber
+  nameWithType: ContentItem.AncestorIdentifierFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AncestorIdentifierFieldNumber
+  type: Field
+  source:
+    id: AncestorIdentifierFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 541
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "ancestorIdentifier" field.
+  example: []
+  syntax:
+    content: public const int AncestorIdentifierFieldNumber = 10
+    return:
+      type: System.Int32
+    content.vb: Public Const AncestorIdentifierFieldNumber As Integer = 10
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AncestorIdentifier
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AncestorIdentifier
+  id: AncestorIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: AncestorIdentifier
+  nameWithType: ContentItem.AncestorIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AncestorIdentifier
+  type: Property
+  source:
+    id: AncestorIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 545
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public string AncestorIdentifier { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AncestorIdentifier As String
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AncestorIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasAncestorIdentifier
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasAncestorIdentifier
+  id: HasAncestorIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: HasAncestorIdentifier
+  nameWithType: ContentItem.HasAncestorIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasAncestorIdentifier
+  type: Property
+  source:
+    id: HasAncestorIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 554
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "ancestorIdentifier" field is set
+  example: []
+  syntax:
+    content: public bool HasAncestorIdentifier { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasAncestorIdentifier As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasAncestorIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearAncestorIdentifier
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearAncestorIdentifier
+  id: ClearAncestorIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ClearAncestorIdentifier()
+  nameWithType: ContentItem.ClearAncestorIdentifier()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearAncestorIdentifier()
+  type: Method
+  source:
+    id: ClearAncestorIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 560
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "ancestorIdentifier" field
+  example: []
+  syntax:
+    content: public void ClearAncestorIdentifier()
+    content.vb: Public Sub ClearAncestorIdentifier()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearAncestorIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.QueueIdentifierFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.QueueIdentifierFieldNumber
+  id: QueueIdentifierFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: QueueIdentifierFieldNumber
+  nameWithType: ContentItem.QueueIdentifierFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.QueueIdentifierFieldNumber
+  type: Field
+  source:
+    id: QueueIdentifierFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 567
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "queueIdentifier" field.
+  example: []
+  syntax:
+    content: public const int QueueIdentifierFieldNumber = 11
+    return:
+      type: System.Int32
+    content.vb: Public Const QueueIdentifierFieldNumber As Integer = 11
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.QueueIdentifier
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.QueueIdentifier
+  id: QueueIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: QueueIdentifier
+  nameWithType: ContentItem.QueueIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.QueueIdentifier
+  type: Property
+  source:
+    id: QueueIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 571
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public string QueueIdentifier { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property QueueIdentifier As String
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.QueueIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasQueueIdentifier
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasQueueIdentifier
+  id: HasQueueIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: HasQueueIdentifier
+  nameWithType: ContentItem.HasQueueIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasQueueIdentifier
+  type: Property
+  source:
+    id: HasQueueIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 580
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "queueIdentifier" field is set
+  example: []
+  syntax:
+    content: public bool HasQueueIdentifier { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasQueueIdentifier As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasQueueIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearQueueIdentifier
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearQueueIdentifier
+  id: ClearQueueIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ClearQueueIdentifier()
+  nameWithType: ContentItem.ClearQueueIdentifier()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearQueueIdentifier()
+  type: Method
+  source:
+    id: ClearQueueIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 586
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "queueIdentifier" field
+  example: []
+  syntax:
+    content: public void ClearQueueIdentifier()
+    content.vb: Public Sub ClearQueueIdentifier()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearQueueIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.RequestIdentifierFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.RequestIdentifierFieldNumber
+  id: RequestIdentifierFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: RequestIdentifierFieldNumber
+  nameWithType: ContentItem.RequestIdentifierFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.RequestIdentifierFieldNumber
+  type: Field
+  source:
+    id: RequestIdentifierFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 593
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "requestIdentifier" field.
+  example: []
+  syntax:
+    content: public const int RequestIdentifierFieldNumber = 12
+    return:
+      type: System.Int32
+    content.vb: Public Const RequestIdentifierFieldNumber As Integer = 12
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.RequestIdentifier
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.RequestIdentifier
+  id: RequestIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: RequestIdentifier
+  nameWithType: ContentItem.RequestIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.RequestIdentifier
+  type: Property
+  source:
+    id: RequestIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 597
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public string RequestIdentifier { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RequestIdentifier As String
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.RequestIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasRequestIdentifier
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasRequestIdentifier
+  id: HasRequestIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: HasRequestIdentifier
+  nameWithType: ContentItem.HasRequestIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasRequestIdentifier
+  type: Property
+  source:
+    id: HasRequestIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 606
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "requestIdentifier" field is set
+  example: []
+  syntax:
+    content: public bool HasRequestIdentifier { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasRequestIdentifier As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasRequestIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearRequestIdentifier
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearRequestIdentifier
+  id: ClearRequestIdentifier
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ClearRequestIdentifier()
+  nameWithType: ContentItem.ClearRequestIdentifier()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearRequestIdentifier()
+  type: Method
+  source:
+    id: ClearRequestIdentifier
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 612
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "requestIdentifier" field
+  example: []
+  syntax:
+    content: public void ClearRequestIdentifier()
+    content.vb: Public Sub ClearRequestIdentifier()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearRequestIdentifier*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataWidthFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataWidthFieldNumber
+  id: ArtworkDataWidthFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ArtworkDataWidthFieldNumber
+  nameWithType: ContentItem.ArtworkDataWidthFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataWidthFieldNumber
+  type: Field
+  source:
+    id: ArtworkDataWidthFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 619
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "artworkDataWidth" field.
+  example: []
+  syntax:
+    content: public const int ArtworkDataWidthFieldNumber = 13
+    return:
+      type: System.Int32
+    content.vb: Public Const ArtworkDataWidthFieldNumber As Integer = 13
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataWidth
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataWidth
+  id: ArtworkDataWidth
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ArtworkDataWidth
+  nameWithType: ContentItem.ArtworkDataWidth
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataWidth
+  type: Property
+  source:
+    id: ArtworkDataWidth
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 623
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public int ArtworkDataWidth { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ArtworkDataWidth As Integer
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataWidth*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkDataWidth
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkDataWidth
+  id: HasArtworkDataWidth
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: HasArtworkDataWidth
+  nameWithType: ContentItem.HasArtworkDataWidth
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkDataWidth
+  type: Property
+  source:
+    id: HasArtworkDataWidth
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 633
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "artworkDataWidth" field is set
+  example: []
+  syntax:
+    content: public bool HasArtworkDataWidth { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasArtworkDataWidth As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkDataWidth*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkDataWidth
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkDataWidth
+  id: ClearArtworkDataWidth
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ClearArtworkDataWidth()
+  nameWithType: ContentItem.ClearArtworkDataWidth()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkDataWidth()
+  type: Method
+  source:
+    id: ClearArtworkDataWidth
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 639
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "artworkDataWidth" field
+  example: []
+  syntax:
+    content: public void ClearArtworkDataWidth()
+    content.vb: Public Sub ClearArtworkDataWidth()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkDataWidth*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataHeightFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataHeightFieldNumber
+  id: ArtworkDataHeightFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ArtworkDataHeightFieldNumber
+  nameWithType: ContentItem.ArtworkDataHeightFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataHeightFieldNumber
+  type: Field
+  source:
+    id: ArtworkDataHeightFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 646
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "artworkDataHeight" field.
+  example: []
+  syntax:
+    content: public const int ArtworkDataHeightFieldNumber = 14
+    return:
+      type: System.Int32
+    content.vb: Public Const ArtworkDataHeightFieldNumber As Integer = 14
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataHeight
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataHeight
+  id: ArtworkDataHeight
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ArtworkDataHeight
+  nameWithType: ContentItem.ArtworkDataHeight
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataHeight
+  type: Property
+  source:
+    id: ArtworkDataHeight
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 650
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public int ArtworkDataHeight { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ArtworkDataHeight As Integer
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataHeight*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkDataHeight
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkDataHeight
+  id: HasArtworkDataHeight
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: HasArtworkDataHeight
+  nameWithType: ContentItem.HasArtworkDataHeight
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkDataHeight
+  type: Property
+  source:
+    id: HasArtworkDataHeight
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 660
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "artworkDataHeight" field is set
+  example: []
+  syntax:
+    content: public bool HasArtworkDataHeight { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasArtworkDataHeight As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkDataHeight*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkDataHeight
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkDataHeight
+  id: ClearArtworkDataHeight
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ClearArtworkDataHeight()
+  nameWithType: ContentItem.ClearArtworkDataHeight()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkDataHeight()
+  type: Method
+  source:
+    id: ClearArtworkDataHeight
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 666
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "artworkDataHeight" field
+  example: []
+  syntax:
+    content: public void ClearArtworkDataHeight()
+    content.vb: Public Sub ClearArtworkDataHeight()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkDataHeight*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Equals(System.Object)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: ContentItem.Equals(object)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Equals(object)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 672
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Equals*
+  nameWithType.vb: ContentItem.Equals(Object)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Equals(Object)
+  name.vb: Equals(Object)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Equals(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Equals(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  id: Equals(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: Equals(ContentItem)
+  nameWithType: ContentItem.Equals(ContentItem)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Equals(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 678
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(ContentItem other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As ContentItem) As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Equals*
+  implements:
+  - System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}.Equals(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.GetHashCode
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.GetHashCode
+  id: GetHashCode
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: ContentItem.GetHashCode()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.GetHashCode()
+  type: Method
+  source:
+    id: GetHashCode
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 702
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.GetHashCode*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ToString
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ToString
+  id: ToString
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ContentItem.ToString()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ToString()
+  type: Method
+  source:
+    id: ToString
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 724
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ToString*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: ContentItem.WriteTo(CodedOutputStream)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    id: WriteTo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 730
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CalculateSize
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CalculateSize
+  id: CalculateSize
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: ContentItem.CalculateSize()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CalculateSize()
+  type: Method
+  source:
+    id: CalculateSize
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 836
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  id: MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(ContentItem)
+  nameWithType: ContentItem.MergeFrom(ContentItem)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  type: Method
+  source:
+    id: MergeFrom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 878
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(ContentItem other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+    content.vb: Public Sub MergeFrom(other As ContentItem)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: ContentItem.MergeFrom(CodedInputStream)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    id: MergeFrom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\ContentItem.cs
+    startLine: 922
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}
+  commentId: T:Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html
+  name: IMessage<ContentItem>
+  nameWithType: IMessage<ContentItem>
+  fullName: Google.Protobuf.IMessage<AppleTvControlLibrary.Mrp.Protobuf.ContentItem>
+  nameWithType.vb: IMessage(Of ContentItem)
+  fullName.vb: Google.Protobuf.IMessage(Of AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  name.vb: IMessage(Of ContentItem)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+    name: ContentItem
+    href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+    name: ContentItem
+    href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html
+  - name: )
+- uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}
+  commentId: T:System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<ContentItem>
+  nameWithType: IEquatable<ContentItem>
+  fullName: System.IEquatable<AppleTvControlLibrary.Mrp.Protobuf.ContentItem>
+  nameWithType.vb: IEquatable(Of ContentItem)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  name.vb: IEquatable(Of ContentItem)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+    name: ContentItem
+    href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+    name: ContentItem
+    href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}
+  commentId: T:Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html
+  name: IDeepCloneable<ContentItem>
+  nameWithType: IDeepCloneable<ContentItem>
+  fullName: Google.Protobuf.IDeepCloneable<AppleTvControlLibrary.Mrp.Protobuf.ContentItem>
+  nameWithType.vb: IDeepCloneable(Of ContentItem)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  name.vb: IDeepCloneable(Of ContentItem)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+    name: ContentItem
+    href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+    name: ContentItem
+    href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Parser*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Parser
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_Parser
+  name: Parser
+  nameWithType: ContentItem.Parser
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Parser
+- uid: Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}
+  commentId: T:Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html
+  name: MessageParser<ContentItem>
+  nameWithType: MessageParser<ContentItem>
+  fullName: Google.Protobuf.MessageParser<AppleTvControlLibrary.Mrp.Protobuf.ContentItem>
+  nameWithType.vb: MessageParser(Of ContentItem)
+  fullName.vb: Google.Protobuf.MessageParser(Of AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  name.vb: MessageParser(Of ContentItem)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+    name: ContentItem
+    href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+    name: ContentItem
+    href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Descriptor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Descriptor
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_Descriptor
+  name: Descriptor
+  nameWithType: ContentItem.Descriptor
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.#ctor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.#ctor
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem__ctor
+  name: ContentItem
+  nameWithType: ContentItem.ContentItem
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ContentItem
+  nameWithType.vb: ContentItem.New
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.New
+  name.vb: New
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html
+  name: ContentItem
+  nameWithType: ContentItem
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Clone*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Clone
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_Clone
+  name: Clone
+  nameWithType: ContentItem.Clone
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Clone
+- uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}.Clone
+  parent: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<ContentItem>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<AppleTvControlLibrary.Mrp.Protobuf.ContentItem>.Clone()
+  nameWithType.vb: IDeepCloneable(Of ContentItem).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of AppleTvControlLibrary.Mrp.Protobuf.ContentItem).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Identifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Identifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_Identifier
+  name: Identifier
+  nameWithType: ContentItem.Identifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Identifier
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_HasIdentifier
+  name: HasIdentifier
+  nameWithType: ContentItem.HasIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasIdentifier
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_ClearIdentifier
+  name: ClearIdentifier
+  nameWithType: ContentItem.ClearIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearIdentifier
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Metadata*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Metadata
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_Metadata
+  name: Metadata
+  nameWithType: ContentItem.Metadata
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Metadata
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata.html
+  name: ContentItemMetadata
+  nameWithType: ContentItemMetadata
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItemMetadata
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkData*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkData
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_ArtworkData
+  name: ArtworkData
+  nameWithType: ContentItem.ArtworkData
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkData
+- uid: Google.Protobuf.ByteString
+  commentId: T:Google.Protobuf.ByteString
+  parent: Google.Protobuf
+  isExternal: true
+  name: ByteString
+  nameWithType: ByteString
+  fullName: Google.Protobuf.ByteString
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkData*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkData
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_HasArtworkData
+  name: HasArtworkData
+  nameWithType: ContentItem.HasArtworkData
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkData
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkData*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkData
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_ClearArtworkData
+  name: ClearArtworkData
+  nameWithType: ContentItem.ClearArtworkData
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkData
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Info*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Info
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_Info
+  name: Info
+  nameWithType: ContentItem.Info
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Info
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasInfo*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasInfo
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_HasInfo
+  name: HasInfo
+  nameWithType: ContentItem.HasInfo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasInfo
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearInfo*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearInfo
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_ClearInfo
+  name: ClearInfo
+  nameWithType: ContentItem.ClearInfo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearInfo
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AvailableLanguageOptions*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AvailableLanguageOptions
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_AvailableLanguageOptions
+  name: AvailableLanguageOptions
+  nameWithType: ContentItem.AvailableLanguageOptions
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AvailableLanguageOptions
+- uid: Google.Protobuf.Collections.RepeatedField{AppleTvControlLibrary.Mrp.Protobuf.LanguageOptionGroup}
+  commentId: T:Google.Protobuf.Collections.RepeatedField{AppleTvControlLibrary.Mrp.Protobuf.LanguageOptionGroup}
+  parent: Google.Protobuf.Collections
+  definition: Google.Protobuf.Collections.RepeatedField`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.LanguageOptionGroup.html
+  name: RepeatedField<LanguageOptionGroup>
+  nameWithType: RepeatedField<LanguageOptionGroup>
+  fullName: Google.Protobuf.Collections.RepeatedField<AppleTvControlLibrary.Mrp.Protobuf.LanguageOptionGroup>
+  nameWithType.vb: RepeatedField(Of LanguageOptionGroup)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of AppleTvControlLibrary.Mrp.Protobuf.LanguageOptionGroup)
+  name.vb: RepeatedField(Of LanguageOptionGroup)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.LanguageOptionGroup
+    name: LanguageOptionGroup
+    href: AppleTvControlLibrary.Mrp.Protobuf.LanguageOptionGroup.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.LanguageOptionGroup
+    name: LanguageOptionGroup
+    href: AppleTvControlLibrary.Mrp.Protobuf.LanguageOptionGroup.html
+  - name: )
+- uid: Google.Protobuf.Collections.RepeatedField`1
+  commentId: T:Google.Protobuf.Collections.RepeatedField`1
+  isExternal: true
+  name: RepeatedField<T>
+  nameWithType: RepeatedField<T>
+  fullName: Google.Protobuf.Collections.RepeatedField<T>
+  nameWithType.vb: RepeatedField(Of T)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of T)
+  name.vb: RepeatedField(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.Collections
+  commentId: N:Google.Protobuf.Collections
+  isExternal: true
+  name: Google.Protobuf.Collections
+  nameWithType: Google.Protobuf.Collections
+  fullName: Google.Protobuf.Collections
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Collections
+    name: Collections
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Collections
+    name: Collections
+    isExternal: true
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CurrentLanguageOptions*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CurrentLanguageOptions
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_CurrentLanguageOptions
+  name: CurrentLanguageOptions
+  nameWithType: ContentItem.CurrentLanguageOptions
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CurrentLanguageOptions
+- uid: Google.Protobuf.Collections.RepeatedField{AppleTvControlLibrary.Mrp.Protobuf.LanguageOption}
+  commentId: T:Google.Protobuf.Collections.RepeatedField{AppleTvControlLibrary.Mrp.Protobuf.LanguageOption}
+  parent: Google.Protobuf.Collections
+  definition: Google.Protobuf.Collections.RepeatedField`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.LanguageOption.html
+  name: RepeatedField<LanguageOption>
+  nameWithType: RepeatedField<LanguageOption>
+  fullName: Google.Protobuf.Collections.RepeatedField<AppleTvControlLibrary.Mrp.Protobuf.LanguageOption>
+  nameWithType.vb: RepeatedField(Of LanguageOption)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of AppleTvControlLibrary.Mrp.Protobuf.LanguageOption)
+  name.vb: RepeatedField(Of LanguageOption)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.LanguageOption
+    name: LanguageOption
+    href: AppleTvControlLibrary.Mrp.Protobuf.LanguageOption.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.LanguageOption
+    name: LanguageOption
+    href: AppleTvControlLibrary.Mrp.Protobuf.LanguageOption.html
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ParentIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ParentIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_ParentIdentifier
+  name: ParentIdentifier
+  nameWithType: ContentItem.ParentIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ParentIdentifier
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasParentIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasParentIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_HasParentIdentifier
+  name: HasParentIdentifier
+  nameWithType: ContentItem.HasParentIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasParentIdentifier
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearParentIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearParentIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_ClearParentIdentifier
+  name: ClearParentIdentifier
+  nameWithType: ContentItem.ClearParentIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearParentIdentifier
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AncestorIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AncestorIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_AncestorIdentifier
+  name: AncestorIdentifier
+  nameWithType: ContentItem.AncestorIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.AncestorIdentifier
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasAncestorIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasAncestorIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_HasAncestorIdentifier
+  name: HasAncestorIdentifier
+  nameWithType: ContentItem.HasAncestorIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasAncestorIdentifier
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearAncestorIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearAncestorIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_ClearAncestorIdentifier
+  name: ClearAncestorIdentifier
+  nameWithType: ContentItem.ClearAncestorIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearAncestorIdentifier
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.QueueIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.QueueIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_QueueIdentifier
+  name: QueueIdentifier
+  nameWithType: ContentItem.QueueIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.QueueIdentifier
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasQueueIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasQueueIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_HasQueueIdentifier
+  name: HasQueueIdentifier
+  nameWithType: ContentItem.HasQueueIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasQueueIdentifier
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearQueueIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearQueueIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_ClearQueueIdentifier
+  name: ClearQueueIdentifier
+  nameWithType: ContentItem.ClearQueueIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearQueueIdentifier
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.RequestIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.RequestIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_RequestIdentifier
+  name: RequestIdentifier
+  nameWithType: ContentItem.RequestIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.RequestIdentifier
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasRequestIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasRequestIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_HasRequestIdentifier
+  name: HasRequestIdentifier
+  nameWithType: ContentItem.HasRequestIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasRequestIdentifier
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearRequestIdentifier*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearRequestIdentifier
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_ClearRequestIdentifier
+  name: ClearRequestIdentifier
+  nameWithType: ContentItem.ClearRequestIdentifier
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearRequestIdentifier
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataWidth*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataWidth
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_ArtworkDataWidth
+  name: ArtworkDataWidth
+  nameWithType: ContentItem.ArtworkDataWidth
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataWidth
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkDataWidth*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkDataWidth
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_HasArtworkDataWidth
+  name: HasArtworkDataWidth
+  nameWithType: ContentItem.HasArtworkDataWidth
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkDataWidth
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkDataWidth*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkDataWidth
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_ClearArtworkDataWidth
+  name: ClearArtworkDataWidth
+  nameWithType: ContentItem.ClearArtworkDataWidth
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkDataWidth
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataHeight*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataHeight
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_ArtworkDataHeight
+  name: ArtworkDataHeight
+  nameWithType: ContentItem.ArtworkDataHeight
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ArtworkDataHeight
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkDataHeight*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkDataHeight
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_HasArtworkDataHeight
+  name: HasArtworkDataHeight
+  nameWithType: ContentItem.HasArtworkDataHeight
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.HasArtworkDataHeight
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkDataHeight*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkDataHeight
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_ClearArtworkDataHeight
+  name: ClearArtworkDataHeight
+  nameWithType: ContentItem.ClearArtworkDataHeight
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ClearArtworkDataHeight
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Equals*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Equals
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_Equals_System_Object_
+  name: Equals
+  nameWithType: ContentItem.Equals
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.Equals
+- uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}.Equals(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  commentId: M:System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}.Equals(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  parent: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(ContentItem)
+  nameWithType: IEquatable<ContentItem>.Equals(ContentItem)
+  fullName: System.IEquatable<AppleTvControlLibrary.Mrp.Protobuf.ContentItem>.Equals(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  nameWithType.vb: IEquatable(Of ContentItem).Equals(ContentItem)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Mrp.Protobuf.ContentItem).Equals(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  spec.csharp:
+  - uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}.Equals(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+    name: ContentItem
+    href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}.Equals(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+    name: ContentItem
+    href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.GetHashCode*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.GetHashCode
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_GetHashCode
+  name: GetHashCode
+  nameWithType: ContentItem.GetHashCode
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ToString*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ToString
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_ToString
+  name: ToString
+  nameWithType: ContentItem.ToString
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.ToString
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.WriteTo*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.WriteTo
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_WriteTo_Google_Protobuf_CodedOutputStream_
+  name: WriteTo
+  nameWithType: ContentItem.WriteTo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CalculateSize*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CalculateSize
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_CalculateSize
+  name: CalculateSize
+  nameWithType: ContentItem.CalculateSize
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.MergeFrom*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.ContentItem.MergeFrom
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html#AppleTvControlLibrary_Mrp_Protobuf_ContentItem_MergeFrom_AppleTvControlLibrary_Mrp_Protobuf_ContentItem_
+  name: MergeFrom
+  nameWithType: ContentItem.MergeFrom
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.MergeFrom
+- uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  commentId: M:Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  parent: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html
+  name: MergeFrom(ContentItem)
+  nameWithType: IMessage<ContentItem>.MergeFrom(ContentItem)
+  fullName: Google.Protobuf.IMessage<AppleTvControlLibrary.Mrp.Protobuf.ContentItem>.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  nameWithType.vb: IMessage(Of ContentItem).MergeFrom(ContentItem)
+  fullName.vb: Google.Protobuf.IMessage(Of AppleTvControlLibrary.Mrp.Protobuf.ContentItem).MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+    name: ContentItem
+    href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.ContentItem}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.ContentItem)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.ContentItem
+    name: ContentItem
+    href: AppleTvControlLibrary.Mrp.Protobuf.ContentItem.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

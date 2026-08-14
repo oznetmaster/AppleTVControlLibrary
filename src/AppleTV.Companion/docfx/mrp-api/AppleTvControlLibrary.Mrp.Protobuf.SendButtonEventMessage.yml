@@ -1,0 +1,1684 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  id: SendButtonEventMessage
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.#ctor
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ButtonDown
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ButtonDownFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.CalculateSize
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearButtonDown
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearUsage
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearUsagePage
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Clone
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Descriptor
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Equals(System.Object)
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.GetHashCode
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasButtonDown
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasUsage
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasUsagePage
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Parser
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ToString
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Usage
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.UsageFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.UsagePage
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.UsagePageFieldNumber
+  - AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: SendButtonEventMessage
+  nameWithType: SendButtonEventMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  type: Class
+  source:
+    id: SendButtonEventMessage
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 49
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: 'public sealed class SendButtonEventMessage : IMessage<SendButtonEventMessage>, IEquatable<SendButtonEventMessage>, IDeepCloneable<SendButtonEventMessage>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class SendButtonEventMessage Implements IMessage(Of SendButtonEventMessage), IEquatable(Of SendButtonEventMessage), IDeepCloneable(Of SendButtonEventMessage), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}
+  - System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}
+  - Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Parser
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Parser
+  id: Parser
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: SendButtonEventMessage.Parser
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Parser
+  type: Property
+  source:
+    id: Parser
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 58
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public static MessageParser<SendButtonEventMessage> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of SendButtonEventMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Parser*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Descriptor
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Descriptor
+  id: Descriptor
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: SendButtonEventMessage.Descriptor
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Descriptor
+  type: Property
+  source:
+    id: Descriptor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 62
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Descriptor*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.#ctor
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.#ctor
+  id: '#ctor'
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: SendButtonEventMessage()
+  nameWithType: SendButtonEventMessage.SendButtonEventMessage()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.SendButtonEventMessage()
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 74
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public SendButtonEventMessage()
+    content.vb: Public Sub New()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.#ctor*
+  nameWithType.vb: SendButtonEventMessage.New()
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.New()
+  name.vb: New()
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.#ctor(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  id: '#ctor(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)'
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: SendButtonEventMessage(SendButtonEventMessage)
+  nameWithType: SendButtonEventMessage.SendButtonEventMessage(SendButtonEventMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.SendButtonEventMessage(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  type: Constructor
+  source:
+    id: .ctor
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 82
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public SendButtonEventMessage(SendButtonEventMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+    content.vb: Public Sub New(other As SendButtonEventMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.#ctor*
+  nameWithType.vb: SendButtonEventMessage.New(SendButtonEventMessage)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.New(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  name.vb: New(SendButtonEventMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Clone
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Clone
+  id: Clone
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: SendButtonEventMessage.Clone()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Clone()
+  type: Method
+  source:
+    id: Clone
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 92
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public SendButtonEventMessage Clone()
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As SendButtonEventMessage
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}.Clone
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.UsagePageFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.UsagePageFieldNumber
+  id: UsagePageFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: UsagePageFieldNumber
+  nameWithType: SendButtonEventMessage.UsagePageFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.UsagePageFieldNumber
+  type: Field
+  source:
+    id: UsagePageFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 99
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "usagePage" field.
+  example: []
+  syntax:
+    content: public const int UsagePageFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const UsagePageFieldNumber As Integer = 1
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.UsagePage
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.UsagePage
+  id: UsagePage
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: UsagePage
+  nameWithType: SendButtonEventMessage.UsagePage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.UsagePage
+  type: Property
+  source:
+    id: UsagePage
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 103
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public uint UsagePage { get; set; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public Property UsagePage As UInteger
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.UsagePage*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasUsagePage
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasUsagePage
+  id: HasUsagePage
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: HasUsagePage
+  nameWithType: SendButtonEventMessage.HasUsagePage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasUsagePage
+  type: Property
+  source:
+    id: HasUsagePage
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 113
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "usagePage" field is set
+  example: []
+  syntax:
+    content: public bool HasUsagePage { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasUsagePage As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasUsagePage*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearUsagePage
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearUsagePage
+  id: ClearUsagePage
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearUsagePage()
+  nameWithType: SendButtonEventMessage.ClearUsagePage()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearUsagePage()
+  type: Method
+  source:
+    id: ClearUsagePage
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 119
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "usagePage" field
+  example: []
+  syntax:
+    content: public void ClearUsagePage()
+    content.vb: Public Sub ClearUsagePage()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearUsagePage*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.UsageFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.UsageFieldNumber
+  id: UsageFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: UsageFieldNumber
+  nameWithType: SendButtonEventMessage.UsageFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.UsageFieldNumber
+  type: Field
+  source:
+    id: UsageFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 126
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "usage" field.
+  example: []
+  syntax:
+    content: public const int UsageFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const UsageFieldNumber As Integer = 2
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Usage
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Usage
+  id: Usage
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: Usage
+  nameWithType: SendButtonEventMessage.Usage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Usage
+  type: Property
+  source:
+    id: Usage
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 130
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public uint Usage { get; set; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public Property Usage As UInteger
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Usage*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasUsage
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasUsage
+  id: HasUsage
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: HasUsage
+  nameWithType: SendButtonEventMessage.HasUsage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasUsage
+  type: Property
+  source:
+    id: HasUsage
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 140
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "usage" field is set
+  example: []
+  syntax:
+    content: public bool HasUsage { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasUsage As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasUsage*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearUsage
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearUsage
+  id: ClearUsage
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearUsage()
+  nameWithType: SendButtonEventMessage.ClearUsage()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearUsage()
+  type: Method
+  source:
+    id: ClearUsage
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 146
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "usage" field
+  example: []
+  syntax:
+    content: public void ClearUsage()
+    content.vb: Public Sub ClearUsage()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearUsage*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ButtonDownFieldNumber
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ButtonDownFieldNumber
+  id: ButtonDownFieldNumber
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: ButtonDownFieldNumber
+  nameWithType: SendButtonEventMessage.ButtonDownFieldNumber
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ButtonDownFieldNumber
+  type: Field
+  source:
+    id: ButtonDownFieldNumber
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 153
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Field number for the "buttonDown" field.
+  example: []
+  syntax:
+    content: public const int ButtonDownFieldNumber = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const ButtonDownFieldNumber As Integer = 3
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ButtonDown
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ButtonDown
+  id: ButtonDown
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: ButtonDown
+  nameWithType: SendButtonEventMessage.ButtonDown
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ButtonDown
+  type: Property
+  source:
+    id: ButtonDown
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 157
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public bool ButtonDown { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property ButtonDown As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ButtonDown*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasButtonDown
+  commentId: P:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasButtonDown
+  id: HasButtonDown
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: HasButtonDown
+  nameWithType: SendButtonEventMessage.HasButtonDown
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasButtonDown
+  type: Property
+  source:
+    id: HasButtonDown
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 167
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Gets whether the "buttonDown" field is set
+  example: []
+  syntax:
+    content: public bool HasButtonDown { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasButtonDown As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasButtonDown*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearButtonDown
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearButtonDown
+  id: ClearButtonDown
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: ClearButtonDown()
+  nameWithType: SendButtonEventMessage.ClearButtonDown()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearButtonDown()
+  type: Method
+  source:
+    id: ClearButtonDown
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 173
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Clears the value of the "buttonDown" field
+  example: []
+  syntax:
+    content: public void ClearButtonDown()
+    content.vb: Public Sub ClearButtonDown()
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearButtonDown*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Equals(System.Object)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: SendButtonEventMessage.Equals(object)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Equals(object)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 179
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Equals*
+  nameWithType.vb: SendButtonEventMessage.Equals(Object)
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Equals(Object)
+  name.vb: Equals(Object)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  id: Equals(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: Equals(SendButtonEventMessage)
+  nameWithType: SendButtonEventMessage.Equals(SendButtonEventMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Equals(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  type: Method
+  source:
+    id: Equals
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 185
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(SendButtonEventMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As SendButtonEventMessage) As Boolean
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Equals*
+  implements:
+  - System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.GetHashCode
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.GetHashCode
+  id: GetHashCode
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: SendButtonEventMessage.GetHashCode()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.GetHashCode()
+  type: Method
+  source:
+    id: GetHashCode
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 200
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.GetHashCode*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ToString
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ToString
+  id: ToString
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: SendButtonEventMessage.ToString()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ToString()
+  type: Method
+  source:
+    id: ToString
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 213
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ToString*
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: SendButtonEventMessage.WriteTo(CodedOutputStream)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    id: WriteTo
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 219
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.CalculateSize
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.CalculateSize
+  id: CalculateSize
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: SendButtonEventMessage.CalculateSize()
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.CalculateSize()
+  type: Method
+  source:
+    id: CalculateSize
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 265
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  id: MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(SendButtonEventMessage)
+  nameWithType: SendButtonEventMessage.MergeFrom(SendButtonEventMessage)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  type: Method
+  source:
+    id: MergeFrom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 284
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(SendButtonEventMessage other)
+    parameters:
+    - id: other
+      type: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+    content.vb: Public Sub MergeFrom(other As SendButtonEventMessage)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: SendButtonEventMessage.MergeFrom(CodedInputStream)
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    id: MergeFrom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\SendButtonEventMessage.cs
+    startLine: 302
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}
+  commentId: T:Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html
+  name: IMessage<SendButtonEventMessage>
+  nameWithType: IMessage<SendButtonEventMessage>
+  fullName: Google.Protobuf.IMessage<AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage>
+  nameWithType.vb: IMessage(Of SendButtonEventMessage)
+  fullName.vb: Google.Protobuf.IMessage(Of AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  name.vb: IMessage(Of SendButtonEventMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+    name: SendButtonEventMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+    name: SendButtonEventMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html
+  - name: )
+- uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}
+  commentId: T:System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<SendButtonEventMessage>
+  nameWithType: IEquatable<SendButtonEventMessage>
+  fullName: System.IEquatable<AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage>
+  nameWithType.vb: IEquatable(Of SendButtonEventMessage)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  name.vb: IEquatable(Of SendButtonEventMessage)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+    name: SendButtonEventMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+    name: SendButtonEventMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}
+  commentId: T:Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html
+  name: IDeepCloneable<SendButtonEventMessage>
+  nameWithType: IDeepCloneable<SendButtonEventMessage>
+  fullName: Google.Protobuf.IDeepCloneable<AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage>
+  nameWithType.vb: IDeepCloneable(Of SendButtonEventMessage)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  name.vb: IDeepCloneable(Of SendButtonEventMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+    name: SendButtonEventMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+    name: SendButtonEventMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Parser*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Parser
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_Parser
+  name: Parser
+  nameWithType: SendButtonEventMessage.Parser
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Parser
+- uid: Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}
+  commentId: T:Google.Protobuf.MessageParser{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html
+  name: MessageParser<SendButtonEventMessage>
+  nameWithType: MessageParser<SendButtonEventMessage>
+  fullName: Google.Protobuf.MessageParser<AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage>
+  nameWithType.vb: MessageParser(Of SendButtonEventMessage)
+  fullName.vb: Google.Protobuf.MessageParser(Of AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  name.vb: MessageParser(Of SendButtonEventMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+    name: SendButtonEventMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+    name: SendButtonEventMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Descriptor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Descriptor
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_Descriptor
+  name: Descriptor
+  nameWithType: SendButtonEventMessage.Descriptor
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.#ctor*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.#ctor
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage__ctor
+  name: SendButtonEventMessage
+  nameWithType: SendButtonEventMessage.SendButtonEventMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.SendButtonEventMessage
+  nameWithType.vb: SendButtonEventMessage.New
+  fullName.vb: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.New
+  name.vb: New
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html
+  name: SendButtonEventMessage
+  nameWithType: SendButtonEventMessage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Clone*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Clone
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_Clone
+  name: Clone
+  nameWithType: SendButtonEventMessage.Clone
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Clone
+- uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}.Clone
+  parent: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<SendButtonEventMessage>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage>.Clone()
+  nameWithType.vb: IDeepCloneable(Of SendButtonEventMessage).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.UsagePage*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.UsagePage
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_UsagePage
+  name: UsagePage
+  nameWithType: SendButtonEventMessage.UsagePage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.UsagePage
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasUsagePage*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasUsagePage
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_HasUsagePage
+  name: HasUsagePage
+  nameWithType: SendButtonEventMessage.HasUsagePage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasUsagePage
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearUsagePage*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearUsagePage
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_ClearUsagePage
+  name: ClearUsagePage
+  nameWithType: SendButtonEventMessage.ClearUsagePage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearUsagePage
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Usage*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Usage
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_Usage
+  name: Usage
+  nameWithType: SendButtonEventMessage.Usage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Usage
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasUsage*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasUsage
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_HasUsage
+  name: HasUsage
+  nameWithType: SendButtonEventMessage.HasUsage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasUsage
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearUsage*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearUsage
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_ClearUsage
+  name: ClearUsage
+  nameWithType: SendButtonEventMessage.ClearUsage
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearUsage
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ButtonDown*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ButtonDown
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_ButtonDown
+  name: ButtonDown
+  nameWithType: SendButtonEventMessage.ButtonDown
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ButtonDown
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasButtonDown*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasButtonDown
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_HasButtonDown
+  name: HasButtonDown
+  nameWithType: SendButtonEventMessage.HasButtonDown
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.HasButtonDown
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearButtonDown*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearButtonDown
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_ClearButtonDown
+  name: ClearButtonDown
+  nameWithType: SendButtonEventMessage.ClearButtonDown
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ClearButtonDown
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Equals*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Equals
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_Equals_System_Object_
+  name: Equals
+  nameWithType: SendButtonEventMessage.Equals
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.Equals
+- uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  commentId: M:System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  parent: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(SendButtonEventMessage)
+  nameWithType: IEquatable<SendButtonEventMessage>.Equals(SendButtonEventMessage)
+  fullName: System.IEquatable<AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage>.Equals(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  nameWithType.vb: IEquatable(Of SendButtonEventMessage).Equals(SendButtonEventMessage)
+  fullName.vb: System.IEquatable(Of AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage).Equals(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  spec.csharp:
+  - uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+    name: SendButtonEventMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}.Equals(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+    name: SendButtonEventMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.GetHashCode*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.GetHashCode
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_GetHashCode
+  name: GetHashCode
+  nameWithType: SendButtonEventMessage.GetHashCode
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ToString*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ToString
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_ToString
+  name: ToString
+  nameWithType: SendButtonEventMessage.ToString
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.WriteTo*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.WriteTo
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_WriteTo_Google_Protobuf_CodedOutputStream_
+  name: WriteTo
+  nameWithType: SendButtonEventMessage.WriteTo
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.CalculateSize*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.CalculateSize
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_CalculateSize
+  name: CalculateSize
+  nameWithType: SendButtonEventMessage.CalculateSize
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.MergeFrom*
+  commentId: Overload:AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.MergeFrom
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html#AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_MergeFrom_AppleTvControlLibrary_Mrp_Protobuf_SendButtonEventMessage_
+  name: MergeFrom
+  nameWithType: SendButtonEventMessage.MergeFrom
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.MergeFrom
+- uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  commentId: M:Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  parent: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html
+  name: MergeFrom(SendButtonEventMessage)
+  nameWithType: IMessage<SendButtonEventMessage>.MergeFrom(SendButtonEventMessage)
+  fullName: Google.Protobuf.IMessage<AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage>.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  nameWithType.vb: IMessage(Of SendButtonEventMessage).MergeFrom(SendButtonEventMessage)
+  fullName.vb: Google.Protobuf.IMessage(Of AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage).MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+    name: SendButtonEventMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage}.MergeFrom(AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage
+    name: SendButtonEventMessage
+    href: AppleTvControlLibrary.Mrp.Protobuf.SendButtonEventMessage.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

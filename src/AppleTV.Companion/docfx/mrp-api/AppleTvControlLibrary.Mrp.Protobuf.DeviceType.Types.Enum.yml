@@ -1,0 +1,302 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+  id: DeviceType.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.AirPlay
+  - AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.Bluetooth
+  - AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.BuiltIn
+  - AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.CarPlay
+  - AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.Unknown
+  - AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.Wired
+  langs:
+  - csharp
+  - vb
+  name: DeviceType.Types.Enum
+  nameWithType: DeviceType.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+  type: Enum
+  source:
+    id: Enum
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 758
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public enum DeviceType.Types.Enum
+    content.vb: Public Enum DeviceType.Types.Enum
+- uid: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.Unknown
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.Unknown
+  id: Unknown
+  parent: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: DeviceType.Types.Enum.Unknown
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.Unknown
+  type: Field
+  source:
+    id: Unknown
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 759
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Unknown")]
+
+      Unknown = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+    content.vb: >-
+      <OriginalName("Unknown")>
+
+      Unknown = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Unknown
+- uid: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.AirPlay
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.AirPlay
+  id: AirPlay
+  parent: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: AirPlay
+  nameWithType: DeviceType.Types.Enum.AirPlay
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.AirPlay
+  type: Field
+  source:
+    id: AirPlay
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 760
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("AirPlay")]
+
+      AirPlay = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+    content.vb: >-
+      <OriginalName("AirPlay")>
+
+      AirPlay = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: AirPlay
+- uid: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.Bluetooth
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.Bluetooth
+  id: Bluetooth
+  parent: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Bluetooth
+  nameWithType: DeviceType.Types.Enum.Bluetooth
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.Bluetooth
+  type: Field
+  source:
+    id: Bluetooth
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 761
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Bluetooth")]
+
+      Bluetooth = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+    content.vb: >-
+      <OriginalName("Bluetooth")>
+
+      Bluetooth = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Bluetooth
+- uid: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.CarPlay
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.CarPlay
+  id: CarPlay
+  parent: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: CarPlay
+  nameWithType: DeviceType.Types.Enum.CarPlay
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.CarPlay
+  type: Field
+  source:
+    id: CarPlay
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 762
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("CarPlay")]
+
+      CarPlay = 3
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+    content.vb: >-
+      <OriginalName("CarPlay")>
+
+      CarPlay = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: CarPlay
+- uid: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.BuiltIn
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.BuiltIn
+  id: BuiltIn
+  parent: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: BuiltIn
+  nameWithType: DeviceType.Types.Enum.BuiltIn
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.BuiltIn
+  type: Field
+  source:
+    id: BuiltIn
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 763
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("BuiltIn")]
+
+      BuiltIn = 4
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+    content.vb: >-
+      <OriginalName("BuiltIn")>
+
+      BuiltIn = 4
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: BuiltIn
+- uid: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.Wired
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.Wired
+  id: Wired
+  parent: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Wired
+  nameWithType: DeviceType.Types.Enum.Wired
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.Wired
+  type: Field
+  source:
+    id: Wired
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Common.cs
+    startLine: 764
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Wired")]
+
+      Wired = 5
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+    content.vb: >-
+      <OriginalName("Wired")>
+
+      Wired = 5
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Wired
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.html
+  name: DeviceType.Types.Enum
+  nameWithType: DeviceType.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.DeviceType
+    name: DeviceType
+    href: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.DeviceType
+    name: DeviceType
+    href: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.DeviceType.Types.Enum.html

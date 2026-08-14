@@ -1,0 +1,2078 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.Command
+  id: Command
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.AddItemToLibrary
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.AddNowPlayingItemToLibrary
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.AddTrackToWishList
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.AdvanceRepeatMode
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.AdvanceShuffleMode
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.BanTrack
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.BeginFastForward
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.BeginRewind
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.BookmarkTrack
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.ChangePlaybackRate
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.ChangeQueueEndAction
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.ChangeRepeatMode
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.ChangeShuffleMode
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.CreateRadioStation
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.DisableLanguageOption
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.DiscardPlaybackSession
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.DislikeTrack
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.EnableLanguageOption
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.EndFastForward
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.EndRewind
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.FastForward15Seconds
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.FastForward30Seconds
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.InsertIntoPlaybackQueue
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.LikeTrack
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.NextAlbum
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.NextChapter
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.NextInContext
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.NextPlaylist
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.NextTrack
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.Pause
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.Play
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.PlayItemInPlaybackQueue
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.PreloadedPlaybackSession
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.PrepareForSetQueue
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousAlbum
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousChapter
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousInContext
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousPlaylist
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousTrack
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.RateTrack
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.RemoveFromPlaybackQueue
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.RemoveTrackFromWishList
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.ReorderPlaybackQueue
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.ResetPlaybackTimeout
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.Reshuffle
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.Rewind15Seconds
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.Rewind30Seconds
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.SeekToPlaybackPosition
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.SetPlaybackQueue
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.SetPlaybackSession
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.SetPriorityForPlaybackSession
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.SkipBackward
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.SkipForward
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.Stop
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.TogglePlayPause
+  - AppleTvControlLibrary.Mrp.Protobuf.Command.Unknown
+  langs:
+  - csharp
+  - vb
+  name: Command
+  nameWithType: Command
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command
+  type: Enum
+  source:
+    id: Command
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 97
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public enum Command
+    content.vb: Public Enum Command
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.Unknown
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.Unknown
+  id: Unknown
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: Command.Unknown
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.Unknown
+  type: Field
+  source:
+    id: Unknown
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 98
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Unknown")]
+
+      Unknown = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("Unknown")>
+
+      Unknown = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Unknown
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.Play
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.Play
+  id: Play
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: Play
+  nameWithType: Command.Play
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.Play
+  type: Field
+  source:
+    id: Play
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 99
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Play")]
+
+      Play = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("Play")>
+
+      Play = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Play
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.Pause
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.Pause
+  id: Pause
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: Pause
+  nameWithType: Command.Pause
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.Pause
+  type: Field
+  source:
+    id: Pause
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 100
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Pause")]
+
+      Pause = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("Pause")>
+
+      Pause = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Pause
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.TogglePlayPause
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.TogglePlayPause
+  id: TogglePlayPause
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: TogglePlayPause
+  nameWithType: Command.TogglePlayPause
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.TogglePlayPause
+  type: Field
+  source:
+    id: TogglePlayPause
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 101
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TogglePlayPause")]
+
+      TogglePlayPause = 3
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("TogglePlayPause")>
+
+      TogglePlayPause = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TogglePlayPause
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.Stop
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.Stop
+  id: Stop
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: Stop
+  nameWithType: Command.Stop
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.Stop
+  type: Field
+  source:
+    id: Stop
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 102
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Stop")]
+
+      Stop = 4
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("Stop")>
+
+      Stop = 4
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Stop
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.NextTrack
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.NextTrack
+  id: NextTrack
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: NextTrack
+  nameWithType: Command.NextTrack
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.NextTrack
+  type: Field
+  source:
+    id: NextTrack
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 103
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("NextTrack")]
+
+      NextTrack = 5
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("NextTrack")>
+
+      NextTrack = 5
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NextTrack
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousTrack
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousTrack
+  id: PreviousTrack
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: PreviousTrack
+  nameWithType: Command.PreviousTrack
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousTrack
+  type: Field
+  source:
+    id: PreviousTrack
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 104
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("PreviousTrack")]
+
+      PreviousTrack = 6
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("PreviousTrack")>
+
+      PreviousTrack = 6
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: PreviousTrack
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.AdvanceShuffleMode
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.AdvanceShuffleMode
+  id: AdvanceShuffleMode
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: AdvanceShuffleMode
+  nameWithType: Command.AdvanceShuffleMode
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.AdvanceShuffleMode
+  type: Field
+  source:
+    id: AdvanceShuffleMode
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 105
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("AdvanceShuffleMode")]
+
+      AdvanceShuffleMode = 7
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("AdvanceShuffleMode")>
+
+      AdvanceShuffleMode = 7
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: AdvanceShuffleMode
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.AdvanceRepeatMode
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.AdvanceRepeatMode
+  id: AdvanceRepeatMode
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: AdvanceRepeatMode
+  nameWithType: Command.AdvanceRepeatMode
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.AdvanceRepeatMode
+  type: Field
+  source:
+    id: AdvanceRepeatMode
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 106
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("AdvanceRepeatMode")]
+
+      AdvanceRepeatMode = 8
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("AdvanceRepeatMode")>
+
+      AdvanceRepeatMode = 8
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: AdvanceRepeatMode
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.BeginFastForward
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.BeginFastForward
+  id: BeginFastForward
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: BeginFastForward
+  nameWithType: Command.BeginFastForward
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.BeginFastForward
+  type: Field
+  source:
+    id: BeginFastForward
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 107
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("BeginFastForward")]
+
+      BeginFastForward = 9
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("BeginFastForward")>
+
+      BeginFastForward = 9
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: BeginFastForward
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.EndFastForward
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.EndFastForward
+  id: EndFastForward
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: EndFastForward
+  nameWithType: Command.EndFastForward
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.EndFastForward
+  type: Field
+  source:
+    id: EndFastForward
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 108
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("EndFastForward")]
+
+      EndFastForward = 10
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("EndFastForward")>
+
+      EndFastForward = 10
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: EndFastForward
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.BeginRewind
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.BeginRewind
+  id: BeginRewind
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: BeginRewind
+  nameWithType: Command.BeginRewind
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.BeginRewind
+  type: Field
+  source:
+    id: BeginRewind
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 109
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("BeginRewind")]
+
+      BeginRewind = 11
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("BeginRewind")>
+
+      BeginRewind = 11
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: BeginRewind
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.EndRewind
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.EndRewind
+  id: EndRewind
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: EndRewind
+  nameWithType: Command.EndRewind
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.EndRewind
+  type: Field
+  source:
+    id: EndRewind
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 110
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("EndRewind")]
+
+      EndRewind = 12
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("EndRewind")>
+
+      EndRewind = 12
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: EndRewind
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.Rewind15Seconds
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.Rewind15Seconds
+  id: Rewind15Seconds
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: Rewind15Seconds
+  nameWithType: Command.Rewind15Seconds
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.Rewind15Seconds
+  type: Field
+  source:
+    id: Rewind15Seconds
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 111
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Rewind15Seconds")]
+
+      Rewind15Seconds = 13
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("Rewind15Seconds")>
+
+      Rewind15Seconds = 13
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Rewind15Seconds
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.FastForward15Seconds
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.FastForward15Seconds
+  id: FastForward15Seconds
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: FastForward15Seconds
+  nameWithType: Command.FastForward15Seconds
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.FastForward15Seconds
+  type: Field
+  source:
+    id: FastForward15Seconds
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 112
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("FastForward15Seconds")]
+
+      FastForward15Seconds = 14
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("FastForward15Seconds")>
+
+      FastForward15Seconds = 14
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: FastForward15Seconds
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.Rewind30Seconds
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.Rewind30Seconds
+  id: Rewind30Seconds
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: Rewind30Seconds
+  nameWithType: Command.Rewind30Seconds
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.Rewind30Seconds
+  type: Field
+  source:
+    id: Rewind30Seconds
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 113
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Rewind30Seconds")]
+
+      Rewind30Seconds = 15
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("Rewind30Seconds")>
+
+      Rewind30Seconds = 15
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Rewind30Seconds
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.FastForward30Seconds
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.FastForward30Seconds
+  id: FastForward30Seconds
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: FastForward30Seconds
+  nameWithType: Command.FastForward30Seconds
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.FastForward30Seconds
+  type: Field
+  source:
+    id: FastForward30Seconds
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 114
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("FastForward30Seconds")]
+
+      FastForward30Seconds = 16
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("FastForward30Seconds")>
+
+      FastForward30Seconds = 16
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: FastForward30Seconds
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.SkipForward
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.SkipForward
+  id: SkipForward
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: SkipForward
+  nameWithType: Command.SkipForward
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.SkipForward
+  type: Field
+  source:
+    id: SkipForward
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 115
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("SkipForward")]
+
+      SkipForward = 18
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("SkipForward")>
+
+      SkipForward = 18
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SkipForward
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.SkipBackward
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.SkipBackward
+  id: SkipBackward
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: SkipBackward
+  nameWithType: Command.SkipBackward
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.SkipBackward
+  type: Field
+  source:
+    id: SkipBackward
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 116
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("SkipBackward")]
+
+      SkipBackward = 19
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("SkipBackward")>
+
+      SkipBackward = 19
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SkipBackward
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.ChangePlaybackRate
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.ChangePlaybackRate
+  id: ChangePlaybackRate
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: ChangePlaybackRate
+  nameWithType: Command.ChangePlaybackRate
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.ChangePlaybackRate
+  type: Field
+  source:
+    id: ChangePlaybackRate
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 117
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("ChangePlaybackRate")]
+
+      ChangePlaybackRate = 20
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("ChangePlaybackRate")>
+
+      ChangePlaybackRate = 20
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ChangePlaybackRate
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.RateTrack
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.RateTrack
+  id: RateTrack
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: RateTrack
+  nameWithType: Command.RateTrack
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.RateTrack
+  type: Field
+  source:
+    id: RateTrack
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 118
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("RateTrack")]
+
+      RateTrack = 21
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("RateTrack")>
+
+      RateTrack = 21
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: RateTrack
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.LikeTrack
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.LikeTrack
+  id: LikeTrack
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: LikeTrack
+  nameWithType: Command.LikeTrack
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.LikeTrack
+  type: Field
+  source:
+    id: LikeTrack
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 119
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("LikeTrack")]
+
+      LikeTrack = 22
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("LikeTrack")>
+
+      LikeTrack = 22
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: LikeTrack
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.DislikeTrack
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.DislikeTrack
+  id: DislikeTrack
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: DislikeTrack
+  nameWithType: Command.DislikeTrack
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.DislikeTrack
+  type: Field
+  source:
+    id: DislikeTrack
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 120
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("DislikeTrack")]
+
+      DislikeTrack = 23
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("DislikeTrack")>
+
+      DislikeTrack = 23
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: DislikeTrack
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.BookmarkTrack
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.BookmarkTrack
+  id: BookmarkTrack
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: BookmarkTrack
+  nameWithType: Command.BookmarkTrack
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.BookmarkTrack
+  type: Field
+  source:
+    id: BookmarkTrack
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 121
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("BookmarkTrack")]
+
+      BookmarkTrack = 24
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("BookmarkTrack")>
+
+      BookmarkTrack = 24
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: BookmarkTrack
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.SeekToPlaybackPosition
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.SeekToPlaybackPosition
+  id: SeekToPlaybackPosition
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: SeekToPlaybackPosition
+  nameWithType: Command.SeekToPlaybackPosition
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.SeekToPlaybackPosition
+  type: Field
+  source:
+    id: SeekToPlaybackPosition
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 122
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("SeekToPlaybackPosition")]
+
+      SeekToPlaybackPosition = 45
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("SeekToPlaybackPosition")>
+
+      SeekToPlaybackPosition = 45
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SeekToPlaybackPosition
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.ChangeRepeatMode
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.ChangeRepeatMode
+  id: ChangeRepeatMode
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: ChangeRepeatMode
+  nameWithType: Command.ChangeRepeatMode
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.ChangeRepeatMode
+  type: Field
+  source:
+    id: ChangeRepeatMode
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 123
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("ChangeRepeatMode")]
+
+      ChangeRepeatMode = 46
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("ChangeRepeatMode")>
+
+      ChangeRepeatMode = 46
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ChangeRepeatMode
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.ChangeShuffleMode
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.ChangeShuffleMode
+  id: ChangeShuffleMode
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: ChangeShuffleMode
+  nameWithType: Command.ChangeShuffleMode
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.ChangeShuffleMode
+  type: Field
+  source:
+    id: ChangeShuffleMode
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 124
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("ChangeShuffleMode")]
+
+      ChangeShuffleMode = 47
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("ChangeShuffleMode")>
+
+      ChangeShuffleMode = 47
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ChangeShuffleMode
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.EnableLanguageOption
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.EnableLanguageOption
+  id: EnableLanguageOption
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: EnableLanguageOption
+  nameWithType: Command.EnableLanguageOption
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.EnableLanguageOption
+  type: Field
+  source:
+    id: EnableLanguageOption
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 125
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("EnableLanguageOption")]
+
+      EnableLanguageOption = 53
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("EnableLanguageOption")>
+
+      EnableLanguageOption = 53
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: EnableLanguageOption
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.DisableLanguageOption
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.DisableLanguageOption
+  id: DisableLanguageOption
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: DisableLanguageOption
+  nameWithType: Command.DisableLanguageOption
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.DisableLanguageOption
+  type: Field
+  source:
+    id: DisableLanguageOption
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 126
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("DisableLanguageOption")]
+
+      DisableLanguageOption = 54
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("DisableLanguageOption")>
+
+      DisableLanguageOption = 54
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: DisableLanguageOption
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.NextChapter
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.NextChapter
+  id: NextChapter
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: NextChapter
+  nameWithType: Command.NextChapter
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.NextChapter
+  type: Field
+  source:
+    id: NextChapter
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 127
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("NextChapter")]
+
+      NextChapter = 25
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("NextChapter")>
+
+      NextChapter = 25
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NextChapter
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousChapter
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousChapter
+  id: PreviousChapter
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: PreviousChapter
+  nameWithType: Command.PreviousChapter
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousChapter
+  type: Field
+  source:
+    id: PreviousChapter
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 128
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("PreviousChapter")]
+
+      PreviousChapter = 26
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("PreviousChapter")>
+
+      PreviousChapter = 26
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: PreviousChapter
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.NextAlbum
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.NextAlbum
+  id: NextAlbum
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: NextAlbum
+  nameWithType: Command.NextAlbum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.NextAlbum
+  type: Field
+  source:
+    id: NextAlbum
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 129
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("NextAlbum")]
+
+      NextAlbum = 27
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("NextAlbum")>
+
+      NextAlbum = 27
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NextAlbum
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousAlbum
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousAlbum
+  id: PreviousAlbum
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: PreviousAlbum
+  nameWithType: Command.PreviousAlbum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousAlbum
+  type: Field
+  source:
+    id: PreviousAlbum
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 130
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("PreviousAlbum")]
+
+      PreviousAlbum = 28
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("PreviousAlbum")>
+
+      PreviousAlbum = 28
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: PreviousAlbum
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.NextPlaylist
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.NextPlaylist
+  id: NextPlaylist
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: NextPlaylist
+  nameWithType: Command.NextPlaylist
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.NextPlaylist
+  type: Field
+  source:
+    id: NextPlaylist
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 131
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("NextPlaylist")]
+
+      NextPlaylist = 29
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("NextPlaylist")>
+
+      NextPlaylist = 29
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NextPlaylist
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousPlaylist
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousPlaylist
+  id: PreviousPlaylist
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: PreviousPlaylist
+  nameWithType: Command.PreviousPlaylist
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousPlaylist
+  type: Field
+  source:
+    id: PreviousPlaylist
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 132
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("PreviousPlaylist")]
+
+      PreviousPlaylist = 30
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("PreviousPlaylist")>
+
+      PreviousPlaylist = 30
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: PreviousPlaylist
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.BanTrack
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.BanTrack
+  id: BanTrack
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: BanTrack
+  nameWithType: Command.BanTrack
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.BanTrack
+  type: Field
+  source:
+    id: BanTrack
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 133
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("BanTrack")]
+
+      BanTrack = 31
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("BanTrack")>
+
+      BanTrack = 31
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: BanTrack
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.AddTrackToWishList
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.AddTrackToWishList
+  id: AddTrackToWishList
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: AddTrackToWishList
+  nameWithType: Command.AddTrackToWishList
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.AddTrackToWishList
+  type: Field
+  source:
+    id: AddTrackToWishList
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 134
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("AddTrackToWishList")]
+
+      AddTrackToWishList = 32
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("AddTrackToWishList")>
+
+      AddTrackToWishList = 32
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: AddTrackToWishList
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.RemoveTrackFromWishList
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.RemoveTrackFromWishList
+  id: RemoveTrackFromWishList
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: RemoveTrackFromWishList
+  nameWithType: Command.RemoveTrackFromWishList
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.RemoveTrackFromWishList
+  type: Field
+  source:
+    id: RemoveTrackFromWishList
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 135
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("RemoveTrackFromWishList")]
+
+      RemoveTrackFromWishList = 33
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("RemoveTrackFromWishList")>
+
+      RemoveTrackFromWishList = 33
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: RemoveTrackFromWishList
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.NextInContext
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.NextInContext
+  id: NextInContext
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: NextInContext
+  nameWithType: Command.NextInContext
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.NextInContext
+  type: Field
+  source:
+    id: NextInContext
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 136
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("NextInContext")]
+
+      NextInContext = 34
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("NextInContext")>
+
+      NextInContext = 34
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NextInContext
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousInContext
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousInContext
+  id: PreviousInContext
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: PreviousInContext
+  nameWithType: Command.PreviousInContext
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.PreviousInContext
+  type: Field
+  source:
+    id: PreviousInContext
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 137
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("PreviousInContext")]
+
+      PreviousInContext = 35
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("PreviousInContext")>
+
+      PreviousInContext = 35
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: PreviousInContext
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.ResetPlaybackTimeout
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.ResetPlaybackTimeout
+  id: ResetPlaybackTimeout
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: ResetPlaybackTimeout
+  nameWithType: Command.ResetPlaybackTimeout
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.ResetPlaybackTimeout
+  type: Field
+  source:
+    id: ResetPlaybackTimeout
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 138
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("ResetPlaybackTimeout")]
+
+      ResetPlaybackTimeout = 41
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("ResetPlaybackTimeout")>
+
+      ResetPlaybackTimeout = 41
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ResetPlaybackTimeout
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.SetPlaybackQueue
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.SetPlaybackQueue
+  id: SetPlaybackQueue
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: SetPlaybackQueue
+  nameWithType: Command.SetPlaybackQueue
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.SetPlaybackQueue
+  type: Field
+  source:
+    id: SetPlaybackQueue
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 139
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("SetPlaybackQueue")]
+
+      SetPlaybackQueue = 48
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("SetPlaybackQueue")>
+
+      SetPlaybackQueue = 48
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SetPlaybackQueue
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.AddNowPlayingItemToLibrary
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.AddNowPlayingItemToLibrary
+  id: AddNowPlayingItemToLibrary
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: AddNowPlayingItemToLibrary
+  nameWithType: Command.AddNowPlayingItemToLibrary
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.AddNowPlayingItemToLibrary
+  type: Field
+  source:
+    id: AddNowPlayingItemToLibrary
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 140
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("AddNowPlayingItemToLibrary")]
+
+      AddNowPlayingItemToLibrary = 49
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("AddNowPlayingItemToLibrary")>
+
+      AddNowPlayingItemToLibrary = 49
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: AddNowPlayingItemToLibrary
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.CreateRadioStation
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.CreateRadioStation
+  id: CreateRadioStation
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: CreateRadioStation
+  nameWithType: Command.CreateRadioStation
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.CreateRadioStation
+  type: Field
+  source:
+    id: CreateRadioStation
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 141
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("CreateRadioStation")]
+
+      CreateRadioStation = 50
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("CreateRadioStation")>
+
+      CreateRadioStation = 50
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: CreateRadioStation
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.AddItemToLibrary
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.AddItemToLibrary
+  id: AddItemToLibrary
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: AddItemToLibrary
+  nameWithType: Command.AddItemToLibrary
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.AddItemToLibrary
+  type: Field
+  source:
+    id: AddItemToLibrary
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 142
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("AddItemToLibrary")]
+
+      AddItemToLibrary = 51
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("AddItemToLibrary")>
+
+      AddItemToLibrary = 51
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: AddItemToLibrary
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.InsertIntoPlaybackQueue
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.InsertIntoPlaybackQueue
+  id: InsertIntoPlaybackQueue
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: InsertIntoPlaybackQueue
+  nameWithType: Command.InsertIntoPlaybackQueue
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.InsertIntoPlaybackQueue
+  type: Field
+  source:
+    id: InsertIntoPlaybackQueue
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 143
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("InsertIntoPlaybackQueue")]
+
+      InsertIntoPlaybackQueue = 52
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("InsertIntoPlaybackQueue")>
+
+      InsertIntoPlaybackQueue = 52
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: InsertIntoPlaybackQueue
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.ReorderPlaybackQueue
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.ReorderPlaybackQueue
+  id: ReorderPlaybackQueue
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: ReorderPlaybackQueue
+  nameWithType: Command.ReorderPlaybackQueue
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.ReorderPlaybackQueue
+  type: Field
+  source:
+    id: ReorderPlaybackQueue
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 144
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("ReorderPlaybackQueue")]
+
+      ReorderPlaybackQueue = 55
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("ReorderPlaybackQueue")>
+
+      ReorderPlaybackQueue = 55
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ReorderPlaybackQueue
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.RemoveFromPlaybackQueue
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.RemoveFromPlaybackQueue
+  id: RemoveFromPlaybackQueue
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: RemoveFromPlaybackQueue
+  nameWithType: Command.RemoveFromPlaybackQueue
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.RemoveFromPlaybackQueue
+  type: Field
+  source:
+    id: RemoveFromPlaybackQueue
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 145
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("RemoveFromPlaybackQueue")]
+
+      RemoveFromPlaybackQueue = 56
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("RemoveFromPlaybackQueue")>
+
+      RemoveFromPlaybackQueue = 56
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: RemoveFromPlaybackQueue
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.PlayItemInPlaybackQueue
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.PlayItemInPlaybackQueue
+  id: PlayItemInPlaybackQueue
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: PlayItemInPlaybackQueue
+  nameWithType: Command.PlayItemInPlaybackQueue
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.PlayItemInPlaybackQueue
+  type: Field
+  source:
+    id: PlayItemInPlaybackQueue
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 146
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("PlayItemInPlaybackQueue")]
+
+      PlayItemInPlaybackQueue = 57
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("PlayItemInPlaybackQueue")>
+
+      PlayItemInPlaybackQueue = 57
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: PlayItemInPlaybackQueue
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.PrepareForSetQueue
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.PrepareForSetQueue
+  id: PrepareForSetQueue
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: PrepareForSetQueue
+  nameWithType: Command.PrepareForSetQueue
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.PrepareForSetQueue
+  type: Field
+  source:
+    id: PrepareForSetQueue
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 147
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("PrepareForSetQueue")]
+
+      PrepareForSetQueue = 58
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("PrepareForSetQueue")>
+
+      PrepareForSetQueue = 58
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: PrepareForSetQueue
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.SetPlaybackSession
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.SetPlaybackSession
+  id: SetPlaybackSession
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: SetPlaybackSession
+  nameWithType: Command.SetPlaybackSession
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.SetPlaybackSession
+  type: Field
+  source:
+    id: SetPlaybackSession
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 148
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("SetPlaybackSession")]
+
+      SetPlaybackSession = 59
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("SetPlaybackSession")>
+
+      SetPlaybackSession = 59
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SetPlaybackSession
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.PreloadedPlaybackSession
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.PreloadedPlaybackSession
+  id: PreloadedPlaybackSession
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: PreloadedPlaybackSession
+  nameWithType: Command.PreloadedPlaybackSession
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.PreloadedPlaybackSession
+  type: Field
+  source:
+    id: PreloadedPlaybackSession
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 149
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("PreloadedPlaybackSession")]
+
+      PreloadedPlaybackSession = 60
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("PreloadedPlaybackSession")>
+
+      PreloadedPlaybackSession = 60
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: PreloadedPlaybackSession
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.SetPriorityForPlaybackSession
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.SetPriorityForPlaybackSession
+  id: SetPriorityForPlaybackSession
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: SetPriorityForPlaybackSession
+  nameWithType: Command.SetPriorityForPlaybackSession
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.SetPriorityForPlaybackSession
+  type: Field
+  source:
+    id: SetPriorityForPlaybackSession
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 150
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("SetPriorityForPlaybackSession")]
+
+      SetPriorityForPlaybackSession = 61
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("SetPriorityForPlaybackSession")>
+
+      SetPriorityForPlaybackSession = 61
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SetPriorityForPlaybackSession
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.DiscardPlaybackSession
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.DiscardPlaybackSession
+  id: DiscardPlaybackSession
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: DiscardPlaybackSession
+  nameWithType: Command.DiscardPlaybackSession
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.DiscardPlaybackSession
+  type: Field
+  source:
+    id: DiscardPlaybackSession
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 151
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("DiscardPlaybackSession")]
+
+      DiscardPlaybackSession = 62
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("DiscardPlaybackSession")>
+
+      DiscardPlaybackSession = 62
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: DiscardPlaybackSession
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.Reshuffle
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.Reshuffle
+  id: Reshuffle
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: Reshuffle
+  nameWithType: Command.Reshuffle
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.Reshuffle
+  type: Field
+  source:
+    id: Reshuffle
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 152
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Reshuffle")]
+
+      Reshuffle = 63
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("Reshuffle")>
+
+      Reshuffle = 63
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Reshuffle
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command.ChangeQueueEndAction
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Command.ChangeQueueEndAction
+  id: ChangeQueueEndAction
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Command
+  langs:
+  - csharp
+  - vb
+  name: ChangeQueueEndAction
+  nameWithType: Command.ChangeQueueEndAction
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command.ChangeQueueEndAction
+  type: Field
+  source:
+    id: ChangeQueueEndAction
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\CommandInfo.cs
+    startLine: 153
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("ChangeQueueEndAction")]
+
+      ChangeQueueEndAction = 135
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Command
+    content.vb: >-
+      <OriginalName("ChangeQueueEndAction")>
+
+      ChangeQueueEndAction = 135
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ChangeQueueEndAction
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Command
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.Command
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.Command.html
+  name: Command
+  nameWithType: Command
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Command

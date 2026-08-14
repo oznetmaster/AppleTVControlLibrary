@@ -1,0 +1,338 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+  id: KeyboardState.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.DidBeginEditing
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.DidEndEditing
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.Editing
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.NotEditing
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.Response
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.TextDidChange
+  - AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.Unknown
+  langs:
+  - csharp
+  - vb
+  name: KeyboardState.Types.Enum
+  nameWithType: KeyboardState.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+  type: Enum
+  source:
+    id: Enum
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 244
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public enum KeyboardState.Types.Enum
+    content.vb: Public Enum KeyboardState.Types.Enum
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.Unknown
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.Unknown
+  id: Unknown
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: KeyboardState.Types.Enum.Unknown
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.Unknown
+  type: Field
+  source:
+    id: Unknown
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 245
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Unknown")]
+
+      Unknown = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+    content.vb: >-
+      <OriginalName("Unknown")>
+
+      Unknown = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Unknown
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.NotEditing
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.NotEditing
+  id: NotEditing
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: NotEditing
+  nameWithType: KeyboardState.Types.Enum.NotEditing
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.NotEditing
+  type: Field
+  source:
+    id: NotEditing
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 246
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("NotEditing")]
+
+      NotEditing = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+    content.vb: >-
+      <OriginalName("NotEditing")>
+
+      NotEditing = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NotEditing
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.DidBeginEditing
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.DidBeginEditing
+  id: DidBeginEditing
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: DidBeginEditing
+  nameWithType: KeyboardState.Types.Enum.DidBeginEditing
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.DidBeginEditing
+  type: Field
+  source:
+    id: DidBeginEditing
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 247
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("DidBeginEditing")]
+
+      DidBeginEditing = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+    content.vb: >-
+      <OriginalName("DidBeginEditing")>
+
+      DidBeginEditing = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: DidBeginEditing
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.Editing
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.Editing
+  id: Editing
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Editing
+  nameWithType: KeyboardState.Types.Enum.Editing
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.Editing
+  type: Field
+  source:
+    id: Editing
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 248
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Editing")]
+
+      Editing = 3
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+    content.vb: >-
+      <OriginalName("Editing")>
+
+      Editing = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Editing
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.TextDidChange
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.TextDidChange
+  id: TextDidChange
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: TextDidChange
+  nameWithType: KeyboardState.Types.Enum.TextDidChange
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.TextDidChange
+  type: Field
+  source:
+    id: TextDidChange
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 249
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("TextDidChange")]
+
+      TextDidChange = 4
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+    content.vb: >-
+      <OriginalName("TextDidChange")>
+
+      TextDidChange = 4
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: TextDidChange
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.DidEndEditing
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.DidEndEditing
+  id: DidEndEditing
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: DidEndEditing
+  nameWithType: KeyboardState.Types.Enum.DidEndEditing
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.DidEndEditing
+  type: Field
+  source:
+    id: DidEndEditing
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 250
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("DidEndEditing")]
+
+      DidEndEditing = 5
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+    content.vb: >-
+      <OriginalName("DidEndEditing")>
+
+      DidEndEditing = 5
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: DidEndEditing
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.Response
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.Response
+  id: Response
+  parent: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Response
+  nameWithType: KeyboardState.Types.Enum.Response
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.Response
+  type: Field
+  source:
+    id: Response
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\KeyboardMessage.cs
+    startLine: 251
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Response")]
+
+      Response = 6
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+    content.vb: >-
+      <OriginalName("Response")>
+
+      Response = 6
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Response
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.html
+  name: KeyboardState.Types.Enum
+  nameWithType: KeyboardState.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState
+    name: KeyboardState
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState
+    name: KeyboardState
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.KeyboardState.Types.Enum.html

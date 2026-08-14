@@ -1,0 +1,155 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState
+  commentId: T:AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState
+  id: ShuffleState
+  parent: AppleTvControlLibrary.Mrp.RemoteControl
+  children:
+  - AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState.Albums
+  - AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState.Off
+  - AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState.Songs
+  langs:
+  - csharp
+  - vb
+  name: ShuffleState
+  nameWithType: ShuffleState
+  fullName: AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState
+  type: Enum
+  source:
+    remote:
+      path: src/AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: ShuffleState
+    path: ../../AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+    startLine: 34
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.RemoteControl
+  summary: Shuffle mode, mirroring pyatv's <code>ShuffleState</code> constant.
+  example: []
+  syntax:
+    content: public enum ShuffleState
+    content.vb: Public Enum ShuffleState
+- uid: AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState.Off
+  commentId: F:AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState.Off
+  id: Off
+  parent: AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState
+  langs:
+  - csharp
+  - vb
+  name: Off
+  nameWithType: ShuffleState.Off
+  fullName: AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState.Off
+  type: Field
+  source:
+    remote:
+      path: src/AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Off
+    path: ../../AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+    startLine: 37
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.RemoteControl
+  summary: Shuffle is off. pyatv/const.py — line 91 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Off = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState
+- uid: AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState.Albums
+  commentId: F:AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState.Albums
+  id: Albums
+  parent: AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState
+  langs:
+  - csharp
+  - vb
+  name: Albums
+  nameWithType: ShuffleState.Albums
+  fullName: AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState.Albums
+  type: Field
+  source:
+    remote:
+      path: src/AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Albums
+    path: ../../AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+    startLine: 39
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.RemoteControl
+  summary: Shuffle on album level. pyatv/const.py — line 94 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Albums = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState
+- uid: AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState.Songs
+  commentId: F:AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState.Songs
+  id: Songs
+  parent: AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState
+  langs:
+  - csharp
+  - vb
+  name: Songs
+  nameWithType: ShuffleState.Songs
+  fullName: AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState.Songs
+  type: Field
+  source:
+    remote:
+      path: src/AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Songs
+    path: ../../AppleTv.Mrp/RemoteControl/MrpRemoteControl.cs
+    startLine: 41
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.RemoteControl
+  summary: Shuffle on song level. pyatv/const.py — line 97 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Songs = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState
+references:
+- uid: AppleTvControlLibrary.Mrp.RemoteControl
+  commentId: N:AppleTvControlLibrary.Mrp.RemoteControl
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.RemoteControl
+  nameWithType: AppleTvControlLibrary.Mrp.RemoteControl
+  fullName: AppleTvControlLibrary.Mrp.RemoteControl
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.RemoteControl
+    name: RemoteControl
+    href: AppleTvControlLibrary.Mrp.RemoteControl.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.RemoteControl
+    name: RemoteControl
+    href: AppleTvControlLibrary.Mrp.RemoteControl.html
+- uid: AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState
+  commentId: T:AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState
+  parent: AppleTvControlLibrary.Mrp.RemoteControl
+  href: AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState.html
+  name: ShuffleState
+  nameWithType: ShuffleState
+  fullName: AppleTvControlLibrary.Mrp.RemoteControl.ShuffleState

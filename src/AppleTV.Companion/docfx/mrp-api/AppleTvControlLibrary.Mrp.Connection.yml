@@ -1,0 +1,62 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Connection
+  commentId: N:AppleTvControlLibrary.Mrp.Connection
+  id: AppleTvControlLibrary.Mrp.Connection
+  children:
+  - AppleTvControlLibrary.Mrp.Connection.IMrpConnectionListener
+  - AppleTvControlLibrary.Mrp.Connection.IMrpFrameConnection
+  langs:
+  - csharp
+  - vb
+  name: AppleTvControlLibrary.Mrp.Connection
+  nameWithType: AppleTvControlLibrary.Mrp.Connection
+  fullName: AppleTvControlLibrary.Mrp.Connection
+  type: Namespace
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+references:
+- uid: AppleTvControlLibrary.Mrp.Connection.IMrpConnectionListener
+  commentId: T:AppleTvControlLibrary.Mrp.Connection.IMrpConnectionListener
+  parent: AppleTvControlLibrary.Mrp.Connection
+  href: AppleTvControlLibrary.Mrp.Connection.IMrpConnectionListener.html
+  name: IMrpConnectionListener
+  nameWithType: IMrpConnectionListener
+  fullName: AppleTvControlLibrary.Mrp.Connection.IMrpConnectionListener
+- uid: AppleTvControlLibrary.Mrp.Connection.IMrpFrameConnection
+  commentId: T:AppleTvControlLibrary.Mrp.Connection.IMrpFrameConnection
+  parent: AppleTvControlLibrary.Mrp.Connection
+  href: AppleTvControlLibrary.Mrp.Connection.IMrpFrameConnection.html
+  name: IMrpFrameConnection
+  nameWithType: IMrpFrameConnection
+  fullName: AppleTvControlLibrary.Mrp.Connection.IMrpFrameConnection
+- uid: AppleTvControlLibrary.Mrp.Connection
+  commentId: N:AppleTvControlLibrary.Mrp.Connection
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Connection
+  nameWithType: AppleTvControlLibrary.Mrp.Connection
+  fullName: AppleTvControlLibrary.Mrp.Connection
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Connection
+    name: Connection
+    href: AppleTvControlLibrary.Mrp.Connection.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Connection
+    name: Connection
+    href: AppleTvControlLibrary.Mrp.Connection.html

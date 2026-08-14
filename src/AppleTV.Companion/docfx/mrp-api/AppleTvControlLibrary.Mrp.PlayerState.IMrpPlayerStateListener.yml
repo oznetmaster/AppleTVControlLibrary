@@ -1,0 +1,101 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener
+  commentId: T:AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener
+  id: IMrpPlayerStateListener
+  parent: AppleTvControlLibrary.Mrp.PlayerState
+  children:
+  - AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener.StateUpdated
+  langs:
+  - csharp
+  - vb
+  name: IMrpPlayerStateListener
+  nameWithType: IMrpPlayerStateListener
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener
+  type: Interface
+  source:
+    remote:
+      path: src/AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: IMrpPlayerStateListener
+    path: ../../AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+    startLine: 17
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.PlayerState
+  summary: >-
+    Listener interface notified whenever the state relevant to the currently active client/player
+
+    changes (or, for the "always" case in pyatv, on every update regardless of relevance).
+  example: []
+  syntax:
+    content: public interface IMrpPlayerStateListener
+    content.vb: Public Interface IMrpPlayerStateListener
+  derivedClasses:
+  - AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater
+- uid: AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener.StateUpdated
+  commentId: M:AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener.StateUpdated
+  id: StateUpdated
+  parent: AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener
+  langs:
+  - csharp
+  - vb
+  name: StateUpdated()
+  nameWithType: IMrpPlayerStateListener.StateUpdated()
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener.StateUpdated()
+  type: Method
+  source:
+    remote:
+      path: src/AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: StateUpdated
+    path: ../../AppleTv.Mrp/PlayerState/MrpPlayerState.cs
+    startLine: 20
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.PlayerState
+  summary: Called when relevant player state has changed.
+  example: []
+  syntax:
+    content: void StateUpdated()
+    content.vb: Sub StateUpdated()
+  overload: AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener.StateUpdated*
+references:
+- uid: AppleTvControlLibrary.Mrp.PlayerState
+  commentId: N:AppleTvControlLibrary.Mrp.PlayerState
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.PlayerState
+  nameWithType: AppleTvControlLibrary.Mrp.PlayerState
+  fullName: AppleTvControlLibrary.Mrp.PlayerState
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.PlayerState
+    name: PlayerState
+    href: AppleTvControlLibrary.Mrp.PlayerState.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.PlayerState
+    name: PlayerState
+    href: AppleTvControlLibrary.Mrp.PlayerState.html
+- uid: AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener.StateUpdated*
+  commentId: Overload:AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener.StateUpdated
+  href: AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener.html#AppleTvControlLibrary_Mrp_PlayerState_IMrpPlayerStateListener_StateUpdated
+  name: StateUpdated
+  nameWithType: IMrpPlayerStateListener.StateUpdated
+  fullName: AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener.StateUpdated

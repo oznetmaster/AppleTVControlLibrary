@@ -1,0 +1,204 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement
+  commentId: T:AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement
+  id: AirPlayPairingRequirement
+  parent: AppleTvControlLibrary.Discovery.AirPlay
+  children:
+  - AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement.Disabled
+  - AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement.Mandatory
+  - AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement.NotNeeded
+  - AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement.Unsupported
+  langs:
+  - csharp
+  - vb
+  name: AirPlayPairingRequirement
+  nameWithType: AirPlayPairingRequirement
+  fullName: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement
+  type: Enum
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/AirPlay/AirPlayPairingRequirement.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: AirPlayPairingRequirement
+    path: ../../AppleTV.Companion.Discovery/AirPlay/AirPlayPairingRequirement.cs
+    startLine: 15
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.AirPlay
+  summary: Whether pairing is required, supported, or disabled for a discovered AirPlay service.
+  remarks: >-
+    pyatv's <code>PairingRequirement</code> enum (pyatv/const.py — line 213-229 as of pyatv 0.18.0) has five
+
+    values (Unsupported, Disabled, NotNeeded, Optional, Mandatory), but AirPlay's own
+
+    <code>update_service_details</code>/<code>get_pairing_requirement</code>
+
+    (pyatv/protocols/airplay/utils.py — line 139-157, 262-278 as of pyatv 0.18.0) only ever produces
+
+    four of them, so only those four are modeled here rather than inventing meanings for the unused
+
+    value.
+  example: []
+  syntax:
+    content: public enum AirPlayPairingRequirement
+    content.vb: Public Enum AirPlayPairingRequirement
+- uid: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement.NotNeeded
+  commentId: F:AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement.NotNeeded
+  id: NotNeeded
+  parent: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement
+  langs:
+  - csharp
+  - vb
+  name: NotNeeded
+  nameWithType: AirPlayPairingRequirement.NotNeeded
+  fullName: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement.NotNeeded
+  type: Field
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/AirPlay/AirPlayPairingRequirement.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: NotNeeded
+    path: ../../AppleTV.Companion.Discovery/AirPlay/AirPlayPairingRequirement.cs
+    startLine: 18
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.AirPlay
+  summary: Pairing is not needed. pyatv/protocols/airplay/utils.py — line 157 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: NotNeeded = 0
+    return:
+      type: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement
+- uid: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement.Mandatory
+  commentId: F:AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement.Mandatory
+  id: Mandatory
+  parent: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement
+  langs:
+  - csharp
+  - vb
+  name: Mandatory
+  nameWithType: AirPlayPairingRequirement.Mandatory
+  fullName: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement.Mandatory
+  type: Field
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/AirPlay/AirPlayPairingRequirement.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Mandatory
+    path: ../../AppleTV.Companion.Discovery/AirPlay/AirPlayPairingRequirement.cs
+    startLine: 21
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.AirPlay
+  summary: Pairing is mandatory (legacy pairing or PIN required). pyatv/protocols/airplay/utils.py — line 151-152 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Mandatory = 1
+    return:
+      type: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement
+- uid: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement.Disabled
+  commentId: F:AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement.Disabled
+  id: Disabled
+  parent: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement
+  langs:
+  - csharp
+  - vb
+  name: Disabled
+  nameWithType: AirPlayPairingRequirement.Disabled
+  fullName: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement.Disabled
+  type: Field
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/AirPlay/AirPlayPairingRequirement.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Disabled
+    path: ../../AppleTV.Companion.Discovery/AirPlay/AirPlayPairingRequirement.cs
+    startLine: 27
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.AirPlay
+  summary: >-
+    Access control disallows pairing (e.g. only devices belonging to the same home).
+
+    pyatv/protocols/airplay/utils.py — line 266-269 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Disabled = 2
+    return:
+      type: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement
+- uid: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement.Unsupported
+  commentId: F:AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement.Unsupported
+  id: Unsupported
+  parent: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement
+  langs:
+  - csharp
+  - vb
+  name: Unsupported
+  nameWithType: AirPlayPairingRequirement.Unsupported
+  fullName: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement.Unsupported
+  type: Field
+  source:
+    remote:
+      path: src/AppleTV.Companion.Discovery/AirPlay/AirPlayPairingRequirement.cs
+      branch: master
+      repo: https://github.com/oznetmaster/AppleTVControlLibrary.git
+    id: Unsupported
+    path: ../../AppleTV.Companion.Discovery/AirPlay/AirPlayPairingRequirement.cs
+    startLine: 34
+  assemblies:
+  - AppleTvControlLibrary.Discovery
+  namespace: AppleTvControlLibrary.Discovery.AirPlay
+  summary: >-
+    Pairing is not supported by pyatv for this device, either due to an unsupported model or an
+
+    unsupported access control type ("Current User").
+
+    pyatv/protocols/airplay/utils.py — line 155-156, 270-276 as of pyatv 0.18.0
+  example: []
+  syntax:
+    content: Unsupported = 3
+    return:
+      type: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement
+references:
+- uid: AppleTvControlLibrary.Discovery.AirPlay
+  commentId: N:AppleTvControlLibrary.Discovery.AirPlay
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Discovery.AirPlay
+  nameWithType: AppleTvControlLibrary.Discovery.AirPlay
+  fullName: AppleTvControlLibrary.Discovery.AirPlay
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery
+    name: Discovery
+    href: AppleTvControlLibrary.Discovery.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery.AirPlay
+    name: AirPlay
+    href: AppleTvControlLibrary.Discovery.AirPlay.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery
+    name: Discovery
+    href: AppleTvControlLibrary.Discovery.html
+  - name: .
+  - uid: AppleTvControlLibrary.Discovery.AirPlay
+    name: AirPlay
+    href: AppleTvControlLibrary.Discovery.AirPlay.html
+- uid: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement
+  commentId: T:AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement
+  parent: AppleTvControlLibrary.Discovery.AirPlay
+  href: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement.html
+  name: AirPlayPairingRequirement
+  nameWithType: AirPlayPairingRequirement
+  fullName: AppleTvControlLibrary.Discovery.AirPlay.AirPlayPairingRequirement

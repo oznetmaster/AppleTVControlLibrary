@@ -1,0 +1,194 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type
+  id: Origin.Types.Type
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type.Custom
+  - AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type.Local
+  - AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type.Unknown
+  langs:
+  - csharp
+  - vb
+  name: Origin.Types.Type
+  nameWithType: Origin.Types.Type
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type
+  type: Enum
+  source:
+    id: Type
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Origin.cs
+    startLine: 463
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: public enum Origin.Types.Type
+    content.vb: Public Enum Origin.Types.Type
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type.Unknown
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type.Unknown
+  id: Unknown
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: Origin.Types.Type.Unknown
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type.Unknown
+  type: Field
+  source:
+    id: Unknown
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Origin.cs
+    startLine: 464
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Unknown")]
+
+      Unknown = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type
+    content.vb: >-
+      <OriginalName("Unknown")>
+
+      Unknown = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Unknown
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type.Local
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type.Local
+  id: Local
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type
+  langs:
+  - csharp
+  - vb
+  name: Local
+  nameWithType: Origin.Types.Type.Local
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type.Local
+  type: Field
+  source:
+    id: Local
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Origin.cs
+    startLine: 465
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Local")]
+
+      Local = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type
+    content.vb: >-
+      <OriginalName("Local")>
+
+      Local = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Local
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type.Custom
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type.Custom
+  id: Custom
+  parent: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type
+  langs:
+  - csharp
+  - vb
+  name: Custom
+  nameWithType: Origin.Types.Type.Custom
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type.Custom
+  type: Field
+  source:
+    id: Custom
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\Origin.cs
+    startLine: 466
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Custom")]
+
+      Custom = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type
+    content.vb: >-
+      <OriginalName("Custom")>
+
+      Custom = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Custom
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.Origin.html
+  name: Origin.Types.Type
+  nameWithType: Origin.Types.Type
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.Origin
+    name: Origin
+    href: AppleTvControlLibrary.Mrp.Protobuf.Origin.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type
+    name: Type
+    href: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.Origin
+    name: Origin
+    href: AppleTvControlLibrary.Mrp.Protobuf.Origin.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type
+    name: Type
+    href: AppleTvControlLibrary.Mrp.Protobuf.Origin.Types.Type.html

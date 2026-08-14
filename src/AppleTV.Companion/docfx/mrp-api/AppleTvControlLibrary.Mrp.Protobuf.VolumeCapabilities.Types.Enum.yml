@@ -1,0 +1,235 @@
+### YamlMime:ManagedReference
+items:
+- uid: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum
+  id: VolumeCapabilities.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  children:
+  - AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum.Absolute
+  - AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum.Both
+  - AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum.None
+  - AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum.Relative
+  langs:
+  - csharp
+  - vb
+  name: VolumeCapabilities.Types.Enum
+  nameWithType: VolumeCapabilities.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum
+  type: Enum
+  source:
+    id: Enum
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\VolumeControlAvailabilityMessage.cs
+    startLine: 222
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  summary: >-
+    This is really a bitmap but protobuf has no type for that, so lets just add a "Both"
+
+    option since only two values exist anyway
+  example: []
+  syntax:
+    content: public enum VolumeCapabilities.Types.Enum
+    content.vb: Public Enum VolumeCapabilities.Types.Enum
+- uid: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum.None
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum.None
+  id: None
+  parent: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: VolumeCapabilities.Types.Enum.None
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum.None
+  type: Field
+  source:
+    id: None
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\VolumeControlAvailabilityMessage.cs
+    startLine: 223
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("None")]
+
+      None = 0
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum
+    content.vb: >-
+      <OriginalName("None")>
+
+      None = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: None
+- uid: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum.Relative
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum.Relative
+  id: Relative
+  parent: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Relative
+  nameWithType: VolumeCapabilities.Types.Enum.Relative
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum.Relative
+  type: Field
+  source:
+    id: Relative
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\VolumeControlAvailabilityMessage.cs
+    startLine: 224
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Relative")]
+
+      Relative = 1
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum
+    content.vb: >-
+      <OriginalName("Relative")>
+
+      Relative = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Relative
+- uid: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum.Absolute
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum.Absolute
+  id: Absolute
+  parent: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Absolute
+  nameWithType: VolumeCapabilities.Types.Enum.Absolute
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum.Absolute
+  type: Field
+  source:
+    id: Absolute
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\VolumeControlAvailabilityMessage.cs
+    startLine: 225
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Absolute")]
+
+      Absolute = 2
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum
+    content.vb: >-
+      <OriginalName("Absolute")>
+
+      Absolute = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Absolute
+- uid: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum.Both
+  commentId: F:AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum.Both
+  id: Both
+  parent: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum
+  langs:
+  - csharp
+  - vb
+  name: Both
+  nameWithType: VolumeCapabilities.Types.Enum.Both
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum.Both
+  type: Field
+  source:
+    id: Both
+    path: C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\obj\Release\net472\pyatv\protocols\mrp\protobuf\VolumeControlAvailabilityMessage.cs
+    startLine: 226
+  assemblies:
+  - AppleTvControlLibrary.Mrp
+  namespace: AppleTvControlLibrary.Mrp.Protobuf
+  syntax:
+    content: >-
+      [OriginalName("Both")]
+
+      Both = 3
+    return:
+      type: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum
+    content.vb: >-
+      <OriginalName("Both")>
+
+      Both = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Both
+references:
+- uid: AppleTvControlLibrary.Mrp.Protobuf
+  commentId: N:AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.html
+  name: AppleTvControlLibrary.Mrp.Protobuf
+  nameWithType: AppleTvControlLibrary.Mrp.Protobuf
+  fullName: AppleTvControlLibrary.Mrp.Protobuf
+  spec.csharp:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+  spec.vb:
+  - uid: AppleTvControlLibrary
+    name: AppleTvControlLibrary
+    href: AppleTvControlLibrary.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp
+    name: Mrp
+    href: AppleTvControlLibrary.Mrp.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf
+    name: Protobuf
+    href: AppleTvControlLibrary.Mrp.Protobuf.html
+- uid: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum
+  commentId: T:AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum
+  parent: AppleTvControlLibrary.Mrp.Protobuf
+  href: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.html
+  name: VolumeCapabilities.Types.Enum
+  nameWithType: VolumeCapabilities.Types.Enum
+  fullName: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum
+  spec.csharp:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities
+    name: VolumeCapabilities
+    href: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum.html
+  spec.vb:
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities
+    name: VolumeCapabilities
+    href: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types
+    name: Types
+    href: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.html
+  - name: .
+  - uid: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum
+    name: Enum
+    href: AppleTvControlLibrary.Mrp.Protobuf.VolumeCapabilities.Types.Enum.html
