@@ -11,6 +11,12 @@
 # DocFX metadata and rendered site output are generated locally/CI. Metadata embeds absolute
 # source paths, so publishing it would disclose local machine layout without benefiting consumers.
 /src/AppleTV.Companion/docfx/api/
+/src/AppleTV.Companion/docfx/mrp-api/*.yml
+/src/AppleTV.Companion/docfx/mrp-api/toc.yml
+/src/AppleTV.Companion/docfx/mrp-api/.manifest
+/src/AppleTV.Companion/docfx/discovery-api/*.yml
+/src/AppleTV.Companion/docfx/discovery-api/toc.yml
+/src/AppleTV.Companion/docfx/discovery-api/.manifest
 /src/AppleTV.Companion/docfx/_site/
 
 # User-specific files
