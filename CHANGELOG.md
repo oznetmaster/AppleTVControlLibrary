@@ -38,8 +38,7 @@ All notable changes to this project are documented in this file.
 - Fixed three XML doc `<see cref>` references in `AppleTvControlLibrary.Mrp` (`AirPlayMrpConnection`,
   `IMrpFrameConnection`, `MrpProtocol`) that pointed at the retired raw-TCP MRP transport types and
   produced `InvalidCref` build warnings. Documentation-only change; no public API or behavior
-  change. (Note: at the time of this release `AppleTv.Mrp.csproj` was still at `1.0.0`, which caused
-  an unintentional `1.0.0` republish on NuGet - see the `[2.0.1]` entry above for the correction.)
+  change.
 
 ## [2.0.0] - 2026-08-05
 
