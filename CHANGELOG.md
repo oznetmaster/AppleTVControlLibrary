@@ -36,9 +36,8 @@ All notable changes to this project are documented in this file.
   `AppleTvControlLibrary.Discovery` (mDNS discovery for both protocols) - instead of only the
   Companion Link and Discovery packages. Bumped to 2.1.0.
 - Fixed three XML doc `<see cref>` references in `AppleTvControlLibrary.Mrp` (`AirPlayMrpConnection`,
-  `IMrpFrameConnection`, `MrpProtocol`) that pointed at the retired raw-TCP MRP transport types and
-  produced `InvalidCref` build warnings. Documentation-only change; no public API or behavior
-  change.
+  `IMrpFrameConnection`, `MrpProtocol`) that could not be resolved and produced `InvalidCref` build
+  warnings. Documentation-only change; no public API or behavior change.
 
 ## [2.0.0] - 2026-08-05
 
