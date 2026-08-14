@@ -4,6 +4,13 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+### Changed
+
+- `AppleTvControlLibrary.All` now installs all three independent libraries -
+  `AppleTvControlLibrary` (Companion Link), `AppleTvControlLibrary.Mrp` (MRP), and
+  `AppleTvControlLibrary.Discovery` (mDNS discovery for both protocols) - instead of only the
+  Companion Link and Discovery packages. Bumped to 2.1.0.
+
 ## [2.0.0] - 2026-08-05
 
 ### Added

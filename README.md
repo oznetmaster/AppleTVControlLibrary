@@ -26,16 +26,15 @@ covering both the Companion Link and MRP libraries.
 |---|---|
 | `AppleTvControlLibrary` | Companion Link protocol, framing, crypto, pairing/verification, OPACK/TLV8 codecs, and the high-level `CompanionApi`. |
 | `AppleTvControlLibrary.Discovery` | mDNS/DNS-SD discovery for both protocols: Companion Link (`ICompanionDiscovery`), AirPlay (`IAirPlayDiscovery`), and MRP (`IMrpDiscovery`), each isolated behind its own interface so it can be swapped per host. |
-| `AppleTvControlLibrary.All` | Convenience meta-package that installs both independent Companion Link libraries; it contains no DLL of its own. |
 | `AppleTvControlLibrary.Mrp` | MRP client library: pairing/verification (via the shared `AppleTv.Hap` crypto library), AirPlay 2-tunneled framing, player/queue state tracking, and the high-level `MrpRemoteControl`. |
+| `AppleTvControlLibrary.All` | Convenience meta-package that installs all three independent libraries (`AppleTvControlLibrary`, `AppleTvControlLibrary.Mrp`, and `AppleTvControlLibrary.Discovery`); it contains no DLL of its own. |
 
-`AppleTvControlLibrary` and `AppleTvControlLibrary.Discovery` are intentionally independent: a
-host with a known Apple TV address can use the protocol library without multicast discovery, and
-a host can use the discovery API independently. Install `AppleTvControlLibrary.All` when both are
-wanted; it restores the two library packages automatically. `AppleTvControlLibrary.Mrp` is a
-separate, independently versioned package; it does not depend on `AppleTvControlLibrary.Discovery`,
-but hosts that want MRP discovery should still take a dependency on `AppleTvControlLibrary.Discovery`
-for its `IMrpDiscovery`/`MulticastMrpDiscovery` implementation (see [MRP Discovery](#discovery-1)).
+`AppleTvControlLibrary`, `AppleTvControlLibrary.Mrp`, and `AppleTvControlLibrary.Discovery` are
+intentionally independent, independently versioned packages: a host with a known Apple TV address
+can use either protocol library without multicast discovery, and a host can use the discovery
+library (which covers Companion Link, AirPlay, and MRP discovery behind their own interfaces - see
+[MRP Discovery](#discovery-1)) independently of either protocol. Install `AppleTvControlLibrary.All`
+when all three are wanted; it restores all three library packages automatically.
 
 ## Repository layout
 
@@ -43,7 +42,7 @@ for its `IMrpDiscovery`/`MulticastMrpDiscovery` implementation (see [MRP Discove
 |---|---|
 | `src/AppleTV.Companion` | Core Companion Link library and the DocFX documentation source. |
 | `src/AppleTV.Companion.Discovery` | Independently usable mDNS/DNS-SD discovery library. |
-| `src/AppleTV.Companion.All` | Meta-package project that restores both Companion Link library packages. |
+| `src/AppleTV.Companion.All` | Meta-package project that restores all three library packages (Companion Link, MRP, and Discovery). |
 | `src/AppleTv.Remote.Wpf` | WPF reference host for Companion Link: scanning, pairing, connecting, and remote control. |
 | `src/AppleTv.Hap` | Shared HAP (HomeKit Accessory Protocol) pairing/verification and crypto library, used by both Companion Link and MRP. |
 | `src/AppleTv.Mrp` | MRP client library, tunneled over AirPlay 2. |

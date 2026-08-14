@@ -5,17 +5,17 @@
 		<IsPackable>true</IsPackable>
 		<IncludeBuildOutput>false</IncludeBuildOutput>
 		<PackageId>AppleTvControlLibrary.All</PackageId>
-		<Version>2.0.0</Version>
+		<Version>2.1.0</Version>
 		<Authors>Neil Colvin</Authors>
 		<Company>Neil Colvin</Company>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageTags>appletv;companion-link;discovery;mdns;api;library</PackageTags>
+		<PackageTags>appletv;companion-link;mrp;discovery;mdns;api;library</PackageTags>
 		<RepositoryUrl>https://github.com/oznetmaster/AppleTVControlLibrary</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/oznetmaster/AppleTVControlLibrary</PackageProjectUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<Description>Convenience package that installs both AppleTvControlLibrary Companion Link protocol support and AppleTvControlLibrary.Discovery mDNS discovery support.</Description>
+		<Description>Convenience package that installs AppleTvControlLibrary (Companion Link), AppleTvControlLibrary.Mrp (MRP), and AppleTvControlLibrary.Discovery (mDNS discovery for both protocols).</Description>
 		<LangVersion>13.0</LangVersion>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
@@ -23,6 +23,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\AppleTV.Companion\AppleTV.Companion.csproj" />
 		<ProjectReference Include="..\AppleTV.Companion.Discovery\AppleTV.Companion.Discovery.csproj" />
+		<ProjectReference Include="..\AppleTv.Mrp\AppleTv.Mrp.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
