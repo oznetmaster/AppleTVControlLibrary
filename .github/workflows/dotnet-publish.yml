@@ -97,7 +97,7 @@ jobs:
         run: dotnet restore ${{ env.SOLUTION_PATH }}
 
       - name: Build solution
-        run: dotnet build ${{ env.SOLUTION_PATH }} --configuration Release --no-restore -p:ContinuousIntegrationBuild=true -p:Version=${{ steps.version.outputs.package_version }}
+        run: dotnet build ${{ env.SOLUTION_PATH }} --configuration Release --no-restore -p:ContinuousIntegrationBuild=true
 
       - name: Run tests (net472)
         run: dotnet test ${{ env.TEST_PROJECT }} --configuration Release --no-build --framework net472
@@ -114,6 +114,10 @@ jobs:
       - name: Pack NuGet packages
         shell: pwsh
         run: |
+          # Each project's own <Version> in its .csproj is authoritative; the release tag only
+          # controls the GitHub release name/notes and the WPF app publish version below. This
+          # lets packages that did not change in this release keep their existing version, so
+          # `dotnet nuget push --skip-duplicate` is a safe no-op for them.
           $packages = @(
               'src/AppleTV.Companion/AppleTV.Companion.csproj',
               'src/AppleTV.Companion.Discovery/AppleTV.Companion.Discovery.csproj',
@@ -124,7 +128,7 @@ jobs:
           New-Item -ItemType Directory -Path $outputDir -Force | Out-Null
 
           foreach ($project in $packages) {
-              dotnet pack $project --configuration Release --no-build -p:ContinuousIntegrationBuild=true -p:Version=${{ steps.version.outputs.package_version }} -p:PackageVersion=${{ steps.version.outputs.package_version }} -p:ReleaseNotesFile="${{ env.ARTIFACT_DIR }}/release-notes.md" --output $outputDir
+              dotnet pack $project --configuration Release --no-build -p:ContinuousIntegrationBuild=true -p:ReleaseNotesFile="${{ env.ARTIFACT_DIR }}/release-notes.md" --output $outputDir
               if ($LASTEXITCODE -ne 0) {
                   throw "Pack failed for $project"
               }
