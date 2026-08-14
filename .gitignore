@@ -371,3 +371,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+# Archived, non-built legacy code (see archive/*/README.md)
+/archive/

@@ -1,14 +1,14 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
 		<TargetFrameworks>net10.0-windows;net472</TargetFrameworks>
 		<UseWPF>true</UseWPF>
-		<LangVersion>13.0</LangVersion>
+		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<RootNamespace>AppleTvControlLibrary.Remote.Wpf</RootNamespace>
-		<AssemblyName>AppleTv.Remote.Wpf</AssemblyName>
+		<RootNamespace>AppleTvControlLibrary.Remote.Mrp.Wpf</RootNamespace>
+		<AssemblyName>AppleTv.Remote.Mrp.Wpf</AssemblyName>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
@@ -27,6 +27,7 @@
 		<PackageReference Include="Hafner.Compatibility.MetaPackage" Version="1.9.0" />
 		<PackageReference Include="System.Memory" Version="4.6.3" />
 		<PackageReference Include="System.Text.Json" Version="10.0.11" />
+		<Reference Include="System.Net.Http" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -34,7 +35,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\AppleTV.Companion\AppleTV.Companion.csproj" />
+		<ProjectReference Include="..\AppleTv.Mrp\AppleTv.Mrp.csproj" />
 		<ProjectReference Include="..\AppleTV.Companion.Discovery\AppleTV.Companion.Discovery.csproj" />
 	</ItemGroup>
 

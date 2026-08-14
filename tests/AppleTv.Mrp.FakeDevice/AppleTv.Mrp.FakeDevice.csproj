@@ -1,21 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<RootNamespace>AppleTvControlLibrary.Mrp.FakeDevice</RootNamespace>
+		<AssemblyName>AppleTv.Mrp.FakeDevice</AssemblyName>
 		<TargetFrameworks>net10.0;net472</TargetFrameworks>
 		<LangVersion>13.0</LangVersion>
 		<Nullable>enable</Nullable>
 		<IsPackable>false</IsPackable>
-		<IsTestProject>true</IsTestProject>
-		<NoWarn>$(NoWarn);CS0618</NoWarn>
-	</PropertyGroup>
-	<PropertyGroup>
-		<VSTestUseHost>true</VSTestUseHost>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
-		<PackageReference Include="MSTest.TestAdapter" Version="4.3.3" />
-		<PackageReference Include="MSTest.TestFramework" Version="4.3.3" />
+		<PackageReference Include="BouncyCastle.Cryptography" Version="2.7.0" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
@@ -28,7 +24,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\src\AppleTv.Mrp\AppleTv.Mrp.csproj" />
-		<ProjectReference Include="..\AppleTv.Mrp.FakeDevice\AppleTv.Mrp.FakeDevice.csproj" />
 	</ItemGroup>
 
 </Project>

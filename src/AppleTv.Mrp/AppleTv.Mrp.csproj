@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
@@ -19,7 +19,7 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Description>MRP (Media Remote Protocol) client library for .NET Framework 4.7.2 and .NET 10. Complements AppleTvControlLibrary's Companion Link support.</Description>
-		<LangVersion>13.0</LangVersion>
+		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
 		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
 		<GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
@@ -34,7 +34,9 @@
 	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
 		<DebugType>portable</DebugType>
 		<DebugSymbols>true</DebugSymbols>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<GenerateDocumentationFile>false</GenerateDocumentationFile>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
 		<DebugType>none</DebugType>
@@ -47,10 +49,11 @@
 		<Reference Include="System.Configuration" />
 		<Reference Include="System.Data.DataSetExtensions" />
 		<Reference Include="Microsoft.CSharp" />
+		<Reference Include="System.Net.Http" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Google.Protobuf" Version="3.31.1" />
-		<PackageReference Include="Grpc.Tools" Version="2.71.0">
+		<PackageReference Include="Google.Protobuf" Version="3.35.1" />
+		<PackageReference Include="Grpc.Tools" Version="2.83.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
@@ -63,6 +66,12 @@
 		<PackageReference Include="Hafner.Compatibility.MetaPackage" Version="1.9.0" />
 		<PackageReference Include="System.Memory" Version="4.6.3" />
 		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.11" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="plist-cil" Version="2.2.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\AppleTv.Hap\AppleTv.Hap.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 		<Protobuf Include="Protobuf\**\*.proto" ProtoRoot="Protobuf" CompileOutputType="Messages" />

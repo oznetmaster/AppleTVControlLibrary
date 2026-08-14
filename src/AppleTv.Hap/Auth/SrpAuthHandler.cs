@@ -52,7 +52,7 @@ public sealed class SrpAuthHandler
 	private const string USER_NAME = "Pair-Setup";
 
 	// pyatv/auth/hap_srp.py (pairing_id = str(uuid.uuid4()).encode()) — line 44 as of pyatv 0.18.0
-	private readonly byte[] _pairingId;
+	private byte[] _pairingId;
 
 	private Ed25519PrivateKeyParameters? _signingKey;
 	private byte[]? _authPrivate;
@@ -76,6 +76,21 @@ public sealed class SrpAuthHandler
 	public SrpAuthHandler ()
 		{
 		_pairingId = Encoding.UTF8.GetBytes (Guid.NewGuid ().ToString ());
+		}
+
+	/// <summary>
+	/// Gets or sets the pairing id used as the client identifier during pair-verify.
+	/// </summary>
+	/// <remarks>
+	/// pyatv exposes this as a mutable public attribute so callers can override it once
+	/// credentials are known externally (i.e. not from a pairing performed by this instance);
+	/// see <c>MrpProtocol.start</c> — pyatv/protocols/mrp/protocol.py line 137-140 as of pyatv 0.18.0.
+	/// </remarks>
+	// pyatv/auth/hap_srp.py (self.pairing_id) — line 50 as of pyatv 0.18.0
+	public byte[] PairingId
+		{
+		get => _pairingId;
+		set => _pairingId = value;
 		}
 
 	/// <summary>Gets the shared secret (SRP session key) established during pair-setup.</summary>

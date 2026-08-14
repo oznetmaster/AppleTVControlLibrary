@@ -3,6 +3,7 @@
     <Project Path="src/AppleTV.Companion/AppleTV.Companion.csproj" />
   <Project Path="src/AppleTV.Companion.Discovery/AppleTV.Companion.Discovery.csproj" />
   <Project Path="src/AppleTV.Companion.All/AppleTV.Companion.All.csproj" />
+    <Project Path="src/AppleTv.Remote.Mrp.Wpf/AppleTv.Remote.Mrp.Wpf.csproj" />
   <Project Path="src/AppleTv.Remote.Wpf/AppleTv.Remote.Wpf.csproj" />
   <Project Path="src/AppleTv.Hap/AppleTv.Hap.csproj" />
   <Project Path="src/AppleTv.Mrp/AppleTv.Mrp.csproj" />
@@ -13,9 +14,13 @@
     <Project Path="tests/AppleTV.Companion.LiveTests/AppleTV.Companion.LiveTests.csproj" />
   <Project Path="tests/AppleTv.Hap.Tests/AppleTv.Hap.Tests.csproj" />
   <Project Path="tests/AppleTv.Mrp.Tests/AppleTv.Mrp.Tests.csproj" />
+  <Project Path="tests/AppleTv.Mrp.FakeDevice/AppleTv.Mrp.FakeDevice.csproj" />
   </Folder>
   <Folder Name="/tools/">
     <Project Path="tools/AppleTV.Companion.RemoteTool/AppleTV.Companion.RemoteTool.csproj" />
     <Project Path="tools/AppleTV.Companion.ScanTool/AppleTV.Companion.ScanTool.csproj" />
+    <Project Path="tools/AppleTV.Mrp.ScanTool/AppleTV.Mrp.ScanTool.csproj" />
+    <Project Path="tools/AppleTV.AirPlay.RemoteTool/AppleTV.AirPlay.RemoteTool.csproj" />
+    <Project Path="tools/AppleTV.AirPlay.ScanTool/AppleTV.AirPlay.ScanTool.csproj" />
   </Folder>
 </Solution>

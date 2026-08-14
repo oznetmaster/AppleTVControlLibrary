@@ -1,0 +1,83 @@
+  AppleTv.Hap -> C:\Projects\AppleTVControlLibrary\src\AppleTv.Hap\bin\Debug\net472\AppleTv.Hap.dll
+  AppleTv.Hap -> C:\Projects\AppleTVControlLibrary\src\AppleTv.Hap\bin\Debug\net10.0\AppleTv.Hap.dll
+  AppleTv.Mrp -> C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\bin\Debug\net472\AppleTvControlLibrary.Mrp.dll
+  AppleTv.Mrp.FakeDevice -> C:\Projects\AppleTVControlLibrary\tests\AppleTv.Mrp.FakeDevice\bin\Debug\net472\AppleTv.Mrp.FakeDevice.dll
+  AppleTv.Mrp.Tests -> C:\Projects\AppleTVControlLibrary\tests\AppleTv.Mrp.Tests\bin\Debug\net472\AppleTv.Mrp.Tests.dll
+  AppleTv.Mrp -> C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\bin\Debug\net10.0\AppleTvControlLibrary.Mrp.dll
+  AppleTv.Mrp.FakeDevice -> C:\Projects\AppleTVControlLibrary\tests\AppleTv.Mrp.FakeDevice\bin\Debug\net10.0\AppleTv.Mrp.FakeDevice.dll
+  AppleTv.Mrp.Tests -> C:\Projects\AppleTVControlLibrary\tests\AppleTv.Mrp.Tests\bin\Debug\net10.0\AppleTv.Mrp.Tests.dll
+Test run for C:\Projects\AppleTVControlLibrary\tests\AppleTv.Mrp.Tests\bin\Debug\net472\AppleTv.Mrp.Tests.dll (.NETFramework,Version=v4.7.2)
+Test run for C:\Projects\AppleTVControlLibrary\tests\AppleTv.Mrp.Tests\bin\Debug\net10.0\AppleTv.Mrp.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+  Failed StartAsyncRunsFullBringUpSequenceAsync [239 ms]
+  Error Message:
+   Test method AppleTv.Mrp.Tests.ProtocolTests.MrpProtocolIntegrationTests.StartAsyncRunsFullBringUpSequenceAsync threw exception:
+System.NullReferenceException: Object reference not set to an instance of an object.
+  Stack Trace:
+     at AppleTvControlLibrary.Mrp.Auth.MrpMessages.GetPairingData(ProtocolMessage message) in C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\Auth\MrpMessages.cs:line 179
+   at AppleTvControlLibrary.Mrp.FakeDevice.FakeMrpDevice.HandleMessage(ProtocolMessage message) in C:\Projects\AppleTVControlLibrary\tests\AppleTv.Mrp.FakeDevice\FakeMrpDevice.cs:line 137
+   at AppleTv.Mrp.Tests.ProtocolTests.MrpProtocolIntegrationTests.ServerListener.MessageReceived(Byte[] data) in C:\Projects\AppleTVControlLibrary\tests\AppleTv.Mrp.Tests\Protocol\MrpProtocolIntegrationTests.cs:line 150
+   at AppleTvControlLibrary.Mrp.Connection.MrpConnection.HandleMessage(Byte[] data) in C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\Connection\MrpConnection.cs:line 124
+   at AppleTvControlLibrary.Mrp.Connection.MrpConnection.ReceiveData(Byte[] data) in C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\Connection\MrpConnection.cs:line 112
+   at AppleTv.Mrp.Tests.ProtocolTests.MrpProtocolIntegrationTests.<>c__DisplayClass4_0.<CreatePairedAndStartedProtocolAsync>b__0(Byte[] frame) in C:\Projects\AppleTVControlLibrary\tests\AppleTv.Mrp.Tests\Protocol\MrpProtocolIntegrationTests.cs:line 109
+   at AppleTvControlLibrary.Mrp.Protocol.MrpProtocol.TransmitAsync(ProtocolMessage message, CancellationToken cancellationToken) in C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\Protocol\MrpProtocol.cs:line 354
+   at AppleTvControlLibrary.Mrp.Protocol.MrpProtocol.SendAndReceiveAsync(ProtocolMessage message, Boolean generateIdentifier, CancellationToken cancellationToken) in C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\Protocol\MrpProtocol.cs:line 328
+   at AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.VerifyCredentialsAsync() in C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\Auth\MrpAuth.cs:line 152
+   at AppleTvControlLibrary.Mrp.Protocol.MrpProtocol.EnableEncryptionAsync(CancellationToken cancellationToken) in C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\Protocol\MrpProtocol.cs:line 249
+   at AppleTvControlLibrary.Mrp.Protocol.MrpProtocol.StartAsync(Boolean skipInitialMessages, CancellationToken cancellationToken) in C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\Protocol\MrpProtocol.cs:line 214
+   at AppleTv.Mrp.Tests.ProtocolTests.MrpProtocolIntegrationTests.CreatePairedAndStartedProtocolAsync(FakeMrpDevice device) in C:\Projects\AppleTVControlLibrary\tests\AppleTv.Mrp.Tests\Protocol\MrpProtocolIntegrationTests.cs:line 126
+   at AppleTv.Mrp.Tests.ProtocolTests.MrpProtocolIntegrationTests.StartAsyncRunsFullBringUpSequenceAsync() in C:\Projects\AppleTVControlLibrary\tests\AppleTv.Mrp.Tests\Protocol\MrpProtocolIntegrationTests.cs:line 39
+   at Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.Execution.TestMethodInfo.ExecuteInternalAsync(Object[] arguments, CancellationTokenSource timeoutTokenSource)
+
+
+Failed!  - Failed:     1, Passed:     0, Skipped:     0, Total:     1, Duration: 259 ms - AppleTv.Mrp.Tests.dll (net10.0)
+  Failed StartAsyncRunsFullBringUpSequenceAsync [292 ms]
+  Error Message:
+   Test method AppleTv.Mrp.Tests.ProtocolTests.MrpProtocolIntegrationTests.StartAsyncRunsFullBringUpSequenceAsync threw exception:
+System.NullReferenceException: Object reference not set to an instance of an object.
+  Stack Trace:
+     at AppleTvControlLibrary.Mrp.Auth.MrpMessages.GetPairingData(ProtocolMessage message) in C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\Auth\MrpMessages.cs:line 179
+   at AppleTvControlLibrary.Mrp.FakeDevice.FakeMrpDevice.HandleMessage(ProtocolMessage message) in C:\Projects\AppleTVControlLibrary\tests\AppleTv.Mrp.FakeDevice\FakeMrpDevice.cs:line 137
+   at AppleTv.Mrp.Tests.ProtocolTests.MrpProtocolIntegrationTests.ServerListener.MessageReceived(Byte[] data) in C:\Projects\AppleTVControlLibrary\tests\AppleTv.Mrp.Tests\Protocol\MrpProtocolIntegrationTests.cs:line 150
+   at AppleTvControlLibrary.Mrp.Connection.MrpConnection.HandleMessage(Byte[] data) in C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\Connection\MrpConnection.cs:line 124
+   at AppleTvControlLibrary.Mrp.Connection.MrpConnection.ReceiveData(Byte[] data) in C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\Connection\MrpConnection.cs:line 112
+   at AppleTv.Mrp.Tests.ProtocolTests.MrpProtocolIntegrationTests.<>c__DisplayClass4_0.<CreatePairedAndStartedProtocolAsync>b__0(Byte[] frame) in C:\Projects\AppleTVControlLibrary\tests\AppleTv.Mrp.Tests\Protocol\MrpProtocolIntegrationTests.cs:line 109
+   at AppleTvControlLibrary.Mrp.Protocol.MrpProtocol.<TransmitAsync>d__34.MoveNext() in C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\Protocol\MrpProtocol.cs:line 354
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at AppleTvControlLibrary.Mrp.Protocol.MrpProtocol.<SendAndReceiveAsync>d__33.MoveNext() in C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\Protocol\MrpProtocol.cs:line 333
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.<VerifyCredentialsAsync>d__4.MoveNext() in C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\Auth\MrpAuth.cs:line 152
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at AppleTvControlLibrary.Mrp.Protocol.MrpProtocol.<EnableEncryptionAsync>d__30.MoveNext() in C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\Protocol\MrpProtocol.cs:line 249
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at AppleTvControlLibrary.Mrp.Protocol.MrpProtocol.<StartAsync>d__29.MoveNext() in C:\Projects\AppleTVControlLibrary\src\AppleTv.Mrp\Protocol\MrpProtocol.cs:line 228
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at AppleTv.Mrp.Tests.ProtocolTests.MrpProtocolIntegrationTests.<CreatePairedAndStartedProtocolAsync>d__4.MoveNext() in C:\Projects\AppleTVControlLibrary\tests\AppleTv.Mrp.Tests\Protocol\MrpProtocolIntegrationTests.cs:line 126
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at AppleTv.Mrp.Tests.ProtocolTests.MrpProtocolIntegrationTests.<StartAsyncRunsFullBringUpSequenceAsync>d__0.MoveNext() in C:\Projects\AppleTVControlLibrary\tests\AppleTv.Mrp.Tests\Protocol\MrpProtocolIntegrationTests.cs:line 39
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.Execution.TestMethodInfo.<ExecuteInternalAsync>d__58.MoveNext()
+
+
+Failed!  - Failed:     1, Passed:     0, Skipped:     0, Total:     1, Duration: 372 ms - AppleTv.Mrp.Tests.dll (net472)

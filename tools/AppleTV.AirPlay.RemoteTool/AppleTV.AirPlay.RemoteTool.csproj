@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>AppleTvControlLibrary.AirPlay.RemoteTool</RootNamespace>
+		<AssemblyName>AppleTvControlLibrary.AirPlay.RemoteTool</AssemblyName>
+		<TargetFramework>net10.0-windows</TargetFramework>
+		<LangVersion>13.0</LangVersion>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\AppleTv.Mrp\AppleTv.Mrp.csproj" />
+		<ProjectReference Include="..\..\src\AppleTV.Companion.Discovery\AppleTV.Companion.Discovery.csproj" />
+		<ProjectReference Include="..\..\src\AppleTv.Remote.Mrp.Wpf\AppleTv.Remote.Mrp.Wpf.csproj" />
+	</ItemGroup>
+
+</Project>

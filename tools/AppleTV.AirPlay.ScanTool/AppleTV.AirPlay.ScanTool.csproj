@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>AppleTvControlLibrary.AirPlay.ScanTool</RootNamespace>
+		<AssemblyName>AppleTvControlLibrary.AirPlay.ScanTool</AssemblyName>
+		<TargetFramework>net10.0</TargetFramework>
+		<LangVersion>13.0</LangVersion>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\AppleTV.Companion.Discovery\AppleTV.Companion.Discovery.csproj" />
+		<ProjectReference Include="..\..\src\AppleTv.Mrp\AppleTv.Mrp.csproj" />
+		<ProjectReference Include="..\..\src\AppleTv.Hap\AppleTv.Hap.csproj" />
+	</ItemGroup>
+
+</Project>
