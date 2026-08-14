@@ -50,12 +50,6 @@ All notable changes to this project are documented in this file.
   Link packages, and builds/publishes `AppleTv.Remote.Mrp.Wpf` release assets alongside
   `AppleTv.Remote.Wpf`.
 
-### Removed
-
-- The legacy direct-TCP MRP transport (`MrpConnection`, `TcpMrpTransport`) and its tests have been
-  retired in favor of MRP tunneled over AirPlay 2, matching pyatv's current transport. The retired
-  code is kept for reference only under `archive/mrp-tcp-transport/`.
-
 ## [1.1.4] - 2026-08-04
 
 ### Added
