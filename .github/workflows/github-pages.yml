@@ -20,6 +20,7 @@ jobs:
     env:
       SOLUTION_PATH: AppleTVControlLibrary.slnx
       TEST_PROJECT: tests/AppleTV.Companion.Tests/AppleTV.Companion.Tests.csproj
+      MRP_TEST_PROJECT: tests/AppleTv.Mrp.Tests/AppleTv.Mrp.Tests.csproj
       DOCFX_CONFIG: src/AppleTV.Companion/docfx/docfx.json
       DOCFX_SITE: src/AppleTV.Companion/docfx/_site
 
@@ -46,6 +47,12 @@ jobs:
 
       - name: Run tests (net10.0)
         run: dotnet test ${{ env.TEST_PROJECT }} --configuration Release --no-build --framework net10.0
+
+      - name: Run Mrp tests (net472)
+        run: dotnet test ${{ env.MRP_TEST_PROJECT }} --configuration Release --no-build --framework net472
+
+      - name: Run Mrp tests (net10.0)
+        run: dotnet test ${{ env.MRP_TEST_PROJECT }} --configuration Release --no-build --framework net10.0
 
       - name: Build documentation site
         shell: pwsh

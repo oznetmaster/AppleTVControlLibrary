@@ -4,6 +4,49 @@ All notable changes to this project are documented in this file.
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-08-05
+
+### Added
+
+- `AppleTvControlLibrary.Mrp`, a new client library for Apple TV's MRP (Media Remote Protocol),
+  tunneled over AirPlay 2, providing now-playing metadata (title, artist, album, artwork,
+  position, playback rate) and playback control (play/pause/skip/seek, volume). Pairing and
+  channel encryption reuse the shared `AppleTv.Hap` HAP pair-setup/pair-verify and
+  ChaCha20-Poly1305 library, extracted from the Companion Link library so both protocols share one
+  crypto/pairing implementation.
+- `AppleTv.Remote.Mrp.Wpf`, a WPF reference host for MRP: pairing, connecting, and a now-playing UI
+  with capability-gated transport controls.
+- `tools/AppleTV.AirPlay.ScanTool` and `tools/AppleTV.AirPlay.RemoteTool`, command-line utilities
+  for AirPlay discovery and MRP remote control.
+- `tools/AppleTV.Mrp.ScanTool`, a command-line utility for locating MRP-over-AirPlay devices.
+- `tests/AppleTv.Mrp.Tests` and `tests/AppleTv.Mrp.FakeDevice`, a full MSTest suite (multi-targeted
+  `net472`/`net10.0`) covering MRP pairing, protocol framing, player-state tracking, artwork
+  fetch/fallback, push updates, and power-state derivation against an in-process fake Apple TV.
+- `tests/AppleTv.Hap.Tests`, unit tests for the shared HAP pairing/crypto library.
+- MRP documentation: new DocFX articles (overview, getting started, pairing and credentials,
+  compatibility and limitations) and an MRP API reference section, published alongside the
+  existing Companion Link documentation at the same GitHub Pages site.
+- Root `README.md` now documents both libraries, the shared `AppleTv.Hap` dependency, both WPF
+  reference hosts, and a combined tools-and-tests overview.
+
+### Changed
+
+- Extracted shared HAP crypto/pairing code (SRP, TLV8, Ed25519/X25519, ChaCha20-Poly1305 helpers)
+  out of the Companion Link library into a new shared `AppleTv.Hap` library, consumed by both
+  `AppleTvControlLibrary` and `AppleTvControlLibrary.Mrp`.
+- Bumped `AppleTvControlLibrary`, `AppleTvControlLibrary.Discovery`, and
+  `AppleTvControlLibrary.All` to 2.0.0 to mark this repository-wide release; `AppleTvControlLibrary.Mrp`
+  ships its first stable release as 1.0.0.
+- The publish workflow now packs and publishes `AppleTvControlLibrary.Mrp` alongside the Companion
+  Link packages, and builds/publishes `AppleTv.Remote.Mrp.Wpf` release assets alongside
+  `AppleTv.Remote.Wpf`.
+
+### Removed
+
+- The legacy direct-TCP MRP transport (`MrpConnection`, `TcpMrpTransport`) and its tests have been
+  retired in favor of MRP tunneled over AirPlay 2, matching pyatv's current transport. The retired
+  code is kept for reference only under `archive/mrp-tcp-transport/`.
+
 ## [1.1.4] - 2026-08-04
 
 ### Added

@@ -20,6 +20,7 @@ jobs:
     env:
       SOLUTION_PATH: AppleTVControlLibrary.slnx
       TEST_PROJECT: tests/AppleTV.Companion.Tests/AppleTV.Companion.Tests.csproj
+      MRP_TEST_PROJECT: tests/AppleTv.Mrp.Tests/AppleTv.Mrp.Tests.csproj
       ARTIFACT_DIR: ${{ github.workspace }}/artifacts
 
     steps:
@@ -104,13 +105,20 @@ jobs:
       - name: Run tests (net10.0)
         run: dotnet test ${{ env.TEST_PROJECT }} --configuration Release --no-build --framework net10.0
 
+      - name: Run Mrp tests (net472)
+        run: dotnet test ${{ env.MRP_TEST_PROJECT }} --configuration Release --no-build --framework net472
+
+      - name: Run Mrp tests (net10.0)
+        run: dotnet test ${{ env.MRP_TEST_PROJECT }} --configuration Release --no-build --framework net10.0
+
       - name: Pack NuGet packages
         shell: pwsh
         run: |
           $packages = @(
               'src/AppleTV.Companion/AppleTV.Companion.csproj',
               'src/AppleTV.Companion.Discovery/AppleTV.Companion.Discovery.csproj',
-              'src/AppleTV.Companion.All/AppleTV.Companion.All.csproj'
+              'src/AppleTV.Companion.All/AppleTV.Companion.All.csproj',
+              'src/AppleTv.Mrp/AppleTv.Mrp.csproj'
           )
           $outputDir = "${{ env.ARTIFACT_DIR }}/nuget"
           New-Item -ItemType Directory -Path $outputDir -Force | Out-Null
@@ -145,6 +153,17 @@ jobs:
               }
           }
 
+      - name: Publish MRP WPF reference application
+        shell: pwsh
+        run: |
+          foreach ($framework in @('net472', 'net10.0-windows')) {
+              $outputDir = "${{ env.ARTIFACT_DIR }}/publish/AppleTv.Remote.Mrp.Wpf-$framework"
+              dotnet publish src/AppleTv.Remote.Mrp.Wpf/AppleTv.Remote.Mrp.Wpf.csproj --configuration Release --no-build --framework $framework --output $outputDir -p:Version=${{ steps.version.outputs.package_version }}
+              if ($LASTEXITCODE -ne 0) {
+                  throw "Publish failed for AppleTv.Remote.Mrp.Wpf ($framework)"
+              }
+          }
+
       - name: Collect release assets
         shell: pwsh
         run: |
@@ -153,7 +172,8 @@ jobs:
 
           $libraries = @(
               @{ ProjectDir = 'src/AppleTV.Companion'; AssemblyName = 'AppleTvControlLibrary'; Frameworks = @('net472', 'net10.0') },
-              @{ ProjectDir = 'src/AppleTV.Companion.Discovery'; AssemblyName = 'AppleTvControlLibrary.Discovery'; Frameworks = @('net472', 'net10.0') }
+              @{ ProjectDir = 'src/AppleTV.Companion.Discovery'; AssemblyName = 'AppleTvControlLibrary.Discovery'; Frameworks = @('net472', 'net10.0') },
+              @{ ProjectDir = 'src/AppleTv.Mrp'; AssemblyName = 'AppleTvControlLibrary.Mrp'; Frameworks = @('net472', 'net10.0') }
           )
 
           foreach ($library in $libraries) {

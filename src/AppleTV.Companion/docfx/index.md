@@ -26,3 +26,8 @@ approved by Apple Inc.
 - [Compatibility and limitations](articles/compatibility.md)
 - [Companion Link API reference](api/index.md)
 - [Discovery API reference](discovery-api/index.md)
+- [MRP overview](articles/mrp-overview.md)
+- [MRP getting started](articles/mrp-getting-started.md)
+- [MRP pairing and credentials](articles/mrp-pairing.md)
+- [MRP compatibility and limitations](articles/mrp-compatibility.md)
+- [MRP API reference](mrp-api/index.md)

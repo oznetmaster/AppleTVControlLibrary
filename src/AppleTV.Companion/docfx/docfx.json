@@ -25,6 +25,19 @@
       "dest": "discovery-api",
       "disableGitFeatures": false,
       "disableDefaultFilter": false
+    },
+    {
+      "src": [
+        {
+          "src": "../../AppleTv.Mrp",
+          "files": [
+            "AppleTv.Mrp.csproj"
+          ]
+        }
+      ],
+      "dest": "mrp-api",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false
     }
   ],
   "build": {
@@ -34,7 +47,9 @@
           "api/**.yml",
           "api/**.md",
           "discovery-api/**.yml",
-          "discovery-api/**.md"
+          "discovery-api/**.md",
+          "mrp-api/**.yml",
+          "mrp-api/**.md"
         ]
       },
       {

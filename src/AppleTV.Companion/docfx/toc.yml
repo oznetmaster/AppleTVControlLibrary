@@ -15,6 +15,17 @@ items:
 - name: Discovery API Reference
   href: discovery-api/
   homepage: discovery-api/index.md
+- name: MRP Overview
+  href: articles/mrp-overview.md
+- name: MRP Getting Started
+  href: articles/mrp-getting-started.md
+- name: MRP Pairing and Credentials
+  href: articles/mrp-pairing.md
+- name: MRP Compatibility and Limitations
+  href: articles/mrp-compatibility.md
+- name: MRP API Reference
+  href: mrp-api/
+  homepage: mrp-api/index.md
 - name: GitHub Repository
   href: https://github.com/oznetmaster/AppleTVControlLibrary
 - name: NuGet Packages

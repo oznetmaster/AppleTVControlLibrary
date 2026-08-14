@@ -7,3 +7,11 @@ items:
   href: pairing.md
 - name: Compatibility and Limitations
   href: compatibility.md
+- name: MRP Overview
+  href: mrp-overview.md
+- name: MRP Getting Started
+  href: mrp-getting-started.md
+- name: MRP Pairing and Credentials
+  href: mrp-pairing.md
+- name: MRP Compatibility and Limitations
+  href: mrp-compatibility.md
