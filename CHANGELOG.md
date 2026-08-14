@@ -2,6 +2,19 @@
 
 All notable changes to this project are documented in this file.
 
+## [2.0.1] - 2026-08-14
+
+### Fixed
+
+- `AppleTvControlLibrary.Mrp`'s project version was corrected from `1.0.0` to `2.0.1`. The `v2.0.0`
+  release ran under the release workflow's previous behavior of forcing the git tag version onto
+  every NuGet package, so `AppleTvControlLibrary.Mrp` was actually published to NuGet as `2.0.0`,
+  not `1.0.0` as the `[2.0.0]` entry below incorrectly stated. The `v2.1.0` release then packed and
+  published a new, lower-numbered `1.0.0` package for `AppleTvControlLibrary.Mrp` from the stale
+  project version, leaving both `1.0.0` and `2.0.0` listed on NuGet. This release bumps the project
+  version past both to `2.0.1` so the package version history is monotonic again; no source or
+  behavior change.
+
 ## [2.1.0] - 2026-08-14
 
 ### Changed
@@ -13,7 +26,8 @@ All notable changes to this project are documented in this file.
 - Fixed three XML doc `<see cref>` references in `AppleTvControlLibrary.Mrp` (`AirPlayMrpConnection`,
   `IMrpFrameConnection`, `MrpProtocol`) that pointed at the retired raw-TCP MRP transport types and
   produced `InvalidCref` build warnings. Documentation-only change; no public API or behavior
-  change, so `AppleTvControlLibrary.Mrp` itself keeps its existing version.
+  change. (Note: at the time of this release `AppleTv.Mrp.csproj` was still at `1.0.0`, which caused
+  an unintentional `1.0.0` republish on NuGet - see the `[2.0.1]` entry above for the correction.)
 
 ## [2.0.0] - 2026-08-05
 
@@ -47,9 +61,10 @@ All notable changes to this project are documented in this file.
 - Extracted shared HAP crypto/pairing code (SRP, TLV8, Ed25519/X25519, ChaCha20-Poly1305 helpers)
   out of the Companion Link library into a new shared `AppleTv.Hap` library, consumed by both
   `AppleTvControlLibrary` and `AppleTvControlLibrary.Mrp`.
-- Bumped `AppleTvControlLibrary`, `AppleTvControlLibrary.Discovery`, and
-  `AppleTvControlLibrary.All` to 2.0.0 to mark this repository-wide release; `AppleTvControlLibrary.Mrp`
-  ships its first stable release as 1.0.0.
+- Bumped `AppleTvControlLibrary`, `AppleTvControlLibrary.Discovery`, `AppleTvControlLibrary.All`,
+  and `AppleTvControlLibrary.Mrp` to 2.0.0 to mark this repository-wide release. (Corrected
+  2026-08-14: the `AppleTv.Mrp.csproj` file itself was left at `1.0.0`, but the release workflow's
+  tag-forced versioning published the package to NuGet as `2.0.0`; see the `[2.0.1]` entry above.)
 - The publish workflow now packs and publishes `AppleTvControlLibrary.Mrp` alongside the Companion
   Link packages, and builds/publishes `AppleTv.Remote.Mrp.Wpf` release assets alongside
   `AppleTv.Remote.Wpf`.
