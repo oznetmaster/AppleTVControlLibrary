@@ -25,7 +25,7 @@ covering both the Companion Link and MRP libraries.
 | Package | Contents |
 |---|---|
 | `AppleTvControlLibrary` | Companion Link protocol, framing, crypto, pairing/verification, OPACK/TLV8 codecs, and the high-level `CompanionApi`. |
-| `AppleTvControlLibrary.Discovery` | mDNS/DNS-SD discovery of Companion Link services, isolated behind `ICompanionDiscovery` so it can be swapped per host. |
+| `AppleTvControlLibrary.Discovery` | mDNS/DNS-SD discovery for both protocols: Companion Link (`ICompanionDiscovery`), AirPlay (`IAirPlayDiscovery`), and MRP (`IMrpDiscovery`), each isolated behind its own interface so it can be swapped per host. |
 | `AppleTvControlLibrary.All` | Convenience meta-package that installs both independent Companion Link libraries; it contains no DLL of its own. |
 | `AppleTvControlLibrary.Mrp` | MRP client library: pairing/verification (via the shared `AppleTv.Hap` crypto library), AirPlay 2-tunneled framing, player/queue state tracking, and the high-level `MrpRemoteControl`. |
 
@@ -33,7 +33,9 @@ covering both the Companion Link and MRP libraries.
 host with a known Apple TV address can use the protocol library without multicast discovery, and
 a host can use the discovery API independently. Install `AppleTvControlLibrary.All` when both are
 wanted; it restores the two library packages automatically. `AppleTvControlLibrary.Mrp` is a
-separate, independently versioned package with its own discovery story (see [MRP Discovery](#discovery-1)).
+separate, independently versioned package; it does not depend on `AppleTvControlLibrary.Discovery`,
+but hosts that want MRP discovery should still take a dependency on `AppleTvControlLibrary.Discovery`
+for its `IMrpDiscovery`/`MulticastMrpDiscovery` implementation (see [MRP Discovery](#discovery-1)).
 
 ## Repository layout
 
@@ -235,11 +237,12 @@ hosts are expected to provide their own UI and secure credential-store implement
 
 ### Discovery
 
-MRP-over-AirPlay devices are discovered the same way AirPlay 2 endpoints are: via the AirPlay mDNS
-service type. `tools/AppleTV.AirPlay.ScanTool` and `tools/AppleTV.Mrp.ScanTool` are command-line
-utilities for locating candidate devices; there is currently no packaged `AppleTvControlLibrary.Mrp.Discovery`
-library analogous to the Companion Link discovery package - discovery for MRP hosts is expected to
-be assembled from the AirPlay scan tools or a host's own mDNS client until one is published.
+MRP-over-AirPlay devices advertise the `_mediaremotetv._tcp` mDNS service type. Discovery lives in
+the shared `AppleTvControlLibrary.Discovery` package alongside the Companion Link and AirPlay
+discovery implementations, isolated behind `IMrpDiscovery` (`MulticastMrpDiscovery`) so it can be
+swapped per host, the same as `ICompanionDiscovery` and `IAirPlayDiscovery`. There is no separate
+`AppleTvControlLibrary.Mrp.Discovery` package - hosts that need MRP discovery should reference
+`AppleTvControlLibrary.Discovery` directly. `tools/AppleTV.Mrp.ScanTool` demonstrates it end to end.
 
 ### MRP protocol reference and correctness
 

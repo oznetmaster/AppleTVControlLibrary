@@ -18,7 +18,9 @@ All notable changes to this project are documented in this file.
   with capability-gated transport controls.
 - `tools/AppleTV.AirPlay.ScanTool` and `tools/AppleTV.AirPlay.RemoteTool`, command-line utilities
   for AirPlay discovery and MRP remote control.
-- `tools/AppleTV.Mrp.ScanTool`, a command-line utility for locating MRP-over-AirPlay devices.
+- `tools/AppleTV.Mrp.ScanTool`, a command-line utility for locating MRP-over-AirPlay devices, built
+  on the new `IMrpDiscovery`/`MulticastMrpDiscovery` mDNS discovery added to the existing
+  `AppleTvControlLibrary.Discovery` package (no separate discovery package was needed).
 - `tests/AppleTv.Mrp.Tests` and `tests/AppleTv.Mrp.FakeDevice`, a full MSTest suite (multi-targeted
   `net472`/`net10.0`) covering MRP pairing, protocol framing, player-state tracking, artwork
   fetch/fallback, push updates, and power-state derivation against an in-process fake Apple TV.
