@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented in this file.
 
+## [2.1.1] - 2026-08-14
+
+### Changed
+
+- Restored the "all packages share one version" policy: every published NuGet package -
+  `AppleTvControlLibrary`, `AppleTvControlLibrary.Discovery`, `AppleTvControlLibrary.All`, and
+  `AppleTvControlLibrary.Mrp` - is now bumped to 2.1.1 together, and the release workflow's pack
+  step once again forces the release tag's version onto every package (overriding each project's
+  own `<Version>`), rather than letting each project's `.csproj` version drift independently. The
+  brief per-project versioning scheme introduced to fix the `AppleTvControlLibrary.Mrp` 1.0.0/2.0.0
+  mismatch (see `[2.0.1]` below) is superseded by this entry.
+
 ## [2.0.1] - 2026-08-14
 
 ### Fixed
