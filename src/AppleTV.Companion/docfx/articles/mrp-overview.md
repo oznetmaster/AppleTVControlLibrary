@@ -26,7 +26,8 @@ protocol.
 
 ## Protocol formats
 
-MRP messages are length-prefixed Protocol Buffers frames (`ProtocolMessage`), not OPACK. Pairing
+MRP messages are length-prefixed Protocol Buffers frames
+(<xref:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>), not OPACK. Pairing
 and verification reuse the same HAP TLV8 messages and SRP/Ed25519/X25519 primitives as Companion
 Link, via the shared `AppleTv.Hap` library.
 
