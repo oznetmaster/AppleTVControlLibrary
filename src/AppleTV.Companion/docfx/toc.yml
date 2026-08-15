@@ -3,11 +3,11 @@ items:
   href: index.md
 - name: Overview
   href: articles/overview.md
-- name: Getting Started
+- name: Companion Link Getting Started
   href: articles/getting-started.md
-- name: Pairing and Credentials
+- name: Companion Link Pairing and Credentials
   href: articles/pairing.md
-- name: Compatibility and Limitations
+- name: Companion Link Compatibility and Limitations
   href: articles/compatibility.md
 - name: Companion Link API Reference
   href: api/

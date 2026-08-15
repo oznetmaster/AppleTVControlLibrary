@@ -1,4 +1,4 @@
-# Getting Started
+# Companion Link Getting Started
 
 Install `AppleTvControlLibrary.All` when an application needs both Companion Link and mDNS
 discovery. Install the individual packages when the host supplies a device address or discovery
@@ -56,4 +56,4 @@ await api.SendHidCommandAsync (down: false, command: HidCommand.Select);
 The API is async-first. Synchronous methods are retained only as obsolete source-compatibility
 wrappers; new code should use the corresponding `Async` methods.
 
-See [Pairing and Credentials](pairing.md) for persistence requirements.
+See [Companion Link Pairing and Credentials](pairing.md) for persistence requirements.

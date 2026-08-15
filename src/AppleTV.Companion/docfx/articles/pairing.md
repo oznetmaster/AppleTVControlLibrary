@@ -1,4 +1,4 @@
-# Pairing and Credentials
+# Companion Link Pairing and Credentials
 
 Companion Link pairing uses HAP pair-setup and establishes long-term credentials. Store the
 resulting credentials securely and persist the Companion Link stable identifier alongside them.

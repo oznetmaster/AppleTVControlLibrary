@@ -24,9 +24,9 @@ approved by Apple Inc.
 ## Documentation sections
 
 - [Overview](articles/overview.md)
-- [Getting started](articles/getting-started.md)
-- [Pairing and credentials](articles/pairing.md)
-- [Compatibility and limitations](articles/compatibility.md)
+- [Companion Link getting started](articles/getting-started.md)
+- [Companion Link pairing and credentials](articles/pairing.md)
+- [Companion Link compatibility and limitations](articles/compatibility.md)
 - [Companion Link API reference](api/index.md)
 - [Discovery API reference](discovery-api/index.md)
 - [MRP overview](articles/mrp-overview.md)

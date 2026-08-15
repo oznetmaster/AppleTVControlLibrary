@@ -1,4 +1,4 @@
-# Compatibility and Limitations
+# Companion Link Compatibility and Limitations
 
 ## Supported runtimes
 
