@@ -28,10 +28,7 @@ public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 	private const int MULTICAST_PORT = 5353;
 
 	/// <inheritdoc/>
-	public async Task<IReadOnlyList<CompanionDiscoveryResult>> ScanAsync (TimeSpan timeout, CancellationToken cancellationToken = default)
-		{
-		return await ScanCoreAsync (timeout, static _ => false, cancellationToken).ConfigureAwait (false);
-		}
+	public async Task<IReadOnlyList<CompanionDiscoveryResult>> ScanAsync (TimeSpan timeout, CancellationToken cancellationToken = default) => await ScanCoreAsync (timeout, static _ => false, cancellationToken).ConfigureAwait (false);
 
 	/// <summary>
 	/// Discovers a Companion Link device by its mDNS service instance name and completes as soon
@@ -97,7 +94,7 @@ public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 			{
 			// Expected when the socket is closed by the cancellation registration above.
 			}
-		catch (SocketException ex) when (ex.SocketErrorCode == SocketError.OperationAborted || ex.SocketErrorCode == SocketError.Interrupted)
+		catch (SocketException ex) when (ex.SocketErrorCode is SocketError.OperationAborted or SocketError.Interrupted)
 			{
 			// See ReceiveLoopAsync: Windows can surface the cancellation-triggered socket close
 			// as a SocketException instead of ObjectDisposedException.
@@ -176,7 +173,7 @@ public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 			{
 			// Expected once the timeout elapses.
 			}
-		catch (SocketException ex) when (ex.SocketErrorCode == SocketError.OperationAborted || ex.SocketErrorCode == SocketError.Interrupted)
+		catch (SocketException ex) when (ex.SocketErrorCode is SocketError.OperationAborted or SocketError.Interrupted)
 			{
 			// On Windows, closing the underlying socket while ReceiveAsync() is pending surfaces
 			// as a SocketException("The I/O operation has been aborted...", WSA_OPERATION_ABORTED)

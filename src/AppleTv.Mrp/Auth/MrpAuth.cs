@@ -55,9 +55,9 @@ public sealed class MrpPairSetupProcedure
 	// pyatv/protocols/mrp/auth.py (start_pairing) — line 35-46 as of pyatv 0.18.0
 	public async Task StartPairingAsync ()
 		{
-		_srp.Initialize ();
+		_ = _srp.Initialize ();
 
-		var m1 = MrpMessages.CryptoPairing (
+		ProtocolMessage m1 = MrpMessages.CryptoPairing (
 			new Dictionary<int, byte[]>
 				{
 				{ (int)TlvValue.Method, new byte[] { 0 } },
@@ -87,7 +87,7 @@ public sealed class MrpPairSetupProcedure
 
 		(byte[] pubKey, byte[] proof) = _srp.Step2 (_atvPubKey, _atvSalt);
 
-		var m3 = MrpMessages.CryptoPairing (new Dictionary<int, byte[]>
+		ProtocolMessage m3 = MrpMessages.CryptoPairing (new Dictionary<int, byte[]>
 			{
 			{ (int)TlvValue.SeqNo, new byte[] { 3 } },
 			{ (int)TlvValue.PublicKey, pubKey },
@@ -100,7 +100,7 @@ public sealed class MrpPairSetupProcedure
 		_ = atvProof;
 
 		byte[] encryptedData = _srp.Step3 ();
-		var m5 = MrpMessages.CryptoPairing (new Dictionary<int, byte[]>
+		ProtocolMessage m5 = MrpMessages.CryptoPairing (new Dictionary<int, byte[]>
 			{
 			{ (int)TlvValue.SeqNo, new byte[] { 5 } },
 			{ (int)TlvValue.EncryptedData, encryptedData },
@@ -143,7 +143,7 @@ public sealed class MrpPairVerifyProcedure
 		{
 		(_, byte[] publicKey) = _srp.Initialize ();
 
-		var m1 = MrpMessages.CryptoPairing (new Dictionary<int, byte[]>
+		ProtocolMessage m1 = MrpMessages.CryptoPairing (new Dictionary<int, byte[]>
 			{
 			{ (int)TlvValue.SeqNo, new byte[] { 1 } },
 			{ (int)TlvValue.PublicKey, publicKey },
@@ -156,13 +156,13 @@ public sealed class MrpPairVerifyProcedure
 
 		byte[] encryptedData = _srp.Verify1 (_credentials, sessionPubKey, encrypted);
 
-		var m3 = MrpMessages.CryptoPairing (new Dictionary<int, byte[]>
+		ProtocolMessage m3 = MrpMessages.CryptoPairing (new Dictionary<int, byte[]>
 			{
 			{ (int)TlvValue.SeqNo, new byte[] { 3 } },
 			{ (int)TlvValue.EncryptedData, encryptedData },
 			});
 
-		await _sendAndReceive (m3).ConfigureAwait (false);
+		_ = await _sendAndReceive (m3).ConfigureAwait (false);
 
 		// TODO: check status code — pyatv/protocols/mrp/auth.py line 118 as of pyatv 0.18.0
 		return true;

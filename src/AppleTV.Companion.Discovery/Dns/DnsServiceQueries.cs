@@ -22,7 +22,7 @@ public static class DnsServiceQueries
 	// pyatv/core/mdns.py (create_service_queries) — line 79-92 as of pyatv 0.18.0
 	public static List<byte[]> CreateServiceQueries (IReadOnlyList<string> services, QueryType qtype)
 		{
-		List<byte[]> queries = new List<byte[]> ();
+		List<byte[]> queries = [];
 		int messageCount = (int)System.Math.Ceiling (services.Count / (double)SERVICES_PER_MESSAGE);
 		for (int i = 0; i < messageCount; i++)
 			{

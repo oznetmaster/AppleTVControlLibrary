@@ -29,13 +29,13 @@ public partial class TextInputDialog : Window
 	/// </param>
 	public TextInputDialog (string? initialText, Action<string> textChangedCallback)
 		{
-		this.InitializeComponent ();
-		this._textChangedCallback = textChangedCallback;
+		InitializeComponent ();
+		_textChangedCallback = textChangedCallback;
 
-		this._suppressTextChanged = true;
-		this.InputTextBox.Text = initialText ?? string.Empty;
-		this.InputTextBox.SelectionStart = this.InputTextBox.Text.Length;
-		this._suppressTextChanged = false;
+		_suppressTextChanged = true;
+		InputTextBox.Text = initialText ?? string.Empty;
+		InputTextBox.SelectionStart = InputTextBox.Text.Length;
+		_suppressTextChanged = false;
 		}
 
 	/// <summary>
@@ -45,37 +45,37 @@ public partial class TextInputDialog : Window
 	/// <param name="text">The text to display.</param>
 	public void SetTextWithoutNotifying (string text)
 		{
-		this._suppressTextChanged = true;
+		_suppressTextChanged = true;
 		try
 			{
-			int caret = this.InputTextBox.SelectionStart;
-			this.InputTextBox.Text = text;
-			this.InputTextBox.SelectionStart = Math.Min (caret, text.Length);
+			int caret = InputTextBox.SelectionStart;
+			InputTextBox.Text = text;
+			InputTextBox.SelectionStart = Math.Min (caret, text.Length);
 			}
 		finally
 			{
-			this._suppressTextChanged = false;
+			_suppressTextChanged = false;
 			}
 		}
 
 	private void OnInputTextChanged (object sender, System.Windows.Controls.TextChangedEventArgs e)
 		{
-		if (this._suppressTextChanged)
+		if (_suppressTextChanged)
 			{
 			return;
 			}
 
-		this._textChangedCallback (this.InputTextBox.Text);
+		_textChangedCallback (InputTextBox.Text);
 		}
 
 	private void OnDoneClick (object sender, RoutedEventArgs e)
 		{
-		this.Close ();
+		Close ();
 		}
 
 	private void OnCancelClick (object sender, RoutedEventArgs e)
 		{
-		this.Close ();
+		Close ();
 		}
 
 	private void OnClosing (object? sender, CancelEventArgs e)

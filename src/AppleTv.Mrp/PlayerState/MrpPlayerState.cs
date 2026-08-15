@@ -27,7 +27,6 @@ public interface IMrpPlayerStateListener
 // pyatv/protocols/mrp/player_state.py (PlayerState) — line 17-119 as of pyatv 0.18.0
 public sealed class MrpPlayerState
 	{
-	private PlaybackState.Types.Enum? _playbackState;
 
 	/// <summary>Initializes a new instance of the <see cref="MrpPlayerState"/> class.</summary>
 	/// <param name="parent">The client that owns this player.</param>
@@ -125,49 +124,38 @@ public sealed class MrpPlayerState
 		get
 			{
 			// If playback state has not been received, assume player is not playing anything (i.e. idle).
-			if (_playbackState is null)
+			if (field is null)
 				{
 				return null;
 				}
 
 			// If player is considered paused, no content is playing...
-			if (_playbackState == PlaybackState.Types.Enum.Paused)
+			if (field == PlaybackState.Types.Enum.Paused)
 				{
 				// ...unless something is in the queue.
-				if (Metadata is not null)
-					{
-					return PlaybackState.Types.Enum.Paused;
-					}
-
-				return null;
+				return Metadata is not null ? PlaybackState.Types.Enum.Paused : null;
 				}
 
 			// All other states than playing (and paused) should pass through.
-			if (_playbackState != PlaybackState.Types.Enum.Playing)
+			if (field != PlaybackState.Types.Enum.Playing)
 				{
-				return _playbackState;
+				return field;
 				}
 
 			float? playbackRate = MetadataField<float?> ("playbackRate");
 			if (playbackRate is null)
 				{
-				return _playbackState;
+				return field;
 				}
 
-			if (IsClose (playbackRate.Value, 0.0f))
-				{
-				return _playbackState == PlaybackState.Types.Enum.Playing
+			return IsClose (playbackRate.Value, 0.0f)
+				? field == PlaybackState.Types.Enum.Playing
 					? PlaybackState.Types.Enum.Playing
-					: PlaybackState.Types.Enum.Paused;
-				}
-
-			if (IsClose (playbackRate.Value, 1.0f))
-				{
-				return PlaybackState.Types.Enum.Playing;
-				}
-
-			return PlaybackState.Types.Enum.Seeking;
+					: PlaybackState.Types.Enum.Paused
+				: IsClose (playbackRate.Value, 1.0f) ? PlaybackState.Types.Enum.Playing : PlaybackState.Types.Enum.Seeking;
 			}
+
+		private set;
 		}
 
 	/// <summary>Gets the metadata of the currently playing item, if any.</summary>
@@ -189,12 +177,7 @@ public sealed class MrpPlayerState
 		get
 			{
 			double? duration = MetadataField<double?> ("duration");
-			if (duration is null || double.IsNaN (duration.Value))
-				{
-				return null;
-				}
-
-			return (int)duration.Value;
+			return duration is null || double.IsNaN (duration.Value) ? null : (int)duration.Value;
 			}
 		}
 
@@ -215,12 +198,9 @@ public sealed class MrpPlayerState
 			double diff = (DateTime.UtcNow - referenceTime).TotalSeconds;
 
 			float playbackRate = MetadataField<float?> ("playbackRate") ?? 0.0f;
-			if (PlaybackStateValue == PlaybackState.Types.Enum.Playing && !IsClose (playbackRate, 0.0f))
-				{
-				return (int)(elapsedTime + diff);
-				}
-
-			return (int)elapsedTime;
+			return PlaybackStateValue == PlaybackState.Types.Enum.Playing && !IsClose (playbackRate, 0.0f)
+				? (int)(elapsedTime + diff)
+				: (int)elapsedTime;
 			}
 		}
 
@@ -269,7 +249,7 @@ public sealed class MrpPlayerState
 		{
 		if (setState.HasPlaybackState)
 			{
-			_playbackState = setState.PlaybackState;
+			PlaybackStateValue = setState.PlaybackState;
 			}
 
 		if (setState.SupportedCommands is not null)
@@ -318,7 +298,6 @@ public sealed class MrpPlayerState
 // pyatv/protocols/mrp/player_state.py (Client) — line 122-171 as of pyatv 0.18.0
 public sealed class MrpClient
 	{
-	private MrpPlayerState? _activePlayer;
 
 	/// <summary>Initializes a new instance of the <see cref="MrpClient"/> class.</summary>
 	/// <param name="client">The client identity to initialize from.</param>
@@ -364,19 +343,13 @@ public sealed class MrpClient
 		{
 		get
 			{
-			if (_activePlayer is null)
-				{
-				if (Players.TryGetValue (MrpPlayerStateManager.DefaultPlayerId, out MrpPlayerState? defaultPlayer))
-					{
-					return defaultPlayer;
-					}
-
-				return new MrpPlayerState (this, new NowPlayingPlayer ());
-				}
-
-			return _activePlayer;
+			return field is null
+				? Players.TryGetValue (MrpPlayerStateManager.DefaultPlayerId, out MrpPlayerState? defaultPlayer)
+					? defaultPlayer
+					: new MrpPlayerState (this, new NowPlayingPlayer ())
+				: field;
 			}
-		set => _activePlayer = value;
+		set;
 		}
 
 	/// <summary>Gets state for a player, creating it if it does not already exist.</summary>
@@ -647,7 +620,7 @@ public sealed class MrpPlayerStateManager : IMrpProtocolListener
 		string bundle = message.Client.BundleIdentifier ?? string.Empty;
 		if (_clients.TryGetValue (bundle, out MrpClient? clientToRemove))
 			{
-			_clients.Remove (bundle);
+			_ = _clients.Remove (bundle);
 
 			if (ReferenceEquals (clientToRemove, Client))
 				{
@@ -671,7 +644,7 @@ public sealed class MrpPlayerStateManager : IMrpProtocolListener
 		if (player.IsValid)
 			{
 			MrpClient client = GetClient (message.PlayerPath.Client);
-			client.Players.Remove (player.Identifier!);
+			_ = client.Players.Remove (player.Identifier!);
 			player.Parent = null;
 
 			if (ReferenceEquals (player, client.ActivePlayer) || player.Identifier == client.ActivePlayer.Identifier)

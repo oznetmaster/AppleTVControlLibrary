@@ -14,30 +14,25 @@ namespace AppleTvControlLibrary.Discovery.Companion;
 /// of performing an mDNS scan. Useful on hosts where multicast is unavailable or unreliable
 /// (see WP7 notes on Mono/embedded hosts), or when the address is already known.
 /// </summary>
-public sealed class StaticCompanionDiscovery : ICompanionDiscovery
+/// <remarks>Initializes a new instance of the <see cref="StaticCompanionDiscovery"/> class.</remarks>
+/// <param name="address">The known address of the Companion Link device.</param>
+/// <param name="port">The Companion Link port.</param>
+/// <param name="name">An optional display name for the device.</param>
+/// <param name="uniqueId">An optional stable unique identifier for the device.</param>
+public sealed class StaticCompanionDiscovery (IPAddress address, int port, string name = "", string? uniqueId = null) : ICompanionDiscovery
 	{
-	private readonly CompanionDiscoveryResult _result;
-
-	/// <summary>Initializes a new instance of the <see cref="StaticCompanionDiscovery"/> class.</summary>
-	/// <param name="address">The known address of the Companion Link device.</param>
-	/// <param name="port">The Companion Link port.</param>
-	/// <param name="name">An optional display name for the device.</param>
-	/// <param name="uniqueId">An optional stable unique identifier for the device.</param>
-	public StaticCompanionDiscovery (IPAddress address, int port, string name = "", string? uniqueId = null)
-		{
-		this._result = new CompanionDiscoveryResult (
+	private readonly CompanionDiscoveryResult _result = new CompanionDiscoveryResult (
 			name,
 			address,
 			port,
 			uniqueId,
 			CompanionPairingRequirement.Mandatory,
 			new Dictionary<string, string> ());
-		}
 
 	/// <inheritdoc/>
 	public Task<IReadOnlyList<CompanionDiscoveryResult>> ScanAsync (TimeSpan timeout, CancellationToken cancellationToken = default)
 		{
-		IReadOnlyList<CompanionDiscoveryResult> results = new[] { this._result };
+		IReadOnlyList<CompanionDiscoveryResult> results = new[] { _result };
 		return Task.FromResult (results);
 		}
 	}

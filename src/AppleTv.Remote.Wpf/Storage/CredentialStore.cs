@@ -102,15 +102,15 @@ public sealed class StoredDevice
 		}
 
 	/// <summary>Converts the stored key material to a <see cref="HapCredentials"/> instance.</summary>
-	public HapCredentials ToCredentials () => new (this.Ltpk, this.Ltsk, this.AtvId, this.ClientId);
+	public HapCredentials ToCredentials () => new (Ltpk, Ltsk, AtvId, ClientId);
 
 	/// <summary>Populates the key material fields from a <see cref="HapCredentials"/> instance.</summary>
 	public void SetCredentials (HapCredentials credentials)
 		{
-		this.Ltpk = credentials.Ltpk;
-		this.Ltsk = credentials.Ltsk;
-		this.AtvId = credentials.AtvId;
-		this.ClientId = credentials.ClientId;
+		Ltpk = credentials.Ltpk;
+		Ltsk = credentials.Ltsk;
+		AtvId = credentials.AtvId;
+		ClientId = credentials.ClientId;
 		}
 	}
 
@@ -134,12 +134,12 @@ public sealed class CredentialStore
 	/// </param>
 	public CredentialStore (string? directory = null)
 		{
-		this._directory = directory ?? Path.Combine (
+		_directory = directory ?? Path.Combine (
 			Environment.GetFolderPath (Environment.SpecialFolder.ApplicationData),
 			"AppleTvRemoteWpf",
 			"credentials");
 
-		Directory.CreateDirectory (this._directory);
+		Directory.CreateDirectory (_directory);
 		}
 
 	/// <summary>Loads a previously paired device's stored credentials, if present.</summary>
@@ -147,7 +147,7 @@ public sealed class CredentialStore
 	/// <returns>The stored device, or <see langword="null"/> if no credentials are saved for it.</returns>
 	public StoredDevice? Load (string uniqueId)
 		{
-		string path = this.GetPath (uniqueId);
+		string path = GetPath (uniqueId);
 		if (!File.Exists (path))
 			{
 			return null;
@@ -161,7 +161,7 @@ public sealed class CredentialStore
 	/// <param name="device">The device to persist.</param>
 	public void Save (StoredDevice device)
 		{
-		string path = this.GetPath (device.UniqueId);
+		string path = GetPath (device.UniqueId);
 		string json = JsonSerializer.Serialize (device, SerializerOptions);
 		File.WriteAllText (path, json);
 		}
@@ -170,7 +170,7 @@ public sealed class CredentialStore
 	/// <param name="uniqueId">The device's stable unique id.</param>
 	public void Delete (string uniqueId)
 		{
-		string path = this.GetPath (uniqueId);
+		string path = GetPath (uniqueId);
 		if (File.Exists (path))
 			{
 			File.Delete (path);
@@ -180,8 +180,8 @@ public sealed class CredentialStore
 	/// <summary>Loads every stored device currently persisted.</summary>
 	public IReadOnlyList<StoredDevice> LoadAll ()
 		{
-		List<StoredDevice> devices = new ();
-		foreach (string path in Directory.EnumerateFiles (this._directory, "*.json"))
+		List<StoredDevice> devices = [];
+		foreach (string path in Directory.EnumerateFiles (_directory, "*.json"))
 			{
 			try
 				{
@@ -211,13 +211,13 @@ public sealed class CredentialStore
 	/// </param>
 	public void SetAutoConnect (string? uniqueId)
 		{
-		foreach (StoredDevice device in this.LoadAll ())
+		foreach (StoredDevice device in LoadAll ())
 			{
 			bool shouldAutoConnect = uniqueId is not null && device.UniqueId == uniqueId;
 			if (device.AutoConnect != shouldAutoConnect)
 				{
 				device.AutoConnect = shouldAutoConnect;
-				this.Save (device);
+				Save (device);
 				}
 			}
 		}
@@ -225,12 +225,12 @@ public sealed class CredentialStore
 	/// <summary>Returns the stored device currently marked for auto-connect, if any.</summary>
 	public StoredDevice? LoadAutoConnectDevice ()
 		{
-		return this.LoadAll ().FirstOrDefault (d => d.AutoConnect);
+		return LoadAll ().FirstOrDefault (d => d.AutoConnect);
 		}
 
 	private string GetPath (string uniqueId)
 		{
 		string safeName = string.Join ("_", uniqueId.Split (Path.GetInvalidFileNameChars ()));
-		return Path.Combine (this._directory, safeName + ".json");
+		return Path.Combine (_directory, safeName + ".json");
 		}
 	}

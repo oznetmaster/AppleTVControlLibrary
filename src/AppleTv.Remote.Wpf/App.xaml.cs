@@ -21,9 +21,9 @@ public partial class App : Application
 		// This does not replace per-operation logging elsewhere (CompanionProtocol,
 		// CompanionApi, TcpCompanionTransport) - it exists so nothing ever falls through
 		// to a silent/unlogged process crash.
-		this.DispatcherUnhandledException += this.OnDispatcherUnhandledException;
-		AppDomain.CurrentDomain.UnhandledException += this.OnAppDomainUnhandledException;
-		TaskScheduler.UnobservedTaskException += this.OnUnobservedTaskException;
+		DispatcherUnhandledException += OnDispatcherUnhandledException;
+		AppDomain.CurrentDomain.UnhandledException += OnAppDomainUnhandledException;
+		TaskScheduler.UnobservedTaskException += OnUnobservedTaskException;
 
 		base.OnStartup (e);
 		}

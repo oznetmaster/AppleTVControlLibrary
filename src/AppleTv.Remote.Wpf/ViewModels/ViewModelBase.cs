@@ -16,7 +16,7 @@ public abstract class ViewModelBase : INotifyPropertyChanged
 	/// <param name="propertyName">The name of the property that changed.</param>
 	protected void OnPropertyChanged ([CallerMemberName] string? propertyName = null)
 		{
-		this.PropertyChanged?.Invoke (this, new PropertyChangedEventArgs (propertyName));
+		PropertyChanged?.Invoke (this, new PropertyChangedEventArgs (propertyName));
 		}
 
 	/// <summary>Sets a backing field and raises <see cref="PropertyChanged"/> if the value changed.</summary>
@@ -33,7 +33,7 @@ public abstract class ViewModelBase : INotifyPropertyChanged
 			}
 
 		field = value;
-		this.OnPropertyChanged (propertyName);
+		OnPropertyChanged (propertyName);
 		return true;
 		}
 	}

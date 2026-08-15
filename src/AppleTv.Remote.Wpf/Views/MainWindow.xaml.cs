@@ -27,20 +27,20 @@ public partial class MainWindow : Window
 	/// <summary>Initializes a new instance of the <see cref="MainWindow"/> class.</summary>
 	public MainWindow ()
 		{
-		this.InitializeComponent ();
+		InitializeComponent ();
 
 		MainViewModel viewModel = new MainViewModel
 			{
-			RequestPin = this.RequestPin,
-			ShowTextInput = this.ShowTextInput,
-			HideTextInput = this.HideTextInput,
+			RequestPin = RequestPin,
+			ShowTextInput = ShowTextInput,
+			HideTextInput = HideTextInput,
 			};
-		this.DataContext = viewModel;
-		this.Closed += (_, _) => viewModel.Dispose ();
+		DataContext = viewModel;
+		Closed += (_, _) => viewModel.Dispose ();
 
 		// Fire-and-forget: InitializeAsync reports its own status/errors via StatusMessage, and
 		// Scan/Pair/Connect/Disconnect remain fully usable whether or not this succeeds.
-		this.Loaded += async (_, _) => await viewModel.InitializeAsync ().ConfigureAwait (true);
+		Loaded += async (_, _) => await viewModel.InitializeAsync ().ConfigureAwait (true);
 		}
 
 	private int? RequestPin (CompanionDiscoveryResult device)
@@ -59,14 +59,14 @@ public partial class MainWindow : Window
 	// must remain usable while the dialog is open.
 	private void ShowTextInput (string? currentText)
 		{
-		if (this.DataContext is not MainViewModel viewModel)
+		if (DataContext is not MainViewModel viewModel)
 			{
 			return;
 			}
 
-		if (this._textInputDialog is not null)
+		if (_textInputDialog is not null)
 			{
-			this._textInputDialog.SetTextWithoutNotifying (currentText ?? string.Empty);
+			_textInputDialog.SetTextWithoutNotifying (currentText ?? string.Empty);
 			return;
 			}
 
@@ -74,15 +74,15 @@ public partial class MainWindow : Window
 			{
 			Owner = this,
 			};
-		dialog.Closed += (_, _) => this._textInputDialog = null;
-		this._textInputDialog = dialog;
+		dialog.Closed += (_, _) => _textInputDialog = null;
+		_textInputDialog = dialog;
 		dialog.Show ();
 		}
 
 	private void HideTextInput ()
 		{
-		this._textInputDialog?.Close ();
-		this._textInputDialog = null;
+		_textInputDialog?.Close ();
+		_textInputDialog = null;
 		}
 
 	// A press+release with minimal movement in between is sent as a Companion touchpad "click"
@@ -92,66 +92,66 @@ public partial class MainWindow : Window
 	// swipe. A touch Press/Release pair alone does not cause tvOS to act on the tap.
 	private void TouchpadSurface_MouseDown (object sender, MouseButtonEventArgs e)
 		{
-		if (this.DataContext is not MainViewModel viewModel || e.ChangedButton != MouseButton.Left)
+		if (DataContext is not MainViewModel viewModel || e.ChangedButton != MouseButton.Left)
 			{
 			return;
 			}
 
-		this._isTouchpadDragging = true;
-		this._touchpadMoved = false;
-		this._touchpadDownPosition = e.GetPosition (this.TouchpadSurface);
-		this.TouchpadSurface.CaptureMouse ();
+		_isTouchpadDragging = true;
+		_touchpadMoved = false;
+		_touchpadDownPosition = e.GetPosition (TouchpadSurface);
+		TouchpadSurface.CaptureMouse ();
 
-		(int x, int y) = MainViewModel.TranslateTouchCoordinate (this._touchpadDownPosition, this.TouchpadSurface.ActualWidth, this.TouchpadSurface.ActualHeight);
+		(int x, int y) = MainViewModel.TranslateTouchCoordinate (_touchpadDownPosition, TouchpadSurface.ActualWidth, TouchpadSurface.ActualHeight);
 		viewModel.SendTouchEvent (x, y, TouchAction.Press);
 		}
 
 	private void TouchpadSurface_MouseMove (object sender, MouseEventArgs e)
 		{
-		if (!this._isTouchpadDragging || this.DataContext is not MainViewModel viewModel)
+		if (!_isTouchpadDragging || DataContext is not MainViewModel viewModel)
 			{
 			return;
 			}
 
-		Point position = e.GetPosition (this.TouchpadSurface);
-		if (!this._touchpadMoved && (position - this._touchpadDownPosition).Length > CLICK_MOVEMENT_THRESHOLD)
+		Point position = e.GetPosition (TouchpadSurface);
+		if (!_touchpadMoved && (position - _touchpadDownPosition).Length > CLICK_MOVEMENT_THRESHOLD)
 			{
-			this._touchpadMoved = true;
+			_touchpadMoved = true;
 			}
 
-		(int x, int y) = MainViewModel.TranslateTouchCoordinate (position, this.TouchpadSurface.ActualWidth, this.TouchpadSurface.ActualHeight);
+		(int x, int y) = MainViewModel.TranslateTouchCoordinate (position, TouchpadSurface.ActualWidth, TouchpadSurface.ActualHeight);
 		viewModel.SendTouchEvent (x, y, TouchAction.Hold);
 		}
 
 	private void TouchpadSurface_MouseUp (object sender, MouseButtonEventArgs e)
 		{
-		if (!this._isTouchpadDragging || this.DataContext is not MainViewModel viewModel || e.ChangedButton != MouseButton.Left)
+		if (!_isTouchpadDragging || DataContext is not MainViewModel viewModel || e.ChangedButton != MouseButton.Left)
 			{
 			return;
 			}
 
-		this.EndTouchpadDrag (viewModel, e.GetPosition (this.TouchpadSurface));
+		EndTouchpadDrag (viewModel, e.GetPosition (TouchpadSurface));
 		}
 
 	private void TouchpadSurface_MouseLeave (object sender, MouseEventArgs e)
 		{
-		if (!this._isTouchpadDragging || this.DataContext is not MainViewModel viewModel)
+		if (!_isTouchpadDragging || DataContext is not MainViewModel viewModel)
 			{
 			return;
 			}
 
-		this.EndTouchpadDrag (viewModel, e.GetPosition (this.TouchpadSurface));
+		EndTouchpadDrag (viewModel, e.GetPosition (TouchpadSurface));
 		}
 
 	private void EndTouchpadDrag (MainViewModel viewModel, Point position)
 		{
-		this._isTouchpadDragging = false;
-		this.TouchpadSurface.ReleaseMouseCapture ();
+		_isTouchpadDragging = false;
+		TouchpadSurface.ReleaseMouseCapture ();
 
-		(int x, int y) = MainViewModel.TranslateTouchCoordinate (position, this.TouchpadSurface.ActualWidth, this.TouchpadSurface.ActualHeight);
+		(int x, int y) = MainViewModel.TranslateTouchCoordinate (position, TouchpadSurface.ActualWidth, TouchpadSurface.ActualHeight);
 		viewModel.SendTouchEvent (x, y, TouchAction.Release);
 
-		if (!this._touchpadMoved)
+		if (!_touchpadMoved)
 			{
 			viewModel.SendTouchClick (InputAction.SingleTap);
 			}

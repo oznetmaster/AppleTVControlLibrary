@@ -22,7 +22,7 @@ namespace AppleTvControlLibrary.Mrp.AirPlay.Channels;
 public abstract class AbstractHapChannel : IDisposable
 	{
 	private readonly HapSession _session = new ();
-	private readonly System.Collections.Generic.List<byte> _buffer = [];
+
 	// pyatv's asyncio transport serializes all writes onto a single event loop; this port has
 	// no such guarantee since Send() is called both from the background read thread (replying to
 	// "sync" frames) and from the async protocol send path. Without this lock, two concurrent
@@ -39,14 +39,11 @@ public abstract class AbstractHapChannel : IDisposable
 	/// <param name="outputKey">The key used to encrypt outgoing data.</param>
 	/// <param name="inputKey">The key used to decrypt incoming data.</param>
 	// pyatv/auth/hap_channel.py (__init__) — line 19-24 as of pyatv 0.18.0
-	protected AbstractHapChannel (byte[] outputKey, byte[] inputKey)
-		{
-		_session.Enable (outputKey, inputKey);
-		}
+	protected AbstractHapChannel (byte[] outputKey, byte[] inputKey) => _session.Enable (outputKey, inputKey);
 
 	/// <summary>Gets the accumulated, decrypted-but-not-yet-consumed receive buffer.</summary>
 	/// <remarks>Subclasses drain this in <see cref="HandleReceived"/> as complete messages become available.</remarks>
-	protected System.Collections.Generic.List<byte> Buffer => _buffer;
+	protected System.Collections.Generic.List<byte> Buffer { get; } = [];
 
 	/// <summary>Connect to the remote endpoint and start the background read loop.</summary>
 	/// <param name="address">The remote address.</param>
@@ -131,7 +128,7 @@ public abstract class AbstractHapChannel : IDisposable
 				byte[] decrypted = _session.Decrypt (received);
 				if (decrypted.Length > 0)
 					{
-					_buffer.AddRange (decrypted);
+					Buffer.AddRange (decrypted);
 					HandleReceived ();
 					}
 				}
@@ -164,7 +161,7 @@ public abstract class AbstractHapChannel : IDisposable
 
 		if (_readThread is { IsAlive: true } && Environment.CurrentManagedThreadId != _readThread.ManagedThreadId)
 			{
-			_readThread.Join (TimeSpan.FromSeconds (2));
+			_ = _readThread.Join (TimeSpan.FromSeconds (2));
 			}
 
 		GC.SuppressFinalize (this);

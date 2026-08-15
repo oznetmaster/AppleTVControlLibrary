@@ -443,17 +443,9 @@ public sealed class MrpRemoteControl
 			return null;
 			}
 
-		if (metadata.HasArtworkIdentifier)
-			{
-			return metadata.ArtworkIdentifier;
-			}
-
-		if (metadata.HasContentIdentifier)
-			{
-			return metadata.ContentIdentifier;
-			}
-
-		return playing.ItemIdentifier;
+		return metadata.HasArtworkIdentifier
+			? metadata.ArtworkIdentifier
+			: metadata.HasContentIdentifier ? metadata.ContentIdentifier : playing.ItemIdentifier;
 		}
 
 	// pyatv/protocols/mrp/__init__.py (MrpMetadata._fetch_remote_artwork) — line 539-581 as of pyatv 0.18.0
@@ -520,13 +512,13 @@ public sealed class MrpRemoteControl
 		{
 		if (_artworkCache.ContainsKey (identifier))
 			{
-			_artworkCacheOrder.Remove (identifier);
+			_ = _artworkCacheOrder.Remove (identifier);
 			}
 		else if (_artworkCacheOrder.Count >= ArtworkCacheLimit)
 			{
 			string oldest = _artworkCacheOrder[0];
 			_artworkCacheOrder.RemoveAt (0);
-			_artworkCache.Remove (oldest);
+			_ = _artworkCache.Remove (oldest);
 			}
 
 		_artworkCache[identifier] = artwork;
@@ -564,12 +556,7 @@ public sealed class MrpRemoteControl
 			}
 
 		ContentItem item = inner.PlaybackQueue.ContentItems[playing.Location];
-		if (item.ArtworkData is not { Length: > 0 })
-			{
-			return null;
-			}
-
-		return (item.ArtworkData.ToByteArray (), playing.Metadata?.ArtworkMIMEType);
+		return item.ArtworkData is not { Length: > 0 } ? null : (item.ArtworkData.ToByteArray (), playing.Metadata?.ArtworkMIMEType);
 		}
 
 	// pyatv/protocols/mrp/__init__.py (_send_hid_key) — line 296-324 as of pyatv 0.18.0
@@ -611,6 +598,6 @@ public sealed class MrpRemoteControl
 		await _protocol.SendAsync (MrpMessages.SendHidEvent (keycode.UsePage, keycode.Usage, false), cancellationToken).ConfigureAwait (false);
 
 		// Send and receive a generic message as some kind of "flush" mechanism.
-		await _protocol.SendAndReceiveAsync (MrpMessages.Create (ProtocolMessage.Types.Type.GenericMessage), cancellationToken: cancellationToken).ConfigureAwait (false);
+		_ = await _protocol.SendAndReceiveAsync (MrpMessages.Create (ProtocolMessage.Types.Type.GenericMessage), cancellationToken: cancellationToken).ConfigureAwait (false);
 		}
 	}

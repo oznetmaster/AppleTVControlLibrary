@@ -76,12 +76,9 @@ public sealed class FakeCompanionSrpServer
 		{
 		get
 			{
-			if (_sessionKeyBytes is null)
-				{
-				throw new InvalidOperationException ("ProcessClientPublicKey must be called first");
-				}
-
-			return _sessionKeyBytes;
+			return _sessionKeyBytes is null
+				? throw new InvalidOperationException ("ProcessClientPublicKey must be called first")
+				: _sessionKeyBytes;
 			}
 		}
 
@@ -208,7 +205,7 @@ public sealed class FakeCompanionSrpServer
 			}
 
 		var output = new byte[digest.GetDigestSize ()];
-		digest.DoFinal (output, 0);
+		_ = digest.DoFinal (output, 0);
 		return output;
 		}
 

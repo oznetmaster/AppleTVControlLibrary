@@ -14,8 +14,8 @@ public sealed class SelectableItem
 	/// <param name="displayName">The user-facing display name.</param>
 	public SelectableItem (string id, string displayName)
 		{
-		this.Id = id;
-		this.DisplayName = displayName;
+		Id = id;
+		DisplayName = displayName;
 		}
 
 	/// <summary>Gets the bundle identifier or account identifier.</summary>

@@ -49,14 +49,10 @@ public interface ICompanionProtocolListener
 /// means the connection was closed cleanly (the equivalent of pyatv's <c>connection_closed()</c>),
 /// while a non-null value means it was lost unexpectedly (<c>connection_lost(exc)</c>).
 /// </remarks>
-public sealed class ConnectionClosedEventArgs : EventArgs
+/// <remarks>Initializes a new instance of the <see cref="ConnectionClosedEventArgs"/> class.</remarks>
+/// <param name="exception">The exception that caused the connection to be lost, or <see langword="null"/> for a clean close.</param>
+public sealed class ConnectionClosedEventArgs (Exception? exception) : EventArgs
 	{
-	/// <summary>Initializes a new instance of the <see cref="ConnectionClosedEventArgs"/> class.</summary>
-	/// <param name="exception">The exception that caused the connection to be lost, or <see langword="null"/> for a clean close.</param>
-	public ConnectionClosedEventArgs (Exception? exception)
-		{
-		Exception = exception;
-		}
 
 	/// <summary>
 	/// Gets the exception that caused the connection to be lost, or <see langword="null"/> if the
@@ -67,7 +63,7 @@ public sealed class ConnectionClosedEventArgs : EventArgs
 	public Exception? Exception
 		{
 		get;
-		}
+		} = exception;
 	}
 
 /// <summary>
@@ -134,10 +130,7 @@ public readonly struct FrameIdentifier : IEquatable<FrameIdentifier>
 	public static bool operator != (FrameIdentifier left, FrameIdentifier right) => !left.Equals (right);
 
 	/// <inheritdoc/>
-	public override string ToString ()
-		{
-		return _xid is not null ? $"XID={_xid}" : $"FrameType={_frameType}";
-		}
+	public override string ToString () => _xid is not null ? $"XID={_xid}" : $"FrameType={_frameType}";
 	}
 
 /// <summary>
@@ -238,10 +231,7 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 	/// <returns>The decoded OPACK response.</returns>
 	// pyatv/protocols/companion/protocol.py (exchange_auth) — line 125-141 as of pyatv 0.18.0
 	[Obsolete ("Use ExchangeAuthAsync instead.")]
-	public Dictionary<object, object?> ExchangeAuth (FrameType frameType, Dictionary<string, object?> data)
-		{
-		return ExchangeAuthAsync (frameType, data).ConfigureAwait (false).GetAwaiter ().GetResult ();
-		}
+	public Dictionary<object, object?> ExchangeAuth (FrameType frameType, Dictionary<string, object?> data) => ExchangeAuthAsync (frameType, data).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously exchanges an auth frame (<c>PS_*</c> or <c>PV_*</c>).</summary>
 	public async Task<Dictionary<object, object?>> ExchangeAuthAsync (FrameType frameType, Dictionary<string, object?> data, CancellationToken cancellationToken = default)
@@ -262,7 +252,7 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 			}
 		finally
 			{
-			_authGate.Release ();
+			_ = _authGate.Release ();
 			}
 		}
 
@@ -272,16 +262,10 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 	/// <returns>The decoded OPACK response.</returns>
 	// pyatv/protocols/companion/protocol.py (exchange_opack) — line 143-153 as of pyatv 0.18.0
 	[Obsolete ("Use ExchangeOpackAsync instead.")]
-	public Dictionary<object, object?> ExchangeOpack (FrameType frameType, Dictionary<string, object?> data)
-		{
-		return ExchangeOpackAsync (frameType, data).ConfigureAwait (false).GetAwaiter ().GetResult ();
-		}
+	public Dictionary<object, object?> ExchangeOpack (FrameType frameType, Dictionary<string, object?> data) => ExchangeOpackAsync (frameType, data).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously sends OPACK data and decodes the OPACK response.</summary>
-	public Task<Dictionary<object, object?>> ExchangeOpackAsync (FrameType frameType, Dictionary<string, object?> data, CancellationToken cancellationToken = default)
-		{
-		return ExchangeGenericAsync (frameType, data, identifier: null, cancellationToken);
-		}
+	public Task<Dictionary<object, object?>> ExchangeOpackAsync (FrameType frameType, Dictionary<string, object?> data, CancellationToken cancellationToken = default) => ExchangeGenericAsync (frameType, data, identifier: null, cancellationToken);
 
 	/// <summary>
 	/// Gets or sets how long to wait for a response before <see cref="ExchangeAuth"/> or
@@ -330,25 +314,26 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 				}
 			catch
 				{
-				_pending.TryRemove (actualIdentifier, out _);
+				_ = _pending.TryRemove (actualIdentifier, out _);
 				throw;
 				}
 			}
 		finally
 			{
-			_sendGate.Release ();
+			_ = _sendGate.Release ();
 			}
 
 		Dictionary<object, object?> result;
 		Task completed = await Task.WhenAny (completion.Task, Task.Delay (ResponseTimeout, cancellationToken)).ConfigureAwait (false);
 		if (completed.IsCanceled)
 			{
-			_pending.TryRemove (actualIdentifier, out _);
+			_ = _pending.TryRemove (actualIdentifier, out _);
 			throw new OperationCanceledException (cancellationToken);
 			}
+
 		if (completed != completion.Task)
 			{
-			_pending.TryRemove (actualIdentifier, out _);
+			_ = _pending.TryRemove (actualIdentifier, out _);
 			System.Diagnostics.Debug.WriteLine ($"[CompanionProtocol] Timed out after {ResponseTimeout} waiting for {actualIdentifier} (sent as {frameType})");
 			throw new ProtocolException ($"No response received for {actualIdentifier} (sent as {frameType})");
 			}
@@ -356,22 +341,19 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 		result = await completion.Task.ConfigureAwait (false);
 
 		// pyatv/protocols/companion/protocol.py — line 173-174 as of pyatv 0.18.0
-		if (result.TryGetValue ("_em", out object? errorMessage))
-			{
-			throw new ProtocolException ($"Command failed: {errorMessage}");
-			}
-
-		return result;
+		return result.TryGetValue ("_em", out object? errorMessage)
+			? throw new ProtocolException ($"Command failed: {errorMessage}")
+			: result;
 		}
 
 	private void FaultPendingRequests (Exception? exception)
 		{
 		Exception fault = exception ?? new ProtocolException ("Connection faulted");
-		foreach (var pending in _pending)
+		foreach (KeyValuePair<FrameIdentifier, TaskCompletionSource<Dictionary<object, object?>>> pending in _pending)
 			{
-			if (_pending.TryRemove (pending.Key, out var completion))
+			if (_pending.TryRemove (pending.Key, out TaskCompletionSource<Dictionary<object, object?>>? completion))
 				{
-				completion.TrySetException (new ProtocolException ("Connection faulted while awaiting a response", fault));
+				_ = completion.TrySetException (new ProtocolException ("Connection faulted while awaiting a response", fault));
 				}
 			}
 		}
@@ -381,10 +363,7 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 	/// <param name="data">The message content.</param>
 	// pyatv/protocols/companion/protocol.py (send_opack) — line 178-186 as of pyatv 0.18.0
 	[Obsolete ("Use SendOpackAsync instead.")]
-	public void SendOpack (FrameType frameType, Dictionary<string, object?> data)
-		{
-		SendOpackAsync (frameType, data).ConfigureAwait (false).GetAwaiter ().GetResult ();
-		}
+	public void SendOpack (FrameType frameType, Dictionary<string, object?> data) => SendOpackAsync (frameType, data).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously sends data encoded with OPACK, adding an XID if not already present.</summary>
 	/// <param name="frameType">The frame type to send.</param>
@@ -405,7 +384,7 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 			}
 		finally
 			{
-			_sendGate.Release ();
+			_ = _sendGate.Release ();
 			}
 		}
 
@@ -440,22 +419,22 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 		}
 
 	// pyatv/protocols/companion/protocol.py (frame_received) — line 188-207 as of pyatv 0.18.0
-	private static readonly FrameType[] AuthFrames =
-		{
+	private static readonly FrameType[] _authFrames =
+		[
 		FrameType.PS_Start, FrameType.PS_Next, FrameType.PV_Start, FrameType.PV_Next,
-		};
+		];
 
-	private static readonly FrameType[] OpackFrames =
-		{
+	private static readonly FrameType[] _opackFrames =
+		[
 		FrameType.U_OPACK, FrameType.E_OPACK, FrameType.P_OPACK,
-		};
+		];
 
 	private void OnFrameReceived (FrameType frameType, byte[] data)
 		{
 		System.Diagnostics.Debug.WriteLine ($"[CompanionProtocol] Received frame {frameType} ({data.Length} bytes)");
 
-		bool isAuth = Array.IndexOf (AuthFrames, frameType) >= 0;
-		bool isOpack = Array.IndexOf (OpackFrames, frameType) >= 0;
+		bool isAuth = Array.IndexOf (_authFrames, frameType) >= 0;
+		bool isOpack = Array.IndexOf (_opackFrames, frameType) >= 0;
 
 		if (!isAuth && !isOpack)
 			{
@@ -484,9 +463,9 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 	private void HandleAuth (FrameType frameType, Dictionary<object, object?> opackData)
 		{
 		var identifier = FrameIdentifier.FromFrameType (frameType);
-		if (_pending.TryRemove (identifier, out var continuation))
+		if (_pending.TryRemove (identifier, out TaskCompletionSource<Dictionary<object, object?>>? continuation))
 			{
-			continuation.TrySetResult (opackData);
+			_ = continuation.TrySetResult (opackData);
 			}
 		else
 			{
@@ -503,9 +482,9 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 		if (messageTypeValue == (long)MessageType.Event)
 			{
 			string eventName = (string)opackData["_i"]!;
-			var content = opackData.TryGetValue ("_c", out object? c) && c is Dictionary<object, object?> dict
+			Dictionary<object, object?> content = opackData.TryGetValue ("_c", out object? c) && c is Dictionary<object, object?> dict
 				? dict
-				: new Dictionary<object, object?> ();
+				: [];
 			DispatchEvent (eventName, content);
 			}
 		else if (messageTypeValue == (long)MessageType.Response)
@@ -514,9 +493,9 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 			if (xid is not null)
 				{
 				var identifier = FrameIdentifier.FromXid ((int)xid.Value);
-				if (_pending.TryRemove (identifier, out var continuation))
+				if (_pending.TryRemove (identifier, out TaskCompletionSource<Dictionary<object, object?>>? continuation))
 					{
-					continuation.TrySetResult (opackData);
+					_ = continuation.TrySetResult (opackData);
 					}
 				else
 					{
@@ -552,17 +531,14 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 			}
 		}
 
-	private static long? ToLong (object? value)
+	private static long? ToLong (object? value) => value switch
 		{
-		return value switch
-			{
 			null => null,
 			long l => l,
 			int i => i,
 			AppleTvControlLibrary.Opack.SizedInteger si => si.Value,
 			_ => Convert.ToInt64 (value, CultureInfo.InvariantCulture),
 			};
-		}
 
 	/// <inheritdoc/>
 	public void Dispose ()

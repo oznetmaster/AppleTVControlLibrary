@@ -55,7 +55,7 @@ public sealed class AirPlayHapPairVerifyProcedure
 	// pyatv/protocols/airplay/auth/hap.py (verify_credentials) — line 104-127 as of pyatv 0.18.0
 	public async Task<bool> VerifyCredentialsAsync ()
 		{
-		(byte[] _, byte[] publicKey) = _srp.Initialize ();
+		(_, byte[] publicKey) = _srp.Initialize ();
 
 		HttpResponse resp = await SendAsync (new Dictionary<int, byte[]>
 			{
@@ -68,7 +68,7 @@ public sealed class AirPlayHapPairVerifyProcedure
 		byte[] encrypted = pairingData[(int)TlvValue.EncryptedData];
 
 		byte[] encryptedData = _srp.Verify1 (_credentials, sessionPubKey, encrypted);
-		await SendAsync (new Dictionary<int, byte[]>
+		_ = await SendAsync (new Dictionary<int, byte[]>
 			{
 				{ (int)TlvValue.SeqNo, [0x03] },
 				{ (int)TlvValue.EncryptedData, encryptedData },
@@ -122,9 +122,9 @@ public sealed class AirPlayHapPairSetupProcedure
 	// pyatv/protocols/airplay/auth/hap.py (start_pairing) — line 43-58 as of pyatv 0.18.0
 	public async Task StartPairingAsync ()
 		{
-		_srp.Initialize ();
+		_ = _srp.Initialize ();
 
-		await _http.PostAsync ("/pair-pin-start", AirPlayHapPairVerifyProcedure.AirPlayHeaders).ConfigureAwait (false);
+		_ = await _http.PostAsync ("/pair-pin-start", AirPlayHapPairVerifyProcedure.AirPlayHeaders).ConfigureAwait (false);
 
 		byte[] body = Tlv8.Tlv8.WriteTlv (new Dictionary<int, byte[]>
 			{
@@ -161,7 +161,7 @@ public sealed class AirPlayHapPairSetupProcedure
 				{ (int)TlvValue.Proof, proof },
 			});
 
-		await _http.PostAsync ("/pair-setup", AirPlayHapPairVerifyProcedure.AirPlayHeaders, body).ConfigureAwait (false);
+		_ = await _http.PostAsync ("/pair-setup", AirPlayHapPairVerifyProcedure.AirPlayHeaders, body).ConfigureAwait (false);
 
 		body = Tlv8.Tlv8.WriteTlv (new Dictionary<int, byte[]>
 			{

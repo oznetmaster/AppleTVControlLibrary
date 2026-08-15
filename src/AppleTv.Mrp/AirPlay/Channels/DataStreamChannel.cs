@@ -50,11 +50,9 @@ public sealed class DataStreamChannel : AbstractHapChannel
 	/// <param name="inputKey">The key used to decrypt incoming data.</param>
 	// pyatv/protocols/airplay/channels.py (DataStreamChannel.__init__) — line 229-232 as of pyatv 0.18.0
 	public DataStreamChannel (byte[] outputKey, byte[] inputKey)
-		: base (outputKey, inputKey)
-		{
+		: base (outputKey, inputKey) =>
 		// pyatv/protocols/airplay/channels.py — line 232 as of pyatv 0.18.0: randrange(0x100000000, 0x1FFFFFFFF)
 		_sendSeqNo = 0x100000000UL + (ulong)(_random.NextDouble () * 0xFFFFFFFFUL);
-		}
 
 	/// <summary>Gets or sets the listener notified of incoming protobuf messages and connection loss.</summary>
 	public IDataStreamListener? Listener { get; set; }

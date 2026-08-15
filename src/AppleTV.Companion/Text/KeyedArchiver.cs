@@ -53,7 +53,7 @@ public static class KeyedArchiver
 			results.Add (ResolvePath (data, objects, path));
 			}
 
-		return results.ToArray ();
+		return [.. results];
 		}
 
 	// pyatv/protocols/companion/keyed_archiver.py (element = data["$top"] ... for key in path) — line 18-25 as of pyatv 0.18.0
@@ -103,15 +103,12 @@ public static class KeyedArchiver
 	// what plistlib.loads produces for the leaves pyatv actually reads (strings and NS.uuidbytes
 	// byte blobs) — pyatv/protocols/companion/keyed_archiver.py does not itself convert these,
 	// since Python's plistlib already yields plain str/bytes for these node types.
-	private static object? Unwrap (object? value)
+	private static object? Unwrap (object? value) => value switch
 		{
-		return value switch
-			{
 			null => null,
 			NSString s => s.Content,
 			NSData d => d.Bytes,
 			NSNumber n => n.ToObject (),
 			_ => value,
 			};
-		}
 	}

@@ -134,7 +134,7 @@ public sealed class Ap2Session : IDisposable
 			}
 
 		await SetupEventChannelAsync (_connection.RemoteIp, cancellationToken).ConfigureAwait (false);
-		await _rtsp.RecordAsync ().ConfigureAwait (false);
+		_ = await _rtsp.RecordAsync ().ConfigureAwait (false);
 		await SetupDataChannelAsync (_connection.RemoteIp, cancellationToken).ConfigureAwait (false);
 		}
 
@@ -170,7 +170,7 @@ public sealed class Ap2Session : IDisposable
 				try
 					{
 					await Task.Delay (FeedbackInterval, cancellationToken).ConfigureAwait (false);
-					await _rtsp!.FeedbackAsync ().ConfigureAwait (false);
+					_ = await _rtsp!.FeedbackAsync ().ConfigureAwait (false);
 					attempts = 0;
 					}
 				catch (OperationCanceledException)

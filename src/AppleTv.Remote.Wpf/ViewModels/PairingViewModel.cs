@@ -18,12 +18,12 @@ public sealed class PairingViewModel : ViewModelBase
 	/// <summary>Gets or sets the PIN entered by the user.</summary>
 	public string Pin
 		{
-		get => this._pin;
-		set => this.SetProperty (ref this._pin, value);
+		get => _pin;
+		set => SetProperty (ref _pin, value);
 		}
 
 	/// <summary>Attempts to parse <see cref="Pin"/> as the numeric PIN code required by pair-setup.</summary>
 	/// <param name="pin">The parsed PIN, if successful.</param>
 	/// <returns><see langword="true"/> if <see cref="Pin"/> is a valid PIN.</returns>
-	public bool TryGetPin (out int pin) => int.TryParse (this.Pin, out pin);
+	public bool TryGetPin (out int pin) => int.TryParse (Pin, out pin);
 	}

@@ -48,7 +48,7 @@ public static class MrpExtensions
 				object? value = field.GetValue (null);
 				if (value is not null)
 					{
-					TryAddExtension (registry, value);
+					_ = TryAddExtension (registry, value);
 					}
 				}
 			}
@@ -64,7 +64,7 @@ public static class MrpExtensions
 			return false;
 			}
 
-		addMethod.Invoke (registry, [value]);
+		_ = addMethod.Invoke (registry, [value]);
 		return true;
 		}
 	}

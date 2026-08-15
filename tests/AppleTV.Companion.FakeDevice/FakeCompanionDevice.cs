@@ -181,23 +181,17 @@ public sealed class FakeCompanionDevice
 
 		byte[]? serverProof = _srpSession.VerifyClientProofAndGetServerProof (pairingData[(int)TlvValue.Proof]);
 
-		Dictionary<int, byte[]> tlv;
-		if (serverProof is not null)
-			{
-			tlv = new Dictionary<int, byte[]>
+		Dictionary<int, byte[]> tlv = serverProof is not null
+			? new Dictionary<int, byte[]>
 				{
 					{ (int)TlvValue.Proof, serverProof },
 					{ (int)TlvValue.SeqNo, new byte[] { 4 } },
-				};
-			}
-		else
-			{
-			tlv = new Dictionary<int, byte[]>
+				}
+			: new Dictionary<int, byte[]>
 				{
 					{ (int)TlvValue.Error, new byte[] { (byte)ErrorCode.Authentication } },
 					{ (int)TlvValue.SeqNo, new byte[] { 4 } },
 				};
-			}
 
 		return (FrameType.PS_Next, Tlv8.Tlv8.WriteTlv (tlv));
 		}

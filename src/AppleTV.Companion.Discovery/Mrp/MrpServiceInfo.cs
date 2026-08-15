@@ -17,7 +17,7 @@ public static class MrpServiceInfo
 
 	// pyatv/protocols/mrp/__init__.py (mrp_service_handler) — line 1029-1035 as of pyatv 0.18.0:
 	// matches the leading numeric build component of "SystemBuildVersion" (e.g. "19J346" -> 19).
-	private static readonly Regex BuildVersionPrefix = new Regex (@"^(\d+)[A-Z]", RegexOptions.Compiled);
+	private static readonly Regex BuildVersionPrefix = new (@"^(\d+)[A-Z]", RegexOptions.Compiled);
 
 	/// <summary>
 	/// Returns the stable unique identifier for an MRP service, from the "UniqueIdentifier"
@@ -26,10 +26,7 @@ public static class MrpServiceInfo
 	/// <param name="properties">The service's decoded TXT record properties.</param>
 	/// <returns>The unique identifier, or <see langword="null"/>.</returns>
 	// pyatv/helpers.py (get_unique_id, MEDIAREMOTE_SERVICE branch) — line 69-70 as of pyatv 0.18.0
-	public static string? GetUniqueId (IReadOnlyDictionary<string, string> properties)
-		{
-		return properties.TryGetValue ("UniqueIdentifier", out string? value) ? value : null;
-		}
+	public static string? GetUniqueId (IReadOnlyDictionary<string, string> properties) => properties.TryGetValue ("UniqueIdentifier", out string? value) ? value : null;
 
 	/// <summary>
 	/// Returns whether MRP is considered enabled for the given service's properties. pyatv disables
@@ -44,12 +41,7 @@ public static class MrpServiceInfo
 		{
 		string build = properties.TryGetValue ("SystemBuildVersion", out string? value) ? value : string.Empty;
 		Match match = BuildVersionPrefix.Match (build);
-		if (!match.Success)
-			{
-			return true;
-			}
-
-		return !(int.TryParse (match.Groups[1].Value, out int baseVersion) && baseVersion >= 19);
+		return !match.Success ? true : !(int.TryParse (match.Groups[1].Value, out int baseVersion) && baseVersion >= 19);
 		}
 
 	/// <summary>

@@ -7,41 +7,35 @@ namespace AppleTvControlLibrary.Discovery.Dns;
 /// Represents either a service or service instance name in the DNS, handling periods
 /// embedded in the instance name correctly.
 /// </summary>
+/// <remarks>Initializes a new instance of the <see cref="ServiceInstanceName"/> class.</remarks>
+/// <param name="instance">The optional instance label (e.g. "Living Room").</param>
+/// <param name="service">The service label pair (e.g. "_companion-link._tcp").</param>
+/// <param name="domain">The domain, defaulting to "local".</param>
 // pyatv/support/dns.py (ServiceInstanceName) — line 28-68 as of pyatv 0.18.0
-public sealed class ServiceInstanceName
+public sealed class ServiceInstanceName (string? instance, string service, string domain = "local")
 	{
-	/// <summary>Initializes a new instance of the <see cref="ServiceInstanceName"/> class.</summary>
-	/// <param name="instance">The optional instance label (e.g. "Living Room").</param>
-	/// <param name="service">The service label pair (e.g. "_companion-link._tcp").</param>
-	/// <param name="domain">The domain, defaulting to "local".</param>
-	public ServiceInstanceName (string? instance, string service, string domain = "local")
-		{
-		this.Instance = instance;
-		this.Service = service;
-		this.Domain = domain;
-		}
 
 	/// <summary>Gets the optional instance name.</summary>
 	public string? Instance
 		{
 		get;
-		}
+		} = instance;
 
 	/// <summary>Gets the service label pair (e.g. "_companion-link._tcp").</summary>
 	public string Service
 		{
 		get;
-		}
+		} = service;
 
 	/// <summary>Gets the domain (typically "local").</summary>
 	public string Domain
 		{
 		get;
-		}
+		} = domain;
 
 	/// <summary>Gets just the service name, like the name for a PTR record.</summary>
 	// pyatv/support/dns.py (ptr_name) — line 65-68 as of pyatv 0.18.0
-	public string PtrName => string.Join (".", new[] { this.Service, this.Domain });
+	public string PtrName => string.Join (".", new[] { Service, Domain });
 
 	/// <summary>
 	/// Splits a name into instance (optional), service, and domain parts.

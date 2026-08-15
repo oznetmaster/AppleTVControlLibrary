@@ -18,8 +18,8 @@ public sealed class ServiceParser
 	// pyatv/core/mdns.py (DEVICE_INFO_SERVICE) — line 57 as of pyatv 0.18.0
 	public const string DEVICE_INFO_SERVICE = "_device-info._tcp.local";
 
-	private readonly Dictionary<string, Dictionary<QueryType, List<DnsResource>>> _table = new Dictionary<string, Dictionary<QueryType, List<DnsResource>>> ();
-	private readonly Dictionary<string, string> _ptrs = new Dictionary<string, string> ();
+	private readonly Dictionary<string, Dictionary<QueryType, List<DnsResource>>> _table = [];
+	private readonly Dictionary<string, string> _ptrs = [];
 	private List<Service>? _cache;
 
 	/// <summary>Adds a message with records to parse.</summary>
@@ -28,9 +28,9 @@ public sealed class ServiceParser
 	// pyatv/core/mdns.py (add_message) — line 115-129 as of pyatv 0.18.0
 	public ServiceParser AddMessage (DnsMessage message)
 		{
-		this._cache = null;
+		_cache = null;
 
-		List<DnsResource> records = new List<DnsResource> (message.Answers);
+		List<DnsResource> records = [.. message.Answers];
 		records.AddRange (message.Resources);
 
 		foreach (DnsResource record in records)
@@ -40,19 +40,19 @@ public sealed class ServiceParser
 			if (record.QType == QueryType.Ptr && record.QName.StartsWith ("_", StringComparison.Ordinal))
 #pragma warning restore CA1865
 				{
-				this._ptrs[record.QName] = (string)record.Rd;
+				_ptrs[record.QName] = (string)record.Rd;
 				}
 			else
 				{
-				if (!this._table.TryGetValue (record.QName, out Dictionary<QueryType, List<DnsResource>>? entry))
+				if (!_table.TryGetValue (record.QName, out Dictionary<QueryType, List<DnsResource>>? entry))
 					{
-					entry = new Dictionary<QueryType, List<DnsResource>> ();
-					this._table[record.QName] = entry;
+					entry = [];
+					_table[record.QName] = entry;
 					}
 
 				if (!entry.TryGetValue (record.QType, out List<DnsResource>? list))
 					{
-					list = new List<DnsResource> ();
+					list = [];
 					entry[record.QType] = list;
 					}
 
@@ -71,14 +71,14 @@ public sealed class ServiceParser
 	// pyatv/core/mdns.py (parse) — line 131-174 as of pyatv 0.18.0
 	public IReadOnlyList<Service> Parse ()
 		{
-		if (this._cache is not null)
+		if (_cache is not null)
 			{
-			return this._cache;
+			return _cache;
 			}
 
-		Dictionary<string, Service> results = new Dictionary<string, Service> ();
+		Dictionary<string, Service> results = [];
 
-		foreach (KeyValuePair<string, Dictionary<QueryType, List<DnsResource>>> pair in this._table)
+		foreach (KeyValuePair<string, Dictionary<QueryType, List<DnsResource>>> pair in _table)
 			{
 			string serviceQname = pair.Key;
 			Dictionary<QueryType, List<DnsResource>> device = pair.Value;
@@ -96,9 +96,9 @@ public sealed class ServiceParser
 			SrvRecord? srvRd = FirstRd<SrvRecord> (device, QueryType.Srv);
 			string? target = srvRd?.Target;
 
-			List<DnsResource> targetRecords = target is not null && this._table.TryGetValue (target, out Dictionary<QueryType, List<DnsResource>>? targetEntry) && targetEntry.TryGetValue (QueryType.A, out List<DnsResource>? aRecords)
+			List<DnsResource> targetRecords = target is not null && _table.TryGetValue (target, out Dictionary<QueryType, List<DnsResource>>? targetEntry) && targetEntry.TryGetValue (QueryType.A, out List<DnsResource>? aRecords)
 				? aRecords
-				: new List<DnsResource> ();
+				: [];
 
 			IPAddress? address = null;
 			foreach (DnsResource record in targetRecords)
@@ -118,11 +118,11 @@ public sealed class ServiceParser
 				serviceName.Instance ?? string.Empty,
 				address,
 				srvRd?.Port ?? 0,
-				DecodeProperties (txt ?? new Dictionary<string, byte[]> ()));
+				DecodeProperties (txt ?? []));
 			}
 
 		// pyatv/core/mdns.py (placeholders for PTRs to unknown services) — line 167-172 as of pyatv 0.18.0
-		foreach (KeyValuePair<string, string> ptr in this._ptrs)
+		foreach (KeyValuePair<string, string> ptr in _ptrs)
 			{
 			string realName = ptr.Value;
 			if (!results.ContainsKey (realName))
@@ -132,31 +132,15 @@ public sealed class ServiceParser
 				}
 			}
 
-		this._cache = new List<Service> (results.Values);
-		return this._cache;
+		_cache = [.. results.Values];
+		return _cache;
 		}
 
 	private static T? FirstRd<T> (Dictionary<QueryType, List<DnsResource>> device, QueryType type)
-		where T : struct
-		{
-		if (device.TryGetValue (type, out List<DnsResource>? list) && list.Count > 0 && list[0].Rd is T value)
-			{
-			return value;
-			}
-
-		return null;
-		}
+		where T : struct => device.TryGetValue (type, out List<DnsResource>? list) && list.Count > 0 && list[0].Rd is T value ? value : null;
 
 	private static T? FirstRdClass<T> (Dictionary<QueryType, List<DnsResource>> device, QueryType type)
-		where T : class
-		{
-		if (device.TryGetValue (type, out List<DnsResource>? list) && list.Count > 0 && list[0].Rd is T value)
-			{
-			return value;
-			}
-
-		return null;
-		}
+		where T : class => device.TryGetValue (type, out List<DnsResource>? list) && list.Count > 0 && list[0].Rd is T value ? value : null;
 
 	private static bool IsLinkLocal (IPAddress address)
 		{
@@ -213,7 +197,7 @@ public sealed class ServiceParser
 				}
 			}
 
-		return result.ToArray ();
+		return [.. result];
 		}
 
 	// pyatv/core/mdns.py (_decode_properties) — line 73-76 as of pyatv 0.18.0

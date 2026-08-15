@@ -6,60 +6,50 @@ using System.Collections.Generic;
 namespace AppleTvControlLibrary.Discovery.Dns;
 
 /// <summary>Represents a DNS message (query or response).</summary>
+/// <remarks>Initializes a new instance of the <see cref="DnsMessage"/> class.</remarks>
+/// <param name="msgId">The message id.</param>
+/// <param name="flags">The message flags.</param>
 // pyatv/support/dns.py (DnsMessage) — line 361-448 as of pyatv 0.18.0
-public sealed class DnsMessage
+public sealed class DnsMessage (ushort msgId = 0, ushort flags = DnsMessage.DEFAULT_FLAGS)
 	{
 	// pyatv/support/dns.py (default flags=0x0120) — line 364 as of pyatv 0.18.0
 	private const ushort DEFAULT_FLAGS = 0x0120;
-
-	/// <summary>Initializes a new instance of the <see cref="DnsMessage"/> class.</summary>
-	/// <param name="msgId">The message id.</param>
-	/// <param name="flags">The message flags.</param>
-	public DnsMessage (ushort msgId = 0, ushort flags = DEFAULT_FLAGS)
-		{
-		this.MsgId = msgId;
-		this.Flags = flags;
-		this.Questions = new List<DnsQuestion> ();
-		this.Answers = new List<DnsResource> ();
-		this.Authorities = new List<DnsResource> ();
-		this.Resources = new List<DnsResource> ();
-		}
 
 	/// <summary>Gets or sets the message id.</summary>
 	public ushort MsgId
 		{
 		get; set;
-		}
+		} = msgId;
 
 	/// <summary>Gets or sets the message flags.</summary>
 	public ushort Flags
 		{
 		get; set;
-		}
+		} = flags;
 
 	/// <summary>Gets the questions in this message.</summary>
 	public List<DnsQuestion> Questions
 		{
 		get;
-		}
+		} = [];
 
 	/// <summary>Gets the answer resource records in this message.</summary>
 	public List<DnsResource> Answers
 		{
 		get;
-		}
+		} = [];
 
 	/// <summary>Gets the authority resource records in this message.</summary>
 	public List<DnsResource> Authorities
 		{
 		get;
-		}
+		} = [];
 
 	/// <summary>Gets the additional resource records in this message.</summary>
 	public List<DnsResource> Resources
 		{
 		get;
-		}
+		} = [];
 
 	/// <summary>Unpacks bytes into this <see cref="DnsMessage"/>.</summary>
 	/// <param name="msg">The raw message bytes.</param>
@@ -70,27 +60,27 @@ public sealed class DnsMessage
 		DnsBufferReader buffer = new DnsBufferReader (msg);
 
 		DnsHeader header = DnsHeader.UnpackRead (buffer);
-		this.MsgId = header.Id;
-		this.Flags = header.Flags;
+		MsgId = header.Id;
+		Flags = header.Flags;
 
 		for (int i = 0; i < header.Qdcount; i++)
 			{
-			this.Questions.Add (DnsQuestion.UnpackRead (buffer));
+			Questions.Add (DnsQuestion.UnpackRead (buffer));
 			}
 
 		for (int i = 0; i < header.Ancount; i++)
 			{
-			this.Answers.Add (DnsResource.UnpackRead (buffer));
+			Answers.Add (DnsResource.UnpackRead (buffer));
 			}
 
 		for (int i = 0; i < header.Nscount; i++)
 			{
-			this.Authorities.Add (DnsResource.UnpackRead (buffer));
+			Authorities.Add (DnsResource.UnpackRead (buffer));
 			}
 
 		for (int i = 0; i < header.Arcount; i++)
 			{
-			this.Resources.Add (DnsResource.UnpackRead (buffer));
+			Resources.Add (DnsResource.UnpackRead (buffer));
 			}
 
 		return this;
@@ -107,21 +97,20 @@ public sealed class DnsMessage
 	public byte[] Pack ()
 		{
 		DnsHeader header = new DnsHeader (
-			this.MsgId,
-			this.Flags,
-			(ushort)this.Questions.Count,
-			(ushort)this.Answers.Count,
-			(ushort)this.Authorities.Count,
-			(ushort)this.Resources.Count);
+			MsgId,
+			Flags,
+			(ushort)Questions.Count,
+			(ushort)Answers.Count,
+			(ushort)Authorities.Count,
+			(ushort)Resources.Count);
 
-		List<byte> buf = new List<byte> ();
-		buf.AddRange (header.Pack ());
+		List<byte> buf = [.. header.Pack ()];
 
-		foreach (DnsQuestion question in this.Questions)
+		foreach (DnsQuestion question in Questions)
 			{
 			buf.AddRange (question.Pack ());
 			}
 
-		return buf.ToArray ();
+		return [.. buf];
 		}
 	}

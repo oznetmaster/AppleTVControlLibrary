@@ -38,15 +38,15 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <param name="credentialStore">The credential store used to persist/load pairings.</param>
 	public AppleTvDeviceManager (ICompanionDiscovery? discovery = null, CredentialStore? credentialStore = null)
 		{
-		this._discovery = discovery ?? new MulticastCompanionDiscovery ();
-		this._credentialStore = credentialStore ?? new CredentialStore ();
+		_discovery = discovery ?? new MulticastCompanionDiscovery ();
+		_credentialStore = credentialStore ?? new CredentialStore ();
 		}
 
 	/// <summary>Gets the connected <see cref="CompanionApi"/> instance, if connected.</summary>
-	public CompanionApi? Api => this._api;
+	public CompanionApi? Api => _api;
 
 	/// <summary>Gets a value indicating whether a device is currently connected.</summary>
-	public bool IsConnected => this._api is not null;
+	public bool IsConnected => _api is not null;
 
 	/// <summary>
 	/// Raised whenever the connected device's advertised media-control capabilities (including
@@ -60,7 +60,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <c>SystemStatus</c>/<c>TVSystemStatus</c> events. <see cref="SystemStatus.Unknown"/> if
 	/// not connected or if no status has been observed yet.
 	/// </summary>
-	public SystemStatus CurrentSystemStatus => this._api?.CurrentSystemStatus ?? SystemStatus.Unknown;
+	public SystemStatus CurrentSystemStatus => _api?.CurrentSystemStatus ?? SystemStatus.Unknown;
 
 	/// <summary>
 	/// Raised whenever a pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> event updates
@@ -86,7 +86,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <see cref="KeyboardFocusState.Unknown"/> if not connected or if no state has been
 	/// observed yet.
 	/// </summary>
-	public KeyboardFocusState TextFocusState => this._api?.TextFocusState ?? KeyboardFocusState.Unknown;
+	public KeyboardFocusState TextFocusState => _api?.TextFocusState ?? KeyboardFocusState.Unknown;
 
 	/// <summary>
 	/// Raised whenever <see cref="TextFocusState"/> changes: the Apple TV wants (or no longer
@@ -98,14 +98,14 @@ public sealed class AppleTvDeviceManager : IDisposable
 	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_get) — line 517-519 as of pyatv 0.18.0
 	public async Task<string?> TextGetAsync ()
 		{
-		if (this._api is null)
+		if (_api is null)
 			{
 			throw new InvalidOperationException ("Not connected");
 			}
 
 #pragma warning restore CS0618
 
-		return await this._api.TextGetAsync ().ConfigureAwait (false);
+		return await _api.TextGetAsync ().ConfigureAwait (false);
 		}
 
 	/// <summary>Replaces the virtual keyboard text on the connected device.</summary>
@@ -113,12 +113,12 @@ public sealed class AppleTvDeviceManager : IDisposable
 	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_set) — line 529-531 as of pyatv 0.18.0
 	public async Task SetTextAsync (string text)
 		{
-		if (this._api is null)
+		if (_api is null)
 			{
 			throw new InvalidOperationException ("Not connected");
 			}
 
-		await this._api.TextSetAsync (text).ConfigureAwait (false);
+		await _api.TextSetAsync (text).ConfigureAwait (false);
 		}
 
 	/// <summary>Scans the network for Companion Link devices.</summary>
@@ -126,18 +126,18 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <param name="cancellationToken">A token to cancel the scan.</param>
 	public Task<IReadOnlyList<CompanionDiscoveryResult>> ScanAsync (TimeSpan timeout, CancellationToken cancellationToken = default)
 		{
-		return this._discovery.ScanAsync (timeout, cancellationToken);
+		return _discovery.ScanAsync (timeout, cancellationToken);
 		}
 
 	/// <summary>Loads previously saved credentials for the given device, if any.</summary>
 	/// <param name="uniqueId">The device's stable unique id.</param>
-	public StoredDevice? LoadStoredDevice (string uniqueId) => this._credentialStore.Load (uniqueId);
+	public StoredDevice? LoadStoredDevice (string uniqueId) => _credentialStore.Load (uniqueId);
 
 	/// <summary>
 	/// Loads the stored device currently marked for automatic connection at startup, if any,
 	/// for ease-of-testing so the same paired device doesn't need to be reselected every run.
 	/// </summary>
-	public StoredDevice? LoadAutoConnectDevice () => this._credentialStore.LoadAutoConnectDevice ();
+	public StoredDevice? LoadAutoConnectDevice () => _credentialStore.LoadAutoConnectDevice ();
 
 	/// <summary>
 	/// Marks <paramref name="uniqueId"/> as the device to automatically connect to on the next
@@ -146,7 +146,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <param name="uniqueId">
 	/// The device to enable auto-connect for, or <see langword="null"/> to disable auto-connect.
 	/// </param>
-	public void SetAutoConnect (string? uniqueId) => this._credentialStore.SetAutoConnect (uniqueId);
+	public void SetAutoConnect (string? uniqueId) => _credentialStore.SetAutoConnect (uniqueId);
 
 	/// <summary>
 	/// Locates a stored device after its last known endpoint has become stale, verifies its stable
@@ -173,7 +173,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 		stored.Address = discovered.Address.ToString ();
 		stored.Port = discovered.Port;
 		stored.Name = discovered.Name;
-		this._credentialStore.Save (stored);
+		_credentialStore.Save (stored);
 		return true;
 		}
 
@@ -277,7 +277,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 				};
 			stored.SetCredentials (credentials);
 
-			this._credentialStore.Save (stored);
+			_credentialStore.Save (stored);
 			return stored;
 			}).ConfigureAwait (false);
 		}
@@ -348,34 +348,34 @@ public sealed class AppleTvDeviceManager : IDisposable
 			await api.ConnectAsync ().ConfigureAwait (false);
 			System.Diagnostics.Debug.WriteLine ("[AppleTvDeviceManager] Connect complete");
 
-			api.MediaControlCapabilitiesChanged += this.OnMediaControlCapabilitiesChanged;
-			api.SystemStatusChanged += this.OnSystemStatusChanged;
-			api.TextFocusStateChanged += this.OnTextFocusStateChanged;
-			api.ConnectionClosed += this.OnConnectionClosed;
-			this._transport = transport;
-			this._api = api;
+			api.MediaControlCapabilitiesChanged += OnMediaControlCapabilitiesChanged;
+			api.SystemStatusChanged += OnSystemStatusChanged;
+			api.TextFocusStateChanged += OnTextFocusStateChanged;
+			api.ConnectionClosed += OnConnectionClosed;
+			_transport = transport;
+			_api = api;
 
 			// pyatv/protocols/companion/api.py (app_list/account_list) — best-effort, mirroring the
 			// FetchAttentionState pattern: some devices/tvOS builds do not populate these, which must
 			// not prevent the rest of connect from completing.
 			try
 				{
-				this.Apps = await api.AppListAsync ().ConfigureAwait (false);
+				Apps = await api.AppListAsync ().ConfigureAwait (false);
 				}
 			catch (Exception ex)
 				{
 				System.Diagnostics.Debug.WriteLine ($"[AppleTvDeviceManager] AppList failed (ignored): {ex}");
-				this.Apps = new Dictionary<string, string> ();
+				Apps = new Dictionary<string, string> ();
 				}
 
 			try
 				{
-				this.Accounts = await api.AccountListAsync ().ConfigureAwait (false);
+				Accounts = await api.AccountListAsync ().ConfigureAwait (false);
 				}
 			catch (Exception ex)
 				{
 				System.Diagnostics.Debug.WriteLine ($"[AppleTvDeviceManager] AccountList failed (ignored): {ex}");
-				this.Accounts = new Dictionary<string, string> ();
+				Accounts = new Dictionary<string, string> ();
 				}
 			}
 		catch
@@ -387,17 +387,17 @@ public sealed class AppleTvDeviceManager : IDisposable
 
 	private void OnMediaControlCapabilitiesChanged (object? sender, EventArgs e)
 		{
-		this.MediaControlCapabilitiesChanged?.Invoke (this, EventArgs.Empty);
+		MediaControlCapabilitiesChanged?.Invoke (this, EventArgs.Empty);
 		}
 
 	private void OnSystemStatusChanged (object? sender, EventArgs e)
 		{
-		this.SystemStatusChanged?.Invoke (this, EventArgs.Empty);
+		SystemStatusChanged?.Invoke (this, EventArgs.Empty);
 		}
 
 	private void OnTextFocusStateChanged (object? sender, EventArgs e)
 		{
-		this.TextFocusStateChanged?.Invoke (this, EventArgs.Empty);
+		TextFocusStateChanged?.Invoke (this, EventArgs.Empty);
 		}
 
 	// pyatv has no automatic reconnect for Companion; on an unexpected fault we simply tear down
@@ -405,21 +405,21 @@ public sealed class AppleTvDeviceManager : IDisposable
 	private void OnConnectionClosed (object? sender, ConnectionClosedEventArgs e)
 		{
 		System.Diagnostics.Debug.WriteLine ($"[AppleTvDeviceManager] ConnectionClosed (exception: {e.Exception})");
-		this.Disconnect ();
-		this.ConnectionClosed?.Invoke (this, e);
+		Disconnect ();
+		ConnectionClosed?.Invoke (this, e);
 		}
 
 	/// <summary>Sends a HID button command to the connected device.</summary>
 	/// <param name="command">The button to send.</param>
 	public async Task SendHidCommandAsync (HidCommand command)
 		{
-		if (this._api is null)
+		if (_api is null)
 			{
 			throw new InvalidOperationException ("Not connected");
 			}
 
-		await this._api.SendHidCommandAsync (down: true, command: command).ConfigureAwait (false);
-		await this._api.SendHidCommandAsync (down: false, command: command).ConfigureAwait (false);
+		await _api.SendHidCommandAsync (down: true, command: command).ConfigureAwait (false);
+		await _api.SendHidCommandAsync (down: false, command: command).ConfigureAwait (false);
 		}
 
 	/// <summary>Sends a raw touchpad (touch surface) event to the connected device.</summary>
@@ -428,24 +428,24 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <param name="action">The touch phase.</param>
 	public async Task SendTouchEventAsync (int x, int y, TouchAction action)
 		{
-		if (this._api is null)
+		if (_api is null)
 			{
 			throw new InvalidOperationException ("Not connected");
 			}
 
-		await this._api.SendHidEventAsync (x, y, action).ConfigureAwait (false);
+		await _api.SendHidEventAsync (x, y, action).ConfigureAwait (false);
 		}
 
 	/// <summary>Sends a touchpad click (tap), as opposed to a swipe/drag.</summary>
 	/// <param name="action">The click gesture: single tap, double tap, or press-and-hold.</param>
 	public async Task SendTouchClickAsync (InputAction action)
 		{
-		if (this._api is null)
+		if (_api is null)
 			{
 			throw new InvalidOperationException ("Not connected");
 			}
 
-		await this._api.SendClickAsync (action).ConfigureAwait (false);
+		await _api.SendClickAsync (action).ConfigureAwait (false);
 		}
 
 	/// <summary>
@@ -457,16 +457,13 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <returns>The resulting muted state.</returns>
 	public async Task<bool> ToggleMuteAsync ()
 		{
-		if (this._api is null)
-			{
-			throw new InvalidOperationException ("Not connected");
-			}
-
-		return await this._api.ToggleMuteAsync ().ConfigureAwait (false);
+		return _api is null
+			? throw new InvalidOperationException ("Not connected")
+			: await _api.ToggleMuteAsync ().ConfigureAwait (false);
 		}
 
 	/// <summary>Gets a value indicating whether the connected device supports volume control.</summary>
-	public bool IsVolumeControlSupported => this._api?.IsVolumeControlSupported ?? false;
+	public bool IsVolumeControlSupported => _api?.IsVolumeControlSupported ?? false;
 
 	/// <summary>
 	/// Gets the launchable apps fetched during connect, as a bundle-identifier-to-display-name
@@ -494,24 +491,24 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <param name="bundleIdOrUrl">A bundle identifier or a URL/URL scheme to open.</param>
 	public async Task LaunchAppAsync (string bundleIdOrUrl)
 		{
-		if (this._api is null)
+		if (_api is null)
 			{
 			throw new InvalidOperationException ("Not connected");
 			}
 
-		await this._api.LaunchAppAsync (bundleIdOrUrl).ConfigureAwait (false);
+		await _api.LaunchAppAsync (bundleIdOrUrl).ConfigureAwait (false);
 		}
 
 	/// <summary>Switches the active user account on the connected device.</summary>
 	/// <param name="accountId">The account identifier to switch to, from <see cref="Accounts"/>.</param>
 	public async Task SwitchAccountAsync (string accountId)
 		{
-		if (this._api is null)
+		if (_api is null)
 			{
 			throw new InvalidOperationException ("Not connected");
 			}
 
-		await this._api.SwitchAccountAsync (accountId).ConfigureAwait (false);
+		await _api.SwitchAccountAsync (accountId).ConfigureAwait (false);
 		}
 
 	/// <summary>
@@ -526,33 +523,33 @@ public sealed class AppleTvDeviceManager : IDisposable
 	// call hid_command(False, ...) - a single up-only event, not a down/up pair.
 	public async Task<bool> TogglePowerAsync ()
 		{
-		if (this._api is null)
+		if (_api is null)
 			{
 			throw new InvalidOperationException ("Not connected");
 			}
 
-		bool shouldWake = this._api.CurrentSystemStatus == SystemStatus.Asleep;
+		bool shouldWake = _api.CurrentSystemStatus == SystemStatus.Asleep;
 		HidCommand command = shouldWake ? HidCommand.Wake : HidCommand.Sleep;
-		await this._api.SendHidCommandAsync (down: false, command: command).ConfigureAwait (false);
+		await _api.SendHidCommandAsync (down: false, command: command).ConfigureAwait (false);
 		return shouldWake;
 		}
 
 	/// <summary>Disconnects the current device, if any.</summary>
 	public void Disconnect ()
 		{
-		if (this._api is not null)
+		if (_api is not null)
 			{
-			this._api.MediaControlCapabilitiesChanged -= this.OnMediaControlCapabilitiesChanged;
-			this._api.SystemStatusChanged -= this.OnSystemStatusChanged;
-			this._api.TextFocusStateChanged -= this.OnTextFocusStateChanged;
-			this._api.ConnectionClosed -= this.OnConnectionClosed;
+			_api.MediaControlCapabilitiesChanged -= OnMediaControlCapabilitiesChanged;
+			_api.SystemStatusChanged -= OnSystemStatusChanged;
+			_api.TextFocusStateChanged -= OnTextFocusStateChanged;
+			_api.ConnectionClosed -= OnConnectionClosed;
 			}
 
-		this._api = null;
-		this._transport?.Dispose ();
-		this._transport = null;
-		this.Apps = new Dictionary<string, string> ();
-		this.Accounts = new Dictionary<string, string> ();
+		_api = null;
+		_transport?.Dispose ();
+		_transport = null;
+		Apps = new Dictionary<string, string> ();
+		Accounts = new Dictionary<string, string> ();
 		}
 
 	// Six random bytes, hex-encoded - generated once at pair time and persisted, per the
@@ -581,7 +578,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <inheritdoc/>
 	public void Dispose ()
 		{
-		this.Disconnect ();
+		Disconnect ();
 		}
 	}
 
@@ -594,12 +591,12 @@ public sealed class PairingSession
 	{
 	internal PairingSession (CompanionDiscoveryResult device, TcpCompanionTransport transport, CompanionProtocol protocol, SrpAuthHandler srp, byte[] atvSalt, byte[] atvPubKey)
 		{
-		this.Device = device;
-		this.Transport = transport;
-		this.Protocol = protocol;
-		this.Srp = srp;
-		this.AtvSalt = atvSalt;
-		this.AtvPubKey = atvPubKey;
+		Device = device;
+		Transport = transport;
+		Protocol = protocol;
+		Srp = srp;
+		AtvSalt = atvSalt;
+		AtvPubKey = atvPubKey;
 		}
 
 	internal CompanionDiscoveryResult Device { get; }

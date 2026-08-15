@@ -67,9 +67,9 @@ public class SrpAuthHandlerTests
 
 		// Client side: our port.
 		var handler = new SrpAuthHandler ();
-		handler.Initialize ();
+		_ = handler.Initialize ();
 		handler.Step1 (pin);
-		(byte[] clientPubKeyBytes, byte[] _) = handler.Step2 (serverPublic.ToByteArrayUnsigned (), salt);
+		(byte[] clientPubKeyBytes, _) = handler.Step2 (serverPublic.ToByteArrayUnsigned (), salt);
 
 		var clientPublic = new BigInteger (1, clientPubKeyBytes);
 
@@ -79,7 +79,7 @@ public class SrpAuthHandlerTests
 		byte[] premasterBytes = serverPremaster.ToByteArrayUnsigned ();
 		sessionKeyDigest.BlockUpdate (premasterBytes, 0, premasterBytes.Length);
 		var serverSessionKey = new byte[sessionKeyDigest.GetDigestSize ()];
-		sessionKeyDigest.DoFinal (serverSessionKey, 0);
+		_ = sessionKeyDigest.DoFinal (serverSessionKey, 0);
 
 		CollectionAssert.AreEqual (serverSessionKey, handler.SharedKey);
 		}

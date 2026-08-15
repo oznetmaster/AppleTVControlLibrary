@@ -46,7 +46,7 @@ public static class MrpMessages
 	// pyatv/protocols/mrp/messages.py (crypto_pairing) — line 65-75 as of pyatv 0.18.0
 	public static ProtocolMessage CryptoPairing (Dictionary<int, byte[]> pairingData, bool isPairing = false)
 		{
-		var message = Create (ProtocolMessage.Types.Type.CryptoPairingMessage);
+		ProtocolMessage message = Create (ProtocolMessage.Types.Type.CryptoPairingMessage);
 		var crypto = new CryptoPairingMessage
 			{
 			Status = 0,
@@ -70,7 +70,7 @@ public static class MrpMessages
 	// pyatv/protocols/mrp/messages.py (device_information) — line 24-42 as of pyatv 0.18.0
 	public static ProtocolMessage DeviceInformation (string name, string systemBuildVersion, string identifier, bool update = false)
 		{
-		var message = Create (update ? ProtocolMessage.Types.Type.DeviceInfoUpdateMessage : ProtocolMessage.Types.Type.DeviceInfoMessage);
+		ProtocolMessage message = Create (update ? ProtocolMessage.Types.Type.DeviceInfoUpdateMessage : ProtocolMessage.Types.Type.DeviceInfoMessage);
 		var info = new DeviceInfoMessage
 			{
 			AllowsPairing = true,
@@ -103,7 +103,7 @@ public static class MrpMessages
 	// pyatv/protocols/mrp/messages.py (command_result) — line 172-177 as of pyatv 0.18.0
 	public static ProtocolMessage CommandResult (string identifier, SendError.Types.Enum sendError = SendError.Types.Enum.NoError)
 		{
-		var message = Create (ProtocolMessage.Types.Type.SendCommandResultMessage, identifier: identifier);
+		ProtocolMessage message = Create (ProtocolMessage.Types.Type.SendCommandResultMessage, identifier: identifier);
 		var inner = new SendCommandResultMessage
 			{
 			SendError = sendError,
@@ -127,7 +127,7 @@ public static class MrpMessages
 	// pyatv/protocols/mrp/messages.py (set_connection_state) — line 56-60 as of pyatv 0.18.0
 	public static ProtocolMessage SetConnectionState ()
 		{
-		var message = Create (ProtocolMessage.Types.Type.SetConnectionStateMessage);
+		ProtocolMessage message = Create (ProtocolMessage.Types.Type.SetConnectionStateMessage);
 		var inner = new SetConnectionStateMessage
 			{
 			State = SetConnectionStateMessage.Types.ConnectionState.Connected,
@@ -155,7 +155,7 @@ public static class MrpMessages
 	// pyatv/protocols/mrp/messages.py (client_updates_config) — line 82-97 as of pyatv 0.18.0
 	public static ProtocolMessage ClientUpdatesConfig (bool artwork = true, bool nowPlaying = false, bool volume = true, bool keyboard = true, bool outputDeviceUpdates = true)
 		{
-		var message = Create (ProtocolMessage.Types.Type.ClientUpdatesConfigMessage);
+		ProtocolMessage message = Create (ProtocolMessage.Types.Type.ClientUpdatesConfigMessage);
 		var inner = new ClientUpdatesConfigMessage
 			{
 			ArtworkUpdates = artwork,
@@ -177,7 +177,7 @@ public static class MrpMessages
 	// pyatv/protocols/mrp/messages.py (playback_queue_request) — line 100-109 as of pyatv 0.18.0
 	public static ProtocolMessage PlaybackQueueRequest (int location, int width = -1, int height = 400)
 		{
-		var message = Create (ProtocolMessage.Types.Type.PlaybackQueueRequestMessage);
+		ProtocolMessage message = Create (ProtocolMessage.Types.Type.PlaybackQueueRequestMessage);
 		var inner = new PlaybackQueueRequestMessage
 			{
 			Location = location,
@@ -201,12 +201,9 @@ public static class MrpMessages
 		CryptoPairingMessage inner = message.GetExtension (CryptoPairingMessageExtensions.CryptoPairingMessage);
 		Dictionary<int, byte[]> tlv = Tlv8.Tlv8.ReadTlv (inner.PairingData.ToByteArray ());
 
-		if (tlv.ContainsKey ((int)TlvValue.Error))
-			{
-			throw new AppleTvControlLibrary.Auth.AuthenticationException (Tlv8.Tlv8.Stringify (tlv));
-			}
-
-		return tlv;
+		return tlv.ContainsKey ((int)TlvValue.Error)
+			? throw new AppleTvControlLibrary.Auth.AuthenticationException (Tlv8.Tlv8.Stringify (tlv))
+			: tlv;
 		}
 
 	/// <summary>Create a new SEND_HID_EVENT_MESSAGE for the given HID usage page/usage.</summary>
@@ -217,7 +214,7 @@ public static class MrpMessages
 	// pyatv/protocols/mrp/messages.py (send_hid_event) — line 112-138 as of pyatv 0.18.0
 	public static ProtocolMessage SendHidEvent (int usePage, int usage, bool down)
 		{
-		var message = Create (ProtocolMessage.Types.Type.SendHidEventMessage);
+		ProtocolMessage message = Create (ProtocolMessage.Types.Type.SendHidEventMessage);
 		var inner = new SendHIDEventMessage ();
 
 		// pyatv/protocols/mrp/messages.py — line 120 as of pyatv 0.18.0: hardcoded mach AbsoluteTime;
@@ -262,7 +259,7 @@ public static class MrpMessages
 	// pyatv/protocols/mrp/messages.py (send_button) — line 141-148 as of pyatv 0.18.0
 	public static ProtocolMessage SendButton (int usagePage, int usage, bool buttonDown)
 		{
-		var message = Create (ProtocolMessage.Types.Type.SendButtonEventMessage);
+		ProtocolMessage message = Create (ProtocolMessage.Types.Type.SendButtonEventMessage);
 		var inner = new SendButtonEventMessage
 			{
 			UsagePage = (uint)usagePage,
@@ -281,7 +278,7 @@ public static class MrpMessages
 	// pyatv/protocols/mrp/messages.py (command) — line 151-158 as of pyatv 0.18.0
 	public static ProtocolMessage Command (Command command, Action<CommandOptions>? configureOptions = null)
 		{
-		var message = Create (ProtocolMessage.Types.Type.SendCommandMessage);
+		ProtocolMessage message = Create (ProtocolMessage.Types.Type.SendCommandMessage);
 		var inner = new SendCommandMessage
 			{
 			Command = command,
@@ -339,7 +336,7 @@ public static class MrpMessages
 	// pyatv/protocols/mrp/messages.py (set_volume) — line 206-212 as of pyatv 0.18.0
 	public static ProtocolMessage SetVolume (string deviceUid, float volume)
 		{
-		var message = Create (ProtocolMessage.Types.Type.SetVolumeMessage);
+		ProtocolMessage message = Create (ProtocolMessage.Types.Type.SetVolumeMessage);
 		var inner = new SetVolumeMessage
 			{
 			OutputDeviceUID = deviceUid,

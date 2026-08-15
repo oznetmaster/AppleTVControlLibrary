@@ -8,18 +8,12 @@ namespace AppleTvControlLibrary.Discovery.Dns;
 /// <summary>
 /// A minimal big-endian binary cursor over a byte buffer, used for the DNS wire format.
 /// </summary>
+/// <remarks>Initializes a new instance of the <see cref="DnsBufferReader"/> class.</remarks>
+/// <param name="buffer">The buffer to read from.</param>
 // pyatv/support/dns.py (unpack_stream) — line 19-25 as of pyatv 0.18.0 - callers use this in place of Python's BinaryIO
-public sealed class DnsBufferReader
+public sealed class DnsBufferReader (byte[] buffer)
 	{
-	private readonly byte[] _buffer;
-
-	/// <summary>Initializes a new instance of the <see cref="DnsBufferReader"/> class.</summary>
-	/// <param name="buffer">The buffer to read from.</param>
-	public DnsBufferReader (byte[] buffer)
-		{
-		this._buffer = buffer;
-		this.Position = 0;
-		}
+	private readonly byte[] _buffer = buffer;
 
 	/// <summary>Gets or sets the current read position, in bytes, into the buffer.</summary>
 	public int Position
@@ -29,17 +23,17 @@ public sealed class DnsBufferReader
 		}
 
 	/// <summary>Gets the total length of the buffer, in bytes.</summary>
-	public int Length => this._buffer.Length;
+	public int Length => _buffer.Length;
 
 	/// <summary>Gets a value indicating whether there is unread data remaining in the buffer.</summary>
-	public bool HasData => this.Position < this._buffer.Length;
+	public bool HasData => Position < _buffer.Length;
 
 	/// <summary>Reads a single byte and advances the position by one.</summary>
 	/// <returns>The byte read.</returns>
 	public byte ReadByte ()
 		{
-		byte value = this._buffer[this.Position];
-		this.Position += 1;
+		byte value = _buffer[Position];
+		Position += 1;
 		return value;
 		}
 
@@ -49,8 +43,8 @@ public sealed class DnsBufferReader
 	public byte[] ReadBytes (int count)
 		{
 		byte[] result = new byte[count];
-		Array.Copy (this._buffer, this.Position, result, 0, count);
-		this.Position += count;
+		Array.Copy (_buffer, Position, result, 0, count);
+		Position += count;
 		return result;
 		}
 
@@ -58,8 +52,8 @@ public sealed class DnsBufferReader
 	/// <returns>The value read.</returns>
 	public ushort ReadUInt16BE ()
 		{
-		ushort value = (ushort)((this._buffer[this.Position] << 8) | this._buffer[this.Position + 1]);
-		this.Position += 2;
+		ushort value = (ushort)((_buffer[Position] << 8) | _buffer[Position + 1]);
+		Position += 2;
 		return value;
 		}
 
@@ -67,11 +61,11 @@ public sealed class DnsBufferReader
 	/// <returns>The value read.</returns>
 	public uint ReadUInt32BE ()
 		{
-		uint value = ((uint)this._buffer[this.Position] << 24) |
-			((uint)this._buffer[this.Position + 1] << 16) |
-			((uint)this._buffer[this.Position + 2] << 8) |
-			this._buffer[this.Position + 3];
-		this.Position += 4;
+		uint value = ((uint)_buffer[Position] << 24) |
+			((uint)_buffer[Position + 1] << 16) |
+			((uint)_buffer[Position + 2] << 8) |
+			_buffer[Position + 3];
+		Position += 4;
 		return value;
 		}
 	}

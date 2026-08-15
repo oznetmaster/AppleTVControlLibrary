@@ -7,46 +7,38 @@ using System.Net;
 namespace AppleTvControlLibrary.Discovery.Mdns;
 
 /// <summary>Represents an MDNS service.</summary>
+/// <remarks>Initializes a new instance of the <see cref="Service"/> class.</remarks>
 // pyatv/core/mdns.py (Service) — line 39-46 as of pyatv 0.18.0
-public sealed class Service
+public sealed class Service (string type, string name, IPAddress? address, int port, IReadOnlyDictionary<string, string> properties)
 	{
-	/// <summary>Initializes a new instance of the <see cref="Service"/> class.</summary>
-	public Service (string type, string name, IPAddress? address, int port, IReadOnlyDictionary<string, string> properties)
-		{
-		this.Type = type;
-		this.Name = name;
-		this.Address = address;
-		this.Port = port;
-		this.Properties = properties;
-		}
 
 	/// <summary>Gets the service type (e.g. "_companion-link._tcp.local").</summary>
 	public string Type
 		{
 		get;
-		}
+		} = type;
 
 	/// <summary>Gets the service instance name (e.g. "Living Room").</summary>
 	public string Name
 		{
 		get;
-		}
+		} = name;
 
 	/// <summary>Gets the resolved, non-link-local address of the service, if any.</summary>
 	public IPAddress? Address
 		{
 		get;
-		}
+		} = address;
 
 	/// <summary>Gets the service port.</summary>
 	public int Port
 		{
 		get;
-		}
+		} = port;
 
 	/// <summary>Gets the TXT record properties, keyed case-insensitively.</summary>
 	public IReadOnlyDictionary<string, string> Properties
 		{
 		get;
-		}
+		} = properties;
 	}

@@ -60,18 +60,11 @@ public class MrpNoAsyncListenerException : Exception
 /// as <see cref="IMrpPlayerStateListener"/> and does the "read playing" step, since that is exactly
 /// what pyatv's <c>state_updated()</c> does synchronously before dispatch.
 /// </remarks>
+/// <remarks>Initializes a new instance of the <see cref="MrpPushUpdater"/> class.</remarks>
+/// <param name="psm">The player state manager to source updates from.</param>
 // pyatv/protocols/mrp/__init__.py (MrpPushUpdater) — line 698-743 as of pyatv 0.18.0
-public sealed class MrpPushUpdater : IMrpPlayerStateListener
+public sealed class MrpPushUpdater (MrpPlayerStateManager psm) : IMrpPlayerStateListener
 	{
-	private readonly MrpPlayerStateManager _psm;
-
-	/// <summary>Initializes a new instance of the <see cref="MrpPushUpdater"/> class.</summary>
-	/// <param name="psm">The player state manager to source updates from.</param>
-	// pyatv/protocols/mrp/__init__.py (MrpPushUpdater.__init__) — line 701-710 as of pyatv 0.18.0
-	public MrpPushUpdater (MrpPlayerStateManager psm)
-		{
-		_psm = psm;
-		}
 
 	/// <summary>Gets or sets the listener notified of push updates and errors.</summary>
 	public IMrpPushUpdaterListener? Listener
@@ -82,7 +75,7 @@ public sealed class MrpPushUpdater : IMrpPlayerStateListener
 
 	/// <summary>Gets a value indicating whether this instance is currently registered to receive push updates.</summary>
 	// pyatv/protocols/mrp/__init__.py (MrpPushUpdater.active) — line 712-715 as of pyatv 0.18.0
-	public bool Active => ReferenceEquals (_psm.Listener, this);
+	public bool Active => ReferenceEquals (psm.Listener, this);
 
 	/// <summary>
 	/// Starts forwarding push updates from the device to <see cref="Listener"/>, immediately
@@ -102,7 +95,7 @@ public sealed class MrpPushUpdater : IMrpPlayerStateListener
 			return;
 			}
 
-		_psm.Listener = this;
+		psm.Listener = this;
 
 		// pyatv/protocols/mrp/__init__.py — line 728 as of pyatv 0.18.0: "asyncio.ensure_future(self.state_updated())".
 		// Deliver the current state once immediately upon starting, matching the fire-and-forget
@@ -117,7 +110,7 @@ public sealed class MrpPushUpdater : IMrpPlayerStateListener
 		{
 		if (Active)
 			{
-			_psm.Listener = null;
+			psm.Listener = null;
 			}
 		}
 
@@ -127,7 +120,7 @@ public sealed class MrpPushUpdater : IMrpPlayerStateListener
 		{
 		try
 			{
-			Listener?.PlaystatusUpdate (_psm.Playing);
+			Listener?.PlaystatusUpdate (psm.Playing);
 			}
 		catch (Exception ex)
 			{

@@ -26,7 +26,7 @@ public static class DnsWireFormat
 		try
 			{
 			ServiceInstanceName srvName = ServiceInstanceName.SplitName (name);
-			labels = new List<string> ();
+			labels = [];
 			if (!string.IsNullOrEmpty (srvName.Instance))
 				{
 				labels.Add (srvName.Instance!);
@@ -36,7 +36,7 @@ public static class DnsWireFormat
 			}
 		catch (ArgumentException)
 			{
-			labels = new List<string> (name.Split ('.'));
+			labels = [.. name.Split ('.')];
 			}
 
 		// pyatv/support/dns.py (ensure a trailing empty label for the root domain) — line 100-102 as of pyatv 0.18.0
@@ -45,7 +45,7 @@ public static class DnsWireFormat
 			labels.Add (string.Empty);
 			}
 
-		List<byte> encoded = new List<byte> ();
+		List<byte> encoded = [];
 		foreach (string rawLabel in labels)
 			{
 			// pyatv/support/dns.py (NFC normalization per RFC 6763 section 4.1.3) — line 106-107 as of pyatv 0.18.0
@@ -55,7 +55,7 @@ public static class DnsWireFormat
 			// pyatv/support/dns.py (truncate at 63 bytes without splitting a codepoint) — line 111-118 as of pyatv 0.18.0
 			while (encodedLabel.Length > 63)
 				{
-				string truncated = label.Substring (0, label.Length - 1);
+				string truncated = label[..^1];
 				label = truncated;
 				encodedLabel = Encoding.UTF8.GetBytes (label);
 				}
@@ -70,7 +70,7 @@ public static class DnsWireFormat
 			encoded.AddRange (encodedLabel);
 			}
 
-		return encoded.ToArray ();
+		return [.. encoded];
 		}
 
 	/// <summary>Unpacks a DNS character-string: a single length byte followed by data.</summary>
@@ -91,7 +91,7 @@ public static class DnsWireFormat
 	// pyatv/support/dns.py (parse_domain_name) — line 149-196 as of pyatv 0.18.0
 	public static string ParseDomainName (DnsBufferReader buffer)
 		{
-		List<string> labels = new List<string> ();
+		List<string> labels = [];
 		int? compressionOffset = null;
 
 		while (buffer.HasData)
@@ -104,7 +104,7 @@ public static class DnsWireFormat
 
 			// pyatv/support/dns.py (top two bits are a name-compression flag) — line 171-173 as of pyatv 0.18.0
 			int lengthFlags = (length & 0xC0) >> 6;
-			if (lengthFlags != 0 && lengthFlags != 0b11)
+			if (lengthFlags is not 0 and not 0b11)
 				{
 				throw new InvalidOperationException ("Reserved DNS name compression flag encountered");
 				}
@@ -115,10 +115,7 @@ public static class DnsWireFormat
 				int highBits = length & 0x3F;
 				byte lowBits = buffer.ReadByte ();
 				int newOffset = (highBits << 8) | lowBits;
-				if (compressionOffset is null)
-					{
-					compressionOffset = buffer.Position;
-					}
+				compressionOffset ??= buffer.Position;
 
 				buffer.Position = newOffset;
 				}
@@ -165,7 +162,7 @@ public static class DnsWireFormat
 				{
 				// pyatv/support/dns.py (missing "=" means present with no value) — line 214-217 as of pyatv 0.18.0
 				string decodedChunk = Encoding.ASCII.GetString (chunk);
-				output[decodedChunk] = Array.Empty<byte> ();
+				output[decodedChunk] = [];
 				}
 			else
 				{

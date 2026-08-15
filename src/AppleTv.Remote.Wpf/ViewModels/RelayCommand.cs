@@ -17,8 +17,8 @@ public sealed class RelayCommand : ICommand
 	/// <param name="canExecute">An optional predicate controlling whether the command can currently run.</param>
 	public RelayCommand (Action<object?> execute, Func<object?, bool>? canExecute = null)
 		{
-		this._execute = execute ?? throw new ArgumentNullException (nameof (execute));
-		this._canExecute = canExecute;
+		_execute = execute ?? throw new ArgumentNullException (nameof (execute));
+		_canExecute = canExecute;
 		}
 
 	/// <summary>Initializes a new instance of the <see cref="RelayCommand"/> class with a parameterless action.</summary>
@@ -33,11 +33,11 @@ public sealed class RelayCommand : ICommand
 	public event EventHandler? CanExecuteChanged;
 
 	/// <inheritdoc/>
-	public bool CanExecute (object? parameter) => this._canExecute?.Invoke (parameter) ?? true;
+	public bool CanExecute (object? parameter) => _canExecute?.Invoke (parameter) ?? true;
 
 	/// <inheritdoc/>
-	public void Execute (object? parameter) => this._execute (parameter);
+	public void Execute (object? parameter) => _execute (parameter);
 
 	/// <summary>Raises <see cref="CanExecuteChanged"/> so bound controls re-evaluate <see cref="CanExecute"/>.</summary>
-	public void RaiseCanExecuteChanged () => this.CanExecuteChanged?.Invoke (this, EventArgs.Empty);
+	public void RaiseCanExecuteChanged () => CanExecuteChanged?.Invoke (this, EventArgs.Empty);
 	}

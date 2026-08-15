@@ -38,51 +38,51 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	// AppleTvDeviceManager.OnConnectionClosed remarks); this bounded retry/backoff is a WPF-app-level
 	// UX affordance layered on top, not a protocol requirement.
 	private static readonly TimeSpan[] ReconnectDelays =
-		{
+		[
 		TimeSpan.FromSeconds (2),
 		TimeSpan.FromSeconds (5),
 		TimeSpan.FromSeconds (10),
 		TimeSpan.FromSeconds (20),
 		TimeSpan.FromSeconds (30),
-		};
+		];
 
 	/// <summary>Initializes a new instance of the <see cref="MainViewModel"/> class.</summary>
 	public MainViewModel ()
 		{
-		this._deviceManager = new AppleTvDeviceManager ();
+		_deviceManager = new AppleTvDeviceManager ();
 
-		this.ScanCommand = new RelayCommand (async () => await this.ScanAsync ().ConfigureAwait (true), () => !this.IsBusy);
-		this.PairCommand = new RelayCommand (async () => await this.PairAsync ().ConfigureAwait (true), () => !this.IsBusy && this.SelectedDevice is not null);
-		this.ConnectCommand = new RelayCommand (async () => await this.ConnectAsync ().ConfigureAwait (true), () => !this.IsBusy && this.SelectedDevice is { IsPaired: true });
-		this.DisconnectCommand = new RelayCommand (this.Disconnect, () => this.IsConnected);
+		ScanCommand = new RelayCommand (async () => await ScanAsync ().ConfigureAwait (true), () => !IsBusy);
+		PairCommand = new RelayCommand (async () => await PairAsync ().ConfigureAwait (true), () => !IsBusy && SelectedDevice is not null);
+		ConnectCommand = new RelayCommand (async () => await ConnectAsync ().ConfigureAwait (true), () => !IsBusy && SelectedDevice is { IsPaired: true });
+		DisconnectCommand = new RelayCommand (Disconnect, () => IsConnected);
 
-		this.UpButton = this.CreateHidCommand (HidCommand.Up);
-		this.DownButton = this.CreateHidCommand (HidCommand.Down);
-		this.LeftButton = this.CreateHidCommand (HidCommand.Left);
-		this.RightButton = this.CreateHidCommand (HidCommand.Right);
-		this.SelectButton = this.CreateHidCommand (HidCommand.Select);
-		this.MenuButton = this.CreateHidCommand (HidCommand.Menu);
-		this.HomeButton = this.CreateHidCommand (HidCommand.Home);
-		this.PlayPauseButton = this.CreateHidCommand (HidCommand.PlayPause);
-		this.VolumeUpButton = this.CreateHidCommand (HidCommand.VolumeUp, () => this.IsConnected && this.IsVolumeControlSupported);
-		this.VolumeDownButton = this.CreateHidCommand (HidCommand.VolumeDown, () => this.IsConnected && this.IsVolumeControlSupported);
-		this.SiriButton = this.CreateHidCommand (HidCommand.Siri);
+		UpButton = CreateHidCommand (HidCommand.Up);
+		DownButton = CreateHidCommand (HidCommand.Down);
+		LeftButton = CreateHidCommand (HidCommand.Left);
+		RightButton = CreateHidCommand (HidCommand.Right);
+		SelectButton = CreateHidCommand (HidCommand.Select);
+		MenuButton = CreateHidCommand (HidCommand.Menu);
+		HomeButton = CreateHidCommand (HidCommand.Home);
+		PlayPauseButton = CreateHidCommand (HidCommand.PlayPause);
+		VolumeUpButton = CreateHidCommand (HidCommand.VolumeUp, () => IsConnected && IsVolumeControlSupported);
+		VolumeDownButton = CreateHidCommand (HidCommand.VolumeDown, () => IsConnected && IsVolumeControlSupported);
+		SiriButton = CreateHidCommand (HidCommand.Siri);
 
-		this.MuteButton = new RelayCommand (async () => await this.ToggleMuteAsync ().ConfigureAwait (true), () => this.IsConnected && this.IsVolumeControlSupported);
-		this.PowerButton = new RelayCommand (async () => await this.TogglePowerAsync ().ConfigureAwait (true), () => this.IsConnected);
+		MuteButton = new RelayCommand (async () => await ToggleMuteAsync ().ConfigureAwait (true), () => IsConnected && IsVolumeControlSupported);
+		PowerButton = new RelayCommand (async () => await TogglePowerAsync ().ConfigureAwait (true), () => IsConnected);
 
-		this._deviceManager.MediaControlCapabilitiesChanged += (_, _) =>
+		_deviceManager.MediaControlCapabilitiesChanged += (_, _) =>
 			{
-			Application.Current?.Dispatcher.Invoke (this.RaiseRemoteButtonStates);
+			Application.Current?.Dispatcher.Invoke (RaiseRemoteButtonStates);
 			};
 
 		// pyatv/protocols/companion/__init__.py (_handle_system_status_update) — line 249-256 as of pyatv 0.18.0: power
 		// state is tracked from pushed SystemStatus/TVSystemStatus events, not by polling.
-		this._deviceManager.SystemStatusChanged += (_, _) =>
+		_deviceManager.SystemStatusChanged += (_, _) =>
 			{
 			Application.Current?.Dispatcher.Invoke (() =>
 				{
-				this.ApplySystemStatus (this._deviceManager.CurrentSystemStatus);
+				ApplySystemStatus (_deviceManager.CurrentSystemStatus);
 				});
 			};
 
@@ -98,39 +98,39 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		// receive thread would block on the UI thread, which would in turn block waiting for a
 		// response only the receive thread can deliver. BeginInvoke lets the receive thread return
 		// immediately while the UI thread handles the round trip asynchronously.
-		this._deviceManager.TextFocusStateChanged += (_, _) =>
+		_deviceManager.TextFocusStateChanged += (_, _) =>
 			{
-			Application.Current?.Dispatcher.BeginInvoke (new Action (async () => await this.ApplyTextFocusStateAsync ().ConfigureAwait (true)));
+			Application.Current?.Dispatcher.BeginInvoke (new Action (async () => await ApplyTextFocusStateAsync ().ConfigureAwait (true)));
 			};
 
 		// The library does not attempt automatic reconnection; an unexpected disconnect (or the
 		// remote end cleanly closing the socket) is surfaced here so the UI can reset to a
 		// disconnected state instead of silently going stale (dead buttons, frozen status text).
-		this._deviceManager.ConnectionClosed += (_, e) =>
+		_deviceManager.ConnectionClosed += (_, e) =>
 			{
-			Application.Current?.Dispatcher.Invoke (() => this.HandleConnectionClosed (e));
+			Application.Current?.Dispatcher.Invoke (() => HandleConnectionClosed (e));
 			};
 		}
 
 	private async Task ApplyTextFocusStateAsync ()
 		{
-		if (this._deviceManager.TextFocusState == KeyboardFocusState.Focused)
+		if (_deviceManager.TextFocusState == KeyboardFocusState.Focused)
 			{
 			string? currentText = null;
 			try
 				{
-				currentText = await this._deviceManager.TextGetAsync ().ConfigureAwait (true);
+				currentText = await _deviceManager.TextGetAsync ().ConfigureAwait (true);
 				}
 			catch (Exception ex)
 				{
 				System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] TextGet failed: {ex}");
 				}
 
-			this.ShowTextInput?.Invoke (currentText);
+			ShowTextInput?.Invoke (currentText);
 			}
 		else
 			{
-			this.HideTextInput?.Invoke ();
+			HideTextInput?.Invoke ();
 			}
 		}
 
@@ -139,15 +139,15 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	// be presented as a confident true/false until IsPowerStateKnown is true.
 	private void ApplySystemStatus (SystemStatus status)
 		{
-		this.IsPowerStateKnown = status != SystemStatus.Unknown;
-		this.IsAwake = status is not (SystemStatus.Asleep or SystemStatus.Unknown);
+		IsPowerStateKnown = status != SystemStatus.Unknown;
+		IsAwake = status is not (SystemStatus.Asleep or SystemStatus.Unknown);
 
 		// The transient "Waking..."/"Sleeping..." message set by TogglePower() must be replaced once a
 		// confirming pushed status arrives, otherwise it is left showing forever even after the real
 		// state (IsAwake/IsPowerStateKnown) has updated correctly.
-		this.StatusMessage = status switch
+		StatusMessage = status switch
 			{
-			SystemStatus.Unknown => this.StatusMessage,
+			SystemStatus.Unknown => StatusMessage,
 			SystemStatus.Asleep => "Asleep.",
 			_ => "Awake.",
 			};
@@ -159,19 +159,19 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	// IsAppListSupported/IsAccountListSupported).
 	private void PopulateAppsAndAccounts ()
 		{
-		this._isPopulatingAppsOrAccounts = true;
+		_isPopulatingAppsOrAccounts = true;
 		try
 			{
-			this.Apps.Clear ();
-			foreach (var kvp in this._deviceManager.Apps)
+			Apps.Clear ();
+			foreach (var kvp in _deviceManager.Apps)
 				{
-				this.Apps.Add (new SelectableItem (kvp.Key, kvp.Value));
+				Apps.Add (new SelectableItem (kvp.Key, kvp.Value));
 				}
 
-			this.Accounts.Clear ();
-			foreach (var kvp in this._deviceManager.Accounts)
+			Accounts.Clear ();
+			foreach (var kvp in _deviceManager.Accounts)
 				{
-				this.Accounts.Add (new SelectableItem (kvp.Key, kvp.Value));
+				Accounts.Add (new SelectableItem (kvp.Key, kvp.Value));
 				}
 
 			// The device does not report which account is currently active - FetchUserAccountsEvent
@@ -182,33 +182,33 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			// successful SwitchUserAccountEvent. A switch made from the physical remote or another
 			// client is invisible to us - there is no pushed event for it - so IsCurrentAccountKnown
 			// must revert to false on every (re)connect rather than trusting a stale cached value.
-			this._selectedApp = null;
-			this._selectedAccount = null;
-			this._isCurrentAccountKnown = false;
+			_selectedApp = null;
+			_selectedAccount = null;
+			_isCurrentAccountKnown = false;
 			}
 		finally
 			{
-			this._isPopulatingAppsOrAccounts = false;
+			_isPopulatingAppsOrAccounts = false;
 			}
 
-		this.OnPropertyChanged (nameof (this.IsAppListSupported));
-		this.OnPropertyChanged (nameof (this.IsAccountListSupported));
-		this.OnPropertyChanged (nameof (this.SelectedApp));
-		this.OnPropertyChanged (nameof (this.SelectedAccount));
-		this.OnPropertyChanged (nameof (this.IsCurrentAccountKnown));
+		OnPropertyChanged (nameof (IsAppListSupported));
+		OnPropertyChanged (nameof (IsAccountListSupported));
+		OnPropertyChanged (nameof (SelectedApp));
+		OnPropertyChanged (nameof (SelectedAccount));
+		OnPropertyChanged (nameof (IsCurrentAccountKnown));
 		}
 
 	private async Task LaunchSelectedAppAsync (SelectableItem app)
 		{
 		try
 			{
-			await this._deviceManager.LaunchAppAsync (app.Id).ConfigureAwait (true);
-			this.StatusMessage = $"Launched {app.DisplayName}.";
+			await _deviceManager.LaunchAppAsync (app.Id).ConfigureAwait (true);
+			StatusMessage = $"Launched {app.DisplayName}.";
 			}
 		catch (Exception ex)
 			{
 			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] LaunchApp failed: {ex}");
-			this.StatusMessage = $"Launch failed: {ex.Message}";
+			StatusMessage = $"Launch failed: {ex.Message}";
 			}
 		}
 
@@ -216,23 +216,23 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		{
 		try
 			{
-			await this._deviceManager.SwitchAccountAsync (account.Id).ConfigureAwait (true);
-			this.StatusMessage = $"Switched to {account.DisplayName}.";
+			await _deviceManager.SwitchAccountAsync (account.Id).ConfigureAwait (true);
+			StatusMessage = $"Switched to {account.DisplayName}.";
 
 			// Only now do we actually know the active account - a successful SwitchUserAccountEvent
 			// is the one and only signal the protocol gives us (see PopulateAppsAndAccounts).
-			this._isCurrentAccountKnown = true;
-			this.OnPropertyChanged (nameof (this.IsCurrentAccountKnown));
+			_isCurrentAccountKnown = true;
+			OnPropertyChanged (nameof (IsCurrentAccountKnown));
 			}
 		catch (Exception ex)
 			{
 			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] SwitchAccount failed: {ex}");
-			this.StatusMessage = $"Switch account failed: {ex.Message}";
+			StatusMessage = $"Switch account failed: {ex.Message}";
 
 			// The switch may or may not have taken effect on the device; treat the account as unknown
 			// again rather than risk displaying a selection that doesn't match reality.
-			this._isCurrentAccountKnown = false;
-			this.OnPropertyChanged (nameof (this.IsCurrentAccountKnown));
+			_isCurrentAccountKnown = false;
+			OnPropertyChanged (nameof (IsCurrentAccountKnown));
 			}
 		}
 
@@ -240,7 +240,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	public ObservableCollection<DeviceListItem> Devices
 		{
 		get;
-		} = new ();
+		} = [];
 
 	/// <summary>
 	/// Gets the launchable apps on the connected device. Empty when not connected or when the
@@ -249,24 +249,24 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	public ObservableCollection<SelectableItem> Apps
 		{
 		get;
-		} = new ();
+		} = [];
 
 	/// <summary>
 	/// Gets a value indicating whether the connected device supports app listing/launching
 	/// (i.e. <see cref="Apps"/> is non-empty). The app dropdown should only be shown when this
 	/// is <see langword="true"/>.
 	/// </summary>
-	public bool IsAppListSupported => this.Apps.Count > 0;
+	public bool IsAppListSupported => Apps.Count > 0;
 
 	/// <summary>Gets or sets the app selected in the app dropdown, launching it on selection.</summary>
 	public SelectableItem? SelectedApp
 		{
-		get => this._selectedApp;
+		get => _selectedApp;
 		set
 			{
-			if (this.SetProperty (ref this._selectedApp, value) && !this._isPopulatingAppsOrAccounts && value is not null)
+			if (SetProperty (ref _selectedApp, value) && !_isPopulatingAppsOrAccounts && value is not null)
 				{
-				_ = this.LaunchSelectedAppAsync (value);
+				_ = LaunchSelectedAppAsync (value);
 				}
 			}
 		}
@@ -278,14 +278,14 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	public ObservableCollection<SelectableItem> Accounts
 		{
 		get;
-		} = new ();
+		} = [];
 
 	/// <summary>
 	/// Gets a value indicating whether the connected device supports account listing/switching
 	/// (i.e. <see cref="Accounts"/> is non-empty). The account dropdown should only be shown when
 	/// this is <see langword="true"/>.
 	/// </summary>
-	public bool IsAccountListSupported => this.Accounts.Count > 0;
+	public bool IsAccountListSupported => Accounts.Count > 0;
 
 	/// <summary>
 	/// Gets a value indicating whether <see cref="SelectedAccount"/> is known to reflect the
@@ -298,7 +298,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// it), so this reverts to <see langword="false"/> on every reconnect rather than trusting a
 	/// stale cached value.
 	/// </summary>
-	public bool IsCurrentAccountKnown => this._isCurrentAccountKnown;
+	public bool IsCurrentAccountKnown => _isCurrentAccountKnown;
 
 	/// <summary>
 	/// Gets or sets the account selected in the account dropdown, switching to it on selection.
@@ -308,12 +308,12 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// </summary>
 	public SelectableItem? SelectedAccount
 		{
-		get => this._selectedAccount;
+		get => _selectedAccount;
 		set
 			{
-			if (this.SetProperty (ref this._selectedAccount, value) && !this._isPopulatingAppsOrAccounts && value is not null)
+			if (SetProperty (ref _selectedAccount, value) && !_isPopulatingAppsOrAccounts && value is not null)
 				{
-				_ = this.SwitchToSelectedAccountAsync (value);
+				_ = SwitchToSelectedAccountAsync (value);
 				}
 			}
 		}
@@ -321,13 +321,13 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// <summary>Gets or sets the currently selected device.</summary>
 	public DeviceListItem? SelectedDevice
 		{
-		get => this._selectedDevice;
+		get => _selectedDevice;
 		set
 			{
-			if (this.SetProperty (ref this._selectedDevice, value))
+			if (SetProperty (ref _selectedDevice, value))
 				{
-				this.RaiseCommandStates ();
-				this.UpdateAutoConnectCheckboxFromSelection ();
+				RaiseCommandStates ();
+				UpdateAutoConnectCheckboxFromSelection ();
 				}
 			}
 		}
@@ -335,10 +335,10 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// <summary>Gets or sets a user-facing status message.</summary>
 	public string StatusMessage
 		{
-		get => this._statusMessage;
+		get => _statusMessage;
 		set
 			{
-			if (this.SetProperty (ref this._statusMessage, value))
+			if (SetProperty (ref _statusMessage, value))
 				{
 				System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] {value}");
 				}
@@ -348,25 +348,25 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// <summary>Gets or sets a value indicating whether a scan/pair/connect operation is in progress.</summary>
 	public bool IsBusy
 		{
-		get => this._isBusy;
+		get => _isBusy;
 		set
 			{
-			if (this.SetProperty (ref this._isBusy, value))
+			if (SetProperty (ref _isBusy, value))
 				{
-				this.RaiseCommandStates ();
+				RaiseCommandStates ();
 				}
 			}
 		}
 
 	/// <summary>Gets a value indicating whether a device is currently connected.</summary>
-	public bool IsConnected => this._deviceManager.IsConnected;
+	public bool IsConnected => _deviceManager.IsConnected;
 
 	/// <summary>
 	/// Gets a value indicating whether the connected device currently advertises volume control
 	/// support. When <see langword="false"/>, audio is managed outside Companion (e.g. HDMI-CEC)
 	/// and the volume/mute commands are disabled rather than sent.
 	/// </summary>
-	public bool IsVolumeControlSupported => this._deviceManager.IsVolumeControlSupported;
+	public bool IsVolumeControlSupported => _deviceManager.IsVolumeControlSupported;
 
 	/// <summary>Gets the command that scans the network for devices.</summary>
 	public RelayCommand ScanCommand
@@ -473,8 +473,8 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// <summary>Gets a value indicating whether the device is currently considered muted.</summary>
 	public bool IsMuted
 		{
-		get => this._isMuted;
-		private set => this.SetProperty (ref this._isMuted, value);
+		get => _isMuted;
+		private set => SetProperty (ref _isMuted, value);
 		}
 
 	/// <summary>
@@ -483,8 +483,8 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// </summary>
 	public bool IsAwake
 		{
-		get => this._isAwake;
-		private set => this.SetProperty (ref this._isAwake, value);
+		get => _isAwake;
+		private set => SetProperty (ref _isAwake, value);
 		}
 
 	/// <summary>
@@ -495,8 +495,8 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// </summary>
 	public bool IsPowerStateKnown
 		{
-		get => this._isPowerStateKnown;
-		private set => this.SetProperty (ref this._isPowerStateKnown, value);
+		get => _isPowerStateKnown;
+		private set => SetProperty (ref _isPowerStateKnown, value);
 		}
 
 	/// <summary>
@@ -508,13 +508,13 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// </summary>
 	public bool AutoConnectSelected
 		{
-		get => this._autoConnectSelected;
+		get => _autoConnectSelected;
 		set
 			{
-			if (this.SetProperty (ref this._autoConnectSelected, value))
+			if (SetProperty (ref _autoConnectSelected, value))
 				{
-				string? uniqueId = value ? this.SelectedDevice?.Device.UniqueId : null;
-				this._deviceManager.SetAutoConnect (uniqueId);
+				string? uniqueId = value ? SelectedDevice?.Device.UniqueId : null;
+				_deviceManager.SetAutoConnect (uniqueId);
 				}
 			}
 		}
@@ -558,139 +558,139 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// <param name="text">The dialog's current full text.</param>
 	public void OnTextInputChanged (string text)
 		{
-		_ = this.SetTextAsync (text);
+		_ = SetTextAsync (text);
 		}
 
 	private async Task SetTextAsync (string text)
 		{
-		if (!this.IsConnected)
+		if (!IsConnected)
 			{
 			return;
 			}
 
 		try
 			{
-			await this._deviceManager.SetTextAsync (text).ConfigureAwait (true);
+			await _deviceManager.SetTextAsync (text).ConfigureAwait (true);
 			}
 		catch (Exception ex)
 			{
 			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] SetText failed: {ex}");
-			this.StatusMessage = $"Text input failed: {ex.Message}";
+			StatusMessage = $"Text input failed: {ex.Message}";
 			}
 		}
 
 	private async Task ScanAsync ()
 		{
-		this.IsBusy = true;
-		this.StatusMessage = "Scanning...";
+		IsBusy = true;
+		StatusMessage = "Scanning...";
 		try
 			{
-			var results = await this._deviceManager.ScanAsync (TimeSpan.FromSeconds (5)).ConfigureAwait (true);
-			this.Devices.Clear ();
+			var results = await _deviceManager.ScanAsync (TimeSpan.FromSeconds (5)).ConfigureAwait (true);
+			Devices.Clear ();
 			foreach (CompanionDiscoveryResult device in results)
 				{
 				bool isPaired = device.UniqueId is not null
-					&& this._deviceManager.LoadStoredDevice (device.UniqueId) is not null;
-				this.Devices.Add (new DeviceListItem (device, isPaired));
+					&& _deviceManager.LoadStoredDevice (device.UniqueId) is not null;
+				Devices.Add (new DeviceListItem (device, isPaired));
 				}
 
-			this.StatusMessage = $"Found {this.Devices.Count} device(s).";
+			StatusMessage = $"Found {Devices.Count} device(s).";
 			}
 		catch (Exception ex)
 			{
 			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Scan failed: {ex}");
-			this.StatusMessage = $"Scan failed: {ex.Message}";
+			StatusMessage = $"Scan failed: {ex.Message}";
 			}
 		finally
 			{
-			this.IsBusy = false;
+			IsBusy = false;
 			}
 		}
 
 	private async Task PairAsync ()
 		{
-		if (this.SelectedDevice is null)
+		if (SelectedDevice is null)
 			{
-			this.StatusMessage = "Select a device from the list before pairing.";
+			StatusMessage = "Select a device from the list before pairing.";
 			return;
 			}
 
-		this.IsBusy = true;
-		this.StatusMessage = "Starting pairing - waiting for the TV to display a PIN...";
+		IsBusy = true;
+		StatusMessage = "Starting pairing - waiting for the TV to display a PIN...";
 		PairingSession? session = null;
 		try
 			{
 			// M1 must be sent before the Apple TV will display a PIN, so the pairing session is
 			// started before the user is ever prompted for one.
-			session = await this._deviceManager.BeginPairAsync (this.SelectedDevice.Device).ConfigureAwait (true);
+			session = await _deviceManager.BeginPairAsync (SelectedDevice.Device).ConfigureAwait (true);
 
-			int? pin = this.RequestPin?.Invoke (this.SelectedDevice.Device);
+			int? pin = RequestPin?.Invoke (SelectedDevice.Device);
 			if (pin is null)
 				{
-				this.StatusMessage = "Pairing cancelled.";
+				StatusMessage = "Pairing cancelled.";
 				return;
 				}
 
-			this.StatusMessage = "Pairing...";
-			StoredDevice stored = await this._deviceManager.CompletePairAsync (session, pin.Value).ConfigureAwait (true);
+			StatusMessage = "Pairing...";
+			StoredDevice stored = await _deviceManager.CompletePairAsync (session, pin.Value).ConfigureAwait (true);
 			session = null;
-			this.SelectedDevice.IsPaired = true;
-			this.RaiseCommandStates ();
-			this.StatusMessage = $"Paired with {stored.Name}.";
+			SelectedDevice.IsPaired = true;
+			RaiseCommandStates ();
+			StatusMessage = $"Paired with {stored.Name}.";
 			}
 		catch (Exception ex)
 			{
 			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Pairing failed: {ex}");
-			this.StatusMessage = $"Pairing failed: {ex.Message}";
+			StatusMessage = $"Pairing failed: {ex.Message}";
 			}
 		finally
 			{
 			session?.Transport.Dispose ();
-			this.IsBusy = false;
+			IsBusy = false;
 			}
 		}
 
 	private async Task ConnectAsync ()
 		{
-		if (this.SelectedDevice?.Device.UniqueId is null)
+		if (SelectedDevice?.Device.UniqueId is null)
 			{
-			this.StatusMessage = "Selected device has no unique id.";
+			StatusMessage = "Selected device has no unique id.";
 			return;
 			}
 
-		StoredDevice? stored = this._deviceManager.LoadStoredDevice (this.SelectedDevice.Device.UniqueId);
+		StoredDevice? stored = _deviceManager.LoadStoredDevice (SelectedDevice.Device.UniqueId);
 		if (stored is null)
 			{
-			this.StatusMessage = "Device is not paired yet.";
+			StatusMessage = "Device is not paired yet.";
 			return;
 			}
 
-		await this.ConnectToStoredDeviceAsync (stored).ConfigureAwait (true);
+		await ConnectToStoredDeviceAsync (stored).ConfigureAwait (true);
 		}
 
 	private async Task ConnectToStoredDeviceAsync (StoredDevice stored)
 		{
-		this.IsBusy = true;
-		this.StatusMessage = "Connecting...";
+		IsBusy = true;
+		StatusMessage = "Connecting...";
 		try
 			{
-			await this._deviceManager.ConnectAsync (stored).ConfigureAwait (true);
-			this._lastConnectedDevice = stored;
-			this.StatusMessage = $"Connected to {stored.Name}.";
-			this.OnPropertyChanged (nameof (this.IsConnected));
-			this.DisconnectCommand.RaiseCanExecuteChanged ();
-			this.RaiseRemoteButtonStates ();
-			this.ApplySystemStatus (this._deviceManager.CurrentSystemStatus);
-			this.PopulateAppsAndAccounts ();
+			await _deviceManager.ConnectAsync (stored).ConfigureAwait (true);
+			_lastConnectedDevice = stored;
+			StatusMessage = $"Connected to {stored.Name}.";
+			OnPropertyChanged (nameof (IsConnected));
+			DisconnectCommand.RaiseCanExecuteChanged ();
+			RaiseRemoteButtonStates ();
+			ApplySystemStatus (_deviceManager.CurrentSystemStatus);
+			PopulateAppsAndAccounts ();
 			}
 		catch (Exception ex)
 			{
 			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Connect failed: {ex}");
-			this.StatusMessage = $"Connect failed: {ex.Message}";
+			StatusMessage = $"Connect failed: {ex.Message}";
 			}
 		finally
 			{
-			this.IsBusy = false;
+			IsBusy = false;
 			}
 		}
 
@@ -702,7 +702,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// </summary>
 	public async Task InitializeAsync ()
 		{
-		StoredDevice? autoConnect = this._deviceManager.LoadAutoConnectDevice ();
+		StoredDevice? autoConnect = _deviceManager.LoadAutoConnectDevice ();
 		if (autoConnect is null)
 			{
 			return;
@@ -717,44 +717,44 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			new Dictionary<string, string> ());
 
 		DeviceListItem item = new (device, isPaired: true);
-		this.Devices.Add (item);
+		Devices.Add (item);
 
 		// Set the backing field directly (rather than the SelectedDevice setter) so the
 		// auto-connect flag isn't clobbered by UpdateAutoConnectCheckboxFromSelection before
 		// AutoConnectSelected is set to reflect the already-persisted choice below.
-		this._selectedDevice = item;
-		this.OnPropertyChanged (nameof (this.SelectedDevice));
-		this.RaiseCommandStates ();
-		this._autoConnectSelected = true;
-		this.OnPropertyChanged (nameof (this.AutoConnectSelected));
+		_selectedDevice = item;
+		OnPropertyChanged (nameof (SelectedDevice));
+		RaiseCommandStates ();
+		_autoConnectSelected = true;
+		OnPropertyChanged (nameof (AutoConnectSelected));
 
-		await this.AutoConnectToStoredDeviceAsync (autoConnect).ConfigureAwait (true);
+		await AutoConnectToStoredDeviceAsync (autoConnect).ConfigureAwait (true);
 		}
 
 	private async Task AutoConnectToStoredDeviceAsync (StoredDevice stored)
 		{
 		try
 			{
-			await this.ConnectToStoredDeviceAsync (stored).ConfigureAwait (true);
-			if (this.IsConnected)
+			await ConnectToStoredDeviceAsync (stored).ConfigureAwait (true);
+			if (IsConnected)
 				{
 				return;
 				}
 
-			this.StatusMessage = $"Saved address failed. Looking for {stored.Name}...";
-			if (!await this._deviceManager.RefreshStoredEndpointAsync (stored, TimeSpan.FromSeconds (5)).ConfigureAwait (true))
+			StatusMessage = $"Saved address failed. Looking for {stored.Name}...";
+			if (!await _deviceManager.RefreshStoredEndpointAsync (stored, TimeSpan.FromSeconds (5)).ConfigureAwait (true))
 				{
-				this.StatusMessage = $"Could not verify a new address for {stored.Name}. Scan and connect manually.";
+				StatusMessage = $"Could not verify a new address for {stored.Name}. Scan and connect manually.";
 				return;
 				}
 
-			this.StatusMessage = $"Device found at a new address. Reconnecting...";
-			await this.ConnectToStoredDeviceAsync (stored).ConfigureAwait (true);
+			StatusMessage = $"Device found at a new address. Reconnecting...";
+			await ConnectToStoredDeviceAsync (stored).ConfigureAwait (true);
 			}
 		catch (Exception ex)
 			{
 			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Auto-connect recovery failed: {ex}");
-			this.StatusMessage = $"Auto-connect failed: {ex.Message}";
+			StatusMessage = $"Auto-connect failed: {ex.Message}";
 			}
 		}
 
@@ -763,30 +763,30 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	// device auto-connects; only the checkbox itself does that).
 	private void UpdateAutoConnectCheckboxFromSelection ()
 		{
-		string? uniqueId = this.SelectedDevice?.Device.UniqueId;
+		string? uniqueId = SelectedDevice?.Device.UniqueId;
 		bool isAutoConnect = uniqueId is not null
-			&& this._deviceManager.LoadStoredDevice (uniqueId) is { AutoConnect: true };
-		this._autoConnectSelected = isAutoConnect;
-		this.OnPropertyChanged (nameof (this.AutoConnectSelected));
+			&& _deviceManager.LoadStoredDevice (uniqueId) is { AutoConnect: true };
+		_autoConnectSelected = isAutoConnect;
+		OnPropertyChanged (nameof (AutoConnectSelected));
 		}
 
 	private void Disconnect ()
 		{
 		// A deliberate, user-initiated disconnect cancels any pending auto-reconnect and forgets
 		// the last-connected device, so the app doesn't spring back to life on its own afterward.
-		this.CancelReconnect ();
-		this._lastConnectedDevice = null;
+		CancelReconnect ();
+		_lastConnectedDevice = null;
 
-		this._deviceManager.Disconnect ();
-		this.StatusMessage = "Disconnected.";
-		this.IsMuted = false;
-		this.IsAwake = false;
-		this.IsPowerStateKnown = false;
-		this.HideTextInput?.Invoke ();
-		this.OnPropertyChanged (nameof (this.IsConnected));
-		this.DisconnectCommand.RaiseCanExecuteChanged ();
-		this.RaiseRemoteButtonStates ();
-		this.PopulateAppsAndAccounts ();
+		_deviceManager.Disconnect ();
+		StatusMessage = "Disconnected.";
+		IsMuted = false;
+		IsAwake = false;
+		IsPowerStateKnown = false;
+		HideTextInput?.Invoke ();
+		OnPropertyChanged (nameof (IsConnected));
+		DisconnectCommand.RaiseCanExecuteChanged ();
+		RaiseRemoteButtonStates ();
+		PopulateAppsAndAccounts ();
 		}
 
 	// The AppleTvDeviceManager has already torn down its own connection state (transport/api) by
@@ -794,39 +794,39 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	// reset the view-model-level UI state, same as a user-initiated Disconnect().
 	private void HandleConnectionClosed (ConnectionClosedEventArgs e)
 		{
-		this.StatusMessage = e.Exception is null
+		StatusMessage = e.Exception is null
 			? "Disconnected."
 			: $"Connection lost: {e.Exception.Message}. Reconnecting...";
-		this.IsMuted = false;
-		this.IsAwake = false;
-		this.IsPowerStateKnown = false;
-		this.HideTextInput?.Invoke ();
-		this.OnPropertyChanged (nameof (this.IsConnected));
-		this.DisconnectCommand.RaiseCanExecuteChanged ();
-		this.RaiseRemoteButtonStates ();
-		this.PopulateAppsAndAccounts ();
+		IsMuted = false;
+		IsAwake = false;
+		IsPowerStateKnown = false;
+		HideTextInput?.Invoke ();
+		OnPropertyChanged (nameof (IsConnected));
+		DisconnectCommand.RaiseCanExecuteChanged ();
+		RaiseRemoteButtonStates ();
+		PopulateAppsAndAccounts ();
 
 		// Only an unexpected fault is worth auto-reconnecting for; a clean close (e.g. the user's
 		// own Disconnect(), which already cleared _lastConnectedDevice) must not trigger one.
-		if (e.Exception is not null && this._lastConnectedDevice is StoredDevice device)
+		if (e.Exception is not null && _lastConnectedDevice is StoredDevice device)
 			{
-			this.StartReconnectLoop (device);
+			StartReconnectLoop (device);
 			}
 		}
 
 	private void CancelReconnect ()
 		{
-		this._reconnectCts?.Cancel ();
-		this._reconnectCts?.Dispose ();
-		this._reconnectCts = null;
+		_reconnectCts?.Cancel ();
+		_reconnectCts?.Dispose ();
+		_reconnectCts = null;
 		}
 
 	private void StartReconnectLoop (StoredDevice stored)
 		{
-		this.CancelReconnect ();
+		CancelReconnect ();
 		CancellationTokenSource cts = new ();
-		this._reconnectCts = cts;
-		_ = this.ReconnectLoopAsync (stored, cts.Token);
+		_reconnectCts = cts;
+		_ = ReconnectLoopAsync (stored, cts.Token);
 		}
 
 	private async Task ReconnectLoopAsync (StoredDevice stored, CancellationToken cancellationToken)
@@ -834,7 +834,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		for (int attempt = 0; attempt < ReconnectDelays.Length && !cancellationToken.IsCancellationRequested; attempt++)
 			{
 			TimeSpan delay = ReconnectDelays[attempt];
-			this.StatusMessage = $"Reconnecting to {stored.Name} in {delay.TotalSeconds:0}s (attempt {attempt + 1}/{ReconnectDelays.Length})...";
+			StatusMessage = $"Reconnecting to {stored.Name} in {delay.TotalSeconds:0}s (attempt {attempt + 1}/{ReconnectDelays.Length})...";
 			try
 				{
 				await Task.Delay (delay, cancellationToken).ConfigureAwait (true);
@@ -849,11 +849,11 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 				return;
 				}
 
-			this.StatusMessage = $"Reconnecting to {stored.Name}...";
+			StatusMessage = $"Reconnecting to {stored.Name}...";
 			try
 				{
-				await this.ConnectToStoredDeviceAsync (stored).ConfigureAwait (true);
-				if (this.IsConnected)
+				await ConnectToStoredDeviceAsync (stored).ConfigureAwait (true);
+				if (IsConnected)
 					{
 					return;
 					}
@@ -866,7 +866,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 
 		if (!cancellationToken.IsCancellationRequested)
 			{
-			this.StatusMessage = $"Could not reconnect to {stored.Name}. Connect manually.";
+			StatusMessage = $"Could not reconnect to {stored.Name}. Connect manually.";
 			}
 		}
 
@@ -874,13 +874,13 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		{
 		try
 			{
-			this.IsMuted = await this._deviceManager.ToggleMuteAsync ().ConfigureAwait (true);
-			this.StatusMessage = this.IsMuted ? "Muted." : "Unmuted.";
+			IsMuted = await _deviceManager.ToggleMuteAsync ().ConfigureAwait (true);
+			StatusMessage = IsMuted ? "Muted." : "Unmuted.";
 			}
 		catch (Exception ex)
 			{
 			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Mute failed: {ex}");
-			this.StatusMessage = $"Mute failed: {ex.Message}";
+			StatusMessage = $"Mute failed: {ex.Message}";
 			}
 		}
 
@@ -894,24 +894,24 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// <param name="action">The touch phase.</param>
 	public void SendTouchEvent (int x, int y, TouchAction action)
 		{
-		_ = this.SendTouchEventAsync (x, y, action);
+		_ = SendTouchEventAsync (x, y, action);
 		}
 
 	private async Task SendTouchEventAsync (int x, int y, TouchAction action)
 		{
-		if (!this.IsConnected)
+		if (!IsConnected)
 			{
 			return;
 			}
 
 		try
 			{
-			await this._deviceManager.SendTouchEventAsync (x, y, action).ConfigureAwait (true);
+			await _deviceManager.SendTouchEventAsync (x, y, action).ConfigureAwait (true);
 			}
 		catch (Exception ex)
 			{
 			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Touch event failed: {ex}");
-			this.StatusMessage = $"Touch failed: {ex.Message}";
+			StatusMessage = $"Touch failed: {ex.Message}";
 			}
 		}
 
@@ -927,19 +927,19 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	// background thread rather than directly on the calling (UI) thread.
 	public async void SendTouchClick (InputAction action)
 		{
-		if (!this.IsConnected)
+		if (!IsConnected)
 			{
 			return;
 			}
 
 		try
 			{
-			await this._deviceManager.SendTouchClickAsync (action).ConfigureAwait (true);
+			await _deviceManager.SendTouchClickAsync (action).ConfigureAwait (true);
 			}
 		catch (Exception ex)
 			{
 			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Touch click failed: {ex}");
-			this.StatusMessage = $"Touch click failed: {ex.Message}";
+			StatusMessage = $"Touch click failed: {ex.Message}";
 			}
 		}
 
@@ -990,13 +990,13 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		{
 		try
 			{
-			bool requestedWake = await this._deviceManager.TogglePowerAsync ().ConfigureAwait (true);
-			this.StatusMessage = requestedWake ? "Waking..." : "Sleeping...";
+			bool requestedWake = await _deviceManager.TogglePowerAsync ().ConfigureAwait (true);
+			StatusMessage = requestedWake ? "Waking..." : "Sleeping...";
 			}
 		catch (Exception ex)
 			{
 			System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Power toggle failed: {ex}");
-			this.StatusMessage = $"Power toggle failed: {ex.Message}";
+			StatusMessage = $"Power toggle failed: {ex.Message}";
 			}
 		}
 
@@ -1007,46 +1007,46 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 				{
 				try
 					{
-					await this._deviceManager.SendHidCommandAsync (command).ConfigureAwait (true);
+					await _deviceManager.SendHidCommandAsync (command).ConfigureAwait (true);
 					}
 				catch (Exception ex)
 					{
 					System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Command failed: {ex}");
-					this.StatusMessage = $"Command failed: {ex.Message}";
+					StatusMessage = $"Command failed: {ex.Message}";
 					}
 				},
-			canExecute ?? (() => this.IsConnected));
+			canExecute ?? (() => IsConnected));
 		}
 
 	private void RaiseCommandStates ()
 		{
-		this.ScanCommand.RaiseCanExecuteChanged ();
-		this.PairCommand.RaiseCanExecuteChanged ();
-		this.ConnectCommand.RaiseCanExecuteChanged ();
+		ScanCommand.RaiseCanExecuteChanged ();
+		PairCommand.RaiseCanExecuteChanged ();
+		ConnectCommand.RaiseCanExecuteChanged ();
 		}
 
 	private void RaiseRemoteButtonStates ()
 		{
-		this.OnPropertyChanged (nameof (this.IsVolumeControlSupported));
-		this.UpButton.RaiseCanExecuteChanged ();
-		this.DownButton.RaiseCanExecuteChanged ();
-		this.LeftButton.RaiseCanExecuteChanged ();
-		this.RightButton.RaiseCanExecuteChanged ();
-		this.SelectButton.RaiseCanExecuteChanged ();
-		this.MenuButton.RaiseCanExecuteChanged ();
-		this.HomeButton.RaiseCanExecuteChanged ();
-		this.PlayPauseButton.RaiseCanExecuteChanged ();
-		this.VolumeUpButton.RaiseCanExecuteChanged ();
-		this.VolumeDownButton.RaiseCanExecuteChanged ();
-		this.SiriButton.RaiseCanExecuteChanged ();
-		this.MuteButton.RaiseCanExecuteChanged ();
-		this.PowerButton.RaiseCanExecuteChanged ();
+		OnPropertyChanged (nameof (IsVolumeControlSupported));
+		UpButton.RaiseCanExecuteChanged ();
+		DownButton.RaiseCanExecuteChanged ();
+		LeftButton.RaiseCanExecuteChanged ();
+		RightButton.RaiseCanExecuteChanged ();
+		SelectButton.RaiseCanExecuteChanged ();
+		MenuButton.RaiseCanExecuteChanged ();
+		HomeButton.RaiseCanExecuteChanged ();
+		PlayPauseButton.RaiseCanExecuteChanged ();
+		VolumeUpButton.RaiseCanExecuteChanged ();
+		VolumeDownButton.RaiseCanExecuteChanged ();
+		SiriButton.RaiseCanExecuteChanged ();
+		MuteButton.RaiseCanExecuteChanged ();
+		PowerButton.RaiseCanExecuteChanged ();
 		}
 
 	/// <inheritdoc/>
 	public void Dispose ()
 		{
-		this.CancelReconnect ();
-		this._deviceManager.Dispose ();
+		CancelReconnect ();
+		_deviceManager.Dispose ();
 		}
 	}

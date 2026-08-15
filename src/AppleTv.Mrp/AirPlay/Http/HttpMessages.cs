@@ -119,29 +119,29 @@ public static class HttpMessages
 		headers ??= new Dictionary<string, string> (StringComparer.OrdinalIgnoreCase);
 
 		var msg = new StringBuilder ();
-		msg.Append (method).Append (' ').Append (uri).Append (' ').Append (protocol);
+		_ = msg.Append (method).Append (' ').Append (uri).Append (' ').Append (protocol);
 
 		if (!ContainsHeader (headers, "User-Agent"))
 			{
-			msg.Append ("\r\nUser-Agent: ").Append (userAgent);
+			_ = msg.Append ("\r\nUser-Agent: ").Append (userAgent);
 			}
 
 		if (contentType is not null)
 			{
-			msg.Append ("\r\nContent-Type: ").Append (contentType);
+			_ = msg.Append ("\r\nContent-Type: ").Append (contentType);
 			}
 
 		if (body is { Length: > 0 })
 			{
-			msg.Append ("\r\nContent-Length: ").Append (body.Length);
+			_ = msg.Append ("\r\nContent-Length: ").Append (body.Length);
 			}
 
 		foreach (KeyValuePair<string, string> header in headers)
 			{
-			msg.Append ('\r').Append ('\n').Append (header.Key).Append (": ").Append (header.Value);
+			_ = msg.Append ('\r').Append ('\n').Append (header.Key).Append (": ").Append (header.Value);
 			}
 
-		msg.Append ("\r\n\r\n");
+		_ = msg.Append ("\r\n\r\n");
 
 		byte[] output = Encoding.UTF8.GetBytes (msg.ToString ());
 		if (body is { Length: > 0 })
@@ -177,23 +177,23 @@ public static class HttpMessages
 	public static byte[] FormatResponse (HttpResponse response, string serverName = DefaultUserAgent)
 		{
 		var msg = new StringBuilder ();
-		msg.Append (response.Protocol).Append ('/').Append (response.Version).Append (' ')
+		_ = msg.Append (response.Protocol).Append ('/').Append (response.Version).Append (' ')
 			.Append (response.Code).Append (' ').Append (response.Message).Append ("\r\n");
 
 		if (!ContainsHeader (response.Headers, "Server"))
 			{
-			msg.Append ("Server: ").Append (serverName).Append ("\r\n");
+			_ = msg.Append ("Server: ").Append (serverName).Append ("\r\n");
 			}
 
 		foreach (KeyValuePair<string, string> header in response.Headers)
 			{
-			msg.Append (header.Key).Append (": ").Append (header.Value).Append ("\r\n");
+			_ = msg.Append (header.Key).Append (": ").Append (header.Value).Append ("\r\n");
 			}
 
 		byte[] body = response.Body;
 		if (body.Length > 0)
 			{
-			msg.Append ("Content-Length: ").Append (body.Length).Append ("\r\n");
+			_ = msg.Append ("Content-Length: ").Append (body.Length).Append ("\r\n");
 			}
 
 		byte[] output = Encoding.UTF8.GetBytes (msg.ToString ());

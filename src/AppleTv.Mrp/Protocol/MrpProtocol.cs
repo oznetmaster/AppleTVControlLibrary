@@ -12,6 +12,7 @@ using AppleTvControlLibrary.Auth;
 using AppleTvControlLibrary.Mrp.Auth;
 using AppleTvControlLibrary.Mrp.Connection;
 using AppleTvControlLibrary.Mrp.Protobuf;
+using System.Collections.Generic;
 
 namespace AppleTvControlLibrary.Mrp.Protocol;
 
@@ -124,13 +125,10 @@ public sealed class MrpInfoSettings
 // pyatv/protocols/mrp/protocol.py (MrpProtocol) — line 93-295 as of pyatv 0.18.0
 public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 	{
-	private readonly IMrpFrameConnection _connection;
 	private readonly SrpAuthHandler _srp;
 	private readonly MrpInfoSettings _info;
 	private readonly ConcurrentDictionary<string, TaskCompletionSource<ProtocolMessage>> _outstanding = new ();
 	private readonly SemaphoreSlim _sendGate = new (1, 1);
-
-	private HapCredentials? _credentials;
 	private CancellationTokenSource? _heartbeatCts;
 
 	/// <summary>Initializes a new instance of the <see cref="MrpProtocol"/> class.</summary>
@@ -140,23 +138,22 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 	// pyatv/protocols/mrp/protocol.py (__init__) — line 104-121 as of pyatv 0.18.0
 	public MrpProtocol (IMrpFrameConnection connection, SrpAuthHandler srp, MrpInfoSettings info)
 		{
-		_connection = connection;
+		Connection = connection;
 		_srp = srp;
 		_info = info;
-		_connection.Listener = this;
+		Connection.Listener = this;
 		}
 
 	/// <summary>Gets the underlying connection, so a transport can feed it received bytes.</summary>
-	public IMrpFrameConnection Connection => _connection;
+	public IMrpFrameConnection Connection
+		{
+		get;
+		}
 
 	/// <summary>Gets or sets the credentials used to enable encryption. Set externally when reusing
 	/// previously-paired credentials rather than pairing fresh (mirrors pyatv checking
 	/// <c>self.service.credentials</c>). pyatv/protocols/mrp/protocol.py — line 137-140 as of pyatv 0.18.0</summary>
-	public HapCredentials? Credentials
-		{
-		get => _credentials;
-		set => _credentials = value;
-		}
+	public HapCredentials? Credentials { get; set; }
 
 	/// <summary>Gets or sets the asynchronous callback that transmits fully-built frames.</summary>
 	public Func<byte[], Task>? AsyncSender
@@ -192,23 +189,13 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 			}
 
 		DeviceInfoMessage info = message.GetExtension (DeviceInfoMessageExtensions.DeviceInfoMessage);
-		if (!info.HasLogicalDeviceCount)
-			{
-			return MrpPowerState.Unknown;
-			}
-
-		if (info.LogicalDeviceCount >= 1)
-			{
-			return MrpPowerState.On;
-			}
-
-		return MrpPowerState.Off;
+		return !info.HasLogicalDeviceCount ? MrpPowerState.Unknown : info.LogicalDeviceCount >= 1 ? MrpPowerState.On : MrpPowerState.Off;
 		}
 
 	// pyatv/protocols/mrp/__init__.py (MrpPower._update_power_state) — line 673-684 as of pyatv 0.18.0
 	private void UpdatePowerState (ProtocolMessage message)
 		{
-		if (message.Type != ProtocolMessage.Types.Type.DeviceInfoMessage && message.Type != ProtocolMessage.Types.Type.DeviceInfoUpdateMessage)
+		if (message.Type is not ProtocolMessage.Types.Type.DeviceInfoMessage and not ProtocolMessage.Types.Type.DeviceInfoUpdateMessage)
 			{
 			return;
 			}
@@ -314,8 +301,8 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 			// SET_STATE_MESSAGE/UPDATE_CONTENT_ITEM_MESSAGE updates, which pyatv's default config
 			// (nowPlaying=false) suppresses. pyatv/protocols/mrp/messages.py (client_updates_config)
 			// — line 82-97 as of pyatv 0.18.0: nowPlaying is an independent subscription flag.
-			await SendAndReceiveAsync (MrpMessages.ClientUpdatesConfig (nowPlaying: true), generateIdentifier: true, cancellationToken).ConfigureAwait (false);
-			await SendAndReceiveAsync (MrpMessages.GetKeyboardSession (), generateIdentifier: true, cancellationToken).ConfigureAwait (false);
+			_ = await SendAndReceiveAsync (MrpMessages.ClientUpdatesConfig (nowPlaying: true), generateIdentifier: true, cancellationToken).ConfigureAwait (false);
+			_ = await SendAndReceiveAsync (MrpMessages.GetKeyboardSession (), generateIdentifier: true, cancellationToken).ConfigureAwait (false);
 			}
 		catch
 			{
@@ -331,7 +318,7 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 		{
 		// Encryption can be enabled whenever credentials are available but only after
 		// DEVICE_INFORMATION has been sent.
-		if (_credentials is null)
+		if (Credentials is null)
 			{
 			return;
 			}
@@ -339,7 +326,7 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 		var pairVerify = new MrpPairVerifyProcedure (
 			(message) => SendAndReceiveAsync (message, generateIdentifier: false, cancellationToken),
 			_srp,
-			_credentials);
+			Credentials);
 
 		bool verified = await pairVerify.VerifyCredentialsAsync ().ConfigureAwait (false);
 		if (!verified)
@@ -349,7 +336,7 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 
 		(byte[] outputKey, byte[] inputKey) = pairVerify.EncryptionKeys (
 			MrpProtocolConstants.SrpSalt, MrpProtocolConstants.SrpOutputInfo, MrpProtocolConstants.SrpInputInfo);
-		_connection.EnableEncryption (outputKey, inputKey);
+		Connection.EnableEncryption (outputKey, inputKey);
 		}
 
 	/// <summary>Disconnect from the device, failing any outstanding requests.</summary>
@@ -360,11 +347,11 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 		_heartbeatCts = null;
 
 		var fault = new MrpProtocolException ("Connection stopped while awaiting a response");
-		foreach (var pending in _outstanding)
+		foreach (KeyValuePair<string, TaskCompletionSource<ProtocolMessage>> pending in _outstanding)
 			{
-			if (_outstanding.TryRemove (pending.Key, out var completion))
+			if (_outstanding.TryRemove (pending.Key, out TaskCompletionSource<ProtocolMessage>? completion))
 				{
-				completion.TrySetException (fault);
+				_ = completion.TrySetException (fault);
 				}
 			}
 
@@ -424,14 +411,14 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 			}
 		catch
 			{
-			_outstanding.TryRemove (identifier, out _);
+			_ = _outstanding.TryRemove (identifier, out _);
 			throw;
 			}
 
 		Task completed = await Task.WhenAny (completion.Task, Task.Delay (ResponseTimeout, cancellationToken)).ConfigureAwait (false);
 		if (completed != completion.Task)
 			{
-			_outstanding.TryRemove (identifier, out _);
+			_ = _outstanding.TryRemove (identifier, out _);
 			throw new MrpProtocolException ($"No response received for identifier {identifier} (sent as {message.Type})");
 			}
 
@@ -445,7 +432,7 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 			throw new InvalidOperationException ($"{nameof (AsyncSender)} must be set before sending frames");
 			}
 
-		byte[] frame = _connection.BuildMessage (message.ToByteArray ());
+		byte[] frame = Connection.BuildMessage (message.ToByteArray ());
 		await AsyncSender (frame).ConfigureAwait (false);
 		_ = cancellationToken;
 		}
@@ -472,9 +459,9 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 		// pyatv/protocols/mrp/protocol.py — line 285-293 as of pyatv 0.18.0: if the message
 		// identifier is outstanding, then someone is waiting for the response, so save it here.
 		string identifier = !string.IsNullOrEmpty (message.Identifier) ? message.Identifier : "type_" + (int)message.Type;
-		if (_outstanding.TryRemove (identifier, out var completion))
+		if (_outstanding.TryRemove (identifier, out TaskCompletionSource<ProtocolMessage>? completion))
 			{
-			completion.TrySetResult (message);
+			_ = completion.TrySetResult (message);
 			}
 		else
 			{

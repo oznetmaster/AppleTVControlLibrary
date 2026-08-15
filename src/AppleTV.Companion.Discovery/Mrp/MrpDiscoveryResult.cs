@@ -7,44 +7,34 @@ using System.Net;
 namespace AppleTvControlLibrary.Discovery.Mrp;
 
 /// <summary>Represents a discovered MRP (Media Remote Protocol) service.</summary>
-public sealed class MrpDiscoveryResult
+/// <remarks>Initializes a new instance of the <see cref="MrpDiscoveryResult"/> class.</remarks>
+public sealed class MrpDiscoveryResult (
+	string name,
+	IPAddress? address,
+	int port,
+	string? uniqueId,
+	bool isEnabled,
+	MrpPairingRequirement pairingRequirement,
+	IReadOnlyDictionary<string, string> properties)
 	{
-	/// <summary>Initializes a new instance of the <see cref="MrpDiscoveryResult"/> class.</summary>
-	public MrpDiscoveryResult (
-		string name,
-		IPAddress? address,
-		int port,
-		string? uniqueId,
-		bool isEnabled,
-		MrpPairingRequirement pairingRequirement,
-		IReadOnlyDictionary<string, string> properties)
-		{
-		this.Name = name;
-		this.Address = address;
-		this.Port = port;
-		this.UniqueId = uniqueId;
-		this.IsEnabled = isEnabled;
-		this.PairingRequirement = pairingRequirement;
-		this.Properties = properties;
-		}
 
 	/// <summary>Gets the mDNS service instance name (e.g. "Living Room").</summary>
 	public string Name
 		{
 		get;
-		}
+		} = name;
 
 	/// <summary>Gets the resolved address of the device, if known.</summary>
 	public IPAddress? Address
 		{
 		get;
-		}
+		} = address;
 
 	/// <summary>Gets the MRP port.</summary>
 	public int Port
 		{
 		get;
-		}
+		} = port;
 
 	/// <summary>
 	/// Gets a stable unique identifier for the device (the "UniqueIdentifier" TXT record), or
@@ -54,7 +44,7 @@ public sealed class MrpDiscoveryResult
 	public string? UniqueId
 		{
 		get;
-		}
+		} = uniqueId;
 
 	/// <summary>
 	/// Gets a value indicating whether MRP is considered enabled on this device. pyatv disables MRP
@@ -65,17 +55,17 @@ public sealed class MrpDiscoveryResult
 	public bool IsEnabled
 		{
 		get;
-		}
+		} = isEnabled;
 
 	/// <summary>Gets whether/how pairing is required for this service.</summary>
 	public MrpPairingRequirement PairingRequirement
 		{
 		get;
-		}
+		} = pairingRequirement;
 
 	/// <summary>Gets the raw decoded TXT record properties.</summary>
 	public IReadOnlyDictionary<string, string> Properties
 		{
 		get;
-		}
+		} = properties;
 	}

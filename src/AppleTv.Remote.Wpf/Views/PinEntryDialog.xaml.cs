@@ -12,8 +12,8 @@ public partial class PinEntryDialog : Window
 	/// <param name="deviceName">The name of the device being paired, shown in the prompt.</param>
 	public PinEntryDialog (string deviceName)
 		{
-		this.InitializeComponent ();
-		this.PromptText.Text = $"Enter the PIN shown on \"{deviceName}\":";
+		InitializeComponent ();
+		PromptText.Text = $"Enter the PIN shown on \"{deviceName}\":";
 		}
 
 	/// <summary>Gets the PIN entered by the user, if <see cref="Window.DialogResult"/> is <see langword="true"/>.</summary>
@@ -25,13 +25,13 @@ public partial class PinEntryDialog : Window
 
 	private void OnOkClick (object sender, RoutedEventArgs e)
 		{
-		if (!int.TryParse (this.PinTextBox.Text, out int pin))
+		if (!int.TryParse (PinTextBox.Text, out int pin))
 			{
 			MessageBox.Show (this, "Please enter a valid numeric PIN.", "Invalid PIN", MessageBoxButton.OK, MessageBoxImage.Warning);
 			return;
 			}
 
-		this.EnteredPin = pin;
-		this.DialogResult = true;
+		EnteredPin = pin;
+		DialogResult = true;
 		}
 	}

@@ -90,7 +90,7 @@ public sealed class FakeCompanionOpackDevice
 	public HashSet<HidCommand> PressedButtons
 		{
 		get;
-		} = new ();
+		} = [];
 
 	/// <summary>Gets a value indicating whether the device has been put to sleep via a HID command.</summary>
 	// tests/fake_device/companion.py:387-389 (Sleep sets self.state.powered_on = False)
@@ -135,7 +135,7 @@ public sealed class FakeCompanionOpackDevice
 		{
 		get;
 		set;
-		} = new ();
+		} = [];
 
 	/// <summary>Gets the account identifier most recently switched to via <c>SwitchUserAccountEvent</c>, if any.</summary>
 	// tests/fake_device/companion.py:372-374 (handle_switchuseraccountevent, self.state.active_account)
@@ -151,7 +151,7 @@ public sealed class FakeCompanionOpackDevice
 		{
 		get;
 		set;
-		} = new ();
+		} = [];
 
 	// tests/fake_device/companion.py:97 (INITIAL_RTI_TEXT = "Fake Companion Keyboard Text")
 	private const string INITIAL_RTI_TEXT = "Fake Companion Keyboard Text";
@@ -167,9 +167,9 @@ public sealed class FakeCompanionOpackDevice
 
 
 	// pyatv/protocols/companion/keyed_archiver.py (read_archive_properties path used in text_input_command) — line 434-438 as of pyatv 0.18.0
-	private static readonly string[] TargetSessionUuidPath = { "textOperations", "targetSessionUUID", "NS.uuidbytes" };
-	private static readonly string[] TextToAssertPath = { "textOperations", "textToAssert" };
-	private static readonly string[] InsertionTextPath = { "textOperations", "keyboardOutput", "insertionText" };
+	private static readonly string[] _targetSessionUuidPath = ["textOperations", "targetSessionUUID", "NS.uuidbytes"];
+	private static readonly string[] _textToAssertPath = ["textOperations", "textToAssert"];
+	private static readonly string[] _insertionTextPath = ["textOperations", "keyboardOutput", "insertionText"];
 
 	/// <summary>Gets or sets the current RTI (virtual keyboard) text. Setting to <see langword="null"/> models no focused text field.</summary>
 	// tests/fake_device/companion.py (FakeCompanionUseCases.set_rti_text) — line 578-580 as of pyatv 0.18.0
@@ -213,21 +213,27 @@ public sealed class FakeCompanionOpackDevice
 		{
 		if (_rtiFocusState != KeyboardFocusState.Focused)
 			{
-			return new Dictionary<object, object?> ();
+			return [];
 			}
 
-		var objects = new NSArray (0);
-		objects.Add (new NSString ("$null"));
-		objects.Add (new NSData (_rtiSessionUuid ?? Array.Empty<byte> ()));
+		var objects = new NSArray (0)
+			{
+			new NSString ("$null"),
+			new NSData (_rtiSessionUuid ?? [])
+			};
 
-		var docSt = new NSDictionary ();
-		docSt.Add ("docSt", new UID ((byte)3));
+		var docSt = new NSDictionary
+			{
+				{ "docSt", new UID ((byte)3) }
+			};
 		objects.Add (docSt);
 
 		if (_rtiText is not null)
 			{
-			var contextBeforeInput = new NSDictionary ();
-			contextBeforeInput.Add ("contextBeforeInput", new UID ((byte)4));
+			var contextBeforeInput = new NSDictionary
+				{
+					{ "contextBeforeInput", new UID ((byte)4) }
+				};
 			objects.Add (contextBeforeInput);
 			objects.Add (new NSString (_rtiText));
 			}
@@ -236,13 +242,17 @@ public sealed class FakeCompanionOpackDevice
 			objects.Add (new NSDictionary ());
 			}
 
-		var top = new NSDictionary ();
-		top.Add ("sessionUUID", new UID ((byte)1));
-		top.Add ("documentState", new UID ((byte)2));
+		var top = new NSDictionary
+			{
+				{ "sessionUUID", new UID ((byte)1) },
+				{ "documentState", new UID ((byte)2) }
+			};
 
-		var root = new NSDictionary ();
-		root.Add ("$top", top);
-		root.Add ("$objects", objects);
+		var root = new NSDictionary
+			{
+				{ "$top", top },
+				{ "$objects", objects }
+			};
 
 		byte[] encoded = BinaryPropertyListWriter.WriteToArray (root);
 		return new Dictionary<object, object?> { { "_tiD", encoded } };
@@ -324,20 +334,20 @@ public sealed class FakeCompanionOpackDevice
 	private Dictionary<object, object?> HandleSystemInfo (Dictionary<object, object?> request)
 		{
 		ReceivedSystemInfo = (Dictionary<object, object?>)request["_c"]!;
-		return Response (request, new Dictionary<object, object?> ());
+		return Response (request, []);
 		}
 
 	// tests/fake_device/companion.py:464-471 (server side accepts _touchStart unconditionally)
 	private Dictionary<object, object?> HandleTouchStart (Dictionary<object, object?> request)
 		{
 		HasTouchStarted = true;
-		return Response (request, new Dictionary<object, object?> ());
+		return Response (request, []);
 		}
 
 	private Dictionary<object, object?> HandleTouchStop (Dictionary<object, object?> request)
 		{
 		HasTouchStarted = false;
-		return Response (request, new Dictionary<object, object?> ());
+		return Response (request, []);
 		}
 
 	// tests/fake_device/companion.py:477-480 (handle__sessionstart)
@@ -362,7 +372,7 @@ public sealed class FakeCompanionOpackDevice
 		if (sid == ((5555L << 32) | (uint)LocalSid))
 			{
 			HasSessionStarted = false;
-			return Response (request, new Dictionary<object, object?> ());
+			return Response (request, []);
 			}
 
 		return Error (request, "Invalid SID");
@@ -383,7 +393,7 @@ public sealed class FakeCompanionOpackDevice
 
 		if (_rtiText is null)
 			{
-			return Response (request, new Dictionary<object, object?> ());
+			return Response (request, []);
 			}
 
 		if (_rtiSessionUuid is not null)
@@ -405,11 +415,11 @@ public sealed class FakeCompanionOpackDevice
 		if (_rtiSessionUuid is not null)
 			{
 			_rtiSessionUuid = null;
-			return Response (request, new Dictionary<object, object?> ());
+			return Response (request, []);
 			}
 
 		// tests/fake_device/companion.py (_LOGGER.warning("No RTI session")) — line 528-531 as of pyatv 0.18.0
-		return Response (request, new Dictionary<object, object?> ());
+		return Response (request, []);
 		}
 
 	// tests/fake_device/companion.py:551-570 (handle__tic)
@@ -423,9 +433,9 @@ public sealed class FakeCompanionOpackDevice
 
 		object?[] properties = KeyedArchiver.ReadArchiveProperties (
 			tiData,
-			TargetSessionUuidPath,
-			TextToAssertPath,
-			InsertionTextPath);
+			_targetSessionUuidPath,
+			_textToAssertPath,
+			_insertionTextPath);
 
 		if (properties[0] is not byte[] sessionUuid || _rtiSessionUuid is null || !BytesEqual (sessionUuid, _rtiSessionUuid))
 			{
@@ -474,7 +484,7 @@ public sealed class FakeCompanionOpackDevice
 
 		if (buttonState == 1)
 			{
-			PressedButtons.Add (buttonCode);
+			_ = PressedButtons.Add (buttonCode);
 			}
 		else if (buttonState == 2 && buttonCode == HidCommand.Sleep)
 			{
@@ -485,7 +495,7 @@ public sealed class FakeCompanionOpackDevice
 			IsAsleep = false;
 			}
 
-		return Response (request, new Dictionary<object, object?> ());
+		return Response (request, []);
 		}
 
 	// tests/fake_device/companion.py:457-467 (handle__mcc, trimmed to GetVolume/SetVolume)
@@ -498,15 +508,12 @@ public sealed class FakeCompanionOpackDevice
 			{
 			double newVolume = ToDouble (content["_vol"]) * 100.0;
 			_volume = Math.Min (Math.Max (newVolume, 0.0), 100.0);
-			return Response (request, new Dictionary<object, object?> ());
+			return Response (request, []);
 			}
 
-		if (mcc == MediaControlCommand.GetVolume)
-			{
-			return Response (request, new Dictionary<object, object?> { { "_vol", _volume / 100.0 } });
-			}
-
-		return Response (request, new Dictionary<object, object?> ());
+		return mcc == MediaControlCommand.GetVolume
+			? Response (request, new Dictionary<object, object?> { { "_vol", _volume / 100.0 } })
+			: Response (request, []);
 		}
 
 	// tests/fake_device/companion.py:360-367 (handle__launchapp)
@@ -523,13 +530,13 @@ public sealed class FakeCompanionOpackDevice
 			OpenedUrl = urlStr;
 			}
 
-		return Response (request, new Dictionary<object, object?> ());
+		return Response (request, []);
 		}
 
 	// tests/fake_device/companion.py:369-370 (handle_fetchlaunchableapplicationsevent)
 	private Dictionary<object, object?> HandleFetchLaunchableApplicationsEvent (Dictionary<object, object?> request)
 		{
-		Dictionary<object, object?> content = new ();
+		Dictionary<object, object?> content = [];
 		foreach (var kvp in InstalledApps)
 			{
 			content[kvp.Key] = kvp.Value;
@@ -548,13 +555,13 @@ public sealed class FakeCompanionOpackDevice
 			ActiveAccountId = accountIdStr;
 			}
 
-		return Response (request, new Dictionary<object, object?> ());
+		return Response (request, []);
 		}
 
 	// tests/fake_device/companion.py:377-378 (handle_fetchuseraccountsevent)
 	private Dictionary<object, object?> HandleFetchUserAccountsEvent (Dictionary<object, object?> request)
 		{
-		Dictionary<object, object?> content = new ();
+		Dictionary<object, object?> content = [];
 		foreach (var kvp in AvailableAccounts)
 			{
 			content[kvp.Key] = kvp.Value;
@@ -586,14 +593,14 @@ public sealed class FakeCompanionOpackDevice
 			{
 			foreach (object eventName in registered)
 				{
-				_interests.Add ((string)eventName);
+				_ = _interests.Add ((string)eventName);
 				}
 			}
 		else if (content.TryGetValue ("_deregEvents", out object? deregEvents) && deregEvents is IEnumerable<object> unregistered)
 			{
 			foreach (object eventName in unregistered)
 				{
-				_interests.Remove ((string)eventName);
+				_ = _interests.Remove ((string)eventName);
 				}
 			}
 

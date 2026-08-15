@@ -4,39 +4,32 @@
 namespace AppleTvControlLibrary.Discovery.Dns;
 
 /// <summary>Represents a parsed DNS SRV record's RDATA.</summary>
+/// <remarks>Initializes a new instance of the <see cref="SrvRecord"/> struct.</remarks>
 // pyatv/support/dns.py (parse_srv_dict) — line 234-246 as of pyatv 0.18.0
-public readonly struct SrvRecord
+public readonly struct SrvRecord (ushort priority, ushort weight, ushort port, string target)
 	{
-	/// <summary>Initializes a new instance of the <see cref="SrvRecord"/> struct.</summary>
-	public SrvRecord (ushort priority, ushort weight, ushort port, string target)
-		{
-		this.Priority = priority;
-		this.Weight = weight;
-		this.Port = port;
-		this.Target = target;
-		}
 
 	/// <summary>Gets the record priority.</summary>
 	public ushort Priority
 		{
 		get;
-		}
+		} = priority;
 
 	/// <summary>Gets the record weight.</summary>
 	public ushort Weight
 		{
 		get;
-		}
+		} = weight;
 
 	/// <summary>Gets the target service port.</summary>
 	public ushort Port
 		{
 		get;
-		}
+		} = port;
 
 	/// <summary>Gets the target host name.</summary>
 	public string Target
 		{
 		get;
-		}
+		} = target;
 	}

@@ -27,20 +27,26 @@ public static class RtiTextOperations
 	public static byte[] GetRtiClearTextPayload (byte[] sessionUuid)
 		{
 		// $objects[0] — pyatv/protocols/companion/plist_payloads/rti_text_operations.py — line 38 as of pyatv 0.18.0
-		var objects = new NSArray (0);
-		objects.Add (new NSString ("$null"));
+		var objects = new NSArray (0)
+			{
+			new NSString ("$null")
+			};
 
 		// $objects[1] — pyatv/protocols/companion/plist_payloads/rti_text_operations.py — line 39-44 as of pyatv 0.18.0
-		var textOperations = new NSDictionary ();
-		textOperations.Add ("$class", new UID ((byte)7));
-		textOperations.Add ("targetSessionUUID", new UID ((byte)5));
-		textOperations.Add ("keyboardOutput", new UID ((byte)2));
-		textOperations.Add ("textToAssert", new UID ((byte)4));
+		var textOperations = new NSDictionary
+			{
+				{ "$class", new UID ((byte)7) },
+				{ "targetSessionUUID", new UID ((byte)5) },
+				{ "keyboardOutput", new UID ((byte)2) },
+				{ "textToAssert", new UID ((byte)4) }
+			};
 		objects.Add (textOperations);
 
 		// $objects[2] — pyatv/protocols/companion/plist_payloads/rti_text_operations.py — line 45-47 as of pyatv 0.18.0
-		var keyboardOutput = new NSDictionary ();
-		keyboardOutput.Add ("$class", new UID ((byte)3));
+		var keyboardOutput = new NSDictionary
+			{
+				{ "$class", new UID ((byte)3) }
+			};
 		objects.Add (keyboardOutput);
 
 		// $objects[3] — pyatv/protocols/companion/plist_payloads/rti_text_operations.py — line 48-54 as of pyatv 0.18.0
@@ -50,9 +56,11 @@ public static class RtiTextOperations
 		objects.Add (new NSString (string.Empty));
 
 		// $objects[5] — pyatv/protocols/companion/plist_payloads/rti_text_operations.py — line 56-59 as of pyatv 0.18.0
-		var sessionUuidObject = new NSDictionary ();
-		sessionUuidObject.Add ("NS.uuidbytes", new NSData (sessionUuid));
-		sessionUuidObject.Add ("$class", new UID ((byte)6));
+		var sessionUuidObject = new NSDictionary
+			{
+				{ "NS.uuidbytes", new NSData (sessionUuid) },
+				{ "$class", new UID ((byte)6) }
+			};
 		objects.Add (sessionUuidObject);
 
 		// $objects[6] — pyatv/protocols/companion/plist_payloads/rti_text_operations.py — line 60-66 as of pyatv 0.18.0
@@ -74,20 +82,26 @@ public static class RtiTextOperations
 	public static byte[] GetRtiInputTextPayload (byte[] sessionUuid, string text)
 		{
 		// $objects[0] — pyatv/protocols/companion/plist_payloads/rti_text_operations.py — line 107 as of pyatv 0.18.0
-		var objects = new NSArray (0);
-		objects.Add (new NSString ("$null"));
+		var objects = new NSArray (0)
+			{
+			new NSString ("$null")
+			};
 
 		// $objects[1] — pyatv/protocols/companion/plist_payloads/rti_text_operations.py — line 108-112 as of pyatv 0.18.0
-		var textOperations = new NSDictionary ();
-		textOperations.Add ("keyboardOutput", new UID ((byte)2));
-		textOperations.Add ("$class", new UID ((byte)7));
-		textOperations.Add ("targetSessionUUID", new UID ((byte)5));
+		var textOperations = new NSDictionary
+			{
+				{ "keyboardOutput", new UID ((byte)2) },
+				{ "$class", new UID ((byte)7) },
+				{ "targetSessionUUID", new UID ((byte)5) }
+			};
 		objects.Add (textOperations);
 
 		// $objects[2] — pyatv/protocols/companion/plist_payloads/rti_text_operations.py — line 113-116 as of pyatv 0.18.0
-		var keyboardOutput = new NSDictionary ();
-		keyboardOutput.Add ("insertionText", new UID ((byte)3));
-		keyboardOutput.Add ("$class", new UID ((byte)4));
+		var keyboardOutput = new NSDictionary
+			{
+				{ "insertionText", new UID ((byte)3) },
+				{ "$class", new UID ((byte)4) }
+			};
 		objects.Add (keyboardOutput);
 
 		// $objects[3] — pyatv/protocols/companion/plist_payloads/rti_text_operations.py — line 117 as of pyatv 0.18.0
@@ -97,9 +111,11 @@ public static class RtiTextOperations
 		objects.Add (KeyboardOutputClass ());
 
 		// $objects[5] — pyatv/protocols/companion/plist_payloads/rti_text_operations.py — line 125-128 as of pyatv 0.18.0
-		var sessionUuidObject = new NSDictionary ();
-		sessionUuidObject.Add ("NS.uuidbytes", new NSData (sessionUuid));
-		sessionUuidObject.Add ("$class", new UID ((byte)6));
+		var sessionUuidObject = new NSDictionary
+			{
+				{ "NS.uuidbytes", new NSData (sessionUuid) },
+				{ "$class", new UID ((byte)6) }
+			};
 		objects.Add (sessionUuidObject);
 
 		// $objects[6] — pyatv/protocols/companion/plist_payloads/rti_text_operations.py — line 129-135 as of pyatv 0.18.0
@@ -114,53 +130,69 @@ public static class RtiTextOperations
 	// pyatv/protocols/companion/plist_payloads/rti_text_operations.py — line 48-54, 118-124 as of pyatv 0.18.0
 	private static NSDictionary KeyboardOutputClass ()
 		{
-		var classes = new NSArray (0);
-		classes.Add (new NSString ("TIKeyboardOutput"));
-		classes.Add (new NSString ("NSObject"));
+		var classes = new NSArray (0)
+			{
+			new NSString ("TIKeyboardOutput"),
+			new NSString ("NSObject")
+			};
 
-		var dict = new NSDictionary ();
-		dict.Add ("$classname", "TIKeyboardOutput");
-		dict.Add ("$classes", classes);
+		var dict = new NSDictionary
+			{
+				{ "$classname", "TIKeyboardOutput" },
+				{ "$classes", classes }
+			};
 		return dict;
 		}
 
 	// pyatv/protocols/companion/plist_payloads/rti_text_operations.py — line 60-66, 129-135 as of pyatv 0.18.0
 	private static NSDictionary NsuuidClass ()
 		{
-		var classes = new NSArray (0);
-		classes.Add (new NSString ("NSUUID"));
-		classes.Add (new NSString ("NSObject"));
+		var classes = new NSArray (0)
+			{
+			new NSString ("NSUUID"),
+			new NSString ("NSObject")
+			};
 
-		var dict = new NSDictionary ();
-		dict.Add ("$classname", "NSUUID");
-		dict.Add ("$classes", classes);
+		var dict = new NSDictionary
+			{
+				{ "$classname", "NSUUID" },
+				{ "$classes", classes }
+			};
 		return dict;
 		}
 
 	// pyatv/protocols/companion/plist_payloads/rti_text_operations.py — line 67-73, 136-142 as of pyatv 0.18.0
 	private static NSDictionary RtiTextOperationsClass ()
 		{
-		var classes = new NSArray (0);
-		classes.Add (new NSString ("RTITextOperations"));
-		classes.Add (new NSString ("NSObject"));
+		var classes = new NSArray (0)
+			{
+			new NSString ("RTITextOperations"),
+			new NSString ("NSObject")
+			};
 
-		var dict = new NSDictionary ();
-		dict.Add ("$classname", "RTITextOperations");
-		dict.Add ("$classes", classes);
+		var dict = new NSDictionary
+			{
+				{ "$classname", "RTITextOperations" },
+				{ "$classes", classes }
+			};
 		return dict;
 		}
 
 	// pyatv/protocols/companion/plist_payloads/rti_text_operations.py (plistlib.dumps(..., fmt=plistlib.PlistFormat.FMT_BINARY, sort_keys=False)) — line 30-78, 99-147 as of pyatv 0.18.0
 	private static byte[] Encode (NSArray objects)
 		{
-		var top = new NSDictionary ();
-		top.Add ("textOperations", new UID ((byte)1));
+		var top = new NSDictionary
+			{
+				{ "textOperations", new UID ((byte)1) }
+			};
 
-		var root = new NSDictionary ();
-		root.Add ("$version", 100000L);
-		root.Add ("$archiver", "RTIKeyedArchiver");
-		root.Add ("$top", top);
-		root.Add ("$objects", objects);
+		var root = new NSDictionary
+			{
+				{ "$version", 100000L },
+				{ "$archiver", "RTIKeyedArchiver" },
+				{ "$top", top },
+				{ "$objects", objects }
+			};
 
 		return BinaryPropertyListWriter.WriteToArray (root);
 		}

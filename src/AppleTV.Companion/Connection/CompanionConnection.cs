@@ -83,7 +83,7 @@ public class CompanionConnection
 	// pyatv/protocols/companion/connection.py — line 17 as of pyatv 0.18.0
 	private const int HEADER_LENGTH = 4;
 
-	private readonly List<byte> _buffer = new ();
+	private readonly List<byte> _buffer = [];
 	private readonly object _receiveLock = new ();
 	private Chacha20Cipher? _chacha;
 
@@ -94,11 +94,9 @@ public class CompanionConnection
 	/// <param name="outputKey">The key used to encrypt outgoing data.</param>
 	/// <param name="inputKey">The key used to decrypt incoming data.</param>
 	// pyatv/protocols/companion/connection.py (enable_encryption) — line 90-92 as of pyatv 0.18.0
-	public void EnableEncryption (byte[] outputKey, byte[] inputKey)
-		{
+	public void EnableEncryption (byte[] outputKey, byte[] inputKey) =>
 		// pyatv/protocols/companion/connection.py (nonce_length=12) — line 92 as of pyatv 0.18.0
 		_chacha = new Chacha20Cipher (outputKey, inputKey, nonceLength: 12);
-		}
 
 	/// <summary>Build a framed (and, if encryption is enabled, encrypted) message ready to send.</summary>
 	/// <param name="frameType">The type of frame being sent.</param>
@@ -141,7 +139,6 @@ public class CompanionConnection
 		}
 
 	private bool _isFaulted;
-	private Exception? _faultException;
 	private readonly object _faultLock = new ();
 
 	/// <summary>Gets a value indicating whether this connection has been faulted.</summary>
@@ -163,9 +160,11 @@ public class CompanionConnection
 			{
 			lock (_faultLock)
 				{
-				return _faultException;
+				return field;
 				}
 			}
+
+		private set;
 		}
 
 	/// <summary>Faults the connection, preventing any further frames from being processed or sent.</summary>
@@ -180,7 +179,7 @@ public class CompanionConnection
 				}
 
 			_isFaulted = true;
-			_faultException = exception;
+			FaultException = exception;
 			}
 
 		Faulted?.Invoke (this, exception);
@@ -257,7 +256,7 @@ public class CompanionConnection
 				}
 			}
 
-		foreach (var frame in receivedFrames)
+		foreach ((FrameType FrameType, byte[] Payload) frame in receivedFrames)
 			{
 			if (IsFaulted)
 				{

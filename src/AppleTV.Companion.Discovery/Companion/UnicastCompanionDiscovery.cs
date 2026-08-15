@@ -62,7 +62,7 @@ public sealed class UnicastCompanionDiscovery : ICompanionDiscovery
 		catch (ObjectDisposedException)
 			{
 			}
-		catch (SocketException ex) when (ex.SocketErrorCode == SocketError.OperationAborted || ex.SocketErrorCode == SocketError.Interrupted)
+		catch (SocketException ex) when (ex.SocketErrorCode is SocketError.OperationAborted or SocketError.Interrupted)
 			{
 			}
 
@@ -123,7 +123,7 @@ public sealed class UnicastCompanionDiscovery : ICompanionDiscovery
 		catch (ObjectDisposedException)
 			{
 			}
-		catch (SocketException ex) when (ex.SocketErrorCode == SocketError.OperationAborted || ex.SocketErrorCode == SocketError.Interrupted)
+		catch (SocketException ex) when (ex.SocketErrorCode is SocketError.OperationAborted or SocketError.Interrupted)
 			{
 			}
 		}

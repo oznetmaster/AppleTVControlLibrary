@@ -211,22 +211,21 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	private const string SESSION_SERVICE_TYPE = "com.apple.tvremoteservices";
 
 	// pyatv/protocols/companion/api.py (["sessionUUID"]) — line 436 as of pyatv 0.18.0
-	private static readonly string[] SessionUuidPath = { "sessionUUID" };
+	private static readonly string[] SessionUuidPath = ["sessionUUID"];
 
 	// pyatv/protocols/companion/api.py (["documentState", "docSt", "contextBeforeInput"]) — line 437 as of pyatv 0.18.0
-	private static readonly string[] CurrentTextPath = { "documentState", "docSt", "contextBeforeInput" };
+	private static readonly string[] CurrentTextPath = ["documentState", "docSt", "contextBeforeInput"];
 
 	private readonly CompanionProtocol _protocol;
 	private readonly HapCredentials _credentials;
 	private readonly long _baseTimestamp;
-	private readonly List<string> _subscribedEvents = new ();
+	private readonly List<string> _subscribedEvents = [];
 
 	// pyatv/protocols/companion/__init__.py — line 439 as of pyatv 0.18.0, 448 (self._volume, zeroed when flag absent)
 	private MediaControlCapabilities _mediaControlFlags = MediaControlCapabilities.NoControls;
 	private double _volume;
 
 	// pyatv/protocols/companion/__init__.py (self._power_state = PowerState.Unknown) — line 213 as of pyatv 0.18.0
-	private SystemStatus _currentSystemStatus = SystemStatus.Unknown;
 
 	/// <summary>Initializes a new instance of the <see cref="CompanionApi"/> class.</summary>
 	/// <param name="protocol">The underlying Companion protocol instance.</param>
@@ -315,10 +314,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	// pyatv/protocols/companion/api.py (connect) — line 135-160 as of pyatv 0.18.0, trimmed per porting brief step 5
 	// (_systemInfo -> _touchStart -> _sessionStart -> TVRCSessionStart -> _tiStart)
 	[Obsolete ("Use ConnectAsync instead.")]
-	public void Connect ()
-		{
-		ConnectAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
-		}
+	public void Connect () => ConnectAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously runs the connection bring-up sequence.</summary>
 	public async Task ConnectAsync ()
@@ -332,7 +328,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		System.Diagnostics.Debug.WriteLine ("[CompanionApi] Connect: sending TVRCSessionStart");
 		await TvRcSessionStartAsync ().ConfigureAwait (false);
 		System.Diagnostics.Debug.WriteLine ("[CompanionApi] Connect: sending _tiStart");
-		await TextInputStartAsync ().ConfigureAwait (false);
+		_ = await TextInputStartAsync ().ConfigureAwait (false);
 		// pyatv/protocols/companion/__init__.py (self.api.listen_to("_iMC", ...) — line 433-436 as of pyatv 0.18.0):
 		// without this the device never reports its media-control capability flags, so
 		// IsVolumeControlSupported stays false and volume/mute always fail.
@@ -346,7 +342,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		try
 			{
 			System.Diagnostics.Debug.WriteLine ("[CompanionApi] Connect: sending FetchAttentionState");
-			_currentSystemStatus = await FetchAttentionStateAsync ().ConfigureAwait (false);
+			CurrentSystemStatus = await FetchAttentionStateAsync ().ConfigureAwait (false);
 			}
 		catch (Exception ex)
 			{
@@ -360,10 +356,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		}
 
 	// pyatv/protocols/companion/api.py (_send_command) — line 161-185 as of pyatv 0.18.0
-	private Dictionary<object, object?> SendCommand (string identifier, Dictionary<string, object?> content, MessageType messageType = MessageType.Request)
-		{
-		return SendCommandAsync (identifier, content, messageType).ConfigureAwait (false).GetAwaiter ().GetResult ();
-		}
+	private Dictionary<object, object?> SendCommand (string identifier, Dictionary<string, object?> content, MessageType messageType = MessageType.Request) => SendCommandAsync (identifier, content, messageType).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	private async Task<Dictionary<object, object?>> SendCommandAsync (string identifier, Dictionary<string, object?> content, MessageType messageType = MessageType.Request)
 		{
@@ -389,10 +382,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		}
 
 	// pyatv/protocols/companion/api.py (_send_event) — line 247-266 as of pyatv 0.18.0
-	private void SendEvent (string identifier, Dictionary<string, object?> content)
-		{
-		SendEventAsync (identifier, content).ConfigureAwait (false).GetAwaiter ().GetResult ();
-		}
+	private void SendEvent (string identifier, Dictionary<string, object?> content) => SendEventAsync (identifier, content).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	private async Task SendEventAsync (string identifier, Dictionary<string, object?> content)
 		{
@@ -423,10 +413,9 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void SystemInfo () => SystemInfoAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously sends system information to the device.</summary>
-	public async Task SystemInfoAsync ()
-		{
+	public async Task SystemInfoAsync () =>
 		// Bunch of semi-random values here, per pyatv's own comment (api.py:193).
-		await SendCommandAsync (
+		_ = await SendCommandAsync (
 			"_systemInfo",
 			new Dictionary<string, object?>
 				{
@@ -441,7 +430,6 @@ public sealed class CompanionApi : ICompanionProtocolListener
 				{ "model", Model },
 				{ "name", Name },
 				}).ConfigureAwait (false);
-		}
 
 	/// <summary>Subscribe to touch gestures.</summary>
 	// pyatv/protocols/companion/api.py (_touch_start) — line 464-471 as of pyatv 0.18.0
@@ -449,9 +437,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void TouchStart () => TouchStartAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously subscribes to touch gestures.</summary>
-	public async Task TouchStartAsync ()
-		{
-		await SendCommandAsync (
+	public async Task TouchStartAsync () => _ = await SendCommandAsync (
 			"_touchStart",
 			new Dictionary<string, object?>
 				{
@@ -459,7 +445,6 @@ public sealed class CompanionApi : ICompanionProtocolListener
 				{ "_tFl", 0 },
 				{ "_width", TOUCHPAD_WIDTH },
 				}).ConfigureAwait (false);
-		}
 
 	/// <summary>Unsubscribe from touch gestures.</summary>
 	// pyatv/protocols/companion/api.py (_touch_stop) — line 473-475 as of pyatv 0.18.0
@@ -467,10 +452,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void TouchStop () => TouchStopAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously unsubscribes from touch gestures.</summary>
-	public async Task TouchStopAsync ()
-		{
-		await SendCommandAsync ("_touchStop", new Dictionary<string, object?> { { "_i", 1 } }).ConfigureAwait (false);
-		}
+	public async Task TouchStopAsync () => _ = await SendCommandAsync ("_touchStop", new Dictionary<string, object?> { { "_i", 1 } }).ConfigureAwait (false);
 
 	/// <summary>Start a Companion session.</summary>
 	// pyatv/protocols/companion/api.py (_session_start) — line 213-225 as of pyatv 0.18.0
@@ -484,7 +466,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public async Task SessionStartAsync ()
 		{
 		long localSid = (long)(uint)new Random ().Next (int.MinValue, int.MaxValue);
-		var resp = await SendCommandAsync (
+		Dictionary<object, object?> resp = await SendCommandAsync (
 			"_sessionStart",
 			new Dictionary<string, object?>
 				{
@@ -508,16 +490,13 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void SessionStop () => SessionStopAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously stops the current Companion session.</summary>
-	public async Task SessionStopAsync ()
-		{
-		await SendCommandAsync (
+	public async Task SessionStopAsync () => _ = await SendCommandAsync (
 			"_sessionStop",
 			new Dictionary<string, object?>
 				{
 				{ "_srvT", SESSION_SERVICE_TYPE },
 				{ "_sid", Sid },
 				}).ConfigureAwait (false);
-		}
 
 	/// <summary>
 	/// Open a TV Remote Client session. tvOS does not answer <c>FetchAttentionState</c> until a
@@ -533,7 +512,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		{
 		try
 			{
-			await SendCommandAsync ("TVRCSessionStart", new Dictionary<string, object?> { { "ProtocolVersionKey", "1.2" } }).ConfigureAwait (false);
+			_ = await SendCommandAsync ("TVRCSessionStart", new Dictionary<string, object?> { { "ProtocolVersionKey", "1.2" } }).ConfigureAwait (false);
 			}
 		catch (Exception ex)
 			{
@@ -550,14 +529,14 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	/// <summary>Asynchronously starts a text input session.</summary>
 	public async Task<Dictionary<object, object?>> TextInputStartAsync ()
 		{
-		Dictionary<object, object?> response = await SendCommandAsync ("_tiStart", new Dictionary<string, object?> ()).ConfigureAwait (false);
+		Dictionary<object, object?> response = await SendCommandAsync ("_tiStart", []).ConfigureAwait (false);
 
 		// pyatv/protocols/companion/api.py (await asyncio.gather(*self.dispatch("_tiStart", response.get("_c", {})))) — line 404 as of pyatv 0.18.0:
 		// _tiStart is a command, but its response content is also dispatched to the same
 		// focus-state handler used for the _tiStarted/_tiStopped events.
 		Dictionary<object, object?> content = response.TryGetValue ("_c", out object? c) && c is Dictionary<object, object?> dict
 			? dict
-			: new Dictionary<object, object?> ();
+			: [];
 		HandleTextInputFocusUpdate (content);
 
 		return response;
@@ -569,10 +548,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void TextInputStop () => TextInputStopAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously stops the current text input session.</summary>
-	public async Task TextInputStopAsync ()
-		{
-		await SendCommandAsync ("_tiStop", new Dictionary<string, object?> ()).ConfigureAwait (false);
-		}
+	public async Task TextInputStopAsync () => _ = await SendCommandAsync ("_tiStop", []).ConfigureAwait (false);
 
 	/// <summary>
 	/// Gets the current keyboard (RTI text input) focus state, as last reported by the
@@ -624,7 +600,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 
 		Dictionary<object, object?> content = response.TryGetValue ("_c", out object? c) && c is Dictionary<object, object?> dict
 			? dict
-			: new Dictionary<object, object?> ();
+			: [];
 
 		// pyatv/protocols/companion/api.py (ti_data = response.get("_c", {}).get("_tiD")) — line 429 as of pyatv 0.18.0
 		if (!content.TryGetValue ("_tiD", out object? tiDataObj) || tiDataObj is not byte[] tiData)
@@ -727,7 +703,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		if (_subscribedEvents.Contains (eventName))
 			{
 			await SendEventAsync ("_interest", new Dictionary<string, object?> { { "_deregEvents", new[] { eventName } } }).ConfigureAwait (false);
-			_subscribedEvents.Remove (eventName);
+			_ = _subscribedEvents.Remove (eventName);
 			}
 		}
 
@@ -739,16 +715,13 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void SendHidCommand (bool down, HidCommand command) => SendHidCommandAsync (down, command).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously sends a HID command.</summary>
-	public async Task SendHidCommandAsync (bool down, HidCommand command)
-		{
-		await SendCommandAsync (
+	public async Task SendHidCommandAsync (bool down, HidCommand command) => _ = await SendCommandAsync (
 			"_hidC",
 			new Dictionary<string, object?>
 				{
 				{ "_hBtS", down ? 1 : 2 },
 				{ "_hidC", (int)command },
 				}).ConfigureAwait (false);
-		}
 
 	/// <summary>Send a touch event.</summary>
 	/// <param name="x">The x coordinate, in the range [0, 1000].</param>
@@ -799,17 +772,17 @@ public sealed class CompanionApi : ICompanionProtocolListener
 			int count = action == InputAction.SingleTap ? 1 : 2;
 			for (int i = 0; i < count; i++)
 				{
-				await SendCommandAsync ("_hidC", new Dictionary<string, object?> { { "_hBtS", 1 }, { "_hidC", (int)HidCommand.Select } }).ConfigureAwait (false);
+				_ = await SendCommandAsync ("_hidC", new Dictionary<string, object?> { { "_hBtS", 1 }, { "_hidC", (int)HidCommand.Select } }).ConfigureAwait (false);
 				await Task.Delay (20).ConfigureAwait (false);
-				await SendCommandAsync ("_hidC", new Dictionary<string, object?> { { "_hBtS", 2 }, { "_hidC", (int)HidCommand.Select } }).ConfigureAwait (false);
+				_ = await SendCommandAsync ("_hidC", new Dictionary<string, object?> { { "_hBtS", 2 }, { "_hidC", (int)HidCommand.Select } }).ConfigureAwait (false);
 				await SendHidEventAsync ((int)TOUCHPAD_WIDTH, (int)TOUCHPAD_HEIGHT, TouchAction.Click).ConfigureAwait (false);
 				}
 			}
 		else // Hold
 			{
-			await SendCommandAsync ("_hidC", new Dictionary<string, object?> { { "_hBtS", 1 }, { "_hidC", (int)HidCommand.Select } }).ConfigureAwait (false);
+			_ = await SendCommandAsync ("_hidC", new Dictionary<string, object?> { { "_hBtS", 1 }, { "_hidC", (int)HidCommand.Select } }).ConfigureAwait (false);
 			await Task.Delay (1000).ConfigureAwait (false);
-			await SendCommandAsync ("_hidC", new Dictionary<string, object?> { { "_hBtS", 2 }, { "_hidC", (int)HidCommand.Select } }).ConfigureAwait (false);
+			_ = await SendCommandAsync ("_hidC", new Dictionary<string, object?> { { "_hBtS", 2 }, { "_hidC", (int)HidCommand.Select } }).ConfigureAwait (false);
 			await SendHidEventAsync ((int)TOUCHPAD_WIDTH, (int)TOUCHPAD_HEIGHT, TouchAction.Click).ConfigureAwait (false);
 			}
 		}
@@ -823,7 +796,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	/// <summary>Asynchronously fetches the current attention state.</summary>
 	public async Task<SystemStatus> FetchAttentionStateAsync ()
 		{
-		var resp = await SendCommandAsync ("FetchAttentionState", new Dictionary<string, object?> ()).ConfigureAwait (false);
+		Dictionary<object, object?> resp = await SendCommandAsync ("FetchAttentionState", []).ConfigureAwait (false);
 
 		if (!resp.TryGetValue ("_c", out object? contentObj) || contentObj is not Dictionary<object, object?> content)
 			{
@@ -853,7 +826,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 			? "_urlS"
 			: "_bundleID";
 
-		await SendCommandAsync (
+		_ = await SendCommandAsync (
 			"_launchApp",
 			new Dictionary<string, object?>
 				{
@@ -879,15 +852,15 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	/// <summary>Asynchronously fetches the list of launchable apps.</summary>
 	public async Task<Dictionary<string, string>> AppListAsync ()
 		{
-		var resp = await SendCommandAsync ("FetchLaunchableApplicationsEvent", new Dictionary<string, object?> ()).ConfigureAwait (false);
+		Dictionary<object, object?> resp = await SendCommandAsync ("FetchLaunchableApplicationsEvent", []).ConfigureAwait (false);
 
-		Dictionary<string, string> apps = new ();
+		Dictionary<string, string> apps = [];
 		if (!resp.TryGetValue ("_c", out object? contentObj) || contentObj is not Dictionary<object, object?> content)
 			{
 			return apps;
 			}
 
-		foreach (var kvp in content)
+		foreach (KeyValuePair<object, object?> kvp in content)
 			{
 			if (kvp.Key is string bundleId && kvp.Value is string displayName)
 				{
@@ -915,15 +888,15 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	/// <summary>Asynchronously fetches the list of accounts.</summary>
 	public async Task<Dictionary<string, string>> AccountListAsync ()
 		{
-		var resp = await SendCommandAsync ("FetchUserAccountsEvent", new Dictionary<string, object?> ()).ConfigureAwait (false);
+		Dictionary<object, object?> resp = await SendCommandAsync ("FetchUserAccountsEvent", []).ConfigureAwait (false);
 
-		Dictionary<string, string> accounts = new ();
+		Dictionary<string, string> accounts = [];
 		if (!resp.TryGetValue ("_c", out object? contentObj) || contentObj is not Dictionary<object, object?> content)
 			{
 			return accounts;
 			}
 
-		foreach (var kvp in content)
+		foreach (KeyValuePair<object, object?> kvp in content)
 			{
 			if (kvp.Key is string accountId && kvp.Value is string displayName)
 				{
@@ -950,14 +923,11 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	/// <summary>Asynchronously fetches the raw account list response content.</summary>
 	public async Task<Dictionary<object, object?>> AccountListRawAsync ()
 		{
-		var resp = await SendCommandAsync ("FetchUserAccountsEvent", new Dictionary<string, object?> ()).ConfigureAwait (false);
+		Dictionary<object, object?> resp = await SendCommandAsync ("FetchUserAccountsEvent", []).ConfigureAwait (false);
 
-		if (!resp.TryGetValue ("_c", out object? contentObj) || contentObj is not Dictionary<object, object?> content)
-			{
-			return new Dictionary<object, object?> ();
-			}
-
-		return content;
+		return !resp.TryGetValue ("_c", out object? contentObj) || contentObj is not Dictionary<object, object?> content
+			? []
+			: content;
 		}
 
 	/// <summary>Switch the active user account on the device.</summary>
@@ -967,15 +937,12 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void SwitchAccount (string accountId) => SwitchAccountAsync (accountId).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously switches the active user account.</summary>
-	public async Task SwitchAccountAsync (string accountId)
-		{
-		await SendCommandAsync (
+	public async Task SwitchAccountAsync (string accountId) => _ = await SendCommandAsync (
 			"SwitchUserAccountEvent",
 			new Dictionary<string, object?>
 				{
 				{ "SwitchAccountID", accountId },
 				}).ConfigureAwait (false);
-		}
 
 	/// <summary>Send a media control command to the device.</summary>
 	/// <param name="command">The media control command to send.</param>
@@ -991,19 +958,16 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		Dictionary<string, object?> content = new () { { "_mcc", (int)command } };
 		if (args is not null)
 			{
-			foreach (var kvp in args)
+			foreach (KeyValuePair<string, object?> kvp in args)
 				{
 				content[kvp.Key] = kvp.Value;
 				}
 			}
 
-		var resp = await SendCommandAsync ("_mcc", content).ConfigureAwait (false);
-		if (!resp.TryGetValue ("_c", out object? contentObj) || contentObj is not Dictionary<object, object?> respContent)
-			{
-			throw new ProtocolException ("missing content");
-			}
-
-		return respContent;
+		Dictionary<object, object?> resp = await SendCommandAsync ("_mcc", content).ConfigureAwait (false);
+		return !resp.TryGetValue ("_c", out object? contentObj) || contentObj is not Dictionary<object, object?> respContent
+			? throw new ProtocolException ("missing content")
+			: respContent;
 		}
 
 	/// <summary>
@@ -1028,7 +992,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	/// subsequently pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> events.
 	/// </summary>
 	// pyatv/protocols/companion/__init__.py — line 213 as of pyatv 0.18.0, 247-248 (self._power_state, power_state property)
-	public SystemStatus CurrentSystemStatus => _currentSystemStatus;
+	public SystemStatus CurrentSystemStatus { get; private set; } = SystemStatus.Unknown;
 
 	/// <summary>
 	/// Raised whenever a pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> event changes
@@ -1063,7 +1027,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	/// <summary>Asynchronously sets the current volume level.</summary>
 	public async Task SetVolumeAsync (double level)
 		{
-		await MediaControlCommandAsync (Protocol.MediaControlCommand.SetVolume, new Dictionary<string, object?> { { "_vol", level / 100.0 } }).ConfigureAwait (false);
+		_ = await MediaControlCommandAsync (Protocol.MediaControlCommand.SetVolume, new Dictionary<string, object?> { { "_vol", level / 100.0 } }).ConfigureAwait (false);
 		_volume = level;
 		}
 
@@ -1127,7 +1091,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 				&& data.TryGetValue ("state", out object? state))
 			{
 			SystemStatus updated = (SystemStatus)ToLong (state);
-			if (updated != _currentSystemStatus)
+			if (updated != CurrentSystemStatus)
 				{
 				// pyatv collapses this to an on/off PowerState and only notifies on that boundary
 				// (_system_status_to_power_state, __init__.py — line 225-232 as of pyatv 0.18.0). This
@@ -1135,7 +1099,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 				// Screensaver) and exposes the granular value via CurrentSystemStatus, so a caller that
 				// only cares about on/off can still derive it (state != SystemStatus.Asleep) while callers
 				// that want finer detail are no longer prevented from seeing it.
-				_currentSystemStatus = updated;
+				CurrentSystemStatus = updated;
 				SystemStatusChanged?.Invoke (this, EventArgs.Empty);
 				}
 			}
@@ -1144,10 +1108,8 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	// Companion OPACK floats unpack as a plain double (or int/long for integral values via a
 	// SizedInteger), so accept either.
 	// pyatv/support/opack.py — line 31-33 as of pyatv 0.18.0, 195-201 (float pack/unpack)
-	private static double ToDouble (object? value)
+	private static double ToDouble (object? value) => value switch
 		{
-		return value switch
-			{
 			null => throw new ArgumentNullException (nameof (value)),
 			double d => d,
 			float f => f,
@@ -1156,20 +1118,16 @@ public sealed class CompanionApi : ICompanionProtocolListener
 			Opack.SizedInteger si => si.Value,
 			_ => Convert.ToDouble (value, System.Globalization.CultureInfo.InvariantCulture),
 			};
-		}
 
 	// Companion OPACK integers unpack as a SizedInteger (or a boxed long for small tag-encoded
 	// values), not as a plain int/long usable directly with Convert.ToInt64.
 	// pyatv/support/opack.py (_sized_int) — line 16-29 as of pyatv 0.18.0
-	private static long ToLong (object? value)
+	private static long ToLong (object? value) => value switch
 		{
-		return value switch
-			{
 			null => throw new ArgumentNullException (nameof (value)),
 			long l => l,
 			int i => i,
 			Opack.SizedInteger si => si.Value,
 			_ => Convert.ToInt64 (value, System.Globalization.CultureInfo.InvariantCulture),
 			};
-		}
 	}

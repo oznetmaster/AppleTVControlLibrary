@@ -36,10 +36,7 @@ public static class CompanionServiceInfo
 	/// <param name="properties">The service's decoded TXT record properties.</param>
 	/// <returns>The unique identifier, or <see langword="null"/>.</returns>
 	// pyatv/helpers.py (get_unique_id, COMPANION_SERVICE branch) — line 73-76 as of pyatv 0.18.0
-	public static string? GetUniqueId (IReadOnlyDictionary<string, string> properties)
-		{
-		return properties.TryGetValue ("rpmrtid", out string? value) ? value : null;
-		}
+	public static string? GetUniqueId (IReadOnlyDictionary<string, string> properties) => properties.TryGetValue ("rpmrtid", out string? value) ? value : null;
 
 	/// <summary>
 	/// Derives the pairing requirement for a Companion service from its "rpfl" TXT record.
@@ -56,31 +53,22 @@ public static class CompanionServiceInfo
 
 		int flags = int.TryParse (trimmed, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out int parsed) ? parsed : 0;
 
-		if ((flags & PAIRING_DISABLED_MASK) != 0)
-			{
-			return CompanionPairingRequirement.Disabled;
-			}
-
-		if ((flags & PAIRING_WITH_PIN_SUPPORTED_MASK) != 0)
-			{
-			return CompanionPairingRequirement.Mandatory;
-			}
-
-		return CompanionPairingRequirement.Unsupported;
+		return (flags & PAIRING_DISABLED_MASK) != 0
+			? CompanionPairingRequirement.Disabled
+			: (flags & PAIRING_WITH_PIN_SUPPORTED_MASK) != 0
+			? CompanionPairingRequirement.Mandatory
+			: CompanionPairingRequirement.Unsupported;
 		}
 
 	/// <summary>Converts a parsed mDNS <see cref="Service"/> into a <see cref="CompanionDiscoveryResult"/>.</summary>
 	/// <param name="service">The parsed mDNS service.</param>
 	/// <returns>The Companion-specific discovery result.</returns>
 	// pyatv/protocols/companion/__init__.py (companion_service_handler) — line 614-624 as of pyatv 0.18.0
-	public static CompanionDiscoveryResult ToDiscoveryResult (Service service)
-		{
-		return new CompanionDiscoveryResult (
+	public static CompanionDiscoveryResult ToDiscoveryResult (Service service) => new (
 			service.Name,
 			service.Address,
 			service.Port,
 			GetUniqueId (service.Properties),
 			GetPairingRequirement (service.Properties),
 			service.Properties);
-		}
 	}

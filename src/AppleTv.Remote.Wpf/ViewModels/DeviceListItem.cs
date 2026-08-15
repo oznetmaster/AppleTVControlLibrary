@@ -19,8 +19,8 @@ public sealed class DeviceListItem : ViewModelBase
 	/// <param name="isPaired">Whether credentials for this device are already stored.</param>
 	public DeviceListItem (CompanionDiscoveryResult device, bool isPaired)
 		{
-		this.Device = device;
-		this._isPaired = isPaired;
+		Device = device;
+		_isPaired = isPaired;
 		}
 
 	/// <summary>Gets the underlying discovery result.</summary>
@@ -30,17 +30,17 @@ public sealed class DeviceListItem : ViewModelBase
 		}
 
 	/// <summary>Gets the device's display name.</summary>
-	public string Name => this.Device.Name;
+	public string Name => Device.Name;
 
 	/// <summary>Gets or sets a value indicating whether credentials for this device are already stored.</summary>
 	public bool IsPaired
 		{
-		get => this._isPaired;
+		get => _isPaired;
 		set
 			{
-			if (this.SetProperty (ref this._isPaired, value))
+			if (SetProperty (ref _isPaired, value))
 				{
-				this.OnPropertyChanged (nameof (this.DisplayName));
+				OnPropertyChanged (nameof (DisplayName));
 				}
 			}
 		}
@@ -50,5 +50,5 @@ public sealed class DeviceListItem : ViewModelBase
 	/// Paired status is now indicated via color (see <c>MainWindow.xaml</c>'s <c>ListBox.ItemTemplate</c>)
 	/// rather than a textual annotation.
 	/// </remarks>
-	public string DisplayName => this.Name;
+	public string DisplayName => Name;
 	}

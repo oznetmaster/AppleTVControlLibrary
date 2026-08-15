@@ -195,22 +195,11 @@ public sealed class HttpConnection : IDisposable
 				throw new UnauthorizedAccessException ("not authenticated");
 				}
 
-			if (response.Code == 401)
-				{
-				if (allowError)
-					{
-					return response;
-					}
-
-				throw new UnauthorizedAccessException ("not authenticated");
-				}
-
-			if ((response.Code >= 200 && response.Code < 300) || allowError)
-				{
-				return response;
-				}
-
-			throw new InvalidOperationException ($"{protocol} method {method} failed with code {response.Code}: {response.Message}");
+			return response.Code == 401
+				? allowError ? response : throw new UnauthorizedAccessException ("not authenticated")
+				: (response.Code >= 200 && response.Code < 300) || allowError
+				? response
+				: throw new InvalidOperationException ($"{protocol} method {method} failed with code {response.Code}: {response.Message}");
 			}
 		finally
 			{
@@ -292,7 +281,7 @@ public sealed class HttpConnection : IDisposable
 		if (target is not null)
 			{
 			target.Response = response;
-			target.Signal.Release ();
+			_ = target.Signal.Release ();
 			}
 		}
 
@@ -304,7 +293,7 @@ public sealed class HttpConnection : IDisposable
 			foreach (PendingRequest pending in _requests)
 				{
 				pending.ConnectionClosed = true;
-				pending.Signal.Release ();
+				_ = pending.Signal.Release ();
 				}
 
 			_requests.Clear ();
@@ -326,7 +315,7 @@ public sealed class HttpConnection : IDisposable
 
 		if (_readThread.IsAlive && Environment.CurrentManagedThreadId != _readThread.ManagedThreadId)
 			{
-			_readThread.Join (TimeSpan.FromSeconds (2));
+			_ = _readThread.Join (TimeSpan.FromSeconds (2));
 			}
 		}
 	}

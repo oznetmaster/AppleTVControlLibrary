@@ -29,7 +29,7 @@ public class SrpAuthHandlerTests
 	private static readonly byte[] Identity = Encoding.UTF8.GetBytes ("Pair-Setup");
 
 	// pyatv/auth/hap_srp.py (constants.PRIME_3072) — line 21 as of pyatv 0.18.0; mirrors the private field in SrpAuthHandler.
-	private static readonly BigInteger Prime = new BigInteger (
+	private static readonly BigInteger Prime = new(
 		"FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD129024E088A67CC74020BBEA6" +
 		"3B139B22514A08798E3404DDEF9519B3CD3A431B302B0A6DF25F14374FE1356D6D51C245" +
 		"E485B576625E7EC6F44C42E9A637ED6B0BFF5CB6F406B7EDEE386BFB5A899FA5AE9F2411" +

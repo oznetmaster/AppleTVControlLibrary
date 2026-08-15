@@ -18,7 +18,7 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Description>mDNS/DNS-SD discovery for AppleTvControlLibrary, covering both Companion Link and MRP, isolated behind an interface for host portability.</Description>
-		<LangVersion>13.0</LangVersion>
+		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
 		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
 		<GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
@@ -36,20 +36,32 @@
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
 	</PropertyGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+		<Reference Include="System.Configuration" />
+		<Reference Include="System.Data.DataSetExtensions" />
+		<Reference Include="Microsoft.CSharp" />
+	</ItemGroup>
 	
 	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
 		<PackageReference Include="IsExternalInit" Version="1.0.3">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+		<PackageReference Include="Hafner.Compatibility.MetaPackage" Version="1.9.0" />
 		<PackageReference Include="System.Memory" Version="4.6.3" />
+		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.11" />
 	</ItemGroup>
-
+	
 	<ItemGroup>
 		<None Include="..\..\README.md" Pack="true" PackagePath="" />
 		<None Include="..\..\LICENSE" Pack="true" PackagePath="" />
 		<None Include="..\..\ATTRIBUTIONS.md" Pack="true" PackagePath="" />
 		<None Include="..\..\THIRD-PARTY-NOTICES.txt" Pack="true" PackagePath="" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Bcl.Memory" Version="10.0.11" />
 	</ItemGroup>
 
 </Project>

@@ -19,19 +19,12 @@ namespace AppleTvControlLibrary.Mrp.AirPlay;
 /// be driven by an already-established <see cref="Ap2Session"/> instead of the retired raw-TCP
 /// <c>TcpMrpTransport</c> (see <c>archive/mrp-tcp-transport</c>).
 /// </summary>
+/// <remarks>Initializes a new instance of the <see cref="AirPlayMrpConnection"/> class.</remarks>
+/// <param name="session">An <see cref="Ap2Session"/> for which <see cref="Ap2Session.SetupRemoteControlAsync"/> has already completed.</param>
 // pyatv/protocols/airplay/mrp_connection.py (AirPlayMrpConnection) — line 16-75 as of pyatv 0.18.0
-public sealed class AirPlayMrpConnection : IMrpFrameConnection, IDataStreamListener, IDisposable
+public sealed class AirPlayMrpConnection (Ap2Session session) : IMrpFrameConnection, IDataStreamListener, IDisposable
 	{
-	private readonly Ap2Session _session;
 	private DataStreamChannel? _dataChannel;
-
-	/// <summary>Initializes a new instance of the <see cref="AirPlayMrpConnection"/> class.</summary>
-	/// <param name="session">An <see cref="Ap2Session"/> for which <see cref="Ap2Session.SetupRemoteControlAsync"/> has already completed.</param>
-	// pyatv/protocols/airplay/mrp_connection.py (__init__) — line 19-24 as of pyatv 0.18.0
-	public AirPlayMrpConnection (Ap2Session session)
-		{
-		_session = session;
-		}
 
 	/// <inheritdoc/>
 	public IMrpConnectionListener? Listener { get; set; }
@@ -44,7 +37,7 @@ public sealed class AirPlayMrpConnection : IMrpFrameConnection, IDataStreamListe
 	// pyatv/protocols/airplay/mrp_connection.py (connect) — line 33-38 as of pyatv 0.18.0
 	public void Connect ()
 		{
-		_dataChannel = _session.DataChannel ?? throw new InvalidOperationException ("remote control channel not connected");
+		_dataChannel = session.DataChannel ?? throw new InvalidOperationException ("remote control channel not connected");
 		_dataChannel.Listener = this;
 		}
 
@@ -63,7 +56,7 @@ public sealed class AirPlayMrpConnection : IMrpFrameConnection, IDataStreamListe
 			throw new InvalidOperationException ("not connected");
 			}
 
-		var message = ProtocolMessage.Parser.WithExtensionRegistry (MrpExtensions.Registry).ParseFrom (frame);
+		ProtocolMessage message = ProtocolMessage.Parser.WithExtensionRegistry (MrpExtensions.Registry).ParseFrom (frame);
 		Send (message);
 		return Task.CompletedTask;
 		}
@@ -106,5 +99,5 @@ public sealed class AirPlayMrpConnection : IMrpFrameConnection, IDataStreamListe
 
 	/// <summary>Closes the underlying AirPlay session.</summary>
 	// pyatv/protocols/airplay/mrp_connection.py (close) — line 47-53 as of pyatv 0.18.0
-	public void Dispose () => _session.Dispose ();
+	public void Dispose () => session.Dispose ();
 	}

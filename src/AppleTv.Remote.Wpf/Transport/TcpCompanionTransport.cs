@@ -31,10 +31,10 @@ public sealed class TcpCompanionTransport : IDisposable, IAsyncDisposable
 
 	private TcpCompanionTransport (TcpClient client, CompanionConnection connection)
 		{
-		this._client = client;
-		this._connection = connection;
+		_client = client;
+		_connection = connection;
 
-		this._readThread = new Thread (this.ReadLoop)
+		_readThread = new Thread (ReadLoop)
 			{
 			IsBackground = true,
 			Name = "CompanionLink-Read",
@@ -81,24 +81,24 @@ public sealed class TcpCompanionTransport : IDisposable, IAsyncDisposable
 
 	private async Task SendAsync (byte[] frame)
 		{
-		if (this._disposed)
+		if (_disposed)
 			{
 			throw new ObjectDisposedException (nameof (TcpCompanionTransport));
 			}
 
 		System.Diagnostics.Debug.WriteLine ($"[TcpCompanionTransport] Sending {frame.Length} bytes");
-		await this._client.GetStream ().WriteAsync (frame, 0, frame.Length).ConfigureAwait (false);
+		await _client.GetStream ().WriteAsync (frame, 0, frame.Length).ConfigureAwait (false);
 		}
 
 	private void ReadLoop ()
 		{
 		System.Diagnostics.Debug.WriteLine ($"[TcpCompanionTransport] Read loop starting on thread {Environment.CurrentManagedThreadId} ({Thread.CurrentThread.Name})");
-		NetworkStream stream = this._client.GetStream ();
+		NetworkStream stream = _client.GetStream ();
 		byte[] buffer = new byte[4096];
 
 		try
 			{
-			while (!this._disposed)
+			while (!_disposed)
 				{
 				int read = stream.Read (buffer, 0, buffer.Length);
 				if (read == 0)
@@ -106,7 +106,7 @@ public sealed class TcpCompanionTransport : IDisposable, IAsyncDisposable
 					System.Diagnostics.Debug.WriteLine ("[TcpCompanionTransport] Remote closed the connection (0-byte read)");
 					// pyatv/protocols/companion/connection.py (connection_lost, exc is None) — line 161-167
 					// as of pyatv 0.18.0: a 0-byte read is a clean remote close, reported without an exception.
-					this._connection.Fault (null);
+					_connection.Fault (null);
 					return;
 					}
 
@@ -116,7 +116,7 @@ public sealed class TcpCompanionTransport : IDisposable, IAsyncDisposable
 
 				try
 					{
-					this._connection.ReceiveData (received);
+					_connection.ReceiveData (received);
 					}
 				catch (Exception ex)
 					{
@@ -128,15 +128,15 @@ public sealed class TcpCompanionTransport : IDisposable, IAsyncDisposable
 
 				}
 			}
-		catch (Exception ex) when (this._disposed || !this._client.Connected)
+		catch (Exception ex) when (_disposed || !_client.Connected)
 			{
 			// Expected once Dispose() closes the socket while a read is in progress.
-			System.Diagnostics.Debug.WriteLine ($"[TcpCompanionTransport] Read loop stopped (disposed={this._disposed}, connected={this._client.Connected}): {ex.GetType ().Name}: {ex.Message}");
+			System.Diagnostics.Debug.WriteLine ($"[TcpCompanionTransport] Read loop stopped (disposed={_disposed}, connected={_client.Connected}): {ex.GetType ().Name}: {ex.Message}");
 			// pyatv/protocols/companion/connection.py (connection_lost) — line 161-167 as of pyatv 0.18.0:
 			// only report as an unexpected fault if this wasn't our own Dispose() closing the socket.
-			if (!this._disposed)
+			if (!_disposed)
 				{
-				this._connection.Fault (ex);
+				_connection.Fault (ex);
 				}
 			}
 		catch (Exception ex)
@@ -145,27 +145,27 @@ public sealed class TcpCompanionTransport : IDisposable, IAsyncDisposable
 			// Previously this exception was invisible; surface it so a broken read doesn't
 			// masquerade as a downstream protocol timeout.
 			System.Diagnostics.Debug.WriteLine ($"[TcpCompanionTransport] Read loop failed unexpectedly: {ex}");
-			this._connection.Fault (ex);
+			_connection.Fault (ex);
 			}
 		finally
 			{
-			System.Diagnostics.Debug.WriteLine ($"[TcpCompanionTransport] Read loop exiting on thread {Environment.CurrentManagedThreadId} (disposed={this._disposed})");
+			System.Diagnostics.Debug.WriteLine ($"[TcpCompanionTransport] Read loop exiting on thread {Environment.CurrentManagedThreadId} (disposed={_disposed})");
 			}
 		}
 
 	/// <inheritdoc/>
 	public void Dispose ()
 		{
-		if (this._disposed)
+		if (_disposed)
 			{
 			return;
 			}
 
-		this._disposed = true;
+		_disposed = true;
 
 		try
 			{
-			this._client.Close ();
+			_client.Close ();
 			}
 		catch (Exception)
 			{
@@ -177,6 +177,6 @@ public sealed class TcpCompanionTransport : IDisposable, IAsyncDisposable
 	public async ValueTask DisposeAsync ()
 		{
 		Dispose ();
-		await Task.Run (() => this._readThread.Join ()).ConfigureAwait (false);
+		await Task.Run (() => _readThread.Join ()).ConfigureAwait (false);
 		}
 	}
