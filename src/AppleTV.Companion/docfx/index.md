@@ -10,6 +10,10 @@ Apple, Apple TV, tvOS, AirPlay, and Siri are trademarks of Apple Inc. This proje
 independent, unofficial implementation and is not affiliated with, endorsed by, sponsored by, or
 approved by Apple Inc.
 
+API documentation is published at
+[oznetmaster.github.io/AppleTVControlLibrary](https://oznetmaster.github.io/AppleTVControlLibrary/),
+covering both the Companion Link and MRP libraries.
+
 ## What this library provides
 
 - Companion Link pairing, pair verification, encrypted framing, OPACK, and TLV8.
@@ -28,9 +32,10 @@ approved by Apple Inc.
 - [Companion Link pairing and credentials](articles/pairing.md)
 - [Companion Link compatibility and limitations](articles/compatibility.md)
 - [Companion Link API reference](api/index.md)
-- [Discovery API reference](discovery-api/index.md)
 - [MRP overview](articles/mrp-overview.md)
 - [MRP getting started](articles/mrp-getting-started.md)
 - [MRP pairing and credentials](articles/mrp-pairing.md)
 - [MRP compatibility and limitations](articles/mrp-compatibility.md)
 - [MRP API reference](mrp-api/index.md)
+- [Discovery](articles/discovery.md)
+- [Discovery API reference](discovery-api/index.md)

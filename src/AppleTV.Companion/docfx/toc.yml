@@ -12,9 +12,6 @@ items:
 - name: Companion Link API Reference
   href: api/
   homepage: api/index.md
-- name: Discovery API Reference
-  href: discovery-api/
-  homepage: discovery-api/index.md
 - name: MRP Overview
   href: articles/mrp-overview.md
 - name: MRP Getting Started
@@ -26,6 +23,11 @@ items:
 - name: MRP API Reference
   href: mrp-api/
   homepage: mrp-api/index.md
+- name: Discovery
+  href: articles/discovery.md
+- name: Discovery API Reference
+  href: discovery-api/
+  homepage: discovery-api/index.md
 - name: Shared HAP API Reference
   href: hap-api/
   homepage: hap-api/index.md

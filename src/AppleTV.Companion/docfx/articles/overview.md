@@ -28,4 +28,4 @@ messages use length-prefixed Protocol Buffers. The WPF reference hosts use JSON 
 their local paired-device credential models.
 
 See the [Companion Link API reference](../api/index.md), [MRP API reference](../mrp-api/index.md),
-and [Discovery API reference](../discovery-api/index.md).
+[Discovery](discovery.md), and [Discovery API reference](../discovery-api/index.md).

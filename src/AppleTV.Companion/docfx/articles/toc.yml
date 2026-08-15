@@ -15,3 +15,5 @@ items:
   href: mrp-pairing.md
 - name: MRP Compatibility and Limitations
   href: mrp-compatibility.md
+- name: Discovery
+  href: discovery.md
