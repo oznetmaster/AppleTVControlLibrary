@@ -24,7 +24,8 @@ lives in `AppleTv.Hap`.
 ## Protocol formats
 
 Companion Link messages use OPACK, not JSON. Pairing and verification messages use TLV8. MRP
-messages use length-prefixed Protocol Buffers. The WPF reference hosts use JSON only to persist
+messages use length-prefixed [Protocol Buffers](https://protobuf.dev/) ("protobuf"), Google's
+language-neutral binary serialization format. The WPF reference hosts use JSON only to persist
 their local paired-device credential models.
 
 See the [Companion Link API reference](../api/index.md), [MRP API reference](../mrp-api/index.md),

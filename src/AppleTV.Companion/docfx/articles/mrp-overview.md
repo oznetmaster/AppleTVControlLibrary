@@ -26,8 +26,10 @@ protocol.
 
 ## Protocol formats
 
-MRP messages are length-prefixed Protocol Buffers frames
-(<xref:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>), not OPACK. Pairing
+MRP messages are length-prefixed [Protocol Buffers](https://protobuf.dev/) frames
+(<xref:AppleTvControlLibrary.Mrp.Protobuf.ProtocolMessage>), not OPACK. Protocol Buffers ("protobuf")
+is Google's language-neutral binary serialization format; MRP's message schemas are compiled from
+`.proto` files into the generated types under <xref:AppleTvControlLibrary.Mrp.Protobuf>. Pairing
 and verification reuse the same HAP TLV8 messages and SRP/Ed25519/X25519 primitives as Companion
 Link, via the shared `AppleTv.Hap` library.
 
