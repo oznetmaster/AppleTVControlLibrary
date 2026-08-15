@@ -31,8 +31,9 @@ var discovery = new UnicastCompanionDiscovery (IPAddress.Parse ("192.0.2.10"));
 var devices = await discovery.ScanAsync (TimeSpan.FromSeconds (5));
 ```
 
-To look up a known mDNS service instance name, use `DiscoveryAsync`. It stops the multicast scan
-once the exact name has been resolved.
+To look up a known mDNS service instance name, use
+<xref:AppleTvControlLibrary.Discovery.Companion.MulticastCompanionDiscovery.DiscoveryAsync*>. It
+stops the multicast scan once the exact name has been resolved.
 
 ```csharp
 CompanionDiscoveryResult? device = await MulticastCompanionDiscovery.DiscoveryAsync (
@@ -42,8 +43,9 @@ CompanionDiscoveryResult? device = await MulticastCompanionDiscovery.DiscoveryAs
 ## Connect and send a command
 
 Pairing and connection orchestration is demonstrated by the WPF reference host in
-`src/AppleTv.Remote.Wpf`. After pairing, create a `CompanionApi`, complete pair verification,
-call `ConnectAsync()`, and send commands through the API.
+`src/AppleTv.Remote.Wpf`. After pairing, create a <xref:AppleTvControlLibrary.Protocol.CompanionApi>,
+complete pair verification, call <xref:AppleTvControlLibrary.Protocol.CompanionApi.ConnectAsync*>,
+and send commands through the API.
 
 ```csharp
 await api.ConnectAsync ();

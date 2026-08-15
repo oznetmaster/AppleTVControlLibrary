@@ -30,7 +30,9 @@ await remoteControl.PlayAsync ();
 ## Async APIs
 
 Like the Companion Link library, MRP's protocol and remote-control operations are asynchronous.
-Use the `Async` method variants for connection, pairing, and command dispatch.
+Use the `Async` method variants for connection, pairing, and command dispatch. See
+<xref:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager> and
+<xref:AppleTvControlLibrary.Mrp.RemoteControl.MrpRemoteControl> for the full API surface.
 
 See `src/AppleTv.Remote.Mrp.Wpf` in the source repository for a complete reference host
 application (discover, pair, connect, and drive a now-playing UI).
