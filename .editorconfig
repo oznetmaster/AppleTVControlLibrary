@@ -126,7 +126,9 @@ csharp_style_prefer_readonly_struct_member = true:suggestion
 # Code-block preferences
 csharp_prefer_braces = when_multiline:suggestion
 csharp_prefer_simple_using_statement = true:suggestion
-csharp_prefer_system_threading_lock = true:suggestion
+# Disabled: System.Threading.Lock (.NET 9+) is unavailable on the net472 target framework, and
+# this codebase intentionally has no #if NET472 branches in shared code (see copilot-instructions.md).
+csharp_prefer_system_threading_lock = false
 csharp_style_namespace_declarations = file_scoped:suggestion
 csharp_style_prefer_method_group_conversion = true:suggestion
 csharp_style_prefer_primary_constructors = true:suggestion
