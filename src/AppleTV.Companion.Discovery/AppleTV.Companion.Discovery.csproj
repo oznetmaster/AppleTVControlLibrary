@@ -7,7 +7,7 @@
 		<TargetFrameworks>net472;net10.0</TargetFrameworks>
 		<IsPackable>true</IsPackable>
 		<PackageId>AppleTvControlLibrary.Discovery</PackageId>
-		<Version>2.2.0</Version>
+		<Version>2.2.1</Version>
 		<Authors>Neil Colvin</Authors>
 		<Company>Neil Colvin</Company>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -42,7 +42,7 @@
 		<Reference Include="System.Data.DataSetExtensions" />
 		<Reference Include="Microsoft.CSharp" />
 	</ItemGroup>
-	
+
 	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
 		<PackageReference Include="IsExternalInit" Version="1.0.3">
 			<PrivateAssets>all</PrivateAssets>
@@ -51,17 +51,14 @@
 		<PackageReference Include="Hafner.Compatibility.MetaPackage" Version="1.9.0" />
 		<PackageReference Include="System.Memory" Version="4.6.3" />
 		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.11" />
+		<PackageReference Include="Microsoft.Bcl.Memory" Version="10.0.11" />
 	</ItemGroup>
-	
+
 	<ItemGroup>
 		<None Include="..\..\README.md" Pack="true" PackagePath="" />
 		<None Include="..\..\LICENSE" Pack="true" PackagePath="" />
 		<None Include="..\..\ATTRIBUTIONS.md" Pack="true" PackagePath="" />
 		<None Include="..\..\THIRD-PARTY-NOTICES.txt" Pack="true" PackagePath="" />
-	</ItemGroup>
-	
-	<ItemGroup>
-	  <PackageReference Include="Microsoft.Bcl.Memory" Version="10.0.11" />
 	</ItemGroup>
 
 </Project>

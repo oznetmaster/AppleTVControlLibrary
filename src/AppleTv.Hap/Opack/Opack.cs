@@ -62,7 +62,10 @@ public static class Opack
 			{
 			// pyatv/support/opack.py (pack always emits 0x36 / float64) — line 60-61 as of pyatv 0.18.0
 			double d = Convert.ToDouble (data, System.Globalization.CultureInfo.InvariantCulture);
-			packedBytes = new byte[] { 0x36 }.Concat (BitConverter.GetBytes (d)).ToArray ();
+			Span<byte> buffer = stackalloc byte[9];
+			buffer[0] = 0x36;
+			System.Buffers.Binary.BinaryPrimitives.WriteInt64LittleEndian (buffer[1..], BitConverter.DoubleToInt64Bits (d));
+			packedBytes = buffer.ToArray ();
 			}
 		else if (data is string s)
 			{
@@ -338,13 +341,13 @@ public static class Opack
 		else if (tag == 0x35)
 			{
 			// pyatv/support/opack.py — line 172-173 as of pyatv 0.18.0
-			value = BitConverter.ToSingle (data.Slice (1, 4).ToArray (), 0);
+			value = System.Runtime.InteropServices.MemoryMarshal.Read<float> (data.Slice (1, 4));
 			consumed = 5;
 			}
 		else if (tag == 0x36)
 			{
 			// pyatv/support/opack.py — line 174-175 as of pyatv 0.18.0
-			value = BitConverter.ToDouble (data.Slice (1, 8).ToArray (), 0);
+			value = System.Runtime.InteropServices.MemoryMarshal.Read<double> (data.Slice (1, 8));
 			consumed = 9;
 			}
 		else if ((tag & 0xF0) == 0x30)

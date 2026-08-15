@@ -143,16 +143,17 @@ public static class HttpMessages
 
 		_ = msg.Append ("\r\n\r\n");
 
-		byte[] output = Encoding.UTF8.GetBytes (msg.ToString ());
-		if (body is { Length: > 0 })
+		string headerText = msg.ToString ();
+		int headerByteCount = Encoding.UTF8.GetByteCount (headerText);
+		int bodyLength = body?.Length ?? 0;
+		var result = new byte[headerByteCount + bodyLength];
+		_ = Encoding.UTF8.GetBytes (headerText, 0, headerText.Length, result, 0);
+		if (bodyLength > 0)
 			{
-			var result = new byte[output.Length + body.Length];
-			Buffer.BlockCopy (output, 0, result, 0, output.Length);
-			Buffer.BlockCopy (body, 0, result, output.Length, body.Length);
-			return result;
+			body.AsSpan ().CopyTo (result.AsSpan (headerByteCount));
 			}
 
-		return output;
+		return result;
 		}
 
 	/// <summary>Encode a <see cref="HttpRequest"/> back into its wire representation.</summary>
@@ -196,12 +197,13 @@ public static class HttpMessages
 			_ = msg.Append ("Content-Length: ").Append (body.Length).Append ("\r\n");
 			}
 
-		byte[] output = Encoding.UTF8.GetBytes (msg.ToString ());
-		var result = new byte[output.Length + 2 + body.Length];
-		Buffer.BlockCopy (output, 0, result, 0, output.Length);
-		result[output.Length] = (byte)'\r';
-		result[output.Length + 1] = (byte)'\n';
-		Buffer.BlockCopy (body, 0, result, output.Length + 2, body.Length);
+		string headerText = msg.ToString ();
+		int headerByteCount = Encoding.UTF8.GetByteCount (headerText);
+		var result = new byte[headerByteCount + 2 + body.Length];
+		_ = Encoding.UTF8.GetBytes (headerText, 0, headerText.Length, result, 0);
+		result[headerByteCount] = (byte)'\r';
+		result[headerByteCount + 1] = (byte)'\n';
+		body.AsSpan ().CopyTo (result.AsSpan (headerByteCount + 2));
 		return result;
 		}
 

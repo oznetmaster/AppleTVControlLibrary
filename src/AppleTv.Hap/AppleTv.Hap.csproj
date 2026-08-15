@@ -41,7 +41,6 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="BouncyCastle.Cryptography" Version="2.7.0" />
-		<PackageReference Include="Microsoft.Bcl.Memory" Version="10.0.11" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
 		<PackageReference Include="IsExternalInit" Version="1.0.3">
@@ -51,6 +50,7 @@
 		<PackageReference Include="Hafner.Compatibility.MetaPackage" Version="1.9.0" />
 		<PackageReference Include="System.Memory" Version="4.6.3" />
 		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.11" />
+		<PackageReference Include="Microsoft.Bcl.Memory" Version="10.0.11" />
 	</ItemGroup>
 
 </Project>

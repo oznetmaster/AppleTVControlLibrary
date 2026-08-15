@@ -2,6 +2,20 @@
 
 All notable changes to this project are documented in this file.
 
+## [2.2.1] - 2026-08-14
+
+### Changed
+
+- Removed further allocation-heavy `BitConverter`/LINQ/array-copy patterns identified in a follow-up
+  review: OPACK float/double pack and unpack in `AppleTvControlLibrary` (HAP layer) now read/write
+  directly through the `ReadOnlySpan<byte>`/`Span<byte>` via `MemoryMarshal`/`BinaryPrimitives`
+  instead of allocating a temporary array per field; MRP protobuf varint encode/decode
+  (`AppleTvControlLibrary.Mrp`) now uses a `stackalloc` buffer instead of recursive per-byte
+  allocations; and HTTP/RTSP message formatting (`AppleTvControlLibrary.Mrp`) now encodes headers
+  directly into the final combined buffer instead of an intermediate array. This is an internal
+  efficiency pass only; no public API or wire behavior changed, and all existing tests pass
+  unmodified on both `net472` and `net10.0`.
+
 ## [2.2.0] - 2026-08-14
 
 ### Changed
