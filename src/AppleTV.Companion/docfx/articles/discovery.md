@@ -7,7 +7,7 @@ also depending on `AppleTvControlLibrary` or `AppleTvControlLibrary.Mrp`.
 
 API documentation is published at
 [oznetmaster.github.io/AppleTVControlLibrary](https://oznetmaster.github.io/AppleTVControlLibrary/),
-covering both the Companion Link and MRP libraries.
+covering the Companion Link, MRP, and Discovery libraries.
 
 ## Install
 

@@ -12,7 +12,7 @@ approved by Apple Inc.
 
 API documentation is published at
 [oznetmaster.github.io/AppleTVControlLibrary](https://oznetmaster.github.io/AppleTVControlLibrary/),
-covering both the Companion Link and MRP libraries.
+covering the Companion Link, MRP, and Discovery libraries.
 
 ## What this library provides
 
