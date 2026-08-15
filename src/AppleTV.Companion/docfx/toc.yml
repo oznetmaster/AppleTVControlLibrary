@@ -26,6 +26,9 @@ items:
 - name: MRP API Reference
   href: mrp-api/
   homepage: mrp-api/index.md
+- name: Shared HAP API Reference
+  href: hap-api/
+  homepage: hap-api/index.md
 - name: GitHub Repository
   href: https://github.com/oznetmaster/AppleTVControlLibrary
 - name: NuGet Packages

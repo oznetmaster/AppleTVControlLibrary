@@ -17,6 +17,9 @@
 /src/AppleTV.Companion/docfx/discovery-api/*.yml
 /src/AppleTV.Companion/docfx/discovery-api/toc.yml
 /src/AppleTV.Companion/docfx/discovery-api/.manifest
+/src/AppleTV.Companion/docfx/hap-api/*.yml
+/src/AppleTV.Companion/docfx/hap-api/toc.yml
+/src/AppleTV.Companion/docfx/hap-api/.manifest
 /src/AppleTV.Companion/docfx/_site/
 
 # User-specific files

@@ -38,6 +38,19 @@
       "dest": "mrp-api",
       "disableGitFeatures": false,
       "disableDefaultFilter": false
+    },
+    {
+      "src": [
+        {
+          "src": "../../AppleTv.Hap",
+          "files": [
+            "AppleTv.Hap.csproj"
+          ]
+        }
+      ],
+      "dest": "hap-api",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false
     }
   ],
   "build": {
@@ -49,7 +62,9 @@
           "discovery-api/**.yml",
           "discovery-api/**.md",
           "mrp-api/**.yml",
-          "mrp-api/**.md"
+          "mrp-api/**.md",
+          "hap-api/**.yml",
+          "hap-api/**.md"
         ]
       },
       {
