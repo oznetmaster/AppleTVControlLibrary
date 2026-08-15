@@ -16,14 +16,14 @@ public interface IMrpConnectionListener
 	}
 
 /// <summary>
-/// Abstraction over the piece of <see cref="MrpProtocol"/> that turns a serialized protobuf
+/// Abstraction over the piece of <see cref="AppleTvControlLibrary.Mrp.Protocol.MrpProtocol"/> that turns a serialized protobuf
 /// payload into whatever bytes actually need to be transmitted, and vice versa. This is what
-/// lets <see cref="MrpProtocol"/> be driven by an AirPlay-tunneled connection (HAP-channel
+/// lets <see cref="AppleTvControlLibrary.Mrp.Protocol.MrpProtocol"/> be driven by an AirPlay-tunneled connection (HAP-channel
 /// framing/encryption) or, historically, a raw-TCP connection.
 /// </summary>
 /// <remarks>
 /// Mirrors pyatv's <c>AbstractMrpConnection</c> (pyatv/protocols/mrp/connection.py — line 16-37
-/// as of pyatv 0.18.0), trimmed to the members <see cref="MrpProtocol"/> actually depends on;
+/// as of pyatv 0.18.0), trimmed to the members <see cref="AppleTvControlLibrary.Mrp.Protocol.MrpProtocol"/> actually depends on;
 /// pyatv's <c>connect</c>/<c>connected</c>/<c>close</c> are transport-lifecycle concerns owned
 /// by the transport classes in this port, not by this interface.
 /// </remarks>
