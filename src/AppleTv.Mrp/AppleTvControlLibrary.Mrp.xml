@@ -11,9 +11,17 @@
             be driven by an already-established <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Ap2Session"/> instead of the retired raw-TCP
             <c>TcpMrpTransport</c> (see <c>archive/mrp-tcp-transport</c>).
             </summary>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.AirPlayMrpConnection"/> class.</remarks>
+            <param name="session">An <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Ap2Session"/> for which <see cref="M:AppleTvControlLibrary.Mrp.AirPlay.Ap2Session.SetupRemoteControlAsync(System.Threading.CancellationToken)"/> has already completed.</param>
         </member>
         <member name="M:AppleTvControlLibrary.Mrp.AirPlay.AirPlayMrpConnection.#ctor(AppleTvControlLibrary.Mrp.AirPlay.Ap2Session)">
-            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.AirPlayMrpConnection"/> class.</summary>
+            <summary>
+            MRP connection implemented as a channel/stream tunneled over an AirPlay 2 data-stream
+            channel, rather than a raw TCP socket. This is the adapter that lets <see cref="T:AppleTvControlLibrary.Mrp.Protocol.MrpProtocol"/>
+            be driven by an already-established <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Ap2Session"/> instead of the retired raw-TCP
+            <c>TcpMrpTransport</c> (see <c>archive/mrp-tcp-transport</c>).
+            </summary>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.AirPlayMrpConnection"/> class.</remarks>
             <param name="session">An <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Ap2Session"/> for which <see cref="M:AppleTvControlLibrary.Mrp.AirPlay.Ap2Session.SetupRemoteControlAsync(System.Threading.CancellationToken)"/> has already completed.</param>
         </member>
         <member name="P:AppleTvControlLibrary.Mrp.AirPlay.AirPlayMrpConnection.Listener">
@@ -733,14 +741,14 @@
         </member>
         <member name="T:AppleTvControlLibrary.Mrp.Connection.IMrpFrameConnection">
             <summary>
-            Abstraction over the piece of <see cref="!:MrpProtocol"/> that turns a serialized protobuf
+            Abstraction over the piece of <see cref="T:AppleTvControlLibrary.Mrp.Protocol.MrpProtocol"/> that turns a serialized protobuf
             payload into whatever bytes actually need to be transmitted, and vice versa. This is what
-            lets <see cref="!:MrpProtocol"/> be driven by an AirPlay-tunneled connection (HAP-channel
+            lets <see cref="T:AppleTvControlLibrary.Mrp.Protocol.MrpProtocol"/> be driven by an AirPlay-tunneled connection (HAP-channel
             framing/encryption) or, historically, a raw-TCP connection.
             </summary>
             <remarks>
             Mirrors pyatv's <c>AbstractMrpConnection</c> (pyatv/protocols/mrp/connection.py — line 16-37
-            as of pyatv 0.18.0), trimmed to the members <see cref="!:MrpProtocol"/> actually depends on;
+            as of pyatv 0.18.0), trimmed to the members <see cref="T:AppleTvControlLibrary.Mrp.Protocol.MrpProtocol"/> actually depends on;
             pyatv's <c>connect</c>/<c>connected</c>/<c>close</c> are transport-lifecycle concerns owned
             by the transport classes in this port, not by this interface.
             </remarks>
@@ -971,9 +979,21 @@
             as <see cref="T:AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener"/> and does the "read playing" step, since that is exactly
             what pyatv's <c>state_updated()</c> does synchronously before dispatch.
             </remarks>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater"/> class.</remarks>
+            <param name="psm">The player state manager to source updates from.</param>
         </member>
         <member name="M:AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater.#ctor(AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager)">
-            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater"/> class.</summary>
+            <summary>
+            Forwards <see cref="T:AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager"/> updates for the active client/player to a
+            registered <see cref="T:AppleTvControlLibrary.Mrp.PlayerState.IMrpPushUpdaterListener"/>, mirroring pyatv's <c>MrpPushUpdater</c>.
+            </summary>
+            <remarks>
+            Unlike pyatv, which installs itself as <c>PlayerStateManager.listener</c> and receives a
+            no-argument callback (reading <c>self.psm.playing</c> itself), this type both installs itself
+            as <see cref="T:AppleTvControlLibrary.Mrp.PlayerState.IMrpPlayerStateListener"/> and does the "read playing" step, since that is exactly
+            what pyatv's <c>state_updated()</c> does synchronously before dispatch.
+            </remarks>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater"/> class.</remarks>
             <param name="psm">The player state manager to source updates from.</param>
         </member>
         <member name="P:AppleTvControlLibrary.Mrp.PlayerState.MrpPushUpdater.Listener">
@@ -6717,16 +6737,6 @@
         </member>
         <member name="T:AppleTvControlLibrary.Mrp.Protobuf.WakeDeviceMessageReflection">
             <summary>Holder for reflection information generated from pyatv/protocols/mrp/protobuf/WakeDeviceMessage.proto</summary>
-        </member>
-        <member name="P:AppleTvControlLibrary.Mrp.Protobuf.WakeDeviceMessageReflection.Descriptor">
-            <summary>File descriptor for pyatv/protocols/mrp/protobuf/WakeDeviceMessage.proto</summary>
-        </member>
-        <member name="T:AppleTvControlLibrary.Mrp.Protobuf.WakeDeviceMessageExtensions">
-            <summary>Holder for extension identifiers generated from the top level of pyatv/protocols/mrp/protobuf/WakeDeviceMessage.proto</summary>
-        </member>
-    </members>
-</doc>
-rp/protobuf/WakeDeviceMessage.proto</summary>
         </member>
         <member name="P:AppleTvControlLibrary.Mrp.Protobuf.WakeDeviceMessageReflection.Descriptor">
             <summary>File descriptor for pyatv/protocols/mrp/protobuf/WakeDeviceMessage.proto</summary>

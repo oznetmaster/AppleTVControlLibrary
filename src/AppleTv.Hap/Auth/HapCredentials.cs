@@ -217,32 +217,56 @@ public sealed class HapCredentials : IEquatable<HapCredentials>
 	// pyatv/auth/hap_pairing.py (binascii.hexlify) — line 73-76 as of pyatv 0.18.0
 	private static string ToHex (byte[] data)
 		{
-		var chars = new char[data.Length * 2];
-		for (int i = 0; i < data.Length; i++)
+		ReadOnlySpan<byte> source = data;
+		Span<char> chars = source.Length <= 128 ? stackalloc char[source.Length * 2] : new char[source.Length * 2];
+		for (int i = 0; i < source.Length; i++)
 			{
-			byte b = data[i];
+			byte b = source[i];
 			chars[i * 2] = HexChars[b >> 4];
 			chars[(i * 2) + 1] = HexChars[b & 0xF];
 			}
 
-		return new string (chars);
+		return chars.ToString ();
 		}
 
 	// pyatv/auth/hap_pairing.py (binascii.unhexlify) — line 145-151 as of pyatv 0.18.0
 	private static byte[] FromHex (string hex)
 		{
-		if (hex.Length % 2 != 0)
+		ReadOnlySpan<char> source = hex.AsSpan ();
+		if (source.Length % 2 != 0)
 			{
 			throw new InvalidCredentialsException ("invalid hex string: " + hex);
 			}
 
-		var result = new byte[hex.Length / 2];
+		var result = new byte[source.Length / 2];
 		for (int i = 0; i < result.Length; i++)
 			{
-			result[i] = Convert.ToByte (hex.Substring (i * 2, 2), 16);
+			int hi = HexNibble (source[i * 2], hex);
+			int lo = HexNibble (source[(i * 2) + 1], hex);
+			result[i] = (byte)((hi << 4) | lo);
 			}
 
 		return result;
+		}
+
+	private static int HexNibble (char c, string hex)
+		{
+		if (c is >= '0' and <= '9')
+			{
+			return c - '0';
+			}
+
+		if (c is >= 'a' and <= 'f')
+			{
+			return c - 'a' + 10;
+			}
+
+		if (c is >= 'A' and <= 'F')
+			{
+			return c - 'A' + 10;
+			}
+
+		throw new InvalidCredentialsException ("invalid hex string: " + hex);
 		}
 
 	/// <summary>Parse a string representation of <see cref="HapCredentials"/>.</summary>

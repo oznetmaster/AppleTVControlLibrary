@@ -12,6 +12,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="Microsoft.Bcl.Memory" Version="10.0.11" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<ProjectReference Include="..\..\src\AppleTV.Companion.Discovery\AppleTV.Companion.Discovery.csproj" />
 	</ItemGroup>
 

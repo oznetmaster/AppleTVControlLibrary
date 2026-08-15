@@ -282,22 +282,34 @@ public static class HttpMessages
 		string headerStr = Encoding.UTF8.GetString (message, 0, separator);
 		byte[] afterHeaders = Slice (message, separator + 4, message.Length - (separator + 4));
 
-		string[] lines = headerStr.Split (["\r\n"], StringSplitOptions.None);
 		var msgHeaders = new Dictionary<string, string> (StringComparer.OrdinalIgnoreCase);
-		for (int i = 1; i < lines.Length; i++)
+		ReadOnlySpan<char> headerSpan = headerStr.AsSpan ();
+		ReadOnlySpan<char> firstLineSpan = default;
+		bool isFirstLine = true;
+		while (headerSpan.Length > 0)
 			{
-			if (lines[i].Length == 0)
+			int lineBreak = headerSpan.IndexOf ("\r\n", StringComparison.Ordinal);
+			ReadOnlySpan<char> line = lineBreak < 0 ? headerSpan : headerSpan[..lineBreak];
+			headerSpan = lineBreak < 0 ? default : headerSpan[(lineBreak + 2)..];
+
+			if (isFirstLine)
 				{
-				continue;
+				firstLineSpan = line;
+				isFirstLine = false;
+				}
+			else if (line.Length > 0)
+				{
+				int colon = line.IndexOf (": ", StringComparison.Ordinal);
+				if (colon >= 0)
+					{
+					msgHeaders[line[..colon].ToString ()] = line[(colon + 2)..].ToString ();
+					}
 				}
 
-			int colon = lines[i].IndexOf (": ", StringComparison.Ordinal);
-			if (colon < 0)
+			if (lineBreak < 0)
 				{
-				continue;
+				break;
 				}
-
-			msgHeaders[lines[i].Substring (0, colon)] = lines[i].Substring (colon + 2);
 			}
 
 		int contentLength = 0;
@@ -312,7 +324,7 @@ public static class HttpMessages
 			return false;
 			}
 
-		firstLine = lines[0];
+		firstLine = firstLineSpan.ToString ();
 		headers = msgHeaders;
 		body = Slice (afterHeaders, 0, contentLength);
 		rest = Slice (afterHeaders, contentLength, afterHeaders.Length - contentLength);
@@ -334,15 +346,7 @@ public static class HttpMessages
 
 	private static int IndexOfCrLfCrLf (byte[] data)
 		{
-		for (int i = 0; i + 3 < data.Length; i++)
-			{
-			if (data[i] == '\r' && data[i + 1] == '\n' && data[i + 2] == '\r' && data[i + 3] == '\n')
-				{
-				return i;
-				}
-			}
-
-		return -1;
+		return data.AsSpan ().IndexOf ("\r\n\r\n"u8);
 		}
 
 	private static byte[] Slice (byte[] data, int start, int length)
@@ -352,8 +356,6 @@ public static class HttpMessages
 			return [];
 			}
 
-		var result = new byte[length];
-		Buffer.BlockCopy (data, start, result, 0, length);
-		return result;
+		return data.AsSpan (start, length).ToArray ();
 		}
 	}

@@ -361,7 +361,7 @@ public static class MrpMessages
 			{
 			if (!Utf8Parser.TryParse (utf8.AsSpan (i * 2, 2), out byte value, out _, 'X'))
 				{
-				throw new FormatException ($"Invalid hex pair at index {i * 2}: {hex.Substring (i * 2, 2)}");
+				throw new FormatException ($"Invalid hex pair at index {i * 2}: {hex.AsSpan (i * 2, 2).ToString ()}");
 				}
 
 			bytes[i] = value;

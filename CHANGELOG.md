@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented in this file.
 
+## [2.2.0] - 2026-08-14
+
+### Changed
+
+- Converted allocation-heavy hex decode, DNS TXT/name parsing, mDNS flag-string parsing, and
+  HTTP/RTSP header parsing to use `Span<T>`/`ReadOnlySpan<T>` instead of `Substring` and per-value
+  byte-array copies (`AppleTvControlLibrary.Discovery`, `AppleTvControlLibrary` HAP layer, and
+  `AppleTvControlLibrary.Mrp`). This is an internal efficiency pass only; no public API or wire
+  behavior changed, and all existing tests pass unmodified on both `net472` and `net10.0`.
+
 ## [2.1.1] - 2026-08-14
 
 ### Changed

@@ -55,8 +55,7 @@ public static class DnsWireFormat
 			// pyatv/support/dns.py (truncate at 63 bytes without splitting a codepoint) — line 111-118 as of pyatv 0.18.0
 			while (encodedLabel.Length > 63)
 				{
-				string truncated = label[..^1];
-				label = truncated;
+				label = label[..^1];
 				encodedLabel = Encoding.UTF8.GetBytes (label);
 				}
 
@@ -166,24 +165,21 @@ public static class DnsWireFormat
 				}
 			else
 				{
-				byte[] keyBytes = new byte[equalsIndex];
-				Array.Copy (chunk, 0, keyBytes, 0, equalsIndex);
-				if (keyBytes.Length == 0)
+				if (equalsIndex == 0)
 					{
 					// pyatv/support/dns.py (missing keys are skipped) — line 220-222 as of pyatv 0.18.0
 					continue;
 					}
 
-				byte[] valueBytes = new byte[chunk.Length - equalsIndex - 1];
-				Array.Copy (chunk, equalsIndex + 1, valueBytes, 0, valueBytes.Length);
-
 				string decodedKey;
 				try
 					{
+					// GetString(byte[], int, int) reads directly from the chunk buffer, avoiding
+					// the intermediate key byte-array copy.
 					decodedKey = Encoding.GetEncoding (
 						"us-ascii",
 						EncoderFallback.ExceptionFallback,
-						DecoderFallback.ExceptionFallback).GetString (keyBytes);
+						DecoderFallback.ExceptionFallback).GetString (chunk, 0, equalsIndex);
 					}
 				catch (DecoderFallbackException)
 					{
@@ -191,6 +187,7 @@ public static class DnsWireFormat
 					continue;
 					}
 
+				byte[] valueBytes = chunk.AsSpan (equalsIndex + 1).ToArray ();
 				output[decodedKey] = valueBytes;
 				}
 			}

@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Text.RegularExpressions;
 
 using AppleTvControlLibrary.Discovery.Mdns;
@@ -74,11 +73,44 @@ public static class AirPlayServiceInfo
 			? sf
 			: properties.TryGetValue ("flags", out string? flags) ? flags : "0x0";
 
-		string trimmed = flagsText.StartsWith ("0x", StringComparison.OrdinalIgnoreCase)
-			? flagsText.Substring (2)
-			: flagsText;
+		ReadOnlySpan<char> trimmed = flagsText.StartsWith ("0x", StringComparison.OrdinalIgnoreCase)
+			? flagsText.AsSpan (2)
+			: flagsText.AsSpan ();
 
-		return int.TryParse (trimmed, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out int parsed) ? parsed : 0;
+		return TryParseHex (trimmed, out int parsed) ? parsed : 0;
+		}
+
+	// int.TryParse(ReadOnlySpan<char>, NumberStyles, ...) is not available on net472, even with
+	// Microsoft.Bcl.Memory (which only provides the Span<T>/Memory<T> types themselves, not new
+	// BCL method overloads), so hex digits are parsed manually here to avoid a Substring allocation.
+	private static bool TryParseHex (ReadOnlySpan<char> text, out int value)
+		{
+		value = 0;
+		if (text.Length == 0)
+			{
+			return false;
+			}
+
+		foreach (char c in text)
+			{
+			int digit = c switch
+				{
+				>= '0' and <= '9' => c - '0',
+				>= 'a' and <= 'f' => c - 'a' + 10,
+				>= 'A' and <= 'F' => c - 'A' + 10,
+				_ => -1,
+				};
+
+			if (digit < 0)
+				{
+				value = 0;
+				return false;
+				}
+
+			value = (value << 4) | digit;
+			}
+
+		return true;
 		}
 
 	/// <summary>

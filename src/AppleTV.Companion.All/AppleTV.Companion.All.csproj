@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>net472;net10.0</TargetFrameworks>
 		<IsPackable>true</IsPackable>
 		<IncludeBuildOutput>false</IncludeBuildOutput>
 		<PackageId>AppleTvControlLibrary.All</PackageId>
-		<Version>2.1.1</Version>
+		<Version>2.2.0</Version>
 		<Authors>Neil Colvin</Authors>
 		<Company>Neil Colvin</Company>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -33,6 +33,10 @@
 		<None Include="..\..\THIRD-PARTY-NOTICES.txt" Pack="true" PackagePath="" />
 		<None Include="pack\net472\_._" Pack="true" PackagePath="lib\net472\" />
 		<None Include="pack\net10.0\_._" Pack="true" PackagePath="lib\net10.0\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Bcl.Memory" Version="10.0.11" />
 	</ItemGroup>
 
 </Project>

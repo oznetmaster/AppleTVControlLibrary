@@ -717,9 +717,21 @@
             means the connection was closed cleanly (the equivalent of pyatv's <c>connection_closed()</c>),
             while a non-null value means it was lost unexpectedly (<c>connection_lost(exc)</c>).
             </remarks>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Protocol.ConnectionClosedEventArgs"/> class.</remarks>
+            <param name="exception">The exception that caused the connection to be lost, or <see langword="null"/> for a clean close.</param>
         </member>
         <member name="M:AppleTvControlLibrary.Protocol.ConnectionClosedEventArgs.#ctor(System.Exception)">
-            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Protocol.ConnectionClosedEventArgs"/> class.</summary>
+            <summary>
+            Event data for <see cref="E:AppleTvControlLibrary.Protocol.CompanionProtocol.ConnectionFaulted"/> and
+            <see cref="E:AppleTvControlLibrary.Protocol.CompanionApi.ConnectionClosed"/>.
+            </summary>
+            <remarks>
+            Mirrors pyatv's <c>DeviceListener.connection_lost(exc)</c> / <c>connection_closed()</c>
+            distinction (see <c>pyatv/interface.py</c>): a <see langword="null"/> <see cref="P:AppleTvControlLibrary.Protocol.ConnectionClosedEventArgs.Exception"/>
+            means the connection was closed cleanly (the equivalent of pyatv's <c>connection_closed()</c>),
+            while a non-null value means it was lost unexpectedly (<c>connection_lost(exc)</c>).
+            </remarks>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Protocol.ConnectionClosedEventArgs"/> class.</remarks>
             <param name="exception">The exception that caused the connection to be lost, or <see langword="null"/> for a clean close.</param>
         </member>
         <member name="P:AppleTvControlLibrary.Protocol.ConnectionClosedEventArgs.Exception">

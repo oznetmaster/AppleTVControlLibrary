@@ -42,8 +42,17 @@ public sealed class DnsBufferReader (byte[] buffer)
 	/// <returns>The bytes read.</returns>
 	public byte[] ReadBytes (int count)
 		{
-		byte[] result = new byte[count];
-		Array.Copy (_buffer, Position, result, 0, count);
+		byte[] result = _buffer.AsSpan (Position, count).ToArray ();
+		Position += count;
+		return result;
+		}
+
+	/// <summary>Reads a number of bytes as a read-only span without copying, and advances the position accordingly.</summary>
+	/// <param name="count">The number of bytes to read.</param>
+	/// <returns>A span over the underlying buffer.</returns>
+	public ReadOnlySpan<byte> ReadSpan (int count)
+		{
+		ReadOnlySpan<byte> result = _buffer.AsSpan (Position, count);
 		Position += count;
 		return result;
 		}
