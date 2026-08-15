@@ -17,7 +17,7 @@
 		<PackageProjectUrl>https://github.com/oznetmaster/AppleTVControlLibrary</PackageProjectUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<Description>Companion Link discovery (mDNS/DNS-SD) for AppleTvControlLibrary, isolated behind an interface for host portability.</Description>
+		<Description>mDNS/DNS-SD discovery for AppleTvControlLibrary, covering both Companion Link and MRP, isolated behind an interface for host portability.</Description>
 		<LangVersion>13.0</LangVersion>
 		<Nullable>enable</Nullable>
 		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -1,8 +1,10 @@
 # AppleTvControlLibrary
 
-`AppleTvControlLibrary` is a .NET client library for the Apple TV **Companion Link** protocol:
-the encrypted channel used by tvOS remotes and the Apple TV Remote app for remote input, touch,
-media control, volume, power state, app launching, and account switching.
+`AppleTvControlLibrary` is a .NET client library for the Apple TV **Companion Link** and **MRP**
+protocols. Companion Link is the encrypted channel used by tvOS remotes and the Apple TV Remote
+app for remote input, touch, media control, volume, power state, app launching, and account
+switching. MRP (Media Remote Protocol) is used for now-playing metadata, playback control, and
+volume.
 
 Apple, Apple TV, tvOS, AirPlay, and Siri are trademarks of Apple Inc. This project is an
 independent, unofficial implementation and is not affiliated with, endorsed by, sponsored by, or
@@ -15,7 +17,8 @@ approved by Apple Inc.
 - Media control and capability-aware volume operations.
 - Push-based system power-state updates.
 - Optional app listing/launching and user-account switching.
-- mDNS/DNS-SD discovery through a separately usable discovery library.
+- MRP pairing, framing, and protobuf-based now-playing and playback control.
+- mDNS/DNS-SD discovery for both Companion Link and MRP through a separately usable discovery library.
 - .NET Framework 4.7.2 and .NET 10 support.
 
 ## Documentation sections
