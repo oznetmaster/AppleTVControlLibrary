@@ -7,6 +7,12 @@
 		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
 		<TargetFrameworks>net472;net10.0</TargetFrameworks>
 		<IsPackable>false</IsPackable>
+		<!-- Not published as its own NuGet package, but its assembly is bundled into
+			  AppleTvControlLibrary and AppleTvControlLibrary.Mrp, so it is kept on the
+			  same shared version as the packages it ships inside so the release can be
+			  identified from the DLL's own metadata. The release workflow overrides this
+			  with the release tag's version via -p:Version at build time. -->
+		<Version>2.2.4</Version>
 		<LangVersion>13.0</LangVersion>
 		<Nullable>enable</Nullable>
 		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented in this file.
 
+## [2.2.4] - 2026-08-16
+
+### Fixed
+
+- Fixed the bundled `AppleTv.Hap.dll`'s assembly version always being `1.0.0.0` regardless of the
+  package release version. `AppleTv.Hap` is not itself packed (`IsPackable=false`), so it never went
+  through the "Pack NuGet packages" step that stamps the other packages with the release tag's
+  version; it had no `Version` property of its own and defaulted to `1.0.0.0`. `AppleTv.Hap.csproj`
+  now carries the same shared `Version` as the packable projects, and the release workflow's
+  "Build solution" step now passes `-p:Version` so the bundled DLL is stamped with the actual
+  release version at build time. Packaging only - no functional or public API changes.
+
 ## [2.2.3] - 2026-08-16
 
 ### Fixed

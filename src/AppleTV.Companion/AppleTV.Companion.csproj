@@ -8,7 +8,7 @@
 		<TargetFrameworks>net472;net10.0</TargetFrameworks>
 		<IsPackable>true</IsPackable>
 		<PackageId>AppleTvControlLibrary</PackageId>
-		<Version>2.2.3</Version>
+		<Version>2.2.4</Version>
 		<Authors>Neil Colvin</Authors>
 		<Company>Neil Colvin</Company>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -19,7 +19,7 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Description>Reusable Apple TV client library for .NET Framework 4.7.2 and .NET 10.</Description>
-		<PackageReleaseNotes>Packaging fix: AppleTv.Hap is bundled directly into this package's lib folder instead of being emitted as an unresolvable NuGet dependency, and downstream repository projects that reference AppleTv.Hap directly were updated so the solution builds cleanly. (A prior v2.2.2 tag for this fix failed to build/publish and was never released; this is the first shipped version containing it.) No functional/API changes.</PackageReleaseNotes>
+		<PackageReleaseNotes>Packaging fix: the bundled AppleTv.Hap.dll (see 2.2.3 notes) was previously always stamped with assembly version 1.0.0.0 regardless of release, because it is never packed directly and had no Version property of its own. AppleTv.Hap.csproj now carries the same Version as this package, and the release build now passes -p:Version so the bundled DLL's version matches the release it ships in. No functional/API changes.</PackageReleaseNotes>
 		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
 		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
