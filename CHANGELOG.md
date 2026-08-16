@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## [2.2.2] - 2026-08-16
+## [2.2.3] - 2026-08-16
 
 ### Fixed
 
@@ -12,7 +12,15 @@ All notable changes to this project are documented in this file.
   dependency on a nonexistent `AppleTv.Hap` package in the generated `.nuspec`, which would fail to
   restore for any consumer installing from nuget.org. `AppleTv.Hap.dll` is now bundled directly into
   each package's `lib/net472` and `lib/net10.0` folders instead, and the phantom dependency entry is
-  gone. Packaging only - no functional or public API changes.
+  gone.
+- Marking the `AppleTv.Hap` `ProjectReference` as `PrivateAssets=all` to fix the issue above also
+  blocked transitive compile-time access to `AppleTv.Hap` types for repository projects that use its
+  namespaces (`AppleTvControlLibrary.Auth`, `.Tlv8`, `.Opack`, `.Crypto`) directly. Added direct
+  `AppleTv.Hap` project references to every affected downstream project (tests, CLI tools, WPF apps)
+  so the solution builds cleanly again.
+- Note: an earlier `v2.2.2` tag was cut for the first fix above but never completed a successful
+  build/publish, so no `2.2.2` package was ever released; `2.2.3` is the first release to include
+  this fix. Packaging only - no functional or public API changes.
 
 ## [2.2.1] - 2026-08-14
 

@@ -18,6 +18,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\..\src\AppleTV.Companion\AppleTV.Companion.csproj" />
 		<ProjectReference Include="..\..\src\AppleTV.Companion.Discovery\AppleTV.Companion.Discovery.csproj" />
+		<ProjectReference Include="..\..\src\AppleTv.Hap\AppleTv.Hap.csproj" />
 	</ItemGroup>
 
 </Project>
