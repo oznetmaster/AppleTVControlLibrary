@@ -8,7 +8,7 @@
 		<TargetFrameworks>net472;net10.0</TargetFrameworks>
 		<IsPackable>true</IsPackable>
 		<PackageId>AppleTvControlLibrary.Mrp</PackageId>
-		<Version>2.2.1</Version>
+		<Version>2.2.2</Version>
 		<Authors>Neil Colvin</Authors>
 		<Company>Neil Colvin</Company>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -72,8 +72,21 @@
 		<PackageReference Include="plist-cil" Version="2.2.0" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\AppleTv.Hap\AppleTv.Hap.csproj" />
+		<ProjectReference Include="..\AppleTv.Hap\AppleTv.Hap.csproj">
+			<PrivateAssets>all</PrivateAssets>
+		</ProjectReference>
 	</ItemGroup>
+	<!-- AppleTv.Hap is IsPackable=false (it has no NuGet package of its own), so bundle its
+		  compiled assembly into this package's lib folder instead of letting NuGet emit a
+		  phantom "AppleTv.Hap" package dependency that can never be resolved. -->
+	<PropertyGroup>
+		<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);IncludeHapAssemblyInPackage</TargetsForTfmSpecificBuildOutput>
+	</PropertyGroup>
+	<Target Name="IncludeHapAssemblyInPackage">
+		<ItemGroup>
+			<BuildOutputInPackage Include="$(OutputPath)AppleTv.Hap.dll" TargetPath="AppleTv.Hap.dll" />
+		</ItemGroup>
+	</Target>
 	<ItemGroup>
 		<Protobuf Include="Protobuf\**\*.proto" ProtoRoot="Protobuf" CompileOutputType="Messages" />
 	</ItemGroup>

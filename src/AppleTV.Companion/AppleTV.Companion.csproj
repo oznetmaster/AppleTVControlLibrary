@@ -8,7 +8,7 @@
 		<TargetFrameworks>net472;net10.0</TargetFrameworks>
 		<IsPackable>true</IsPackable>
 		<PackageId>AppleTvControlLibrary</PackageId>
-		<Version>2.2.1</Version>
+		<Version>2.2.2</Version>
 		<Authors>Neil Colvin</Authors>
 		<Company>Neil Colvin</Company>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -19,7 +19,7 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Description>Reusable Apple TV client library for .NET Framework 4.7.2 and .NET 10.</Description>
-		<PackageReleaseNotes>MSTest 4 test-suite modernization, dependency cleanup, and removal of obsolete DataTestMethod analyzer warnings.</PackageReleaseNotes>
+		<PackageReleaseNotes>Packaging fix: AppleTv.Hap is bundled directly into this package's lib folder instead of being emitted as an unresolvable NuGet dependency. No functional/API changes.</PackageReleaseNotes>
 		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
 		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -53,8 +53,21 @@
 		<Reference Include="Microsoft.CSharp" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\AppleTv.Hap\AppleTv.Hap.csproj" />
+		<ProjectReference Include="..\AppleTv.Hap\AppleTv.Hap.csproj">
+			<PrivateAssets>all</PrivateAssets>
+		</ProjectReference>
 	</ItemGroup>
+	<!-- AppleTv.Hap is IsPackable=false (it has no NuGet package of its own), so bundle its
+		  compiled assembly into this package's lib folder instead of letting NuGet emit a
+		  phantom "AppleTv.Hap" package dependency that can never be resolved. -->
+	<PropertyGroup>
+		<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);IncludeHapAssemblyInPackage</TargetsForTfmSpecificBuildOutput>
+	</PropertyGroup>
+	<Target Name="IncludeHapAssemblyInPackage">
+		<ItemGroup>
+			<BuildOutputInPackage Include="$(OutputPath)AppleTv.Hap.dll" TargetPath="AppleTv.Hap.dll" />
+		</ItemGroup>
+	</Target>
 	<ItemGroup>
 		<None Include="..\..\README.md" Pack="true" PackagePath="" />
 		<None Include="..\..\LICENSE" Pack="true" PackagePath="" />

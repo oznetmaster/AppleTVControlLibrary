@@ -102,9 +102,18 @@
             High-level session for AirPlay 2: opens a control connection, runs pair-verify, and sets up
             the event and data-stream channels used to carry an MRP tunnel.
             </summary>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Ap2Session"/> class.</remarks>
+            <param name="address">The remote AirPlay control address.</param>
+            <param name="controlPort">The remote AirPlay control port.</param>
+            <param name="credentials">The previously-paired HAP credentials for the device.</param>
+            <param name="info">Client identity reported to the device during setup.</param>
         </member>
         <member name="M:AppleTvControlLibrary.Mrp.AirPlay.Ap2Session.#ctor(System.String,System.Int32,AppleTvControlLibrary.Auth.HapCredentials,AppleTvControlLibrary.Mrp.AirPlay.Ap2InfoSettings)">
-            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Ap2Session"/> class.</summary>
+            <summary>
+            High-level session for AirPlay 2: opens a control connection, runs pair-verify, and sets up
+            the event and data-stream channels used to carry an MRP tunnel.
+            </summary>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Ap2Session"/> class.</remarks>
             <param name="address">The remote AirPlay control address.</param>
             <param name="controlPort">The remote AirPlay control port.</param>
             <param name="credentials">The previously-paired HAP credentials for the device.</param>
@@ -151,9 +160,23 @@
             support (see auth/__init__.py — line 84-98 as of pyatv 0.18.0: HAP credentials are required
             for Apple TV once tvOS >= 13).
             </remarks>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayHapPairVerifyProcedure"/> class.</remarks>
+            <param name="http">The AirPlay control connection.</param>
+            <param name="srp">The SRP handler used for key agreement.</param>
+            <param name="credentials">The previously-paired credentials for the device.</param>
         </member>
         <member name="M:AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayHapPairVerifyProcedure.#ctor(AppleTvControlLibrary.Mrp.AirPlay.Http.HttpConnection,AppleTvControlLibrary.Auth.SrpAuthHandler,AppleTvControlLibrary.Auth.HapCredentials)">
-            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayHapPairVerifyProcedure"/> class.</summary>
+            <summary>
+            Verify a previously-paired device is allowed to establish an AirPlay 2 control connection,
+            and derive the resulting session encryption keys.
+            </summary>
+            <remarks>
+            Only the HAP pair-verify path is ported here (the path used by tvOS Apple TVs); pyatv's
+            legacy and transient AirPlay auth variants are out of scope for MRP-over-AirPlay tunnel
+            support (see auth/__init__.py — line 84-98 as of pyatv 0.18.0: HAP credentials are required
+            for Apple TV once tvOS >= 13).
+            </remarks>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayHapPairVerifyProcedure"/> class.</remarks>
             <param name="http">The AirPlay control connection.</param>
             <param name="srp">The SRP handler used for key agreement.</param>
             <param name="credentials">The previously-paired credentials for the device.</param>
@@ -175,9 +198,18 @@
             AirPlay-specific <see cref="T:AppleTvControlLibrary.Auth.HapCredentials"/> (distinct from, and not interchangeable with,
             MRP's own pairing/credentials, since they are separate services on separate ports).
             </summary>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayHapPairSetupProcedure"/> class.</remarks>
+            <param name="http">The AirPlay control connection.</param>
+            <param name="srp">The SRP handler used for key agreement.</param>
         </member>
         <member name="M:AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayHapPairSetupProcedure.#ctor(AppleTvControlLibrary.Mrp.AirPlay.Http.HttpConnection,AppleTvControlLibrary.Auth.SrpAuthHandler)">
-            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayHapPairSetupProcedure"/> class.</summary>
+            <summary>
+            Authenticate (pair-setup) a device for AirPlay playback. This is the procedure that must be
+            run once, before any AirPlay pair-verify or MRP-over-AirPlay tunnel can be used, to obtain
+            AirPlay-specific <see cref="T:AppleTvControlLibrary.Auth.HapCredentials"/> (distinct from, and not interchangeable with,
+            MRP's own pairing/credentials, since they are separate services on separate ports).
+            </summary>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Auth.AirPlayHapPairSetupProcedure"/> class.</remarks>
             <param name="http">The AirPlay control connection.</param>
             <param name="srp">The SRP handler used for key agreement.</param>
         </member>
@@ -312,9 +344,16 @@
             The AirPlay 2 event channel. Only set up to satisfy the receiver's requirement that it
             exists; MRP-over-AirPlay does not use it for anything beyond acknowledging requests.
             </summary>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Channels.EventChannel"/> class.</remarks>
+            <param name="outputKey">The key used to encrypt outgoing data.</param>
+            <param name="inputKey">The key used to decrypt incoming data.</param>
         </member>
         <member name="M:AppleTvControlLibrary.Mrp.AirPlay.Channels.EventChannel.#ctor(System.Byte[],System.Byte[])">
-            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Channels.EventChannel"/> class.</summary>
+            <summary>
+            The AirPlay 2 event channel. Only set up to satisfy the receiver's requirement that it
+            exists; MRP-over-AirPlay does not use it for anything beyond acknowledging requests.
+            </summary>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Channels.EventChannel"/> class.</remarks>
             <param name="outputKey">The key used to encrypt outgoing data.</param>
             <param name="inputKey">The key used to decrypt incoming data.</param>
         </member>
@@ -388,9 +427,14 @@
             A generic HTTP response message, as used by the RTSP-over-HTTP control connection of an
             AirPlay 2 session.
             </summary>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpResponse"/> class.</remarks>
         </member>
         <member name="M:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpResponse.#ctor(System.String,System.String,System.Int32,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Byte[])">
-            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpResponse"/> class.</summary>
+            <summary>
+            A generic HTTP response message, as used by the RTSP-over-HTTP control connection of an
+            AirPlay 2 session.
+            </summary>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpResponse"/> class.</remarks>
         </member>
         <member name="P:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpResponse.Protocol">
             <summary>Gets the protocol name (e.g. "HTTP" or "RTSP").</summary>
@@ -415,9 +459,14 @@
             A generic HTTP request message, as used by the RTSP-over-HTTP control connection of an
             AirPlay 2 session.
             </summary>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest"/> class.</remarks>
         </member>
         <member name="M:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.#ctor(System.String,System.String,System.String,System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Byte[])">
-            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest"/> class.</summary>
+            <summary>
+            A generic HTTP request message, as used by the RTSP-over-HTTP control connection of an
+            AirPlay 2 session.
+            </summary>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest"/> class.</remarks>
         </member>
         <member name="P:AppleTvControlLibrary.Mrp.AirPlay.Http.HttpRequest.Method">
             <summary>Gets the request method (e.g. "GET", "SETUP").</summary>
@@ -565,9 +614,20 @@
             only the message shapes (CRYPTO_PAIRING_MESSAGE with a TLV8 <c>pairingData</c> field) differ from
             Companion Link.
             </remarks>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.Auth.MrpPairSetupProcedure"/> class.</remarks>
+            <param name="sendAndReceive">Callback used to send a message and await its response.</param>
+            <param name="srp">The SRP handler used to perform the pairing crypto.</param>
         </member>
         <member name="M:AppleTvControlLibrary.Mrp.Auth.MrpPairSetupProcedure.#ctor(AppleTvControlLibrary.Mrp.Auth.MrpSendAndReceive,AppleTvControlLibrary.Auth.SrpAuthHandler)">
-            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.Auth.MrpPairSetupProcedure"/> class.</summary>
+            <summary>
+            Perform MRP pairing and return new credentials.
+            </summary>
+            <remarks>
+            MRP pair-setup is a thin wrapper around the shared HAP SRP routines in <see cref="T:AppleTvControlLibrary.Auth.SrpAuthHandler"/>;
+            only the message shapes (CRYPTO_PAIRING_MESSAGE with a TLV8 <c>pairingData</c> field) differ from
+            Companion Link.
+            </remarks>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.Auth.MrpPairSetupProcedure"/> class.</remarks>
             <param name="sendAndReceive">Callback used to send a message and await its response.</param>
             <param name="srp">The SRP handler used to perform the pairing crypto.</param>
         </member>
@@ -583,9 +643,16 @@
             <summary>
             Verify credentials and derive new encryption keys for an MRP session.
             </summary>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure"/> class.</remarks>
+            <param name="sendAndReceive">Callback used to send a message and await its response.</param>
+            <param name="srp">The SRP handler used to perform the verify crypto.</param>
+            <param name="credentials">The previously paired credentials to verify.</param>
         </member>
         <member name="M:AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure.#ctor(AppleTvControlLibrary.Mrp.Auth.MrpSendAndReceive,AppleTvControlLibrary.Auth.SrpAuthHandler,AppleTvControlLibrary.Auth.HapCredentials)">
-            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure"/> class.</summary>
+            <summary>
+            Verify credentials and derive new encryption keys for an MRP session.
+            </summary>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.Auth.MrpPairVerifyProcedure"/> class.</remarks>
             <param name="sendAndReceive">Callback used to send a message and await its response.</param>
             <param name="srp">The SRP handler used to perform the verify crypto.</param>
             <param name="credentials">The previously paired credentials to verify.</param>
@@ -1259,9 +1326,14 @@
             <summary>
             Raised when a SEND_COMMAND_MESSAGE exchange completes with a SendError other than NoError.
             </summary>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.RemoteControl.MrpCommandException"/> class.</remarks>
+            <param name="message">The exception message.</param>
         </member>
         <member name="M:AppleTvControlLibrary.Mrp.RemoteControl.MrpCommandException.#ctor(System.String)">
-            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.RemoteControl.MrpCommandException"/> class.</summary>
+            <summary>
+            Raised when a SEND_COMMAND_MESSAGE exchange completes with a SendError other than NoError.
+            </summary>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.RemoteControl.MrpCommandException"/> class.</remarks>
             <param name="message">The exception message.</param>
         </member>
         <member name="T:AppleTvControlLibrary.Mrp.RemoteControl.MrpRemoteControl">
@@ -1269,9 +1341,20 @@
             Implementation of the MRP remote-control command surface: directional/menu/select HID keys,
             playback transport commands, seek, repeat/shuffle, and absolute volume.
             </summary>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.RemoteControl.MrpRemoteControl"/> class.</remarks>
+            <param name="protocol">The MRP protocol instance used to send/receive messages.</param>
+            <param name="playerStateManager">The player state manager used to look up command capabilities.</param>
+            <param name="httpClient">
+            The HTTP client used to fetch remote artwork (e.g. iTunes-hosted artwork referenced by
+            <c>artworkIdentifier</c>/<c>artworkURL</c>). If not supplied, a default instance is created.
+            </param>
         </member>
         <member name="M:AppleTvControlLibrary.Mrp.RemoteControl.MrpRemoteControl.#ctor(AppleTvControlLibrary.Mrp.Protocol.MrpProtocol,AppleTvControlLibrary.Mrp.PlayerState.MrpPlayerStateManager,System.Net.Http.HttpClient)">
-            <summary>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.RemoteControl.MrpRemoteControl"/> class.</summary>
+            <summary>
+            Implementation of the MRP remote-control command surface: directional/menu/select HID keys,
+            playback transport commands, seek, repeat/shuffle, and absolute volume.
+            </summary>
+            <remarks>Initializes a new instance of the <see cref="T:AppleTvControlLibrary.Mrp.RemoteControl.MrpRemoteControl"/> class.</remarks>
             <param name="protocol">The MRP protocol instance used to send/receive messages.</param>
             <param name="playerStateManager">The player state manager used to look up command capabilities.</param>
             <param name="httpClient">

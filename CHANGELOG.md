@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented in this file.
 
+## [2.2.2] - 2026-08-16
+
+### Fixed
+
+- Fixed a NuGet packaging bug: `AppleTvControlLibrary` and `AppleTvControlLibrary.Mrp` both reference
+  the internal `AppleTv.Hap` project, which is not itself published as a NuGet package
+  (`IsPackable=false`). Because the reference was a plain `ProjectReference`, NuGet emitted a
+  dependency on a nonexistent `AppleTv.Hap` package in the generated `.nuspec`, which would fail to
+  restore for any consumer installing from nuget.org. `AppleTv.Hap.dll` is now bundled directly into
+  each package's `lib/net472` and `lib/net10.0` folders instead, and the phantom dependency entry is
+  gone. Packaging only - no functional or public API changes.
+
 ## [2.2.1] - 2026-08-14
 
 ### Changed
