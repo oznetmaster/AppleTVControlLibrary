@@ -33,6 +33,7 @@ public sealed class UnicastCompanionDiscovery : ICompanionDiscovery
 			{
 			throw new ArgumentException ("Only IPv4 mDNS unicast discovery is supported.", nameof (address));
 			}
+
 		_address = address;
 		}
 
@@ -40,7 +41,7 @@ public sealed class UnicastCompanionDiscovery : ICompanionDiscovery
 	public async Task<IReadOnlyList<CompanionDiscoveryResult>> ScanAsync (TimeSpan timeout, CancellationToken cancellationToken = default)
 		{
 		List<byte[]> queries = DnsServiceQueries.CreateServiceQueries (
-			new[] { CompanionServiceInfo.SERVICE_TYPE },
+			[CompanionServiceInfo.SERVICE_TYPE],
 			QueryType.Ptr);
 		ServiceParser parser = new ServiceParser ();
 
@@ -66,10 +67,9 @@ public sealed class UnicastCompanionDiscovery : ICompanionDiscovery
 			{
 			}
 
-		return parser.Parse ()
+		return [.. parser.Parse ()
 			.Where (service => string.Equals (service.Type, CompanionServiceInfo.SERVICE_TYPE, StringComparison.OrdinalIgnoreCase))
-			.Select (CompanionServiceInfo.ToDiscoveryResult)
-			.ToList ();
+			.Select (CompanionServiceInfo.ToDiscoveryResult)];
 		}
 
 	private static async Task SendQueriesAsync (UdpClient client, IPEndPoint endpoint, List<byte[]> queries, TimeSpan timeout, CancellationToken cancellationToken)
@@ -80,7 +80,7 @@ public sealed class UnicastCompanionDiscovery : ICompanionDiscovery
 				{
 				try
 					{
-					await client.SendAsync (query, query.Length, endpoint).ConfigureAwait (false);
+					_ = await client.SendAsync (query, query.Length, endpoint).ConfigureAwait (false);
 					}
 				catch (ObjectDisposedException)
 					{
@@ -113,7 +113,7 @@ public sealed class UnicastCompanionDiscovery : ICompanionDiscovery
 #pragma warning restore CA2016
 				try
 					{
-					parser.AddMessage (new DnsMessage ().Unpack (response.Buffer));
+					_ = parser.AddMessage (new DnsMessage ().Unpack (response.Buffer));
 					}
 				catch (Exception)
 					{

@@ -52,7 +52,7 @@ public class Chacha20Cipher
 		{
 		get
 			{
-			byte[] nonce = CounterToBytes (_outCounter, _nonceLength);
+			var nonce = CounterToBytes (_outCounter, _nonceLength);
 			return _nonceLength != NONCE_LENGTH ? PadNonce (nonce) : nonce;
 			}
 		}
@@ -67,7 +67,7 @@ public class Chacha20Cipher
 		{
 		get
 			{
-			byte[] nonce = CounterToBytes (_inCounter, _nonceLength);
+			var nonce = CounterToBytes (_inCounter, _nonceLength);
 			return _nonceLength != NONCE_LENGTH ? PadNonce (nonce) : nonce;
 			}
 		}
@@ -95,7 +95,7 @@ public class Chacha20Cipher
 		cipher.Init (true, new AeadParameters (_outKey, MAC_SIZE_BITS, nonce, aad));
 
 		var output = new byte[cipher.GetOutputSize (data.Length)];
-		int len = cipher.ProcessBytes (data, 0, data.Length, output, 0);
+		var len = cipher.ProcessBytes (data, 0, data.Length, output, 0);
 		len += cipher.DoFinal (output, len);
 
 		if (len != output.Length)
@@ -128,7 +128,7 @@ public class Chacha20Cipher
 		cipher.Init (false, new AeadParameters (_inKey, MAC_SIZE_BITS, nonce, aad));
 
 		var output = new byte[cipher.GetOutputSize (data.Length)];
-		int len = cipher.ProcessBytes (data, 0, data.Length, output, 0);
+		var len = cipher.ProcessBytes (data, 0, data.Length, output, 0);
 		len += cipher.DoFinal (output, len);
 
 		if (len != output.Length)
@@ -151,9 +151,9 @@ public class Chacha20Cipher
 	private static string ToHex (byte[] bytes)
 		{
 		var sb = new System.Text.StringBuilder (bytes.Length * 2);
-		foreach (byte b in bytes)
+		foreach (var b in bytes)
 			{
-			sb.Append (b.ToString ("X2", System.Globalization.CultureInfo.InvariantCulture));
+			_ = sb.Append (b.ToString ("X2", System.Globalization.CultureInfo.InvariantCulture));
 			}
 
 		return sb.ToString ();
@@ -162,7 +162,7 @@ public class Chacha20Cipher
 	private static byte[] CounterToBytes (long counter, int length)
 		{
 		var result = new byte[length];
-		for (int i = 0; i < length; i++)
+		for (var i = 0; i < length; i++)
 			{
 			// Shifting a long by >= 64 bits is a no-op in C# (the shift amount is masked
 			// modulo 64), which previously caused byte 8 onward to re-emit the counter's

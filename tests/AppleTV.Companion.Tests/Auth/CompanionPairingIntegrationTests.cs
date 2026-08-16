@@ -27,9 +27,9 @@ namespace AppleTV.Companion.Tests.AuthTests;
 public class CompanionPairingIntegrationTests
 	{
 	// pyatv/protocols/companion/protocol.py (SRP_SALT, SRP_OUTPUT_INFO, SRP_INPUT_INFO) — line 40-42 as of pyatv 0.18.0
-	private const string SrpSalt = "";
-	private const string SrpOutputInfo = "ClientEncrypt-main";
-	private const string SrpInputInfo = "ServerEncrypt-main";
+	private const string SRP_SALT = "";
+	private const string SRP_OUTPUT_INFO = "ClientEncrypt-main";
+	private const string SRP_INPUT_INFO = "ServerEncrypt-main";
 
 	[TestMethod]
 	public void PairSetupThenPairVerifySucceeds ()
@@ -41,31 +41,31 @@ public class CompanionPairingIntegrationTests
 		// pyatv/protocols/companion/auth.py (start_pairing) — line 49-58 as of pyatv 0.18.0
 		pairSetupSrp.Initialize ();
 
-		byte[] m1RequestTlv = Tlv8.WriteTlv (new System.Collections.Generic.Dictionary<int, byte[]>
+		var m1RequestTlv = Tlv8.WriteTlv (new System.Collections.Generic.Dictionary<int, byte[]>
 			{
 				{ (int)TlvValue.Method, new byte[] { 0 } },
 				{ (int)TlvValue.SeqNo, new byte[] { 1 } },
 			});
-		(FrameType m2FrameType, byte[] m2ResponseTlv) = device.HandleAuthFrame (FrameType.PS_Start, m1RequestTlv);
+		(FrameType m2FrameType, var m2ResponseTlv) = device.HandleAuthFrame (FrameType.PS_Start, m1RequestTlv);
 		Assert.AreEqual (FrameType.PS_Next, m2FrameType);
 
 		var m2 = Tlv8.ReadTlv (m2ResponseTlv);
-		byte[] atvSalt = m2[(int)TlvValue.Salt];
-		byte[] atvPubKey = m2[(int)TlvValue.PublicKey];
+		var atvSalt = m2[(int)TlvValue.Salt];
+		var atvPubKey = m2[(int)TlvValue.PublicKey];
 
 		// --- Pair-setup M3 ---
 		// pyatv/protocols/companion/auth.py (finish_pairing, first half) — line 66-90 as of pyatv 0.18.0
 		const int pin = FakeCompanionDevice.PIN_CODE;
 		pairSetupSrp.Step1 (pin);
-		(byte[] clientPubKey, byte[] clientProof) = pairSetupSrp.Step2 (atvPubKey, atvSalt);
+		(var clientPubKey, var clientProof) = pairSetupSrp.Step2 (atvPubKey, atvSalt);
 
-		byte[] m3RequestTlv = Tlv8.WriteTlv (new System.Collections.Generic.Dictionary<int, byte[]>
+		var m3RequestTlv = Tlv8.WriteTlv (new System.Collections.Generic.Dictionary<int, byte[]>
 			{
 				{ (int)TlvValue.SeqNo, new byte[] { 3 } },
 				{ (int)TlvValue.PublicKey, clientPubKey },
 				{ (int)TlvValue.Proof, clientProof },
 			});
-		(FrameType m4FrameType, byte[] m4ResponseTlv) = device.HandleAuthFrame (FrameType.PS_Next, m3RequestTlv);
+		(FrameType m4FrameType, var m4ResponseTlv) = device.HandleAuthFrame (FrameType.PS_Next, m3RequestTlv);
 		Assert.AreEqual (FrameType.PS_Next, m4FrameType);
 
 		var m4 = Tlv8.ReadTlv (m4ResponseTlv);
@@ -73,17 +73,17 @@ public class CompanionPairingIntegrationTests
 
 		// --- Pair-setup M5 ---
 		// pyatv/protocols/companion/auth.py (finish_pairing, second half) — line 92-100 as of pyatv 0.18.0
-		byte[] m5EncryptedData = pairSetupSrp.Step3 (name: "Test Client");
-		byte[] m5RequestTlv = Tlv8.WriteTlv (new System.Collections.Generic.Dictionary<int, byte[]>
+		var m5EncryptedData = pairSetupSrp.Step3 (name: "Test Client");
+		var m5RequestTlv = Tlv8.WriteTlv (new System.Collections.Generic.Dictionary<int, byte[]>
 			{
 				{ (int)TlvValue.SeqNo, new byte[] { 5 } },
 				{ (int)TlvValue.EncryptedData, m5EncryptedData },
 			});
-		(FrameType m6FrameType, byte[] m6ResponseTlv) = device.HandleAuthFrame (FrameType.PS_Next, m5RequestTlv);
+		(FrameType m6FrameType, var m6ResponseTlv) = device.HandleAuthFrame (FrameType.PS_Next, m5RequestTlv);
 		Assert.AreEqual (FrameType.PS_Next, m6FrameType);
 
 		var m6 = Tlv8.ReadTlv (m6ResponseTlv);
-		byte[] m6EncryptedData = m6[(int)TlvValue.EncryptedData];
+		var m6EncryptedData = m6[(int)TlvValue.EncryptedData];
 
 		HapCredentials credentials = pairSetupSrp.Step4 (m6EncryptedData);
 
@@ -94,35 +94,35 @@ public class CompanionPairingIntegrationTests
 		// --- Pair-verify M1/M3 ---
 		// pyatv/protocols/companion/auth.py (CompanionPairVerifyProcedure.verify_credentials) — line 120-158 as of pyatv 0.18.0
 		var pairVerifySrp = new SrpAuthHandler ();
-		(byte[] _, byte[] verifyPubKey) = pairVerifySrp.Initialize ();
+		(var _, var verifyPubKey) = pairVerifySrp.Initialize ();
 
-		byte[] pv1RequestTlv = Tlv8.WriteTlv (new System.Collections.Generic.Dictionary<int, byte[]>
+		var pv1RequestTlv = Tlv8.WriteTlv (new System.Collections.Generic.Dictionary<int, byte[]>
 			{
 				{ (int)TlvValue.SeqNo, new byte[] { 1 } },
 				{ (int)TlvValue.PublicKey, verifyPubKey },
 			});
-		(FrameType pv2FrameType, byte[] pv2ResponseTlv) = device.HandleAuthFrame (FrameType.PV_Start, pv1RequestTlv);
+		(FrameType pv2FrameType, var pv2ResponseTlv) = device.HandleAuthFrame (FrameType.PV_Start, pv1RequestTlv);
 		Assert.AreEqual (FrameType.PV_Next, pv2FrameType);
 
 		var pv2 = Tlv8.ReadTlv (pv2ResponseTlv);
-		byte[] serverVerifyPubKey = pv2[(int)TlvValue.PublicKey];
-		byte[] serverEncryptedData = pv2[(int)TlvValue.EncryptedData];
+		var serverVerifyPubKey = pv2[(int)TlvValue.PublicKey];
+		var serverEncryptedData = pv2[(int)TlvValue.EncryptedData];
 
-		byte[] pv3EncryptedData = pairVerifySrp.Verify1 (credentials, serverVerifyPubKey, serverEncryptedData);
+		var pv3EncryptedData = pairVerifySrp.Verify1 (credentials, serverVerifyPubKey, serverEncryptedData);
 
-		byte[] pv3RequestTlv = Tlv8.WriteTlv (new System.Collections.Generic.Dictionary<int, byte[]>
+		var pv3RequestTlv = Tlv8.WriteTlv (new System.Collections.Generic.Dictionary<int, byte[]>
 			{
 				{ (int)TlvValue.SeqNo, new byte[] { 3 } },
 				{ (int)TlvValue.EncryptedData, pv3EncryptedData },
 			});
-		(FrameType pv4FrameType, byte[] pv4ResponseTlv) = device.HandleAuthFrame (FrameType.PV_Next, pv3RequestTlv);
+		(FrameType pv4FrameType, var pv4ResponseTlv) = device.HandleAuthFrame (FrameType.PV_Next, pv3RequestTlv);
 		Assert.AreEqual (FrameType.PV_Next, pv4FrameType);
 
 		var pv4 = Tlv8.ReadTlv (pv4ResponseTlv);
 		Assert.IsFalse (pv4.ContainsKey ((int)TlvValue.Error), "Server rejected pair-verify signature");
 		Assert.IsTrue (device.IsEncrypted, "Server did not enable encryption after pair-verify M3");
 
-		(byte[] clientOutputKey, byte[] clientInputKey) = pairVerifySrp.Verify2 (SrpSalt, SrpOutputInfo, SrpInputInfo);
+		(var clientOutputKey, var clientInputKey) = pairVerifySrp.Verify2 (SRP_SALT, SRP_OUTPUT_INFO, SRP_INPUT_INFO);
 
 		// The client's output key must equal the server's input key and vice versa, since
 		// "ClientEncrypt-main" on the client side derives the key the server decrypts with

@@ -22,7 +22,7 @@ public class CompanionServiceInfoTests
 		{
 		Dictionary<string, string> properties = new Dictionary<string, string> { ["rpmrtid"] = "ABCDEF123456" };
 
-		string? uniqueId = CompanionServiceInfo.GetUniqueId (properties);
+		var uniqueId = CompanionServiceInfo.GetUniqueId (properties);
 
 		Assert.AreEqual ("ABCDEF123456", uniqueId);
 		}
@@ -32,7 +32,7 @@ public class CompanionServiceInfoTests
 		{
 		Dictionary<string, string> properties = new Dictionary<string, string> ();
 
-		string? uniqueId = CompanionServiceInfo.GetUniqueId (properties);
+		var uniqueId = CompanionServiceInfo.GetUniqueId (properties);
 
 		Assert.IsNull (uniqueId);
 		}

@@ -59,8 +59,13 @@ public sealed class Ap2InfoSettings
 /// High-level session for AirPlay 2: opens a control connection, runs pair-verify, and sets up
 /// the event and data-stream channels used to carry an MRP tunnel.
 /// </summary>
+/// <remarks>Initializes a new instance of the <see cref="Ap2Session"/> class.</remarks>
+/// <param name="address">The remote AirPlay control address.</param>
+/// <param name="controlPort">The remote AirPlay control port.</param>
+/// <param name="credentials">The previously-paired HAP credentials for the device.</param>
+/// <param name="info">Client identity reported to the device during setup.</param>
 // pyatv/protocols/airplay/ap2_session.py (AP2Session) — line 34-201 as of pyatv 0.18.0
-public sealed class Ap2Session : IDisposable
+public sealed class Ap2Session (string address, int controlPort, HapCredentials credentials, Ap2InfoSettings? info = null) : IDisposable
 	{
 	// pyatv/protocols/airplay/ap2_session.py (EVENTS_SALT/EVENTS_WRITE_INFO/EVENTS_READ_INFO) — line 28-30 as of pyatv 0.18.0
 	private const string EventsSalt = "Events-Salt";
@@ -75,10 +80,10 @@ public sealed class Ap2Session : IDisposable
 	// pyatv/protocols/airplay/ap2_session.py (FEEDBACK_INTERVAL) — line 25 as of pyatv 0.18.0: "This is what iOS uses"
 	private static readonly TimeSpan FeedbackInterval = TimeSpan.FromSeconds (2.0);
 
-	private readonly string _address;
-	private readonly int _controlPort;
-	private readonly HapCredentials _credentials;
-	private readonly Ap2InfoSettings _info;
+	private readonly string _address = address;
+	private readonly int _controlPort = controlPort;
+	private readonly HapCredentials _credentials = credentials;
+	private readonly Ap2InfoSettings _info = info ?? new Ap2InfoSettings ();
 	private readonly Random _random = new ();
 
 	private HttpConnection? _connection;
@@ -87,20 +92,6 @@ public sealed class Ap2Session : IDisposable
 	private EventChannel? _eventChannel;
 	private CancellationTokenSource? _feedbackCts;
 	private Task? _feedbackTask;
-
-	/// <summary>Initializes a new instance of the <see cref="Ap2Session"/> class.</summary>
-	/// <param name="address">The remote AirPlay control address.</param>
-	/// <param name="controlPort">The remote AirPlay control port.</param>
-	/// <param name="credentials">The previously-paired HAP credentials for the device.</param>
-	/// <param name="info">Client identity reported to the device during setup.</param>
-	// pyatv/protocols/airplay/ap2_session.py (__init__) — line 42-56 as of pyatv 0.18.0
-	public Ap2Session (string address, int controlPort, HapCredentials credentials, Ap2InfoSettings? info = null)
-		{
-		_address = address;
-		_controlPort = controlPort;
-		_credentials = credentials;
-		_info = info ?? new Ap2InfoSettings ();
-		}
 
 	/// <summary>Gets the data-stream channel that carries the MRP tunnel, once <see cref="SetupRemoteControlAsync"/> has completed.</summary>
 	public DataStreamChannel? DataChannel { get; private set; }

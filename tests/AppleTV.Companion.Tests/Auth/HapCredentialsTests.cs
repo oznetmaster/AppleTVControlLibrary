@@ -51,10 +51,10 @@ public class HapCredentialsTests
 	public void RoundTripToStringAndParse ()
 		{
 		var creds = new HapCredentials (
-			new byte[] { 0xAA, 0xBB },
-			new byte[] { 0xCC },
-			new byte[] { 0xDD, 0xDD },
-			new byte[] { 0xEE });
+			[0xAA, 0xBB],
+			[0xCC],
+			[0xDD, 0xDD],
+			[0xEE]);
 
 		HapCredentials roundTripped = HapCredentials.Parse (creds.ToString ());
 
@@ -70,6 +70,6 @@ public class HapCredentialsTests
 	[TestMethod]
 	public void InvalidCombinationThrows ()
 		{
-		Assert.Throws<InvalidCredentialsException> (() => new HapCredentials (ltpk: new byte[] { 0x01 }));
+		Assert.Throws<InvalidCredentialsException> (() => new HapCredentials (ltpk: [0x01]));
 		}
 	}

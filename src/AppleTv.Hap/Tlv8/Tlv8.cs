@@ -139,8 +139,8 @@ public static class Tlv8
 	public static Dictionary<int, byte[]> ReadTlv (byte[] data)
 		{
 		var result = new Dictionary<int, byte[]> ();
-		int pos = 0;
-		int size = data.Length;
+		var pos = 0;
+		var size = data.Length;
 
 		// pyatv/auth/hap_tlv8.py (_parse, iterative rewrite of the recursion) — line 84-98 as of pyatv 0.18.0
 		while (pos < size)
@@ -178,22 +178,22 @@ public static class Tlv8
 		{
 		var tlv = new List<byte> ();
 
-		foreach (var kvp in data)
+		foreach (KeyValuePair<int, byte[]> kvp in data)
 			{
-			byte tag = (byte)kvp.Key;
+			var tag = (byte)kvp.Key;
 			var value = kvp.Value;
-			int length = value.Length;
-			int pos = 0;
+			var length = value.Length;
+			var pos = 0;
 
 			// pyatv/auth/hap_tlv8.py — line 114-122 as of pyatv 0.18.0
 			// A tag with length > 255 is added multiple times and concatenated into
 			// one buffer when reading the TLV again.
 			while (pos < value.Length)
 				{
-				int size = Math.Min (length, 255);
+				var size = Math.Min (length, 255);
 				tlv.Add (tag);
 				tlv.Add ((byte)size);
-				for (int i = 0; i < size; i++)
+				for (var i = 0; i < size; i++)
 					{
 					tlv.Add (value[pos + i]);
 					}
@@ -203,7 +203,7 @@ public static class Tlv8
 				}
 			}
 
-		return tlv.ToArray ();
+		return [.. tlv];
 		}
 
 	/// <summary>Create simplified string of TLV8 data.</summary>
@@ -216,11 +216,11 @@ public static class Tlv8
 		{
 		var output = new List<string> ();
 
-		foreach (var kvp in data)
+		foreach (KeyValuePair<int, byte[]> kvp in data)
 			{
-			int key = kvp.Key;
+			var key = kvp.Key;
 			var value = kvp.Value;
-			bool isKnownKey = Enum.IsDefined (typeof (TlvValue), key);
+			var isKnownKey = Enum.IsDefined (typeof (TlvValue), key);
 
 			if (!isKnownKey)
 				{
@@ -234,25 +234,25 @@ public static class Tlv8
 			if (keyType == TlvValue.Method)
 				{
 				// pyatv/auth/hap_tlv8.py — line 144-146 as of pyatv 0.18.0
-				long method = FromBytesLittleEndian (value);
+				var method = FromBytesLittleEndian (value);
 				output.Add (keyType + "=" + EnumValueName<Method> (method));
 				}
 			else if (keyType == TlvValue.SeqNo)
 				{
 				// pyatv/auth/hap_tlv8.py — line 147-149 as of pyatv 0.18.0
-				long seqno = FromBytesLittleEndian (value);
+				var seqno = FromBytesLittleEndian (value);
 				output.Add (keyType + "=" + EnumValueName<State> (seqno));
 				}
 			else if (keyType == TlvValue.Error)
 				{
 				// pyatv/auth/hap_tlv8.py — line 150-152 as of pyatv 0.18.0
-				long code = FromBytesLittleEndian (value);
+				var code = FromBytesLittleEndian (value);
 				output.Add (keyType + "=" + EnumValueName<ErrorCode> (code));
 				}
 			else if (keyType == TlvValue.BackOff)
 				{
 				// pyatv/auth/hap_tlv8.py — line 153-155 as of pyatv 0.18.0
-				long seconds = FromBytesLittleEndian (value);
+				var seconds = FromBytesLittleEndian (value);
 				output.Add ($"{keyType}={seconds}s");
 				}
 			else
@@ -266,25 +266,14 @@ public static class Tlv8
 		}
 
 	// pyatv/auth/hap_tlv8.py (_enum_value_name) — line 133-137 as of pyatv 0.18.0
-	private static string EnumValueName<TEnum> (long value) where TEnum : struct, Enum
-		{
-		if (Enum.IsDefined (typeof (TEnum), (int)value))
-			{
-			return Enum.GetName (typeof (TEnum), (int)value) ?? ToHex (value);
-			}
+	private static string EnumValueName<TEnum> (long value) where TEnum : struct, Enum => Enum.IsDefined (typeof (TEnum), (int)value) ? Enum.GetName (typeof (TEnum), (int)value) ?? ToHex (value) : ToHex (value);
 
-		return ToHex (value);
-		}
-
-	private static string ToHex (long value)
-		{
-		return "0x" + value.ToString ("x", System.Globalization.CultureInfo.InvariantCulture);
-		}
+	private static string ToHex (long value) => "0x" + value.ToString ("x", System.Globalization.CultureInfo.InvariantCulture);
 
 	private static long FromBytesLittleEndian (byte[] value)
 		{
 		long result = 0;
-		for (int i = 0; i < value.Length; i++)
+		for (var i = 0; i < value.Length; i++)
 			{
 			result |= (long)value[i] << (8 * i);
 			}

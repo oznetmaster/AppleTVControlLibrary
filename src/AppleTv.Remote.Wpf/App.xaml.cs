@@ -31,7 +31,7 @@ public partial class App : Application
 	private void OnDispatcherUnhandledException (object sender, DispatcherUnhandledExceptionEventArgs e)
 		{
 		System.Diagnostics.Debug.WriteLine ($"[App] Unhandled UI-thread exception: {e.Exception}");
-		MessageBox.Show (
+		_ = MessageBox.Show (
 			$"An unexpected error occurred:\n\n{e.Exception.Message}\n\nSee the debug output for details.",
 			"AppleTv Remote - Unexpected Error",
 			MessageBoxButton.OK,
@@ -41,13 +41,11 @@ public partial class App : Application
 		e.Handled = true;
 		}
 
-	private void OnAppDomainUnhandledException (object sender, UnhandledExceptionEventArgs e)
-		{
+	private void OnAppDomainUnhandledException (object sender, UnhandledExceptionEventArgs e) =>
 		// Exceptions on non-UI threads that are not caught anywhere are, unfortunately,
 		// always fatal to the process (the CLR terminates it regardless of e.IsTerminating).
 		// Logging here is the only chance to capture what happened before the crash.
 		System.Diagnostics.Debug.WriteLine ($"[App] Unhandled exception (IsTerminating={e.IsTerminating}): {e.ExceptionObject}");
-		}
 
 	private void OnUnobservedTaskException (object? sender, UnobservedTaskExceptionEventArgs e)
 		{

@@ -48,10 +48,10 @@ public class SrpAuthHandlerTests
 	public void Step1AndStep2AgreeWithIndependentSrpServer ()
 		{
 		const int pin = 1234;
-		byte[] password = Encoding.UTF8.GetBytes (pin.ToString (System.Globalization.CultureInfo.InvariantCulture));
+		var password = Encoding.UTF8.GetBytes (pin.ToString (System.Globalization.CultureInfo.InvariantCulture));
 
 		var random = new SecureRandom ();
-		byte[] salt = new byte[16];
+		var salt = new byte[16];
 		random.NextBytes (salt);
 
 		// Server side: generate verifier v = g^x % N for the shared identity/password/salt,
@@ -69,14 +69,14 @@ public class SrpAuthHandlerTests
 		var handler = new SrpAuthHandler ();
 		handler.Initialize ();
 		handler.Step1 (pin);
-		(byte[] clientPubKeyBytes, byte[] _) = handler.Step2 (serverPublic.ToByteArrayUnsigned (), salt);
+		(var clientPubKeyBytes, var _) = handler.Step2 (serverPublic.ToByteArrayUnsigned (), salt);
 
 		var clientPublic = new BigInteger (1, clientPubKeyBytes);
 
 		// Server derives its premaster secret/session key from the client's public value.
 		BigInteger serverPremaster = server.CalculateSecret (clientPublic);
 		var sessionKeyDigest = new Sha512Digest ();
-		byte[] premasterBytes = serverPremaster.ToByteArrayUnsigned ();
+		var premasterBytes = serverPremaster.ToByteArrayUnsigned ();
 		sessionKeyDigest.BlockUpdate (premasterBytes, 0, premasterBytes.Length);
 		var serverSessionKey = new byte[sessionKeyDigest.GetDigestSize ()];
 		sessionKeyDigest.DoFinal (serverSessionKey, 0);

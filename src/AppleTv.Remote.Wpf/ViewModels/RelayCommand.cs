@@ -7,19 +7,13 @@ using System.Windows.Input;
 namespace AppleTvControlLibrary.Remote.Wpf.ViewModels;
 
 /// <summary>A simple <see cref="ICommand"/> implementation delegating to plain delegates.</summary>
-public sealed class RelayCommand : ICommand
+/// <remarks>Initializes a new instance of the <see cref="RelayCommand"/> class.</remarks>
+/// <param name="execute">The action to run when the command is invoked.</param>
+/// <param name="canExecute">An optional predicate controlling whether the command can currently run.</param>
+public sealed class RelayCommand (Action<object?> execute, Func<object?, bool>? canExecute = null) : ICommand
 	{
-	private readonly Action<object?> _execute;
-	private readonly Func<object?, bool>? _canExecute;
-
-	/// <summary>Initializes a new instance of the <see cref="RelayCommand"/> class.</summary>
-	/// <param name="execute">The action to run when the command is invoked.</param>
-	/// <param name="canExecute">An optional predicate controlling whether the command can currently run.</param>
-	public RelayCommand (Action<object?> execute, Func<object?, bool>? canExecute = null)
-		{
-		_execute = execute ?? throw new ArgumentNullException (nameof (execute));
-		_canExecute = canExecute;
-		}
+	private readonly Action<object?> _execute = execute ?? throw new ArgumentNullException (nameof (execute));
+	private readonly Func<object?, bool>? _canExecute = canExecute;
 
 	/// <summary>Initializes a new instance of the <see cref="RelayCommand"/> class with a parameterless action.</summary>
 	/// <param name="execute">The action to run when the command is invoked.</param>

@@ -211,10 +211,10 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	private const string SESSION_SERVICE_TYPE = "com.apple.tvremoteservices";
 
 	// pyatv/protocols/companion/api.py (["sessionUUID"]) — line 436 as of pyatv 0.18.0
-	private static readonly string[] SessionUuidPath = ["sessionUUID"];
+	private static readonly string[] _sessionUuidPath = ["sessionUUID"];
 
 	// pyatv/protocols/companion/api.py (["documentState", "docSt", "contextBeforeInput"]) — line 437 as of pyatv 0.18.0
-	private static readonly string[] CurrentTextPath = ["documentState", "docSt", "contextBeforeInput"];
+	private static readonly string[] _currentTextPath = ["documentState", "docSt", "contextBeforeInput"];
 
 	private readonly CompanionProtocol _protocol;
 	private readonly HapCredentials _credentials;
@@ -612,8 +612,8 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		// pyatv/protocols/companion/api.py (keyed_archiver.read_archive_properties) — line 434-438 as of pyatv 0.18.0
 		object?[] properties = KeyedArchiver.ReadArchiveProperties (
 			tiData,
-			SessionUuidPath,
-			CurrentTextPath);
+			_sessionUuidPath,
+			_currentTextPath);
 
 		if (properties[0] is not byte[] sessionUuid)
 			{

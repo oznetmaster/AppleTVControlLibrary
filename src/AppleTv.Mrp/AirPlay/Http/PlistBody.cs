@@ -30,10 +30,7 @@ public static class PlistBody
 	/// <param name="body">The raw binary plist bytes.</param>
 	/// <returns>The decoded dictionary.</returns>
 	// pyatv/protocols/airplay/utils.py (decode_plist_body) — line 191-198 as of pyatv 0.18.0
-	public static NSDictionary Decode (byte[] body)
-		{
-		return PropertyListParser.Parse (body) is not NSDictionary dict
+	public static NSDictionary Decode (byte[] body) => PropertyListParser.Parse (body) is not NSDictionary dict
 			? throw new InvalidDataException ("expected a plist dictionary at the top level")
 			: dict;
-		}
 	}

@@ -29,10 +29,10 @@ namespace AppleTvControlLibrary.LiveTests.Discovery;
 internal sealed class FakeMdnsResponder : IDisposable
 	{
 	// pyatv/core/mdns.py (multicast default address) — line 509 as of pyatv 0.18.0
-	private const string MulticastAddress = "224.0.0.251";
+	private const string MULTICAST_ADDRESS = "224.0.0.251";
 
 	// pyatv/core/mdns.py (multicast default port) — line 510 as of pyatv 0.18.0
-	private const int MulticastPort = 5353;
+	private const int MULTICAST_PORT = 5353;
 
 	private readonly UdpClient _client;
 	private readonly string _serviceType;
@@ -71,13 +71,12 @@ internal sealed class FakeMdnsResponder : IDisposable
 
 		_client = new UdpClient (AddressFamily.InterNetwork);
 		_client.Client.SetSocketOption (SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-		_client.Client.Bind (new IPEndPoint (_bindAddress ?? IPAddress.Any, MulticastPort));
+		_client.Client.Bind (new IPEndPoint (_bindAddress ?? IPAddress.Any, MULTICAST_PORT));
 		if (_bindAddress is null)
 			{
-			_client.JoinMulticastGroup (IPAddress.Parse (MulticastAddress));
+			_client.JoinMulticastGroup (IPAddress.Parse (MULTICAST_ADDRESS));
 			}
 		}
-
 
 	/// <summary>Starts the background thread that listens for and answers queries.</summary>
 	public void Start ()

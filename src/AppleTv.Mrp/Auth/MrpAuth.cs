@@ -32,24 +32,17 @@ public delegate Task<ProtocolMessage> MrpSendAndReceive (ProtocolMessage message
 /// only the message shapes (CRYPTO_PAIRING_MESSAGE with a TLV8 <c>pairingData</c> field) differ from
 /// Companion Link.
 /// </remarks>
+/// <remarks>Initializes a new instance of the <see cref="MrpPairSetupProcedure"/> class.</remarks>
+/// <param name="sendAndReceive">Callback used to send a message and await its response.</param>
+/// <param name="srp">The SRP handler used to perform the pairing crypto.</param>
 // pyatv/protocols/mrp/auth.py (MrpPairSetupProcedure) — line 26-77 as of pyatv 0.18.0
-public sealed class MrpPairSetupProcedure
+public sealed class MrpPairSetupProcedure (MrpSendAndReceive sendAndReceive, SrpAuthHandler srp)
 	{
-	private readonly MrpSendAndReceive _sendAndReceive;
-	private readonly SrpAuthHandler _srp;
+	private readonly MrpSendAndReceive _sendAndReceive = sendAndReceive;
+	private readonly SrpAuthHandler _srp = srp;
 
 	private byte[]? _atvSalt;
 	private byte[]? _atvPubKey;
-
-	/// <summary>Initializes a new instance of the <see cref="MrpPairSetupProcedure"/> class.</summary>
-	/// <param name="sendAndReceive">Callback used to send a message and await its response.</param>
-	/// <param name="srp">The SRP handler used to perform the pairing crypto.</param>
-	// pyatv/protocols/mrp/auth.py (MrpPairSetupProcedure.__init__) — line 29-33 as of pyatv 0.18.0
-	public MrpPairSetupProcedure (MrpSendAndReceive sendAndReceive, SrpAuthHandler srp)
-		{
-		_sendAndReceive = sendAndReceive;
-		_srp = srp;
-		}
 
 	/// <summary>Start the pairing procedure (M1/M2). Causes the device to display an on-screen PIN.</summary>
 	// pyatv/protocols/mrp/auth.py (start_pairing) — line 35-46 as of pyatv 0.18.0
@@ -117,24 +110,16 @@ public sealed class MrpPairSetupProcedure
 /// <summary>
 /// Verify credentials and derive new encryption keys for an MRP session.
 /// </summary>
+/// <remarks>Initializes a new instance of the <see cref="MrpPairVerifyProcedure"/> class.</remarks>
+/// <param name="sendAndReceive">Callback used to send a message and await its response.</param>
+/// <param name="srp">The SRP handler used to perform the verify crypto.</param>
+/// <param name="credentials">The previously paired credentials to verify.</param>
 // pyatv/protocols/mrp/auth.py (MrpPairVerifyProcedure) — line 80-121 as of pyatv 0.18.0
-public sealed class MrpPairVerifyProcedure
+public sealed class MrpPairVerifyProcedure (MrpSendAndReceive sendAndReceive, SrpAuthHandler srp, HapCredentials credentials)
 	{
-	private readonly MrpSendAndReceive _sendAndReceive;
-	private readonly SrpAuthHandler _srp;
-	private readonly HapCredentials _credentials;
-
-	/// <summary>Initializes a new instance of the <see cref="MrpPairVerifyProcedure"/> class.</summary>
-	/// <param name="sendAndReceive">Callback used to send a message and await its response.</param>
-	/// <param name="srp">The SRP handler used to perform the verify crypto.</param>
-	/// <param name="credentials">The previously paired credentials to verify.</param>
-	// pyatv/protocols/mrp/auth.py (MrpPairVerifyProcedure.__init__) — line 83-87 as of pyatv 0.18.0
-	public MrpPairVerifyProcedure (MrpSendAndReceive sendAndReceive, SrpAuthHandler srp, HapCredentials credentials)
-		{
-		_sendAndReceive = sendAndReceive;
-		_srp = srp;
-		_credentials = credentials;
-		}
+	private readonly MrpSendAndReceive _sendAndReceive = sendAndReceive;
+	private readonly SrpAuthHandler _srp = srp;
+	private readonly HapCredentials _credentials = credentials;
 
 	/// <summary>Verify credentials with the device.</summary>
 	/// <returns><see langword="true"/> if verification succeeded.</returns>
@@ -174,8 +159,5 @@ public sealed class MrpPairVerifyProcedure
 	/// <param name="inputInfo">The HKDF info string used to derive the input key.</param>
 	/// <returns>A tuple of (output key, input key).</returns>
 	// pyatv/protocols/mrp/auth.py (encryption_keys) — line 110-114 as of pyatv 0.18.0
-	public (byte[] OutputKey, byte[] InputKey) EncryptionKeys (string salt, string outputInfo, string inputInfo)
-		{
-		return _srp.Verify2 (salt, outputInfo, inputInfo);
-		}
+	public (byte[] OutputKey, byte[] InputKey) EncryptionKeys (string salt, string outputInfo, string inputInfo) => _srp.Verify2 (salt, outputInfo, inputInfo);
 	}

@@ -40,7 +40,7 @@ public static class DnsWireFormat
 			}
 
 		// pyatv/support/dns.py (ensure a trailing empty label for the root domain) — line 100-102 as of pyatv 0.18.0
-		if (labels.Count == 0 || labels[labels.Count - 1] != string.Empty)
+		if (labels.Count == 0 || labels[^1] != string.Empty)
 			{
 			labels.Add (string.Empty);
 			}

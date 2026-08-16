@@ -23,10 +23,10 @@ public class Chacha20CipherTests
 	public void TwelveByteNonce ()
 		{
 		var cipher = new Chacha20Cipher (FakeKey, FakeKey, 12);
-		Assert.AreEqual (12, cipher.OutNonce.Length);
-		Assert.AreEqual (12, cipher.InNonce.Length);
+		Assert.HasCount (12, cipher.OutNonce);
+		Assert.HasCount (12, cipher.InNonce);
 
-		byte[] result = cipher.Encrypt (Encoding.ASCII.GetBytes ("test"));
+		var result = cipher.Encrypt (Encoding.ASCII.GetBytes ("test"));
 		CollectionAssert.AreEqual (Encoding.ASCII.GetBytes ("test"), cipher.Decrypt (result));
 		}
 
@@ -35,10 +35,10 @@ public class Chacha20CipherTests
 	public void EightByteNonce ()
 		{
 		var cipher = new Chacha20Cipher8ByteNonce (FakeKey, FakeKey);
-		Assert.AreEqual (12, cipher.OutNonce.Length);
-		Assert.AreEqual (12, cipher.InNonce.Length);
+		Assert.HasCount (12, cipher.OutNonce);
+		Assert.HasCount (12, cipher.InNonce);
 
-		byte[] result = cipher.Encrypt (Encoding.ASCII.GetBytes ("test"));
+		var result = cipher.Encrypt (Encoding.ASCII.GetBytes ("test"));
 		CollectionAssert.AreEqual (Encoding.ASCII.GetBytes ("test"), cipher.Decrypt (result));
 		}
 	}

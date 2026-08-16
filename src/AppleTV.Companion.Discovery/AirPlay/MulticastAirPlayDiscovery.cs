@@ -58,7 +58,7 @@ public sealed class MulticastAirPlayDiscovery : IAirPlayDiscovery
 	private static async Task<IReadOnlyList<AirPlayDiscoveryResult>> ScanCoreAsync (TimeSpan timeout, Func<IReadOnlyList<Service>, bool> stopWhen, CancellationToken cancellationToken)
 		{
 		List<byte[]> queries = DnsServiceQueries.CreateServiceQueries (
-			new[] { AirPlayServiceInfo.SERVICE_TYPE },
+			[AirPlayServiceInfo.SERVICE_TYPE],
 			QueryType.Ptr);
 
 		ServiceParser parser = new ServiceParser ();
@@ -101,10 +101,9 @@ public sealed class MulticastAirPlayDiscovery : IAirPlayDiscovery
 			}
 
 		IReadOnlyList<Service> services = parser.Parse ();
-		return services
+		return [.. services
 			.Where (service => string.Equals (service.Type, AirPlayServiceInfo.SERVICE_TYPE, StringComparison.OrdinalIgnoreCase))
-			.Select (AirPlayServiceInfo.ToDiscoveryResult)
-			.ToList ();
+			.Select (AirPlayServiceInfo.ToDiscoveryResult)];
 		}
 
 	private static async Task ResendLoopAsync (UdpClient client, IPEndPoint target, List<byte[]> queries, TimeSpan timeout, CancellationToken cancellationToken)
@@ -116,7 +115,7 @@ public sealed class MulticastAirPlayDiscovery : IAirPlayDiscovery
 				{
 				try
 					{
-					await client.SendAsync (query, query.Length, target).ConfigureAwait (false);
+					_ = await client.SendAsync (query, query.Length, target).ConfigureAwait (false);
 					}
 				catch (ObjectDisposedException)
 					{
@@ -153,7 +152,7 @@ public sealed class MulticastAirPlayDiscovery : IAirPlayDiscovery
 				try
 					{
 					DnsMessage message = new DnsMessage ().Unpack (result.Buffer);
-					parser.AddMessage (message);
+					_ = parser.AddMessage (message);
 					if (stopWhen (parser.Parse ()))
 						{
 						cancellationSource.Cancel ();

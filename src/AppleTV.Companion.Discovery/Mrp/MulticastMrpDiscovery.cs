@@ -58,7 +58,7 @@ public sealed class MulticastMrpDiscovery : IMrpDiscovery
 	private static async Task<IReadOnlyList<MrpDiscoveryResult>> ScanCoreAsync (TimeSpan timeout, Func<IReadOnlyList<Service>, bool> stopWhen, CancellationToken cancellationToken)
 		{
 		List<byte[]> queries = DnsServiceQueries.CreateServiceQueries (
-			new[] { MrpServiceInfo.SERVICE_TYPE },
+			[MrpServiceInfo.SERVICE_TYPE],
 			QueryType.Ptr);
 
 		ServiceParser parser = new ServiceParser ();
@@ -101,10 +101,9 @@ public sealed class MulticastMrpDiscovery : IMrpDiscovery
 			}
 
 		IReadOnlyList<Service> services = parser.Parse ();
-		return services
+		return [.. services
 			.Where (service => string.Equals (service.Type, MrpServiceInfo.SERVICE_TYPE, StringComparison.OrdinalIgnoreCase))
-			.Select (MrpServiceInfo.ToDiscoveryResult)
-			.ToList ();
+			.Select (MrpServiceInfo.ToDiscoveryResult)];
 		}
 
 	private static async Task ResendLoopAsync (UdpClient client, IPEndPoint target, List<byte[]> queries, TimeSpan timeout, CancellationToken cancellationToken)
@@ -116,7 +115,7 @@ public sealed class MulticastMrpDiscovery : IMrpDiscovery
 				{
 				try
 					{
-					await client.SendAsync (query, query.Length, target).ConfigureAwait (false);
+					_ = await client.SendAsync (query, query.Length, target).ConfigureAwait (false);
 					}
 				catch (ObjectDisposedException)
 					{
@@ -153,7 +152,7 @@ public sealed class MulticastMrpDiscovery : IMrpDiscovery
 				try
 					{
 					DnsMessage message = new DnsMessage ().Unpack (result.Buffer);
-					parser.AddMessage (message);
+					_ = parser.AddMessage (message);
 					if (stopWhen (parser.Parse ()))
 						{
 						cancellationSource.Cancel ();

@@ -27,8 +27,8 @@ namespace AppleTv.Mrp.Tests.RemoteControlTests;
 [TestClass]
 public class MrpRemoteControlArtworkTests
 	{
-	private const string ClientId = "client_id";
-	private const string PlayerId = "player_id";
+	private const string CLIENT_ID = "client_id";
+	private const string PLAYER_ID = "player_id";
 
 	private sealed class PassthroughConnection : IMrpFrameConnection
 		{
@@ -64,8 +64,8 @@ public class MrpRemoteControlArtworkTests
 		{
 		var psm = new MrpPlayerStateManager ();
 
-		var client = new NowPlayingClient { BundleIdentifier = ClientId };
-		var player = new NowPlayingPlayer { Identifier = PlayerId };
+		var client = new NowPlayingClient { BundleIdentifier = CLIENT_ID };
+		var player = new NowPlayingPlayer { Identifier = PLAYER_ID };
 		var playerPath = new PlayerPath { Client = client, Player = player };
 
 		var metadata = new ContentItemMetadata ();

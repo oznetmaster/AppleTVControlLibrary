@@ -30,7 +30,6 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	private SelectableItem? _selectedApp;
 	private SelectableItem? _selectedAccount;
 	private bool _isPopulatingAppsOrAccounts;
-	private bool _isCurrentAccountKnown;
 	private StoredDevice? _lastConnectedDevice;
 	private CancellationTokenSource? _reconnectCts;
 
@@ -71,20 +70,11 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		MuteButton = new RelayCommand (async () => await ToggleMuteAsync ().ConfigureAwait (true), () => IsConnected && IsVolumeControlSupported);
 		PowerButton = new RelayCommand (async () => await TogglePowerAsync ().ConfigureAwait (true), () => IsConnected);
 
-		_deviceManager.MediaControlCapabilitiesChanged += (_, _) =>
-			{
-			Application.Current?.Dispatcher.Invoke (RaiseRemoteButtonStates);
-			};
+		_deviceManager.MediaControlCapabilitiesChanged += (_, _) => Application.Current?.Dispatcher.Invoke (RaiseRemoteButtonStates);
 
 		// pyatv/protocols/companion/__init__.py (_handle_system_status_update) — line 249-256 as of pyatv 0.18.0: power
 		// state is tracked from pushed SystemStatus/TVSystemStatus events, not by polling.
-		_deviceManager.SystemStatusChanged += (_, _) =>
-			{
-			Application.Current?.Dispatcher.Invoke (() =>
-				{
-				ApplySystemStatus (_deviceManager.CurrentSystemStatus);
-				});
-			};
+		_deviceManager.SystemStatusChanged += (_, _) => Application.Current?.Dispatcher.Invoke (() => ApplySystemStatus (_deviceManager.CurrentSystemStatus));
 
 		// pyatv/protocols/companion/__init__.py (CompanionKeyboard, listen_to "_tiStarted"/"_tiStopped") —
 		// line 494-497 as of pyatv 0.18.0: the on-screen keyboard's focus state is pushed by the device,
@@ -98,18 +88,12 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		// receive thread would block on the UI thread, which would in turn block waiting for a
 		// response only the receive thread can deliver. BeginInvoke lets the receive thread return
 		// immediately while the UI thread handles the round trip asynchronously.
-		_deviceManager.TextFocusStateChanged += (_, _) =>
-			{
-			Application.Current?.Dispatcher.BeginInvoke (new Action (async () => await ApplyTextFocusStateAsync ().ConfigureAwait (true)));
-			};
+		_deviceManager.TextFocusStateChanged += (_, _) => _ = (Application.Current?.Dispatcher.BeginInvoke (new Action (async () => await ApplyTextFocusStateAsync ().ConfigureAwait (true))));
 
 		// The library does not attempt automatic reconnection; an unexpected disconnect (or the
 		// remote end cleanly closing the socket) is surfaced here so the UI can reset to a
 		// disconnected state instead of silently going stale (dead buttons, frozen status text).
-		_deviceManager.ConnectionClosed += (_, e) =>
-			{
-			Application.Current?.Dispatcher.Invoke (() => HandleConnectionClosed (e));
-			};
+		_deviceManager.ConnectionClosed += (_, e) => Application.Current?.Dispatcher.Invoke (() => HandleConnectionClosed (e));
 		}
 
 	private async Task ApplyTextFocusStateAsync ()
@@ -163,13 +147,13 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		try
 			{
 			Apps.Clear ();
-			foreach (var kvp in _deviceManager.Apps)
+			foreach (KeyValuePair<string, string> kvp in _deviceManager.Apps)
 				{
 				Apps.Add (new SelectableItem (kvp.Key, kvp.Value));
 				}
 
 			Accounts.Clear ();
-			foreach (var kvp in _deviceManager.Accounts)
+			foreach (KeyValuePair<string, string> kvp in _deviceManager.Accounts)
 				{
 				Accounts.Add (new SelectableItem (kvp.Key, kvp.Value));
 				}
@@ -184,7 +168,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			// must revert to false on every (re)connect rather than trusting a stale cached value.
 			_selectedApp = null;
 			_selectedAccount = null;
-			_isCurrentAccountKnown = false;
+			IsCurrentAccountKnown = false;
 			}
 		finally
 			{
@@ -221,7 +205,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 
 			// Only now do we actually know the active account - a successful SwitchUserAccountEvent
 			// is the one and only signal the protocol gives us (see PopulateAppsAndAccounts).
-			_isCurrentAccountKnown = true;
+			IsCurrentAccountKnown = true;
 			OnPropertyChanged (nameof (IsCurrentAccountKnown));
 			}
 		catch (Exception ex)
@@ -231,7 +215,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 
 			// The switch may or may not have taken effect on the device; treat the account as unknown
 			// again rather than risk displaying a selection that doesn't match reality.
-			_isCurrentAccountKnown = false;
+			IsCurrentAccountKnown = false;
 			OnPropertyChanged (nameof (IsCurrentAccountKnown));
 			}
 		}
@@ -298,7 +282,10 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// it), so this reverts to <see langword="false"/> on every reconnect rather than trusting a
 	/// stale cached value.
 	/// </summary>
-	public bool IsCurrentAccountKnown => _isCurrentAccountKnown;
+	public bool IsCurrentAccountKnown
+		{
+		get; private set;
+		}
 
 	/// <summary>
 	/// Gets or sets the account selected in the account dropdown, switching to it on selection.
@@ -556,10 +543,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// its virtual keyboard text so the on-screen keyboard mirrors what the user is typing.
 	/// </summary>
 	/// <param name="text">The dialog's current full text.</param>
-	public void OnTextInputChanged (string text)
-		{
-		_ = SetTextAsync (text);
-		}
+	public void OnTextInputChanged (string text) => _ = SetTextAsync (text);
 
 	private async Task SetTextAsync (string text)
 		{
@@ -585,7 +569,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		StatusMessage = "Scanning...";
 		try
 			{
-			var results = await _deviceManager.ScanAsync (TimeSpan.FromSeconds (5)).ConfigureAwait (true);
+			IReadOnlyList<CompanionDiscoveryResult> results = await _deviceManager.ScanAsync (TimeSpan.FromSeconds (5)).ConfigureAwait (true);
 			Devices.Clear ();
 			foreach (CompanionDiscoveryResult device in results)
 				{
@@ -622,7 +606,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			{
 			// M1 must be sent before the Apple TV will display a PIN, so the pairing session is
 			// started before the user is ever prompted for one.
-			session = await _deviceManager.BeginPairAsync (SelectedDevice.Device).ConfigureAwait (true);
+			session = await AppleTvDeviceManager.BeginPairAsync (SelectedDevice.Device).ConfigureAwait (true);
 
 			int? pin = RequestPin?.Invoke (SelectedDevice.Device);
 			if (pin is null)
@@ -892,10 +876,7 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 	/// <param name="x">The x coordinate, in the range [0, 1000].</param>
 	/// <param name="y">The y coordinate, in the range [0, 1000].</param>
 	/// <param name="action">The touch phase.</param>
-	public void SendTouchEvent (int x, int y, TouchAction action)
-		{
-		_ = SendTouchEventAsync (x, y, action);
-		}
+	public void SendTouchEvent (int x, int y, TouchAction action) => _ = SendTouchEventAsync (x, y, action);
 
 	private async Task SendTouchEventAsync (int x, int y, TouchAction action)
 		{
@@ -967,14 +948,12 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 		}
 
 	// Math.Clamp(int, int, int) is not available on net472; Compat.Clamp polyfills it there.
-	private static int Clamp (int value, int min, int max)
-		{
+	private static int Clamp (int value, int min, int max) =>
 #if NET472
-		return Compat.Clamp (value, min, max);
+		Compat.Clamp (value, min, max);
 #else
-		return Math.Clamp (value, min, max);
+		Math.Clamp (value, min, max);
 #endif
-		}
 
 	// pyatv/protocols/companion/__init__.py (_handle_system_status_update) — line 249-256 as of pyatv 0.18.0: Wake/Sleep
 	// HID commands are single fire-and-forget events with no ack, so the real power state must come from the pushed
@@ -1000,23 +979,21 @@ public sealed class MainViewModel : ViewModelBase, IDisposable
 			}
 		}
 
-	private RelayCommand CreateHidCommand (HidCommand command, Func<bool>? canExecute = null)
-		{
-		return new RelayCommand (
+	private RelayCommand CreateHidCommand (HidCommand command, Func<bool>? canExecute = null) => 
+		new(
 			async () =>
 				{
-				try
-					{
-					await _deviceManager.SendHidCommandAsync (command).ConfigureAwait (true);
-					}
-				catch (Exception ex)
-					{
-					System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Command failed: {ex}");
-					StatusMessage = $"Command failed: {ex.Message}";
-					}
+					try
+						{
+						await _deviceManager.SendHidCommandAsync (command).ConfigureAwait (true);
+						}
+					catch (Exception ex)
+						{
+						System.Diagnostics.Debug.WriteLine ($"[AppleTv.Remote.Wpf] Command failed: {ex}");
+						StatusMessage = $"Command failed: {ex.Message}";
+						}
 				},
 			canExecute ?? (() => IsConnected));
-		}
 
 	private void RaiseCommandStates ()
 		{

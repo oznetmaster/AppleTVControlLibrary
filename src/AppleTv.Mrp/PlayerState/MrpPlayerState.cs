@@ -143,12 +143,9 @@ public sealed class MrpPlayerState
 				}
 
 			float? playbackRate = MetadataField<float?> ("playbackRate");
-			if (playbackRate is null)
-				{
-				return field;
-				}
-
-			return IsClose (playbackRate.Value, 0.0f)
+			return playbackRate is null
+				? (field)
+				: IsClose (playbackRate.Value, 0.0f)
 				? field == PlaybackState.Types.Enum.Playing
 					? PlaybackState.Types.Enum.Playing
 					: PlaybackState.Types.Enum.Paused
@@ -387,10 +384,7 @@ public sealed class MrpClient
 	/// <summary>Handles a change of now-playing player for this client.</summary>
 	/// <param name="player">The player identity that is now active.</param>
 	// pyatv/protocols/mrp/player_state.py (handle_set_now_playing_player) — line 158-167 as of pyatv 0.18.0
-	public void HandleSetNowPlayingPlayer (NowPlayingPlayer player)
-		{
-		ActivePlayer = GetPlayer (player);
-		}
+	public void HandleSetNowPlayingPlayer (NowPlayingPlayer player) => ActivePlayer = GetPlayer (player);
 
 	/// <summary>Updates client metadata from a <see cref="NowPlayingClient"/> payload.</summary>
 	/// <param name="client">The client identity to update from.</param>
@@ -529,16 +523,10 @@ public sealed class MrpPlayerStateManager : IMrpProtocolListener
 		}
 
 	// pyatv/protocols/mrp/__init__.py (MrpAudio._volume_control_availability) — line 787-796 as of pyatv 0.18.0
-	private void HandleVolumeControlAvailability (VolumeControlAvailabilityMessage message)
-		{
-		UpdateVolumeControls (message);
-		}
+	private void HandleVolumeControlAvailability (VolumeControlAvailabilityMessage message) => UpdateVolumeControls (message);
 
 	// pyatv/protocols/mrp/__init__.py (MrpAudio._volume_control_changed) — line 798-808 as of pyatv 0.18.0
-	private void HandleVolumeControlCapabilitiesDidChange (VolumeControlCapabilitiesDidChangeMessage message)
-		{
-		UpdateVolumeControls (message.Capabilities);
-		}
+	private void HandleVolumeControlCapabilitiesDidChange (VolumeControlCapabilitiesDidChangeMessage message) => UpdateVolumeControls (message.Capabilities);
 
 	// pyatv/protocols/mrp/__init__.py (MrpAudio._update_volume_controls) — line 810-819 as of pyatv 0.18.0
 	private void UpdateVolumeControls (VolumeControlAvailabilityMessage? capabilities)

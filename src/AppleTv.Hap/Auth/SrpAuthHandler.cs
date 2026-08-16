@@ -14,6 +14,7 @@ using Org.BouncyCastle.Math.EC.Rfc8032;
 using Org.BouncyCastle.Security;
 
 using AppleTvControlLibrary.Crypto;
+using System.Collections.Generic;
 
 namespace AppleTvControlLibrary.Auth;
 
@@ -30,7 +31,7 @@ namespace AppleTvControlLibrary.Auth;
 public sealed class SrpAuthHandler
 	{
 	// pyatv/auth/hap_srp.py (constants.PRIME_3072) — line 21 as of pyatv 0.18.0; value from srptools/constants.py — line 34-41 as of pyatv 0.18.0
-	private static readonly BigInteger Prime = new BigInteger (
+	private static readonly BigInteger _prime = new(
 		"FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD129024E088A67CC74020BBEA6" +
 		"3B139B22514A08798E3404DDEF9519B3CD3A431B302B0A6DF25F14374FE1356D6D51C245" +
 		"E485B576625E7EC6F44C42E9A637ED6B0BFF5CB6F406B7EDEE386BFB5A899FA5AE9F2411" +
@@ -44,15 +45,14 @@ public sealed class SrpAuthHandler
 		"43DB5BFCE0FD108E4B82D120A93AD2CAFFFFFFFFFFFFFFFF", 16);
 
 	// pyatv/auth/hap_srp.py (constants.PRIME_3072_GEN) — line 21 as of pyatv 0.18.0; value from srptools/constants.py — line 33 as of pyatv 0.18.0
-	private static readonly BigInteger Generator = BigInteger.ValueOf (5);
+	private static readonly BigInteger _generator = BigInteger.ValueOf (5);
 
 	// srptools/context.py — line 39 as of pyatv 0.18.0 (self._mult = H(N | PAD(g)))
-	private static readonly BigInteger Multiplier = HashAsInt ("", Prime, PadBytes (Generator));
+	private static readonly BigInteger _multiplier = HashAsInt ("", _prime, PadBytes (_generator));
 
 	private const string USER_NAME = "Pair-Setup";
 
 	// pyatv/auth/hap_srp.py (pairing_id = str(uuid.uuid4()).encode()) — line 44 as of pyatv 0.18.0
-	private byte[] _pairingId;
 
 	private Ed25519PrivateKeyParameters? _signingKey;
 	private byte[]? _authPrivate;
@@ -73,10 +73,7 @@ public sealed class SrpAuthHandler
 
 	/// <summary>Initializes a new instance of the <see cref="SrpAuthHandler"/> class.</summary>
 	// pyatv/auth/hap_srp.py (__init__) — line 44-53 as of pyatv 0.18.0
-	public SrpAuthHandler ()
-		{
-		_pairingId = Encoding.UTF8.GetBytes (Guid.NewGuid ().ToString ());
-		}
+	public SrpAuthHandler () => PairingId = Encoding.UTF8.GetBytes (Guid.NewGuid ().ToString ());
 
 	/// <summary>
 	/// Gets or sets the pairing id used as the client identifier during pair-verify.
@@ -87,26 +84,11 @@ public sealed class SrpAuthHandler
 	/// see <c>MrpProtocol.start</c> — pyatv/protocols/mrp/protocol.py line 137-140 as of pyatv 0.18.0.
 	/// </remarks>
 	// pyatv/auth/hap_srp.py (self.pairing_id) — line 50 as of pyatv 0.18.0
-	public byte[] PairingId
-		{
-		get => _pairingId;
-		set => _pairingId = value;
-		}
+	public byte[] PairingId { get; set; }
 
 	/// <summary>Gets the shared secret (SRP session key) established during pair-setup.</summary>
 	// pyatv/auth/hap_srp.py (shared_key) — line 55-58 as of pyatv 0.18.0
-	public byte[] SharedKey
-		{
-		get
-			{
-			if (_sessionKeyBytes is null)
-				{
-				throw new InvalidOperationException ("session key not established");
-				}
-
-			return _sessionKeyBytes;
-			}
-		}
+	public byte[] SharedKey => _sessionKeyBytes is null ? throw new InvalidOperationException ("session key not established") : _sessionKeyBytes;
 
 	/// <summary>Derives encryption keys from a shared secret using HKDF-SHA512.</summary>
 	/// <param name="salt">The HKDF salt string.</param>
@@ -123,7 +105,7 @@ public sealed class SrpAuthHandler
 			Encoding.UTF8.GetBytes (info)));
 
 		var output = new byte[32];
-		generator.GenerateBytes (output, 0, output.Length);
+		_ = generator.GenerateBytes (output, 0, output.Length);
 		return output;
 		}
 
@@ -163,21 +145,21 @@ public sealed class SrpAuthHandler
 		agreement.CalculateAgreement (new X25519PublicKeyParameters (sessionPubKey, 0), shared, 0);
 		_shared = shared;
 
-		byte[] sessionKey = HkdfExpand ("Pair-Verify-Encrypt-Salt", "Pair-Verify-Encrypt-Info", _shared);
+		var sessionKey = HkdfExpand ("Pair-Verify-Encrypt-Salt", "Pair-Verify-Encrypt-Info", _shared);
 
 		var chacha = new Chacha20Cipher8ByteNonce (sessionKey, sessionKey);
-		byte[] decrypted = chacha.Decrypt (encrypted, nonce: Encoding.UTF8.GetBytes ("PV-Msg02"));
-		var decryptedTlv = Tlv8.Tlv8.ReadTlv (decrypted);
+		var decrypted = chacha.Decrypt (encrypted, nonce: Encoding.UTF8.GetBytes ("PV-Msg02"));
+		Dictionary<int, byte[]> decryptedTlv = Tlv8.Tlv8.ReadTlv (decrypted);
 
-		byte[] identifier = decryptedTlv[(int)Tlv8.TlvValue.Identifier];
-		byte[] signature = decryptedTlv[(int)Tlv8.TlvValue.Signature];
+		var identifier = decryptedTlv[(int)Tlv8.TlvValue.Identifier];
+		var signature = decryptedTlv[(int)Tlv8.TlvValue.Signature];
 
 		if (!BytesEqual (identifier, credentials.AtvId))
 			{
 			throw new AuthenticationException ("incorrect device response");
 			}
 
-		byte[] info = Concat (sessionPubKey, identifier, _publicBytes);
+		var info = Concat (sessionPubKey, identifier, _publicBytes);
 		var ltpk = new Ed25519PublicKeyParameters (credentials.Ltpk, 0);
 
 		var verifier = new Ed25519Signer ();
@@ -188,12 +170,12 @@ public sealed class SrpAuthHandler
 			throw new AuthenticationException ("signature error");
 			}
 
-		byte[] deviceInfo = Concat (_publicBytes, credentials.ClientId, sessionPubKey);
+		var deviceInfo = Concat (_publicBytes, credentials.ClientId, sessionPubKey);
 		var ltsk = new Ed25519PrivateKeyParameters (credentials.Ltsk, 0);
-		byte[] deviceSignature = new byte[Ed25519PrivateKeyParameters.SignatureSize];
+		var deviceSignature = new byte[Ed25519PrivateKeyParameters.SignatureSize];
 		ltsk.Sign (Ed25519.Algorithm.Ed25519, null, deviceInfo, 0, deviceInfo.Length, deviceSignature, 0);
 
-		byte[] tlv = Tlv8.Tlv8.WriteTlv (new System.Collections.Generic.Dictionary<int, byte[]>
+		var tlv = Tlv8.Tlv8.WriteTlv (new System.Collections.Generic.Dictionary<int, byte[]>
 			{
 				{ (int)Tlv8.TlvValue.Identifier, credentials.ClientId },
 				{ (int)Tlv8.TlvValue.Signature, deviceSignature },
@@ -215,8 +197,8 @@ public sealed class SrpAuthHandler
 			throw new InvalidOperationException ("Verify1 must be called first");
 			}
 
-		byte[] outputKey = HkdfExpand (salt, outputInfo, _shared);
-		byte[] inputKey = HkdfExpand (salt, inputInfo, _shared);
+		var outputKey = HkdfExpand (salt, outputInfo, _shared);
+		var inputKey = HkdfExpand (salt, inputInfo, _shared);
 		return (outputKey, inputKey);
 		}
 
@@ -235,7 +217,7 @@ public sealed class SrpAuthHandler
 		_clientPrivate = new BigInteger (1, _authPrivate);
 
 		// self._client_public = srp_context.get_client_public(self._this_private)
-		_clientPublic = Generator.ModPow (_clientPrivate, Prime);
+		_clientPublic = _generator.ModPow (_clientPrivate, _prime);
 
 		_pin = Encoding.UTF8.GetBytes (pin.ToString (System.Globalization.CultureInfo.InvariantCulture));
 		}
@@ -256,12 +238,12 @@ public sealed class SrpAuthHandler
 		_salt = atvSalt;
 
 		// SRPClientSession.init_base: password_hash x = H(salt | H(user ":" password))
-		byte[] innerHash = HashAsBytes (":", USER_NAME, Encoding.UTF8.GetString (_pin));
+		var innerHash = HashAsBytes (":", USER_NAME, Encoding.UTF8.GetString (_pin));
 		BigInteger passwordHash = HashAsInt ("", _salt, innerHash);
 
 		// init_common_secret(other_public=B)
 		_serverPublic = new BigInteger (1, atvPubKey);
-		if (_serverPublic.Mod (Prime).SignValue == 0)
+		if (_serverPublic.Mod (_prime).SignValue == 0)
 			{
 			throw new AuthenticationException ("Wrong public provided for client.");
 			}
@@ -270,17 +252,17 @@ public sealed class SrpAuthHandler
 		BigInteger commonSecret = HashAsInt ("", PadBytes (_clientPublic), PadBytes (_serverPublic));
 
 		// init_session_key: S = (B - (k * g^x)) ^ (a + (u * x)) % N
-		BigInteger passwordVerifier = Generator.ModPow (passwordHash, Prime);
-		BigInteger baseValue = _serverPublic.Subtract (Multiplier.Multiply (passwordVerifier)).Mod (Prime);
+		BigInteger passwordVerifier = _generator.ModPow (passwordHash, _prime);
+		BigInteger baseValue = _serverPublic.Subtract (_multiplier.Multiply (passwordVerifier)).Mod (_prime);
 		BigInteger exponent = _clientPrivate.Add (commonSecret.Multiply (passwordHash));
-		BigInteger premasterSecret = baseValue.ModPow (exponent, Prime);
+		BigInteger premasterSecret = baseValue.ModPow (exponent, _prime);
 
 		// K = H(S)
 		_sessionKeyBytes = HashAsBytes ("", premasterSecret);
 
 		// init_session_key_proof: M = H(H(N) xor H(g), H(user), s, A, B, K)
-		BigInteger hashN = HashAsInt ("", Prime);
-		BigInteger hashG = HashAsInt ("", Generator);
+		BigInteger hashN = HashAsInt ("", _prime);
+		BigInteger hashG = HashAsInt ("", _generator);
 		BigInteger xored = hashN.Xor (hashG);
 		BigInteger hashUser = HashAsInt ("", USER_NAME);
 		_keyProof = HashAsBytes ("", xored, hashUser, _salt, _clientPublic, _serverPublic, _sessionKeyBytes);
@@ -299,20 +281,20 @@ public sealed class SrpAuthHandler
 			throw new InvalidOperationException ("Step2 must be called first");
 			}
 
-		byte[] iosDeviceX = HkdfExpand (
+		var iosDeviceX = HkdfExpand (
 			"Pair-Setup-Controller-Sign-Salt",
 			"Pair-Setup-Controller-Sign-Info",
 			_sessionKeyBytes);
 
 		_setupSessionKey = HkdfExpand ("Pair-Setup-Encrypt-Salt", "Pair-Setup-Encrypt-Info", _sessionKeyBytes);
 
-		byte[] deviceInfo = Concat (iosDeviceX, _pairingId, _authPublic);
-		byte[] deviceSignature = new byte[Ed25519PrivateKeyParameters.SignatureSize];
+		var deviceInfo = Concat (iosDeviceX, PairingId, _authPublic);
+		var deviceSignature = new byte[Ed25519PrivateKeyParameters.SignatureSize];
 		_signingKey.Sign (Ed25519.Algorithm.Ed25519, null, deviceInfo, 0, deviceInfo.Length, deviceSignature, 0);
 
 		var tlv = new System.Collections.Generic.Dictionary<int, byte[]>
 			{
-				{ (int)Tlv8.TlvValue.Identifier, _pairingId },
+				{ (int)Tlv8.TlvValue.Identifier, PairingId },
 				{ (int)Tlv8.TlvValue.PublicKey, _authPublic },
 				{ (int)Tlv8.TlvValue.Signature, deviceSignature },
 			};
@@ -339,28 +321,28 @@ public sealed class SrpAuthHandler
 			}
 
 		var chacha = new Chacha20Cipher8ByteNonce (_setupSessionKey, _setupSessionKey);
-		byte[] decryptedTlvBytes = chacha.Decrypt (encryptedData, nonce: Encoding.UTF8.GetBytes ("PS-Msg06"));
+		var decryptedTlvBytes = chacha.Decrypt (encryptedData, nonce: Encoding.UTF8.GetBytes ("PS-Msg06"));
 
 		if (decryptedTlvBytes.Length == 0)
 			{
 			throw new AuthenticationException ("data decrypt failed");
 			}
 
-		var decryptedTlv = Tlv8.Tlv8.ReadTlv (decryptedTlvBytes);
+		Dictionary<int, byte[]> decryptedTlv = Tlv8.Tlv8.ReadTlv (decryptedTlvBytes);
 
-		byte[] atvIdentifier = decryptedTlv[(int)Tlv8.TlvValue.Identifier];
-		byte[] atvPubKey = decryptedTlv[(int)Tlv8.TlvValue.PublicKey];
+		var atvIdentifier = decryptedTlv[(int)Tlv8.TlvValue.Identifier];
+		var atvPubKey = decryptedTlv[(int)Tlv8.TlvValue.PublicKey];
 
 		// TODO: verify signature here (pyatv/auth/hap_srp.py — line 230 as of pyatv 0.18.0)
 
-		return new HapCredentials (atvPubKey, _authPrivate, atvIdentifier, _pairingId);
+		return new HapCredentials (atvPubKey, _authPrivate, atvIdentifier, PairingId);
 		}
 
 	// srptools/context.py — line 63-67 as of pyatv 0.18.0 (pad)
 	private static byte[] PadBytes (BigInteger value, int? overridePaddingLength = null)
 		{
-		int paddingLength = overridePaddingLength ?? ToPyBytes (Prime).Length;
-		byte[] unpadded = ToPyBytes (value);
+		var paddingLength = overridePaddingLength ?? ToPyBytes (_prime).Length;
+		var unpadded = ToPyBytes (value);
 		if (paddingLength == 0 || unpadded.Length >= paddingLength)
 			{
 			return unpadded;
@@ -372,20 +354,17 @@ public sealed class SrpAuthHandler
 		}
 
 	// srptools/utils.py — line 47-52 as of pyatv 0.18.0 (int_to_bytes / hex_from): minimal big-endian bytes, no fixed width.
-	private static byte[] ToPyBytes (BigInteger value)
-		{
-		return value.ToByteArrayUnsigned ();
-		}
+	private static byte[] ToPyBytes (BigInteger value) => value.ToByteArrayUnsigned ();
 
 	// srptools/context.py — line 69-91 as of pyatv 0.18.0 (hash): joiner.join(map(conv, args)) then sha512; as_bytes toggles
 	// whether the raw digest or int_from_hex(hexdigest) is returned. Both are represented here as
 	// separate helpers since we don't have Python's dynamic typing.
 	private static byte[] HashAsBytes (string joiner, params object[] args)
 		{
-		byte[] joinerBytes = Encoding.UTF8.GetBytes (joiner);
+		var joinerBytes = Encoding.UTF8.GetBytes (joiner);
 		var digest = new Sha512Digest ();
-		bool first = true;
-		foreach (object arg in args)
+		var first = true;
+		foreach (var arg in args)
 			{
 			if (!first && joinerBytes.Length > 0)
 				{
@@ -394,41 +373,35 @@ public sealed class SrpAuthHandler
 
 			first = false;
 
-			byte[] bytes = Conv (arg);
+			var bytes = Conv (arg);
 			digest.BlockUpdate (bytes, 0, bytes.Length);
 			}
 
 		var output = new byte[digest.GetDigestSize ()];
-		digest.DoFinal (output, 0);
+		_ = digest.DoFinal (output, 0);
 		return output;
 		}
 
-	private static BigInteger HashAsInt (string joiner, params object[] args)
-		{
-		return new BigInteger (1, HashAsBytes (joiner, args));
-		}
+	private static BigInteger HashAsInt (string joiner, params object[] args) => new(1, HashAsBytes (joiner, args));
 
-	private static byte[] Conv (object arg)
+	private static byte[] Conv (object arg) => arg switch
 		{
-		return arg switch
-			{
 			BigInteger bi => ToPyBytes (bi),
 			string s => Encoding.UTF8.GetBytes (s),
 			byte[] b => b,
 			_ => throw new NotSupportedException (arg.GetType ().ToString ()),
 			};
-		}
 
 	private static byte[] Concat (params byte[][] arrays)
 		{
-		int length = 0;
+		var length = 0;
 		foreach (var array in arrays)
 			{
 			length += array.Length;
 			}
 
 		var result = new byte[length];
-		int offset = 0;
+		var offset = 0;
 		foreach (var array in arrays)
 			{
 			Array.Copy (array, 0, result, offset, array.Length);
@@ -445,7 +418,7 @@ public sealed class SrpAuthHandler
 			return false;
 			}
 
-		for (int i = 0; i < a.Length; i++)
+		for (var i = 0; i < a.Length; i++)
 			{
 			if (a[i] != b[i])
 				{

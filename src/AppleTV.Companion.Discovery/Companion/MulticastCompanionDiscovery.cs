@@ -58,7 +58,7 @@ public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 	private static async Task<IReadOnlyList<CompanionDiscoveryResult>> ScanCoreAsync (TimeSpan timeout, Func<IReadOnlyList<Service>, bool> stopWhen, CancellationToken cancellationToken)
 		{
 		List<byte[]> queries = DnsServiceQueries.CreateServiceQueries (
-			new[] { CompanionServiceInfo.SERVICE_TYPE },
+			[CompanionServiceInfo.SERVICE_TYPE],
 			QueryType.Ptr);
 
 		ServiceParser parser = new ServiceParser ();
@@ -101,10 +101,9 @@ public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 			}
 
 		IReadOnlyList<Service> services = parser.Parse ();
-		return services
+		return [.. services
 			.Where (service => string.Equals (service.Type, CompanionServiceInfo.SERVICE_TYPE, StringComparison.OrdinalIgnoreCase))
-			.Select (CompanionServiceInfo.ToDiscoveryResult)
-			.ToList ();
+			.Select (CompanionServiceInfo.ToDiscoveryResult)];
 		}
 
 	private static async Task ResendLoopAsync (UdpClient client, IPEndPoint target, List<byte[]> queries, TimeSpan timeout, CancellationToken cancellationToken)
@@ -116,7 +115,7 @@ public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 				{
 				try
 					{
-					await client.SendAsync (query, query.Length, target).ConfigureAwait (false);
+					_ = await client.SendAsync (query, query.Length, target).ConfigureAwait (false);
 					}
 				catch (ObjectDisposedException)
 					{
@@ -153,7 +152,7 @@ public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 				try
 					{
 					DnsMessage message = new DnsMessage ().Unpack (result.Buffer);
-					parser.AddMessage (message);
+					_ = parser.AddMessage (message);
 					if (stopWhen (parser.Parse ()))
 						{
 						cancellationSource.Cancel ();

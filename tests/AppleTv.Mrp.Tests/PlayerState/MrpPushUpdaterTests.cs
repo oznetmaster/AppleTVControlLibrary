@@ -50,7 +50,7 @@ public class MrpPushUpdaterTests
 		var psm = new MrpPlayerStateManager ();
 		var updater = new MrpPushUpdater (psm);
 
-		Assert.ThrowsExactly<MrpNoAsyncListenerException> (updater.Start);
+		_ = Assert.ThrowsExactly<MrpNoAsyncListenerException> (updater.Start);
 		}
 
 	[TestMethod]
@@ -102,7 +102,6 @@ public class MrpPushUpdaterTests
 		{
 		var psm = new MrpPlayerStateManager ();
 		var updater = new MrpPushUpdater (psm);
-		var otherListener = new object ();
 
 		// Simulate some other listener owning the PSM.
 		var otherUpdater = new MrpPushUpdater (psm) { Listener = new StubListener () };

@@ -31,8 +31,8 @@ public class HapCredentialsTests
 		HapCredentials creds = HapCredentials.Parse ("0102:0304");
 
 		Assert.AreEqual (AuthenticationType.Legacy, creds.Type);
-		CollectionAssert.AreEqual (new byte[] { 0x03, 0x04 }, creds.Ltsk);
-		CollectionAssert.AreEqual (new byte[] { 0x01, 0x02 }, creds.ClientId);
+		Assert.AreSequenceEqual (new byte[] { 0x03, 0x04 }, creds.Ltsk);
+		Assert.AreSequenceEqual (new byte[] { 0x01, 0x02 }, creds.ClientId);
 		}
 
 	[TestMethod]
@@ -41,10 +41,10 @@ public class HapCredentialsTests
 		HapCredentials creds = HapCredentials.Parse ("01:02:03:04");
 
 		Assert.AreEqual (AuthenticationType.Hap, creds.Type);
-		CollectionAssert.AreEqual (new byte[] { 0x01 }, creds.Ltpk);
-		CollectionAssert.AreEqual (new byte[] { 0x02 }, creds.Ltsk);
-		CollectionAssert.AreEqual (new byte[] { 0x03 }, creds.AtvId);
-		CollectionAssert.AreEqual (new byte[] { 0x04 }, creds.ClientId);
+		Assert.AreSequenceEqual (new byte[] { 0x01 }, creds.Ltpk);
+		Assert.AreSequenceEqual (new byte[] { 0x02 }, creds.Ltsk);
+		Assert.AreSequenceEqual (new byte[] { 0x03 }, creds.AtvId);
+		Assert.AreSequenceEqual (new byte[] { 0x04 }, creds.ClientId);
 		}
 
 	[TestMethod]

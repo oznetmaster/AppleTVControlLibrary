@@ -156,8 +156,8 @@ public sealed class ServiceParser
 		{
 		try
 			{
-			byte[] replaced = ReplaceSequence (value, new byte[] { 0xC2, 0xA0 }, (byte)' ');
-			replaced = ReplaceSequence (replaced, new byte[] { 0x00, 0xA0 }, (byte)' ');
+			byte[] replaced = ReplaceSequence (value, [0xC2, 0xA0], (byte)' ');
+			replaced = ReplaceSequence (replaced, [0x00, 0xA0], (byte)' ');
 			return Encoding.UTF8.GetString (replaced);
 			}
 		catch (Exception)

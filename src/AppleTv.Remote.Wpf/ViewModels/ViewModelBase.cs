@@ -14,10 +14,7 @@ public abstract class ViewModelBase : INotifyPropertyChanged
 
 	/// <summary>Raises <see cref="PropertyChanged"/> for the given property.</summary>
 	/// <param name="propertyName">The name of the property that changed.</param>
-	protected void OnPropertyChanged ([CallerMemberName] string? propertyName = null)
-		{
-		PropertyChanged?.Invoke (this, new PropertyChangedEventArgs (propertyName));
-		}
+	protected void OnPropertyChanged ([CallerMemberName] string? propertyName = null) => PropertyChanged?.Invoke (this, new PropertyChangedEventArgs (propertyName));
 
 	/// <summary>Sets a backing field and raises <see cref="PropertyChanged"/> if the value changed.</summary>
 	/// <typeparam name="T">The property type.</typeparam>

@@ -43,7 +43,7 @@ public class OpackTests
 	public void PackUuid ()
 		{
 		var guid = new Guid ("12345678-1234-5678-1234-567812345678");
-		byte[] expected = Concat (new byte[] { 0x05 }, guid.ToByteArray ());
+		var expected = Concat ([0x05], guid.ToByteArray ());
 		CollectionAssert.AreEqual (expected, AppleTvControlLibrary.Opack.Opack.Pack (guid));
 		}
 
@@ -91,7 +91,7 @@ public class OpackTests
 	[TestMethod]
 	public void PackFloat64 ()
 		{
-		byte[] expected = { 0x36, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xf0, 0x3f };
+		byte[] expected = [0x36, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xf0, 0x3f];
 		CollectionAssert.AreEqual (expected, AppleTvControlLibrary.Opack.Opack.Pack (1.0));
 		}
 
@@ -102,7 +102,7 @@ public class OpackTests
 		CollectionAssert.AreEqual (new byte[] { 0x41, 0x61 }, AppleTvControlLibrary.Opack.Opack.Pack ("a"));
 		CollectionAssert.AreEqual (new byte[] { 0x43, 0x61, 0x62, 0x63 }, AppleTvControlLibrary.Opack.Opack.Pack ("abc"));
 
-		byte[] expected = Concat (new byte[] { 0x60 }, Repeat ((byte)0x61, 0x20));
+		var expected = Concat ([0x60], Repeat ((byte)0x61, 0x20));
 		CollectionAssert.AreEqual (expected, AppleTvControlLibrary.Opack.Opack.Pack (new string ('a', 0x20)));
 		}
 
@@ -110,10 +110,10 @@ public class OpackTests
 	[TestMethod]
 	public void PackLongerStrings ()
 		{
-		byte[] expected33 = Concat (new byte[] { 0x61, 0x21 }, Repeat ((byte)0x61, 33));
+		var expected33 = Concat ([0x61, 0x21], Repeat ((byte)0x61, 33));
 		CollectionAssert.AreEqual (expected33, AppleTvControlLibrary.Opack.Opack.Pack (new string ('a', 33)));
 
-		byte[] expected256 = Concat (new byte[] { 0x62, 0x00, 0x01 }, Repeat ((byte)0x61, 256));
+		var expected256 = Concat ([0x62, 0x00, 0x01], Repeat ((byte)0x61, 256));
 		CollectionAssert.AreEqual (expected256, AppleTvControlLibrary.Opack.Opack.Pack (new string ('a', 256)));
 		}
 
@@ -124,7 +124,7 @@ public class OpackTests
 		CollectionAssert.AreEqual (new byte[] { 0x71, 0xac }, AppleTvControlLibrary.Opack.Opack.Pack (new byte[] { 0xac }));
 		CollectionAssert.AreEqual (new byte[] { 0x73, 0x12, 0x34, 0x56 }, AppleTvControlLibrary.Opack.Opack.Pack (new byte[] { 0x12, 0x34, 0x56 }));
 
-		byte[] expected = Concat (new byte[] { 0x90 }, Repeat ((byte)0xad, 0x20));
+		var expected = Concat ([0x90], Repeat ((byte)0xad, 0x20));
 		CollectionAssert.AreEqual (expected, AppleTvControlLibrary.Opack.Opack.Pack (Repeat ((byte)0xad, 0x20)));
 		}
 
@@ -132,13 +132,13 @@ public class OpackTests
 	[TestMethod]
 	public void PackLongerRawBytes ()
 		{
-		byte[] expected33 = Concat (new byte[] { 0x91, 0x21 }, Repeat ((byte)0x61, 33));
+		var expected33 = Concat ([0x91, 0x21], Repeat ((byte)0x61, 33));
 		CollectionAssert.AreEqual (expected33, AppleTvControlLibrary.Opack.Opack.Pack (Repeat ((byte)0x61, 33)));
 
-		byte[] expected256 = Concat (new byte[] { 0x92, 0x00, 0x01 }, Repeat ((byte)0x61, 256));
+		var expected256 = Concat ([0x92, 0x00, 0x01], Repeat ((byte)0x61, 256));
 		CollectionAssert.AreEqual (expected256, AppleTvControlLibrary.Opack.Opack.Pack (Repeat ((byte)0x61, 256)));
 
-		byte[] expected65536 = Concat (new byte[] { 0x93, 0x00, 0x00, 0x01, 0x00 }, Repeat ((byte)0x61, 65536));
+		var expected65536 = Concat ([0x93, 0x00, 0x00, 0x01, 0x00], Repeat ((byte)0x61, 65536));
 		CollectionAssert.AreEqual (expected65536, AppleTvControlLibrary.Opack.Opack.Pack (Repeat ((byte)0x61, 65536)));
 		}
 
@@ -149,7 +149,7 @@ public class OpackTests
 		CollectionAssert.AreEqual (new byte[] { 0xd0 }, AppleTvControlLibrary.Opack.Opack.Pack (new List<object?> ()));
 
 		var list = new List<object?> { 1L, "test", false };
-		byte[] expected = { 0xd3, 0x09, 0x44, 0x74, 0x65, 0x73, 0x74, 0x02 };
+		byte[] expected = [0xd3, 0x09, 0x44, 0x74, 0x65, 0x73, 0x74, 0x02];
 		CollectionAssert.AreEqual (expected, AppleTvControlLibrary.Opack.Opack.Pack (list));
 
 		var nested = new List<object?> { new List<object?> { true } };
@@ -161,12 +161,12 @@ public class OpackTests
 	public void PackEndlessArray ()
 		{
 		var list = new List<object?> ();
-		for (int i = 0; i < 15; i++)
+		for (var i = 0; i < 15; i++)
 			{
 			list.Add ("a");
 			}
 
-		byte[] expected = Concat (new byte[] { 0xdf, 0x41, 0x61 }, Concat (Repeat ((byte)0xa0, 14), new byte[] { 0x03 }));
+		var expected = Concat ([0xdf, 0x41, 0x61], Concat (Repeat ((byte)0xa0, 14), [0x03]));
 		CollectionAssert.AreEqual (expected, AppleTvControlLibrary.Opack.Opack.Pack (list));
 		}
 
@@ -211,16 +211,16 @@ public class OpackTests
 	public void UnpackUnsupportedTypeThrows ()
 		{
 		Assert.Throws<NotSupportedException> (() =>
-			AppleTvControlLibrary.Opack.Opack.Unpack (new byte[] { 0x00 }, out _));
+			AppleTvControlLibrary.Opack.Opack.Unpack ([0x00], out _));
 		}
 
 	// tests/support/test_opack.py: test_unpack_boolean
 	[TestMethod]
 	public void UnpackBoolean ()
 		{
-		Assert.AreEqual (true, AppleTvControlLibrary.Opack.Opack.Unpack (new byte[] { 0x01 }, out int consumed));
+		Assert.IsTrue ((bool?)AppleTvControlLibrary.Opack.Opack.Unpack ([0x01], out var consumed));
 		Assert.AreEqual (1, consumed);
-		Assert.AreEqual (false, AppleTvControlLibrary.Opack.Opack.Unpack (new byte[] { 0x02 }, out consumed));
+		Assert.IsFalse ((bool?)AppleTvControlLibrary.Opack.Opack.Unpack ([0x02], out consumed));
 		Assert.AreEqual (1, consumed);
 		}
 
@@ -228,7 +228,7 @@ public class OpackTests
 	[TestMethod]
 	public void UnpackNone ()
 		{
-		Assert.IsNull (AppleTvControlLibrary.Opack.Opack.Unpack (new byte[] { 0x04 }, out int consumed));
+		Assert.IsNull (AppleTvControlLibrary.Opack.Opack.Unpack ([0x04], out var consumed));
 		Assert.AreEqual (1, consumed);
 		}
 
@@ -240,9 +240,9 @@ public class OpackTests
 	[DataRow (new byte[] { 0xdf, 0x30, 0x01, 0x30, 0x02, 0xc4, 0x01, 0x00, 0x00, 0x00, 0x03 })]
 	public void UnpackUid (byte[] data)
 		{
-		var value = AppleTvControlLibrary.Opack.Opack.Unpack (data, out int consumed) as List<object?>;
+		var value = AppleTvControlLibrary.Opack.Opack.Unpack (data, out var consumed) as List<object?>;
 		Assert.IsNotNull (value);
-		Assert.AreEqual (3, value.Count);
+		Assert.HasCount (3, value);
 		Assert.AreEqual (new SizedInteger (1, 1).Value, ((SizedInteger)value[0]!).Value);
 		Assert.AreEqual (new SizedInteger (2, 1).Value, ((SizedInteger)value[1]!).Value);
 		Assert.AreEqual (new SizedInteger (2, 1).Value, ((SizedInteger)value[2]!).Value);
@@ -301,13 +301,13 @@ public class OpackTests
 			["_t"] = 2L,
 			};
 
-		byte[] packed = AppleTvControlLibrary.Opack.Opack.Pack (data);
-		var unpacked = AppleTvControlLibrary.Opack.Opack.Unpack (packed, out int consumed) as Dictionary<object, object?>;
+		var packed = AppleTvControlLibrary.Opack.Opack.Pack (data);
+		var unpacked = AppleTvControlLibrary.Opack.Opack.Unpack (packed, out var consumed) as Dictionary<object, object?>;
 
 		Assert.AreEqual (packed.Length, consumed);
 		Assert.IsNotNull (unpacked);
 		Assert.AreEqual ("_systemInfo", unpacked["_i"]);
-		Assert.AreEqual (false, unpacked["_btHP"]);
+		Assert.IsFalse ((bool?)unpacked["_btHP"]);
 		Assert.AreEqual (2L, unpacked["_t"]);
 
 		var unpackedContent = (Dictionary<object, object?>)unpacked["_c"]!;
@@ -315,7 +315,7 @@ public class OpackTests
 		Assert.AreEqual ("iPhone", unpackedContent["name"]);
 
 		var unpackedStA = (List<object?>)unpackedContent["_stA"]!;
-		Assert.AreEqual (6, unpackedStA.Count);
+		Assert.HasCount (6, unpackedStA);
 		Assert.AreEqual ("com.apple.LiveAudio", unpackedStA[0]);
 		}
 
@@ -330,7 +330,7 @@ public class OpackTests
 	private static byte[] Repeat (byte value, int count)
 		{
 		var result = new byte[count];
-		for (int i = 0; i < count; i++)
+		for (var i = 0; i < count; i++)
 			{
 			result[i] = value;
 			}

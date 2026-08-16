@@ -165,7 +165,6 @@ public sealed class FakeCompanionOpackDevice
 	// tests/fake_device/companion.py:102 (self.rti_session_uuid: Optional[bytes] = None)
 	private byte[]? _rtiSessionUuid;
 
-
 	// pyatv/protocols/companion/keyed_archiver.py (read_archive_properties path used in text_input_command) — line 434-438 as of pyatv 0.18.0
 	private static readonly string[] _targetSessionUuidPath = ["textOperations", "targetSessionUUID", "NS.uuidbytes"];
 	private static readonly string[] _textToAssertPath = ["textOperations", "textToAssert"];

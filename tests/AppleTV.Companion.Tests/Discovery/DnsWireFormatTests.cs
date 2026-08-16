@@ -22,16 +22,16 @@ public class DnsWireFormatTests
 	[TestMethod]
 	public void QNameEncode_SimpleName_EncodesLengthPrefixedLabels ()
 		{
-		byte[] encoded = DnsWireFormat.QNameEncode ("_companion-link._tcp.local");
+		var encoded = DnsWireFormat.QNameEncode ("_companion-link._tcp.local");
 
-		byte[] expected = Concat (
-			new byte[] { (byte)"_companion-link".Length },
+		var expected = Concat (
+			[(byte)"_companion-link".Length],
 			Encoding.UTF8.GetBytes ("_companion-link"),
-			new byte[] { (byte)"_tcp".Length },
+			[(byte)"_tcp".Length],
 			Encoding.UTF8.GetBytes ("_tcp"),
-			new byte[] { (byte)"local".Length },
+			[(byte)"local".Length],
 			Encoding.UTF8.GetBytes ("local"),
-			new byte[] { 0 });
+			[0]);
 
 		CollectionAssert.AreEqual (expected, encoded);
 		}
@@ -40,10 +40,10 @@ public class DnsWireFormatTests
 	[TestMethod]
 	public void ParseDomainName_RoundTripsSimpleName ()
 		{
-		byte[] encoded = DnsWireFormat.QNameEncode ("Office._companion-link._tcp.local");
+		var encoded = DnsWireFormat.QNameEncode ("Office._companion-link._tcp.local");
 		DnsBufferReader reader = new DnsBufferReader (encoded);
 
-		string decoded = DnsWireFormat.ParseDomainName (reader);
+		var decoded = DnsWireFormat.ParseDomainName (reader);
 
 		Assert.AreEqual ("Office._companion-link._tcp.local", decoded);
 		}
@@ -52,10 +52,10 @@ public class DnsWireFormatTests
 	[TestMethod]
 	public void ParseString_ReadsLengthPrefixedData ()
 		{
-		byte[] data = new byte[] { 3, (byte)'a', (byte)'b', (byte)'c' };
+		byte[] data = [3, (byte)'a', (byte)'b', (byte)'c'];
 		DnsBufferReader reader = new DnsBufferReader (data);
 
-		byte[] result = DnsWireFormat.ParseString (reader);
+		var result = DnsWireFormat.ParseString (reader);
 
 		CollectionAssert.AreEqual (new byte[] { (byte)'a', (byte)'b', (byte)'c' }, result);
 		}
@@ -96,7 +96,7 @@ public class DnsWireFormatTests
 
 	private static void AppendString (List<byte> buffer, string value)
 		{
-		byte[] bytes = Encoding.ASCII.GetBytes (value);
+		var bytes = Encoding.ASCII.GetBytes (value);
 		buffer.Add ((byte)bytes.Length);
 		buffer.AddRange (bytes);
 		}
@@ -110,7 +110,7 @@ public class DnsWireFormatTests
 	private static byte[] Concat (params byte[][] arrays)
 		{
 		List<byte> result = new List<byte> ();
-		foreach (byte[] array in arrays)
+		foreach (var array in arrays)
 			{
 			result.AddRange (array);
 			}

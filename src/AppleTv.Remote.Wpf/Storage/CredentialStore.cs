@@ -139,7 +139,7 @@ public sealed class CredentialStore
 			"AppleTvRemoteWpf",
 			"credentials");
 
-		Directory.CreateDirectory (_directory);
+		_ = Directory.CreateDirectory (_directory);
 		}
 
 	/// <summary>Loads a previously paired device's stored credentials, if present.</summary>
@@ -223,10 +223,7 @@ public sealed class CredentialStore
 		}
 
 	/// <summary>Returns the stored device currently marked for auto-connect, if any.</summary>
-	public StoredDevice? LoadAutoConnectDevice ()
-		{
-		return LoadAll ().FirstOrDefault (d => d.AutoConnect);
-		}
+	public StoredDevice? LoadAutoConnectDevice () => LoadAll ().FirstOrDefault (d => d.AutoConnect);
 
 	private string GetPath (string uniqueId)
 		{

@@ -59,28 +59,32 @@ public enum InputAction
 /// <summary>
 /// Raised when a SEND_COMMAND_MESSAGE exchange completes with a SendError other than NoError.
 /// </summary>
+/// <remarks>Initializes a new instance of the <see cref="MrpCommandException"/> class.</remarks>
+/// <param name="message">The exception message.</param>
 // pyatv/exceptions.py (CommandError) — line 36-38 as of pyatv 0.18.0
-public class MrpCommandException : Exception
+public class MrpCommandException (string message) : Exception(message)
 	{
-	/// <summary>Initializes a new instance of the <see cref="MrpCommandException"/> class.</summary>
-	/// <param name="message">The exception message.</param>
-	public MrpCommandException (string message) : base (message)
-		{
-		}
 	}
 
 /// <summary>
 /// Implementation of the MRP remote-control command surface: directional/menu/select HID keys,
 /// playback transport commands, seek, repeat/shuffle, and absolute volume.
 /// </summary>
+/// <remarks>Initializes a new instance of the <see cref="MrpRemoteControl"/> class.</remarks>
+/// <param name="protocol">The MRP protocol instance used to send/receive messages.</param>
+/// <param name="playerStateManager">The player state manager used to look up command capabilities.</param>
+/// <param name="httpClient">
+/// The HTTP client used to fetch remote artwork (e.g. iTunes-hosted artwork referenced by
+/// <c>artworkIdentifier</c>/<c>artworkURL</c>). If not supplied, a default instance is created.
+/// </param>
 // pyatv/protocols/mrp/__init__.py (MrpRemoteControl) — line 328-479 as of pyatv 0.18.0
-public sealed class MrpRemoteControl
+public sealed class MrpRemoteControl (MrpProtocol protocol, MrpPlayerStateManager playerStateManager, HttpClient? httpClient = null)
 	{
 	// pyatv/protocols/mrp/__init__.py (_DEFAULT_SKIP_TIME) — line 75 as of pyatv 0.18.0
-	private const int DefaultSkipTime = 15;
+	private const int DEFAULT_SKIP_TIME = 15;
 
 	// pyatv/protocols/mrp/__init__.py (_KEY_LOOKUP) — line 78-96 as of pyatv 0.18.0
-	private static readonly Dictionary<string, (int UsePage, int Usage)> KeyLookup = new ()
+	private static readonly Dictionary<string, (int UsePage, int Usage)> _keyLookup = new ()
 		{
 		{ "up", (1, 0x8C) },
 		{ "down", (1, 0x8D) },
@@ -99,29 +103,14 @@ public sealed class MrpRemoteControl
 		{ "volume_down", (12, 0xEA) },
 		};
 
-	private readonly MrpProtocol _protocol;
-	private readonly MrpPlayerStateManager _playerStateManager;
-	private readonly HttpClient _httpClient;
+	private readonly MrpProtocol _protocol = protocol;
+	private readonly MrpPlayerStateManager _playerStateManager = playerStateManager;
+	private readonly HttpClient _httpClient = httpClient ?? new HttpClient ();
 
 	// pyatv/protocols/mrp/__init__.py (MrpMetadata.__init__ / self.artwork_cache = Cache(limit=4)) — line 485-497 as of pyatv 0.18.0
-	private const int ArtworkCacheLimit = 4;
+	private const int ARTWORK_CACHE_LIMIT = 4;
 	private readonly Dictionary<string, (byte[] Data, string? MimeType)?> _artworkCache = [];
 	private readonly List<string> _artworkCacheOrder = [];
-
-	/// <summary>Initializes a new instance of the <see cref="MrpRemoteControl"/> class.</summary>
-	/// <param name="protocol">The MRP protocol instance used to send/receive messages.</param>
-	/// <param name="playerStateManager">The player state manager used to look up command capabilities.</param>
-	/// <param name="httpClient">
-	/// The HTTP client used to fetch remote artwork (e.g. iTunes-hosted artwork referenced by
-	/// <c>artworkIdentifier</c>/<c>artworkURL</c>). If not supplied, a default instance is created.
-	/// </param>
-	// pyatv/protocols/mrp/__init__.py (MrpRemoteControl.__init__) — line 331-340 as of pyatv 0.18.0
-	public MrpRemoteControl (MrpProtocol protocol, MrpPlayerStateManager playerStateManager, HttpClient? httpClient = null)
-		{
-		_protocol = protocol;
-		_playerStateManager = playerStateManager;
-		_httpClient = httpClient ?? new HttpClient ();
-		}
 
 	/// <summary>Press key up.</summary>
 	/// <param name="action">The type of press to perform.</param>
@@ -368,7 +357,7 @@ public sealed class MrpRemoteControl
 			}
 		else
 			{
-			skipInterval = DefaultSkipTime;
+			skipInterval = DEFAULT_SKIP_TIME;
 			}
 
 		return SendCommandAsync (command, options => options.SkipInterval = skipInterval, cancellationToken);
@@ -416,7 +405,7 @@ public sealed class MrpRemoteControl
 			return cached;
 			}
 
-		(byte[] Data, string? MimeType)? artwork = null;
+		(byte[] Data, string? MimeType)? artwork;
 		try
 			{
 			artwork = await GetRemoteArtworkAsync (width, height, cancellationToken).ConfigureAwait (false);
@@ -438,12 +427,9 @@ public sealed class MrpRemoteControl
 		{
 		MrpPlayerState playing = _playerStateManager.Playing;
 		ContentItemMetadata? metadata = playing.Metadata;
-		if (metadata is null || !((metadata.HasArtworkAvailable && metadata.ArtworkAvailable) || metadata.HasArtworkURL))
-			{
-			return null;
-			}
-
-		return metadata.HasArtworkIdentifier
+		return metadata is null || !((metadata.HasArtworkAvailable && metadata.ArtworkAvailable) || metadata.HasArtworkURL)
+			? null
+			: metadata.HasArtworkIdentifier
 			? metadata.ArtworkIdentifier
 			: metadata.HasContentIdentifier ? metadata.ContentIdentifier : playing.ItemIdentifier;
 		}
@@ -514,7 +500,7 @@ public sealed class MrpRemoteControl
 			{
 			_ = _artworkCacheOrder.Remove (identifier);
 			}
-		else if (_artworkCacheOrder.Count >= ArtworkCacheLimit)
+		else if (_artworkCacheOrder.Count >= ARTWORK_CACHE_LIMIT)
 			{
 			string oldest = _artworkCacheOrder[0];
 			_artworkCacheOrder.RemoveAt (0);
@@ -562,7 +548,7 @@ public sealed class MrpRemoteControl
 	// pyatv/protocols/mrp/__init__.py (_send_hid_key) — line 296-324 as of pyatv 0.18.0
 	private async Task SendHidKeyAsync (string key, InputAction action, CancellationToken cancellationToken)
 		{
-		if (!KeyLookup.TryGetValue (key, out (int UsePage, int Usage) keycode))
+		if (!_keyLookup.TryGetValue (key, out (int UsePage, int Usage) keycode))
 			{
 			throw new NotSupportedException ($"unsupported key: {key}");
 			}

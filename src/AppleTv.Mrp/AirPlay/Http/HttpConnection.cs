@@ -28,10 +28,7 @@ public sealed class HttpConnection : IDisposable
 		public HttpResponse? Response;
 		public bool ConnectionClosed;
 
-		public void Dispose ()
-			{
-			Signal.Dispose ();
-			}
+		public void Dispose () => Signal.Dispose ();
 		}
 
 	private readonly TcpClient _client;
@@ -190,12 +187,9 @@ public sealed class HttpConnection : IDisposable
 
 			HttpResponse response = pending.Response ?? throw new InvalidOperationException ("did not get a response");
 
-			if (response.Code == 403)
-				{
-				throw new UnauthorizedAccessException ("not authenticated");
-				}
-
-			return response.Code == 401
+			return response.Code == 403
+				? throw new UnauthorizedAccessException ("not authenticated")
+				: response.Code == 401
 				? allowError ? response : throw new UnauthorizedAccessException ("not authenticated")
 				: (response.Code >= 200 && response.Code < 300) || allowError
 				? response

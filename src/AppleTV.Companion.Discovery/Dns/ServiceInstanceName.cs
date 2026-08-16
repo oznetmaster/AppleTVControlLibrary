@@ -35,7 +35,7 @@ public sealed class ServiceInstanceName (string? instance, string service, strin
 
 	/// <summary>Gets just the service name, like the name for a PTR record.</summary>
 	// pyatv/support/dns.py (ptr_name) — line 65-68 as of pyatv 0.18.0
-	public string PtrName => string.Join (".", new[] { Service, Domain });
+	public string PtrName => string.Join (".", [Service, Domain]);
 
 	/// <summary>
 	/// Splits a name into instance (optional), service, and domain parts.

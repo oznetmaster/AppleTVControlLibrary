@@ -52,18 +52,18 @@ public class Tlv8Tests
 
 	// tests/auth/test_hap_tlv8.py:27-28 (test_write_single_key)
 	[TestMethod]
-	public void WriteSingleKey () => CollectionAssert.AreEqual (_singleKeyOut, AppleTvControlLibrary.Tlv8.Tlv8.WriteTlv (SingleKeyIn));
+	public void WriteSingleKey () => Assert.AreSequenceEqual (_singleKeyOut, AppleTvControlLibrary.Tlv8.Tlv8.WriteTlv (SingleKeyIn));
 
 	// tests/auth/test_hap_tlv8.py:31-32 (test_write_two_keys)
 	[TestMethod]
-	public void WriteTwoKeys () => CollectionAssert.AreEqual (DoubleKeyOut, AppleTvControlLibrary.Tlv8.Tlv8.WriteTlv (DoubleKeyIn));
+	public void WriteTwoKeys () => Assert.AreSequenceEqual (DoubleKeyOut, AppleTvControlLibrary.Tlv8.Tlv8.WriteTlv (DoubleKeyIn));
 
 	// tests/auth/test_hap_tlv8.py:35-38 (test_write_key_larger_than_255_bytes)
 	[TestMethod]
 	public void WriteKeyLargerThan255Bytes () =>
 		// This will actually result in two serialized TLVs, one being 255 bytes
 		// and the next one will contain the remaining one byte
-		CollectionAssert.AreEqual (LargeKeyOut, AppleTvControlLibrary.Tlv8.Tlv8.WriteTlv (LargeKeyIn));
+		Assert.AreSequenceEqual (LargeKeyOut, AppleTvControlLibrary.Tlv8.Tlv8.WriteTlv (LargeKeyIn));
 
 	// tests/auth/test_hap_tlv8.py:41-42 (test_read_single_key)
 	[TestMethod]
@@ -185,10 +185,10 @@ public class Tlv8Tests
 		var read = AppleTvControlLibrary.Tlv8.Tlv8.ReadTlv (written);
 
 		Assert.IsTrue (read.ContainsKey (5));
-		CollectionAssert.AreEqual (value, read[5]);
+		Assert.AreSequenceEqual (value, read[5]);
 		}
 
-	private static Dictionary<int, byte[]> Entry (TlvValue key, byte value) => new Dictionary<int, byte[]> { [(int)key] = [value] };
+	private static Dictionary<int, byte[]> Entry (TlvValue key, byte value) => new () { [(int)key] = [value] };
 
 	private static void AssertDictionariesEqual (Dictionary<int, byte[]> expected, Dictionary<int, byte[]> actual)
 		{
@@ -196,7 +196,7 @@ public class Tlv8Tests
 		foreach (var kvp in expected)
 			{
 			Assert.IsTrue (actual.ContainsKey (kvp.Key));
-			CollectionAssert.AreEqual (kvp.Value, actual[kvp.Key]);
+			Assert.AreSequenceEqual (kvp.Value, actual[kvp.Key]);
 			}
 		}
 

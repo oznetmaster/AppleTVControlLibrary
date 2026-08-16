@@ -52,10 +52,7 @@ public sealed class TcpCompanionTransport : IDisposable, IAsyncDisposable
 	/// <param name="protocol">The protocol instance whose outbound frames should be written to the socket.</param>
 	/// <returns>A connected <see cref="TcpCompanionTransport"/>.</returns>
 	[Obsolete ("Use ConnectAsync instead.")]
-	public static TcpCompanionTransport Connect (string host, int port, CompanionConnection connection, CompanionProtocol protocol)
-		{
-		return ConnectAsync (host, port, connection, protocol).ConfigureAwait (false).GetAwaiter ().GetResult ();
-		}
+	public static TcpCompanionTransport Connect (string host, int port, CompanionConnection connection, CompanionProtocol protocol) => ConnectAsync (host, port, connection, protocol).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously connects and wires a TCP transport to a Companion protocol.</summary>
 	public static async Task<TcpCompanionTransport> ConnectAsync (string host, int port, CompanionConnection connection, CompanionProtocol protocol, CancellationToken cancellationToken = default)
@@ -174,9 +171,9 @@ public sealed class TcpCompanionTransport : IDisposable, IAsyncDisposable
 		}
 
 	/// <summary>Asynchronously closes the socket and waits for the read loop to stop.</summary>
-	public async ValueTask DisposeAsync ()
+	public ValueTask DisposeAsync ()
 		{
 		Dispose ();
-		await Task.Run (() => _readThread.Join ()).ConfigureAwait (false);
+		return new ValueTask (Task.Run (_readThread.Join));
 		}
 	}

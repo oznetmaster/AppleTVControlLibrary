@@ -22,8 +22,12 @@ namespace AppleTvControlLibrary.Mrp.AirPlay.Auth;
 /// support (see auth/__init__.py — line 84-98 as of pyatv 0.18.0: HAP credentials are required
 /// for Apple TV once tvOS >= 13).
 /// </remarks>
+/// <remarks>Initializes a new instance of the <see cref="AirPlayHapPairVerifyProcedure"/> class.</remarks>
+/// <param name="http">The AirPlay control connection.</param>
+/// <param name="srp">The SRP handler used for key agreement.</param>
+/// <param name="credentials">The previously-paired credentials for the device.</param>
 // pyatv/protocols/airplay/auth/hap.py (AirPlayHapPairVerifyProcedure) — line 92-142 as of pyatv 0.18.0
-public sealed class AirPlayHapPairVerifyProcedure
+public sealed class AirPlayHapPairVerifyProcedure (HttpConnection http, SrpAuthHandler srp, HapCredentials credentials)
 	{
 	// pyatv/protocols/airplay/auth/hap.py (_AIRPLAY_HEADERS) — line 20-25 as of pyatv 0.18.0
 	internal static readonly Dictionary<string, string> AirPlayHeaders = new ()
@@ -34,21 +38,9 @@ public sealed class AirPlayHapPairVerifyProcedure
 		["Content-Type"] = "application/octet-stream",
 		};
 
-	private readonly HttpConnection _http;
-	private readonly SrpAuthHandler _srp;
-	private readonly HapCredentials _credentials;
-
-	/// <summary>Initializes a new instance of the <see cref="AirPlayHapPairVerifyProcedure"/> class.</summary>
-	/// <param name="http">The AirPlay control connection.</param>
-	/// <param name="srp">The SRP handler used for key agreement.</param>
-	/// <param name="credentials">The previously-paired credentials for the device.</param>
-	// pyatv/protocols/airplay/auth/hap.py (__init__) — line 95-101 as of pyatv 0.18.0
-	public AirPlayHapPairVerifyProcedure (HttpConnection http, SrpAuthHandler srp, HapCredentials credentials)
-		{
-		_http = http;
-		_srp = srp;
-		_credentials = credentials;
-		}
+	private readonly HttpConnection _http = http;
+	private readonly SrpAuthHandler _srp = srp;
+	private readonly HapCredentials _credentials = credentials;
 
 	/// <summary>Verify the device is allowed to use AirPlay.</summary>
 	/// <returns><see langword="true"/> if verification succeeded.</returns>
@@ -100,23 +92,16 @@ public sealed class AirPlayHapPairVerifyProcedure
 /// AirPlay-specific <see cref="HapCredentials"/> (distinct from, and not interchangeable with,
 /// MRP's own pairing/credentials, since they are separate services on separate ports).
 /// </summary>
+/// <remarks>Initializes a new instance of the <see cref="AirPlayHapPairSetupProcedure"/> class.</remarks>
+/// <param name="http">The AirPlay control connection.</param>
+/// <param name="srp">The SRP handler used for key agreement.</param>
 // pyatv/protocols/airplay/auth/hap.py (AirPlayHapPairSetupProcedure) — line 33-84 as of pyatv 0.18.0
-public sealed class AirPlayHapPairSetupProcedure
+public sealed class AirPlayHapPairSetupProcedure (HttpConnection http, SrpAuthHandler srp)
 	{
-	private readonly HttpConnection _http;
-	private readonly SrpAuthHandler _srp;
+	private readonly HttpConnection _http = http;
+	private readonly SrpAuthHandler _srp = srp;
 	private byte[]? _atvSalt;
 	private byte[]? _atvPubKey;
-
-	/// <summary>Initializes a new instance of the <see cref="AirPlayHapPairSetupProcedure"/> class.</summary>
-	/// <param name="http">The AirPlay control connection.</param>
-	/// <param name="srp">The SRP handler used for key agreement.</param>
-	// pyatv/protocols/airplay/auth/hap.py (__init__) — line 36-41 as of pyatv 0.18.0
-	public AirPlayHapPairSetupProcedure (HttpConnection http, SrpAuthHandler srp)
-		{
-		_http = http;
-		_srp = srp;
-		}
 
 	/// <summary>Start the pairing process. Causes the device to display an on-screen PIN.</summary>
 	// pyatv/protocols/airplay/auth/hap.py (start_pairing) — line 43-58 as of pyatv 0.18.0

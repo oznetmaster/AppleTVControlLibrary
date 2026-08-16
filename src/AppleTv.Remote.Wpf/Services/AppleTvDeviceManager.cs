@@ -25,28 +25,24 @@ namespace AppleTvControlLibrary.Remote.Wpf.Services;
 /// <see cref="SrpAuthHandler"/>, <see cref="CompanionProtocol"/>/<see cref="CompanionApi"/>,
 /// <see cref="TcpCompanionTransport"/> and <see cref="CredentialStore"/>.
 /// </summary>
-public sealed class AppleTvDeviceManager : IDisposable
+/// <remarks>Initializes a new instance of the <see cref="AppleTvDeviceManager"/> class.</remarks>
+/// <param name="discovery">The discovery implementation to use for scanning.</param>
+/// <param name="credentialStore">The credential store used to persist/load pairings.</param>
+public sealed class AppleTvDeviceManager (ICompanionDiscovery? discovery = null, CredentialStore? credentialStore = null) : IDisposable
 	{
-	private readonly ICompanionDiscovery _discovery;
-	private readonly CredentialStore _credentialStore;
+	private readonly ICompanionDiscovery _discovery = discovery ?? new MulticastCompanionDiscovery ();
+	private readonly CredentialStore _credentialStore = credentialStore ?? new CredentialStore ();
 
 	private TcpCompanionTransport? _transport;
-	private CompanionApi? _api;
-
-	/// <summary>Initializes a new instance of the <see cref="AppleTvDeviceManager"/> class.</summary>
-	/// <param name="discovery">The discovery implementation to use for scanning.</param>
-	/// <param name="credentialStore">The credential store used to persist/load pairings.</param>
-	public AppleTvDeviceManager (ICompanionDiscovery? discovery = null, CredentialStore? credentialStore = null)
-		{
-		_discovery = discovery ?? new MulticastCompanionDiscovery ();
-		_credentialStore = credentialStore ?? new CredentialStore ();
-		}
 
 	/// <summary>Gets the connected <see cref="CompanionApi"/> instance, if connected.</summary>
-	public CompanionApi? Api => _api;
+	public CompanionApi? Api
+		{
+		get; private set;
+		}
 
 	/// <summary>Gets a value indicating whether a device is currently connected.</summary>
-	public bool IsConnected => _api is not null;
+	public bool IsConnected => Api is not null;
 
 	/// <summary>
 	/// Raised whenever the connected device's advertised media-control capabilities (including
@@ -60,7 +56,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <c>SystemStatus</c>/<c>TVSystemStatus</c> events. <see cref="SystemStatus.Unknown"/> if
 	/// not connected or if no status has been observed yet.
 	/// </summary>
-	public SystemStatus CurrentSystemStatus => _api?.CurrentSystemStatus ?? SystemStatus.Unknown;
+	public SystemStatus CurrentSystemStatus => Api?.CurrentSystemStatus ?? SystemStatus.Unknown;
 
 	/// <summary>
 	/// Raised whenever a pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> event updates
@@ -86,7 +82,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <see cref="KeyboardFocusState.Unknown"/> if not connected or if no state has been
 	/// observed yet.
 	/// </summary>
-	public KeyboardFocusState TextFocusState => _api?.TextFocusState ?? KeyboardFocusState.Unknown;
+	public KeyboardFocusState TextFocusState => Api?.TextFocusState ?? KeyboardFocusState.Unknown;
 
 	/// <summary>
 	/// Raised whenever <see cref="TextFocusState"/> changes: the Apple TV wants (or no longer
@@ -96,38 +92,17 @@ public sealed class AppleTvDeviceManager : IDisposable
 
 	/// <summary>Gets the current virtual keyboard text from the connected device.</summary>
 	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_get) — line 517-519 as of pyatv 0.18.0
-	public async Task<string?> TextGetAsync ()
-		{
-		if (_api is null)
-			{
-			throw new InvalidOperationException ("Not connected");
-			}
-
-#pragma warning restore CS0618
-
-		return await _api.TextGetAsync ().ConfigureAwait (false);
-		}
+	public Task<string?> TextGetAsync () => Api is null ? throw new InvalidOperationException ("Not connected") : Api.TextGetAsync ();
 
 	/// <summary>Replaces the virtual keyboard text on the connected device.</summary>
 	/// <param name="text">The new text.</param>
 	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_set) — line 529-531 as of pyatv 0.18.0
-	public async Task SetTextAsync (string text)
-		{
-		if (_api is null)
-			{
-			throw new InvalidOperationException ("Not connected");
-			}
-
-		await _api.TextSetAsync (text).ConfigureAwait (false);
-		}
+	public Task SetTextAsync (string text) => Api is null ? throw new InvalidOperationException ("Not connected") : Api.TextSetAsync (text);
 
 	/// <summary>Scans the network for Companion Link devices.</summary>
 	/// <param name="timeout">How long to scan for.</param>
 	/// <param name="cancellationToken">A token to cancel the scan.</param>
-	public Task<IReadOnlyList<CompanionDiscoveryResult>> ScanAsync (TimeSpan timeout, CancellationToken cancellationToken = default)
-		{
-		return _discovery.ScanAsync (timeout, cancellationToken);
-		}
+	public Task<IReadOnlyList<CompanionDiscoveryResult>> ScanAsync (TimeSpan timeout, CancellationToken cancellationToken = default) => _discovery.ScanAsync (timeout, cancellationToken);
 
 	/// <summary>Loads previously saved credentials for the given device, if any.</summary>
 	/// <param name="uniqueId">The device's stable unique id.</param>
@@ -186,7 +161,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <param name="device">The device to pair with.</param>
 	/// <returns>An in-progress pairing session to pass to <see cref="CompletePairAsync"/>.</returns>
 	// pyatv/protocols/companion/auth.py (CompanionPairSetupProcedure, M1/M2) — line 37-60 as of pyatv 0.18.0
-	public async Task<PairingSession> BeginPairAsync (CompanionDiscoveryResult device)
+	public static async Task<PairingSession> BeginPairAsync (CompanionDiscoveryResult device)
 		{
 		if (device.Address is null)
 			{
@@ -199,7 +174,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 			device.Address.ToString (), device.Port, connection, protocol).ConfigureAwait (false);
 
 			SrpAuthHandler srp = new SrpAuthHandler ();
-			srp.Initialize ();
+		_ = srp.Initialize ();
 
 			// M1 - sending this is what makes the Apple TV display the on-screen PIN.
 			byte[] m1 = Tlv8.Tlv8.WriteTlv (new Dictionary<int, byte[]>
@@ -225,62 +200,59 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <param name="pin">The PIN code displayed on the TV.</param>
 	/// <returns>The stored device record, ready to be used for <see cref="ConnectAsync"/>.</returns>
 	// pyatv/protocols/companion/auth.py (CompanionPairSetupProcedure, M3-M6) — line 60-100 as of pyatv 0.18.0
-	public async Task<StoredDevice> CompletePairAsync (PairingSession session, int pin)
-		{
-		return await Task.Run (() =>
-			{
-			using TcpCompanionTransport transport = session.Transport;
-			CompanionProtocol protocol = session.Protocol;
-			SrpAuthHandler srp = session.Srp;
-			CompanionDiscoveryResult device = session.Device;
-			byte[] atvSalt = session.AtvSalt;
-			byte[] atvPubKey = session.AtvPubKey;
+	public async Task<StoredDevice> CompletePairAsync (PairingSession session, int pin) => await Task.Run (() =>
+																																{
+																																	using TcpCompanionTransport transport = session.Transport;
+																																	CompanionProtocol protocol = session.Protocol;
+																																	SrpAuthHandler srp = session.Srp;
+																																	CompanionDiscoveryResult device = session.Device;
+																																	byte[] atvSalt = session.AtvSalt;
+																																	byte[] atvPubKey = session.AtvPubKey;
 
-			// M3
-			srp.Step1 (pin);
-			(byte[] clientPubKey, byte[] clientProof) = srp.Step2 (atvPubKey, atvSalt);
-			byte[] m3 = Tlv8.Tlv8.WriteTlv (new Dictionary<int, byte[]>
-				{
+																																	// M3
+																																	srp.Step1 (pin);
+																																	(byte[] clientPubKey, byte[] clientProof) = srp.Step2 (atvPubKey, atvSalt);
+																																	byte[] m3 = Tlv8.Tlv8.WriteTlv (new Dictionary<int, byte[]>
+																																	{
 				{ (int)TlvValue.SeqNo, new byte[] { 3 } },
 				{ (int)TlvValue.PublicKey, clientPubKey },
 				{ (int)TlvValue.Proof, clientProof },
-				});
-			Dictionary<object, object?> m4Response = protocol.ExchangeAuthAsync (FrameType.PS_Next, new Dictionary<string, object?> { ["_pd"] = m3, ["_pwTy"] = 1 }).ConfigureAwait (false).GetAwaiter ().GetResult ();
-			byte[] m4 = (byte[])m4Response["_pd"]!;
-			Dictionary<int, byte[]> m4Tlv = Tlv8.Tlv8.ReadTlv (m4);
-			if (m4Tlv.ContainsKey ((int)TlvValue.Error))
-				{
-				throw new AuthenticationException ("Pairing failed at M3/M4 - incorrect PIN?");
-				}
+																																	});
+																																	Dictionary<object, object?> m4Response = protocol.ExchangeAuthAsync (FrameType.PS_Next, new Dictionary<string, object?> { ["_pd"] = m3, ["_pwTy"] = 1 }).ConfigureAwait (false).GetAwaiter ().GetResult ();
+																																	byte[] m4 = (byte[])m4Response["_pd"]!;
+																																	Dictionary<int, byte[]> m4Tlv = Tlv8.Tlv8.ReadTlv (m4);
+																																	if (m4Tlv.ContainsKey ((int)TlvValue.Error))
+																																		{
+																																		throw new AuthenticationException ("Pairing failed at M3/M4 - incorrect PIN?");
+																																		}
 
-			// M5
-			byte[] m5EncryptedData = srp.Step3 (name: Environment.MachineName);
-			byte[] m5 = Tlv8.Tlv8.WriteTlv (new Dictionary<int, byte[]>
-				{
+																																	// M5
+																																	byte[] m5EncryptedData = srp.Step3 (name: Environment.MachineName);
+																																	byte[] m5 = Tlv8.Tlv8.WriteTlv (new Dictionary<int, byte[]>
+																																	{
 				{ (int)TlvValue.SeqNo, new byte[] { 5 } },
 				{ (int)TlvValue.EncryptedData, m5EncryptedData },
-				});
-			Dictionary<object, object?> m6Response = protocol.ExchangeAuthAsync (FrameType.PS_Next, new Dictionary<string, object?> { ["_pd"] = m5, ["_pwTy"] = 1 }).ConfigureAwait (false).GetAwaiter ().GetResult ();
-			byte[] m6 = (byte[])m6Response["_pd"]!;
-			Dictionary<int, byte[]> m6Tlv = Tlv8.Tlv8.ReadTlv (m6);
-			byte[] m6EncryptedData = m6Tlv[(int)TlvValue.EncryptedData];
+																																	});
+																																	Dictionary<object, object?> m6Response = protocol.ExchangeAuthAsync (FrameType.PS_Next, new Dictionary<string, object?> { ["_pd"] = m5, ["_pwTy"] = 1 }).ConfigureAwait (false).GetAwaiter ().GetResult ();
+																																	byte[] m6 = (byte[])m6Response["_pd"]!;
+																																	Dictionary<int, byte[]> m6Tlv = Tlv8.Tlv8.ReadTlv (m6);
+																																	byte[] m6EncryptedData = m6Tlv[(int)TlvValue.EncryptedData];
 
-			HapCredentials credentials = srp.Step4 (m6EncryptedData);
+																																	HapCredentials credentials = srp.Step4 (m6EncryptedData);
 
-			StoredDevice stored = new StoredDevice
-				{
-				UniqueId = device.UniqueId ?? ToHexString (credentials.AtvId).ToLowerInvariant (),
-				Name = device.Name,
-				Address = device.Address?.ToString () ?? string.Empty,
-				Port = device.Port,
-				StableIdentifier = GenerateStableIdentifier (),
-				};
-			stored.SetCredentials (credentials);
+																																	StoredDevice stored = new StoredDevice
+																																		{
+																																		UniqueId = device.UniqueId ?? ToHexString (credentials.AtvId).ToLowerInvariant (),
+																																		Name = device.Name,
+																																		Address = device.Address?.ToString () ?? string.Empty,
+																																		Port = device.Port,
+																																		StableIdentifier = GenerateStableIdentifier (),
+																																		};
+																																	stored.SetCredentials (credentials);
 
-			_credentialStore.Save (stored);
-			return stored;
-			}).ConfigureAwait (false);
-		}
+																																	_credentialStore.Save (stored);
+																																	return stored;
+																																}).ConfigureAwait (false);
 
 	/// <summary>
 	/// Connects to a previously paired device: performs pair-verify, enables encryption, and
@@ -353,7 +325,7 @@ public sealed class AppleTvDeviceManager : IDisposable
 			api.TextFocusStateChanged += OnTextFocusStateChanged;
 			api.ConnectionClosed += OnConnectionClosed;
 			_transport = transport;
-			_api = api;
+			Api = api;
 
 			// pyatv/protocols/companion/api.py (app_list/account_list) — best-effort, mirroring the
 			// FetchAttentionState pattern: some devices/tvOS builds do not populate these, which must
@@ -385,20 +357,11 @@ public sealed class AppleTvDeviceManager : IDisposable
 			}
 		}
 
-	private void OnMediaControlCapabilitiesChanged (object? sender, EventArgs e)
-		{
-		MediaControlCapabilitiesChanged?.Invoke (this, EventArgs.Empty);
-		}
+	private void OnMediaControlCapabilitiesChanged (object? sender, EventArgs e) => MediaControlCapabilitiesChanged?.Invoke (this, EventArgs.Empty);
 
-	private void OnSystemStatusChanged (object? sender, EventArgs e)
-		{
-		SystemStatusChanged?.Invoke (this, EventArgs.Empty);
-		}
+	private void OnSystemStatusChanged (object? sender, EventArgs e) => SystemStatusChanged?.Invoke (this, EventArgs.Empty);
 
-	private void OnTextFocusStateChanged (object? sender, EventArgs e)
-		{
-		TextFocusStateChanged?.Invoke (this, EventArgs.Empty);
-		}
+	private void OnTextFocusStateChanged (object? sender, EventArgs e) => TextFocusStateChanged?.Invoke (this, EventArgs.Empty);
 
 	// pyatv has no automatic reconnect for Companion; on an unexpected fault we simply tear down
 	// our side (same as Disconnect()) and let the consumer decide whether/how to reconnect.
@@ -413,40 +376,24 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// <param name="command">The button to send.</param>
 	public async Task SendHidCommandAsync (HidCommand command)
 		{
-		if (_api is null)
+		if (Api is null)
 			{
 			throw new InvalidOperationException ("Not connected");
 			}
 
-		await _api.SendHidCommandAsync (down: true, command: command).ConfigureAwait (false);
-		await _api.SendHidCommandAsync (down: false, command: command).ConfigureAwait (false);
+		await Api.SendHidCommandAsync (down: true, command: command).ConfigureAwait (false);
+		await Api.SendHidCommandAsync (down: false, command: command).ConfigureAwait (false);
 		}
 
 	/// <summary>Sends a raw touchpad (touch surface) event to the connected device.</summary>
 	/// <param name="x">The x coordinate, in the range [0, 1000].</param>
 	/// <param name="y">The y coordinate, in the range [0, 1000].</param>
 	/// <param name="action">The touch phase.</param>
-	public async Task SendTouchEventAsync (int x, int y, TouchAction action)
-		{
-		if (_api is null)
-			{
-			throw new InvalidOperationException ("Not connected");
-			}
-
-		await _api.SendHidEventAsync (x, y, action).ConfigureAwait (false);
-		}
+	public Task SendTouchEventAsync (int x, int y, TouchAction action) => Api is null ? throw new InvalidOperationException ("Not connected") : Api.SendHidEventAsync (x, y, action);
 
 	/// <summary>Sends a touchpad click (tap), as opposed to a swipe/drag.</summary>
 	/// <param name="action">The click gesture: single tap, double tap, or press-and-hold.</param>
-	public async Task SendTouchClickAsync (InputAction action)
-		{
-		if (_api is null)
-			{
-			throw new InvalidOperationException ("Not connected");
-			}
-
-		await _api.SendClickAsync (action).ConfigureAwait (false);
-		}
+	public Task SendTouchClickAsync (InputAction action) => Api is null ? throw new InvalidOperationException ("Not connected") : Api.SendClickAsync (action);
 
 	/// <summary>
 	/// Toggles mute using the Companion media-control channel (<c>_mcc</c>: <c>GetVolume</c>/
@@ -455,15 +402,12 @@ public sealed class AppleTvDeviceManager : IDisposable
 	/// via the <c>_iMC</c> event's <c>_mcF</c> bitmask.
 	/// </summary>
 	/// <returns>The resulting muted state.</returns>
-	public async Task<bool> ToggleMuteAsync ()
-		{
-		return _api is null
+	public Task<bool> ToggleMuteAsync () => Api is null
 			? throw new InvalidOperationException ("Not connected")
-			: await _api.ToggleMuteAsync ().ConfigureAwait (false);
-		}
+			: Api.ToggleMuteAsync ();
 
 	/// <summary>Gets a value indicating whether the connected device supports volume control.</summary>
-	public bool IsVolumeControlSupported => _api?.IsVolumeControlSupported ?? false;
+	public bool IsVolumeControlSupported => Api?.IsVolumeControlSupported ?? false;
 
 	/// <summary>
 	/// Gets the launchable apps fetched during connect, as a bundle-identifier-to-display-name
@@ -489,27 +433,11 @@ public sealed class AppleTvDeviceManager : IDisposable
 
 	/// <summary>Launches an app on the connected device.</summary>
 	/// <param name="bundleIdOrUrl">A bundle identifier or a URL/URL scheme to open.</param>
-	public async Task LaunchAppAsync (string bundleIdOrUrl)
-		{
-		if (_api is null)
-			{
-			throw new InvalidOperationException ("Not connected");
-			}
-
-		await _api.LaunchAppAsync (bundleIdOrUrl).ConfigureAwait (false);
-		}
+	public Task LaunchAppAsync (string bundleIdOrUrl) => Api is null ? throw new InvalidOperationException ("Not connected") : Api.LaunchAppAsync (bundleIdOrUrl);
 
 	/// <summary>Switches the active user account on the connected device.</summary>
 	/// <param name="accountId">The account identifier to switch to, from <see cref="Accounts"/>.</param>
-	public async Task SwitchAccountAsync (string accountId)
-		{
-		if (_api is null)
-			{
-			throw new InvalidOperationException ("Not connected");
-			}
-
-		await _api.SwitchAccountAsync (accountId).ConfigureAwait (false);
-		}
+	public Task SwitchAccountAsync (string accountId) => Api is null ? throw new InvalidOperationException ("Not connected") : Api.SwitchAccountAsync (accountId);
 
 	/// <summary>
 	/// Toggles power using the cached <see cref="CurrentSystemStatus"/> (tracked via the initial
@@ -523,29 +451,29 @@ public sealed class AppleTvDeviceManager : IDisposable
 	// call hid_command(False, ...) - a single up-only event, not a down/up pair.
 	public async Task<bool> TogglePowerAsync ()
 		{
-		if (_api is null)
+		if (Api is null)
 			{
 			throw new InvalidOperationException ("Not connected");
 			}
 
-		bool shouldWake = _api.CurrentSystemStatus == SystemStatus.Asleep;
+		bool shouldWake = Api.CurrentSystemStatus == SystemStatus.Asleep;
 		HidCommand command = shouldWake ? HidCommand.Wake : HidCommand.Sleep;
-		await _api.SendHidCommandAsync (down: false, command: command).ConfigureAwait (false);
+		await Api.SendHidCommandAsync (down: false, command: command).ConfigureAwait (false);
 		return shouldWake;
 		}
 
 	/// <summary>Disconnects the current device, if any.</summary>
 	public void Disconnect ()
 		{
-		if (_api is not null)
+		if (Api is not null)
 			{
-			_api.MediaControlCapabilitiesChanged -= OnMediaControlCapabilitiesChanged;
-			_api.SystemStatusChanged -= OnSystemStatusChanged;
-			_api.TextFocusStateChanged -= OnTextFocusStateChanged;
-			_api.ConnectionClosed -= OnConnectionClosed;
+			Api.MediaControlCapabilitiesChanged -= OnMediaControlCapabilitiesChanged;
+			Api.SystemStatusChanged -= OnSystemStatusChanged;
+			Api.TextFocusStateChanged -= OnTextFocusStateChanged;
+			Api.ConnectionClosed -= OnConnectionClosed;
 			}
 
-		_api = null;
+		Api = null;
 		_transport?.Dispose ();
 		_transport = null;
 		Apps = new Dictionary<string, string> ();
@@ -566,20 +494,15 @@ public sealed class AppleTvDeviceManager : IDisposable
 		}
 
 	// Convert.ToHexString is not available on net472; Compat.ToHexString polyfills it there.
-	private static string ToHexString (byte[] bytes)
-		{
+	private static string ToHexString (byte[] bytes) =>
 #if NET472
-		return Compat.ToHexString (bytes);
+		Compat.ToHexString (bytes);
 #else
-		return Convert.ToHexString (bytes);
+		Convert.ToHexString (bytes);
 #endif
-		}
 
 	/// <inheritdoc/>
-	public void Dispose ()
-		{
-		Disconnect ();
-		}
+	public void Dispose () => Disconnect ();
 	}
 
 /// <summary>

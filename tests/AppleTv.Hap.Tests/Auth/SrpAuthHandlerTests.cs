@@ -26,10 +26,10 @@ namespace AppleTv.Hap.Tests.AuthTests;
 public class SrpAuthHandlerTests
 	{
 	// pyatv/auth/hap_srp.py (SRPContext("Pair-Setup", str(pin) — line 135 as of pyatv 0.18.0, ...))
-	private static readonly byte[] Identity = Encoding.UTF8.GetBytes ("Pair-Setup");
+	private static readonly byte[] _identity = Encoding.UTF8.GetBytes ("Pair-Setup");
 
 	// pyatv/auth/hap_srp.py (constants.PRIME_3072) — line 21 as of pyatv 0.18.0; mirrors the private field in SrpAuthHandler.
-	private static readonly BigInteger Prime = new BigInteger (
+	private static readonly BigInteger _prime = new (
 		"FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD129024E088A67CC74020BBEA6" +
 		"3B139B22514A08798E3404DDEF9519B3CD3A431B302B0A6DF25F14374FE1356D6D51C245" +
 		"E485B576625E7EC6F44C42E9A637ED6B0BFF5CB6F406B7EDEE386BFB5A899FA5AE9F2411" +
@@ -42,7 +42,7 @@ public class SrpAuthHandlerTests
 		"3EC86A64521F2B18177B200CBBE117577A615D6C770988C0BAD946E208E24FA074E5AB31" +
 		"43DB5BFCE0FD108E4B82D120A93AD2CAFFFFFFFFFFFFFFFF", 16);
 
-	private static readonly BigInteger Generator = BigInteger.ValueOf (5);
+	private static readonly BigInteger _generator = BigInteger.ValueOf (5);
 
 	[TestMethod]
 	public void Step1AndStep2AgreeWithIndependentSrpServer ()
@@ -58,11 +58,11 @@ public class SrpAuthHandlerTests
 		// exactly as pyatv's srptools-backed device side would (RFC 5054 x computation, which
 		// srptools also uses).
 		var verifierGenerator = new Srp6VerifierGenerator ();
-		verifierGenerator.Init (Prime, Generator, new Sha512Digest ());
-		BigInteger verifier = verifierGenerator.GenerateVerifier (salt, Identity, password);
+		verifierGenerator.Init (_prime, _generator, new Sha512Digest ());
+		BigInteger verifier = verifierGenerator.GenerateVerifier (salt, _identity, password);
 
 		var server = new Srp6Server ();
-		server.Init (Prime, Generator, verifier, new Sha512Digest (), random);
+		server.Init (_prime, _generator, verifier, new Sha512Digest (), random);
 		BigInteger serverPublic = server.GenerateServerCredentials ();
 
 		// Client side: our port.
@@ -81,6 +81,6 @@ public class SrpAuthHandlerTests
 		var serverSessionKey = new byte[sessionKeyDigest.GetDigestSize ()];
 		_ = sessionKeyDigest.DoFinal (serverSessionKey, 0);
 
-		CollectionAssert.AreEqual (serverSessionKey, handler.SharedKey);
+		Assert.AreSequenceEqual (serverSessionKey, handler.SharedKey);
 		}
 	}

@@ -68,15 +68,9 @@ public partial class TextInputDialog : Window
 		_textChangedCallback (InputTextBox.Text);
 		}
 
-	private void OnDoneClick (object sender, RoutedEventArgs e)
-		{
-		Close ();
-		}
+	private void OnDoneClick (object sender, RoutedEventArgs e) => Close ();
 
-	private void OnCancelClick (object sender, RoutedEventArgs e)
-		{
-		Close ();
-		}
+	private void OnCancelClick (object sender, RoutedEventArgs e) => Close ();
 
 	private void OnClosing (object? sender, CancelEventArgs e)
 		{

@@ -11,17 +11,12 @@ namespace AppleTvControlLibrary.Mrp.AirPlay.Channels;
 /// The AirPlay 2 event channel. Only set up to satisfy the receiver's requirement that it
 /// exists; MRP-over-AirPlay does not use it for anything beyond acknowledging requests.
 /// </summary>
+/// <remarks>Initializes a new instance of the <see cref="EventChannel"/> class.</remarks>
+/// <param name="outputKey">The key used to encrypt outgoing data.</param>
+/// <param name="inputKey">The key used to decrypt incoming data.</param>
 // pyatv/protocols/airplay/channels.py (EventChannel, BaseEventChannel) — line 34-92 as of pyatv 0.18.0
-public sealed class EventChannel : AbstractHapChannel
+public sealed class EventChannel (byte[] outputKey, byte[] inputKey) : AbstractHapChannel(outputKey, inputKey)
 	{
-	/// <summary>Initializes a new instance of the <see cref="EventChannel"/> class.</summary>
-	/// <param name="outputKey">The key used to encrypt outgoing data.</param>
-	/// <param name="inputKey">The key used to decrypt incoming data.</param>
-	// pyatv/protocols/airplay/channels.py (EventChannel inherits AbstractHAPChannel.__init__) — line 19-24 as of pyatv 0.18.0
-	public EventChannel (byte[] outputKey, byte[] inputKey)
-		: base (outputKey, inputKey)
-		{
-		}
 
 	/// <summary>Handle received data that was put in the buffer.</summary>
 	// pyatv/protocols/airplay/channels.py (EventChannel.handle_received) — line 62-92 as of pyatv 0.18.0

@@ -23,20 +23,20 @@ public static class AirPlayServiceInfo
 	private const int LEGACY_PAIRING_BIT = 0x200;
 
 	// pyatv/protocols/airplay/utils.py (UNSUPPORTED_MODELS) — line 31 as of pyatv 0.18.0
-	private static readonly Regex[] UnsupportedModels = new[]
-		{
+	private static readonly Regex[] _unsupportedModels =
+		[
 		new Regex (@"^Mac\d+,\d+$", RegexOptions.Compiled),
-		};
+		];
 
 	// pyatv/support/device_info.py (_MODEL_LIST) — line 11-18 as of pyatv 0.18.0 lists only
 	// "AppleTV<n>,<n>" style identifiers for Apple TV hardware (AirPortExpress, AudioAccessory,
 	// and other non-Apple-TV AirPlay endpoints use different identifier prefixes).
-	private static readonly Regex AppleTvModel = new (@"^AppleTV\d+,\d+$", RegexOptions.Compiled);
+	private static readonly Regex _appleTvModel = new (@"^AppleTV\d+,\d+$", RegexOptions.Compiled);
 
 	// mDNS appends " (n)" to an instance name when it collides with another advertised service
 	// name on the network. Not a pyatv concept — this is standard DNS-SD instance-name
 	// disambiguation (RFC 6763 §6.6) applied by whatever mDNS responder is on the LAN.
-	private static readonly Regex NameCollisionSuffix = new (@" \(\d+\)$", RegexOptions.Compiled);
+	private static readonly Regex _nameCollisionSuffix = new (@" \(\d+\)$", RegexOptions.Compiled);
 
 	/// <summary>
 	/// Determines whether a discovered AirPlay service's "model" TXT record identifies it as an
@@ -45,7 +45,7 @@ public static class AirPlayServiceInfo
 	/// <param name="properties">The service's decoded TXT record properties.</param>
 	/// <returns><see langword="true"/> if the "model" property matches the Apple TV identifier pattern.</returns>
 	// pyatv/support/device_info.py (_MODEL_LIST, lookup_model) — line 7-19, 101-103 as of pyatv 0.18.0
-	public static bool IsAppleTv (IReadOnlyDictionary<string, string> properties) => properties.TryGetValue ("model", out string? model) && AppleTvModel.IsMatch (model);
+	public static bool IsAppleTv (IReadOnlyDictionary<string, string> properties) => properties.TryGetValue ("model", out string? model) && _appleTvModel.IsMatch (model);
 
 	/// <summary>
 	/// Removes a trailing mDNS instance-name disambiguation suffix (e.g. " (2)") from a service
@@ -55,7 +55,7 @@ public static class AirPlayServiceInfo
 	/// </summary>
 	/// <param name="name">The raw mDNS service instance name.</param>
 	/// <returns>The name with any trailing " (n)" suffix removed.</returns>
-	public static string RemoveNameCollisionSuffix (string name) => NameCollisionSuffix.Replace (name, string.Empty);
+	public static string RemoveNameCollisionSuffix (string name) => _nameCollisionSuffix.Replace (name, string.Empty);
 
 	/// <summary>
 	/// Returns the stable unique identifier for an AirPlay service, from the "deviceid"
@@ -131,7 +131,7 @@ public static class AirPlayServiceInfo
 		// pyatv/protocols/airplay/utils.py (update_service_details) — line 270-276 as of pyatv 0.18.0
 		if (properties.TryGetValue ("model", out string? model))
 			{
-			foreach (Regex unsupportedModel in UnsupportedModels)
+			foreach (Regex unsupportedModel in _unsupportedModels)
 				{
 				if (unsupportedModel.IsMatch (model))
 					{

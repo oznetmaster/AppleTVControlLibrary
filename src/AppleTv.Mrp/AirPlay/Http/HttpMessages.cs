@@ -13,74 +13,56 @@ namespace AppleTvControlLibrary.Mrp.AirPlay.Http;
 /// A generic HTTP response message, as used by the RTSP-over-HTTP control connection of an
 /// AirPlay 2 session.
 /// </summary>
+/// <remarks>Initializes a new instance of the <see cref="HttpResponse"/> class.</remarks>
 // pyatv/support/http.py (HttpResponse) — line 79-87 as of pyatv 0.18.0
-public sealed class HttpResponse
+public sealed class HttpResponse (string protocol, string version, int code, string message, IReadOnlyDictionary<string, string> headers, byte[] body)
 	{
-	/// <summary>Initializes a new instance of the <see cref="HttpResponse"/> class.</summary>
-	public HttpResponse (string protocol, string version, int code, string message, IReadOnlyDictionary<string, string> headers, byte[] body)
-		{
-		Protocol = protocol;
-		Version = version;
-		Code = code;
-		Message = message;
-		Headers = headers;
-		Body = body;
-		}
 
 	/// <summary>Gets the protocol name (e.g. "HTTP" or "RTSP").</summary>
-	public string Protocol { get; }
+	public string Protocol { get; } = protocol;
 
 	/// <summary>Gets the protocol version (e.g. "1.1" or "1.0").</summary>
-	public string Version { get; }
+	public string Version { get; } = version;
 
 	/// <summary>Gets the numeric status code.</summary>
-	public int Code { get; }
+	public int Code { get; } = code;
 
 	/// <summary>Gets the status message.</summary>
-	public string Message { get; }
+	public string Message { get; } = message;
 
 	/// <summary>Gets the response headers, keyed case-insensitively.</summary>
-	public IReadOnlyDictionary<string, string> Headers { get; }
+	public IReadOnlyDictionary<string, string> Headers { get; } = headers;
 
 	/// <summary>Gets the response body.</summary>
-	public byte[] Body { get; }
+	public byte[] Body { get; } = body;
 	}
 
 /// <summary>
 /// A generic HTTP request message, as used by the RTSP-over-HTTP control connection of an
 /// AirPlay 2 session.
 /// </summary>
+/// <remarks>Initializes a new instance of the <see cref="HttpRequest"/> class.</remarks>
 // pyatv/support/http.py (HttpRequest) — line 90-97 as of pyatv 0.18.0
-public sealed class HttpRequest
+public sealed class HttpRequest (string method, string path, string protocol, string version, IReadOnlyDictionary<string, string> headers, byte[] body)
 	{
-	/// <summary>Initializes a new instance of the <see cref="HttpRequest"/> class.</summary>
-	public HttpRequest (string method, string path, string protocol, string version, IReadOnlyDictionary<string, string> headers, byte[] body)
-		{
-		Method = method;
-		Path = path;
-		Protocol = protocol;
-		Version = version;
-		Headers = headers;
-		Body = body;
-		}
 
 	/// <summary>Gets the request method (e.g. "GET", "SETUP").</summary>
-	public string Method { get; }
+	public string Method { get; } = method;
 
 	/// <summary>Gets the request path/URI.</summary>
-	public string Path { get; }
+	public string Path { get; } = path;
 
 	/// <summary>Gets the protocol name (e.g. "HTTP" or "RTSP").</summary>
-	public string Protocol { get; }
+	public string Protocol { get; } = protocol;
 
 	/// <summary>Gets the protocol version (e.g. "1.1" or "1.0").</summary>
-	public string Version { get; }
+	public string Version { get; } = version;
 
 	/// <summary>Gets the request headers, keyed case-insensitively.</summary>
-	public IReadOnlyDictionary<string, string> Headers { get; }
+	public IReadOnlyDictionary<string, string> Headers { get; } = headers;
 
 	/// <summary>Gets the request body.</summary>
-	public byte[] Body { get; }
+	public byte[] Body { get; } = body;
 	}
 
 /// <summary>
@@ -92,10 +74,10 @@ public static class HttpMessages
 	{
 	// pyatv/support/http.py (USER_AGENT) — line 29 as of pyatv 0.18.0; this port uses the
 	// caller-supplied user agent explicitly rather than deriving it from a library version.
-	private const string DefaultUserAgent = "AppleTvControlLibrary";
+	private const string DEFAULT_USER_AGENT = "AppleTvControlLibrary";
 
-	private static readonly Regex ResponseFirstLine = new (@"^([^/]+)/([0-9.]+) ([0-9]+) (.*)$", RegexOptions.Compiled);
-	private static readonly Regex RequestFirstLine = new (@"^([A-Z_]+) ([^ ]+) ([^/]+)/([0-9.]+)$", RegexOptions.Compiled);
+	private static readonly Regex _responseFirstLine = new (@"^([^/]+)/([0-9.]+) ([0-9]+) (.*)$", RegexOptions.Compiled);
+	private static readonly Regex _requestFirstLine = new (@"^([A-Z_]+) ([^ ]+) ([^/]+)/([0-9.]+)$", RegexOptions.Compiled);
 
 	/// <summary>Encode an outgoing HTTP/RTSP request message.</summary>
 	/// <param name="method">The request method.</param>
@@ -111,7 +93,7 @@ public static class HttpMessages
 		string method,
 		string uri,
 		string protocol = "HTTP/1.1",
-		string userAgent = DefaultUserAgent,
+		string userAgent = DEFAULT_USER_AGENT,
 		string? contentType = null,
 		IReadOnlyDictionary<string, string>? headers = null,
 		byte[]? body = null)
@@ -160,22 +142,20 @@ public static class HttpMessages
 	/// <param name="request">The request to encode.</param>
 	/// <returns>The encoded request bytes.</returns>
 	// pyatv/support/http.py (format_request) — line 176-183 as of pyatv 0.18.0
-	public static byte[] FormatRequest (HttpRequest request)
-		{
-		return FormatMessage (
+	public static byte[] FormatRequest (HttpRequest request) =>
+		FormatMessage (
 			request.Method,
 			request.Path,
 			protocol: $"{request.Protocol}/{request.Version}",
 			headers: request.Headers,
 			body: request.Body);
-		}
 
 	/// <summary>Encode a <see cref="HttpResponse"/> into its wire representation.</summary>
 	/// <param name="response">The response to encode.</param>
 	/// <param name="serverName">The value used for the Server header when not already present.</param>
 	/// <returns>The encoded response bytes.</returns>
 	// pyatv/support/http.py (format_response) — line 138-160 as of pyatv 0.18.0
-	public static byte[] FormatResponse (HttpResponse response, string serverName = DefaultUserAgent)
+	public static byte[] FormatResponse (HttpResponse response, string serverName = DEFAULT_USER_AGENT)
 		{
 		var msg = new StringBuilder ();
 		_ = msg.Append (response.Protocol).Append ('/').Append (response.Version).Append (' ')
@@ -221,7 +201,7 @@ public static class HttpMessages
 			return false;
 			}
 
-		Match match = ResponseFirstLine.Match (firstLine!);
+		Match match = _responseFirstLine.Match (firstLine!);
 		if (!match.Success)
 			{
 			throw new ArgumentException ($"bad first line: {firstLine}");
@@ -251,7 +231,7 @@ public static class HttpMessages
 			return false;
 			}
 
-		Match match = RequestFirstLine.Match (firstLine!);
+		Match match = _requestFirstLine.Match (firstLine!);
 		if (!match.Success)
 			{
 			throw new ArgumentException ($"bad first line: {firstLine}");
@@ -346,18 +326,7 @@ public static class HttpMessages
 		return false;
 		}
 
-	private static int IndexOfCrLfCrLf (byte[] data)
-		{
-		return data.AsSpan ().IndexOf ("\r\n\r\n"u8);
-		}
+	private static int IndexOfCrLfCrLf (byte[] data) => data.AsSpan ().IndexOf ("\r\n\r\n"u8);
 
-	private static byte[] Slice (byte[] data, int start, int length)
-		{
-		if (length <= 0)
-			{
-			return [];
-			}
-
-		return data.AsSpan (start, length).ToArray ();
-		}
+	private static byte[] Slice (byte[] data, int start, int length) => length <= 0 ? [] : data.AsSpan (start, length).ToArray ();
 	}

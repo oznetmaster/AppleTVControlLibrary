@@ -34,88 +34,81 @@ public static class Opack
 		{
 		byte[]? packedBytes = null;
 
-		if (data is null)
+		switch (data)
 			{
-			// pyatv/support/opack.py — line 41-42 as of pyatv 0.18.0
-			packedBytes = new byte[] { 0x04 };
-			}
-		else if (data is bool b)
-			{
-			// pyatv/support/opack.py — line 43-44 as of pyatv 0.18.0
-			packedBytes = new byte[] { (byte)(b ? 1 : 2) };
-			}
-		else if (data is Guid guid)
-			{
-			// pyatv/support/opack.py — line 45-46 as of pyatv 0.18.0
-			packedBytes = new byte[] { 0x05 }.Concat (guid.ToByteArray ()).ToArray ();
-			}
-		else if (data is DateTime)
-			{
-			// pyatv/support/opack.py — line 47-48 as of pyatv 0.18.0
-			throw new NotImplementedException ("absolute time");
-			}
-		else if (data is SizedInteger || IsIntegral (data))
-			{
-			packedBytes = PackInteger (data);
-			}
-		else if (data is double || data is float)
-			{
-			// pyatv/support/opack.py (pack always emits 0x36 / float64) — line 60-61 as of pyatv 0.18.0
-			double d = Convert.ToDouble (data, System.Globalization.CultureInfo.InvariantCulture);
-			Span<byte> buffer = stackalloc byte[9];
-			buffer[0] = 0x36;
-			System.Buffers.Binary.BinaryPrimitives.WriteInt64LittleEndian (buffer[1..], BitConverter.DoubleToInt64Bits (d));
-			packedBytes = buffer.ToArray ();
-			}
-		else if (data is string s)
-			{
-			packedBytes = PackString (s);
-			}
-		else if (data is byte[] bytes)
-			{
-			packedBytes = PackBytes (bytes);
-			}
-		else if (data is IList list && data is not IDictionary)
-			{
-			packedBytes = PackList (list, objectList);
-			}
-		else if (data is IDictionary dict)
-			{
-			packedBytes = PackDict (dict, objectList);
-			}
-		else
-			{
-			throw new NotSupportedException (data.GetType ().ToString ());
+			case null:
+				// pyatv/support/opack.py — line 41-42 as of pyatv 0.18.0
+				packedBytes = [0x04];
+				break;
+			case bool b:
+				// pyatv/support/opack.py — line 43-44 as of pyatv 0.18.0
+				packedBytes = [(byte)(b ? 1 : 2)];
+				break;
+			case Guid guid:
+				// pyatv/support/opack.py — line 45-46 as of pyatv 0.18.0
+				packedBytes = [0x05, .. guid.ToByteArray ()];
+				break;
+			case DateTime:
+				// pyatv/support/opack.py — line 47-48 as of pyatv 0.18.0
+				throw new NotImplementedException ("absolute time");
+			case SizedInteger:
+			case object when IsIntegral (data):
+				packedBytes = PackInteger (data);
+				break;
+			case double or float:
+				{
+				// pyatv/support/opack.py (pack always emits 0x36 / float64) — line 60-61 as of pyatv 0.18.0
+				var d = Convert.ToDouble (data, System.Globalization.CultureInfo.InvariantCulture);
+				Span<byte> buffer = stackalloc byte[9];
+				buffer[0] = 0x36;
+				System.Buffers.Binary.BinaryPrimitives.WriteInt64LittleEndian (buffer[1..], BitConverter.DoubleToInt64Bits (d));
+				packedBytes = buffer.ToArray ();
+				break;
+				}
+			case string s:
+				packedBytes = PackString (s);
+				break;
+			case byte[] bytes:
+				packedBytes = PackBytes (bytes);
+				break;
+			case IDictionary dict:
+				packedBytes = PackDict (dict, objectList);
+				break;
+			case IList list:
+				packedBytes = PackList (list, objectList);
+				break;
+			default:
+				throw new NotSupportedException (data.GetType ().ToString ());
 			}
 
 		// pyatv/support/opack.py (object/pointer table, pack side) — line 126-140 as of pyatv 0.18.0
-		int objectIndex = IndexOfBytes (objectList, packedBytes);
+		var objectIndex = IndexOfBytes (objectList, packedBytes);
 		if (objectIndex >= 0)
 			{
 			if (objectIndex < 0x21)
 				{
 				// pyatv/support/opack.py — line 130-131 as of pyatv 0.18.0
-				packedBytes = new byte[] { (byte)(0xA0 + objectIndex) };
+				packedBytes = [(byte)(0xA0 + objectIndex)];
 				}
 			else if (objectIndex <= 0xFF)
 				{
 				// pyatv/support/opack.py — line 132-133 as of pyatv 0.18.0
-				packedBytes = new byte[] { 0xC1 }.Concat (IntToLittleEndian (objectIndex, 1)).ToArray ();
+				packedBytes = [0xC1, .. IntToLittleEndian (objectIndex, 1)];
 				}
 			else if (objectIndex <= 0xFFFF)
 				{
 				// pyatv/support/opack.py — line 134-135 as of pyatv 0.18.0
-				packedBytes = new byte[] { 0xC2 }.Concat (IntToLittleEndian (objectIndex, 2)).ToArray ();
+				packedBytes = [0xC2, .. IntToLittleEndian (objectIndex, 2)];
 				}
 			else if ((uint)objectIndex <= 0xFFFFFFFF)
 				{
 				// pyatv/support/opack.py — line 136-137 as of pyatv 0.18.0
-				packedBytes = new byte[] { 0xC3 }.Concat (IntToLittleEndian (objectIndex, 4)).ToArray ();
+				packedBytes = [0xC3, .. IntToLittleEndian (objectIndex, 4)];
 				}
 			else
 				{
 				// pyatv/support/opack.py — line 138-139 as of pyatv 0.18.0
-				packedBytes = new byte[] { 0xC4 }.Concat (IntToLittleEndian (objectIndex, 8)).ToArray ();
+				packedBytes = [0xC4, .. IntToLittleEndian (objectIndex, 8)];
 				}
 			}
 		else if (packedBytes.Length > 1)
@@ -128,8 +121,8 @@ public static class Opack
 		}
 
 	private static bool IsIntegral (object data) =>
-		 data is sbyte || data is byte || data is short || data is ushort ||
-		 data is int || data is uint || data is long || data is ulong;
+		 data is sbyte or byte or short or ushort or
+		 int or uint or long or ulong;
 
 	// pyatv/support/opack.py — line 49-58 as of pyatv 0.18.0
 	private static byte[] PackInteger (object data)
@@ -146,66 +139,66 @@ public static class Opack
 			value = Convert.ToInt64 (data, System.Globalization.CultureInfo.InvariantCulture);
 			}
 
-		ulong uValue = unchecked((ulong)value);
+		var uValue = unchecked((ulong)value);
 
 		if (value < 0x28 && sizeHint is null)
 			{
 			// pyatv/support/opack.py — line 51-52 as of pyatv 0.18.0
-			return new byte[] { (byte)(value + 8) };
+			return [(byte)(value + 8)];
 			}
 
 		if ((uValue <= 0xFF && sizeHint is null) || sizeHint == 1)
 			{
 			// pyatv/support/opack.py — line 53-54 as of pyatv 0.18.0
-			return new byte[] { 0x30 }.Concat (IntToLittleEndian (value, 1)).ToArray ();
+			return [0x30, .. IntToLittleEndian (value, 1)];
 			}
 
 		if ((uValue <= 0xFFFF && sizeHint is null) || sizeHint == 2)
 			{
 			// pyatv/support/opack.py — line 55-56 as of pyatv 0.18.0
-			return new byte[] { 0x31 }.Concat (IntToLittleEndian (value, 2)).ToArray ();
+			return [0x31, .. IntToLittleEndian (value, 2)];
 			}
 
 		if ((uValue <= 0xFFFFFFFF && sizeHint is null) || sizeHint == 4)
 			{
 			// pyatv/support/opack.py — line 57-58 as of pyatv 0.18.0
-			return new byte[] { 0x32 }.Concat (IntToLittleEndian (value, 4)).ToArray ();
+			return [0x32, .. IntToLittleEndian (value, 4)];
 			}
 
 		// pyatv/support/opack.py — line 59 as of pyatv 0.18.0
-		return new byte[] { 0x33 }.Concat (IntToLittleEndian (value, 8)).ToArray ();
+		return [0x33, .. IntToLittleEndian (value, 8)];
 		}
 
 	// pyatv/support/opack.py (strings, little-endian length ladder: 1,2,3,4 bytes) — line 62-80 as of pyatv 0.18.0
 	private static byte[] PackString (string s)
 		{
-		byte[] encoded = Encoding.UTF8.GetBytes (s);
+		var encoded = Encoding.UTF8.GetBytes (s);
 		if (encoded.Length <= 0x20)
 			{
 			// pyatv/support/opack.py — line 64-65 as of pyatv 0.18.0
-			return new byte[] { (byte)(0x40 + encoded.Length) }.Concat (encoded).ToArray ();
+			return [(byte)(0x40 + encoded.Length), .. encoded];
 			}
 
 		if (encoded.Length <= 0xFF)
 			{
 			// pyatv/support/opack.py — line 66-69 as of pyatv 0.18.0
-			return new byte[] { 0x61 }.Concat (IntToLittleEndian (encoded.Length, 1)).Concat (encoded).ToArray ();
+			return [0x61, .. IntToLittleEndian (encoded.Length, 1), .. encoded];
 			}
 
 		if (encoded.Length <= 0xFFFF)
 			{
 			// pyatv/support/opack.py — line 70-73 as of pyatv 0.18.0
-			return new byte[] { 0x62 }.Concat (IntToLittleEndian (encoded.Length, 2)).Concat (encoded).ToArray ();
+			return [0x62, .. IntToLittleEndian (encoded.Length, 2), .. encoded];
 			}
 
 		if (encoded.Length <= 0xFFFFFF)
 			{
 			// pyatv/support/opack.py — line 74-77 as of pyatv 0.18.0
-			return new byte[] { 0x63 }.Concat (IntToLittleEndian (encoded.Length, 3)).Concat (encoded).ToArray ();
+			return [0x63, .. IntToLittleEndian (encoded.Length, 3), .. encoded];
 			}
 
 		// pyatv/support/opack.py — line 78-81 as of pyatv 0.18.0
-		return new byte[] { 0x64 }.Concat (IntToLittleEndian (encoded.Length, 4)).Concat (encoded).ToArray ();
+		return [0x64, .. IntToLittleEndian (encoded.Length, 4), .. encoded];
 		}
 
 	// pyatv/support/opack.py (byte arrays, length ladder: 1,2,4,8 bytes) — line 82-100 as of pyatv 0.18.0
@@ -214,29 +207,29 @@ public static class Opack
 		if (data.Length <= 0x20)
 			{
 			// pyatv/support/opack.py — line 84-85 as of pyatv 0.18.0
-			return new byte[] { (byte)(0x70 + data.Length) }.Concat (data).ToArray ();
+			return [(byte)(0x70 + data.Length), .. data];
 			}
 
 		if (data.Length <= 0xFF)
 			{
 			// pyatv/support/opack.py — line 86-89 as of pyatv 0.18.0
-			return new byte[] { 0x91 }.Concat (IntToLittleEndian (data.Length, 1)).Concat (data).ToArray ();
+			return [0x91, .. IntToLittleEndian (data.Length, 1), .. data];
 			}
 
 		if (data.Length <= 0xFFFF)
 			{
 			// pyatv/support/opack.py — line 90-93 as of pyatv 0.18.0
-			return new byte[] { 0x92 }.Concat (IntToLittleEndian (data.Length, 2)).Concat (data).ToArray ();
+			return [0x92, .. IntToLittleEndian (data.Length, 2), .. data];
 			}
 
 		if ((uint)data.Length <= 0xFFFFFFFF)
 			{
 			// pyatv/support/opack.py — line 94-97 as of pyatv 0.18.0
-			return new byte[] { 0x93 }.Concat (IntToLittleEndian (data.Length, 4)).Concat (data).ToArray ();
+			return [0x93, .. IntToLittleEndian (data.Length, 4), .. data];
 			}
 
 		// pyatv/support/opack.py — line 98-101 as of pyatv 0.18.0
-		return new byte[] { 0x94 }.Concat (IntToLittleEndian (data.Length, 8)).Concat (data).ToArray ();
+		return [0x94, .. IntToLittleEndian (data.Length, 8), .. data];
 		}
 
 	// pyatv/support/opack.py (list) — line 102-107 as of pyatv 0.18.0
@@ -256,7 +249,7 @@ public static class Opack
 			result.Add (0x03);
 			}
 
-		return result.ToArray ();
+		return [.. result];
 		}
 
 	// pyatv/support/opack.py (dict) — line 108-113 as of pyatv 0.18.0
@@ -277,7 +270,7 @@ public static class Opack
 			result.Add (0x03);
 			}
 
-		return result.ToArray ();
+		return [.. result];
 		}
 
 	/// <summary>Unpacks raw OPACK data into .NET objects.</summary>
@@ -295,8 +288,8 @@ public static class Opack
 	private static object? UnpackInternal (ReadOnlySpan<byte> data, List<object?> objectList, out int consumed)
 		{
 		object? value;
-		bool addToObjectList = true;
-		byte tag = data[0];
+		var addToObjectList = true;
+		var tag = data[0];
 
 		if (tag == 0x01)
 			{
@@ -353,53 +346,53 @@ public static class Opack
 		else if ((tag & 0xF0) == 0x30)
 			{
 			// pyatv/support/opack.py — line 176-183 as of pyatv 0.18.0
-			int noofBytes = 1 << (tag & 0xF);
-			long intValue = LittleEndianToLong (data.Slice (1, noofBytes));
+			var noofBytes = 1 << (tag & 0xF);
+			var intValue = LittleEndianToLong (data.Slice (1, noofBytes));
 			value = new SizedInteger (intValue, noofBytes);
 			consumed = 1 + noofBytes;
 			}
 		else if (tag is >= 0x40 and <= 0x60)
 			{
 			// pyatv/support/opack.py — line 184-186 as of pyatv 0.18.0
-			int length = tag - 0x40;
+			var length = tag - 0x40;
 			value = Encoding.UTF8.GetString (data.Slice (1, length).ToArray ());
 			consumed = 1 + length;
 			}
-		else if (tag > 0x60 && tag <= 0x64)
+		else if (tag is > 0x60 and <= 0x64)
 			{
 			// pyatv/support/opack.py — line 187-193 as of pyatv 0.18.0
-			int noofBytes = tag & 0xF;
-			int length = (int)LittleEndianToLong (data.Slice (1, noofBytes));
+			var noofBytes = tag & 0xF;
+			var length = (int)LittleEndianToLong (data.Slice (1, noofBytes));
 			value = Encoding.UTF8.GetString (data.Slice (1 + noofBytes, length).ToArray ());
 			consumed = 1 + noofBytes + length;
 			}
 		else if (tag is >= 0x70 and <= 0x90)
 			{
 			// pyatv/support/opack.py — line 194-196 as of pyatv 0.18.0
-			int length = tag - 0x70;
+			var length = tag - 0x70;
 			value = data.Slice (1, length).ToArray ();
 			consumed = 1 + length;
 			}
 		else if (tag is >= 0x91 and <= 0x94)
 			{
 			// pyatv/support/opack.py — line 197-203 as of pyatv 0.18.0
-			int noofBytes = 1 << ((tag & 0xF) - 1);
-			int length = (int)LittleEndianToLong (data.Slice (1, noofBytes));
+			var noofBytes = 1 << ((tag & 0xF) - 1);
+			var length = (int)LittleEndianToLong (data.Slice (1, noofBytes));
 			value = data.Slice (1 + noofBytes, length).ToArray ();
 			consumed = 1 + noofBytes + length;
 			}
 		else if ((tag & 0xF0) == 0xD0)
 			{
 			// pyatv/support/opack.py (list) — line 204-217 as of pyatv 0.18.0
-			int count = tag & 0xF;
+			var count = tag & 0xF;
 			var output = new List<object?> ();
-			int offset = 1;
+			var offset = 1;
 			if (count == 0xF)
 				{
 				// Endless list
 				while (data[offset] != 0x03)
 					{
-					object? item = UnpackInternal (data.Slice (offset), objectList, out int itemConsumed);
+					var item = UnpackInternal (data[offset..], objectList, out var itemConsumed);
 					output.Add (item);
 					offset += itemConsumed;
 					}
@@ -408,9 +401,9 @@ public static class Opack
 				}
 			else
 				{
-				for (int i = 0; i < count; i++)
+				for (var i = 0; i < count; i++)
 					{
-					object? item = UnpackInternal (data.Slice (offset), objectList, out int itemConsumed);
+					var item = UnpackInternal (data[offset..], objectList, out var itemConsumed);
 					output.Add (item);
 					offset += itemConsumed;
 					}
@@ -423,17 +416,17 @@ public static class Opack
 		else if ((tag & 0xE0) == 0xE0)
 			{
 			// pyatv/support/opack.py (dict) — line 218-232 as of pyatv 0.18.0
-			int count = tag & 0xF;
+			var count = tag & 0xF;
 			var output = new Dictionary<object, object?> ();
-			int offset = 1;
+			var offset = 1;
 			if (count == 0xF)
 				{
 				// Endless dict
 				while (data[offset] != 0x03)
 					{
-					object? key = UnpackInternal (data.Slice (offset), objectList, out int keyConsumed);
+					var key = UnpackInternal (data[offset..], objectList, out var keyConsumed);
 					offset += keyConsumed;
-					object? item = UnpackInternal (data.Slice (offset), objectList, out int itemConsumed);
+					var item = UnpackInternal (data[offset..], objectList, out var itemConsumed);
 					offset += itemConsumed;
 					output[key!] = item;
 					}
@@ -442,11 +435,11 @@ public static class Opack
 				}
 			else
 				{
-				for (int i = 0; i < count; i++)
+				for (var i = 0; i < count; i++)
 					{
-					object? key = UnpackInternal (data.Slice (offset), objectList, out int keyConsumed);
+					var key = UnpackInternal (data[offset..], objectList, out var keyConsumed);
 					offset += keyConsumed;
-					object? item = UnpackInternal (data.Slice (offset), objectList, out int itemConsumed);
+					var item = UnpackInternal (data[offset..], objectList, out var itemConsumed);
 					offset += itemConsumed;
 					output[key!] = item;
 					}
@@ -465,8 +458,8 @@ public static class Opack
 		else if (tag is >= 0xC1 and <= 0xC4)
 			{
 			// pyatv/support/opack.py (pointer, multi-byte index) — line 235-241 as of pyatv 0.18.0
-			int length = tag - 0xC0;
-			int uid = (int)LittleEndianToLong (data.Slice (1, length));
+			var length = tag - 0xC0;
+			var uid = (int)LittleEndianToLong (data.Slice (1, length));
 			value = objectList[uid];
 			consumed = 1 + length;
 			}
@@ -487,7 +480,7 @@ public static class Opack
 	private static long LittleEndianToLong (ReadOnlySpan<byte> data)
 		{
 		long result = 0;
-		for (int i = data.Length - 1; i >= 0; i--)
+		for (var i = data.Length - 1; i >= 0; i--)
 			{
 			result = (result << 8) | data[i];
 			}
@@ -498,7 +491,7 @@ public static class Opack
 	private static byte[] IntToLittleEndian (long value, int byteCount)
 		{
 		var result = new byte[byteCount];
-		for (int i = 0; i < byteCount; i++)
+		for (var i = 0; i < byteCount; i++)
 			{
 			result[i] = (byte)(value & 0xFF);
 			value >>= 8;
@@ -509,7 +502,7 @@ public static class Opack
 
 	private static int IndexOfBytes (List<byte[]> objectList, byte[] target)
 		{
-		for (int i = 0; i < objectList.Count; i++)
+		for (var i = 0; i < objectList.Count; i++)
 			{
 			if (objectList[i].AsSpan ().SequenceEqual (target))
 				{
@@ -544,7 +537,7 @@ public static class Opack
 				return false;
 				}
 
-			for (int i = 0; i < aList.Count; i++)
+			for (var i = 0; i < aList.Count; i++)
 				{
 				if (!OpackEquals (aList[i], bList[i]))
 					{
@@ -562,7 +555,7 @@ public static class Opack
 				return false;
 				}
 
-			foreach (var kvp in aDict)
+			foreach (KeyValuePair<object, object?> kvp in aDict)
 				{
 				if (!bDict.TryGetValue (kvp.Key, out var bValue) || !OpackEquals (kvp.Value, bValue))
 					{

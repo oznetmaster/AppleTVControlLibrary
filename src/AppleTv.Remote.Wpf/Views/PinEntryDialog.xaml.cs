@@ -27,7 +27,7 @@ public partial class PinEntryDialog : Window
 		{
 		if (!int.TryParse (PinTextBox.Text, out int pin))
 			{
-			MessageBox.Show (this, "Please enter a valid numeric PIN.", "Invalid PIN", MessageBoxButton.OK, MessageBoxImage.Warning);
+			_ = MessageBox.Show (this, "Please enter a valid numeric PIN.", "Invalid PIN", MessageBoxButton.OK, MessageBoxImage.Warning);
 			return;
 			}
 

@@ -38,7 +38,7 @@ public sealed class FakeCompanionDevice
 	public const string SERVER_IDENTIFIER = "5D797FD3-3538-427E-A47B-A32FC6CF3A6A";
 
 	// pyatv/auth/server_auth.py (32 * b"\xaa") — line 13 as of pyatv 0.18.0
-	private static readonly byte[] PrivateKeySeed = CreateSeed ();
+	private static readonly byte[] _privateKeySeed = CreateSeed ();
 
 	private readonly byte[] _uniqueId;
 	private readonly FakeCompanionServerKeys _keys;
@@ -55,7 +55,7 @@ public sealed class FakeCompanionDevice
 	public FakeCompanionDevice (string? uniqueId = null, int pin = PIN_CODE)
 		{
 		_uniqueId = System.Text.Encoding.UTF8.GetBytes (uniqueId ?? SERVER_IDENTIFIER);
-		_keys = FakeCompanionServerKeys.Generate (PrivateKeySeed);
+		_keys = FakeCompanionServerKeys.Generate (_privateKeySeed);
 		_srpSession = FakeCompanionSrpServer.Create (pin);
 		}
 

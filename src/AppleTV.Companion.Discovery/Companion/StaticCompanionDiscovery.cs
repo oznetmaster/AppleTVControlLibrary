@@ -21,7 +21,7 @@ namespace AppleTvControlLibrary.Discovery.Companion;
 /// <param name="uniqueId">An optional stable unique identifier for the device.</param>
 public sealed class StaticCompanionDiscovery (IPAddress address, int port, string name = "", string? uniqueId = null) : ICompanionDiscovery
 	{
-	private readonly CompanionDiscoveryResult _result = new CompanionDiscoveryResult (
+	private readonly CompanionDiscoveryResult _result = new(
 			name,
 			address,
 			port,
@@ -32,7 +32,7 @@ public sealed class StaticCompanionDiscovery (IPAddress address, int port, strin
 	/// <inheritdoc/>
 	public Task<IReadOnlyList<CompanionDiscoveryResult>> ScanAsync (TimeSpan timeout, CancellationToken cancellationToken = default)
 		{
-		IReadOnlyList<CompanionDiscoveryResult> results = new[] { _result };
+		IReadOnlyList<CompanionDiscoveryResult> results = [_result];
 		return Task.FromResult (results);
 		}
 	}

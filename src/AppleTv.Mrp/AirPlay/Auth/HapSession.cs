@@ -31,10 +31,7 @@ public sealed class HapSession
 	/// <param name="outputKey">The key used to encrypt outgoing data.</param>
 	/// <param name="inputKey">The key used to decrypt incoming data.</param>
 	// pyatv/auth/hap_session.py (enable) — line 26-28 as of pyatv 0.18.0
-	public void Enable (byte[] outputKey, byte[] inputKey)
-		{
-		_chacha20 = new Chacha20Cipher (outputKey, inputKey);
-		}
+	public void Enable (byte[] outputKey, byte[] inputKey) => _chacha20 = new Chacha20Cipher (outputKey, inputKey);
 
 	/// <summary>Decrypt incoming data, accumulating partial blocks across calls.</summary>
 	/// <param name="data">The bytes just received from the transport.</param>

@@ -117,10 +117,7 @@ public static class MrpMessages
 	/// <summary>Create a new WAKE_DEVICE_MESSAGE.</summary>
 	/// <returns>The created message.</returns>
 	// pyatv/protocols/mrp/messages.py (wake_device) — line 51-53 as of pyatv 0.18.0
-	public static ProtocolMessage WakeDevice ()
-		{
-		return Create (ProtocolMessage.Types.Type.WakeDeviceMessage);
-		}
+	public static ProtocolMessage WakeDevice () => Create (ProtocolMessage.Types.Type.WakeDeviceMessage);
 
 	/// <summary>Create a new SET_CONNECTION_STATE_MESSAGE with state set to Connected.</summary>
 	/// <returns>The created message.</returns>
@@ -140,10 +137,7 @@ public static class MrpMessages
 	/// <summary>Create a new GET_KEYBOARD_SESSION_MESSAGE.</summary>
 	/// <returns>The created message.</returns>
 	// pyatv/protocols/mrp/messages.py (get_keyboard_session) — line 63-65 as of pyatv 0.18.0
-	public static ProtocolMessage GetKeyboardSession ()
-		{
-		return Create (ProtocolMessage.Types.Type.GetKeyboardSessionMessage);
-		}
+	public static ProtocolMessage GetKeyboardSession () => Create (ProtocolMessage.Types.Type.GetKeyboardSessionMessage);
 
 	/// <summary>Create a new CLIENT_UPDATES_CONFIG_MESSAGE.</summary>
 	/// <param name="artwork">Whether to subscribe to artwork updates.</param>
@@ -295,39 +289,27 @@ public static class MrpMessages
 	/// <param name="mode">The repeat mode to set.</param>
 	/// <returns>The created message.</returns>
 	// pyatv/protocols/mrp/messages.py (repeat) — line 170-181 as of pyatv 0.18.0
-	public static ProtocolMessage Repeat (RepeatMode.Types.Enum mode)
-		{
-		return Command (AppleTvControlLibrary.Mrp.Protobuf.Command.ChangeRepeatMode, options =>
-			{
-			options.SendOptions = 0;
-			options.RepeatMode = mode;
-			});
-		}
+	public static ProtocolMessage Repeat (RepeatMode.Types.Enum mode) => Command (AppleTvControlLibrary.Mrp.Protobuf.Command.ChangeRepeatMode, options =>
+																										{
+																											options.SendOptions = 0;
+																											options.RepeatMode = mode;
+																										});
 
 	/// <summary>Create a SEND_COMMAND_MESSAGE that changes the shuffle mode of the current player.</summary>
 	/// <param name="state">The shuffle mode to set.</param>
 	/// <returns>The created message.</returns>
 	// pyatv/protocols/mrp/messages.py (shuffle) — line 184-195 as of pyatv 0.18.0
-	public static ProtocolMessage Shuffle (ShuffleMode.Types.Enum state)
-		{
-		return Command (AppleTvControlLibrary.Mrp.Protobuf.Command.ChangeShuffleMode, options =>
-			{
-			options.SendOptions = 0;
-			options.ShuffleMode = state;
-			});
-		}
+	public static ProtocolMessage Shuffle (ShuffleMode.Types.Enum state) => Command (AppleTvControlLibrary.Mrp.Protobuf.Command.ChangeShuffleMode, options =>
+																											{
+																												options.SendOptions = 0;
+																												options.ShuffleMode = state;
+																											});
 
 	/// <summary>Create a SEND_COMMAND_MESSAGE that seeks to an absolute position in the current stream.</summary>
 	/// <param name="position">The playback position, in seconds.</param>
 	/// <returns>The created message.</returns>
 	// pyatv/protocols/mrp/messages.py (seek_to_position) — line 198-203 as of pyatv 0.18.0
-	public static ProtocolMessage SeekToPosition (double position)
-		{
-		return Command (AppleTvControlLibrary.Mrp.Protobuf.Command.SeekToPlaybackPosition, options =>
-			{
-			options.PlaybackPosition = position;
-			});
-		}
+	public static ProtocolMessage SeekToPosition (double position) => Command (AppleTvControlLibrary.Mrp.Protobuf.Command.SeekToPlaybackPosition, options => options.PlaybackPosition = position);
 
 	/// <summary>Create a new SET_VOLUME_MESSAGE to change the volume on a specific output device.</summary>
 	/// <param name="deviceUid">The output device identifier.</param>
@@ -361,7 +343,7 @@ public static class MrpMessages
 			{
 			if (!Utf8Parser.TryParse (utf8.AsSpan (i * 2, 2), out byte value, out _, 'X'))
 				{
-				throw new FormatException ($"Invalid hex pair at index {i * 2}: {hex.AsSpan (i * 2, 2).ToString ()}");
+				throw new FormatException ($"Invalid hex pair at index {i * 2}: {hex.Substring (i * 2, 2)}");
 				}
 
 			bytes[i] = value;

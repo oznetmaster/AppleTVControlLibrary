@@ -27,7 +27,7 @@ public class Chacha20CipherTests
 		Assert.AreEqual (12, cipher.InNonce.Length);
 
 		byte[] result = cipher.Encrypt (Encoding.ASCII.GetBytes ("test"));
-		CollectionAssert.AreEqual (Encoding.ASCII.GetBytes ("test"), cipher.Decrypt (result));
+		Assert.AreSequenceEqual (Encoding.ASCII.GetBytes ("test"), cipher.Decrypt (result));
 		}
 
 	// tests/support/test_chacha20.py:18-23 (test_8_bytes_nonce)
@@ -39,6 +39,6 @@ public class Chacha20CipherTests
 		Assert.AreEqual (12, cipher.InNonce.Length);
 
 		byte[] result = cipher.Encrypt (Encoding.ASCII.GetBytes ("test"));
-		CollectionAssert.AreEqual (Encoding.ASCII.GetBytes ("test"), cipher.Decrypt (result));
+		Assert.AreSequenceEqual (Encoding.ASCII.GetBytes ("test"), cipher.Decrypt (result));
 		}
 	}

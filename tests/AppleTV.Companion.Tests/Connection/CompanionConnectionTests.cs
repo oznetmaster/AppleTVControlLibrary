@@ -29,11 +29,11 @@ public class CompanionConnectionTests
 	public void BuildFrameUnencryptedHeader ()
 		{
 		var connection = new CompanionConnection ();
-		byte[] data = Encoding.ASCII.GetBytes ("hello");
+		var data = Encoding.ASCII.GetBytes ("hello");
 
-		byte[] frame = connection.BuildFrame (FrameType.U_OPACK, data);
+		var frame = connection.BuildFrame (FrameType.U_OPACK, data);
 
-		Assert.AreEqual (4 + data.Length, frame.Length);
+		Assert.HasCount (4 + data.Length, frame);
 		Assert.AreEqual ((byte)FrameType.U_OPACK, frame[0]);
 		Assert.AreEqual (0x00, frame[1]);
 		Assert.AreEqual (0x00, frame[2]);
@@ -47,12 +47,12 @@ public class CompanionConnectionTests
 		{
 		var connection = new CompanionConnection ();
 		connection.EnableEncryption (FakeOutKey, FakeInKey);
-		byte[] data = Encoding.ASCII.GetBytes ("hello");
+		var data = Encoding.ASCII.GetBytes ("hello");
 
-		byte[] frame = connection.BuildFrame (FrameType.E_OPACK, data);
+		var frame = connection.BuildFrame (FrameType.E_OPACK, data);
 
-		int expectedPayloadLength = data.Length + 16;
-		Assert.AreEqual (4 + expectedPayloadLength, frame.Length);
+		var expectedPayloadLength = data.Length + 16;
+		Assert.HasCount (4 + expectedPayloadLength, frame);
 		Assert.AreEqual (0x00, frame[1]);
 		Assert.AreEqual (0x00, frame[2]);
 		Assert.AreEqual ((byte)expectedPayloadLength, frame[3]);
@@ -66,9 +66,9 @@ public class CompanionConnectionTests
 		var connection = new CompanionConnection ();
 		connection.EnableEncryption (FakeOutKey, FakeInKey);
 
-		byte[] frame = connection.BuildFrame (FrameType.NoOp, System.Array.Empty<byte> ());
+		var frame = connection.BuildFrame (FrameType.NoOp, System.Array.Empty<byte> ());
 
-		Assert.AreEqual (4, frame.Length);
+		Assert.HasCount (4, frame);
 		Assert.AreEqual ((byte)FrameType.NoOp, frame[0]);
 		Assert.AreEqual (0x00, frame[1]);
 		Assert.AreEqual (0x00, frame[2]);
@@ -83,8 +83,8 @@ public class CompanionConnectionTests
 		var sender = new CompanionConnection ();
 		var receiver = new CompanionConnection ();
 
-		byte[] data = Encoding.UTF8.GetBytes ("_systemInfo payload");
-		byte[] frame = sender.BuildFrame (FrameType.U_OPACK, data);
+		var data = Encoding.UTF8.GetBytes ("_systemInfo payload");
+		var frame = sender.BuildFrame (FrameType.U_OPACK, data);
 
 		FrameType? receivedType = null;
 		byte[]? receivedData = null;
@@ -112,8 +112,8 @@ public class CompanionConnectionTests
 		var receiver = new CompanionConnection ();
 		receiver.EnableEncryption (outputKey: FakeInKey, inputKey: FakeOutKey);
 
-		byte[] data = Encoding.UTF8.GetBytes ("encrypted payload");
-		byte[] frame = sender.BuildFrame (FrameType.E_OPACK, data);
+		var data = Encoding.UTF8.GetBytes ("encrypted payload");
+		var frame = sender.BuildFrame (FrameType.E_OPACK, data);
 
 		FrameType? receivedType = null;
 		byte[]? receivedData = null;
@@ -137,16 +137,16 @@ public class CompanionConnectionTests
 		var receiver = new CompanionConnection ();
 		var sender = new CompanionConnection ();
 
-		byte[] data = Encoding.UTF8.GetBytes ("partial delivery test");
-		byte[] frame = sender.BuildFrame (FrameType.U_OPACK, data);
+		var data = Encoding.UTF8.GetBytes ("partial delivery test");
+		var frame = sender.BuildFrame (FrameType.U_OPACK, data);
 
-		int split = frame.Length / 2;
+		var split = frame.Length / 2;
 		var firstHalf = new byte[split];
 		var secondHalf = new byte[frame.Length - split];
 		System.Array.Copy (frame, 0, firstHalf, 0, split);
 		System.Array.Copy (frame, split, secondHalf, 0, secondHalf.Length);
 
-		bool received = false;
+		var received = false;
 		receiver.FrameReceived += (_, _, _) => received = true;
 
 		receiver.ReceiveData (firstHalf);
@@ -171,13 +171,13 @@ public class CompanionConnectionTests
 		var receivedPayloads = new System.Collections.Generic.List<byte[]> ();
 		receiver.FrameReceived += (_, _, payload) => receivedPayloads.Add (payload);
 
-		byte[] first = sender.BuildFrame (FrameType.E_OPACK, Encoding.UTF8.GetBytes ("first"));
-		byte[] second = sender.BuildFrame (FrameType.E_OPACK, Encoding.UTF8.GetBytes ("second"));
+		var first = sender.BuildFrame (FrameType.E_OPACK, Encoding.UTF8.GetBytes ("first"));
+		var second = sender.BuildFrame (FrameType.E_OPACK, Encoding.UTF8.GetBytes ("second"));
 
 		receiver.ReceiveData (first);
 		receiver.ReceiveData (second);
 
-		Assert.AreEqual (2, receivedPayloads.Count);
+		Assert.HasCount (2, receivedPayloads);
 		CollectionAssert.AreEqual (Encoding.UTF8.GetBytes ("first"), receivedPayloads[0]);
 		CollectionAssert.AreEqual (Encoding.UTF8.GetBytes ("second"), receivedPayloads[1]);
 		}

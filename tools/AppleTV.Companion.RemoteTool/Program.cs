@@ -105,7 +105,7 @@ internal static class Program
 				{
 				if (args.Length < 3 || !Enum.TryParse (args[2], ignoreCase: true, out HidCommand hid))
 					{
-					Console.Error.WriteLine ($"Usage: button <{string.Join ("|", Enum.GetNames (typeof (HidCommand)))}>");
+					Console.Error.WriteLine ($"Usage: button <{string.Join ("|", Enum.GetNames<HidCommand> ())}>");
 					return 1;
 					}
 
@@ -279,7 +279,7 @@ internal static class Program
 				return "null";
 			case Dictionary<object, object?> dict:
 				{
-				List<string> parts = new ();
+				List<string> parts = [];
 				foreach (var kvp in dict)
 					{
 					parts.Add ($"{kvp.Key}: {DescribeValue (kvp.Value)}");

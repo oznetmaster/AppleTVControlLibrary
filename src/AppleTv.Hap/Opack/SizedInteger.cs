@@ -16,8 +16,8 @@ public readonly struct SizedInteger
 	/// <param name="size">The encoded width in bytes (1, 2, 4 or 8).</param>
 	public SizedInteger (long value, int size)
 		{
-		this.Value = value;
-		this.Size = size;
+		Value = value;
+		Size = size;
 		}
 
 	/// <summary>Gets the integer value.</summary>

@@ -100,7 +100,7 @@ public partial class MainWindow : Window
 		_isTouchpadDragging = true;
 		_touchpadMoved = false;
 		_touchpadDownPosition = e.GetPosition (TouchpadSurface);
-		TouchpadSurface.CaptureMouse ();
+		_ = TouchpadSurface.CaptureMouse ();
 
 		(int x, int y) = MainViewModel.TranslateTouchCoordinate (_touchpadDownPosition, TouchpadSurface.ActualWidth, TouchpadSurface.ActualHeight);
 		viewModel.SendTouchEvent (x, y, TouchAction.Press);

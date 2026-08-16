@@ -10,24 +10,18 @@ namespace AppleTvControlLibrary.Remote.Wpf.ViewModels;
 /// are already persisted, so the device list can indicate devices that do not need to be
 /// paired again.
 /// </summary>
-public sealed class DeviceListItem : ViewModelBase
+/// <remarks>Initializes a new instance of the <see cref="DeviceListItem"/> class.</remarks>
+/// <param name="device">The discovered device.</param>
+/// <param name="isPaired">Whether credentials for this device are already stored.</param>
+public sealed class DeviceListItem (CompanionDiscoveryResult device, bool isPaired) : ViewModelBase
 	{
-	private bool _isPaired;
-
-	/// <summary>Initializes a new instance of the <see cref="DeviceListItem"/> class.</summary>
-	/// <param name="device">The discovered device.</param>
-	/// <param name="isPaired">Whether credentials for this device are already stored.</param>
-	public DeviceListItem (CompanionDiscoveryResult device, bool isPaired)
-		{
-		Device = device;
-		_isPaired = isPaired;
-		}
+	private bool _isPaired = isPaired;
 
 	/// <summary>Gets the underlying discovery result.</summary>
 	public CompanionDiscoveryResult Device
 		{
 		get;
-		}
+		} = device;
 
 	/// <summary>Gets the device's display name.</summary>
 	public string Name => Device.Name;

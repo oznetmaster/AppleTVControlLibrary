@@ -73,7 +73,7 @@ public class CompanionApiIntegrationTests
 		var api = CreateConnectedApi (device, out CompanionProtocol protocol);
 		api.Connect ();
 
-		bool raised = false;
+		var raised = false;
 		Exception? observedException = null;
 		api.ConnectionClosed += (sender, args) =>
 			{
@@ -95,7 +95,7 @@ public class CompanionApiIntegrationTests
 
 		await api.ConnectAsync ();
 
-		Assert.IsTrue (api.Sid != 0);
+		Assert.AreNotEqual (0, api.Sid);
 		}
 
 	[TestMethod]
@@ -106,7 +106,7 @@ public class CompanionApiIntegrationTests
 		await api.ConnectAsync ();
 
 		await api.SendHidCommandAsync (down: true, HidCommand.Select);
-		Assert.IsTrue (device.PressedButtons.Contains (HidCommand.Select));
+		Assert.Contains (HidCommand.Select, device.PressedButtons);
 
 		await api.SetVolumeAsync (42.0);
 		Assert.AreEqual (42.0, await api.GetVolumeAsync (), 0.001);
@@ -165,11 +165,12 @@ public class CompanionApiIntegrationTests
 
 		Task swipe = Task.Run (async () =>
 			{
-			for (int x = 0; x <= 1000; x += 100)
+			for (var x = 0; x <= 1000; x += 100)
 				{
 				await api.SendHidEventAsync (x, 500, x == 0 ? TouchAction.Press : TouchAction.Hold);
 				await Task.Yield ();
 				}
+
 			await api.SendHidEventAsync (1000, 500, TouchAction.Release);
 			});
 		Task<SystemStatus[]> queries = Task.WhenAll (Enumerable.Range (0, 24).Select (_ => api.FetchAttentionStateAsync ()));
@@ -192,7 +193,7 @@ public class CompanionApiIntegrationTests
 
 		serverConnection.FrameReceived += (sender, frameType, data) =>
 			{
-			object? unpacked = AppleTvControlLibrary.Opack.Opack.Unpack (data, out _);
+			var unpacked = AppleTvControlLibrary.Opack.Opack.Unpack (data, out _);
 			if (unpacked is not Dictionary<object, object?> request)
 				{
 				return;
@@ -201,7 +202,7 @@ public class CompanionApiIntegrationTests
 			Dictionary<object, object?>? response = device.HandleOpackFrame (request);
 			if (response is not null)
 				{
-				byte[] responseFrame = serverConnection.BuildFrame (frameType, AppleTvControlLibrary.Opack.Opack.Pack (response));
+				var responseFrame = serverConnection.BuildFrame (frameType, AppleTvControlLibrary.Opack.Opack.Pack (response));
 				clientConnection.ReceiveData (responseFrame);
 				}
 			};
@@ -217,7 +218,7 @@ public class CompanionApiIntegrationTests
 				{ "_t", (int)MessageType.Event },
 				{ "_c", content },
 				};
-			byte[] frame = serverConnection.BuildFrame (AppleTvControlLibrary.Connection.FrameType.E_OPACK, AppleTvControlLibrary.Opack.Opack.Pack (eventFrame));
+			var frame = serverConnection.BuildFrame (AppleTvControlLibrary.Connection.FrameType.E_OPACK, AppleTvControlLibrary.Opack.Opack.Pack (eventFrame));
 			clientConnection.ReceiveData (frame);
 			};
 
@@ -228,8 +229,8 @@ public class CompanionApiIntegrationTests
 			};
 
 		var credentials = new HapCredentials (
-			ltpk: new byte[] { 1 },
-			ltsk: new byte[] { 2 },
+			ltpk: [1],
+			ltsk: [2],
 			atvId: System.Text.Encoding.UTF8.GetBytes ("atv-id"),
 			clientId: System.Text.Encoding.UTF8.GetBytes ("client-id"));
 
@@ -254,7 +255,7 @@ public class CompanionApiIntegrationTests
 			{
 			var request = (Dictionary<object, object?>)AppleTvControlLibrary.Opack.Opack.Unpack (data, out _)!;
 			Dictionary<object, object?> response = device.HandleOpackFrame (request)!;
-			if (request["_c"] is Dictionary<object, object?> content && content.TryGetValue ("requestNumber", out object? requestNumber))
+			if (request["_c"] is Dictionary<object, object?> content && content.TryGetValue ("requestNumber", out var requestNumber))
 				{
 				((Dictionary<object, object?>)response["_c"]!)["requestNumber"] = requestNumber;
 				}
@@ -268,7 +269,7 @@ public class CompanionApiIntegrationTests
 			};
 		deliverResponses = () =>
 			{
-			for (int index = responses.Count - 1; index >= 0; index--)
+			for (var index = responses.Count - 1; index >= 0; index--)
 				{
 				clientConnection.ReceiveData (responses[index]);
 				}
@@ -320,7 +321,7 @@ public class CompanionApiIntegrationTests
 
 		api.SendHidCommand (down: true, HidCommand.Select);
 
-		Assert.IsTrue (device.PressedButtons.Contains (HidCommand.Select));
+		Assert.Contains (HidCommand.Select, device.PressedButtons);
 		}
 
 	[TestMethod]
@@ -388,11 +389,11 @@ public class CompanionApiIntegrationTests
 		((ICompanionProtocolListener)api).EventReceived ("_iMC", new Dictionary<object, object?> { { "_mcF", (long)MediaControlCapabilities.Volume } });
 		Assert.IsTrue (api.IsVolumeControlSupported);
 
-		bool muted = api.ToggleMute ();
+		var muted = api.ToggleMute ();
 		Assert.IsTrue (muted);
 		Assert.AreEqual (0.0, device.Volume, 0.001);
 
-		bool unmuted = api.ToggleMute ();
+		var unmuted = api.ToggleMute ();
 		Assert.IsFalse (unmuted);
 		Assert.AreEqual (60.0, device.Volume, 0.001);
 		}
@@ -405,7 +406,7 @@ public class CompanionApiIntegrationTests
 		var api = CreateConnectedApi (device, out _);
 		api.Connect ();
 
-		string? text = api.TextGet ();
+		var text = api.TextGet ();
 
 		Assert.AreEqual ("Fake Companion Keyboard Text", text);
 		}
