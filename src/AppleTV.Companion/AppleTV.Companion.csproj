@@ -8,7 +8,7 @@
 		<TargetFrameworks>net472;net10.0</TargetFrameworks>
 		<IsPackable>true</IsPackable>
 		<PackageId>AppleTvControlLibrary</PackageId>
-		<Version>2.2.4</Version>
+		<Version>2.2.5</Version>
 		<Authors>Neil Colvin</Authors>
 		<Company>Neil Colvin</Company>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -19,7 +19,7 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Description>Reusable Apple TV client library for .NET Framework 4.7.2 and .NET 10.</Description>
-		<PackageReleaseNotes>Packaging fix: the bundled AppleTv.Hap.dll (see 2.2.3 notes) was previously always stamped with assembly version 1.0.0.0 regardless of release, because it is never packed directly and had no Version property of its own. AppleTv.Hap.csproj now carries the same Version as this package, and the release build now passes -p:Version so the bundled DLL's version matches the release it ships in. No functional/API changes.</PackageReleaseNotes>
+		<PackageReleaseNotes>Packaging fix: AppleTv.Hap is not itself packed (IsPackable=false) so it never got its own .nuspec, and the PrivateAssets=all on its ProjectReference (added in 2.2.3 to stop a phantom AppleTv.Hap package dependency) also suppressed its transitive BouncyCastle.Cryptography dependency from this package's .nuspec. Since AppleTv.Hap.dll's SrpAuthHandler requires BouncyCastle.Cryptography at runtime, consumers who didn't already have it in their own dependency graph could hit a TypeLoadException. BouncyCastle.Cryptography 2.7.0 is now declared explicitly as a direct dependency of this package so NuGet restores it for all consumers. No functional/API changes.</PackageReleaseNotes>
 		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
 		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -56,6 +56,13 @@
 		<ProjectReference Include="..\AppleTv.Hap\AppleTv.Hap.csproj">
 			<PrivateAssets>all</PrivateAssets>
 		</ProjectReference>
+	</ItemGroup>
+	<!-- PrivateAssets=all on the AppleTv.Hap ProjectReference above suppresses ALL of its transitive
+		  dependencies (it never gets its own nuspec since IsPackable=false), so BouncyCastle.Cryptography
+		  (required at runtime by AppleTv.Hap's SrpAuthHandler) must be declared explicitly here or it
+		  will never be restored/copied for consumers of this package. -->
+	<ItemGroup>
+		<PackageReference Include="BouncyCastle.Cryptography" Version="2.7.0" />
 	</ItemGroup>
 	<!-- AppleTv.Hap is IsPackable=false (it has no NuGet package of its own), so bundle its
 		  compiled assembly into this package's lib folder instead of letting NuGet emit a

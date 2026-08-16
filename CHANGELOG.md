@@ -2,6 +2,22 @@
 
 All notable changes to this project are documented in this file.
 
+## [2.2.5] - 2026-08-17
+
+### Fixed
+
+- Fixed a missing runtime dependency: `AppleTv.Hap` is not itself packed (`IsPackable=false`), so it
+  never produces its own `.nuspec`. Its `ProjectReference` from `AppleTvControlLibrary` and
+  `AppleTvControlLibrary.Mrp` is marked `PrivateAssets=all` (added in 2.2.3 to stop a phantom
+  `AppleTv.Hap` package dependency), which also suppressed `AppleTv.Hap`'s transitive
+  `BouncyCastle.Cryptography` dependency from flowing into either package's `.nuspec`. Since the
+  bundled `AppleTv.Hap.dll`'s `SrpAuthHandler`/`Chacha20Cipher` require `BouncyCastle.Cryptography`
+  at runtime, consumers who didn't already reference it separately could fail with a
+  `TypeLoadException` when HAP pairing/encryption code executed. `BouncyCastle.Cryptography 2.7.0`
+  is now declared explicitly as a direct dependency of both `AppleTvControlLibrary` and
+  `AppleTvControlLibrary.Mrp` so NuGet restores it for all consumers. Packaging only - no
+  functional or public API changes.
+
 ## [2.2.4] - 2026-08-16
 
 ### Fixed
