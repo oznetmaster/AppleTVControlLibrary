@@ -9,7 +9,7 @@ using AppleTvControlLibrary.Connection;
 using AppleTvControlLibrary.FakeDevice;
 using AppleTvControlLibrary.Tlv8;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AppleTV.Companion.Tests.AuthTests;
 
@@ -23,7 +23,8 @@ namespace AppleTV.Companion.Tests.AuthTests;
 /// <c>CompanionPairVerifyProcedure</c>), which describe exactly this message sequence.
 /// </remarks>
 // pyatv/protocols/companion/auth.py (CompanionPairSetupProcedure, CompanionPairVerifyProcedure) — line 37-158 as of pyatv 0.18.0
-[TestClass]
+[TestFixture]
+[FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public class CompanionPairingIntegrationTests
 	{
 	// pyatv/protocols/companion/protocol.py (SRP_SALT, SRP_OUTPUT_INFO, SRP_INPUT_INFO) — line 40-42 as of pyatv 0.18.0
@@ -31,7 +32,7 @@ public class CompanionPairingIntegrationTests
 	private const string SRP_OUTPUT_INFO = "ClientEncrypt-main";
 	private const string SRP_INPUT_INFO = "ServerEncrypt-main";
 
-	[TestMethod]
+	[Test]
 	public void PairSetupThenPairVerifySucceeds ()
 		{
 		var device = new FakeCompanionDevice ();
@@ -47,7 +48,7 @@ public class CompanionPairingIntegrationTests
 				{ (int)TlvValue.SeqNo, new byte[] { 1 } },
 			});
 		(FrameType m2FrameType, var m2ResponseTlv) = device.HandleAuthFrame (FrameType.PS_Start, m1RequestTlv);
-		Assert.AreEqual (FrameType.PS_Next, m2FrameType);
+		Assert.That (m2FrameType, Is.EqualTo (FrameType.PS_Next));
 
 		var m2 = Tlv8.ReadTlv (m2ResponseTlv);
 		var atvSalt = m2[(int)TlvValue.Salt];
@@ -66,10 +67,10 @@ public class CompanionPairingIntegrationTests
 				{ (int)TlvValue.Proof, clientProof },
 			});
 		(FrameType m4FrameType, var m4ResponseTlv) = device.HandleAuthFrame (FrameType.PS_Next, m3RequestTlv);
-		Assert.AreEqual (FrameType.PS_Next, m4FrameType);
+		Assert.That (m4FrameType, Is.EqualTo (FrameType.PS_Next));
 
 		var m4 = Tlv8.ReadTlv (m4ResponseTlv);
-		Assert.IsFalse (m4.ContainsKey ((int)TlvValue.Error), "Server rejected client SRP proof");
+		Assert.That (m4.ContainsKey ((int)TlvValue.Error), Is.False, "Server rejected client SRP proof");
 
 		// --- Pair-setup M5 ---
 		// pyatv/protocols/companion/auth.py (finish_pairing, second half) — line 92-100 as of pyatv 0.18.0
@@ -80,16 +81,16 @@ public class CompanionPairingIntegrationTests
 				{ (int)TlvValue.EncryptedData, m5EncryptedData },
 			});
 		(FrameType m6FrameType, var m6ResponseTlv) = device.HandleAuthFrame (FrameType.PS_Next, m5RequestTlv);
-		Assert.AreEqual (FrameType.PS_Next, m6FrameType);
+		Assert.That (m6FrameType, Is.EqualTo (FrameType.PS_Next));
 
 		var m6 = Tlv8.ReadTlv (m6ResponseTlv);
 		var m6EncryptedData = m6[(int)TlvValue.EncryptedData];
 
 		HapCredentials credentials = pairSetupSrp.Step4 (m6EncryptedData);
 
-		Assert.IsTrue (device.HasPaired);
-		Assert.AreEqual (AuthenticationType.Hap, credentials.Type);
-		CollectionAssert.AreEqual (device.PairedClientId, credentials.ClientId);
+		Assert.That (device.HasPaired, Is.True);
+		Assert.That (credentials.Type, Is.EqualTo (AuthenticationType.Hap));
+		Assert.That (credentials.ClientId, Is.EqualTo (device.PairedClientId));
 
 		// --- Pair-verify M1/M3 ---
 		// pyatv/protocols/companion/auth.py (CompanionPairVerifyProcedure.verify_credentials) — line 120-158 as of pyatv 0.18.0
@@ -102,7 +103,7 @@ public class CompanionPairingIntegrationTests
 				{ (int)TlvValue.PublicKey, verifyPubKey },
 			});
 		(FrameType pv2FrameType, var pv2ResponseTlv) = device.HandleAuthFrame (FrameType.PV_Start, pv1RequestTlv);
-		Assert.AreEqual (FrameType.PV_Next, pv2FrameType);
+		Assert.That (pv2FrameType, Is.EqualTo (FrameType.PV_Next));
 
 		var pv2 = Tlv8.ReadTlv (pv2ResponseTlv);
 		var serverVerifyPubKey = pv2[(int)TlvValue.PublicKey];
@@ -116,20 +117,20 @@ public class CompanionPairingIntegrationTests
 				{ (int)TlvValue.EncryptedData, pv3EncryptedData },
 			});
 		(FrameType pv4FrameType, var pv4ResponseTlv) = device.HandleAuthFrame (FrameType.PV_Next, pv3RequestTlv);
-		Assert.AreEqual (FrameType.PV_Next, pv4FrameType);
+		Assert.That (pv4FrameType, Is.EqualTo (FrameType.PV_Next));
 
 		var pv4 = Tlv8.ReadTlv (pv4ResponseTlv);
-		Assert.IsFalse (pv4.ContainsKey ((int)TlvValue.Error), "Server rejected pair-verify signature");
-		Assert.IsTrue (device.IsEncrypted, "Server did not enable encryption after pair-verify M3");
+		Assert.That (pv4.ContainsKey ((int)TlvValue.Error), Is.False, "Server rejected pair-verify signature");
+		Assert.That (device.IsEncrypted, Is.True, "Server did not enable encryption after pair-verify M3");
 
 		(var clientOutputKey, var clientInputKey) = pairVerifySrp.Verify2 (SRP_SALT, SRP_OUTPUT_INFO, SRP_INPUT_INFO);
 
 		// The client's output key must equal the server's input key and vice versa, since
 		// "ClientEncrypt-main" on the client side derives the key the server decrypts with
 		// (pyatv/protocols/companion/server_auth.py — line 131-132 as of pyatv 0.18.0).
-		Assert.IsNotNull (device.ServerOutputKey);
-		Assert.IsNotNull (device.ServerInputKey);
-		CollectionAssert.AreEqual (clientOutputKey, device.ServerInputKey);
-		CollectionAssert.AreEqual (clientInputKey, device.ServerOutputKey);
+		Assert.That (device.ServerOutputKey, Is.Not.Null);
+		Assert.That (device.ServerInputKey, Is.Not.Null);
+		Assert.That (device.ServerInputKey, Is.EqualTo (clientOutputKey));
+		Assert.That (device.ServerOutputKey, Is.EqualTo (clientInputKey));
 		}
 	}

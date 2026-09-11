@@ -5,40 +5,41 @@ using System.Text;
 
 using AppleTvControlLibrary.Crypto;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AppleTV.Companion.Tests.Crypto;
 
 /// <summary>
 /// Ported from pyatv/tests/support/test_chacha20.py (pyatv 0.18.0).
 /// </summary>
-[TestClass]
+[TestFixture]
+[FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public class Chacha20CipherTests
 	{
 	// tests/support/test_chacha20.py:7 (fake_key)
 	private static readonly byte[] FakeKey = Encoding.ASCII.GetBytes (new string ('k', 32));
 
 	// tests/support/test_chacha20.py:10-15 (test_12_bytes_nonce)
-	[TestMethod]
+	[Test]
 	public void TwelveByteNonce ()
 		{
 		var cipher = new Chacha20Cipher (FakeKey, FakeKey, 12);
-		Assert.HasCount (12, cipher.OutNonce);
-		Assert.HasCount (12, cipher.InNonce);
+		Assert.That (cipher.OutNonce, Has.Length.EqualTo (12));
+		Assert.That (cipher.InNonce, Has.Length.EqualTo (12));
 
 		var result = cipher.Encrypt (Encoding.ASCII.GetBytes ("test"));
-		CollectionAssert.AreEqual (Encoding.ASCII.GetBytes ("test"), cipher.Decrypt (result));
+		Assert.That (cipher.Decrypt (result), Is.EqualTo (Encoding.ASCII.GetBytes ("test")));
 		}
 
 	// tests/support/test_chacha20.py:18-23 (test_8_bytes_nonce)
-	[TestMethod]
+	[Test]
 	public void EightByteNonce ()
 		{
 		var cipher = new Chacha20Cipher8ByteNonce (FakeKey, FakeKey);
-		Assert.HasCount (12, cipher.OutNonce);
-		Assert.HasCount (12, cipher.InNonce);
+		Assert.That (cipher.OutNonce, Has.Length.EqualTo (12));
+		Assert.That (cipher.InNonce, Has.Length.EqualTo (12));
 
 		var result = cipher.Encrypt (Encoding.ASCII.GetBytes ("test"));
-		CollectionAssert.AreEqual (Encoding.ASCII.GetBytes ("test"), cipher.Decrypt (result));
+		Assert.That (cipher.Decrypt (result), Is.EqualTo (Encoding.ASCII.GetBytes ("test")));
 		}
 	}

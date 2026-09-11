@@ -6,7 +6,7 @@ using System.Text;
 
 using AppleTvControlLibrary.Auth;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 using Org.BouncyCastle.Crypto.Agreement.Srp;
 using Org.BouncyCastle.Crypto.Digests;
@@ -22,7 +22,8 @@ namespace AppleTV.Companion.Tests.AuthTests;
 /// <see cref="SrpAuthHandler"/> agree with a standard SRP server for the same verifier.
 /// </summary>
 // pyatv/auth/hap_srp.py (step1, step2) — line 131-165 as of pyatv 0.18.0; srptools/context.py, srptools/client.py
-[TestClass]
+[TestFixture]
+[FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public class SrpAuthHandlerTests
 	{
 	// pyatv/auth/hap_srp.py (SRPContext("Pair-Setup", str(pin) — line 135 as of pyatv 0.18.0, ...))
@@ -44,7 +45,7 @@ public class SrpAuthHandlerTests
 
 	private static readonly BigInteger Generator = BigInteger.ValueOf (5);
 
-	[TestMethod]
+	[Test]
 	public void Step1AndStep2AgreeWithIndependentSrpServer ()
 		{
 		const int pin = 1234;
@@ -81,6 +82,6 @@ public class SrpAuthHandlerTests
 		var serverSessionKey = new byte[sessionKeyDigest.GetDigestSize ()];
 		sessionKeyDigest.DoFinal (serverSessionKey, 0);
 
-		CollectionAssert.AreEqual (serverSessionKey, handler.SharedKey);
+		Assert.That (handler.SharedKey, Is.EqualTo (serverSessionKey));
 		}
 	}

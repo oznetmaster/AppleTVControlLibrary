@@ -8,7 +8,7 @@ using AppleTvControlLibrary.Mrp.Auth;
 using AppleTvControlLibrary.Mrp.FakeDevice;
 using AppleTvControlLibrary.Mrp.Protobuf;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AppleTv.Mrp.Tests.AuthTests;
 
@@ -23,10 +23,11 @@ namespace AppleTv.Mrp.Tests.AuthTests;
 /// which describe exactly this message sequence.
 /// </remarks>
 // pyatv/protocols/mrp/auth.py (MrpPairSetupProcedure, MrpPairVerifyProcedure) — line 26-121 as of pyatv 0.18.0
-[TestClass]
+[TestFixture]
+[FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public class MrpPairingIntegrationTests
 	{
-	[TestMethod]
+	[Test]
 	public async Task PairSetupThenPairVerifySucceedsAsync ()
 		{
 		var device = new FakeMrpDevice ();
@@ -40,9 +41,9 @@ public class MrpPairingIntegrationTests
 		await pairSetup.StartPairingAsync ().ConfigureAwait (false);
 		HapCredentials credentials = await pairSetup.FinishPairingAsync (FakeMrpDevice.PIN_CODE).ConfigureAwait (false);
 
-		Assert.IsTrue (device.HasPaired);
-		Assert.AreEqual (AuthenticationType.Hap, credentials.Type);
-		CollectionAssert.AreEqual (device.PairedClientId, credentials.ClientId);
+		Assert.That (device.HasPaired, Is.True);
+		Assert.That (credentials.Type, Is.EqualTo (AuthenticationType.Hap));
+		Assert.That (credentials.ClientId, Is.EqualTo (device.PairedClientId));
 
 		// --- Pair-verify ---
 		// pyatv/protocols/mrp/protocol.py (SRP_SALT, SRP_OUTPUT_INFO, SRP_INPUT_INFO) — line 25-27 as of pyatv 0.18.0
@@ -53,7 +54,7 @@ public class MrpPairingIntegrationTests
 			credentials);
 
 		bool verified = await pairVerify.VerifyCredentialsAsync ().ConfigureAwait (false);
-		Assert.IsTrue (verified);
+		Assert.That (verified, Is.True);
 
 		(byte[] clientOutputKey, byte[] clientInputKey) = pairVerify.EncryptionKeys (
 			MrpProtocolConstants.SrpSalt, MrpProtocolConstants.SrpOutputInfo, MrpProtocolConstants.SrpInputInfo);
@@ -62,9 +63,9 @@ public class MrpPairingIntegrationTests
 		// sides for their respective output keys, so the client's output key equals the server's
 		// output key (and likewise for input), rather than being cross-derived
 		// (pyatv/protocols/mrp/server_auth.py — line 149-155 as of pyatv 0.18.0).
-		Assert.IsNotNull (device.ServerOutputKey);
-		Assert.IsNotNull (device.ServerInputKey);
-		CollectionAssert.AreEqual (clientOutputKey, device.ServerOutputKey);
-		CollectionAssert.AreEqual (clientInputKey, device.ServerInputKey);
+		Assert.That (device.ServerOutputKey, Is.Not.Null);
+		Assert.That (device.ServerInputKey, Is.Not.Null);
+		Assert.That (device.ServerOutputKey, Is.EqualTo (clientOutputKey));
+		Assert.That (device.ServerInputKey, Is.EqualTo (clientInputKey));
 		}
 	}

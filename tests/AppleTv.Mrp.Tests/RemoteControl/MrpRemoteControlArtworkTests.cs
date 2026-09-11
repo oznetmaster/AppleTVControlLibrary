@@ -15,7 +15,7 @@ using AppleTvControlLibrary.Mrp.Protobuf;
 using AppleTvControlLibrary.Mrp.Protocol;
 using AppleTvControlLibrary.Mrp.RemoteControl;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AppleTv.Mrp.Tests.RemoteControlTests;
 
@@ -24,7 +24,8 @@ namespace AppleTv.Mrp.Tests.RemoteControlTests;
 /// selection and caching, ported from pyatv's <c>MrpMetadata.artwork()</c> behavior.
 /// </summary>
 // pyatv/protocols/mrp/__init__.py (MrpMetadata.artwork / _fetch_remote_artwork / _fetch_local_artwork) — line 504-598 as of pyatv 0.18.0
-[TestClass]
+[TestFixture]
+[FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public class MrpRemoteControlArtworkTests
 	{
 	private const string CLIENT_ID = "client_id";
@@ -102,7 +103,7 @@ public class MrpRemoteControlArtworkTests
 		return new MrpRemoteControl (protocol, psm, new HttpClient (handler));
 		}
 
-	[TestMethod]
+	[Test]
 	public async Task GetArtworkAsyncReturnsNullWhenNoArtworkMetadataPresentAsync ()
 		{
 		MrpPlayerStateManager psm = CreatePlayerStateManagerWithMetadata (metadata => { });
@@ -111,11 +112,11 @@ public class MrpRemoteControlArtworkTests
 
 		(byte[] Data, string? MimeType)? result = await remoteControl.GetArtworkAsync ().ConfigureAwait (false);
 
-		Assert.IsNull (result);
-		Assert.AreEqual (0, handler.RequestCount);
+		Assert.That (result, Is.Null);
+		Assert.That (handler.RequestCount, Is.EqualTo (0));
 		}
 
-	[TestMethod]
+	[Test]
 	public async Task GetArtworkAsyncFetchesRemoteArtworkFromArtworkURLAsync ()
 		{
 		byte[] expectedBytes = [1, 2, 3, 4];
@@ -127,7 +128,7 @@ public class MrpRemoteControlArtworkTests
 
 		var handler = new StubHttpMessageHandler (request =>
 			{
-			Assert.AreEqual ("https://example.com/art.png", request.RequestUri!.ToString ());
+			Assert.That (request.RequestUri!.ToString (), Is.EqualTo ("https://example.com/art.png"));
 			var response = new HttpResponseMessage (HttpStatusCode.OK)
 				{
 				Content = new ByteArrayContent (expectedBytes),
@@ -140,13 +141,13 @@ public class MrpRemoteControlArtworkTests
 
 		(byte[] Data, string? MimeType)? result = await remoteControl.GetArtworkAsync ().ConfigureAwait (false);
 
-		Assert.IsNotNull (result);
-		CollectionAssert.AreEqual (expectedBytes, result!.Value.Data);
-		Assert.AreEqual ("image/png", result.Value.MimeType);
-		Assert.AreEqual (1, handler.RequestCount);
+		Assert.That (result, Is.Not.Null);
+		Assert.That (result!.Value.Data, Is.EqualTo (expectedBytes));
+		Assert.That (result.Value.MimeType, Is.EqualTo ("image/png"));
+		Assert.That (handler.RequestCount, Is.EqualTo (1));
 		}
 
-	[TestMethod]
+	[Test]
 	public async Task GetArtworkAsyncCachesResultAndDoesNotRefetchAsync ()
 		{
 		byte[] expectedBytes = [9, 9, 9];
@@ -166,12 +167,12 @@ public class MrpRemoteControlArtworkTests
 		(byte[] Data, string? MimeType)? first = await remoteControl.GetArtworkAsync ().ConfigureAwait (false);
 		(byte[] Data, string? MimeType)? second = await remoteControl.GetArtworkAsync ().ConfigureAwait (false);
 
-		Assert.IsNotNull (first);
-		Assert.IsNotNull (second);
-		Assert.AreEqual (1, handler.RequestCount);
+		Assert.That (first, Is.Not.Null);
+		Assert.That (second, Is.Not.Null);
+		Assert.That (handler.RequestCount, Is.EqualTo (1));
 		}
 
-	[TestMethod]
+	[Test]
 	public async Task GetArtworkAsyncFallsBackToLocalArtworkWhenRemoteFetchFailsAsync ()
 		{
 		// No artworkIdentifier/artworkURL at all, but artworkAvailable is true: the only path left
@@ -191,10 +192,10 @@ public class MrpRemoteControlArtworkTests
 
 		(byte[] Data, string? MimeType)? result = await remoteControl.GetArtworkAsync ().ConfigureAwait (false);
 
-		Assert.IsNull (result);
+		Assert.That (result, Is.Null);
 		}
 
-	[TestMethod]
+	[Test]
 	public async Task GetArtworkAsyncReturnsNullWhenHttpRequestFailsAsync ()
 		{
 		MrpPlayerStateManager psm = CreatePlayerStateManagerWithMetadata (metadata =>
@@ -212,6 +213,6 @@ public class MrpRemoteControlArtworkTests
 
 		(byte[] Data, string? MimeType)? result = await remoteControl.GetArtworkAsync ().ConfigureAwait (false);
 
-		Assert.IsNull (result);
+		Assert.That (result, Is.Null);
 		}
 	}

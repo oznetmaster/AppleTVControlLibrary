@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 using AppleTvControlLibrary.Discovery.Companion;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AppleTV.Companion.Tests.Discovery;
 
@@ -13,68 +13,69 @@ namespace AppleTV.Companion.Tests.Discovery;
 /// Targeted tests for Companion-specific TXT-record parsing, since pyatv doesn't ship a
 /// dedicated discovery test file for these rules.
 /// </summary>
-[TestClass]
+[TestFixture]
+[FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public class CompanionServiceInfoTests
 	{
 	// pyatv/helpers.py (get_unique_id, COMPANION_SERVICE branch) — line 73-76 as of pyatv 0.18.0
-	[TestMethod]
+	[Test]
 	public void GetUniqueId_ReturnsRpmrtidValue ()
 		{
 		Dictionary<string, string> properties = new Dictionary<string, string> { ["rpmrtid"] = "ABCDEF123456" };
 
 		var uniqueId = CompanionServiceInfo.GetUniqueId (properties);
 
-		Assert.AreEqual ("ABCDEF123456", uniqueId);
+		Assert.That (uniqueId, Is.EqualTo ("ABCDEF123456"));
 		}
 
-	[TestMethod]
+	[Test]
 	public void GetUniqueId_ReturnsNullWhenMissing ()
 		{
 		Dictionary<string, string> properties = new Dictionary<string, string> ();
 
 		var uniqueId = CompanionServiceInfo.GetUniqueId (properties);
 
-		Assert.IsNull (uniqueId);
+		Assert.That (uniqueId, Is.Null);
 		}
 
 	// pyatv/protocols/companion/__init__.py — line 56-79 as of pyatv 0.18.0, 648-660 (service_info + masks)
-	[TestMethod]
+	[Test]
 	public void GetPairingRequirement_DisabledMaskWins ()
 		{
 		Dictionary<string, string> properties = new Dictionary<string, string> { ["rpfl"] = "0x627B6" };
 
 		CompanionPairingRequirement requirement = CompanionServiceInfo.GetPairingRequirement (properties);
 
-		Assert.AreEqual (CompanionPairingRequirement.Disabled, requirement);
+		Assert.That (requirement, Is.EqualTo (CompanionPairingRequirement.Disabled));
 		}
 
-	[TestMethod]
+	[Test]
 	public void GetPairingRequirement_PinSupportedMask ()
 		{
 		Dictionary<string, string> properties = new Dictionary<string, string> { ["rpfl"] = "0x367A2" };
 
 		CompanionPairingRequirement requirement = CompanionServiceInfo.GetPairingRequirement (properties);
 
-		Assert.AreEqual (CompanionPairingRequirement.Mandatory, requirement);
+		Assert.That (requirement, Is.EqualTo (CompanionPairingRequirement.Mandatory));
 		}
 
-	[TestMethod]
+	[Test]
 	public void GetPairingRequirement_NoFlagsIsUnsupported ()
 		{
 		Dictionary<string, string> properties = new Dictionary<string, string> { ["rpfl"] = "0x20000" };
 
 		CompanionPairingRequirement requirement = CompanionServiceInfo.GetPairingRequirement (properties);
 
-		Assert.AreEqual (CompanionPairingRequirement.Unsupported, requirement);
+		Assert.That (requirement, Is.EqualTo (CompanionPairingRequirement.Unsupported));
 		}
 
-	[TestMethod]
+	[Test]
 	public void GetPairingRequirement_MissingPropertyIsUnsupported ()
 		{
 		Dictionary<string, string> properties = new Dictionary<string, string> ();
 
 		CompanionPairingRequirement requirement = CompanionServiceInfo.GetPairingRequirement (properties);
 
-		Assert.AreEqual (CompanionPairingRequirement.Unsupported, requirement);
+		Assert.That (requirement, Is.EqualTo (CompanionPairingRequirement.Unsupported));
 		}
 	}

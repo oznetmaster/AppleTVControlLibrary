@@ -4,7 +4,7 @@
 using AppleTvControlLibrary.Auth;
 using AppleTvControlLibrary.Mrp.AirPlay;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AppleTvControlLibrary.Mrp.Tests.AirPlay;
 
@@ -15,7 +15,8 @@ namespace AppleTvControlLibrary.Mrp.Tests.AirPlay;
 /// tools/AppleTV.AirPlay.ScanTool against real hardware).
 /// </summary>
 // pyatv/protocols/airplay/mrp_connection.py (AirPlayMrpConnection) — line 16-75 as of pyatv 0.18.0
-[TestClass]
+[TestFixture]
+[FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public class AirPlayMrpConnectionTests
 	{
 	private static AirPlayMrpConnection CreateConnection ()
@@ -26,7 +27,7 @@ public class AirPlayMrpConnectionTests
 		return new AirPlayMrpConnection (session);
 		}
 
-	[TestMethod]
+	[Test]
 	public void BuildMessageIsAnIdentityPassthrough ()
 		{
 		// pyatv/protocols/airplay/mrp_connection.py — line 43-45 as of pyatv 0.18.0: build_message
@@ -36,11 +37,11 @@ public class AirPlayMrpConnectionTests
 
 		byte[] result = connection.BuildMessage (data);
 
-		CollectionAssert.AreEqual (data, result);
-		Assert.AreSame (data, result);
+		Assert.That (result, Is.EqualTo (data));
+		Assert.That (result, Is.SameAs (data));
 		}
 
-	[TestMethod]
+	[Test]
 	public void EnableEncryptionIsANoOp ()
 		{
 		// pyatv/protocols/airplay/mrp_connection.py — line 40-41 as of pyatv 0.18.0: enable_encryption
@@ -53,14 +54,13 @@ public class AirPlayMrpConnectionTests
 		connection.EnableEncryption (outputKey, inputKey);
 		}
 
-	[TestMethod]
+	[Test]
 	public void ConnectThrowsWhenDataChannelNotYetSetUp ()
 		{
 		// pyatv/protocols/airplay/mrp_connection.py (connect) — line 33-38 as of pyatv 0.18.0: connect()
 		// requires SetupRemoteControlAsync to have already populated the session's data channel.
 		using AirPlayMrpConnection connection = CreateConnection ();
 
-		Assert.Throws<System.InvalidOperationException> (connection.Connect);
+		Assert.Catch<System.InvalidOperationException> (connection.Connect);
 		}
 	}
-

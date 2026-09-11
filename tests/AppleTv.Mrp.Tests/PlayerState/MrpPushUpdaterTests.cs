@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 using AppleTvControlLibrary.Mrp.PlayerState;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AppleTv.Mrp.Tests.PlayerStateTests;
 
@@ -15,7 +15,8 @@ namespace AppleTv.Mrp.Tests.PlayerStateTests;
 /// active/start/stop/error semantics.
 /// </summary>
 // pyatv/protocols/mrp/__init__.py (MrpPushUpdater) — line 698-743 as of pyatv 0.18.0
-[TestClass]
+[TestFixture]
+[FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public class MrpPushUpdaterTests
 	{
 	private sealed class StubListener : IMrpPushUpdaterListener
@@ -35,25 +36,25 @@ public class MrpPushUpdaterTests
 		public void PlaystatusError (MrpPushUpdater updater, Exception exception) => Errors.Add (exception);
 		}
 
-	[TestMethod]
+	[Test]
 	public void NotActiveInitially ()
 		{
 		var psm = new MrpPlayerStateManager ();
 		var updater = new MrpPushUpdater (psm);
 
-		Assert.IsFalse (updater.Active);
+		Assert.That (updater.Active, Is.False);
 		}
 
-	[TestMethod]
+	[Test]
 	public void StartWithoutListenerThrowsNoAsyncListenerException ()
 		{
 		var psm = new MrpPlayerStateManager ();
 		var updater = new MrpPushUpdater (psm);
 
-		_ = Assert.ThrowsExactly<MrpNoAsyncListenerException> (updater.Start);
+		_ = Assert.Throws<MrpNoAsyncListenerException> (updater.Start);
 		}
 
-	[TestMethod]
+	[Test]
 	public void StartRegistersAsPlayerStateManagerListenerAndDeliversCurrentState ()
 		{
 		var psm = new MrpPlayerStateManager ();
@@ -62,13 +63,13 @@ public class MrpPushUpdaterTests
 
 		updater.Start ();
 
-		Assert.IsTrue (updater.Active);
-		Assert.AreSame (updater, psm.Listener);
-		Assert.AreEqual (1, listener.Updates.Count);
-		Assert.AreEqual (0, listener.Errors.Count);
+		Assert.That (updater.Active, Is.True);
+		Assert.That (psm.Listener, Is.SameAs (updater));
+		Assert.That (listener.Updates.Count, Is.EqualTo (1));
+		Assert.That (listener.Errors.Count, Is.EqualTo (0));
 		}
 
-	[TestMethod]
+	[Test]
 	public void StartIsIdempotentWhenAlreadyActive ()
 		{
 		var psm = new MrpPlayerStateManager ();
@@ -80,10 +81,10 @@ public class MrpPushUpdaterTests
 
 		// One delivery for the initial start; the second Start() call is a no-op because Active is
 		// already true, mirroring pyatv's "if self.active: return".
-		Assert.AreEqual (1, listener.Updates.Count);
+		Assert.That (listener.Updates.Count, Is.EqualTo (1));
 		}
 
-	[TestMethod]
+	[Test]
 	public void StopClearsPlayerStateManagerListener ()
 		{
 		var psm = new MrpPlayerStateManager ();
@@ -93,11 +94,11 @@ public class MrpPushUpdaterTests
 
 		updater.Stop ();
 
-		Assert.IsFalse (updater.Active);
-		Assert.IsNull (psm.Listener);
+		Assert.That (updater.Active, Is.False);
+		Assert.That (psm.Listener, Is.Null);
 		}
 
-	[TestMethod]
+	[Test]
 	public void StopWhenNotActiveDoesNotClearAnotherListener ()
 		{
 		var psm = new MrpPlayerStateManager ();
@@ -109,10 +110,10 @@ public class MrpPushUpdaterTests
 
 		updater.Stop ();
 
-		Assert.AreSame (otherUpdater, psm.Listener);
+		Assert.That (psm.Listener, Is.SameAs (otherUpdater));
 		}
 
-	[TestMethod]
+	[Test]
 	public void StateUpdatedForwardsPlayingStateToListener ()
 		{
 		var psm = new MrpPlayerStateManager ();
@@ -134,11 +135,11 @@ public class MrpPushUpdaterTests
 
 		updater.StateUpdated ();
 
-		Assert.AreEqual (1, listener.Updates.Count);
-		Assert.AreEqual ("client_id", listener.Updates[0].Parent?.BundleIdentifier);
+		Assert.That (listener.Updates.Count, Is.EqualTo (1));
+		Assert.That (listener.Updates[0].Parent?.BundleIdentifier, Is.EqualTo ("client_id"));
 		}
 
-	[TestMethod]
+	[Test]
 	public void StateUpdatedRoutesListenerExceptionToPlaystatusErrorInsteadOfThrowing ()
 		{
 		var psm = new MrpPlayerStateManager ();
@@ -157,8 +158,8 @@ public class MrpPushUpdaterTests
 		// outcome, not a bug in MrpPushUpdater itself.
 		updater.StateUpdated ();
 
-		Assert.AreSame (updater, capturedUpdater);
-		Assert.AreSame (thrown, captured);
+		Assert.That (capturedUpdater, Is.SameAs (updater));
+		Assert.That (captured, Is.SameAs (thrown));
 		}
 
 	private sealed class ThrowingListener (Exception toThrow, Action<MrpPushUpdater, Exception> onError) : IMrpPushUpdaterListener

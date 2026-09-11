@@ -10,7 +10,7 @@ using AppleTvControlLibrary.Mrp.Protocol;
 
 using Google.Protobuf;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AppleTv.Mrp.Tests.ProtocolTests;
 
@@ -19,7 +19,8 @@ namespace AppleTv.Mrp.Tests.ProtocolTests;
 /// <c>MrpPower._get_power_state</c>/<c>_update_power_state</c> behavior.
 /// </summary>
 // pyatv/protocols/mrp/__init__.py (MrpPower) — line 651-695 as of pyatv 0.18.0
-[TestClass]
+[TestFixture]
+[FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public class MrpProtocolPowerStateTests
 	{
 	/// <summary>A no-op <see cref="IMrpFrameConnection"/> that passes payloads through unmodified,
@@ -57,14 +58,14 @@ public class MrpProtocolPowerStateTests
 		return envelope;
 		}
 
-	[TestMethod]
+	[Test]
 	public void PowerStateDefaultsToUnknown ()
 		{
 		MrpProtocol protocol = CreateProtocol ();
-		Assert.AreEqual (MrpPowerState.Unknown, protocol.PowerState);
+		Assert.That (protocol.PowerState, Is.EqualTo (MrpPowerState.Unknown));
 		}
 
-	[TestMethod]
+	[Test]
 	public void DeviceInfoMessageWithLogicalDeviceCountReportsOn ()
 		{
 		MrpProtocol protocol = CreateProtocol ();
@@ -72,10 +73,10 @@ public class MrpProtocolPowerStateTests
 
 		protocol.MessageReceived (message.ToByteArray ());
 
-		Assert.AreEqual (MrpPowerState.On, protocol.PowerState);
+		Assert.That (protocol.PowerState, Is.EqualTo (MrpPowerState.On));
 		}
 
-	[TestMethod]
+	[Test]
 	public void DeviceInfoMessageWithZeroLogicalDeviceCountReportsOff ()
 		{
 		MrpProtocol protocol = CreateProtocol ();
@@ -83,10 +84,10 @@ public class MrpProtocolPowerStateTests
 
 		protocol.MessageReceived (message.ToByteArray ());
 
-		Assert.AreEqual (MrpPowerState.Off, protocol.PowerState);
+		Assert.That (protocol.PowerState, Is.EqualTo (MrpPowerState.Off));
 		}
 
-	[TestMethod]
+	[Test]
 	public void DeviceInfoMessageWithoutLogicalDeviceCountReportsUnknown ()
 		{
 		MrpProtocol protocol = CreateProtocol ();
@@ -94,10 +95,10 @@ public class MrpProtocolPowerStateTests
 
 		protocol.MessageReceived (message.ToByteArray ());
 
-		Assert.AreEqual (MrpPowerState.Unknown, protocol.PowerState);
+		Assert.That (protocol.PowerState, Is.EqualTo (MrpPowerState.Unknown));
 		}
 
-	[TestMethod]
+	[Test]
 	public void DeviceInfoUpdateMessageAlsoUpdatesPowerState ()
 		{
 		MrpProtocol protocol = CreateProtocol ();
@@ -105,24 +106,24 @@ public class MrpProtocolPowerStateTests
 
 		protocol.MessageReceived (message.ToByteArray ());
 
-		Assert.AreEqual (MrpPowerState.On, protocol.PowerState);
+		Assert.That (protocol.PowerState, Is.EqualTo (MrpPowerState.On));
 		}
 
-	[TestMethod]
+	[Test]
 	public void UnrelatedMessageDoesNotChangePowerState ()
 		{
 		MrpProtocol protocol = CreateProtocol ();
 		protocol.MessageReceived (DeviceInfoMessage (ProtocolMessage.Types.Type.DeviceInfoMessage, logicalDeviceCount: 1).ToByteArray ());
-		Assert.AreEqual (MrpPowerState.On, protocol.PowerState);
+		Assert.That (protocol.PowerState, Is.EqualTo (MrpPowerState.On));
 
 		var unrelated = new ProtocolMessage { Type = ProtocolMessage.Types.Type.SetStateMessage };
 		unrelated.SetExtension (SetStateMessageExtensions.SetStateMessage, new SetStateMessage ());
 		protocol.MessageReceived (unrelated.ToByteArray ());
 
-		Assert.AreEqual (MrpPowerState.On, protocol.PowerState);
+		Assert.That (protocol.PowerState, Is.EqualTo (MrpPowerState.On));
 		}
 
-	[TestMethod]
+	[Test]
 	public void PowerStateChangedFiresOnlyWhenStateActuallyChanges ()
 		{
 		MrpProtocol protocol = CreateProtocol ();
@@ -133,8 +134,8 @@ public class MrpProtocolPowerStateTests
 		protocol.MessageReceived (DeviceInfoMessage (ProtocolMessage.Types.Type.DeviceInfoMessage, logicalDeviceCount: 1).ToByteArray ());
 		protocol.MessageReceived (DeviceInfoMessage (ProtocolMessage.Types.Type.DeviceInfoMessage, logicalDeviceCount: 0).ToByteArray ());
 
-		Assert.AreEqual (2, transitions.Count);
-		Assert.AreEqual ((MrpPowerState.Unknown, MrpPowerState.On), transitions[0]);
-		Assert.AreEqual ((MrpPowerState.On, MrpPowerState.Off), transitions[1]);
+		Assert.That (transitions.Count, Is.EqualTo (2));
+		Assert.That (transitions[0], Is.EqualTo ((MrpPowerState.Unknown, MrpPowerState.On)));
+		Assert.That (transitions[1], Is.EqualTo ((MrpPowerState.On, MrpPowerState.Off)));
 		}
 	}

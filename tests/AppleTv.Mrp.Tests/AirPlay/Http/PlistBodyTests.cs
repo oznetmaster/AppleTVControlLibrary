@@ -7,7 +7,7 @@ using AppleTvControlLibrary.Mrp.AirPlay.Http;
 
 using Claunia.PropertyList;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AppleTvControlLibrary.Mrp.Tests.AirPlay.Http;
 
@@ -16,10 +16,11 @@ namespace AppleTvControlLibrary.Mrp.Tests.AirPlay.Http;
 /// control connection.
 /// </summary>
 // pyatv/protocols/airplay/utils.py (encode_plist_body, decode_plist_body) — line 183-198 as of pyatv 0.18.0
-[TestClass]
+[TestFixture]
+[FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public class PlistBodyTests
 	{
-	[TestMethod]
+	[Test]
 	public void EncodeThenDecodeRoundTripsScalarValues ()
 		{
 		var dict = new NSDictionary ();
@@ -30,12 +31,12 @@ public class PlistBodyTests
 		byte[] encoded = PlistBody.Encode (dict);
 		NSDictionary decoded = PlistBody.Decode (encoded);
 
-		Assert.IsTrue (((NSNumber)decoded.ObjectForKey ("isRemoteControlOnly")).ToBool ());
-		Assert.AreEqual ("iPhone OS", decoded.ObjectForKey ("osName").ToString ());
-		Assert.AreEqual (12345, ((NSNumber)decoded.ObjectForKey ("timingPort")).ToInt ());
+		Assert.That (((NSNumber)decoded.ObjectForKey ("isRemoteControlOnly")).ToBool (), Is.True);
+		Assert.That (decoded.ObjectForKey ("osName").ToString (), Is.EqualTo ("iPhone OS"));
+		Assert.That (((NSNumber)decoded.ObjectForKey ("timingPort")).ToInt (), Is.EqualTo (12345));
 		}
 
-	[TestMethod]
+	[Test]
 	public void EncodeThenDecodeRoundTripsNestedDictionaries ()
 		{
 		var inner = new NSDictionary ();
@@ -49,10 +50,10 @@ public class PlistBodyTests
 
 		var decodedInner = (NSDictionary)decoded.ObjectForKey ("params");
 		byte[] decodedData = ((NSData)decodedInner.ObjectForKey ("data")).Bytes;
-		CollectionAssert.AreEqual (new byte[] { 0x01, 0x02, 0x03 }, decodedData);
+		Assert.That (decodedData, Is.EqualTo (new byte[] { 0x01, 0x02, 0x03 }));
 		}
 
-	[TestMethod]
+	[Test]
 	public void EncodeThenDecodeRoundTripsEmptyDictionary ()
 		{
 		var dict = new NSDictionary ();
@@ -60,10 +61,10 @@ public class PlistBodyTests
 		byte[] encoded = PlistBody.Encode (dict);
 		NSDictionary decoded = PlistBody.Decode (encoded);
 
-		Assert.AreEqual (0, decoded.Count);
+		Assert.That (decoded.Count, Is.EqualTo (0));
 		}
 
-	[TestMethod]
+	[Test]
 	public void DecodeThrowsWhenTopLevelIsNotADictionary ()
 		{
 		// A top-level plist array, rather than a dictionary.
@@ -72,6 +73,6 @@ public class PlistBodyTests
 		BinaryPropertyListWriter.Write (stream, array);
 		byte[] encoded = stream.ToArray ();
 
-		Assert.Throws<InvalidDataException> (() => PlistBody.Decode (encoded));
+		Assert.Catch<InvalidDataException> (() => PlistBody.Decode (encoded));
 		}
 	}

@@ -5,49 +5,50 @@ using System;
 
 using AppleTvControlLibrary.Auth;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AppleTV.Companion.Tests.AuthTests;
 
 /// <summary>
 /// Ported from pyatv/tests/auth/test_hap_pairing.py (pyatv 0.18.0).
 /// </summary>
-[TestClass]
+[TestFixture]
+[FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public class HapCredentialsTests
 	{
 	// pyatv/auth/hap_pairing.py (parse_credentials) — line 139-152 as of pyatv 0.18.0
-	[TestMethod]
+	[Test]
 	public void ParseNullReturnsNoCredentials ()
 		{
 		HapCredentials creds = HapCredentials.Parse (null);
 
-		Assert.AreEqual (AuthenticationType.Null, creds.Type);
-		Assert.AreEqual (HapCredentials.NoCredentials, creds);
+		Assert.That (creds.Type, Is.EqualTo (AuthenticationType.Null));
+		Assert.That (creds, Is.EqualTo (HapCredentials.NoCredentials));
 		}
 
-	[TestMethod]
+	[Test]
 	public void ParseTwoPartIsLegacy ()
 		{
 		HapCredentials creds = HapCredentials.Parse ("0102:0304");
 
-		Assert.AreEqual (AuthenticationType.Legacy, creds.Type);
-		CollectionAssert.AreEqual (new byte[] { 0x03, 0x04 }, creds.Ltsk);
-		CollectionAssert.AreEqual (new byte[] { 0x01, 0x02 }, creds.ClientId);
+		Assert.That (creds.Type, Is.EqualTo (AuthenticationType.Legacy));
+		Assert.That (creds.Ltsk, Is.EqualTo (new byte[] { 0x03, 0x04 }));
+		Assert.That (creds.ClientId, Is.EqualTo (new byte[] { 0x01, 0x02 }));
 		}
 
-	[TestMethod]
+	[Test]
 	public void ParseFourPartIsHap ()
 		{
 		HapCredentials creds = HapCredentials.Parse ("01:02:03:04");
 
-		Assert.AreEqual (AuthenticationType.Hap, creds.Type);
-		CollectionAssert.AreEqual (new byte[] { 0x01 }, creds.Ltpk);
-		CollectionAssert.AreEqual (new byte[] { 0x02 }, creds.Ltsk);
-		CollectionAssert.AreEqual (new byte[] { 0x03 }, creds.AtvId);
-		CollectionAssert.AreEqual (new byte[] { 0x04 }, creds.ClientId);
+		Assert.That (creds.Type, Is.EqualTo (AuthenticationType.Hap));
+		Assert.That (creds.Ltpk, Is.EqualTo (new byte[] { 0x01 }));
+		Assert.That (creds.Ltsk, Is.EqualTo (new byte[] { 0x02 }));
+		Assert.That (creds.AtvId, Is.EqualTo (new byte[] { 0x03 }));
+		Assert.That (creds.ClientId, Is.EqualTo (new byte[] { 0x04 }));
 		}
 
-	[TestMethod]
+	[Test]
 	public void RoundTripToStringAndParse ()
 		{
 		var creds = new HapCredentials (
@@ -58,18 +59,18 @@ public class HapCredentialsTests
 
 		HapCredentials roundTripped = HapCredentials.Parse (creds.ToString ());
 
-		Assert.AreEqual (creds, roundTripped);
+		Assert.That (roundTripped, Is.EqualTo (creds));
 		}
 
-	[TestMethod]
+	[Test]
 	public void TransientCredentialsHaveTransientType ()
 		{
-		Assert.AreEqual (AuthenticationType.Transient, HapCredentials.TransientCredentials.Type);
+		Assert.That (HapCredentials.TransientCredentials.Type, Is.EqualTo (AuthenticationType.Transient));
 		}
 
-	[TestMethod]
+	[Test]
 	public void InvalidCombinationThrows ()
 		{
-		Assert.Throws<InvalidCredentialsException> (() => new HapCredentials (ltpk: [0x01]));
+		Assert.Catch<InvalidCredentialsException> (() => new HapCredentials (ltpk: [0x01]));
 		}
 	}

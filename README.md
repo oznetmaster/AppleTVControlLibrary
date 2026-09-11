@@ -49,7 +49,7 @@ when all three are wanted; it restores all three library packages automatically.
 | `src/AppleTv.Remote.Mrp.Wpf` | WPF reference host for MRP: pairing, connecting, and now-playing/remote control. |
 | `tests/AppleTV.Companion.Tests` | Companion Link unit and protocol test suite. |
 | `tests/AppleTV.Companion.FakeDevice` | Fake Apple TV used by Companion Link protocol and session integration tests. |
-| `tests/AppleTV.Companion.LiveTests` | Opt-in Companion Link tests for a real Apple TV. |
+| `tests/AppleTV.Companion.LiveTests` | Opt-in socket discovery tests using a simulated mDNS responder. |
 | `tests/AppleTv.Hap.Tests` | Unit tests for the shared HAP pairing/crypto library. |
 | `tests/AppleTv.Mrp.Tests` | MRP unit, protocol, and pairing integration test suite. |
 | `tests/AppleTv.Mrp.FakeDevice` | Fake Apple TV used by MRP pairing and protocol integration tests. |
@@ -265,10 +265,10 @@ The scan tools discover devices over mDNS and print their advertised service met
 tools pair with a device once (persisting credentials locally) and then send interactive commands
 from the console, serving as minimal, UI-free integration examples for each library.
 
-Both protocol test suites are MSTest-based, multi-targeted (`net472` and `net10.0`), and run
+Both protocol test suites are NUnit-based, multi-targeted (`net472` and `net10.0`), and run
 primarily against an in-process fake Apple TV rather than real hardware, so the suites are
 deterministic and safe to run in CI. `tests/AppleTV.Companion.LiveTests` is the only opt-in
-exception: it exercises a real Apple TV and is excluded from the standard CI run. `tests/AppleTv.Hap.Tests`
+exception: it exercises multicast/unicast sockets with a simulated responder and is excluded from the standard CI run. It does not pair with or control a real Apple TV. `tests/AppleTv.Hap.Tests`
 covers the pairing/crypto library shared by both protocols independently of either transport.
 
 ## Supported platforms
@@ -297,3 +297,23 @@ only.
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md).
+
+
+## NUnit test execution
+
+The four test projects use official NUnit 4.6.1 and NUnit3TestAdapter with `net472` and `net10.0` targets. Visual Studio Test Explorer and `dotnet test` run the same fixtures. Each fixture has a fresh instance per test case. The ordinary Companion, HAP and MRP suites use simulated devices and require no saved credentials.
+
+```powershell
+dotnet test tests/AppleTV.Companion.Tests/AppleTV.Companion.Tests.csproj -c Release
+dotnet test tests/AppleTv.Hap.Tests/AppleTv.Hap.Tests.csproj -c Release
+dotnet test tests/AppleTv.Mrp.Tests/AppleTv.Mrp.Tests.csproj -c Release
+```
+
+The repository `.runsettings` excludes the `Live` category by default. To explicitly run socket discovery tests with their fake responder, use:
+
+```powershell
+dotnet test tests/AppleTV.Companion.LiveTests/AppleTV.Companion.LiveTests.csproj -c Release -f net472 --settings .runsettings.network
+dotnet test tests/AppleTV.Companion.LiveTests/AppleTV.Companion.LiveTests.csproj -c Release -f net10.0 --settings .runsettings.network
+```
+
+These tests depend on the host's multicast support and socket permissions. Test discovery itself does not start the responder or open network connections. Keep any real credentials and device settings outside tracked files. This test-framework migration does not change library versions or publish new NuGet packages.

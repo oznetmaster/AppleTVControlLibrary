@@ -5,7 +5,7 @@ using AppleTvControlLibrary.Mrp.Auth;
 using AppleTvControlLibrary.Mrp.PlayerState;
 using AppleTvControlLibrary.Mrp.Protobuf;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AppleTv.Mrp.Tests.PlayerStateTests;
 
@@ -14,7 +14,8 @@ namespace AppleTv.Mrp.Tests.PlayerStateTests;
 /// <see cref="MrpPlayerState"/>, ported from pyatv's client/player management tests.
 /// </summary>
 // pyatv/protocols/mrp/tests/test_player_state.py (as tests/protocols/mrp/test_player_state.py) — as of pyatv 0.18.0
-[TestClass]
+[TestFixture]
+[FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public class MrpPlayerStateManagerTests
 	{
 	private const string ClientId1 = "client_id_1";
@@ -129,7 +130,7 @@ public class MrpPlayerStateManagerTests
 		return (manager, listener);
 		}
 
-	[TestMethod]
+	[Test]
 	public void GetClientAndPlayerReturnsPathIdentity ()
 		{
 		(MrpPlayerStateManager psm, _) = CreateManager ();
@@ -139,15 +140,15 @@ public class MrpPlayerStateManagerTests
 		SetStateMessage inner = msg.GetExtension (SetStateMessageExtensions.SetStateMessage);
 
 		MrpPlayerState player = psm.GetPlayer (inner.PlayerPath);
-		Assert.AreEqual (PlayerId1, player.Identifier);
-		Assert.AreEqual (PlayerName1, player.DisplayName);
+		Assert.That (player.Identifier, Is.EqualTo (PlayerId1));
+		Assert.That (player.DisplayName, Is.EqualTo (PlayerName1));
 
 		MrpClient client = psm.GetClient (inner.PlayerPath.Client);
-		Assert.AreEqual (ClientId1, client.BundleIdentifier);
-		Assert.AreEqual (ClientName1, client.DisplayName);
+		Assert.That (client.BundleIdentifier, Is.EqualTo (ClientId1));
+		Assert.That (client.DisplayName, Is.EqualTo (ClientName1));
 		}
 
-	[TestMethod]
+	[Test]
 	public void NoMetadataReturnsNull ()
 		{
 		(MrpPlayerStateManager psm, _) = CreateManager ();
@@ -155,10 +156,10 @@ public class MrpPlayerStateManagerTests
 		psm.MessageReceived (msg);
 
 		MrpPlayerState player = psm.GetPlayer (msg.GetExtension (SetStateMessageExtensions.SetStateMessage).PlayerPath);
-		Assert.IsNull (player.Metadata);
+		Assert.That (player.Metadata, Is.Null);
 		}
 
-	[TestMethod]
+	[Test]
 	public void MetadataSingleItem ()
 		{
 		(MrpPlayerStateManager psm, _) = CreateManager ();
@@ -167,10 +168,10 @@ public class MrpPlayerStateManagerTests
 		psm.MessageReceived (msg);
 
 		MrpPlayerState player = psm.GetPlayer (msg.GetExtension (SetStateMessageExtensions.SetStateMessage).PlayerPath);
-		Assert.AreEqual ("item", player.Metadata?.Title);
+		Assert.That (player.Metadata?.Title, Is.EqualTo ("item"));
 		}
 
-	[TestMethod]
+	[Test]
 	public void MetadataMultipleItemsUsesLocation ()
 		{
 		(MrpPlayerStateManager psm, _) = CreateManager ();
@@ -180,10 +181,10 @@ public class MrpPlayerStateManagerTests
 		psm.MessageReceived (msg);
 
 		MrpPlayerState player = psm.GetPlayer (msg.GetExtension (SetStateMessageExtensions.SetStateMessage).PlayerPath);
-		Assert.AreEqual ("item2", player.Metadata?.Title);
+		Assert.That (player.Metadata?.Title, Is.EqualTo ("item2"));
 		}
 
-	[TestMethod]
+	[Test]
 	public void MetadataNoItemIdentifierIsNull ()
 		{
 		(MrpPlayerStateManager psm, _) = CreateManager ();
@@ -191,10 +192,10 @@ public class MrpPlayerStateManagerTests
 		psm.MessageReceived (msg);
 
 		MrpPlayerState player = psm.GetPlayer (msg.GetExtension (SetStateMessageExtensions.SetStateMessage).PlayerPath);
-		Assert.IsNull (player.ItemIdentifier);
+		Assert.That (player.ItemIdentifier, Is.Null);
 		}
 
-	[TestMethod]
+	[Test]
 	public void MetadataItemIdentifierUpdatesWithLocation ()
 		{
 		(MrpPlayerStateManager psm, _) = CreateManager ();
@@ -203,16 +204,16 @@ public class MrpPlayerStateManagerTests
 		psm.MessageReceived (msg);
 
 		MrpPlayerState player = psm.GetPlayer (msg.GetExtension (SetStateMessageExtensions.SetStateMessage).PlayerPath);
-		Assert.AreEqual ("id1", player.ItemIdentifier);
+		Assert.That (player.ItemIdentifier, Is.EqualTo ("id1"));
 
 		msg = AddMetadataItem (msg, location: 1, identifier: "id2", title: "item2");
 		psm.MessageReceived (msg);
 
 		player = psm.GetPlayer (msg.GetExtension (SetStateMessageExtensions.SetStateMessage).PlayerPath);
-		Assert.AreEqual ("id2", player.ItemIdentifier);
+		Assert.That (player.ItemIdentifier, Is.EqualTo ("id2"));
 		}
 
-	[TestMethod]
+	[Test]
 	public void GetMetadataFieldReadsScalarFields ()
 		{
 		(MrpPlayerStateManager psm, _) = CreateManager ();
@@ -222,11 +223,11 @@ public class MrpPlayerStateManagerTests
 
 		SetStateMessage inner = msg.GetExtension (SetStateMessageExtensions.SetStateMessage);
 		MrpPlayerState player = psm.GetPlayer (inner.PlayerPath);
-		Assert.AreEqual ("item", player.MetadataField<string> ("title"));
-		Assert.AreEqual (123, player.MetadataField<int?> ("playCount"));
+		Assert.That (player.MetadataField<string> ("title"), Is.EqualTo ("item"));
+		Assert.That (player.MetadataField<int?> ("playCount"), Is.EqualTo (123));
 		}
 
-	[TestMethod]
+	[Test]
 	public void ContentItemUpdateMergesMetadata ()
 		{
 		(MrpPlayerStateManager psm, _) = CreateManager ();
@@ -249,11 +250,11 @@ public class MrpPlayerStateManagerTests
 		psm.MessageReceived (update);
 
 		MrpPlayerState player = psm.GetPlayer (updateInner.PlayerPath);
-		Assert.AreEqual ("new title", player.MetadataField<string> ("title"));
-		Assert.AreEqual (1111, player.MetadataField<int?> ("playCount"));
+		Assert.That (player.MetadataField<string> ("title"), Is.EqualTo ("new title"));
+		Assert.That (player.MetadataField<int?> ("playCount"), Is.EqualTo (1111));
 		}
 
-	[TestMethod]
+	[Test]
 	public void GetCommandInfoLooksUpByCommand ()
 		{
 		(MrpPlayerStateManager psm, _) = CreateManager ();
@@ -264,11 +265,11 @@ public class MrpPlayerStateManagerTests
 		psm.MessageReceived (msg);
 
 		MrpPlayerState player = psm.GetPlayer (inner.PlayerPath);
-		Assert.IsNull (player.CommandInfoFor (Command.Play));
-		Assert.IsNotNull (player.CommandInfoFor (Command.Pause));
+		Assert.That (player.CommandInfoFor (Command.Play), Is.Null);
+		Assert.That (player.CommandInfoFor (Command.Pause), Is.Not.Null);
 		}
 
-	[TestMethod]
+	[Test]
 	public void PlaybackStateWithoutRatePassesThrough ()
 		{
 		(MrpPlayerStateManager psm, _) = CreateManager ();
@@ -279,16 +280,16 @@ public class MrpPlayerStateManagerTests
 		psm.MessageReceived (msg);
 
 		MrpPlayerState player = psm.GetPlayer (inner.PlayerPath);
-		Assert.AreEqual (AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Paused, player.PlaybackStateValue);
+		Assert.That (player.PlaybackStateValue, Is.EqualTo (AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Paused));
 
 		inner.PlaybackState = AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Playing;
 		psm.MessageReceived (msg);
 
 		player = psm.GetPlayer (inner.PlayerPath);
-		Assert.AreEqual (AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Playing, player.PlaybackStateValue);
+		Assert.That (player.PlaybackStateValue, Is.EqualTo (AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Playing));
 		}
 
-	[TestMethod]
+	[Test]
 	public void PlaybackStatePlayingWithFullRate ()
 		{
 		(MrpPlayerStateManager psm, _) = CreateManager ();
@@ -299,10 +300,10 @@ public class MrpPlayerStateManagerTests
 		psm.MessageReceived (msg);
 
 		MrpPlayerState player = psm.GetPlayer (inner.PlayerPath);
-		Assert.AreEqual (AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Playing, player.PlaybackStateValue);
+		Assert.That (player.PlaybackStateValue, Is.EqualTo (AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Playing));
 		}
 
-	[TestMethod]
+	[Test]
 	public void PlaybackStateSeekingWithDoubleRate ()
 		{
 		(MrpPlayerStateManager psm, _) = CreateManager ();
@@ -313,10 +314,10 @@ public class MrpPlayerStateManagerTests
 		psm.MessageReceived (msg);
 
 		MrpPlayerState player = psm.GetPlayer (inner.PlayerPath);
-		Assert.AreEqual (AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Seeking, player.PlaybackStateValue);
+		Assert.That (player.PlaybackStateValue, Is.EqualTo (AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Seeking));
 		}
 
-	[TestMethod]
+	[Test]
 	public void PlaybackStatePlayingWithZeroRateIsStillPlaying ()
 		{
 		(MrpPlayerStateManager psm, _) = CreateManager ();
@@ -327,22 +328,22 @@ public class MrpPlayerStateManagerTests
 		psm.MessageReceived (msg);
 
 		MrpPlayerState player = psm.GetPlayer (inner.PlayerPath);
-		Assert.AreEqual (AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Playing, player.PlaybackStateValue);
+		Assert.That (player.PlaybackStateValue, Is.EqualTo (AppleTvControlLibrary.Mrp.Protobuf.PlaybackState.Types.Enum.Playing));
 		}
 
-	[TestMethod]
+	[Test]
 	public void ChangeListenerCanBeClearedAndReassigned ()
 		{
 		var manager = new MrpPlayerStateManager ();
 		var listener = new StubListener ();
 		manager.Listener = listener;
-		Assert.AreEqual (listener, manager.Listener);
+		Assert.That (manager.Listener, Is.EqualTo (listener));
 
 		manager.Listener = null;
-		Assert.IsNull (manager.Listener);
+		Assert.That (manager.Listener, Is.Null);
 		}
 
-	[TestMethod]
+	[Test]
 	public void SetNowPlayingClientNotifiesListener ()
 		{
 		(MrpPlayerStateManager psm, StubListener listener) = CreateManager ();
@@ -350,23 +351,23 @@ public class MrpPlayerStateManagerTests
 		msg.SetExtension (SetNowPlayingClientMessageExtensions.SetNowPlayingClientMessage, new SetNowPlayingClientMessage { Client = new NowPlayingClient { BundleIdentifier = ClientId1 } });
 		psm.MessageReceived (msg);
 
-		Assert.AreEqual (1, listener.CallCount);
-		Assert.AreEqual (ClientId1, psm.Client?.BundleIdentifier);
+		Assert.That (listener.CallCount, Is.EqualTo (1));
+		Assert.That (psm.Client?.BundleIdentifier, Is.EqualTo (ClientId1));
 		}
 
-	[TestMethod]
+	[Test]
 	public void SetNowPlayingPlayerWithNoClientDoesNotNotify ()
 		{
 		(MrpPlayerStateManager psm, StubListener listener) = CreateManager ();
 		ProtocolMessage msg = SetPath (MrpMessages.Create (ProtocolMessage.Types.Type.SetNowPlayingPlayerMessage));
 		psm.MessageReceived (msg);
 
-		Assert.AreEqual (0, listener.CallCount);
-		Assert.IsFalse (psm.Playing.IsValid);
-		Assert.IsTrue (string.IsNullOrEmpty (psm.Playing.DisplayName));
+		Assert.That (listener.CallCount, Is.EqualTo (0));
+		Assert.That (psm.Playing.IsValid, Is.False);
+		Assert.That (string.IsNullOrEmpty (psm.Playing.DisplayName), Is.True);
 		}
 
-	[TestMethod]
+	[Test]
 	public void SetNowPlayingPlayerForActiveClientNotifiesAndUpdatesActivePlayer ()
 		{
 		(MrpPlayerStateManager psm, StubListener listener) = CreateManager ();
@@ -377,12 +378,12 @@ public class MrpPlayerStateManagerTests
 		ProtocolMessage msg = SetPath (MrpMessages.Create (ProtocolMessage.Types.Type.SetNowPlayingPlayerMessage));
 		psm.MessageReceived (msg);
 
-		Assert.AreEqual (2, listener.CallCount);
-		Assert.AreEqual (PlayerId1, psm.Playing.Identifier);
-		Assert.AreEqual (PlayerName1, psm.Playing.DisplayName);
+		Assert.That (listener.CallCount, Is.EqualTo (2));
+		Assert.That (psm.Playing.Identifier, Is.EqualTo (PlayerId1));
+		Assert.That (psm.Playing.DisplayName, Is.EqualTo (PlayerName1));
 		}
 
-	[TestMethod]
+	[Test]
 	public void DefaultPlayerUsedWhenOnlyClientSet ()
 		{
 		(MrpPlayerStateManager psm, StubListener listener) = CreateManager ();
@@ -399,43 +400,43 @@ public class MrpPlayerStateManagerTests
 		clientMsg.SetExtension (SetNowPlayingClientMessageExtensions.SetNowPlayingClientMessage, new SetNowPlayingClientMessage { Client = new NowPlayingClient { BundleIdentifier = ClientId1 } });
 		psm.MessageReceived (clientMsg);
 
-		Assert.AreEqual (DefaultPlayer, psm.Playing.Identifier);
-		Assert.AreEqual ("Default Name", psm.Playing.DisplayName);
+		Assert.That (psm.Playing.Identifier, Is.EqualTo (DefaultPlayer));
+		Assert.That (psm.Playing.DisplayName, Is.EqualTo ("Default Name"));
 		}
 
-	[TestMethod]
+	[Test]
 	public void SetStateCallsActiveListenerRepeatedly ()
 		{
 		(MrpPlayerStateManager psm, StubListener listener) = CreateManager ();
 		ProtocolMessage setState = SetPath (MrpMessages.Create (ProtocolMessage.Types.Type.SetStateMessage));
 		psm.MessageReceived (setState);
 
-		Assert.AreEqual (1, listener.CallCount);
+		Assert.That (listener.CallCount, Is.EqualTo (1));
 
 		ProtocolMessage clientMsg = MrpMessages.Create (ProtocolMessage.Types.Type.SetNowPlayingClientMessage);
 		clientMsg.SetExtension (SetNowPlayingClientMessageExtensions.SetNowPlayingClientMessage, new SetNowPlayingClientMessage { Client = new NowPlayingClient { BundleIdentifier = ClientId1 } });
 		psm.MessageReceived (clientMsg);
 
-		Assert.AreEqual (2, listener.CallCount);
+		Assert.That (listener.CallCount, Is.EqualTo (2));
 
 		ProtocolMessage nowPlaying = SetPath (MrpMessages.Create (ProtocolMessage.Types.Type.SetNowPlayingPlayerMessage));
 		psm.MessageReceived (nowPlaying);
 
-		Assert.AreEqual (3, listener.CallCount);
+		Assert.That (listener.CallCount, Is.EqualTo (3));
 
 		psm.MessageReceived (setState);
 
-		Assert.AreEqual (4, listener.CallCount);
+		Assert.That (listener.CallCount, Is.EqualTo (4));
 		}
 
-	[TestMethod]
+	[Test]
 	public void ContentItemUpdateCallsActiveListenerRepeatedly ()
 		{
 		(MrpPlayerStateManager psm, StubListener listener) = CreateManager ();
 		ProtocolMessage msg = SetPath (MrpMessages.Create (ProtocolMessage.Types.Type.SetStateMessage));
 		psm.MessageReceived (msg);
 
-		Assert.AreEqual (1, listener.CallCount);
+		Assert.That (listener.CallCount, Is.EqualTo (1));
 
 		ProtocolMessage updateItem = SetPath (MrpMessages.Create (ProtocolMessage.Types.Type.UpdateContentItemMessage));
 		UpdateContentItemMessage updateItemInner = updateItem.GetExtension (UpdateContentItemMessageExtensions.UpdateContentItemMessage);
@@ -443,25 +444,25 @@ public class MrpPlayerStateManagerTests
 		updateItem.SetExtension (UpdateContentItemMessageExtensions.UpdateContentItemMessage, updateItemInner);
 		psm.MessageReceived (updateItem);
 
-		Assert.AreEqual (2, listener.CallCount);
+		Assert.That (listener.CallCount, Is.EqualTo (2));
 
 		ProtocolMessage clientMsg = MrpMessages.Create (ProtocolMessage.Types.Type.SetNowPlayingClientMessage);
 		clientMsg.SetExtension (SetNowPlayingClientMessageExtensions.SetNowPlayingClientMessage, new SetNowPlayingClientMessage { Client = new NowPlayingClient { BundleIdentifier = ClientId1 } });
 		psm.MessageReceived (clientMsg);
 
-		Assert.AreEqual (3, listener.CallCount);
+		Assert.That (listener.CallCount, Is.EqualTo (3));
 
 		ProtocolMessage nowPlaying = SetPath (MrpMessages.Create (ProtocolMessage.Types.Type.SetNowPlayingPlayerMessage));
 		psm.MessageReceived (nowPlaying);
 
-		Assert.AreEqual (4, listener.CallCount);
+		Assert.That (listener.CallCount, Is.EqualTo (4));
 
 		psm.MessageReceived (updateItem);
 
-		Assert.AreEqual (5, listener.CallCount);
+		Assert.That (listener.CallCount, Is.EqualTo (5));
 		}
 
-	[TestMethod]
+	[Test]
 	public void UpdateClientChangesDisplayName ()
 		{
 		(MrpPlayerStateManager psm, StubListener listener) = CreateManager ();
@@ -469,8 +470,8 @@ public class MrpPlayerStateManagerTests
 		clientMsg.SetExtension (SetNowPlayingClientMessageExtensions.SetNowPlayingClientMessage, new SetNowPlayingClientMessage { Client = new NowPlayingClient { BundleIdentifier = ClientId1 } });
 		psm.MessageReceived (clientMsg);
 
-		Assert.AreEqual (1, listener.CallCount);
-		Assert.IsNull (psm.Client?.DisplayName);
+		Assert.That (listener.CallCount, Is.EqualTo (1));
+		Assert.That (psm.Client?.DisplayName, Is.Null);
 
 		ProtocolMessage update = MrpMessages.Create (ProtocolMessage.Types.Type.UpdateClientMessage);
 		update.SetExtension (UpdateClientMessageExtensions.UpdateClientMessage, new UpdateClientMessage
@@ -483,11 +484,11 @@ public class MrpPlayerStateManagerTests
 			});
 		psm.MessageReceived (update);
 
-		Assert.AreEqual (2, listener.CallCount);
-		Assert.AreEqual (ClientName1, psm.Client?.DisplayName);
+		Assert.That (listener.CallCount, Is.EqualTo (2));
+		Assert.That (psm.Client?.DisplayName, Is.EqualTo (ClientName1));
 		}
 
-	[TestMethod]
+	[Test]
 	public void RemoveActiveClientClearsActiveClient ()
 		{
 		(MrpPlayerStateManager psm, StubListener listener) = CreateManager ();
@@ -498,18 +499,18 @@ public class MrpPlayerStateManagerTests
 		clientMsg.SetExtension (SetNowPlayingClientMessageExtensions.SetNowPlayingClientMessage, new SetNowPlayingClientMessage { Client = new NowPlayingClient { BundleIdentifier = ClientId1 } });
 		psm.MessageReceived (clientMsg);
 
-		Assert.AreEqual (2, listener.CallCount);
-		Assert.AreEqual (ClientId1, psm.Client?.BundleIdentifier);
+		Assert.That (listener.CallCount, Is.EqualTo (2));
+		Assert.That (psm.Client?.BundleIdentifier, Is.EqualTo (ClientId1));
 
 		ProtocolMessage remove = MrpMessages.Create (ProtocolMessage.Types.Type.RemoveClientMessage);
 		remove.SetExtension (RemoveClientMessageExtensions.RemoveClientMessage, new RemoveClientMessage { Client = new NowPlayingClient { BundleIdentifier = ClientId1 } });
 		psm.MessageReceived (remove);
 
-		Assert.AreEqual (3, listener.CallCount);
-		Assert.IsNull (psm.Client);
+		Assert.That (listener.CallCount, Is.EqualTo (3));
+		Assert.That (psm.Client, Is.Null);
 		}
 
-	[TestMethod]
+	[Test]
 	public void RemoveNotActiveClientDoesNothing ()
 		{
 		(MrpPlayerStateManager psm, StubListener listener) = CreateManager ();
@@ -520,18 +521,18 @@ public class MrpPlayerStateManagerTests
 		clientMsg.SetExtension (SetNowPlayingClientMessageExtensions.SetNowPlayingClientMessage, new SetNowPlayingClientMessage { Client = new NowPlayingClient { BundleIdentifier = ClientId1 } });
 		psm.MessageReceived (clientMsg);
 
-		Assert.AreEqual (2, listener.CallCount);
-		Assert.AreEqual (ClientId1, psm.Client?.BundleIdentifier);
+		Assert.That (listener.CallCount, Is.EqualTo (2));
+		Assert.That (psm.Client?.BundleIdentifier, Is.EqualTo (ClientId1));
 
 		ProtocolMessage remove = MrpMessages.Create (ProtocolMessage.Types.Type.RemoveClientMessage);
 		remove.SetExtension (RemoveClientMessageExtensions.RemoveClientMessage, new RemoveClientMessage { Client = new NowPlayingClient { BundleIdentifier = ClientId2 } });
 		psm.MessageReceived (remove);
 
-		Assert.AreEqual (2, listener.CallCount);
-		Assert.AreEqual (ClientId1, psm.Client?.BundleIdentifier);
+		Assert.That (listener.CallCount, Is.EqualTo (2));
+		Assert.That (psm.Client?.BundleIdentifier, Is.EqualTo (ClientId1));
 		}
 
-	[TestMethod]
+	[Test]
 	public void RemoveActivePlayerInvalidatesPlaying ()
 		{
 		(MrpPlayerStateManager psm, StubListener listener) = CreateManager ();
@@ -545,16 +546,16 @@ public class MrpPlayerStateManagerTests
 		ProtocolMessage nowPlaying = SetPath (MrpMessages.Create (ProtocolMessage.Types.Type.SetNowPlayingPlayerMessage));
 		psm.MessageReceived (nowPlaying);
 
-		Assert.AreEqual (PlayerId1, psm.Playing.Identifier);
+		Assert.That (psm.Playing.Identifier, Is.EqualTo (PlayerId1));
 
 		ProtocolMessage remove = SetPath (MrpMessages.Create (ProtocolMessage.Types.Type.RemovePlayerMessage));
 		psm.MessageReceived (remove);
 
-		Assert.AreEqual (4, listener.CallCount);
-		Assert.IsFalse (psm.Playing.IsValid);
+		Assert.That (listener.CallCount, Is.EqualTo (4));
+		Assert.That (psm.Playing.IsValid, Is.False);
 		}
 
-	[TestMethod]
+	[Test]
 	public void RemoveActivePlayerRevertsToDefault ()
 		{
 		(MrpPlayerStateManager psm, StubListener listener) = CreateManager ();
@@ -568,17 +569,17 @@ public class MrpPlayerStateManagerTests
 		clientMsg.SetExtension (SetNowPlayingClientMessageExtensions.SetNowPlayingClientMessage, new SetNowPlayingClientMessage { Client = new NowPlayingClient { BundleIdentifier = ClientId1 } });
 		psm.MessageReceived (clientMsg);
 
-		Assert.AreEqual (2, listener.CallCount);
-		Assert.AreEqual (PlayerId1, psm.Playing.Identifier);
+		Assert.That (listener.CallCount, Is.EqualTo (2));
+		Assert.That (psm.Playing.Identifier, Is.EqualTo (PlayerId1));
 
 		ProtocolMessage remove = SetPath (MrpMessages.Create (ProtocolMessage.Types.Type.RemovePlayerMessage));
 		psm.MessageReceived (remove);
 
-		Assert.AreEqual (3, listener.CallCount);
-		Assert.AreEqual (DefaultPlayer, psm.Playing.Identifier);
+		Assert.That (listener.CallCount, Is.EqualTo (3));
+		Assert.That (psm.Playing.Identifier, Is.EqualTo (DefaultPlayer));
 		}
 
-	[TestMethod]
+	[Test]
 	public void SetDefaultSupportedCommandsAppliesToPlayer ()
 		{
 		(MrpPlayerStateManager psm, StubListener listener) = CreateManager ();
@@ -603,7 +604,7 @@ public class MrpPlayerStateManagerTests
 			};
 		MrpPlayerState player = psm.GetPlayer (playerPath);
 
-		Assert.IsNotNull (player.CommandInfoFor (Command.Play));
-		Assert.AreEqual (2, listener.CallCount);
+		Assert.That (player.CommandInfoFor (Command.Play), Is.Not.Null);
+		Assert.That (listener.CallCount, Is.EqualTo (2));
 		}
 	}

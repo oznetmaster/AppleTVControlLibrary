@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2026 Neil Colvin. MIT License; see LICENSE in the repository root. -->
+<RunSettings>
+  <RunConfiguration>
+    <TestCaseFilter>TestCategory!=Live</TestCaseFilter>
+  </RunConfiguration>
+</RunSettings>

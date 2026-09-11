@@ -7,7 +7,7 @@ using System.Text;
 
 using AppleTvControlLibrary.Mrp.AirPlay.Http;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AppleTvControlLibrary.Mrp.Tests.AirPlay.Http;
 
@@ -16,22 +16,23 @@ namespace AppleTvControlLibrary.Mrp.Tests.AirPlay.Http;
 /// AirPlay 2 control connection.
 /// </summary>
 // pyatv/support/http.py — line 1-236 as of pyatv 0.18.0
-[TestClass]
+[TestFixture]
+[FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public class HttpMessagesTests
 	{
-	[TestMethod]
+	[Test]
 	public void FormatMessageWithoutBodyOmitsContentLength ()
 		{
 		byte[] encoded = HttpMessages.FormatMessage ("GET", "/info", protocol: "HTTP/1.1", userAgent: "TestAgent");
 		string text = Encoding.UTF8.GetString (encoded);
 
-		Assert.IsTrue (text.StartsWith ("GET /info HTTP/1.1\r\n", StringComparison.Ordinal));
-		Assert.IsTrue (text.Contains ("User-Agent: TestAgent"));
-		Assert.IsFalse (text.Contains ("Content-Length"));
-		Assert.IsTrue (text.EndsWith ("\r\n\r\n", StringComparison.Ordinal));
+		Assert.That (text.StartsWith ("GET /info HTTP/1.1\r\n", StringComparison.Ordinal), Is.True);
+		Assert.That (text.Contains ("User-Agent: TestAgent"), Is.True);
+		Assert.That (text.Contains ("Content-Length"), Is.False);
+		Assert.That (text.EndsWith ("\r\n\r\n", StringComparison.Ordinal), Is.True);
 		}
 
-	[TestMethod]
+	[Test]
 	public void FormatMessageWithBodyIncludesContentLengthAndAppendsBody ()
 		{
 		byte[] body = Encoding.UTF8.GetBytes ("hello");
@@ -44,12 +45,12 @@ public class HttpMessagesTests
 			body: body);
 		string text = Encoding.UTF8.GetString (encoded);
 
-		Assert.IsTrue (text.Contains ("Content-Type: application/octet-stream"));
-		Assert.IsTrue (text.Contains ($"Content-Length: {body.Length}"));
-		Assert.IsTrue (text.EndsWith ("hello", StringComparison.Ordinal));
+		Assert.That (text.Contains ("Content-Type: application/octet-stream"), Is.True);
+		Assert.That (text.Contains ($"Content-Length: {body.Length}"), Is.True);
+		Assert.That (text.EndsWith ("hello", StringComparison.Ordinal), Is.True);
 		}
 
-	[TestMethod]
+	[Test]
 	public void FormatMessageDoesNotDuplicateExplicitUserAgentHeader ()
 		{
 		var headers = new Dictionary<string, string> (StringComparer.OrdinalIgnoreCase)
@@ -62,11 +63,11 @@ public class HttpMessagesTests
 
 		int firstIndex = text.IndexOf ("User-Agent:", StringComparison.Ordinal);
 		int lastIndex = text.LastIndexOf ("User-Agent:", StringComparison.Ordinal);
-		Assert.AreEqual (firstIndex, lastIndex);
-		Assert.IsTrue (text.Contains ("User-Agent: Explicit"));
+		Assert.That (lastIndex, Is.EqualTo (firstIndex));
+		Assert.That (text.Contains ("User-Agent: Explicit"), Is.True);
 		}
 
-	[TestMethod]
+	[Test]
 	public void TryParseResponseParsesStatusLineHeadersAndBody ()
 		{
 		byte[] body = Encoding.UTF8.GetBytes ("payload");
@@ -80,18 +81,18 @@ public class HttpMessagesTests
 
 		bool parsed = HttpMessages.TryParseResponse (data, out HttpResponse? response, out byte[] rest);
 
-		Assert.IsTrue (parsed);
-		Assert.IsNotNull (response);
-		Assert.AreEqual ("RTSP", response!.Protocol);
-		Assert.AreEqual ("1.0", response.Version);
-		Assert.AreEqual (200, response.Code);
-		Assert.AreEqual ("OK", response.Message);
-		Assert.AreEqual ("1", response.Headers["CSeq"]);
-		CollectionAssert.AreEqual (body, response.Body);
-		Assert.AreEqual (0, rest.Length);
+		Assert.That (parsed, Is.True);
+		Assert.That (response, Is.Not.Null);
+		Assert.That (response!.Protocol, Is.EqualTo ("RTSP"));
+		Assert.That (response.Version, Is.EqualTo ("1.0"));
+		Assert.That (response.Code, Is.EqualTo (200));
+		Assert.That (response.Message, Is.EqualTo ("OK"));
+		Assert.That (response.Headers["CSeq"], Is.EqualTo ("1"));
+		Assert.That (response.Body, Is.EqualTo (body));
+		Assert.That (rest.Length, Is.EqualTo (0));
 		}
 
-	[TestMethod]
+	[Test]
 	public void TryParseResponseReturnsFalseWhenBodyIncomplete ()
 		{
 		string message =
@@ -103,24 +104,24 @@ public class HttpMessagesTests
 
 		bool parsed = HttpMessages.TryParseResponse (data, out HttpResponse? response, out byte[] rest);
 
-		Assert.IsFalse (parsed);
-		Assert.IsNull (response);
-		CollectionAssert.AreEqual (data, rest);
+		Assert.That (parsed, Is.False);
+		Assert.That (response, Is.Null);
+		Assert.That (rest, Is.EqualTo (data));
 		}
 
-	[TestMethod]
+	[Test]
 	public void TryParseResponseReturnsFalseWhenHeadersIncomplete ()
 		{
 		byte[] data = Encoding.UTF8.GetBytes ("HTTP/1.1 200 OK\r\nContent-Length: 5\r\n");
 
 		bool parsed = HttpMessages.TryParseResponse (data, out HttpResponse? response, out byte[] rest);
 
-		Assert.IsFalse (parsed);
-		Assert.IsNull (response);
-		CollectionAssert.AreEqual (data, rest);
+		Assert.That (parsed, Is.False);
+		Assert.That (response, Is.Null);
+		Assert.That (rest, Is.EqualTo (data));
 		}
 
-	[TestMethod]
+	[Test]
 	public void TryParseResponseLeavesTrailingBytesInRest ()
 		{
 		string message = "HTTP/1.1 200 OK\r\n\r\n";
@@ -129,12 +130,12 @@ public class HttpMessagesTests
 
 		bool parsed = HttpMessages.TryParseResponse (data, out HttpResponse? response, out byte[] rest);
 
-		Assert.IsTrue (parsed);
-		Assert.IsNotNull (response);
-		CollectionAssert.AreEqual (Encoding.UTF8.GetBytes (trailing), rest);
+		Assert.That (parsed, Is.True);
+		Assert.That (response, Is.Not.Null);
+		Assert.That (rest, Is.EqualTo (Encoding.UTF8.GetBytes (trailing)));
 		}
 
-	[TestMethod]
+	[Test]
 	public void TryParseRequestParsesMethodPathProtocolAndHeaders ()
 		{
 		string message =
@@ -145,18 +146,18 @@ public class HttpMessagesTests
 
 		bool parsed = HttpMessages.TryParseRequest (data, out HttpRequest? request, out byte[] rest);
 
-		Assert.IsTrue (parsed);
-		Assert.IsNotNull (request);
-		Assert.AreEqual ("SETUP", request!.Method);
-		Assert.AreEqual ("/rc", request.Path);
-		Assert.AreEqual ("RTSP", request.Protocol);
-		Assert.AreEqual ("1.0", request.Version);
-		Assert.AreEqual ("3", request.Headers["CSeq"]);
-		Assert.AreEqual (0, request.Body.Length);
-		Assert.AreEqual (0, rest.Length);
+		Assert.That (parsed, Is.True);
+		Assert.That (request, Is.Not.Null);
+		Assert.That (request!.Method, Is.EqualTo ("SETUP"));
+		Assert.That (request.Path, Is.EqualTo ("/rc"));
+		Assert.That (request.Protocol, Is.EqualTo ("RTSP"));
+		Assert.That (request.Version, Is.EqualTo ("1.0"));
+		Assert.That (request.Headers["CSeq"], Is.EqualTo ("3"));
+		Assert.That (request.Body.Length, Is.EqualTo (0));
+		Assert.That (rest.Length, Is.EqualTo (0));
 		}
 
-	[TestMethod]
+	[Test]
 	public void FormatRequestAndTryParseRequestRoundTrip ()
 		{
 		var headers = new Dictionary<string, string> (StringComparer.OrdinalIgnoreCase)
@@ -169,18 +170,18 @@ public class HttpMessagesTests
 		byte[] encoded = HttpMessages.FormatRequest (original);
 		bool parsed = HttpMessages.TryParseRequest (encoded, out HttpRequest? request, out byte[] rest);
 
-		Assert.IsTrue (parsed);
-		Assert.IsNotNull (request);
-		Assert.AreEqual (original.Method, request!.Method);
-		Assert.AreEqual (original.Path, request.Path);
-		Assert.AreEqual (original.Protocol, request.Protocol);
-		Assert.AreEqual (original.Version, request.Version);
-		Assert.AreEqual ("9", request.Headers["CSeq"]);
-		CollectionAssert.AreEqual (body, request.Body);
-		Assert.AreEqual (0, rest.Length);
+		Assert.That (parsed, Is.True);
+		Assert.That (request, Is.Not.Null);
+		Assert.That (request!.Method, Is.EqualTo (original.Method));
+		Assert.That (request.Path, Is.EqualTo (original.Path));
+		Assert.That (request.Protocol, Is.EqualTo (original.Protocol));
+		Assert.That (request.Version, Is.EqualTo (original.Version));
+		Assert.That (request.Headers["CSeq"], Is.EqualTo ("9"));
+		Assert.That (request.Body, Is.EqualTo (body));
+		Assert.That (rest.Length, Is.EqualTo (0));
 		}
 
-	[TestMethod]
+	[Test]
 	public void FormatResponseAndTryParseResponseRoundTrip ()
 		{
 		var headers = new Dictionary<string, string> (StringComparer.OrdinalIgnoreCase)
@@ -193,12 +194,12 @@ public class HttpMessagesTests
 		byte[] encoded = HttpMessages.FormatResponse (original, serverName: "TestServer");
 		bool parsed = HttpMessages.TryParseResponse (encoded, out HttpResponse? response, out byte[] rest);
 
-		Assert.IsTrue (parsed);
-		Assert.IsNotNull (response);
-		Assert.AreEqual (original.Code, response!.Code);
-		Assert.AreEqual (original.Message, response.Message);
-		Assert.AreEqual ("4", response.Headers["CSeq"]);
-		CollectionAssert.AreEqual (body, response.Body);
-		Assert.AreEqual (0, rest.Length);
+		Assert.That (parsed, Is.True);
+		Assert.That (response, Is.Not.Null);
+		Assert.That (response!.Code, Is.EqualTo (original.Code));
+		Assert.That (response.Message, Is.EqualTo (original.Message));
+		Assert.That (response.Headers["CSeq"], Is.EqualTo ("4"));
+		Assert.That (response.Body, Is.EqualTo (body));
+		Assert.That (rest.Length, Is.EqualTo (0));
 		}
 	}

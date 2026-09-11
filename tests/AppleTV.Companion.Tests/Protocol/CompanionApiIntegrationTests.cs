@@ -12,7 +12,7 @@ using AppleTvControlLibrary.FakeDevice;
 using AppleTvControlLibrary.Opack;
 using AppleTvControlLibrary.Protocol;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AppleTV.Companion.Tests.ProtocolTests;
 
@@ -27,23 +27,24 @@ namespace AppleTV.Companion.Tests.ProtocolTests;
 /// this bring-up sequence and command surface.
 /// </remarks>
 // pyatv/protocols/companion/api.py (connect) — line 135-160 as of pyatv 0.18.0; tests/fake_device/companion.py (FakeCompanionService)
-[TestClass]
+[TestFixture]
+[FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public class CompanionApiIntegrationTests
 	{
-	[TestMethod]
+	[Test]
 	public async System.Threading.Tasks.Task SendOpackAsyncHonorsCancellationBeforeSending ()
 		{
 		var protocol = new CompanionProtocol (new CompanionConnection (), new SrpAuthHandler ());
 		using var cancellationSource = new System.Threading.CancellationTokenSource ();
 		cancellationSource.Cancel ();
 
-		await Assert.ThrowsAsync<System.Threading.Tasks.TaskCanceledException> (() =>
-			protocol.SendOpackAsync (FrameType.E_OPACK, new Dictionary<string, object?> (), cancellationSource.Token));
+		await Assert.ThatAsync (() =>
+			protocol.SendOpackAsync (FrameType.E_OPACK, new Dictionary<string, object?> (), cancellationSource.Token), Throws.InstanceOf<System.Threading.Tasks.TaskCanceledException> ());
 		}
 
 	// pyatv/protocols/companion/connection.py (connection_lost, exc is not None) — line 161-167 as of
 	// pyatv 0.18.0: an unexpected transport failure must be observable by a CompanionApi consumer.
-	[TestMethod]
+	[Test]
 	public void ConnectionClosedFiresWithExceptionWhenConnectionIsFaulted ()
 		{
 		var device = new FakeCompanionOpackDevice ();
@@ -56,17 +57,17 @@ public class CompanionApiIntegrationTests
 		var failure = new InvalidOperationException ("simulated transport failure");
 		protocol.AsyncSender = _ => throw failure;
 
-		Assert.Throws<ProtocolException> (() => api.SendHidCommand (down: true, HidCommand.Select));
+		Assert.Catch<ProtocolException> (() => api.SendHidCommand (down: true, HidCommand.Select));
 
-		Assert.IsNotNull (received);
-		Assert.IsNotNull (received!.Exception);
-		Assert.AreEqual (failure, received.Exception);
+		Assert.That (received, Is.Not.Null);
+		Assert.That (received!.Exception, Is.Not.Null);
+		Assert.That (received.Exception, Is.EqualTo (failure));
 		}
 
 	// pyatv/protocols/companion/protocol.py has no direct equivalent of Dispose faulting the
 	// connection, but CompanionProtocol.Dispose intentionally faults its CompanionConnection with an
 	// ObjectDisposedException as a defined teardown signal; CompanionApi must surface that too.
-	[TestMethod]
+	[Test]
 	public void ConnectionClosedFiresOnProtocolDispose ()
 		{
 		var device = new FakeCompanionOpackDevice ();
@@ -83,11 +84,11 @@ public class CompanionApiIntegrationTests
 
 		protocol.Dispose ();
 
-		Assert.IsTrue (raised);
-		Assert.IsInstanceOfType<ObjectDisposedException> (observedException);
+		Assert.That (raised, Is.True);
+		Assert.That (observedException, Is.InstanceOf<ObjectDisposedException> ());
 		}
 
-	[TestMethod]
+	[Test]
 	public async System.Threading.Tasks.Task ConnectAsyncRunsFullBringUpSequence ()
 		{
 		var device = new FakeCompanionOpackDevice ();
@@ -95,10 +96,10 @@ public class CompanionApiIntegrationTests
 
 		await api.ConnectAsync ();
 
-		Assert.AreNotEqual (0, api.Sid);
+		Assert.That (api.Sid, Is.Not.EqualTo (0));
 		}
 
-	[TestMethod]
+	[Test]
 	public async System.Threading.Tasks.Task AsyncHidSessionVolumeAndTextOperationsRoundTrip ()
 		{
 		var device = new FakeCompanionOpackDevice ();
@@ -106,19 +107,19 @@ public class CompanionApiIntegrationTests
 		await api.ConnectAsync ();
 
 		await api.SendHidCommandAsync (down: true, HidCommand.Select);
-		Assert.Contains (HidCommand.Select, device.PressedButtons);
+		Assert.That (device.PressedButtons, Does.Contain (HidCommand.Select));
 
 		await api.SetVolumeAsync (42.0);
-		Assert.AreEqual (42.0, await api.GetVolumeAsync (), 0.001);
+		Assert.That (await api.GetVolumeAsync (), Is.EqualTo (42.0).Within (0.001));
 
 		await api.TextSetAsync ("async text");
-		Assert.AreEqual ("async text", await api.TextGetAsync ());
+		Assert.That (await api.TextGetAsync (), Is.EqualTo ("async text"));
 
 		await api.SessionStopAsync ();
-		Assert.IsFalse (device.HasSessionStarted);
+		Assert.That (device.HasSessionStarted, Is.False);
 		}
 
-	[TestMethod]
+	[Test]
 	public async System.Threading.Tasks.Task AsyncSubscriptionAndAttentionStateRoundTrip ()
 		{
 		var device = new FakeCompanionOpackDevice ();
@@ -128,10 +129,10 @@ public class CompanionApiIntegrationTests
 
 		await api.SubscribeEventAsync ("_iMC");
 		await api.UnsubscribeEventAsync ("_iMC");
-		Assert.AreEqual (SystemStatus.Screensaver, await api.FetchAttentionStateAsync ());
+		Assert.That (await api.FetchAttentionStateAsync (), Is.EqualTo (SystemStatus.Screensaver));
 		}
 
-	[TestMethod]
+	[Test]
 	public async Task ConcurrentCommandsCorrelateResponsesByXid ()
 		{
 		var device = new FakeCompanionOpackDevice ();
@@ -150,12 +151,10 @@ public class CompanionApiIntegrationTests
 		deliverResponses ();
 
 		Dictionary<object, object?>[] responses = await Task.WhenAll (commands);
-		CollectionAssert.AreEquivalent (
-			Enumerable.Range (0, 48).Select (value => (long)value).ToArray (),
-			responses.Select (response => ToLong (((Dictionary<object, object?>)response["_c"]!)["requestNumber"])).ToArray ());
+		Assert.That (responses.Select (response => ToLong (((Dictionary<object, object?>)response["_c"]!)["requestNumber"])).ToArray (), Is.EquivalentTo (Enumerable.Range (0, 48).Select (value => (long)value).ToArray ()));
 		}
 
-	[TestMethod]
+	[Test]
 	public async Task TouchSwipeAndStatusQueriesCanRunConcurrently ()
 		{
 		var device = new FakeCompanionOpackDevice ();
@@ -176,7 +175,7 @@ public class CompanionApiIntegrationTests
 		Task<SystemStatus[]> queries = Task.WhenAll (Enumerable.Range (0, 24).Select (_ => api.FetchAttentionStateAsync ()));
 
 		await Task.WhenAll (swipe, queries);
-		CollectionAssert.AreEqual (Enumerable.Repeat (SystemStatus.Screensaver, 24).ToArray (), queries.Result);
+		Assert.That (queries.Result, Is.EqualTo (Enumerable.Repeat (SystemStatus.Screensaver, 24).ToArray ()));
 		}
 
 	// Wires a client-side CompanionConnection/CompanionProtocol pair to a FakeCompanionOpackDevice
@@ -284,11 +283,11 @@ public class CompanionApiIntegrationTests
 			SizedInteger sizedInteger => sizedInteger.Value,
 			long number => number,
 			int number => number,
-			_ => throw new AssertFailedException ($"Expected an OPACK integer but received {value?.GetType ().FullName ?? "null"}."),
+			_ => throw new AssertionException ($"Expected an OPACK integer but received {value?.GetType ().FullName ?? "null"}."),
 			};
 		}
 
-	[TestMethod]
+	[Test]
 	public void ConnectRunsFullBringUpSequence ()
 		{
 		var device = new FakeCompanionOpackDevice ();
@@ -296,23 +295,23 @@ public class CompanionApiIntegrationTests
 
 		api.Connect ();
 
-		Assert.IsNotNull (device.ReceivedSystemInfo);
-		Assert.AreEqual ("aabbccddeeff", device.ReceivedSystemInfo!["_i"]);
-		Assert.AreEqual ("00:11:22:33:44:55", device.ReceivedSystemInfo!["_pubID"]);
-		Assert.AreEqual ("AppleTV14,1", device.ReceivedSystemInfo!["model"]);
-		Assert.AreEqual ("Living Room", device.ReceivedSystemInfo!["name"]);
+		Assert.That (device.ReceivedSystemInfo, Is.Not.Null);
+		Assert.That (device.ReceivedSystemInfo!["_i"], Is.EqualTo ("aabbccddeeff"));
+		Assert.That (device.ReceivedSystemInfo!["_pubID"], Is.EqualTo ("00:11:22:33:44:55"));
+		Assert.That (device.ReceivedSystemInfo!["model"], Is.EqualTo ("AppleTV14,1"));
+		Assert.That (device.ReceivedSystemInfo!["name"], Is.EqualTo ("Living Room"));
 
-		Assert.IsTrue (device.HasTouchStarted);
-		Assert.IsTrue (device.HasSessionStarted);
-		Assert.AreEqual ("com.apple.tvremoteservices", device.ServiceType);
-		Assert.AreEqual ("1.2", device.TvRcProtocolVersion);
-		Assert.IsTrue (device.HasTextInputStarted);
+		Assert.That (device.HasTouchStarted, Is.True);
+		Assert.That (device.HasSessionStarted, Is.True);
+		Assert.That (device.ServiceType, Is.EqualTo ("com.apple.tvremoteservices"));
+		Assert.That (device.TvRcProtocolVersion, Is.EqualTo ("1.2"));
+		Assert.That (device.HasTextInputStarted, Is.True);
 
 		// pyatv/protocols/companion/api.py (self.sid = (remote_sid << 32) — line 224 as of pyatv 0.18.0 | local_sid)
-		Assert.AreEqual (5555L << 32 | (uint)device.LocalSid, api.Sid);
+		Assert.That (api.Sid, Is.EqualTo (5555L << 32 | (uint)device.LocalSid));
 		}
 
-	[TestMethod]
+	[Test]
 	public void HidCommandIsDeliveredToDevice ()
 		{
 		var device = new FakeCompanionOpackDevice ();
@@ -321,10 +320,10 @@ public class CompanionApiIntegrationTests
 
 		api.SendHidCommand (down: true, HidCommand.Select);
 
-		Assert.Contains (HidCommand.Select, device.PressedButtons);
+		Assert.That (device.PressedButtons, Does.Contain (HidCommand.Select));
 		}
 
-	[TestMethod]
+	[Test]
 	public void FetchAttentionStateReturnsDeviceStatus ()
 		{
 		var device = new FakeCompanionOpackDevice ();
@@ -334,10 +333,10 @@ public class CompanionApiIntegrationTests
 
 		SystemStatus status = api.FetchAttentionState ();
 
-		Assert.AreEqual (SystemStatus.Screensaver, status);
+		Assert.That (status, Is.EqualTo (SystemStatus.Screensaver));
 		}
 
-	[TestMethod]
+	[Test]
 	public void SubscribeAndUnsubscribeEventDoNotThrow ()
 		{
 		var device = new FakeCompanionOpackDevice ();
@@ -348,7 +347,7 @@ public class CompanionApiIntegrationTests
 		api.UnsubscribeEvent ("_iMC");
 		}
 
-	[TestMethod]
+	[Test]
 	public void SessionStopClearsSessionState ()
 		{
 		var device = new FakeCompanionOpackDevice ();
@@ -357,12 +356,12 @@ public class CompanionApiIntegrationTests
 
 		api.SessionStop ();
 
-		Assert.IsFalse (device.HasSessionStarted);
+		Assert.That (device.HasSessionStarted, Is.False);
 		}
 
 	// pyatv/protocols/companion/api.py (mediacontrol_command) — line 395-399 as of pyatv 0.18.0,
 	// pyatv/protocols/companion/__init__.py (GetVolume/set_volume) — line 441-467 as of pyatv 0.18.0
-	[TestMethod]
+	[Test]
 	public void SetVolumeThenGetVolumeRoundTrips ()
 		{
 		var device = new FakeCompanionOpackDevice ();
@@ -371,12 +370,12 @@ public class CompanionApiIntegrationTests
 
 		api.SetVolume (42.0);
 
-		Assert.AreEqual (42.0, device.Volume, 0.001);
-		Assert.AreEqual (42.0, api.GetVolume (), 0.001);
+		Assert.That (device.Volume, Is.EqualTo (42.0).Within (0.001));
+		Assert.That (api.GetVolume (), Is.EqualTo (42.0).Within (0.001));
 		}
 
 	// pyatv/protocols/companion/__init__.py (MediaControlFlags.Volume) — line 99 as of pyatv 0.18.0, 439-449 (_handle_control_flag_update)
-	[TestMethod]
+	[Test]
 	public void ToggleMuteSavesAndRestoresVolume ()
 		{
 		var device = new FakeCompanionOpackDevice ();
@@ -384,22 +383,22 @@ public class CompanionApiIntegrationTests
 		api.Connect ();
 
 		api.SetVolume (60.0);
-		Assert.IsFalse (api.IsVolumeControlSupported);
+		Assert.That (api.IsVolumeControlSupported, Is.False);
 
 		((ICompanionProtocolListener)api).EventReceived ("_iMC", new Dictionary<object, object?> { { "_mcF", (long)MediaControlCapabilities.Volume } });
-		Assert.IsTrue (api.IsVolumeControlSupported);
+		Assert.That (api.IsVolumeControlSupported, Is.True);
 
 		var muted = api.ToggleMute ();
-		Assert.IsTrue (muted);
-		Assert.AreEqual (0.0, device.Volume, 0.001);
+		Assert.That (muted, Is.True);
+		Assert.That (device.Volume, Is.EqualTo (0.0).Within (0.001));
 
 		var unmuted = api.ToggleMute ();
-		Assert.IsFalse (unmuted);
-		Assert.AreEqual (60.0, device.Volume, 0.001);
+		Assert.That (unmuted, Is.False);
+		Assert.That (device.Volume, Is.EqualTo (60.0).Within (0.001));
 		}
 
 	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_get) — line 517-519 as of pyatv 0.18.0
-	[TestMethod]
+	[Test]
 	public void TextGetReturnsInitialRtiText ()
 		{
 		var device = new FakeCompanionOpackDevice ();
@@ -408,11 +407,11 @@ public class CompanionApiIntegrationTests
 
 		var text = api.TextGet ();
 
-		Assert.AreEqual ("Fake Companion Keyboard Text", text);
+		Assert.That (text, Is.EqualTo ("Fake Companion Keyboard Text"));
 		}
 
 	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_clear) — line 521-523 as of pyatv 0.18.0
-	[TestMethod]
+	[Test]
 	public void TextClearEmptiesRtiText ()
 		{
 		var device = new FakeCompanionOpackDevice ();
@@ -421,11 +420,11 @@ public class CompanionApiIntegrationTests
 
 		api.TextClear ();
 
-		Assert.AreEqual (string.Empty, device.RtiText);
+		Assert.That (device.RtiText, Is.EqualTo (string.Empty));
 		}
 
 	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_append) — line 525-527 as of pyatv 0.18.0
-	[TestMethod]
+	[Test]
 	public void TextAppendAddsToExistingRtiText ()
 		{
 		var device = new FakeCompanionOpackDevice ();
@@ -434,11 +433,11 @@ public class CompanionApiIntegrationTests
 
 		api.TextAppend (" more");
 
-		Assert.AreEqual ("Fake Companion Keyboard Text more", device.RtiText);
+		Assert.That (device.RtiText, Is.EqualTo ("Fake Companion Keyboard Text more"));
 		}
 
 	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_set) — line 529-532 as of pyatv 0.18.0
-	[TestMethod]
+	[Test]
 	public void TextSetReplacesRtiText ()
 		{
 		var device = new FakeCompanionOpackDevice ();
@@ -447,18 +446,18 @@ public class CompanionApiIntegrationTests
 
 		api.TextSet ("replacement");
 
-		Assert.AreEqual ("replacement", device.RtiText);
+		Assert.That (device.RtiText, Is.EqualTo ("replacement"));
 		}
 
 	// pyatv/protocols/companion/__init__.py (CompanionKeyboard._handle_text_input) — line 505-510 as of pyatv 0.18.0
-	[TestMethod]
+	[Test]
 	public async System.Threading.Tasks.Task RtiFocusStateChangeRaisesEventAndUpdatesApi ()
 		{
 		var device = new FakeCompanionOpackDevice ();
 		var api = CreateConnectedApi (device, out _);
 		api.Connect ();
 
-		Assert.AreEqual (KeyboardFocusState.Focused, api.TextFocusState);
+		Assert.That (api.TextFocusState, Is.EqualTo (KeyboardFocusState.Focused));
 
 		var raised = new System.Threading.Tasks.TaskCompletionSource<object?> (System.Threading.Tasks.TaskCreationOptions.RunContinuationsAsynchronously);
 		api.TextFocusStateChanged += (sender, args) => raised.TrySetResult (null);
@@ -466,6 +465,6 @@ public class CompanionApiIntegrationTests
 		device.SetRtiFocusState (KeyboardFocusState.Unfocused);
 
 		await raised.Task;
-		Assert.AreEqual (KeyboardFocusState.Unfocused, api.TextFocusState);
+		Assert.That (api.TextFocusState, Is.EqualTo (KeyboardFocusState.Unfocused));
 		}
 	}

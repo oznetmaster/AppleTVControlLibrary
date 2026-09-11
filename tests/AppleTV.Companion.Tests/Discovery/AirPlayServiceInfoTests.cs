@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 using AppleTvControlLibrary.Discovery.AirPlay;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AppleTV.Companion.Tests.Discovery;
 
@@ -13,49 +13,50 @@ namespace AppleTV.Companion.Tests.Discovery;
 /// Targeted tests for AirPlay-specific TXT-record parsing, since pyatv doesn't ship a
 /// dedicated discovery test file for these rules.
 /// </summary>
-[TestClass]
+[TestFixture]
+[FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public class AirPlayServiceInfoTests
 	{
 	// pyatv/support/device_info.py (_MODEL_LIST) — line 11-18 as of pyatv 0.18.0
-	[TestMethod]
+	[Test]
 	public void IsAppleTv_TrueForAppleTvModel ()
 		{
 		Dictionary<string, string> properties = new Dictionary<string, string> { ["model"] = "AppleTV14,1" };
 
-		Assert.IsTrue (AirPlayServiceInfo.IsAppleTv (properties));
+		Assert.That (AirPlayServiceInfo.IsAppleTv (properties), Is.True);
 		}
 
-	[TestMethod]
+	[Test]
 	public void IsAppleTv_FalseForNonAppleTvModel ()
 		{
 		Dictionary<string, string> properties = new Dictionary<string, string> { ["model"] = "DM-NAX-4ZSA-50" };
 
-		Assert.IsFalse (AirPlayServiceInfo.IsAppleTv (properties));
+		Assert.That (AirPlayServiceInfo.IsAppleTv (properties), Is.False);
 		}
 
-	[TestMethod]
+	[Test]
 	public void IsAppleTv_FalseWhenModelMissing ()
 		{
 		Dictionary<string, string> properties = new Dictionary<string, string> ();
 
-		Assert.IsFalse (AirPlayServiceInfo.IsAppleTv (properties));
+		Assert.That (AirPlayServiceInfo.IsAppleTv (properties), Is.False);
 		}
 
-	[TestMethod]
+	[Test]
 	public void RemoveNameCollisionSuffix_StripsTrailingParentheticalNumber ()
 		{
-		Assert.AreEqual ("Office", AirPlayServiceInfo.RemoveNameCollisionSuffix ("Office (2)"));
+		Assert.That (AirPlayServiceInfo.RemoveNameCollisionSuffix ("Office (2)"), Is.EqualTo ("Office"));
 		}
 
-	[TestMethod]
+	[Test]
 	public void RemoveNameCollisionSuffix_LeavesPlainNameUnchanged ()
 		{
-		Assert.AreEqual ("Office", AirPlayServiceInfo.RemoveNameCollisionSuffix ("Office"));
+		Assert.That (AirPlayServiceInfo.RemoveNameCollisionSuffix ("Office"), Is.EqualTo ("Office"));
 		}
 
-	[TestMethod]
+	[Test]
 	public void RemoveNameCollisionSuffix_LeavesNonSuffixParenthesesUnchanged ()
 		{
-		Assert.AreEqual ("Office (Downstairs)", AirPlayServiceInfo.RemoveNameCollisionSuffix ("Office (Downstairs)"));
+		Assert.That (AirPlayServiceInfo.RemoveNameCollisionSuffix ("Office (Downstairs)"), Is.EqualTo ("Office (Downstairs)"));
 		}
 	}

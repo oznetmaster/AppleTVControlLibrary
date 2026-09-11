@@ -7,14 +7,15 @@ using System.Linq;
 
 using AppleTvControlLibrary.Tlv8;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AppleTv.Hap.Tests.Tlv8Tests;
 
 /// <summary>
 /// Ported from pyatv/tests/auth/test_hap_tlv8.py (pyatv 0.18.0).
 /// </summary>
-[TestClass]
+[TestFixture]
+[FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public class Tlv8Tests
 	{
 	// tests/auth/test_hap_tlv8.py:15-16 (SINGLE_KEY_IN / SINGLE_KEY_OUT)
@@ -51,26 +52,26 @@ public class Tlv8Tests
 		[0x02, 0x01, 0x31]);
 
 	// tests/auth/test_hap_tlv8.py:27-28 (test_write_single_key)
-	[TestMethod]
-	public void WriteSingleKey () => Assert.AreSequenceEqual (_singleKeyOut, AppleTvControlLibrary.Tlv8.Tlv8.WriteTlv (SingleKeyIn));
+	[Test]
+	public void WriteSingleKey () => Assert.That (AppleTvControlLibrary.Tlv8.Tlv8.WriteTlv (SingleKeyIn), Is.EqualTo (_singleKeyOut));
 
 	// tests/auth/test_hap_tlv8.py:31-32 (test_write_two_keys)
-	[TestMethod]
-	public void WriteTwoKeys () => Assert.AreSequenceEqual (DoubleKeyOut, AppleTvControlLibrary.Tlv8.Tlv8.WriteTlv (DoubleKeyIn));
+	[Test]
+	public void WriteTwoKeys () => Assert.That (AppleTvControlLibrary.Tlv8.Tlv8.WriteTlv (DoubleKeyIn), Is.EqualTo (DoubleKeyOut));
 
 	// tests/auth/test_hap_tlv8.py:35-38 (test_write_key_larger_than_255_bytes)
-	[TestMethod]
+	[Test]
 	public void WriteKeyLargerThan255Bytes () =>
 		// This will actually result in two serialized TLVs, one being 255 bytes
 		// and the next one will contain the remaining one byte
-		Assert.AreSequenceEqual (LargeKeyOut, AppleTvControlLibrary.Tlv8.Tlv8.WriteTlv (LargeKeyIn));
+		Assert.That (AppleTvControlLibrary.Tlv8.Tlv8.WriteTlv (LargeKeyIn), Is.EqualTo (LargeKeyOut));
 
 	// tests/auth/test_hap_tlv8.py:41-42 (test_read_single_key)
-	[TestMethod]
+	[Test]
 	public void ReadSingleKey () => AssertDictionariesEqual (SingleKeyIn, AppleTvControlLibrary.Tlv8.Tlv8.ReadTlv (_singleKeyOut));
 
 	// tests/auth/test_hap_tlv8.py:45-46 (test_read_two_keys)
-	[TestMethod]
+	[Test]
 	public void ReadTwoKeys ()
 		{
 		var expected = DoubleKeyIn.ToDictionary (kvp => kvp.Key, kvp => kvp.Value);
@@ -78,47 +79,47 @@ public class Tlv8Tests
 		}
 
 	// tests/auth/test_hap_tlv8.py:49-50 (test_read_key_larger_than_255_bytes)
-	[TestMethod]
+	[Test]
 	public void ReadKeyLargerThan255Bytes () => AssertDictionariesEqual (LargeKeyIn, AppleTvControlLibrary.Tlv8.Tlv8.ReadTlv (LargeKeyOut));
 
 	// tests/auth/test_hap_tlv8.py:53-55 (test_stringify_method)
-	[TestMethod]
+	[Test]
 	public void StringifyMethod ()
 		{
-		Assert.AreEqual ("Method=PairSetup", AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.Method, 0x00)));
-		Assert.AreEqual ("Method=PairVerify", AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.Method, 0x02)));
+		Assert.That (AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.Method, 0x00)), Is.EqualTo ("Method=PairSetup"));
+		Assert.That (AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.Method, 0x02)), Is.EqualTo ("Method=PairVerify"));
 		}
 
 	// tests/auth/test_hap_tlv8.py:58-64 (test_stringify_seqno)
-	[TestMethod]
+	[Test]
 	public void StringifySeqNo ()
 		{
-		Assert.AreEqual ("SeqNo=M1", AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.SeqNo, 0x01)));
-		Assert.AreEqual ("SeqNo=M2", AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.SeqNo, 0x02)));
-		Assert.AreEqual ("SeqNo=M3", AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.SeqNo, 0x03)));
-		Assert.AreEqual ("SeqNo=M4", AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.SeqNo, 0x04)));
-		Assert.AreEqual ("SeqNo=M5", AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.SeqNo, 0x05)));
-		Assert.AreEqual ("SeqNo=M6", AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.SeqNo, 0x06)));
+		Assert.That (AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.SeqNo, 0x01)), Is.EqualTo ("SeqNo=M1"));
+		Assert.That (AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.SeqNo, 0x02)), Is.EqualTo ("SeqNo=M2"));
+		Assert.That (AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.SeqNo, 0x03)), Is.EqualTo ("SeqNo=M3"));
+		Assert.That (AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.SeqNo, 0x04)), Is.EqualTo ("SeqNo=M4"));
+		Assert.That (AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.SeqNo, 0x05)), Is.EqualTo ("SeqNo=M5"));
+		Assert.That (AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.SeqNo, 0x06)), Is.EqualTo ("SeqNo=M6"));
 		}
 
 	// tests/auth/test_hap_tlv8.py:67-69 (test_stringify_error)
-	[TestMethod]
+	[Test]
 	public void StringifyError ()
 		{
-		Assert.AreEqual ("Error=Authentication", AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.Error, 0x02)));
-		Assert.AreEqual ("Error=MaxTries", AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.Error, 0x05)));
+		Assert.That (AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.Error, 0x02)), Is.EqualTo ("Error=Authentication"));
+		Assert.That (AppleTvControlLibrary.Tlv8.Tlv8.Stringify (Entry (TlvValue.Error, 0x05)), Is.EqualTo ("Error=MaxTries"));
 		}
 
 	// tests/auth/test_hap_tlv8.py:72-73 (test_stringify_backoff)
-	[TestMethod]
+	[Test]
 	public void StringifyBackoff ()
 		{
 		var data = new Dictionary<int, byte[]> { [(int)TlvValue.BackOff] = [0x02, 0x00] };
-		Assert.AreEqual ("BackOff=2s", AppleTvControlLibrary.Tlv8.Tlv8.Stringify (data));
+		Assert.That (AppleTvControlLibrary.Tlv8.Tlv8.Stringify (data), Is.EqualTo ("BackOff=2s"));
 		}
 
 	// tests/auth/test_hap_tlv8.py:76-91 (test_stringify_remainging_short)
-	[TestMethod]
+	[Test]
 	public void StringifyRemainingShort ()
 		{
 		var values = new[]
@@ -138,12 +139,12 @@ public class Tlv8Tests
 		foreach (var value in values)
 			{
 			var data = new Dictionary<int, byte[]> { [(int)value] = [0x00, 0x01, 0x02, 0x03] };
-			Assert.AreEqual ($"{value}=4bytes", AppleTvControlLibrary.Tlv8.Tlv8.Stringify (data));
+			Assert.That (AppleTvControlLibrary.Tlv8.Tlv8.Stringify (data), Is.EqualTo ($"{value}=4bytes"));
 			}
 		}
 
 	// tests/auth/test_hap_tlv8.py:94-105 (test_stringify_multiple)
-	[TestMethod]
+	[Test]
 	public void StringifyMultiple ()
 		{
 		var data = new Dictionary<int, byte[]>
@@ -154,11 +155,11 @@ public class Tlv8Tests
 			[(int)TlvValue.BackOff] = [0x01, 0x00],
 			};
 
-		Assert.AreEqual ("Method=PairSetup, SeqNo=M1, Error=BackOff, BackOff=1s", AppleTvControlLibrary.Tlv8.Tlv8.Stringify (data));
+		Assert.That (AppleTvControlLibrary.Tlv8.Tlv8.Stringify (data), Is.EqualTo ("Method=PairSetup, SeqNo=M1, Error=BackOff, BackOff=1s"));
 		}
 
 	// tests/auth/test_hap_tlv8.py:108-119 (test_stringify_unknown_values)
-	[TestMethod]
+	[Test]
 	public void StringifyUnknownValues ()
 		{
 		var data = new Dictionary<int, byte[]>
@@ -169,13 +170,13 @@ public class Tlv8Tests
 			[0xad] = [0x01, 0x02, 0x03],
 			};
 
-		Assert.AreEqual ("Method=0xaa, SeqNo=0xab, Error=0xac, 0xad=3bytes", AppleTvControlLibrary.Tlv8.Tlv8.Stringify (data));
+		Assert.That (AppleTvControlLibrary.Tlv8.Tlv8.Stringify (data), Is.EqualTo ("Method=0xaa, SeqNo=0xab, Error=0xac, 0xad=3bytes"));
 		}
 
 	// Additional trap coverage beyond the ported vectors: a value chunked across
 	// more than two 255-byte segments must still concatenate correctly on read,
 	// and round-trip through write_tlv/read_tlv. (pyatv/auth/hap_tlv8.py — line 80-81 as of pyatv 0.18.0, 114-122)
-	[TestMethod]
+	[Test]
 	public void RoundTripValueLargerThan255Bytes ()
 		{
 		var value = Repeat (0x42, 600);
@@ -184,19 +185,19 @@ public class Tlv8Tests
 		byte[] written = AppleTvControlLibrary.Tlv8.Tlv8.WriteTlv (input);
 		var read = AppleTvControlLibrary.Tlv8.Tlv8.ReadTlv (written);
 
-		Assert.IsTrue (read.ContainsKey (5));
-		Assert.AreSequenceEqual (value, read[5]);
+		Assert.That (read.ContainsKey (5), Is.True);
+		Assert.That (read[5], Is.EqualTo (value));
 		}
 
 	private static Dictionary<int, byte[]> Entry (TlvValue key, byte value) => new () { [(int)key] = [value] };
 
 	private static void AssertDictionariesEqual (Dictionary<int, byte[]> expected, Dictionary<int, byte[]> actual)
 		{
-		Assert.AreEqual (expected.Count, actual.Count);
+		Assert.That (actual.Count, Is.EqualTo (expected.Count));
 		foreach (var kvp in expected)
 			{
-			Assert.IsTrue (actual.ContainsKey (kvp.Key));
-			Assert.AreSequenceEqual (kvp.Value, actual[kvp.Key]);
+			Assert.That (actual.ContainsKey (kvp.Key), Is.True);
+			Assert.That (actual[kvp.Key], Is.EqualTo (kvp.Value));
 			}
 		}
 

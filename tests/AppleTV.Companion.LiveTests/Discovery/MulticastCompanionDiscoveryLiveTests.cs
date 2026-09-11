@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 using AppleTvControlLibrary.Discovery.Companion;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AppleTvControlLibrary.LiveTests.Discovery;
 
@@ -19,14 +19,16 @@ namespace AppleTvControlLibrary.LiveTests.Discovery;
 /// path (multicast join, resend loop, receive loop, cancellation-triggered socket close) is
 /// exercised end-to-end instead of only against pre-decoded records.
 /// </summary>
-[TestClass]
+[TestFixture]
+[Category ("Live")]
+[FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public sealed class MulticastCompanionDiscoveryLiveTests
 	{
 	/// <summary>
 	/// Scanning against a responding fake device should return exactly that device, with the
 	/// TXT-derived unique id and pairing requirement decoded correctly.
 	/// </summary>
-	[TestMethod]
+	[Test]
 	public async Task ScanAsync_RespondingDevice_IsDiscovered ()
 		{
 		using FakeMdnsResponder responder = new FakeMdnsResponder (
@@ -56,14 +58,14 @@ public sealed class MulticastCompanionDiscoveryLiveTests
 				}
 			}
 
-		Assert.IsNotNull (found, "Expected the fake device to be discovered by a live mDNS scan.");
-		Assert.AreEqual (49152, found!.Port);
-		Assert.AreEqual ("AAAAAAAAAAAA", found.UniqueId);
-		Assert.AreEqual (CompanionPairingRequirement.Mandatory, found.PairingRequirement);
-		Assert.AreEqual (IPAddress.Loopback, found.Address);
+		Assert.That (found, Is.Not.Null, "Expected the fake device to be discovered by a live mDNS scan.");
+		Assert.That (found!.Port, Is.EqualTo (49152));
+		Assert.That (found.UniqueId, Is.EqualTo ("AAAAAAAAAAAA"));
+		Assert.That (found.PairingRequirement, Is.EqualTo (CompanionPairingRequirement.Mandatory));
+		Assert.That (found.Address, Is.EqualTo (IPAddress.Loopback));
 		}
 
-	[TestMethod]
+	[Test]
 	public async Task UnicastScanAsync_RespondingDevice_IsDiscovered ()
 		{
 		using FakeMdnsResponder responder = CreateResponder (bindAddress: IPAddress.Loopback);
@@ -73,13 +75,13 @@ public sealed class MulticastCompanionDiscoveryLiveTests
 		System.Collections.Generic.IReadOnlyList<CompanionDiscoveryResult> results =
 			await discovery.ScanAsync (TimeSpan.FromSeconds (3)).ConfigureAwait (false);
 
-		Assert.AreEqual (1, results.Count);
-		Assert.AreEqual ("Live Test Room", results[0].Name);
-		Assert.AreEqual (49152, results[0].Port);
-		Assert.AreEqual (IPAddress.Loopback, results[0].Address);
+		Assert.That (results.Count, Is.EqualTo (1));
+		Assert.That (results[0].Name, Is.EqualTo ("Live Test Room"));
+		Assert.That (results[0].Port, Is.EqualTo (49152));
+		Assert.That (results[0].Address, Is.EqualTo (IPAddress.Loopback));
 		}
 
-	[TestMethod]
+	[Test]
 	public async Task DiscoveryAsync_MatchingName_CompletesBeforeTimeout ()
 		{
 		using FakeMdnsResponder responder = CreateResponder ();
@@ -91,9 +93,9 @@ public sealed class MulticastCompanionDiscoveryLiveTests
 			TimeSpan.FromSeconds (10)).ConfigureAwait (false);
 		TimeSpan elapsed = DateTime.UtcNow - start;
 
-		Assert.IsNotNull (result);
-		Assert.AreEqual (49152, result!.Port);
-		Assert.IsTrue (elapsed < TimeSpan.FromSeconds (5), $"Named lookup took {elapsed}, expected it to finish after the matching response.");
+		Assert.That (result, Is.Not.Null);
+		Assert.That (result!.Port, Is.EqualTo (49152));
+		Assert.That (elapsed < TimeSpan.FromSeconds (5), Is.True, $"Named lookup took {elapsed}, expected it to finish after the matching response.");
 		}
 
 	/// <summary>
@@ -101,7 +103,7 @@ public sealed class MulticastCompanionDiscoveryLiveTests
 	/// timeout, guarding against the "scan never returns" regression where the receive loop's
 	/// pending ReceiveAsync() wasn't unblocked by cancellation.
 	/// </summary>
-	[TestMethod]
+	[Test]
 	public async Task ScanAsync_NoResponder_ReturnsWithinTimeout ()
 		{
 		MulticastCompanionDiscovery discovery = new MulticastCompanionDiscovery ();
@@ -111,14 +113,14 @@ public sealed class MulticastCompanionDiscoveryLiveTests
 			await discovery.ScanAsync (TimeSpan.FromSeconds (2)).ConfigureAwait (false);
 		TimeSpan elapsed = DateTime.UtcNow - start;
 
-		Assert.IsTrue (elapsed < TimeSpan.FromSeconds (5), $"Scan took {elapsed}, expected it to return promptly after its 2s timeout.");
+		Assert.That (elapsed < TimeSpan.FromSeconds (5), Is.True, $"Scan took {elapsed}, expected it to return promptly after its 2s timeout.");
 		}
 
 	/// <summary>
 	/// Cancelling the scan's token before the timeout elapses must also unblock the receive
 	/// loop promptly (the same code path exercised by a user-cancelled scan in the UI).
 	/// </summary>
-	[TestMethod]
+	[Test]
 	public async Task ScanAsync_CancelledEarly_ReturnsPromptly ()
 		{
 		MulticastCompanionDiscovery discovery = new MulticastCompanionDiscovery ();
@@ -134,7 +136,7 @@ public sealed class MulticastCompanionDiscoveryLiveTests
 		await scanTask.ConfigureAwait (false);
 		TimeSpan elapsed = DateTime.UtcNow - cancelledAt;
 
-		Assert.IsTrue (elapsed < TimeSpan.FromSeconds (5), $"Scan took {elapsed} to return after cancellation, expected it to unblock promptly.");
+		Assert.That (elapsed < TimeSpan.FromSeconds (5), Is.True, $"Scan took {elapsed} to return after cancellation, expected it to unblock promptly.");
 		}
 
 	private static FakeMdnsResponder CreateResponder (IPAddress? bindAddress = null)

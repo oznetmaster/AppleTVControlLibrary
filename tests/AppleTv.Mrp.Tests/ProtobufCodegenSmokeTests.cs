@@ -1,6 +1,6 @@
 using AppleTvControlLibrary.Mrp.Protobuf;
 using Google.Protobuf;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace AppleTvControlLibrary.Mrp.Tests;
 
@@ -8,10 +8,11 @@ namespace AppleTvControlLibrary.Mrp.Tests;
 /// Smoke tests confirming the protobuf codegen pipeline (WP1) produces usable, round-trippable
 /// message types from the vendored pyatv MRP .proto definitions on both target frameworks.
 /// </summary>
-[TestClass]
+[TestFixture]
+[FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public sealed class ProtobufCodegenSmokeTests
 {
-	[TestMethod]
+	[Test]
 	public void DeviceInfoMessage_RoundTripsThroughByteArray()
 	{
 		var message = new DeviceInfoMessage
@@ -26,14 +27,14 @@ public sealed class ProtobufCodegenSmokeTests
 		byte[] bytes = message.ToByteArray();
 		var roundTripped = DeviceInfoMessage.Parser.ParseFrom(bytes);
 
-		Assert.AreEqual(message.Name, roundTripped.Name);
-		Assert.AreEqual(message.UniqueIdentifier, roundTripped.UniqueIdentifier);
-		Assert.AreEqual(message.ApplicationBundleIdentifier, roundTripped.ApplicationBundleIdentifier);
-		Assert.AreEqual(message.ProtocolVersion, roundTripped.ProtocolVersion);
-		Assert.AreEqual(message.AllowsPairing, roundTripped.AllowsPairing);
+		Assert.That (roundTripped.Name, Is.EqualTo (message.Name));
+		Assert.That (roundTripped.UniqueIdentifier, Is.EqualTo (message.UniqueIdentifier));
+		Assert.That (roundTripped.ApplicationBundleIdentifier, Is.EqualTo (message.ApplicationBundleIdentifier));
+		Assert.That (roundTripped.ProtocolVersion, Is.EqualTo (message.ProtocolVersion));
+		Assert.That (roundTripped.AllowsPairing, Is.EqualTo (message.AllowsPairing));
 	}
 
-	[TestMethod]
+	[Test]
 	public void ProtocolMessage_CarriesDeviceInfoMessageExtension()
 	{
 		// pyatv/protocols/mrp/protobuf/DeviceInfoMessage.proto: DeviceInfoMessage is registered as
@@ -49,7 +50,7 @@ public sealed class ProtobufCodegenSmokeTests
 		byte[] bytes = envelope.ToByteArray();
 		var roundTripped = ProtocolMessage.Parser.WithExtensionRegistry(registry).ParseFrom(bytes);
 
-		Assert.AreEqual(ProtocolMessage.Types.Type.DeviceInfoMessage, roundTripped.Type);
-		Assert.AreEqual("Extension Test", roundTripped.GetExtension(DeviceInfoMessageExtensions.DeviceInfoMessage).Name);
+		Assert.That (roundTripped.Type, Is.EqualTo (ProtocolMessage.Types.Type.DeviceInfoMessage));
+		Assert.That (roundTripped.GetExtension(DeviceInfoMessageExtensions.DeviceInfoMessage).Name, Is.EqualTo ("Extension Test"));
 	}
 }
