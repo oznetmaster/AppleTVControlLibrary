@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add dedicated pull-request and branch CI tests on net472 and .NET 10, excluding live tests and retaining per-runtime results. Test/CI-only change; no library behavior or package release.
+
 All notable changes to this project are documented in this file.
 
 ## [2.2.5] - 2026-08-17

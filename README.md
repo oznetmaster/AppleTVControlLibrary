@@ -317,3 +317,7 @@ dotnet test tests/AppleTV.Companion.LiveTests/AppleTV.Companion.LiveTests.csproj
 ```
 
 These tests depend on the host's multicast support and socket permissions. Test discovery itself does not start the responder or open network connections. Keep any real credentials and device settings outside tracked files. This test-framework migration does not change library versions or publish new NuGet packages.
+
+## Continuous integration tests
+
+The [Unit tests workflow](.github/workflows/unit-tests.yml) runs on pull requests and pushes to the main development branch. Separate Windows jobs test **net472** and **.NET 10**, retaining a result file for each suite/runtime. Live tests are excluded; no account credentials or physical devices are needed. These checks do not publish packages or releases.
