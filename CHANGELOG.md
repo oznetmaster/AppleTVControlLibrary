@@ -1,6 +1,8 @@
 # Changelog
 
-## Unreleased
+## Test and development tooling - 2026-09-15 (no library release)
+
+- Generate XML documentation under each framework's build output. Parallel framework builds no longer overwrite or corrupt the same tracked XML file. Library runtime code and public APIs are unchanged.
 
 - Add dedicated pull-request and branch CI tests on net472 and .NET 10, excluding live tests and retaining per-runtime results. Test/CI-only change; no library behavior or package release.
 

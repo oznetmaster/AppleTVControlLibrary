@@ -321,3 +321,4 @@ These tests depend on the host's multicast support and socket permissions. Test 
 ## Continuous integration tests
 
 The [Unit tests workflow](.github/workflows/unit-tests.yml) runs on pull requests and pushes to the main development branch. Separate Windows jobs test **net472** and **.NET 10**, retaining a result file for each suite/runtime. Live tests are excluded; no account credentials or physical devices are needed. These checks do not publish packages or releases.
+XML documentation is generated in each target framework's output directory. Parallel net472 and .NET 10 builds therefore do not overwrite the same XML file in the source tree.

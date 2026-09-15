@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
@@ -34,7 +34,6 @@
 		<DebugType>none</DebugType>
 		<DebugSymbols>false</DebugSymbols>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
 		<!-- Treat missing XML docs as errors in Release -->
 		<WarningsAsErrors>$(WarningsAsErrors);CS1591</WarningsAsErrors>
 		<!-- Disable deterministic so timestamps differ (useful if stamping versions externally) -->
