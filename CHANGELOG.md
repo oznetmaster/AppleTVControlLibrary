@@ -1,5 +1,10 @@
 # Changelog
 
+## CI validation - 2026-09-15 (no package release)
+
+- Revalidate the current default-branch source after successful release workflows, including version commits created by GitHub Actions.
+- Allow maintainers to configure exact-source, App-specific checks that must pass before publishing through `RELEASE_REQUIRED_CHECKS`; missing, failed or unconfirmed checks block the release.
+
 ## Test and development tooling - 2026-09-15 (no library release)
 
 - Generate XML documentation under each framework's build output. Parallel framework builds no longer overwrite or corrupt the same tracked XML file. Library runtime code and public APIs are unchanged.
