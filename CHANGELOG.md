@@ -1,22 +1,8 @@
 # Changelog
 
-## Offline release workflow option - 2026-09-15 (no package release)
-
-- Allow an explicit manual release when local hardware or the self-hosted runner is unavailable, with the reason and exact source recorded in the workflow summary.
-- Keep hosted source validation mandatory and preserve all build, test and packaging steps. No runtime, API or package-version changes.
-
-## CI validation - 2026-09-15 (no package release)
-
-- Revalidate the current default-branch source after successful release workflows, including version commits created by GitHub Actions.
-- Allow maintainers to configure exact-source, App-specific checks that must pass before publishing through `RELEASE_REQUIRED_CHECKS`; missing, failed or unconfirmed checks block the release.
-
-## Test and development tooling - 2026-09-15 (no library release)
-
-- Generate XML documentation under each framework's build output. Parallel framework builds no longer overwrite or corrupt the same tracked XML file. Library runtime code and public APIs are unchanged.
-
-- Add dedicated pull-request and branch CI tests on net472 and .NET 10, excluding live tests and retaining per-runtime results. Test/CI-only change; no library behavior or package release.
-
 All notable changes to this project are documented in this file.
+
+This changelog records shipped features, fixes, compatibility and runtime dependency changes. See [development and validation history](DEVELOPMENT-HISTORY.md) for tests, CI, build tooling and work not yet released.
 
 ## [2.2.5] - 2026-08-17
 
@@ -57,11 +43,13 @@ All notable changes to this project are documented in this file.
   restore for any consumer installing from nuget.org. `AppleTv.Hap.dll` is now bundled directly into
   each package's `lib/net472` and `lib/net10.0` folders instead, and the phantom dependency entry is
   gone.
+
 - Marking the `AppleTv.Hap` `ProjectReference` as `PrivateAssets=all` to fix the issue above also
   blocked transitive compile-time access to `AppleTv.Hap` types for repository projects that use its
   namespaces (`AppleTvControlLibrary.Auth`, `.Tlv8`, `.Opack`, `.Crypto`) directly. Added direct
   `AppleTv.Hap` project references to every affected downstream project (tests, CLI tools, WPF apps)
   so the solution builds cleanly again.
+
 - Note: an earlier `v2.2.2` tag was cut for the first fix above but never completed a successful
   build/publish, so no `2.2.2` package was ever released; `2.2.3` is the first release to include
   this fix. Packaging only - no functional or public API changes.
@@ -81,14 +69,6 @@ All notable changes to this project are documented in this file.
   unmodified on both `net472` and `net10.0`.
 
 ## [2.2.0] - 2026-08-14
-
-### Changed
-
-- Converted allocation-heavy hex decode, DNS TXT/name parsing, mDNS flag-string parsing, and
-  HTTP/RTSP header parsing to use `Span<T>`/`ReadOnlySpan<T>` instead of `Substring` and per-value
-  byte-array copies (`AppleTvControlLibrary.Discovery`, `AppleTvControlLibrary` HAP layer, and
-  `AppleTvControlLibrary.Mrp`). This is an internal efficiency pass only; no public API or wire
-  behavior changed, and all existing tests pass unmodified on both `net472` and `net10.0`.
 
 ## [2.1.1] - 2026-08-14
 
@@ -123,6 +103,7 @@ All notable changes to this project are documented in this file.
   `AppleTvControlLibrary` (Companion Link), `AppleTvControlLibrary.Mrp` (MRP), and
   `AppleTvControlLibrary.Discovery` (mDNS discovery for both protocols) - instead of only the
   Companion Link and Discovery packages. Bumped to 2.1.0.
+
 - Fixed three XML doc `<see cref>` references in `AppleTvControlLibrary.Mrp` (`AirPlayMrpConnection`,
   `IMrpFrameConnection`, `MrpProtocol`) that could not be resolved and produced `InvalidCref` build
   warnings. Documentation-only change; no public API or behavior change.
@@ -137,20 +118,21 @@ All notable changes to this project are documented in this file.
   channel encryption reuse the shared `AppleTv.Hap` HAP pair-setup/pair-verify and
   ChaCha20-Poly1305 library, extracted from the Companion Link library so both protocols share one
   crypto/pairing implementation.
+
 - `AppleTv.Remote.Mrp.Wpf`, a WPF reference host for MRP: pairing, connecting, and a now-playing UI
   with capability-gated transport controls.
+
 - `tools/AppleTV.AirPlay.ScanTool` and `tools/AppleTV.AirPlay.RemoteTool`, command-line utilities
   for AirPlay discovery and MRP remote control.
+
 - `tools/AppleTV.Mrp.ScanTool`, a command-line utility for locating MRP-over-AirPlay devices, built
   on the new `IMrpDiscovery`/`MulticastMrpDiscovery` mDNS discovery added to the existing
   `AppleTvControlLibrary.Discovery` package (no separate discovery package was needed).
-- `tests/AppleTv.Mrp.Tests` and `tests/AppleTv.Mrp.FakeDevice`, a full MSTest suite (multi-targeted
-  `net472`/`net10.0`) covering MRP pairing, protocol framing, player-state tracking, artwork
-  fetch/fallback, push updates, and power-state derivation against an in-process fake Apple TV.
-- `tests/AppleTv.Hap.Tests`, unit tests for the shared HAP pairing/crypto library.
+
 - MRP documentation: new DocFX articles (overview, getting started, pairing and credentials,
   compatibility and limitations) and an MRP API reference section, published alongside the
   existing Companion Link documentation at the same GitHub Pages site.
+
 - Root `README.md` now documents both libraries, the shared `AppleTv.Hap` dependency, both WPF
   reference hosts, and a combined tools-and-tests overview.
 
@@ -159,10 +141,12 @@ All notable changes to this project are documented in this file.
 - Extracted shared HAP crypto/pairing code (SRP, TLV8, Ed25519/X25519, ChaCha20-Poly1305 helpers)
   out of the Companion Link library into a new shared `AppleTv.Hap` library, consumed by both
   `AppleTvControlLibrary` and `AppleTvControlLibrary.Mrp`.
+
 - Bumped `AppleTvControlLibrary`, `AppleTvControlLibrary.Discovery`, `AppleTvControlLibrary.All`,
   and `AppleTvControlLibrary.Mrp` to 2.0.0 to mark this repository-wide release. (Corrected
   2026-08-14: the `AppleTv.Mrp.csproj` file itself was left at `1.0.0`, but the release workflow's
   tag-forced versioning published the package to NuGet as `2.0.0`; see the `[2.0.1]` entry above.)
+
 - The publish workflow now packs and publishes `AppleTvControlLibrary.Mrp` alongside the Companion
   Link packages, and builds/publishes `AppleTv.Remote.Mrp.Wpf` release assets alongside
   `AppleTv.Remote.Wpf`.
@@ -177,8 +161,10 @@ All notable changes to this project are documented in this file.
   callbacks; inspect `ConnectionClosedEventArgs.Exception` (`null` for a clean close, non-null for
   an unexpected fault) to distinguish the two. This library does not implement automatic
   reconnection; consumers that want to reconnect must do so themselves in response to this event.
+
 - `CompanionProtocol.ConnectionFaulted`, the lower-level event `CompanionApi.ConnectionClosed` is
   built on, for callers driving `CompanionProtocol` directly without `CompanionApi`.
+
 - The WPF reference host now consumes `CompanionApi.ConnectionClosed` end-to-end:
   `AppleTvDeviceManager` exposes its own `ConnectionClosed` event and tears down its connection
   state when the underlying connection faults, and `MainViewModel` resets UI state accordingly. On
@@ -208,14 +194,8 @@ All notable changes to this project are documented in this file.
 
 ### Changed
 
-- Updated the test projects to MSTest 4.3.3 and its current assertion APIs.
 - Removed unused direct NuGet dependencies while retaining the pinned `plist-cil` 2.2.0 package
   required for .NET Framework 4.7.2 compatibility.
-
-### Fixed
-
-- Replaced obsolete MSTest `DataTestMethod` attributes with `TestMethod` while preserving the
-  existing `DataRow` test coverage, eliminating MSTEST0044 analyzer warnings.
 
 ## [1.1.1] - 2026-08-03
 
@@ -223,6 +203,7 @@ All notable changes to this project are documented in this file.
 
 - `UnicastCompanionDiscovery`, which queries a known Apple TV IPv4 address over mDNS and returns
   the advertised Companion Link TCP endpoint and service metadata.
+
 - `MulticastCompanionDiscovery.DiscoveryAsync`, which looks up an exact mDNS service instance name
   and completes once the matching Companion Link service is resolved.
 
@@ -238,13 +219,13 @@ All notable changes to this project are documented in this file.
 
 - Async-first Companion Link APIs for connection/session lifecycle, OPACK exchanges, HID and touch
   input, media control, text input, subscriptions, app/account operations, and power state.
+
 - Cancellable asynchronous TCP connection setup for the WPF reference host.
-- Concurrent fake-device tests covering response correlation for overlapping OPACK exchanges and
-  touch-swipe traffic interleaved with status queries.
 
 ### Changed
 
 - The WPF reference host and remote command-line tool now use the asynchronous library APIs.
+
 - Outbound protocol sends are serialized; pending exchanges now fail promptly when the connection
   faults and use asynchronously scheduled task continuations.
 
@@ -259,6 +240,7 @@ All notable changes to this project are documented in this file.
 
 - Updated the packaged README screenshot to use the GitHub Pages-hosted image so it renders on
   NuGet.org.
+
 - Added explicit empty framework assets to `AppleTvControlLibrary.All`, eliminating the NU5128
   packaging warning while retaining its `net472` and `net10.0` dependency groups.
 
@@ -293,32 +275,40 @@ All notable changes to this project are documented in this file.
 
 - Companion Link discovery (`AppleTvControlLibrary.Discovery`) via mDNS/DNS-SD, isolated behind
   an interface so it can be swapped per host runtime.
+
 - OPACK and TLV8 codecs, ported byte-for-byte from pyatv 0.18.0 with round-trip test coverage
   including sized-integer preservation and >255-byte TLV8 value chunking.
+
 - Companion Link framing and ChaCha20-Poly1305 encryption/decryption, including the frame-type
   enum, big-endian length header, and zero-length-payload bypass.
+
 - HAP pair-setup and pair-verify (SRP6a over a 3072-bit group, Ed25519, X25519, HKDF), matching
   pyatv's `ClientEncrypt-main` / `ServerEncrypt-main` key derivation.
-- A fake Companion Link device, ported from pyatv's test fixtures, used to validate pairing,
-  verification, and session bring-up without physical hardware.
+
 - Companion Link session lifecycle (`_systemInfo`, `_touchStart`, `_sessionStart`,
   `TVRCSessionStart`, `_tiStart`) including the persistent, MAC-shaped `_i` identifier required
   for the device to keep pushing `TVSystemStatus` events and to avoid tvOS 18.4+ dropping the
   connection.
+
 - HID command support (directional pad, menu/home, volume, playback, Siri, sleep/wake, etc.) and
   touch/swipe events.
+
 - Media-control command support (play/pause/skip/absolute volume), gated on the
   `MediaControlFlags` advertised by the currently foregrounded app.
+
 - Push-based power-state tracking via `SystemStatus`/`TVSystemStatus` events, replacing polling
   of `FetchAttentionState`.
+
 - A WPF reference host application (`AppleTv.Remote.Wpf`) demonstrating discovery, pairing,
   connection, and remote-control UI wired to the library.
+
 - Symbol-anchored citation comments on every ported protocol constant, referencing the pyatv
   0.18.0 file and symbol they were read from.
 
 ### Notes
 
 - Companion Link only: no MRP, AirPlay 2, RAOP, or DMAP/DACP support is in scope.
+
 - Validated against tvOS hardware in addition to the fake device; see project documentation for
   hardware-specific caveats (for example, `FetchAttentionState` behavior differences between
   Apple TV generations).

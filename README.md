@@ -1,5 +1,8 @@
 # AppleTvControlLibrary
 
+For shipped changes, see the [changelog](CHANGELOG.md). Test, CI and build history is recorded separately in [development and validation history](DEVELOPMENT-HISTORY.md).
+
+
 .NET client libraries for Apple TV remote-control protocols: **Companion Link** (HID input, media
 transport, volume, power state - used by tvOS remotes and the Apple TV Remote app) and **MRP**
 (Media Remote Protocol, tunneled over AirPlay 2 - now-playing metadata, playback control, and
