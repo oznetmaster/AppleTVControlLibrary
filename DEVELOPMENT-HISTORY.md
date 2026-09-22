@@ -59,3 +59,8 @@ See the [product changelog](CHANGELOG.md) for shipped changes. This document pre
 
 - A fake Companion Link device, ported from pyatv's test fixtures, used to validate pairing,
   verification, and session bring-up without physical hardware.
+## 2026-09-22 — Compatibility and dependency audit
+
+- Update NUnit test SDK/analyzers and document exact test dependencies in tests/README.md.
+- Add eight offline credential-file compatibility cases across both desktop sample models; run the same source on net472 and .NET 10.
+- Audit JSON surfaces, logging and stable direct/transitive dependencies. Binary protocol codecs remain necessary; no raw JSON API, Newtonsoft or log4net is present in the library.

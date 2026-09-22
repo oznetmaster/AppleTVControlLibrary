@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 
 This changelog records shipped features, fixes, compatibility and runtime dependency changes. See [development and validation history](DEVELOPMENT-HISTORY.md) for tests, CI, build tooling and work not yet released.
 
+## [2.2.6] - 2026-09-22
+
+- Update stable Protobuf and Microsoft compatibility dependencies while retaining net472 support and the existing public API.
+- Pin desktop sample credential JSON property names with attributes, preserving previously saved pairing files.
+- Retain plist-cil 2.2.0 because newer releases do not support .NET Framework 4.7.2.
+
 ## [2.2.5] - 2026-08-17
 
 ### Fixed

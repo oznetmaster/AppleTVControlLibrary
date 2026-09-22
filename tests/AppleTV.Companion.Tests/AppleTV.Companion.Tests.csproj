@@ -12,11 +12,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Bcl.Memory" Version="10.0.11" />
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.9.0" />
+		<PackageReference Include="Microsoft.Bcl.Memory" Version="10.0.12" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.10.1" />
 		<PackageReference Include="NUnit3TestAdapter" Version="6.3.0" PrivateAssets="all" />
 		<PackageReference Include="NUnit" Version="4.6.1" />
-		<PackageReference Include="NUnit.Analyzers" Version="4.14.0" PrivateAssets="all" />
+		<PackageReference Include="NUnit.Analyzers" Version="4.15.0" PrivateAssets="all" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
@@ -33,4 +33,9 @@
 		<ProjectReference Include="..\AppleTV.Companion.FakeDevice\AppleTV.Companion.FakeDevice.csproj" />
 	</ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="10.0.12" />
+    <Compile Include="../../src/AppleTv.Remote.Wpf/Storage/CredentialStore.cs" Link="Storage/CompanionCredentialStore.cs" />
+    <Compile Include="../../src/AppleTv.Remote.Mrp.Wpf/Storage/CredentialStore.cs" Link="Storage/MrpCredentialStore.cs" />
+  </ItemGroup>
 </Project>

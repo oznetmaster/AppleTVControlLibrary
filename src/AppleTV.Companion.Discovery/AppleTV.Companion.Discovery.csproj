@@ -7,7 +7,7 @@
 		<TargetFrameworks>net472;net10.0</TargetFrameworks>
 		<IsPackable>true</IsPackable>
 		<PackageId>AppleTvControlLibrary.Discovery</PackageId>
-		<Version>2.2.5</Version>
+		<Version>2.2.6</Version>
 		<Authors>Neil Colvin</Authors>
 		<Company>Neil Colvin</Company>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -50,8 +50,8 @@
 		</PackageReference>
 		<PackageReference Include="Hafner.Compatibility.MetaPackage" Version="1.9.0" />
 		<PackageReference Include="System.Memory" Version="4.6.3" />
-		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.11" />
-		<PackageReference Include="Microsoft.Bcl.Memory" Version="10.0.11" />
+		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.12" />
+		<PackageReference Include="Microsoft.Bcl.Memory" Version="10.0.12" />
 	</ItemGroup>
 
 	<ItemGroup>

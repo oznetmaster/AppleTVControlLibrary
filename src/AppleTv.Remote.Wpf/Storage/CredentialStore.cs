@@ -25,6 +25,7 @@ namespace AppleTvControlLibrary.Remote.Wpf.Storage;
 public sealed class StoredDevice
 	{
 	/// <summary>Gets or sets the Companion Link stable unique id (the mDNS <c>rpmrtid</c> value).</summary>
+	[JsonPropertyName ("UniqueId")]
 	public string UniqueId
 		{
 		get;
@@ -32,6 +33,7 @@ public sealed class StoredDevice
 		} = string.Empty;
 
 	/// <summary>Gets or sets the last known display name of the device.</summary>
+	[JsonPropertyName ("Name")]
 	public string Name
 		{
 		get;
@@ -39,6 +41,7 @@ public sealed class StoredDevice
 		} = string.Empty;
 
 	/// <summary>Gets or sets the last known network address of the device.</summary>
+	[JsonPropertyName ("Address")]
 	public string Address
 		{
 		get;
@@ -46,6 +49,7 @@ public sealed class StoredDevice
 		} = string.Empty;
 
 	/// <summary>Gets or sets the last known Companion Link port of the device.</summary>
+	[JsonPropertyName ("Port")]
 	public int Port
 		{
 		get;
@@ -56,6 +60,7 @@ public sealed class StoredDevice
 	/// Gets or sets the stable <c>_i</c> identifier generated once at pair time and never
 	/// regenerated (six random bytes, hex-encoded).
 	/// </summary>
+	[JsonPropertyName ("StableIdentifier")]
 	public string StableIdentifier
 		{
 		get;
@@ -63,6 +68,7 @@ public sealed class StoredDevice
 		} = string.Empty;
 
 	/// <summary>Gets or sets the peer's long-term public key.</summary>
+	[JsonPropertyName ("Ltpk")]
 	public byte[] Ltpk
 		{
 		get;
@@ -70,6 +76,7 @@ public sealed class StoredDevice
 		} = Array.Empty<byte> ();
 
 	/// <summary>Gets or sets this client's long-term secret key.</summary>
+	[JsonPropertyName ("Ltsk")]
 	public byte[] Ltsk
 		{
 		get;
@@ -77,6 +84,7 @@ public sealed class StoredDevice
 		} = Array.Empty<byte> ();
 
 	/// <summary>Gets or sets the Apple TV's identifier.</summary>
+	[JsonPropertyName ("AtvId")]
 	public byte[] AtvId
 		{
 		get;
@@ -84,6 +92,7 @@ public sealed class StoredDevice
 		} = Array.Empty<byte> ();
 
 	/// <summary>Gets or sets this client's identifier.</summary>
+	[JsonPropertyName ("ClientId")]
 	public byte[] ClientId
 		{
 		get;
@@ -95,6 +104,7 @@ public sealed class StoredDevice
 	/// on the next application startup, for ease of testing. Only one stored device should have
 	/// this set at a time; <see cref="CredentialStore.SetAutoConnect"/> enforces that.
 	/// </summary>
+	[JsonPropertyName ("AutoConnect")]
 	public bool AutoConnect
 		{
 		get;

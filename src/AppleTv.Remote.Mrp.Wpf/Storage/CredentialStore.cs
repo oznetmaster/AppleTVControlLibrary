@@ -27,6 +27,7 @@ namespace AppleTvControlLibrary.Remote.Mrp.Wpf.Storage;
 public sealed class StoredDevice
 	{
 	/// <summary>Gets or sets the MRP stable unique id (the mDNS <c>UniqueIdentifier</c> value).</summary>
+	[JsonPropertyName ("UniqueId")]
 	public string UniqueId
 		{
 		get;
@@ -34,6 +35,7 @@ public sealed class StoredDevice
 		} = string.Empty;
 
 	/// <summary>Gets or sets the last known display name of the device.</summary>
+	[JsonPropertyName ("Name")]
 	public string Name
 		{
 		get;
@@ -41,6 +43,7 @@ public sealed class StoredDevice
 		} = string.Empty;
 
 	/// <summary>Gets or sets the last known network address of the device.</summary>
+	[JsonPropertyName ("Address")]
 	public string Address
 		{
 		get;
@@ -48,6 +51,7 @@ public sealed class StoredDevice
 		} = string.Empty;
 
 	/// <summary>Gets or sets the last known MRP port of the device.</summary>
+	[JsonPropertyName ("Port")]
 	public int Port
 		{
 		get;
@@ -55,6 +59,7 @@ public sealed class StoredDevice
 		}
 
 	/// <summary>Gets or sets the peer's long-term public key.</summary>
+	[JsonPropertyName ("Ltpk")]
 	public byte[] Ltpk
 		{
 		get;
@@ -62,6 +67,7 @@ public sealed class StoredDevice
 		} = Array.Empty<byte> ();
 
 	/// <summary>Gets or sets this client's long-term secret key.</summary>
+	[JsonPropertyName ("Ltsk")]
 	public byte[] Ltsk
 		{
 		get;
@@ -69,6 +75,7 @@ public sealed class StoredDevice
 		} = Array.Empty<byte> ();
 
 	/// <summary>Gets or sets the Apple TV's identifier.</summary>
+	[JsonPropertyName ("AtvId")]
 	public byte[] AtvId
 		{
 		get;
@@ -79,6 +86,7 @@ public sealed class StoredDevice
 	/// Gets or sets this client's identifier, reused as the SRP <c>PairingId</c> on subsequent
 	/// pair-verify connections (pyatv/protocols/mrp/protocol.py — line 137-140 as of pyatv 0.18.0).
 	/// </summary>
+	[JsonPropertyName ("ClientId")]
 	public byte[] ClientId
 		{
 		get;
@@ -90,6 +98,7 @@ public sealed class StoredDevice
 	/// on the next application startup, for ease of testing. Only one stored device should have
 	/// this set at a time; <see cref="CredentialStore.SetAutoConnect"/> enforces that.
 	/// </summary>
+	[JsonPropertyName ("AutoConnect")]
 	public bool AutoConnect
 		{
 		get;

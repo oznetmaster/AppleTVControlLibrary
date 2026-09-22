@@ -26,12 +26,12 @@
 		</PackageReference>
 		<PackageReference Include="Hafner.Compatibility.MetaPackage" Version="1.9.0" />
 		<PackageReference Include="System.Memory" Version="4.6.3" />
-		<PackageReference Include="System.Text.Json" Version="10.0.11" />
+		<PackageReference Include="System.Text.Json" Version="10.0.12" />
 		<Reference Include="System.Net.Http" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Microsoft.Bcl.Memory" Version="10.0.11" />
+	  <PackageReference Include="Microsoft.Bcl.Memory" Version="10.0.12" />
 	</ItemGroup>
 
 	<ItemGroup>

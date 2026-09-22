@@ -8,7 +8,7 @@
 		<TargetFrameworks>net472;net10.0</TargetFrameworks>
 		<IsPackable>true</IsPackable>
 		<PackageId>AppleTvControlLibrary</PackageId>
-		<Version>2.2.5</Version>
+		<Version>2.2.6</Version>
 		<Authors>Neil Colvin</Authors>
 		<Company>Neil Colvin</Company>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -19,7 +19,7 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Description>Reusable Apple TV client library for .NET Framework 4.7.2 and .NET 10.</Description>
-		<PackageReleaseNotes>Packaging fix: AppleTv.Hap is not itself packed (IsPackable=false) so it never got its own .nuspec, and the PrivateAssets=all on its ProjectReference (added in 2.2.3 to stop a phantom AppleTv.Hap package dependency) also suppressed its transitive BouncyCastle.Cryptography dependency from this package's .nuspec. Since AppleTv.Hap.dll's SrpAuthHandler requires BouncyCastle.Cryptography at runtime, consumers who didn't already have it in their own dependency graph could hit a TypeLoadException. BouncyCastle.Cryptography 2.7.0 is now declared explicitly as a direct dependency of this package so NuGet restores it for all consumers. No functional/API changes.</PackageReleaseNotes>
+		<PackageReleaseNotes>Update stable runtime dependencies; preserve existing protocol and public API compatibility.</PackageReleaseNotes>
 		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
 		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -87,8 +87,8 @@
 		</PackageReference>
 		<PackageReference Include="Hafner.Compatibility.MetaPackage" Version="1.9.0" />
 		<PackageReference Include="System.Memory" Version="4.6.3" />
-		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.11" />
-		<PackageReference Include="Microsoft.Bcl.Memory" Version="10.0.11" />
+		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.12" />
+		<PackageReference Include="Microsoft.Bcl.Memory" Version="10.0.12" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="plist-cil" Version="2.2.0" />

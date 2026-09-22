@@ -8,7 +8,7 @@
 		<TargetFrameworks>net472;net10.0</TargetFrameworks>
 		<IsPackable>true</IsPackable>
 		<PackageId>AppleTvControlLibrary.Mrp</PackageId>
-		<Version>2.2.5</Version>
+		<Version>2.2.6</Version>
 		<Authors>Neil Colvin</Authors>
 		<Company>Neil Colvin</Company>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -51,8 +51,8 @@
 		<Reference Include="System.Net.Http" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Google.Protobuf" Version="3.35.1" />
-		<PackageReference Include="Grpc.Tools" Version="2.83.0">
+		<PackageReference Include="Google.Protobuf" Version="3.36.2" />
+		<PackageReference Include="Grpc.Tools" Version="2.84.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
@@ -64,8 +64,8 @@
 		</PackageReference>
 		<PackageReference Include="Hafner.Compatibility.MetaPackage" Version="1.9.0" />
 		<PackageReference Include="System.Memory" Version="4.6.3" />
-		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.11" />
-		<PackageReference Include="Microsoft.Bcl.Memory" Version="10.0.11" />
+		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.12" />
+		<PackageReference Include="Microsoft.Bcl.Memory" Version="10.0.12" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="plist-cil" Version="2.2.0" />

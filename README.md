@@ -304,7 +304,7 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 ## NUnit test execution
 
-The four test projects use official NUnit 4.6.1 and NUnit3TestAdapter with `net472` and `net10.0` targets. Visual Studio Test Explorer and `dotnet test` run the same fixtures. Each fixture has a fresh instance per test case. The ordinary Companion, HAP and MRP suites use simulated devices and require no saved credentials.
+See [test instructions and dependency versions](tests/README.md). The four test projects use official NUnit 4.6.1 and NUnit3TestAdapter 6.3.0 with `net472` and `net10.0` targets. Visual Studio Test Explorer and `dotnet test` run the same fixtures. Each fixture has a fresh instance per test case. The ordinary Companion, HAP and MRP suites use simulated devices and require no saved credentials.
 
 ```powershell
 dotnet test tests/AppleTV.Companion.Tests/AppleTV.Companion.Tests.csproj -c Release
@@ -319,7 +319,7 @@ dotnet test tests/AppleTV.Companion.LiveTests/AppleTV.Companion.LiveTests.csproj
 dotnet test tests/AppleTV.Companion.LiveTests/AppleTV.Companion.LiveTests.csproj -c Release -f net10.0 --settings .runsettings.network
 ```
 
-These tests depend on the host's multicast support and socket permissions. Test discovery itself does not start the responder or open network connections. Keep any real credentials and device settings outside tracked files. This test-framework migration does not change library versions or publish new NuGet packages.
+These tests depend on the host's multicast support and socket permissions. Test discovery itself does not start the responder or open network connections. Keep any real credentials and device settings outside tracked files.
 
 ## Continuous integration tests
 
