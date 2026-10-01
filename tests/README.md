@@ -4,7 +4,7 @@ The same NUnit fixtures run on .NET Framework 4.7.2 and .NET 10. Install the .NE
 
 | Dependency | Version | Purpose |
 | --- | --- | --- |
-| NUnit | 4.6.1 | Test framework |
+| NUnit | 5.0.0 | Test framework |
 | NUnit3TestAdapter | 6.3.0 | Test Explorer and VSTest discovery/execution |
 | Microsoft.NET.Test.Sdk | 18.10.1 | Desktop test host |
 | NUnit.Analyzers | 4.15.0 | Compile-time NUnit checks |
