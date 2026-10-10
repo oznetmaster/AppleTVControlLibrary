@@ -4,13 +4,13 @@ All notable changes to this project are documented in this file.
 
 This changelog records shipped features, fixes, compatibility and runtime dependency changes. See [development and validation history](DEVELOPMENT-HISTORY.md) for tests, CI, build tooling and work not yet released.
 
-## [2.2.6] - 2026-09-22
+## 2.2.6 — 2026-09-22
 
 - Update stable Protobuf and Microsoft compatibility dependencies while retaining net472 support and the existing public API.
 - Pin desktop sample credential JSON property names with attributes, preserving previously saved pairing files.
 - Retain plist-cil 2.2.0 because newer releases do not support .NET Framework 4.7.2.
 
-## [2.2.5] - 2026-08-17
+## 2.2.5 — 2026-08-17
 
 ### Fixed
 
@@ -26,7 +26,7 @@ This changelog records shipped features, fixes, compatibility and runtime depend
   `AppleTvControlLibrary.Mrp` so NuGet restores it for all consumers. Packaging only - no
   functional or public API changes.
 
-## [2.2.4] - 2026-08-16
+## 2.2.4 — 2026-08-16
 
 ### Fixed
 
@@ -38,7 +38,7 @@ This changelog records shipped features, fixes, compatibility and runtime depend
   "Build solution" step now passes `-p:Version` so the bundled DLL is stamped with the actual
   release version at build time. Packaging only - no functional or public API changes.
 
-## [2.2.3] - 2026-08-16
+## 2.2.3 — 2026-08-16
 
 ### Fixed
 
@@ -60,7 +60,7 @@ This changelog records shipped features, fixes, compatibility and runtime depend
   build/publish, so no `2.2.2` package was ever released; `2.2.3` is the first release to include
   this fix. Packaging only - no functional or public API changes.
 
-## [2.2.1] - 2026-08-14
+## 2.2.1 — 2026-08-14
 
 ### Changed
 
@@ -74,9 +74,9 @@ This changelog records shipped features, fixes, compatibility and runtime depend
   efficiency pass only; no public API or wire behavior changed, and all existing tests pass
   unmodified on both `net472` and `net10.0`.
 
-## [2.2.0] - 2026-08-14
+## 2.2.0 — 2026-08-14
 
-## [2.1.1] - 2026-08-14
+## 2.1.1 — 2026-08-14
 
 ### Changed
 
@@ -88,7 +88,7 @@ This changelog records shipped features, fixes, compatibility and runtime depend
   brief per-project versioning scheme introduced to fix the `AppleTvControlLibrary.Mrp` 1.0.0/2.0.0
   mismatch (see `[2.0.1]` below) is superseded by this entry.
 
-## [2.0.1] - 2026-08-14
+## 2.0.1 — 2026-08-14
 
 ### Fixed
 
@@ -101,7 +101,7 @@ This changelog records shipped features, fixes, compatibility and runtime depend
   version past both to `2.0.1` so the package version history is monotonic again; no source or
   behavior change.
 
-## [2.1.0] - 2026-08-14
+## 2.1.0 — 2026-08-14
 
 ### Changed
 
@@ -114,7 +114,7 @@ This changelog records shipped features, fixes, compatibility and runtime depend
   `IMrpFrameConnection`, `MrpProtocol`) that could not be resolved and produced `InvalidCref` build
   warnings. Documentation-only change; no public API or behavior change.
 
-## [2.0.0] - 2026-08-05
+## 2.0.0 — 2026-08-05
 
 ### Added
 
@@ -157,7 +157,7 @@ This changelog records shipped features, fixes, compatibility and runtime depend
   Link packages, and builds/publishes `AppleTv.Remote.Mrp.Wpf` release assets alongside
   `AppleTv.Remote.Wpf`.
 
-## [1.1.4] - 2026-08-04
+## 1.1.4 — 2026-08-04
 
 ### Added
 
@@ -186,7 +186,7 @@ This changelog records shipped features, fixes, compatibility and runtime depend
   logging and silently exiting the read thread. This is what makes the new `ConnectionClosed`
   notification actually fire for socket-based connections.
 
-## [1.1.3] - 2026-08-03
+## 1.1.3 — 2026-08-03
 
 ### Changed
 
@@ -196,14 +196,14 @@ This changelog records shipped features, fixes, compatibility and runtime depend
   care about on/off can still derive it by comparing against `SystemStatus.Asleep`, while callers
   wanting finer detail are no longer prevented from observing it.
 
-## [1.1.2] - 2026-08-03
+## 1.1.2 — 2026-08-03
 
 ### Changed
 
 - Removed unused direct NuGet dependencies while retaining the pinned `plist-cil` 2.2.0 package
   required for .NET Framework 4.7.2 compatibility.
 
-## [1.1.1] - 2026-08-03
+## 1.1.1 — 2026-08-03
 
 ### Added
 
@@ -219,7 +219,7 @@ This changelog records shipped features, fixes, compatibility and runtime depend
   verifies the discovered `rpmrtid` matches the paired device, persists only the refreshed address
   and port, and retries connection once. Unverified or ambiguous devices are not accepted.
 
-## [1.1.0] - 2026-08-03
+## 1.1.0 — 2026-08-03
 
 ### Added
 
@@ -240,7 +240,7 @@ This changelog records shipped features, fixes, compatibility and runtime depend
 - Existing synchronous Companion API and protocol methods remain for source compatibility but are
   obsolete. Use the corresponding `Async` methods in new code.
 
-## [1.0.3] - 2026-08-03
+## 1.0.3 — 2026-08-03
 
 ### Fixed
 
@@ -250,7 +250,7 @@ This changelog records shipped features, fixes, compatibility and runtime depend
 - Added explicit empty framework assets to `AppleTvControlLibrary.All`, eliminating the NU5128
   packaging warning while retaining its `net472` and `net10.0` dependency groups.
 
-## [1.0.2] - 2026-08-03
+## 1.0.2 — 2026-08-03
 
 ### Changed
 
@@ -262,7 +262,7 @@ This changelog records shipped features, fixes, compatibility and runtime depend
 - Expanded the README with a repository layout, WPF reference-host guidance, and a current
   screenshot of the running Companion Link Remote application.
 
-## [1.0.1] - 2026-08-02
+## 1.0.1 — 2026-08-02
 
 ### Fixed
 
@@ -275,7 +275,7 @@ This changelog records shipped features, fixes, compatibility and runtime depend
 - `AppleTvControlLibrary.All`, a NuGet-only convenience package that restores both independent
   libraries for consumers that want the complete Companion Link and mDNS discovery stack.
 
-## [1.0.0] - 2026-08-02
+## 1.0.0 — 2026-08-02
 
 ### Added
 
