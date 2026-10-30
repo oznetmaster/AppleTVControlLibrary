@@ -6,6 +6,19 @@ on:
       - 'v*'
   workflow_dispatch:
     inputs:
+      skip_desktop_checks:
+        description: Reuse reviewed desktop results; package integrity checks still run
+        required: false
+        type: boolean
+        default: false
+      desktop_skip_reason:
+        description: Tested source, completion time, frameworks, counts and evidence
+        required: false
+        type: string
+      validation_commit:
+        description: Reuse recent CI from an ancestor SHA with only docs or release-automation changes
+        required: false
+        type: string
       version:
         description: Version or tag to publish, for example 1.2.3 or v1.2.3
         required: true
@@ -54,7 +67,8 @@ jobs:
           REQUIRED_HOSTED_WORKFLOWS: '["unit-tests.yml"]'
           RELEASE_SKIP_HARDWARE_CHECKS: ${{ inputs.skip_hardware_checks }}
           RELEASE_HARDWARE_SKIP_REASON: ${{ inputs.hardware_skip_reason }}
-        run: '& ./.github/scripts/Wait-RequiredReleaseChecks.ps1'
+        run: |
+          Write-Output 'Configured checks are verified by the following shared-policy action.'
       - name: Verify shared release policy
         uses: oznetmaster/CrestronHomeNUnit/.github/actions/release-validation@2ae8197c6685099c2133e7bb962d1f3568aae9c3
         with:
@@ -62,6 +76,9 @@ jobs:
           hosted-workflows: "[\"unit-tests.yml\"]"
           skip-hardware-checks: "${{ inputs.skip_hardware_checks }}"
           hardware-skip-reason: "${{ inputs.hardware_skip_reason }}"
+          skip-desktop-checks: "${{ inputs.skip_desktop_checks }}"
+          desktop-skip-reason: "${{ inputs.desktop_skip_reason }}"
+          validation-commit: "${{ inputs.validation_commit }}"
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
@@ -133,15 +150,19 @@ jobs:
         run: dotnet build ${{ env.SOLUTION_PATH }} --configuration Release --no-restore -p:ContinuousIntegrationBuild=true -p:Version=${{ steps.version.outputs.package_version }}
 
       - name: Run tests (net472)
+        if: ${{ inputs.skip_desktop_checks != true }}
         run: dotnet test ${{ env.TEST_PROJECT }} --configuration Release --no-build --framework net472
 
       - name: Run tests (net10.0)
+        if: ${{ inputs.skip_desktop_checks != true }}
         run: dotnet test ${{ env.TEST_PROJECT }} --configuration Release --no-build --framework net10.0
 
       - name: Run Mrp tests (net472)
+        if: ${{ inputs.skip_desktop_checks != true }}
         run: dotnet test ${{ env.MRP_TEST_PROJECT }} --configuration Release --no-build --framework net472
 
       - name: Run Mrp tests (net10.0)
+        if: ${{ inputs.skip_desktop_checks != true }}
         run: dotnet test ${{ env.MRP_TEST_PROJECT }} --configuration Release --no-build --framework net10.0
 
       - name: Pack NuGet packages
