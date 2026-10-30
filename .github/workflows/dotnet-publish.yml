@@ -115,7 +115,7 @@ jobs:
         run: |
           $version = '${{ steps.version.outputs.package_version }}'
           $lines = Get-Content CHANGELOG.md
-          $headingPattern = "^## \[$([regex]::Escape($version))\](?:\s|$)"
+          $headingPattern = '(?m)^##[ \t]+(?:\[v?' + [regex]::Escape($Version) + '\](?:\([^\s)]+\))?|v?' + [regex]::Escape($Version) + ')(?=\s|$)'
           $start = -1
 
           for ($index = 0; $index -lt $lines.Count; $index++) {
