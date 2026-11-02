@@ -74,6 +74,15 @@
           "toc.yml",
           "*.md"
         ]
+      },
+      {
+        "files": [
+          "toc.yml",
+          "guides/**.md",
+          "guides/**/toc.yml",
+          "reference/**.md",
+          "reference/**/toc.yml"
+        ]
       }
     ],
     "resource": [
@@ -96,7 +105,10 @@
     ],
     "dest": "_site",
     "globalMetadata": {
-      "_appTitle": "AppleTvControlLibrary Documentation"
+      "_appTitle": "AppleTVControlLibrary",
+      "_appName": "AppleTVControlLibrary",
+      "_appFooter": "Copyright (c) 2026 Neil Colvin.",
+      "_enableSearch": true
     },
     "template": [
       "default",

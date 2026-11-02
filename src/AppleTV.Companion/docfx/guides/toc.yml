@@ -1,0 +1,20 @@
+- name: Guides
+  href: index.md
+- name: Overview
+  href: ../articles/overview.md
+- name: Companion Link Getting Started
+  href: ../articles/getting-started.md
+- name: Companion Link Pairing and Credentials
+  href: ../articles/pairing.md
+- name: Companion Link Compatibility and Limitations
+  href: ../articles/compatibility.md
+- name: MRP Overview
+  href: ../articles/mrp-overview.md
+- name: MRP Getting Started
+  href: ../articles/mrp-getting-started.md
+- name: MRP Pairing and Credentials
+  href: ../articles/mrp-pairing.md
+- name: MRP Compatibility and Limitations
+  href: ../articles/mrp-compatibility.md
+- name: Discovery
+  href: ../articles/discovery.md

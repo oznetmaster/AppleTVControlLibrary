@@ -24,6 +24,97 @@
       "results": [
         "TestResults/**/*.trx"
       ]
+    },
+    "documentation": {
+      "commands": [
+        {
+          "executable": "dotnet",
+          "arguments": [
+            "tool",
+            "restore"
+          ]
+        },
+        {
+          "executable": "dotnet",
+          "arguments": [
+            "restore",
+            "AppleTVControlLibrary.slnx"
+          ]
+        },
+        {
+          "executable": "dotnet",
+          "arguments": [
+            "build",
+            "AppleTVControlLibrary.slnx",
+            "--configuration",
+            "Release",
+            "--no-restore",
+            "-p:ContinuousIntegrationBuild=true"
+          ]
+        },
+        {
+          "executable": "dotnet",
+          "arguments": [
+            "test",
+            "tests/AppleTV.Companion.Tests/AppleTV.Companion.Tests.csproj",
+            "--configuration",
+            "Release",
+            "--no-build",
+            "--framework",
+            "net472"
+          ]
+        },
+        {
+          "executable": "dotnet",
+          "arguments": [
+            "test",
+            "tests/AppleTV.Companion.Tests/AppleTV.Companion.Tests.csproj",
+            "--configuration",
+            "Release",
+            "--no-build",
+            "--framework",
+            "net10.0"
+          ]
+        },
+        {
+          "executable": "dotnet",
+          "arguments": [
+            "test",
+            "tests/AppleTv.Mrp.Tests/AppleTv.Mrp.Tests.csproj",
+            "--configuration",
+            "Release",
+            "--no-build",
+            "--framework",
+            "net472"
+          ]
+        },
+        {
+          "executable": "dotnet",
+          "arguments": [
+            "test",
+            "tests/AppleTv.Mrp.Tests/AppleTv.Mrp.Tests.csproj",
+            "--configuration",
+            "Release",
+            "--no-build",
+            "--framework",
+            "net10.0"
+          ]
+        },
+        {
+          "executable": "dotnet",
+          "arguments": [
+            "tool",
+            "run",
+            "docfx",
+            "src/AppleTV.Companion/docfx/docfx.json"
+          ]
+        }
+      ],
+      "documentation": {
+        "config": "src/AppleTV.Companion/docfx/docfx.json",
+        "site": "src/AppleTV.Companion/docfx/_site",
+        "title": "AppleTVControlLibrary"
+      }
     }
   }
 }

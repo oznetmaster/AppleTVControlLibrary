@@ -386,3 +386,10 @@ FodyWeavers.xsd
 # Shared Cake build downloads and invocation receipts
 /artifacts/build-components/
 /artifacts/build-automation/
+
+# Generated documentation output
+/src/AppleTV.Companion/docfx/api/
+/src/AppleTV.Companion/docfx/discovery-api/
+/src/AppleTV.Companion/docfx/mrp-api/
+/src/AppleTV.Companion/docfx/hap-api/
+/src/AppleTV.Companion/docfx/_site/

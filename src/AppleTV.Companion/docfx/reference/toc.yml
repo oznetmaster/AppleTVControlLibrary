@@ -1,0 +1,14 @@
+- name: API Reference
+  href: index.md
+- name: Companion Link API Reference
+  href: ../api/
+  homepage: ../api/index.md
+- name: MRP API Reference
+  href: ../mrp-api/
+  homepage: ../mrp-api/index.md
+- name: Discovery API Reference
+  href: ../discovery-api/
+  homepage: ../discovery-api/index.md
+- name: Shared HAP API Reference
+  href: ../hap-api/
+  homepage: ../hap-api/index.md

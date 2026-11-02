@@ -1,37 +1,10 @@
-items:
 - name: Home
   href: index.md
-- name: Overview
-  href: articles/overview.md
-- name: Companion Link Getting Started
-  href: articles/getting-started.md
-- name: Companion Link Pairing and Credentials
-  href: articles/pairing.md
-- name: Companion Link Compatibility and Limitations
-  href: articles/compatibility.md
-- name: Companion Link API Reference
-  href: api/
-  homepage: api/index.md
-- name: MRP Overview
-  href: articles/mrp-overview.md
-- name: MRP Getting Started
-  href: articles/mrp-getting-started.md
-- name: MRP Pairing and Credentials
-  href: articles/mrp-pairing.md
-- name: MRP Compatibility and Limitations
-  href: articles/mrp-compatibility.md
-- name: MRP API Reference
-  href: mrp-api/
-  homepage: mrp-api/index.md
-- name: Discovery
-  href: articles/discovery.md
-- name: Discovery API Reference
-  href: discovery-api/
-  homepage: discovery-api/index.md
-- name: Shared HAP API Reference
-  href: hap-api/
-  homepage: hap-api/index.md
-- name: GitHub Repository
+- name: Guides
+  href: guides/
+- name: API Reference
+  href: reference/
+- name: GitHub
   href: https://github.com/oznetmaster/AppleTVControlLibrary
-- name: NuGet Packages
+- name: NuGet
   href: https://www.nuget.org/profiles/oznetmaster
