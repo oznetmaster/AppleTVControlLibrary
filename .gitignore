@@ -382,3 +382,7 @@ MigrationBackup/
 FodyWeavers.xsd
 # Archived, non-built legacy code (see archive/*/README.md)
 /archive/
+
+# Shared Cake build downloads and invocation receipts
+/artifacts/build-components/
+/artifacts/build-automation/
