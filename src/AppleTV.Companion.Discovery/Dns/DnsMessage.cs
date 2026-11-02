@@ -16,36 +16,42 @@ public sealed class DnsMessage (ushort msgId = 0, ushort flags = DnsMessage.DEFA
 	private const ushort DEFAULT_FLAGS = 0x0120;
 
 	/// <summary>Gets or sets the message id.</summary>
+	/// <value>The message id.</value>
 	public ushort MsgId
 		{
 		get; set;
 		} = msgId;
 
 	/// <summary>Gets or sets the message flags.</summary>
+	/// <value>The message flags.</value>
 	public ushort Flags
 		{
 		get; set;
 		} = flags;
 
 	/// <summary>Gets the questions in this message.</summary>
+	/// <value>The questions in this message.</value>
 	public List<DnsQuestion> Questions
 		{
 		get;
 		} = [];
 
 	/// <summary>Gets the answer resource records in this message.</summary>
+	/// <value>The answer resource records in this message.</value>
 	public List<DnsResource> Answers
 		{
 		get;
 		} = [];
 
 	/// <summary>Gets the authority resource records in this message.</summary>
+	/// <value>The authority resource records in this message.</value>
 	public List<DnsResource> Authorities
 		{
 		get;
 		} = [];
 
 	/// <summary>Gets the additional resource records in this message.</summary>
+	/// <value>The additional resource records in this message.</value>
 	public List<DnsResource> Resources
 		{
 		get;

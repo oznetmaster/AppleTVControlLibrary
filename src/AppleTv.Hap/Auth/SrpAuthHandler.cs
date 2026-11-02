@@ -83,10 +83,12 @@ public sealed class SrpAuthHandler
 	/// credentials are known externally (i.e. not from a pairing performed by this instance);
 	/// see <c>MrpProtocol.start</c> — pyatv/protocols/mrp/protocol.py line 137-140 as of pyatv 0.18.0.
 	/// </remarks>
+	/// <value>The pairing id used as the client identifier during pair-verify.</value>
 	// pyatv/auth/hap_srp.py (self.pairing_id) — line 50 as of pyatv 0.18.0
 	public byte[] PairingId { get; set; }
 
 	/// <summary>Gets the shared secret (SRP session key) established during pair-setup.</summary>
+	/// <value>The shared secret (SRP session key) established during pair-setup.</value>
 	// pyatv/auth/hap_srp.py (shared_key) — line 55-58 as of pyatv 0.18.0
 	public byte[] SharedKey => _sessionKeyBytes is null ? throw new InvalidOperationException ("session key not established") : _sessionKeyBytes;
 

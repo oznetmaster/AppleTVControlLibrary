@@ -28,29 +28,36 @@ namespace AppleTvControlLibrary.Mrp.AirPlay;
 public sealed class Ap2InfoSettings
 	{
 	/// <summary>Gets or sets the client name reported to the device.</summary>
+	/// <value>The client name reported to the device.</value>
 	public string Name { get; set; } = "pyatv";
 
 	/// <summary>Gets or sets the client MAC address reported to the device.</summary>
+	/// <value>The client MAC address reported to the device.</value>
 	// pyatv/settings.py (DEFUALT_MAC) — line 39 as of pyatv 0.18.0
 	public string Mac { get; set; } = "02:70:79:61:74:76";
 
 	/// <summary>Gets or sets the client model reported to the device.</summary>
+	/// <value>The client model reported to the device.</value>
 	// pyatv/settings.py (DEFAULT_MODEL) — line 41 as of pyatv 0.18.0
 	public string Model { get; set; } = "iPhone10,6";
 
 	/// <summary>Gets or sets the client device identifier reported to the device.</summary>
+	/// <value>The client device identifier reported to the device.</value>
 	// pyatv/settings.py (DEFAULT_DEVICE_ID) — line 40 as of pyatv 0.18.0
 	public string DeviceId { get; set; } = "FF:70:79:61:74:76";
 
 	/// <summary>Gets or sets the client OS name reported to the device.</summary>
+	/// <value>The client OS name reported to the device.</value>
 	// pyatv/settings.py (DEFAULT_OS_NAME) — line 42 as of pyatv 0.18.0
 	public string OsName { get; set; } = "iPhone OS";
 
 	/// <summary>Gets or sets the client OS build reported to the device.</summary>
+	/// <value>The client OS build reported to the device.</value>
 	// pyatv/settings.py (DEFAULT_OS_BUILD) — line 43 as of pyatv 0.18.0
 	public string OsBuild { get; set; } = "18G82";
 
 	/// <summary>Gets or sets the client OS version reported to the device.</summary>
+	/// <value>The client OS version reported to the device.</value>
 	// pyatv/settings.py (DEFAULT_OS_VERSION) — line 44 as of pyatv 0.18.0
 	public string OsVersion { get; set; } = "14.7.1";
 	}
@@ -94,6 +101,7 @@ public sealed class Ap2Session (string address, int controlPort, HapCredentials 
 	private Task? _feedbackTask;
 
 	/// <summary>Gets the data-stream channel that carries the MRP tunnel, once <see cref="SetupRemoteControlAsync"/> has completed.</summary>
+	/// <value>The data-stream channel that carries the MRP tunnel, once <see cref="SetupRemoteControlAsync"/> has completed.</value>
 	public DataStreamChannel? DataChannel { get; private set; }
 
 	/// <summary>Raised when the periodic feedback keep-alive stops because the connection was closed cleanly.</summary>
@@ -106,6 +114,7 @@ public sealed class Ap2Session (string address, int controlPort, HapCredentials 
 
 	/// <summary>Open the control connection and perform pair-verify.</summary>
 	/// <param name="cancellationToken">A token used to cancel the connection attempt.</param>
+	/// <returns>A task that completes when the remote connection and pairing verification finish.</returns>
 	// pyatv/protocols/airplay/ap2_session.py (connect) — line 58-68 as of pyatv 0.18.0
 	public async Task ConnectAsync (CancellationToken cancellationToken = default)
 		{
@@ -116,6 +125,7 @@ public sealed class Ap2Session (string address, int controlPort, HapCredentials 
 
 	/// <summary>Set up the event channel, RECORD the session, then set up the data channel used to carry MRP.</summary>
 	/// <param name="cancellationToken">A token used to cancel the exchanges.</param>
+	/// <returns>A task that completes when the event and data channels have been established.</returns>
 	// pyatv/protocols/airplay/ap2_session.py (setup_remote_control) — line 70-77 as of pyatv 0.18.0
 	public async Task SetupRemoteControlAsync (CancellationToken cancellationToken = default)
 		{

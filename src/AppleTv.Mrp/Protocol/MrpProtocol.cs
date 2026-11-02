@@ -96,6 +96,7 @@ public class MrpProtocolException : Exception
 public sealed class MrpInfoSettings
 	{
 	/// <summary>Gets or sets the client name reported to the device. pyatv/settings.py — line 81 as of pyatv 0.18.0</summary>
+	/// <value>The client name reported to the device. pyatv/settings.py — line 81 as of pyatv 0.18.0</value>
 	public string Name
 		{
 		get;
@@ -103,6 +104,7 @@ public sealed class MrpInfoSettings
 		} = "AppleTvControlLibrary";
 
 	/// <summary>Gets or sets the OS build version reported to the device. pyatv/settings.py — line 87 as of pyatv 0.18.0</summary>
+	/// <value>The OS build version reported to the device. pyatv/settings.py — line 87 as of pyatv 0.18.0</value>
 	public string OsBuild
 		{
 		get;
@@ -145,6 +147,7 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 		}
 
 	/// <summary>Gets the underlying connection, so a transport can feed it received bytes.</summary>
+	/// <value>The underlying connection, so a transport can feed it received bytes.</value>
 	public IMrpFrameConnection Connection
 		{
 		get;
@@ -153,9 +156,15 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 	/// <summary>Gets or sets the credentials used to enable encryption. Set externally when reusing
 	/// previously-paired credentials rather than pairing fresh (mirrors pyatv checking
 	/// <c>self.service.credentials</c>). pyatv/protocols/mrp/protocol.py — line 137-140 as of pyatv 0.18.0</summary>
+	/// <value>
+	/// The credentials used to enable encryption. Set externally when reusing
+	/// previously-paired credentials rather than pairing fresh (mirrors pyatv checking
+	/// <c>self.service.credentials</c>). pyatv/protocols/mrp/protocol.py — line 137-140 as of pyatv 0.18.0
+	/// </value>
 	public HapCredentials? Credentials { get; set; }
 
 	/// <summary>Gets or sets the asynchronous callback that transmits fully-built frames.</summary>
+	/// <value>The asynchronous callback that transmits fully-built frames.</value>
 	public Func<byte[], Task>? AsyncSender
 		{
 		get;
@@ -166,6 +175,10 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 	/// Gets the last-known device power state, derived from <c>DeviceInfoMessage.logicalDeviceCount</c>
 	/// on every DEVICE_INFO_MESSAGE / DEVICE_INFO_UPDATE_MESSAGE seen so far.
 	/// </summary>
+	/// <value>
+	/// The last-known device power state, derived from <c>DeviceInfoMessage.logicalDeviceCount</c>
+	/// on every DEVICE_INFO_MESSAGE / DEVICE_INFO_UPDATE_MESSAGE seen so far.
+	/// </value>
 	// pyatv/protocols/mrp/__init__.py (MrpPower.power_state / _get_power_state) — line 651-695 as of pyatv 0.18.0
 	public MrpPowerState PowerState
 		{
@@ -211,6 +224,7 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 		}
 
 	/// <summary>Gets or sets the listener notified when an unsolicited message is dispatched.</summary>
+	/// <value>The listener notified when an unsolicited message is dispatched.</value>
 	public IMrpProtocolListener? Listener
 		{
 		get;
@@ -237,6 +251,7 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 	public event Action<int, byte[]>? RawMessageReceived;
 
 	/// <summary>Gets the current protocol state.</summary>
+	/// <value>The current protocol state.</value>
 	// pyatv/protocols/mrp/protocol.py (self._state) — line 121 as of pyatv 0.18.0
 	public MrpProtocolState State
 		{
@@ -246,6 +261,10 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 
 	/// <summary>Gets or sets how long to wait for a response before <see cref="SendAndReceiveAsync"/> throws
 	/// a <see cref="MrpProtocolException"/>.</summary>
+	/// <value>
+	/// How long to wait for a response before <see cref="SendAndReceiveAsync"/> throws
+	/// a <see cref="MrpProtocolException"/>.
+	/// </value>
 	public TimeSpan ResponseTimeout
 		{
 		get;
@@ -259,6 +278,7 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 	/// <param name="skipInitialMessages">If <see langword="true"/>, stop right after DEVICE_INFORMATION
 	/// (used by proxy-style reuse of a protocol object). pyatv/protocols/mrp/protocol.py — line 154-155 as of pyatv 0.18.0</param>
 	/// <param name="cancellationToken">A token that cancels the bootstrap exchanges.</param>
+	/// <returns>A task that completes when the requested MRP bootstrap sequence finishes.</returns>
 	// pyatv/protocols/mrp/protocol.py (start) — line 123-172 as of pyatv 0.18.0
 	public async Task StartAsync (bool skipInitialMessages = false, CancellationToken cancellationToken = default)
 		{
@@ -361,6 +381,7 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 	/// <summary>Send a message and expect no response.</summary>
 	/// <param name="message">The message to send.</param>
 	/// <param name="cancellationToken">A token that cancels waiting to send.</param>
+	/// <returns>A task that completes when the message has been sent through the connection.</returns>
 	// pyatv/protocols/mrp/protocol.py (send) — line 223-231 as of pyatv 0.18.0
 	public async Task SendAsync (ProtocolMessage message, CancellationToken cancellationToken = default)
 		{
@@ -469,7 +490,7 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 			}
 		}
 
-	/// <inheritdoc/>
+	/// <inheritdoc cref="IDisposable.Dispose"/>
 	public void Dispose ()
 		{
 		Stop ();

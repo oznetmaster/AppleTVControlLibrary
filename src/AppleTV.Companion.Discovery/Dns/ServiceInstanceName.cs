@@ -16,24 +16,28 @@ public sealed class ServiceInstanceName (string? instance, string service, strin
 	{
 
 	/// <summary>Gets the optional instance name.</summary>
+	/// <value>The optional instance name.</value>
 	public string? Instance
 		{
 		get;
 		} = instance;
 
 	/// <summary>Gets the service label pair (e.g. "_companion-link._tcp").</summary>
+	/// <value>The service label pair (e.g. "_companion-link._tcp").</value>
 	public string Service
 		{
 		get;
 		} = service;
 
 	/// <summary>Gets the domain (typically "local").</summary>
+	/// <value>The domain (typically "local").</value>
 	public string Domain
 		{
 		get;
 		} = domain;
 
 	/// <summary>Gets just the service name, like the name for a PTR record.</summary>
+	/// <value>Just the service name, like the name for a PTR record.</value>
 	// pyatv/support/dns.py (ptr_name) — line 65-68 as of pyatv 0.18.0
 	public string PtrName => string.Join (".", [Service, Domain]);
 

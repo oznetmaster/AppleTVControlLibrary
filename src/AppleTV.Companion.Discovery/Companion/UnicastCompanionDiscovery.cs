@@ -37,7 +37,10 @@ public sealed class UnicastCompanionDiscovery : ICompanionDiscovery
 		_address = address;
 		}
 
-	/// <inheritdoc/>
+	/// <summary>Discovers the configured service endpoints.</summary>
+	/// <param name="timeout">The discovery response window.</param>
+	/// <param name="cancellationToken">A token used to cancel the operation.</param>
+	/// <returns>A task containing the discovered endpoints.</returns>
 	public async Task<IReadOnlyList<CompanionDiscoveryResult>> ScanAsync (TimeSpan timeout, CancellationToken cancellationToken = default)
 		{
 		List<byte[]> queries = DnsServiceQueries.CreateServiceQueries (

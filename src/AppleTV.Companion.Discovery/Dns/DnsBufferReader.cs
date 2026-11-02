@@ -16,6 +16,7 @@ public sealed class DnsBufferReader (byte[] buffer)
 	private readonly byte[] _buffer = buffer;
 
 	/// <summary>Gets or sets the current read position, in bytes, into the buffer.</summary>
+	/// <value>The current read position, in bytes, into the buffer.</value>
 	public int Position
 		{
 		get;
@@ -23,9 +24,11 @@ public sealed class DnsBufferReader (byte[] buffer)
 		}
 
 	/// <summary>Gets the total length of the buffer, in bytes.</summary>
+	/// <value>The total length of the buffer, in bytes.</value>
 	public int Length => _buffer.Length;
 
 	/// <summary>Gets a value indicating whether there is unread data remaining in the buffer.</summary>
+	/// <value>A value indicating whether there is unread data remaining in the buffer.</value>
 	public bool HasData => Position < _buffer.Length;
 
 	/// <summary>Reads a single byte and advances the position by one.</summary>

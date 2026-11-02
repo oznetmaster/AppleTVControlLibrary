@@ -29,7 +29,10 @@ public sealed class StaticCompanionDiscovery (IPAddress address, int port, strin
 			CompanionPairingRequirement.Mandatory,
 			new Dictionary<string, string> ());
 
-	/// <inheritdoc/>
+	/// <summary>Discovers the configured service endpoints.</summary>
+	/// <param name="timeout">The discovery response window.</param>
+	/// <param name="cancellationToken">A token used to cancel the operation.</param>
+	/// <returns>A task containing the discovered endpoints.</returns>
 	public Task<IReadOnlyList<CompanionDiscoveryResult>> ScanAsync (TimeSpan timeout, CancellationToken cancellationToken = default)
 		{
 		IReadOnlyList<CompanionDiscoveryResult> results = [_result];

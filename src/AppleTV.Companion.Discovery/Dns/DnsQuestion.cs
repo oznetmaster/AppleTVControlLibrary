@@ -5,23 +5,29 @@ namespace AppleTvControlLibrary.Discovery.Dns;
 
 /// <summary>Represents a DNS query.</summary>
 /// <remarks>Initializes a new instance of the <see cref="DnsQuestion"/> class.</remarks>
+/// <param name="qname">The DNS record name.</param>
+/// <param name="qtype">The DNS record type.</param>
+/// <param name="qclass">The DNS record class.</param>
 // pyatv/support/dns.py (DnsQuestion) — line 305-329 as of pyatv 0.18.0
 public sealed class DnsQuestion (string qname, QueryType qtype, ushort qclass)
 	{
 
 	/// <summary>Gets the query name.</summary>
+	/// <value>The query name.</value>
 	public string QName
 		{
 		get;
 		} = qname;
 
 	/// <summary>Gets the query type.</summary>
+	/// <value>The query type.</value>
 	public QueryType QType
 		{
 		get;
 		} = qtype;
 
 	/// <summary>Gets the query class.</summary>
+	/// <value>The query class.</value>
 	public ushort QClass
 		{
 		get;

@@ -43,12 +43,14 @@ public abstract class AbstractHapChannel : IDisposable
 
 	/// <summary>Gets the accumulated, decrypted-but-not-yet-consumed receive buffer.</summary>
 	/// <remarks>Subclasses drain this in <see cref="HandleReceived"/> as complete messages become available.</remarks>
+	/// <value>The accumulated, decrypted-but-not-yet-consumed receive buffer.</value>
 	protected System.Collections.Generic.List<byte> Buffer { get; } = [];
 
 	/// <summary>Connect to the remote endpoint and start the background read loop.</summary>
 	/// <param name="address">The remote address.</param>
 	/// <param name="port">The remote port.</param>
 	/// <param name="cancellationToken">A token used to cancel the connection attempt.</param>
+	/// <returns>A task that completes when the remote connection is established and the read loop has started.</returns>
 	// pyatv/auth/hap_channel.py (setup_channel) — line 79-96 as of pyatv 0.18.0
 	public async Task ConnectAsync (string address, int port, CancellationToken cancellationToken = default)
 		{

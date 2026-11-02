@@ -30,6 +30,7 @@ public interface IMrpConnectionListener
 public interface IMrpFrameConnection
 	{
 	/// <summary>Gets or sets the listener notified when a complete message has been received and decoded.</summary>
+	/// <value>The listener notified when a complete message has been received and decoded.</value>
 	IMrpConnectionListener? Listener { get; set; }
 
 	/// <summary>Enable encryption with the specified keys.</summary>

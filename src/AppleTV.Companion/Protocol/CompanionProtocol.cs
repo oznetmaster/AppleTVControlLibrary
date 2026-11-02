@@ -60,6 +60,12 @@ public sealed class ConnectionClosedEventArgs (Exception? exception) : EventArgs
 	/// being an explicit teardown is still reported with an exception; only an intentional,
 	/// non-faulting close reports <see langword="null"/>).
 	/// </summary>
+	/// <value>
+	/// The exception that caused the connection to be lost, or <see langword="null"/> if the
+	/// connection was closed cleanly/expectedly (e.g. via <see cref="CompanionProtocol.Dispose"/>
+	/// being an explicit teardown is still reported with an exception; only an intentional,
+	/// non-faulting close reports <see langword="null"/>).
+	/// </value>
 	public Exception? Exception
 		{
 		get;
@@ -109,12 +115,18 @@ public readonly struct FrameIdentifier : IEquatable<FrameIdentifier>
 		}
 
 	/// <summary>Creates a <see cref="FrameIdentifier"/> keyed by XID.</summary>
+	/// <param name="xid">The exchange identifier.</param>
+	/// <returns>A frame identifier keyed by the supplied exchange identifier.</returns>
 	public static FrameIdentifier FromXid (int xid) => new (xid, null);
 
 	/// <summary>Creates a <see cref="FrameIdentifier"/> keyed by frame type.</summary>
+	/// <param name="frameType">The frame type used for the exchange.</param>
+	/// <returns>A frame identifier keyed by the supplied frame type.</returns>
 	public static FrameIdentifier FromFrameType (FrameType frameType) => new (null, frameType);
 
-	/// <inheritdoc/>
+	/// <summary>Determines whether this instance equals another instance.</summary>
+	/// <param name="other">The instance to compare.</param>
+	/// <returns>True if both instances have equal values; otherwise false.</returns>
 	public bool Equals (FrameIdentifier other) => _xid == other._xid && _frameType == other._frameType;
 
 	/// <inheritdoc/>
@@ -124,9 +136,15 @@ public readonly struct FrameIdentifier : IEquatable<FrameIdentifier>
 	public override int GetHashCode () => (_xid, _frameType).GetHashCode ();
 
 	/// <summary>Determines whether two <see cref="FrameIdentifier"/> instances are equal.</summary>
+	/// <param name="left">The first frame identifier to compare.</param>
+	/// <param name="right">The second frame identifier to compare.</param>
+	/// <returns>True if both frame identifiers have the same exchange identifier and frame type; otherwise false.</returns>
 	public static bool operator == (FrameIdentifier left, FrameIdentifier right) => left.Equals (right);
 
 	/// <summary>Determines whether two <see cref="FrameIdentifier"/> instances are not equal.</summary>
+	/// <param name="left">The first frame identifier to compare.</param>
+	/// <param name="right">The second frame identifier to compare.</param>
+	/// <returns>True if the frame identifiers differ; otherwise false.</returns>
 	public static bool operator != (FrameIdentifier left, FrameIdentifier right) => !left.Equals (right);
 
 	/// <inheritdoc/>
@@ -198,6 +216,7 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 	public event EventHandler<ConnectionClosedEventArgs>? ConnectionFaulted;
 
 	/// <summary>Gets or sets the listener notified when an event frame is received.</summary>
+	/// <value>The listener notified when an event frame is received.</value>
 	public ICompanionProtocolListener? Listener
 		{
 		get;
@@ -211,6 +230,7 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 	/// responsible for actually delivering the bytes and, eventually, feeding any response back
 	/// in via <c>CompanionConnection.ReceiveData</c>.
 	/// </remarks>
+	/// <value>A callback invoked whenever a fully-built frame needs to be transmitted.</value>
 	[Obsolete ("Use AsyncSender instead.")]
 	public Action<byte[]>? Sender
 		{
@@ -219,6 +239,7 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 		}
 
 	/// <summary>Gets or sets the asynchronous callback that transmits fully-built frames.</summary>
+	/// <value>The asynchronous callback that transmits fully-built frames.</value>
 	public Func<byte[], Task>? AsyncSender
 		{
 		get;
@@ -234,6 +255,10 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 	public Dictionary<object, object?> ExchangeAuth (FrameType frameType, Dictionary<string, object?> data) => ExchangeAuthAsync (frameType, data).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously exchanges an auth frame (<c>PS_*</c> or <c>PV_*</c>).</summary>
+	/// <param name="frameType">The frame type used for the exchange.</param>
+	/// <param name="data">The OPACK payload to send.</param>
+	/// <param name="cancellationToken">A token used to cancel the operation.</param>
+	/// <returns>A task containing the decoded OPACK response payload.</returns>
 	public async Task<Dictionary<object, object?>> ExchangeAuthAsync (FrameType frameType, Dictionary<string, object?> data, CancellationToken cancellationToken = default)
 		{
 		// pyatv/protocols/companion/protocol.py — line 132-140 as of pyatv 0.18.0: *_Start is only used for the first
@@ -265,6 +290,10 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 	public Dictionary<object, object?> ExchangeOpack (FrameType frameType, Dictionary<string, object?> data) => ExchangeOpackAsync (frameType, data).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously sends OPACK data and decodes the OPACK response.</summary>
+	/// <param name="frameType">The frame type used for the exchange.</param>
+	/// <param name="data">The OPACK payload to send.</param>
+	/// <param name="cancellationToken">A token used to cancel the operation.</param>
+	/// <returns>A task containing the decoded OPACK response payload.</returns>
 	public Task<Dictionary<object, object?>> ExchangeOpackAsync (FrameType frameType, Dictionary<string, object?> data, CancellationToken cancellationToken = default) => ExchangeGenericAsync (frameType, data, identifier: null, cancellationToken);
 
 	/// <summary>
@@ -281,6 +310,10 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 	/// blocks, while a real transport signals it once the background read loop processes the
 	/// matching frame.
 	/// </remarks>
+	/// <value>
+	/// How long to wait for a response before <see cref="ExchangeAuth"/> or
+	/// <see cref="ExchangeOpack"/> throws a <see cref="ProtocolException"/>.
+	/// </value>
 	public TimeSpan ResponseTimeout
 		{
 		get;
@@ -540,7 +573,7 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 			_ => Convert.ToInt64 (value, CultureInfo.InvariantCulture),
 			};
 
-	/// <inheritdoc/>
+	/// <inheritdoc cref="IDisposable.Dispose"/>
 	public void Dispose ()
 		{
 		_connection.Fault (new ObjectDisposedException (nameof (CompanionProtocol)));
@@ -549,6 +582,7 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 		}
 
 	/// <summary>Asynchronously faults pending exchanges and disposes this protocol instance.</summary>
+	/// <returns>A task that completes when pending exchanges have been faulted and the protocol resources disposed.</returns>
 	public ValueTask DisposeAsync ()
 		{
 		Dispose ();

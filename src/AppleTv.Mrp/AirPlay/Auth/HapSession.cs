@@ -25,6 +25,7 @@ public sealed class HapSession
 	private Chacha20Cipher? _chacha20;
 
 	/// <summary>Gets a value indicating whether encryption has been enabled.</summary>
+	/// <value>A value indicating whether encryption has been enabled.</value>
 	public bool IsEnabled => _chacha20 is not null;
 
 	/// <summary>Enable encryption with the specified keys.</summary>

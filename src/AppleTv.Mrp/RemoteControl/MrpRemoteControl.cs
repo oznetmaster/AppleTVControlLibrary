@@ -115,62 +115,73 @@ public sealed class MrpRemoteControl (MrpProtocol protocol, MrpPlayerStateManage
 	/// <summary>Press key up.</summary>
 	/// <param name="action">The type of press to perform.</param>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the up-key sequence has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (up) — line 356-358 as of pyatv 0.18.0
 	public Task Up (InputAction action = InputAction.SingleTap, CancellationToken cancellationToken = default) => SendHidKeyAsync ("up", action, cancellationToken);
 
 	/// <summary>Press key down.</summary>
 	/// <param name="action">The type of press to perform.</param>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the down-key sequence has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (down) — line 360-362 as of pyatv 0.18.0
 	public Task Down (InputAction action = InputAction.SingleTap, CancellationToken cancellationToken = default) => SendHidKeyAsync ("down", action, cancellationToken);
 
 	/// <summary>Press key left.</summary>
 	/// <param name="action">The type of press to perform.</param>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the left-key sequence has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (left) — line 364-366 as of pyatv 0.18.0
 	public Task Left (InputAction action = InputAction.SingleTap, CancellationToken cancellationToken = default) => SendHidKeyAsync ("left", action, cancellationToken);
 
 	/// <summary>Press key right.</summary>
 	/// <param name="action">The type of press to perform.</param>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the right-key sequence has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (right) — line 368-370 as of pyatv 0.18.0
 	public Task Right (InputAction action = InputAction.SingleTap, CancellationToken cancellationToken = default) => SendHidKeyAsync ("right", action, cancellationToken);
 
 	/// <summary>Press key select.</summary>
 	/// <param name="action">The type of press to perform.</param>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the select-key sequence has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (select) — line 405-407 as of pyatv 0.18.0
 	public Task Select (InputAction action = InputAction.SingleTap, CancellationToken cancellationToken = default) => SendHidKeyAsync ("select", action, cancellationToken);
 
 	/// <summary>Press key menu.</summary>
 	/// <param name="action">The type of press to perform.</param>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the menu-key sequence has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (menu) — line 409-411 as of pyatv 0.18.0
 	public Task Menu (InputAction action = InputAction.SingleTap, CancellationToken cancellationToken = default) => SendHidKeyAsync ("menu", action, cancellationToken);
 
 	/// <summary>Press key home.</summary>
 	/// <param name="action">The type of press to perform.</param>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the home-key sequence has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (home) — line 421-423 as of pyatv 0.18.0
 	public Task Home (InputAction action = InputAction.SingleTap, CancellationToken cancellationToken = default) => SendHidKeyAsync ("home", action, cancellationToken);
 
 	/// <summary>Hold key home.</summary>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the home-key hold has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (home_hold) — line 425-427 as of pyatv 0.18.0
 	public Task HomeHold (CancellationToken cancellationToken = default) => SendHidKeyAsync ("home", InputAction.Hold, cancellationToken);
 
 	/// <summary>Go to main menu (long press menu).</summary>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the main-menu key sequence has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (top_menu) — line 429-431 as of pyatv 0.18.0
 	public Task TopMenu (CancellationToken cancellationToken = default) => SendHidKeyAsync ("topmenu", InputAction.SingleTap, cancellationToken);
 
 	/// <summary>Suspend the device.</summary>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the suspend key has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (suspend) — line 433-435 as of pyatv 0.18.0
 	public Task Suspend (CancellationToken cancellationToken = default) => SendHidKeyAsync ("suspend", InputAction.SingleTap, cancellationToken);
 
 	/// <summary>Wake up the device.</summary>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the wakeup key has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (wakeup) — line 437-439 as of pyatv 0.18.0
 	public Task Wakeup (CancellationToken cancellationToken = default) => SendHidKeyAsync ("wakeup", InputAction.SingleTap, cancellationToken);
 
@@ -180,6 +191,7 @@ public sealed class MrpRemoteControl (MrpProtocol protocol, MrpPlayerStateManage
 	/// transport), this sends the dedicated <c>WAKE_DEVICE_MESSAGE</c> protobuf message directly.
 	/// </summary>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the wake-device message has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (turn_on) — line 657-659 as of pyatv 0.18.0:
 	// "await self.protocol.send(messages.wake_device())". This is distinct from RemoteControl.wakeup(),
 	// which instead sends a SEND_HID_EVENT_MESSAGE for the "wakeup" key (_send_hid_key, line 296-319,
@@ -192,6 +204,7 @@ public sealed class MrpRemoteControl (MrpProtocol protocol, MrpPlayerStateManage
 	/// == 0 check pyatv uses to detect the resulting Off power state).
 	/// </summary>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the home-hold and select sequence has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (MrpPower.turn_off) — line 664-668 as of pyatv 0.18.0:
 	// "await self.remote.home(InputAction.Hold)" then "await asyncio.sleep(DELAY_BETWEEN_COMMANDS)"
 	// then "await self.remote.select()". DELAY_BETWEEN_COMMANDS = 0.1 (line 149).
@@ -204,26 +217,31 @@ public sealed class MrpRemoteControl (MrpProtocol protocol, MrpPlayerStateManage
 
 	/// <summary>Press key volume up.</summary>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the volume-up key has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (volume_up) — line 413-415 as of pyatv 0.18.0
 	public Task VolumeUp (CancellationToken cancellationToken = default) => SendHidKeyAsync ("volume_up", InputAction.SingleTap, cancellationToken);
 
 	/// <summary>Press key volume down.</summary>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the volume-down key has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (volume_down) — line 417-419 as of pyatv 0.18.0
 	public Task VolumeDown (CancellationToken cancellationToken = default) => SendHidKeyAsync ("volume_down", InputAction.SingleTap, cancellationToken);
 
 	/// <summary>Press key play.</summary>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the play command has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (play) — line 372-374 as of pyatv 0.18.0
 	public Task Play (CancellationToken cancellationToken = default) => SendCommandAsync (Command.Play, cancellationToken: cancellationToken);
 
 	/// <summary>Press key play.</summary>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the pause command has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (pause) — line 389-391 as of pyatv 0.18.0
 	public Task Pause (CancellationToken cancellationToken = default) => SendCommandAsync (Command.Pause, cancellationToken: cancellationToken);
 
 	/// <summary>Toggle between play and pause.</summary>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the selected playback toggle or fallback command has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (play_pause) — line 376-387 as of pyatv 0.18.0
 	public async Task PlayPause (CancellationToken cancellationToken = default)
 		{
@@ -248,60 +266,71 @@ public sealed class MrpRemoteControl (MrpProtocol protocol, MrpPlayerStateManage
 
 	/// <summary>Press key stop.</summary>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the stop command has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (stop) — line 393-395 as of pyatv 0.18.0
 	public Task Stop (CancellationToken cancellationToken = default) => SendCommandAsync (Command.Stop, cancellationToken: cancellationToken);
 
 	/// <summary>Begin fast-forwarding through the current media.</summary>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the fast-forward start command has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/protobuf/CommandInfo.proto — BeginFastForward = 9
 	public Task BeginFastForward (CancellationToken cancellationToken = default) => SendCommandAsync (Command.BeginFastForward, cancellationToken: cancellationToken);
 
 	/// <summary>Ends a previously started fast-forward.</summary>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the fast-forward stop command has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/protobuf/CommandInfo.proto — EndFastForward = 10
 	public Task EndFastForward (CancellationToken cancellationToken = default) => SendCommandAsync (Command.EndFastForward, cancellationToken: cancellationToken);
 
 	/// <summary>Begins rewinding through the current media.</summary>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the rewind start command has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/protobuf/CommandInfo.proto — BeginRewind = 11
 	public Task BeginRewind (CancellationToken cancellationToken = default) => SendCommandAsync (Command.BeginRewind, cancellationToken: cancellationToken);
 
 	/// <summary>Ends a previously started rewind.</summary>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the rewind stop command has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/protobuf/CommandInfo.proto — EndRewind = 12
 	public Task EndRewind (CancellationToken cancellationToken = default) => SendCommandAsync (Command.EndRewind, cancellationToken: cancellationToken);
 
 	/// <summary>Press key next.</summary>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the next-track command has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (next) — line 397-399 as of pyatv 0.18.0
 	public Task Next (CancellationToken cancellationToken = default) => SendCommandAsync (Command.NextTrack, cancellationToken: cancellationToken);
 
 	/// <summary>Press key previous.</summary>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the previous-track command has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (previous) — line 401-403 as of pyatv 0.18.0
 	public Task Previous (CancellationToken cancellationToken = default) => SendCommandAsync (Command.PreviousTrack, cancellationToken: cancellationToken);
 
 	/// <summary>Skip forward a time interval. Skip interval is typically 15-30s, but is decided by the app.</summary>
 	/// <param name="timeInterval">The number of seconds to skip, or 0 to use the app's preferred interval.</param>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the skip-forward command has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (skip_forward) — line 441-446 as of pyatv 0.18.0
 	public Task SkipForward (double timeInterval = 0.0, CancellationToken cancellationToken = default) => SkipCommandAsync (Command.SkipForward, timeInterval, cancellationToken);
 
 	/// <summary>Skip backwards a time interval. Skip interval is typically 15-30s, but is decided by the app.</summary>
 	/// <param name="timeInterval">The number of seconds to skip, or 0 to use the app's preferred interval.</param>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the skip-backward command has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (skip_backward) — line 448-453 as of pyatv 0.18.0
 	public Task SkipBackward (double timeInterval = 0.0, CancellationToken cancellationToken = default) => SkipCommandAsync (Command.SkipBackward, timeInterval, cancellationToken);
 
 	/// <summary>Seek in the current playing media.</summary>
 	/// <param name="position">The absolute position, in seconds.</param>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the seek command has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (set_position) — line 469-471 as of pyatv 0.18.0
 	public Task SetPosition (int position, CancellationToken cancellationToken = default) => _protocol.SendAndReceiveAsync (MrpMessages.SeekToPosition (position), cancellationToken: cancellationToken);
 
 	/// <summary>Change shuffle mode to on or off.</summary>
 	/// <param name="shuffleState">The shuffle mode to set.</param>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the shuffle command has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (set_shuffle) — line 473-475 as of pyatv 0.18.0
 	public Task SetShuffle (ShuffleState shuffleState, CancellationToken cancellationToken = default)
 		{
@@ -319,6 +348,7 @@ public sealed class MrpRemoteControl (MrpProtocol protocol, MrpPlayerStateManage
 	/// <summary>Change repeat state.</summary>
 	/// <param name="repeatState">The repeat mode to set.</param>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the repeat command has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/__init__.py (set_repeat) — line 477-479 as of pyatv 0.18.0
 	public Task SetRepeat (RepeatState repeatState, CancellationToken cancellationToken = default)
 		{
@@ -337,6 +367,7 @@ public sealed class MrpRemoteControl (MrpProtocol protocol, MrpPlayerStateManage
 	/// <param name="deviceUid">The output device identifier.</param>
 	/// <param name="volume">The volume level, in the range 0.0-1.0.</param>
 	/// <param name="cancellationToken">A token that cancels the operation.</param>
+	/// <returns>A task that completes when the output-volume message has been sent and any required reply received.</returns>
 	// pyatv/protocols/mrp/messages.py (set_volume) — line 206-212 as of pyatv 0.18.0
 	public Task SetVolume (string deviceUid, float volume, CancellationToken cancellationToken = default) => _protocol.SendAsync (MrpMessages.SetVolume (deviceUid, volume), cancellationToken);
 

@@ -26,7 +26,8 @@ public sealed class AirPlayMrpConnection (Ap2Session session) : IMrpFrameConnect
 	{
 	private DataStreamChannel? _dataChannel;
 
-	/// <inheritdoc/>
+	/// <summary>Gets or sets the listener for received MRP messages and connection events.</summary>
+	/// <value>The connection listener, or <see langword="null"/> if none is assigned.</value>
 	public IMrpConnectionListener? Listener { get; set; }
 
 	/// <summary>Raised when the underlying AirPlay data channel is dropped.</summary>
@@ -49,6 +50,8 @@ public sealed class AirPlayMrpConnection (Ap2Session session) : IMrpFrameConnect
 	/// which does its own AirPlay-specific framing rather than the variant-length framing used by
 	/// direct TCP MRP.
 	/// </remarks>
+	/// <param name="frame">The serialized MRP protobuf message to send through the AirPlay data channel.</param>
+	/// <returns>A task that completes when the message has been sent through the connection.</returns>
 	public Task SendAsync (byte[] frame)
 		{
 		if (_dataChannel is null)
@@ -72,14 +75,18 @@ public sealed class AirPlayMrpConnection (Ap2Session session) : IMrpFrameConnect
 		_dataChannel.SendProtobuf (message);
 		}
 
-	/// <inheritdoc/>
+	/// <summary>Accepts encryption keys without changing the already encrypted AirPlay data channel.</summary>
+	/// <param name="outputKey">The outgoing encryption key; unused by this adapter.</param>
+	/// <param name="inputKey">The incoming encryption key; unused by this adapter.</param>
 	// pyatv/protocols/airplay/mrp_connection.py (enable_encryption) — line 40-41 as of pyatv 0.18.0: no-op,
 	// since the AirPlay data channel is already HAP-encrypted end-to-end.
 	public void EnableEncryption (byte[] outputKey, byte[] inputKey)
 		{
 		}
 
-	/// <inheritdoc/>
+	/// <summary>Passes the serialized protobuf message through for AirPlay framing.</summary>
+	/// <param name="data">The serialized protobuf message.</param>
+	/// <returns>The supplied byte array without modification.</returns>
 	/// <remarks>
 	/// The AirPlay data channel does its own framing (see <see cref="DataStreamChannel.SendProtobuf"/>),
 	/// so this is an identity passthrough rather than the variant-length prefixing used by direct TCP

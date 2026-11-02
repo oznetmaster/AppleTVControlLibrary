@@ -55,6 +55,7 @@ public sealed class DataStreamChannel : AbstractHapChannel
 		_sendSeqNo = 0x100000000UL + (ulong)(_random.NextDouble () * 0xFFFFFFFFUL);
 
 	/// <summary>Gets or sets the listener notified of incoming protobuf messages and connection loss.</summary>
+	/// <value>The listener notified of incoming protobuf messages and connection loss.</value>
 	public IDataStreamListener? Listener { get; set; }
 
 	/// <summary>Serialize a protobuf message and send it to the receiver.</summary>

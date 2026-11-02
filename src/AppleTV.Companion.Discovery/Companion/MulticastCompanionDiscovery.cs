@@ -27,7 +27,10 @@ public sealed class MulticastCompanionDiscovery : ICompanionDiscovery
 	// pyatv/core/mdns.py (multicast default port) — line 510 as of pyatv 0.18.0, pyatv/core/mdns.py (unicast default port) — line 491 as of pyatv 0.18.0
 	private const int MULTICAST_PORT = 5353;
 
-	/// <inheritdoc/>
+	/// <summary>Discovers the configured service endpoints.</summary>
+	/// <param name="timeout">The discovery response window.</param>
+	/// <param name="cancellationToken">A token used to cancel the operation.</param>
+	/// <returns>A task containing the discovered endpoints.</returns>
 	public async Task<IReadOnlyList<CompanionDiscoveryResult>> ScanAsync (TimeSpan timeout, CancellationToken cancellationToken = default) => await ScanCoreAsync (timeout, static _ => false, cancellationToken).ConfigureAwait (false);
 
 	/// <summary>

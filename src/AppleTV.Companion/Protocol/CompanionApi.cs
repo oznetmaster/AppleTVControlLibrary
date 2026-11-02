@@ -276,30 +276,35 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public event EventHandler<ConnectionClosedEventArgs>? ConnectionClosed;
 
 	/// <summary>Gets the stable identifier used as the <c>_systemInfo</c> <c>_i</c> field.</summary>
+	/// <value>The stable identifier used as the <c>_systemInfo</c> <c>_i</c> field.</value>
 	public string StableIdentifier
 		{
 		get;
 		}
 
 	/// <summary>Gets the device identifier reported as <c>_pubID</c>.</summary>
+	/// <value>The device identifier reported as <c>_pubID</c>.</value>
 	public string DeviceId
 		{
 		get;
 		}
 
 	/// <summary>Gets the device model string.</summary>
+	/// <value>The device model string.</value>
 	public string Model
 		{
 		get;
 		}
 
 	/// <summary>Gets the device name string.</summary>
+	/// <value>The device name string.</value>
 	public string Name
 		{
 		get;
 		}
 
 	/// <summary>Gets the combined session id established by <see cref="SessionStart"/>.</summary>
+	/// <value>The combined session id established by <see cref="SessionStart"/>.</value>
 	// pyatv/protocols/companion/api.py (self.sid: int = 0) — line 106 as of pyatv 0.18.0
 	public long Sid
 		{
@@ -317,6 +322,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void Connect () => ConnectAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously runs the connection bring-up sequence.</summary>
+	/// <returns>A task that completes when the Companion bring-up sequence finishes.</returns>
 	public async Task ConnectAsync ()
 		{
 		System.Diagnostics.Debug.WriteLine ("[CompanionApi] Connect: sending _systemInfo");
@@ -413,6 +419,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void SystemInfo () => SystemInfoAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously sends system information to the device.</summary>
+	/// <returns>A task that completes when the system-information exchange finishes.</returns>
 	public async Task SystemInfoAsync () =>
 		// Bunch of semi-random values here, per pyatv's own comment (api.py:193).
 		_ = await SendCommandAsync (
@@ -437,6 +444,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void TouchStart () => TouchStartAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously subscribes to touch gestures.</summary>
+	/// <returns>A task that completes when the touch subscription request finishes.</returns>
 	public async Task TouchStartAsync () => _ = await SendCommandAsync (
 			"_touchStart",
 			new Dictionary<string, object?>
@@ -452,6 +460,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void TouchStop () => TouchStopAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously unsubscribes from touch gestures.</summary>
+	/// <returns>A task that completes when the touch unsubscription request finishes.</returns>
 	public async Task TouchStopAsync () => _ = await SendCommandAsync ("_touchStop", new Dictionary<string, object?> { { "_i", 1 } }).ConfigureAwait (false);
 
 	/// <summary>Start a Companion session.</summary>
@@ -463,6 +472,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void SessionStart () => SessionStartAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously starts a Companion session.</summary>
+	/// <returns>A task that completes when the session identifier has been negotiated.</returns>
 	public async Task SessionStartAsync ()
 		{
 		long localSid = (long)(uint)new Random ().Next (int.MinValue, int.MaxValue);
@@ -490,6 +500,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void SessionStop () => SessionStopAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously stops the current Companion session.</summary>
+	/// <returns>A task that completes when the session-stop request finishes.</returns>
 	public async Task SessionStopAsync () => _ = await SendCommandAsync (
 			"_sessionStop",
 			new Dictionary<string, object?>
@@ -508,6 +519,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void TvRcSessionStart () => TvRcSessionStartAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously opens a TV Remote Client session.</summary>
+	/// <returns>A task that completes when the TV Remote Client start attempt finishes, including a logged and ignored remote error.</returns>
 	public async Task TvRcSessionStartAsync ()
 		{
 		try
@@ -522,11 +534,13 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		}
 
 	/// <summary>Start a text input session.</summary>
+	/// <returns>The response to the text-input session start command.</returns>
 	// pyatv/protocols/companion/api.py (_text_input_start) — line 401-404 as of pyatv 0.18.0
 	[Obsolete ("Use TextInputStartAsync instead.")]
 	public Dictionary<object, object?> TextInputStart () => TextInputStartAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously starts a text input session.</summary>
+	/// <returns>A task containing the response to the text-input session start command.</returns>
 	public async Task<Dictionary<object, object?>> TextInputStartAsync ()
 		{
 		Dictionary<object, object?> response = await SendCommandAsync ("_tiStart", []).ConfigureAwait (false);
@@ -548,12 +562,17 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void TextInputStop () => TextInputStopAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously stops the current text input session.</summary>
+	/// <returns>A task that completes when the text-input stop request finishes.</returns>
 	public async Task TextInputStopAsync () => _ = await SendCommandAsync ("_tiStop", []).ConfigureAwait (false);
 
 	/// <summary>
 	/// Gets the current keyboard (RTI text input) focus state, as last reported by the
 	/// <c>_tiStarted</c>/<c>_tiStopped</c> events or the <c>_tiStart</c> response.
 	/// </summary>
+	/// <value>
+	/// The current keyboard (RTI text input) focus state, as last reported by the
+	/// <c>_tiStarted</c>/<c>_tiStopped</c> events or the <c>_tiStart</c> response.
+	/// </value>
 	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_focus_state) — line 512-515 as of pyatv 0.18.0
 	public KeyboardFocusState TextFocusState
 		{
@@ -592,6 +611,9 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public string? TextInputCommand (string text, bool clearPreviousInput = false) => TextInputCommandAsync (text, clearPreviousInput).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously sends a text input command.</summary>
+	/// <param name="text">The text to append or set.</param>
+	/// <param name="clearPreviousInput">Whether to clear the existing text before appending the supplied text.</param>
+	/// <returns>A task containing the resulting text, or <see langword="null"/> if no usable text-input session is available.</returns>
 	public async Task<string?> TextInputCommandAsync (string text, bool clearPreviousInput = false)
 		{
 		// pyatv/protocols/companion/api.py (# restart the text input session so that we have up-to-date data) — line 426-428 as of pyatv 0.18.0
@@ -642,11 +664,13 @@ public sealed class CompanionApi : ICompanionProtocolListener
 		}
 
 	/// <summary>Get the current virtual keyboard text.</summary>
+	/// <returns>The current virtual keyboard text, or <see langword="null"/> if no usable text-input session is available.</returns>
 	// pyatv/protocols/companion/__init__.py (CompanionKeyboard.text_get) — line 517-519 as of pyatv 0.18.0
 	[Obsolete ("Use TextGetAsync instead.")]
 	public string? TextGet () => TextGetAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously gets the current virtual keyboard text.</summary>
+	/// <returns>A task containing the current virtual keyboard text, or <see langword="null"/> if no usable text-input session is available.</returns>
 	public Task<string?> TextGetAsync () => TextInputCommandAsync (string.Empty, clearPreviousInput: false);
 
 	/// <summary>Clear the virtual keyboard text.</summary>
@@ -655,6 +679,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void TextClear () => TextClearAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously clears the virtual keyboard text.</summary>
+	/// <returns>A task that completes when the text-clear operation finishes.</returns>
 	public async Task TextClearAsync () => await TextInputCommandAsync (string.Empty, clearPreviousInput: true).ConfigureAwait (false);
 
 	/// <summary>Append text to the virtual keyboard.</summary>
@@ -664,6 +689,8 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void TextAppend (string text) => TextAppendAsync (text).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously appends text to the virtual keyboard.</summary>
+	/// <param name="text">The text to append or set.</param>
+	/// <returns>A task that completes when the text-append operation finishes.</returns>
 	public async Task TextAppendAsync (string text) => await TextInputCommandAsync (text, clearPreviousInput: false).ConfigureAwait (false);
 
 	/// <summary>Replace the virtual keyboard text.</summary>
@@ -673,6 +700,8 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void TextSet (string text) => TextSetAsync (text).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously replaces the virtual keyboard text.</summary>
+	/// <param name="text">The text to append or set.</param>
+	/// <returns>A task that completes when the text-replacement operation finishes.</returns>
 	public async Task TextSetAsync (string text) => await TextInputCommandAsync (text, clearPreviousInput: true).ConfigureAwait (false);
 
 	/// <summary>Subscribe to updates for an event.</summary>
@@ -682,6 +711,8 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void SubscribeEvent (string eventName) => SubscribeEventAsync (eventName).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously subscribes to updates for an event.</summary>
+	/// <param name="eventName">The protocol event name to subscribe to or unsubscribe from.</param>
+	/// <returns>A task that completes when the event subscription has been sent or was already registered.</returns>
 	public async Task SubscribeEventAsync (string eventName)
 		{
 		if (!_subscribedEvents.Contains (eventName))
@@ -698,6 +729,8 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void UnsubscribeEvent (string eventName) => UnsubscribeEventAsync (eventName).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously unsubscribes from updates for an event.</summary>
+	/// <param name="eventName">The protocol event name to subscribe to or unsubscribe from.</param>
+	/// <returns>A task that completes when the event unsubscription has been sent or no subscription existed.</returns>
 	public async Task UnsubscribeEventAsync (string eventName)
 		{
 		if (_subscribedEvents.Contains (eventName))
@@ -715,6 +748,9 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void SendHidCommand (bool down, HidCommand command) => SendHidCommandAsync (down, command).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously sends a HID command.</summary>
+	/// <param name="down">True for a key press; false for a key release.</param>
+	/// <param name="command">The HID or media control command to send.</param>
+	/// <returns>A task that completes when the HID command exchange finishes.</returns>
 	public async Task SendHidCommandAsync (bool down, HidCommand command) => _ = await SendCommandAsync (
 			"_hidC",
 			new Dictionary<string, object?>
@@ -732,6 +768,10 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void SendHidEvent (int x, int y, TouchAction mode) => SendHidEventAsync (x, y, mode).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously sends a touch event.</summary>
+	/// <param name="x">The horizontal touch coordinate, clamped to the touchpad bounds.</param>
+	/// <param name="y">The vertical touch coordinate, clamped to the touchpad bounds.</param>
+	/// <param name="mode">The touch action to send.</param>
+	/// <returns>A task that completes when the touch event has been sent.</returns>
 	public async Task SendHidEventAsync (int x, int y, TouchAction mode)
 		{
 		x = Math.Max (x, 0);
@@ -765,6 +805,8 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void SendClick (InputAction action) => SendClickAsync (action).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously sends a touch click.</summary>
+	/// <param name="action">The click action to perform.</param>
+	/// <returns>A task that completes when the requested click sequence has been sent.</returns>
 	public async Task SendClickAsync (InputAction action)
 		{
 		if (action is InputAction.SingleTap or InputAction.DoubleTap)
@@ -794,6 +836,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public SystemStatus FetchAttentionState () => FetchAttentionStateAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously fetches the current attention state.</summary>
+	/// <returns>A task containing the reported device attention state.</returns>
 	public async Task<SystemStatus> FetchAttentionStateAsync ()
 		{
 		Dictionary<object, object?> resp = await SendCommandAsync ("FetchAttentionState", []).ConfigureAwait (false);
@@ -820,6 +863,8 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void LaunchApp (string bundleIdOrUrl) => LaunchAppAsync (bundleIdOrUrl).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously launches an app on the device.</summary>
+	/// <param name="bundleIdOrUrl">The application bundle identifier or absolute URL to launch.</param>
+	/// <returns>A task that completes when the application-launch exchange finishes.</returns>
 	public async Task LaunchAppAsync (string bundleIdOrUrl)
 		{
 		string launchCommandKey = Uri.TryCreate (bundleIdOrUrl, UriKind.Absolute, out Uri? uri) && !string.IsNullOrEmpty (uri.Scheme)
@@ -850,6 +895,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public Dictionary<string, string> AppList () => AppListAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously fetches the list of launchable apps.</summary>
+	/// <returns>A task containing launchable application display names keyed by bundle identifier.</returns>
 	public async Task<Dictionary<string, string>> AppListAsync ()
 		{
 		Dictionary<object, object?> resp = await SendCommandAsync ("FetchLaunchableApplicationsEvent", []).ConfigureAwait (false);
@@ -886,6 +932,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public Dictionary<string, string> AccountList () => AccountListAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously fetches the list of accounts.</summary>
+	/// <returns>A task containing account display names keyed by account identifier.</returns>
 	public async Task<Dictionary<string, string>> AccountListAsync ()
 		{
 		Dictionary<object, object?> resp = await SendCommandAsync ("FetchUserAccountsEvent", []).ConfigureAwait (false);
@@ -921,6 +968,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public Dictionary<object, object?> AccountListRaw () => AccountListRawAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously fetches the raw account list response content.</summary>
+	/// <returns>A task containing the raw account response content, or an empty dictionary if content is absent.</returns>
 	public async Task<Dictionary<object, object?>> AccountListRawAsync ()
 		{
 		Dictionary<object, object?> resp = await SendCommandAsync ("FetchUserAccountsEvent", []).ConfigureAwait (false);
@@ -937,6 +985,8 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void SwitchAccount (string accountId) => SwitchAccountAsync (accountId).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously switches the active user account.</summary>
+	/// <param name="accountId">The identifier of the account to activate.</param>
+	/// <returns>A task that completes when the account-switch exchange finishes.</returns>
 	public async Task SwitchAccountAsync (string accountId) => _ = await SendCommandAsync (
 			"SwitchUserAccountEvent",
 			new Dictionary<string, object?>
@@ -953,6 +1003,9 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public Dictionary<object, object?> MediaControlCommand (MediaControlCommand command, Dictionary<string, object?>? args = null) => MediaControlCommandAsync (command, args).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously sends a media control command.</summary>
+	/// <param name="command">The HID or media control command to send.</param>
+	/// <param name="args">Optional command arguments to merge into the request.</param>
+	/// <returns>A task containing the media command response content.</returns>
 	public async Task<Dictionary<object, object?>> MediaControlCommandAsync (MediaControlCommand command, Dictionary<string, object?>? args = null)
 		{
 		Dictionary<string, object?> content = new () { { "_mcc", (int)command } };
@@ -976,6 +1029,12 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	/// When this is <see langword="false"/>, audio is managed outside Companion (e.g. HDMI-CEC)
 	/// and <see cref="GetVolume"/>/<see cref="SetVolume"/> must not be used.
 	/// </summary>
+	/// <value>
+	/// A value indicating whether the device currently advertises volume control support
+	/// via the <c>_iMC</c> event's <c>_mcF</c> bitmask (<see cref="MediaControlCapabilities.Volume"/>).
+	/// When this is <see langword="false"/>, audio is managed outside Companion (e.g. HDMI-CEC)
+	/// and <see cref="GetVolume"/>/<see cref="SetVolume"/> must not be used.
+	/// </value>
 	// pyatv/protocols/companion/__init__.py (_handle_control_flag_update) — line 439-449 as of pyatv 0.18.0
 	public bool IsVolumeControlSupported => (_mediaControlFlags & MediaControlCapabilities.Volume) != 0;
 
@@ -991,6 +1050,11 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	/// <see cref="FetchAttentionState"/> snapshot taken during <see cref="Connect"/> and by
 	/// subsequently pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> events.
 	/// </summary>
+	/// <value>
+	/// The most recently known system status (power state), updated by the initial
+	/// <see cref="FetchAttentionState"/> snapshot taken during <see cref="Connect"/> and by
+	/// subsequently pushed <c>SystemStatus</c>/<c>TVSystemStatus</c> events.
+	/// </value>
 	// pyatv/protocols/companion/__init__.py — line 213 as of pyatv 0.18.0, 247-248 (self._power_state, power_state property)
 	public SystemStatus CurrentSystemStatus { get; private set; } = SystemStatus.Unknown;
 
@@ -1006,11 +1070,13 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public event EventHandler? SystemStatusChanged;
 
 	/// <summary>Gets the current volume level, in percent ([0.0-100.0]).</summary>
+	/// <returns>The current volume as a percentage from 0 to 100.</returns>
 	// pyatv/protocols/companion/__init__.py (GetVolume, resp["_c"]["_vol"] * 100.0) — line 441-443 as of pyatv 0.18.0
 	[Obsolete ("Use GetVolumeAsync instead.")]
 	public double GetVolume () => GetVolumeAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously gets the current volume level.</summary>
+	/// <returns>A task containing the current volume as a percentage from 0 to 100.</returns>
 	public async Task<double> GetVolumeAsync ()
 		{
 		Dictionary<object, object?> content = await MediaControlCommandAsync (Protocol.MediaControlCommand.GetVolume).ConfigureAwait (false);
@@ -1025,6 +1091,8 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public void SetVolume (double level) => SetVolumeAsync (level).ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously sets the current volume level.</summary>
+	/// <param name="level">The volume level expressed as a percentage from 0 to 100.</param>
+	/// <returns>A task that completes when the volume command finishes.</returns>
 	public async Task SetVolumeAsync (double level)
 		{
 		_ = await MediaControlCommandAsync (Protocol.MediaControlCommand.SetVolume, new Dictionary<string, object?> { { "_vol", level / 100.0 } }).ConfigureAwait (false);
@@ -1040,6 +1108,7 @@ public sealed class CompanionApi : ICompanionProtocolListener
 	public bool ToggleMute () => ToggleMuteAsync ().ConfigureAwait (false).GetAwaiter ().GetResult ();
 
 	/// <summary>Asynchronously toggles mute.</summary>
+	/// <returns>A task containing true when muted after the operation; false when the previous volume has been restored.</returns>
 	public async Task<bool> ToggleMuteAsync ()
 		{
 		if (!IsVolumeControlSupported)

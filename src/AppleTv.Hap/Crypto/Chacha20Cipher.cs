@@ -47,6 +47,7 @@ public class Chacha20Cipher
 	/// This is the nonce that will be used by <see cref="Encrypt"/> in the _next_ call if no
 	/// custom nonce is specified.
 	/// </remarks>
+	/// <value>The next encrypt nonce.</value>
 	// pyatv/support/chacha20.py (out_nonce) — line 23-34 as of pyatv 0.18.0
 	public virtual byte[] OutNonce
 		{
@@ -62,6 +63,7 @@ public class Chacha20Cipher
 	/// This is the nonce that will be used by <see cref="Decrypt"/> in the _next_ call if no
 	/// custom nonce is specified.
 	/// </remarks>
+	/// <value>The next decrypt nonce.</value>
 	// pyatv/support/chacha20.py (in_nonce) — line 36-47 as of pyatv 0.18.0
 	public virtual byte[] InNonce
 		{

@@ -42,15 +42,19 @@ public sealed class RtspSession
 		}
 
 	/// <summary>Gets the RTSP session identifier used to build <see cref="Uri"/>.</summary>
+	/// <value>The RTSP session identifier used to build <see cref="Uri"/>.</value>
 	public uint SessionId { get; }
 
 	/// <summary>Gets the DACP-ID header value used for every exchange.</summary>
+	/// <value>The DACP-ID header value used for every exchange.</value>
 	public string DacpId { get; }
 
 	/// <summary>Gets the Active-Remote header value used for every exchange.</summary>
+	/// <value>The Active-Remote header value used for every exchange.</value>
 	public uint ActiveRemote { get; }
 
 	/// <summary>Gets the URI used for session requests.</summary>
+	/// <value>The URI used for session requests.</value>
 	// pyatv/support/rtsp.py (uri) — line 81-84 as of pyatv 0.18.0
 	public string Uri => $"rtsp://{_connection.LocalIp}/{SessionId}";
 

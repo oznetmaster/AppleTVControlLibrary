@@ -88,6 +88,7 @@ public class CompanionConnection
 	private Chacha20Cipher? _chacha;
 
 	/// <summary>Gets a value indicating whether encryption has been enabled.</summary>
+	/// <value>A value indicating whether encryption has been enabled.</value>
 	public bool IsEncrypted => _chacha is not null;
 
 	/// <summary>Enable encryption with the specified keys.</summary>
@@ -142,6 +143,7 @@ public class CompanionConnection
 	private readonly object _faultLock = new ();
 
 	/// <summary>Gets a value indicating whether this connection has been faulted.</summary>
+	/// <value>A value indicating whether this connection has been faulted.</value>
 	public bool IsFaulted
 		{
 		get
@@ -154,6 +156,7 @@ public class CompanionConnection
 		}
 
 	/// <summary>Gets the exception that caused the connection to be faulted, if any.</summary>
+	/// <value>The exception that caused the connection to be faulted, if any.</value>
 	public Exception? FaultException
 		{
 		get
@@ -289,4 +292,6 @@ public class CompanionConnection
 public delegate void FrameReceivedCallback (object sender, FrameType frameType, byte[] data);
 
 /// <summary>Callback signature for a terminal connection fault.</summary>
+/// <param name="sender">The connection that reported the fault.</param>
+/// <param name="exception">The terminal connection error, if one is available.</param>
 public delegate void ConnectionFaultedCallback (object sender, Exception? exception);

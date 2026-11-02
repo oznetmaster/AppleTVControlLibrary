@@ -81,6 +81,7 @@ public sealed class AirPlayHapPairVerifyProcedure (HttpConnection http, SrpAuthH
 	/// <param name="salt">The HKDF salt string.</param>
 	/// <param name="outputInfo">The HKDF info string for the output key.</param>
 	/// <param name="inputInfo">The HKDF info string for the input key.</param>
+	/// <returns>The derived output and input encryption keys.</returns>
 	// pyatv/protocols/airplay/auth/hap.py (encryption_keys) — line 135-141 as of pyatv 0.18.0
 	public (byte[] OutputKey, byte[] InputKey) EncryptionKeys (string salt, string outputInfo, string inputInfo) =>
 		_srp.Verify2 (salt, outputInfo, inputInfo);
@@ -104,6 +105,7 @@ public sealed class AirPlayHapPairSetupProcedure (HttpConnection http, SrpAuthHa
 	private byte[]? _atvPubKey;
 
 	/// <summary>Start the pairing process. Causes the device to display an on-screen PIN.</summary>
+	/// <returns>A task that completes when the initial pairing exchange finishes and the remote salt and public key have been received.</returns>
 	// pyatv/protocols/airplay/auth/hap.py (start_pairing) — line 43-58 as of pyatv 0.18.0
 	public async Task StartPairingAsync ()
 		{

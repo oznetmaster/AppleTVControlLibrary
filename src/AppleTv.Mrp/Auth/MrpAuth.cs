@@ -45,6 +45,7 @@ public sealed class MrpPairSetupProcedure (MrpSendAndReceive sendAndReceive, Srp
 	private byte[]? _atvPubKey;
 
 	/// <summary>Start the pairing procedure (M1/M2). Causes the device to display an on-screen PIN.</summary>
+	/// <returns>A task that completes when the initial pairing exchange finishes and the remote salt and public key have been received.</returns>
 	// pyatv/protocols/mrp/auth.py (start_pairing) — line 35-46 as of pyatv 0.18.0
 	public async Task StartPairingAsync ()
 		{

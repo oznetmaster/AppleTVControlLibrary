@@ -96,42 +96,49 @@ public sealed class HapCredentials : IEquatable<HapCredentials>
 		}
 
 	/// <summary>Gets the long-term public key of the peer.</summary>
+	/// <value>The long-term public key of the peer.</value>
 	public byte[] Ltpk
 		{
 		get;
 		}
 
 	/// <summary>Gets the long-term secret key belonging to this client.</summary>
+	/// <value>The long-term secret key belonging to this client.</value>
 	public byte[] Ltsk
 		{
 		get;
 		}
 
 	/// <summary>Gets the identifier of the Apple TV.</summary>
+	/// <value>The identifier of the Apple TV.</value>
 	public byte[] AtvId
 		{
 		get;
 		}
 
 	/// <summary>Gets the identifier of this client.</summary>
+	/// <value>The identifier of this client.</value>
 	public byte[] ClientId
 		{
 		get;
 		}
 
 	/// <summary>Gets the authentication type represented by these credentials.</summary>
+	/// <value>The authentication type represented by these credentials.</value>
 	public AuthenticationType Type
 		{
 		get;
 		}
 
 	/// <summary>Gets the shared "no credentials" instance. pyatv/auth/hap_pairing.py — line 135 as of pyatv 0.18.0</summary>
+	/// <value>The shared "no credentials" instance. pyatv/auth/hap_pairing.py — line 135 as of pyatv 0.18.0</value>
 	public static HapCredentials NoCredentials
 		{
 		get;
 		} = new HapCredentials ();
 
 	/// <summary>Gets the shared "transient" credentials instance. pyatv/auth/hap_pairing.py — line 136 as of pyatv 0.18.0</summary>
+	/// <value>The shared "transient" credentials instance. pyatv/auth/hap_pairing.py — line 136 as of pyatv 0.18.0</value>
 	public static HapCredentials TransientCredentials
 		{
 		get;
@@ -167,7 +174,9 @@ public sealed class HapCredentials : IEquatable<HapCredentials>
 		return true;
 		}
 
-	/// <inheritdoc/>
+	/// <summary>Determines whether this instance equals another instance.</summary>
+	/// <param name="other">The instance to compare.</param>
+	/// <returns>True if both instances have equal values; otherwise false.</returns>
 	// pyatv/auth/hap_pairing.py (__eq__) — line 65-69 as of pyatv 0.18.0
 	public bool Equals (HapCredentials? other) => other is not null && ToString () == other.ToString ();
 

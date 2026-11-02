@@ -40,6 +40,7 @@ public sealed class MrpPlayerState
 		}
 
 	/// <summary>Gets the supported commands reported directly on this player.</summary>
+	/// <value>The supported commands reported directly on this player.</value>
 	// pyatv/protocols/mrp/player_state.py (self.supported_commands) — line 21 as of pyatv 0.18.0
 	public List<CommandInfo> SupportedCommands
 		{
@@ -47,6 +48,7 @@ public sealed class MrpPlayerState
 		} = [];
 
 	/// <summary>Gets the current playback queue items.</summary>
+	/// <value>The current playback queue items.</value>
 	// pyatv/protocols/mrp/player_state.py (self.items) — line 22 as of pyatv 0.18.0
 	public List<ContentItem> Items
 		{
@@ -55,6 +57,7 @@ public sealed class MrpPlayerState
 		} = [];
 
 	/// <summary>Gets the current location (index) within <see cref="Items"/>.</summary>
+	/// <value>The current location (index) within <see cref="Items"/>.</value>
 	// pyatv/protocols/mrp/player_state.py (self.location) — line 23 as of pyatv 0.18.0
 	public int Location
 		{
@@ -63,6 +66,7 @@ public sealed class MrpPlayerState
 		}
 
 	/// <summary>Gets the player identifier.</summary>
+	/// <value>The player identifier.</value>
 	// pyatv/protocols/mrp/player_state.py (self.identifier) — line 25 as of pyatv 0.18.0
 	public string? Identifier
 		{
@@ -70,6 +74,7 @@ public sealed class MrpPlayerState
 		}
 
 	/// <summary>Gets the player's display name.</summary>
+	/// <value>The player's display name.</value>
 	// pyatv/protocols/mrp/player_state.py (self.display_name) — line 26 as of pyatv 0.18.0
 	public string? DisplayName
 		{
@@ -83,6 +88,12 @@ public sealed class MrpPlayerState
 	/// exposes anywhere in its Python source — there is no reference behavior to port for it, so
 	/// it is surfaced here unprocessed rather than approximated.
 	/// </summary>
+	/// <value>
+	/// The icon URL reported for this player, if any. This is a raw wire-format field
+	/// (NowPlayingPlayer.proto, field 7: iconURL) that pyatv 0.18.0 receives but never reads or
+	/// exposes anywhere in its Python source — there is no reference behavior to port for it, so
+	/// it is surfaced here unprocessed rather than approximated.
+	/// </value>
 	public string? IconUrl
 		{
 		get;
@@ -90,6 +101,7 @@ public sealed class MrpPlayerState
 		}
 
 	/// <summary>Gets the client that owns this player.</summary>
+	/// <value>The client that owns this player.</value>
 	// pyatv/protocols/mrp/player_state.py (self.parent) — line 27 as of pyatv 0.18.0
 	public MrpClient? Parent
 		{
@@ -98,6 +110,7 @@ public sealed class MrpPlayerState
 		}
 
 	/// <summary>Gets a value indicating whether this player has a valid (non-empty) identifier.</summary>
+	/// <value>A value indicating whether this player has a valid (non-empty) identifier.</value>
 	// pyatv/protocols/mrp/player_state.py (is_valid) — line 31-34 as of pyatv 0.18.0
 	public bool IsValid => !string.IsNullOrEmpty (Identifier);
 
@@ -118,6 +131,7 @@ public sealed class MrpPlayerState
 		}
 
 	/// <summary>Gets the playback state of the device, applying pyatv's playback-rate disambiguation.</summary>
+	/// <value>The playback state of the device, applying pyatv's playback-rate disambiguation.</value>
 	// pyatv/protocols/mrp/player_state.py (playback_state) — line 40-64 as of pyatv 0.18.0
 	public PlaybackState.Types.Enum? PlaybackStateValue
 		{
@@ -156,10 +170,12 @@ public sealed class MrpPlayerState
 		}
 
 	/// <summary>Gets the metadata of the currently playing item, if any.</summary>
+	/// <value>The metadata of the currently playing item, if any.</value>
 	// pyatv/protocols/mrp/player_state.py (metadata) — line 66-70 as of pyatv 0.18.0
 	public ContentItemMetadata? Metadata => Items.Count >= Location + 1 ? Items[Location].Metadata : null;
 
 	/// <summary>Gets the identifier of the current item in the queue.</summary>
+	/// <value>The identifier of the current item in the queue.</value>
 	// pyatv/protocols/mrp/player_state.py (item_identifier) — line 72-76 as of pyatv 0.18.0
 	public string? ItemIdentifier => Items.Count >= Location + 1 ? Items[Location].Identifier : null;
 
@@ -168,6 +184,7 @@ public sealed class MrpPlayerState
 	private static readonly DateTime CocoaEpoch = new DateTime (2001, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
 	/// <summary>Gets the total play time in seconds, or <see langword="null"/> if unknown.</summary>
+	/// <value>The total play time in seconds, or <see langword="null"/> if unknown.</value>
 	// pyatv/protocols/mrp/__init__.py (total_time) — line 200-206 as of pyatv 0.18.0
 	public int? TotalTime
 		{
@@ -179,6 +196,7 @@ public sealed class MrpPlayerState
 		}
 
 	/// <summary>Gets the current position in the playing media in seconds, or <see langword="null"/> if unknown.</summary>
+	/// <value>The current position in the playing media in seconds, or <see langword="null"/> if unknown.</value>
 	// pyatv/protocols/mrp/__init__.py (position) — line 208-226 as of pyatv 0.18.0
 	public int? Position
 		{
@@ -204,6 +222,7 @@ public sealed class MrpPlayerState
 	/// <summary>Returns a specific metadata field, or <see langword="null"/> if missing.</summary>
 	/// <typeparam name="T">The expected field type.</typeparam>
 	/// <param name="field">The metadata field name.</param>
+	/// <returns>The field value cast to the requested type, or the default value of that type if the metadata, field, or compatible value is unavailable.</returns>
 	// pyatv/protocols/mrp/player_state.py (metadata_field) — line 78-83 as of pyatv 0.18.0
 	public T? MetadataField<T> (string field)
 		{
@@ -225,6 +244,7 @@ public sealed class MrpPlayerState
 
 	/// <summary>Returns supported command info for the given command, checking this player and then the parent client.</summary>
 	/// <param name="command">The command to look up.</param>
+	/// <returns>The matching command information from this player or its parent client, or <see langword="null"/> if unsupported.</returns>
 	// pyatv/protocols/mrp/player_state.py (command_info) — line 85-90 as of pyatv 0.18.0
 	public CommandInfo? CommandInfoFor (Command command)
 		{
@@ -306,6 +326,7 @@ public sealed class MrpClient
 		}
 
 	/// <summary>Gets the client's bundle identifier.</summary>
+	/// <value>The client's bundle identifier.</value>
 	// pyatv/protocols/mrp/player_state.py (self.bundle_identifier) — line 127 as of pyatv 0.18.0
 	public string? BundleIdentifier
 		{
@@ -313,6 +334,7 @@ public sealed class MrpClient
 		}
 
 	/// <summary>Gets the client's display name.</summary>
+	/// <value>The client's display name.</value>
 	// pyatv/protocols/mrp/player_state.py (self.display_name) — line 128 as of pyatv 0.18.0
 	public string? DisplayName
 		{
@@ -321,6 +343,7 @@ public sealed class MrpClient
 		}
 
 	/// <summary>Gets the players known for this client, keyed by player identifier.</summary>
+	/// <value>The players known for this client, keyed by player identifier.</value>
 	// pyatv/protocols/mrp/player_state.py (self.players) — line 130 as of pyatv 0.18.0
 	public Dictionary<string, MrpPlayerState> Players
 		{
@@ -328,6 +351,7 @@ public sealed class MrpClient
 		} = [];
 
 	/// <summary>Gets the default supported commands for this client.</summary>
+	/// <value>The default supported commands for this client.</value>
 	// pyatv/protocols/mrp/player_state.py (self.supported_commands) — line 131 as of pyatv 0.18.0
 	public List<CommandInfo> SupportedCommands
 		{
@@ -335,6 +359,7 @@ public sealed class MrpClient
 		} = [];
 
 	/// <summary>Gets or sets the currently active player for this client.</summary>
+	/// <value>The currently active player for this client.</value>
 	// pyatv/protocols/mrp/player_state.py (active_player property/setter) — line 134-146 as of pyatv 0.18.0
 	public MrpPlayerState ActivePlayer
 		{
@@ -351,6 +376,7 @@ public sealed class MrpClient
 
 	/// <summary>Gets state for a player, creating it if it does not already exist.</summary>
 	/// <param name="player">The player identity to look up.</param>
+	/// <returns>The existing or newly created state for the requested player.</returns>
 	// pyatv/protocols/mrp/player_state.py (get_player) — line 148-152 as of pyatv 0.18.0
 	public MrpPlayerState GetPlayer (NowPlayingPlayer player)
 		{
@@ -419,6 +445,7 @@ public sealed class MrpPlayerStateManager : IMrpProtocolListener
 	private readonly Dictionary<string, MrpClient> _clients = [];
 
 	/// <summary>Gets or sets the listener notified when relevant player state changes.</summary>
+	/// <value>The listener notified when relevant player state changes.</value>
 	// pyatv/protocols/mrp/player_state.py (listener property/setter) — line 202-216 as of pyatv 0.18.0
 	public IMrpPlayerStateListener? Listener
 		{
@@ -427,6 +454,7 @@ public sealed class MrpPlayerStateManager : IMrpProtocolListener
 		}
 
 	/// <summary>Gets the currently active client, or <see langword="null"/> if none is active.</summary>
+	/// <value>The currently active client, or <see langword="null"/> if none is active.</value>
 	// pyatv/protocols/mrp/player_state.py (client property) — line 218-221 as of pyatv 0.18.0
 	public MrpClient? Client
 		{
@@ -435,11 +463,13 @@ public sealed class MrpPlayerStateManager : IMrpProtocolListener
 		}
 
 	/// <summary>Gets the player state for the active media player.</summary>
+	/// <value>The player state for the active media player.</value>
 	// pyatv/protocols/mrp/player_state.py (playing property) — line 223-227 as of pyatv 0.18.0
 	public MrpPlayerState Playing => Client?.ActivePlayer
 		?? new MrpPlayerState (new MrpClient (new NowPlayingClient ()), new NowPlayingPlayer ());
 
 	/// <summary>Gets a value indicating whether the device currently reports volume control as available.</summary>
+	/// <value>A value indicating whether the device currently reports volume control as available.</value>
 	// pyatv/protocols/mrp/__init__.py (MrpAudio.is_available) — line 772-775 as of pyatv 0.18.0
 	public bool VolumeControlAvailable
 		{
@@ -448,6 +478,7 @@ public sealed class MrpPlayerStateManager : IMrpProtocolListener
 		}
 
 	/// <summary>Gets a value indicating whether absolute volume control is available.</summary>
+	/// <value>A value indicating whether absolute volume control is available.</value>
 	// pyatv/protocols/mrp/__init__.py (MrpAudio.is_volume_absolute) — line 777-780 as of pyatv 0.18.0
 	public bool VolumeControlAbsolute
 		{
@@ -456,6 +487,7 @@ public sealed class MrpPlayerStateManager : IMrpProtocolListener
 		}
 
 	/// <summary>Gets a value indicating whether relative volume control is available.</summary>
+	/// <value>A value indicating whether relative volume control is available.</value>
 	// pyatv/protocols/mrp/__init__.py (MrpAudio.is_volume_relative) — line 782-785 as of pyatv 0.18.0
 	public bool VolumeControlRelative
 		{
@@ -465,6 +497,7 @@ public sealed class MrpPlayerStateManager : IMrpProtocolListener
 
 	/// <summary>Returns the client for a given <see cref="NowPlayingClient"/>, creating it if needed.</summary>
 	/// <param name="client">The client identity to look up.</param>
+	/// <returns>The existing or newly created client state for the requested identity.</returns>
 	// pyatv/protocols/mrp/player_state.py (get_client) — line 187-191 as of pyatv 0.18.0
 	public MrpClient GetClient (NowPlayingClient client)
 		{
@@ -480,10 +513,12 @@ public sealed class MrpPlayerStateManager : IMrpProtocolListener
 
 	/// <summary>Returns the player for a given <see cref="PlayerPath"/>.</summary>
 	/// <param name="playerPath">The player path to resolve.</param>
+	/// <returns>The existing or newly created state for the requested player.</returns>
 	// pyatv/protocols/mrp/player_state.py (get_player) — line 193-195 as of pyatv 0.18.0
 	public MrpPlayerState GetPlayer (PlayerPath playerPath) => GetClient (playerPath.Client).GetPlayer (playerPath.Player);
 
-	/// <inheritdoc/>
+	/// <summary>Updates tracked player and client state from an incoming MRP message.</summary>
+	/// <param name="message">The received protocol message.</param>
 	// pyatv/protocols/mrp/player_state.py (PlayerStateManager._add_listeners dispatch table) — line 178-186 as of pyatv 0.18.0
 	public void MessageReceived (ProtocolMessage message)
 		{

@@ -113,8 +113,29 @@
       "documentation": {
         "config": "src/AppleTV.Companion/docfx/docfx.json",
         "site": "src/AppleTV.Companion/docfx/_site",
-        "title": "AppleTVControlLibrary"
+        "title": "AppleTVControlLibrary",
+        "generatedApiPrefixes": [
+          "AppleTvControlLibrary.Mrp.Protobuf."
+        ]
       }
+    },
+    "xml-documentation": {
+      "commands": [
+        {
+          "executable": "dotnet",
+          "arguments": [
+            "--version"
+          ]
+        }
+      ]
     }
+  },
+  "xmlDocumentation": {
+    "projects": [
+      "src/AppleTV.Companion/AppleTV.Companion.csproj",
+      "src/AppleTv.Mrp/AppleTv.Mrp.csproj",
+      "src/AppleTv.Hap/AppleTv.Hap.csproj",
+      "src/AppleTV.Companion.Discovery/AppleTV.Companion.Discovery.csproj"
+    ]
   }
 }

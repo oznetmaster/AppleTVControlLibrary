@@ -14,26 +14,38 @@ namespace AppleTvControlLibrary.Mrp.AirPlay.Http;
 /// AirPlay 2 session.
 /// </summary>
 /// <remarks>Initializes a new instance of the <see cref="HttpResponse"/> class.</remarks>
+/// <param name="protocol">The protocol name in the start line.</param>
+/// <param name="version">The protocol version in the start line.</param>
+/// <param name="code">The response status code.</param>
+/// <param name="message">The response reason phrase.</param>
+/// <param name="headers">The message headers.</param>
+/// <param name="body">The message body bytes.</param>
 // pyatv/support/http.py (HttpResponse) — line 79-87 as of pyatv 0.18.0
 public sealed class HttpResponse (string protocol, string version, int code, string message, IReadOnlyDictionary<string, string> headers, byte[] body)
 	{
 
 	/// <summary>Gets the protocol name (e.g. "HTTP" or "RTSP").</summary>
+	/// <value>The protocol name (e.g. "HTTP" or "RTSP").</value>
 	public string Protocol { get; } = protocol;
 
 	/// <summary>Gets the protocol version (e.g. "1.1" or "1.0").</summary>
+	/// <value>The protocol version (e.g. "1.1" or "1.0").</value>
 	public string Version { get; } = version;
 
 	/// <summary>Gets the numeric status code.</summary>
+	/// <value>The numeric status code.</value>
 	public int Code { get; } = code;
 
 	/// <summary>Gets the status message.</summary>
+	/// <value>The status message.</value>
 	public string Message { get; } = message;
 
 	/// <summary>Gets the response headers, keyed case-insensitively.</summary>
+	/// <value>The response headers, keyed case-insensitively.</value>
 	public IReadOnlyDictionary<string, string> Headers { get; } = headers;
 
 	/// <summary>Gets the response body.</summary>
+	/// <value>The response body.</value>
 	public byte[] Body { get; } = body;
 	}
 
@@ -42,26 +54,38 @@ public sealed class HttpResponse (string protocol, string version, int code, str
 /// AirPlay 2 session.
 /// </summary>
 /// <remarks>Initializes a new instance of the <see cref="HttpRequest"/> class.</remarks>
+/// <param name="method">The request method.</param>
+/// <param name="path">The request target path.</param>
+/// <param name="protocol">The protocol name in the start line.</param>
+/// <param name="version">The protocol version in the start line.</param>
+/// <param name="headers">The message headers.</param>
+/// <param name="body">The message body bytes.</param>
 // pyatv/support/http.py (HttpRequest) — line 90-97 as of pyatv 0.18.0
 public sealed class HttpRequest (string method, string path, string protocol, string version, IReadOnlyDictionary<string, string> headers, byte[] body)
 	{
 
 	/// <summary>Gets the request method (e.g. "GET", "SETUP").</summary>
+	/// <value>The request method (e.g. "GET", "SETUP").</value>
 	public string Method { get; } = method;
 
 	/// <summary>Gets the request path/URI.</summary>
+	/// <value>The request path/URI.</value>
 	public string Path { get; } = path;
 
 	/// <summary>Gets the protocol name (e.g. "HTTP" or "RTSP").</summary>
+	/// <value>The protocol name (e.g. "HTTP" or "RTSP").</value>
 	public string Protocol { get; } = protocol;
 
 	/// <summary>Gets the protocol version (e.g. "1.1" or "1.0").</summary>
+	/// <value>The protocol version (e.g. "1.1" or "1.0").</value>
 	public string Version { get; } = version;
 
 	/// <summary>Gets the request headers, keyed case-insensitively.</summary>
+	/// <value>The request headers, keyed case-insensitively.</value>
 	public IReadOnlyDictionary<string, string> Headers { get; } = headers;
 
 	/// <summary>Gets the request body.</summary>
+	/// <value>The request body.</value>
 	public byte[] Body { get; } = body;
 	}
 

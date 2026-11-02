@@ -135,6 +135,8 @@ public static class Tlv8
 	/// If value is larger than 255 bytes, it is split up in multiple chunks. So
 	/// the same tag might occur several times.
 	/// </remarks>
+	/// <param name="data">The TLV8-encoded bytes to parse.</param>
+	/// <returns>The decoded values keyed by tag, with repeated tag chunks concatenated.</returns>
 	// pyatv/auth/hap_tlv8.py (read_tlv) — line 77-100 as of pyatv 0.18.0
 	public static Dictionary<int, byte[]> ReadTlv (byte[] data)
 		{
@@ -173,6 +175,8 @@ public static class Tlv8
 	/// <remarks>
 	/// NB: This simple implementation assumes all values are bytes!
 	/// </remarks>
+	/// <param name="data">The TLV8 tag and byte-array value pairs.</param>
+	/// <returns>The TLV8-encoded bytes, with long values split into chunks.</returns>
 	// pyatv/auth/hap_tlv8.py (write_tlv) — line 103-123 as of pyatv 0.18.0
 	public static byte[] WriteTlv (IEnumerable<KeyValuePair<int, byte[]>> data)
 		{
@@ -211,6 +215,8 @@ public static class Tlv8
 	/// Method, sequence number, error and backoff time are parsed while the rest
 	/// are just summarized with value byte length.
 	/// </remarks>
+	/// <param name="data">The TLV8 tag and byte-array value pairs.</param>
+	/// <returns>A readable summary of the TLV8 values.</returns>
 	// pyatv/auth/hap_tlv8.py (stringify) — line 126-158 as of pyatv 0.18.0
 	public static string Stringify (IEnumerable<KeyValuePair<int, byte[]>> data)
 		{

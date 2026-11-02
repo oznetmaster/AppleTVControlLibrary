@@ -5,35 +5,46 @@ namespace AppleTvControlLibrary.Discovery.Dns;
 
 /// <summary>Represents a DNS resource record.</summary>
 /// <remarks>Initializes a new instance of the <see cref="DnsResource"/> class.</remarks>
+/// <param name="qname">The DNS record name.</param>
+/// <param name="qtype">The DNS record type.</param>
+/// <param name="qclass">The DNS record class.</param>
+/// <param name="ttl">The record time-to-live in seconds.</param>
+/// <param name="rdLength">The length of the resource data in bytes.</param>
+/// <param name="rd">The decoded resource data.</param>
 // pyatv/support/dns.py (DnsResource) — line 332-358 as of pyatv 0.18.0
 public sealed class DnsResource (string qname, QueryType qtype, ushort qclass, uint ttl, ushort rdLength, object rd)
 	{
 
 	/// <summary>Gets the record name.</summary>
+	/// <value>The record name.</value>
 	public string QName
 		{
 		get;
 		} = qname;
 
 	/// <summary>Gets the record type.</summary>
+	/// <value>The record type.</value>
 	public QueryType QType
 		{
 		get;
 		} = qtype;
 
 	/// <summary>Gets the record class.</summary>
+	/// <value>The record class.</value>
 	public ushort QClass
 		{
 		get;
 		} = qclass;
 
 	/// <summary>Gets the record time-to-live.</summary>
+	/// <value>The record time-to-live.</value>
 	public uint Ttl
 		{
 		get;
 		} = ttl;
 
 	/// <summary>Gets the RDATA byte length as read from the wire.</summary>
+	/// <value>The RDATA byte length as read from the wire.</value>
 	public ushort RdLength
 		{
 		get;
@@ -45,6 +56,12 @@ public sealed class DnsResource (string qname, QueryType qtype, ushort qclass, u
 	/// of <see cref="string"/> to <see cref="byte"/>[] for TXT, a <see cref="SrvRecord"/> for
 	/// SRV, or raw <see cref="byte"/>[] otherwise.
 	/// </summary>
+	/// <value>
+	/// The parsed RDATA. The runtime type depends on <see cref="QType"/>: a
+	/// <see cref="string"/> for A/PTR, a <see cref="System.Collections.Generic.Dictionary{TKey,TValue}"/>
+	/// of <see cref="string"/> to <see cref="byte"/>[] for TXT, a <see cref="SrvRecord"/> for
+	/// SRV, or raw <see cref="byte"/>[] otherwise.
+	/// </value>
 	public object Rd
 		{
 		get;

@@ -51,18 +51,22 @@ public sealed class HttpConnection : IDisposable
 		}
 
 	/// <summary>Gets or sets the processor applied to data as it is received (e.g. HAP decryption).</summary>
+	/// <value>The processor applied to data as it is received (e.g. HAP decryption).</value>
 	// pyatv/support/http.py (receive_processor) — line 337-339 as of pyatv 0.18.0
 	public Func<byte[], byte[]>? ReceiveProcessor { get; set; }
 
 	/// <summary>Gets or sets the processor applied to data before it is sent (e.g. HAP encryption).</summary>
+	/// <value>The processor applied to data before it is sent (e.g. HAP encryption).</value>
 	// pyatv/support/http.py (send_processor) — line 340-342 as of pyatv 0.18.0
 	public Func<byte[], byte[]>? SendProcessor { get; set; }
 
 	/// <summary>Gets the local IP address of the connection.</summary>
+	/// <value>The local IP address of the connection.</value>
 	// pyatv/support/http.py (local_ip) — line 347-351 as of pyatv 0.18.0
 	public string LocalIp { get; private set; } = string.Empty;
 
 	/// <summary>Gets the remote IP address of the connection.</summary>
+	/// <value>The remote IP address of the connection.</value>
 	// pyatv/support/http.py (remote_ip) — line 353-357 as of pyatv 0.18.0
 	public string RemoteIp { get; private set; } = string.Empty;
 
@@ -100,6 +104,7 @@ public sealed class HttpConnection : IDisposable
 	/// <param name="path">The request path.</param>
 	/// <param name="allowError">If <see langword="true"/>, non-2xx responses are returned rather than throwing.</param>
 	/// <param name="cancellationToken">A token used to cancel the exchange.</param>
+	/// <returns>A task containing the response received for the request.</returns>
 	// pyatv/support/http.py (HttpConnection.get) — line 419-421 as of pyatv 0.18.0
 	public Task<HttpResponse> GetAsync (string path, bool allowError = false, CancellationToken cancellationToken = default) =>
 		SendAndReceiveAsync ("GET", path, allowError: allowError, cancellationToken: cancellationToken);
@@ -110,6 +115,7 @@ public sealed class HttpConnection : IDisposable
 	/// <param name="body">The request body.</param>
 	/// <param name="allowError">If <see langword="true"/>, non-2xx responses are returned rather than throwing.</param>
 	/// <param name="cancellationToken">A token used to cancel the exchange.</param>
+	/// <returns>A task containing the response received for the request.</returns>
 	// pyatv/support/http.py (HttpConnection.post) — line 423-433 as of pyatv 0.18.0
 	public Task<HttpResponse> PostAsync (
 		string path,

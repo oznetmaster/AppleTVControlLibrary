@@ -27,6 +27,7 @@ namespace AppleTvControlLibrary.Mrp.Protocol;
 public static class MrpExtensions
 	{
 	/// <summary>Gets a registry containing every generated <c>ProtocolMessage</c> extension field.</summary>
+	/// <value>A registry containing every generated <c>ProtocolMessage</c> extension field.</value>
 	public static ExtensionRegistry Registry
 		{
 		get;

@@ -21,12 +21,14 @@ public readonly struct SizedInteger
 		}
 
 	/// <summary>Gets the integer value.</summary>
+	/// <value>The integer value.</value>
 	public long Value
 		{
 		get;
 		}
 
 	/// <summary>Gets the encoded width, in bytes, of this integer (1, 2, 4 or 8).</summary>
+	/// <value>The encoded width, in bytes, of this integer (1, 2, 4 or 8).</value>
 	public int Size
 		{
 		get;

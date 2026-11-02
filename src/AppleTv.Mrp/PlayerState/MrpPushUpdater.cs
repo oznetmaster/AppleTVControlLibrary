@@ -67,6 +67,7 @@ public sealed class MrpPushUpdater (MrpPlayerStateManager psm) : IMrpPlayerState
 	{
 
 	/// <summary>Gets or sets the listener notified of push updates and errors.</summary>
+	/// <value>The listener notified of push updates and errors.</value>
 	public IMrpPushUpdaterListener? Listener
 		{
 		get;
@@ -74,6 +75,7 @@ public sealed class MrpPushUpdater (MrpPlayerStateManager psm) : IMrpPlayerState
 		}
 
 	/// <summary>Gets a value indicating whether this instance is currently registered to receive push updates.</summary>
+	/// <value>A value indicating whether this instance is currently registered to receive push updates.</value>
 	// pyatv/protocols/mrp/__init__.py (MrpPushUpdater.active) — line 712-715 as of pyatv 0.18.0
 	public bool Active => ReferenceEquals (psm.Listener, this);
 
@@ -114,7 +116,7 @@ public sealed class MrpPushUpdater (MrpPlayerStateManager psm) : IMrpPlayerState
 			}
 		}
 
-	/// <inheritdoc/>
+	/// <summary>Reports the current playing state to the listener, or reports an error if building the update fails.</summary>
 	// pyatv/protocols/mrp/__init__.py (MrpPushUpdater.state_updated) — line 734-743 as of pyatv 0.18.0
 	public void StateUpdated ()
 		{
