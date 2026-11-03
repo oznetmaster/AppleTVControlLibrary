@@ -18,48 +18,23 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+    - name: Build, verify and retain standard documentation
+      uses: oznetmaster/BuildAutomation/.github/actions/documentation-build@c650afeb23c584d68580440ef0f7baaf737cdfd0
       with:
-        dotnet-version: 10.0.x
-    - name: Build and verify standard documentation
-      uses: oznetmaster/BuildAutomation@cb36bb30b23e58aff85435f23ad0c8428d86ecdd
-      with:
-        task: documentation
-    - name: Configure Pages
-      uses: actions/configure-pages@v5
-    - name: Upload Pages artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: ${{ env.DOCFX_SITE }}
+        site: ${{ env.DOCFX_SITE }}
+        configure-pages: 'true'
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deploy_1.outputs.page_url || steps.deploy_2.outputs.page_url || steps.deploy_3.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: windows-latest
     needs: build
     steps:
-    - name: Deploy to GitHub Pages (attempt 1)
-      id: deploy_1
-      uses: actions/deploy-pages@v4
-      continue-on-error: true
-    - name: Wait before retry 1
-      if: steps.deploy_1.outcome == 'failure'
-      shell: pwsh
-      run: Start-Sleep -Seconds 20
-    - name: Deploy to GitHub Pages (attempt 2)
-      id: deploy_2
-      if: steps.deploy_1.outcome == 'failure'
-      uses: actions/deploy-pages@v4
-      continue-on-error: true
-    - name: Wait before retry 2
-      if: steps.deploy_1.outcome == 'failure' && steps.deploy_2.outcome == 'failure'
-      shell: pwsh
-      run: Start-Sleep -Seconds 20
-    - name: Deploy to GitHub Pages (attempt 3)
-      id: deploy_3
-      if: steps.deploy_1.outcome == 'failure' && steps.deploy_2.outcome == 'failure'
-      uses: actions/deploy-pages@v4
+    - name: Deploy documentation
+      id: deployment
+      uses: oznetmaster/BuildAutomation/.github/actions/documentation-deploy@c650afeb23c584d68580440ef0f7baaf737cdfd0
+      with:
+        attempts: '3'
 'on':
   push:
     branches:
