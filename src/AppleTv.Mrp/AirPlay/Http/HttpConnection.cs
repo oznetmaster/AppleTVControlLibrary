@@ -33,7 +33,8 @@ public sealed class HttpConnection : IDisposable
 
 	private readonly TcpClient _client;
 	private readonly NetworkStream _stream;
-	private readonly LinkedList<PendingRequest> _requests = new ();
+	private readonly Queue<PendingRequest> _requests = new ();
+	private readonly SemaphoreSlim _writeGate = new (1, 1);
 	private readonly object _requestsLock = new ();
 	private readonly Thread _readThread;
 	private readonly List<byte> _buffer = [];
@@ -152,70 +153,67 @@ public sealed class HttpConnection : IDisposable
 		{
 		byte[] output = HttpMessages.FormatMessage (method, uri, protocol, userAgent, contentType, headers, body);
 
-		if (_disposed)
+		using var pending = new PendingRequest ();
+		using var timeoutCts = new CancellationTokenSource ();
+		using CancellationTokenSource linkedCts = CancellationTokenSource.CreateLinkedTokenSource (cancellationToken, timeoutCts.Token);
+		await _writeGate.WaitAsync (cancellationToken).ConfigureAwait (false);
+		try
 			{
-			throw new InvalidOperationException ("not connected to remote");
+			cancellationToken.ThrowIfCancellationRequested ();
+			lock (_requestsLock)
+				{
+				if (_disposed)
+					throw new InvalidOperationException ("not connected to remote");
+				_requests.Enqueue (pending);
+				}
+
+			try
+				{
+				// Keep request order, socket write order, and any encryption counters aligned.
+				byte[] toSend = SendProcessor is null ? output : SendProcessor (output);
+				// Use the byte[] overload on both targets; net472 has no ReadOnlyMemory overload.
+#pragma warning disable CA1835
+				await _stream.WriteAsync (toSend, 0, toSend.Length, cancellationToken).ConfigureAwait (false);
+#pragma warning restore CA1835
+				timeoutCts.CancelAfter (timeout ?? TimeSpan.FromSeconds (10));
+				}
+			catch
+				{
+				// A partial write can leave the peer's framing and our FIFO out of sync.
+				CloseConnection ();
+				throw;
+				}
 			}
-
-		byte[] toSend = SendProcessor is null ? output : SendProcessor (output);
-
-		var pending = new PendingRequest ();
-		LinkedListNode<PendingRequest> node;
-		lock (_requestsLock)
+		finally
 			{
-			node = _requests.AddFirst (pending);
+			_ = _writeGate.Release ();
 			}
 
 		try
 			{
-			// The ReadOnlyMemory<byte> overload of Stream.WriteAsync is unavailable on net472,
-			// and this project has exactly one code path across both TFMs (no #if in protocol
-			// code), so the byte[]/offset/count overload is used deliberately here.
-#pragma warning disable CA1835
-			await _stream.WriteAsync (toSend, 0, toSend.Length, cancellationToken).ConfigureAwait (false);
-#pragma warning restore CA1835
-
-			using var timeoutCts = new CancellationTokenSource (timeout ?? TimeSpan.FromSeconds (10));
-			using CancellationTokenSource linkedCts = CancellationTokenSource.CreateLinkedTokenSource (cancellationToken, timeoutCts.Token);
-			try
-				{
-				await pending.Signal.WaitAsync (linkedCts.Token).ConfigureAwait (false);
-				}
-			catch (OperationCanceledException) when (timeoutCts.IsCancellationRequested)
-				{
-				throw new TimeoutException ($"no response to {method} {uri} ({protocol})");
-				}
-
-			if (pending.ConnectionClosed)
-				{
-				throw new InvalidOperationException ("connection was lost");
-				}
-
-			HttpResponse response = pending.Response ?? throw new InvalidOperationException ("did not get a response");
-
-			return response.Code == 403
-				? throw new UnauthorizedAccessException ("not authenticated")
-				: response.Code == 401
-				? allowError ? response : throw new UnauthorizedAccessException ("not authenticated")
-				: (response.Code >= 200 && response.Code < 300) || allowError
-				? response
-				: throw new InvalidOperationException ($"{protocol} method {method} failed with code {response.Code}: {response.Message}");
+			await pending.Signal.WaitAsync (linkedCts.Token).ConfigureAwait (false);
 			}
-		finally
+		catch (OperationCanceledException)
 			{
-			// DispatchResponse (or HandleConnectionLost) may already have removed this node from
-			// the list when the response/closure was delivered; only remove it here if it is still
-			// attached, otherwise LinkedList<T>.Remove throws "node does not belong to current list".
-			lock (_requestsLock)
-				{
-				if (node.List is not null)
-					{
-					_requests.Remove (node);
-					}
-				}
-
-			pending.Dispose ();
+			// Some AirPlay replies have no correlation ID. Once a written request is
+			// abandoned, its late reply must never be handed to a different request.
+			CloseConnection ();
+			if (!cancellationToken.IsCancellationRequested && timeoutCts.IsCancellationRequested)
+				throw new TimeoutException ($"no response to {method} {uri} ({protocol})");
+			throw;
 			}
+
+		if (pending.ConnectionClosed)
+			throw new InvalidOperationException ("connection was lost");
+
+		HttpResponse response = pending.Response ?? throw new InvalidOperationException ("did not get a response");
+		return response.Code == 403
+			? throw new UnauthorizedAccessException ("not authenticated")
+			: response.Code == 401
+			? allowError ? response : throw new UnauthorizedAccessException ("not authenticated")
+			: (response.Code >= 200 && response.Code < 300) || allowError
+			? response
+			: throw new InvalidOperationException ($"{protocol} method {method} failed with code {response.Code}: {response.Message}");
 		}
 
 	// pyatv/support/http.py (HttpConnection.data_received) — line 373-388 as of pyatv 0.18.0
@@ -260,58 +258,47 @@ public sealed class HttpConnection : IDisposable
 			}
 		finally
 			{
-			HandleConnectionLost ();
+			CloseConnection ();
 			}
 		}
 
-	// pyatv/support/http.py (HttpConnection.data_received) — line 380-388 as of pyatv 0.18.0: dispatch
-	// to the oldest outstanding request, mirroring pyatv's use of a deque and .pop().
+	// AirPlay replies normally arrive in the same order as the requests were written.
 	private void DispatchResponse (HttpResponse response)
 		{
-		PendingRequest? target = null;
 		lock (_requestsLock)
 			{
-			if (_requests.Last is not null)
+			if (!_disposed && _requests.Count > 0)
 				{
-				target = _requests.Last.Value;
-				_requests.RemoveLast ();
+				PendingRequest target = _requests.Dequeue ();
+				target.Response = response;
+				_ = target.Signal.Release ();
 				}
-			}
-
-		if (target is not null)
-			{
-			target.Response = response;
-			_ = target.Signal.Release ();
 			}
 		}
 
-	// pyatv/support/http.py (HttpConnection.connection_lost) — line 411-417 as of pyatv 0.18.0
-	private void HandleConnectionLost ()
+	private void CloseConnection ()
 		{
 		lock (_requestsLock)
 			{
+			if (_disposed)
+				return;
+			_disposed = true;
 			foreach (PendingRequest pending in _requests)
 				{
 				pending.ConnectionClosed = true;
 				_ = pending.Signal.Release ();
 				}
-
 			_requests.Clear ();
 			}
+
+		_client.Close ();
 		}
 
 	/// <summary>Closes the underlying socket and stops the read loop.</summary>
 	// pyatv/support/http.py (HttpConnection.close) — line 366-371 as of pyatv 0.18.0
 	public void Dispose ()
 		{
-		if (_disposed)
-			{
-			return;
-			}
-
-		_disposed = true;
-		_client.Close ();
-		HandleConnectionLost ();
+		CloseConnection ();
 
 		if (_readThread.IsAlive && Environment.CurrentManagedThreadId != _readThread.ManagedThreadId)
 			{

@@ -188,11 +188,15 @@ public static class MrpMessages
 	/// <summary>Extract the CryptoPairingMessage extension from a ProtocolMessage and decode its TLV8 pairing data.</summary>
 	/// <param name="message">The received message.</param>
 	/// <returns>The decoded TLV8 fields.</returns>
-	/// <exception cref="AppleTvControlLibrary.Auth.AuthenticationException">Thrown if the pairing data contains a TlvValue.Error entry.</exception>
+	/// <exception cref="AppleTvControlLibrary.Auth.AuthenticationException">The message is missing pairing data or the peer reported an error.</exception>
 	// pyatv/protocols/mrp/auth.py (_get_pairing_data) — line 19-23 as of pyatv 0.18.0
 	public static Dictionary<int, byte[]> GetPairingData (ProtocolMessage message)
 		{
-		CryptoPairingMessage inner = message.GetExtension (CryptoPairingMessageExtensions.CryptoPairingMessage);
+		CryptoPairingMessage? inner = message.GetExtension (CryptoPairingMessageExtensions.CryptoPairingMessage);
+		if (inner is null || !inner.HasPairingData)
+			throw new AppleTvControlLibrary.Auth.AuthenticationException ("MRP response has no pairing data.");
+		if ((int)message.ErrorCode != 0 || inner.Status != 0)
+			throw new AppleTvControlLibrary.Auth.AuthenticationException ("MRP peer rejected the pairing request.");
 		Dictionary<int, byte[]> tlv = Tlv8.Tlv8.ReadTlv (inner.PairingData.ToByteArray ());
 
 		return tlv.ContainsKey ((int)TlvValue.Error)

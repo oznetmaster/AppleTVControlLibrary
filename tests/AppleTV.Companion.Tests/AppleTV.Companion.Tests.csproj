@@ -35,6 +35,7 @@
 
   <ItemGroup>
     <PackageReference Include="System.Text.Json" Version="10.0.12" />
+    <Compile Include="../../src/Shared/CredentialFiles.cs" Link="Storage/CredentialFiles.cs" />
     <Compile Include="../../src/AppleTv.Remote.Wpf/Storage/CredentialStore.cs" Link="Storage/CompanionCredentialStore.cs" />
     <Compile Include="../../src/AppleTv.Remote.Mrp.Wpf/Storage/CredentialStore.cs" Link="Storage/MrpCredentialStore.cs" />
   </ItemGroup>

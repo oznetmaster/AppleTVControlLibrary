@@ -12,6 +12,7 @@ using Org.BouncyCastle.Crypto.Signers;
 using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Math.EC.Rfc8032;
 using Org.BouncyCastle.Security;
+using Org.BouncyCastle.Utilities;
 
 using AppleTvControlLibrary.Crypto;
 using System.Collections.Generic;
@@ -272,9 +273,33 @@ public sealed class SrpAuthHandler
 		return (PadBytes (_clientPublic, 0), _keyProof);
 		}
 
+	/// <summary>Validates the accessory's SRP proof before sending the controller identity.</summary>
+	/// <param name="serverProof">The proof from the accessory's M4 response.</param>
+	/// <exception cref="AuthenticationException">The proof is absent or incorrect.</exception>
+	/// <exception cref="InvalidOperationException">The SRP session has not been established by <see cref="Step2"/>.</exception>
+	public void VerifyServerProof (byte[]? serverProof)
+		{
+		if (_clientPublic is null || _keyProof is null || _sessionKeyBytes is null)
+			throw new InvalidOperationException ("Step2 must be called first");
+
+		if (serverProof is not { Length: 64 })
+			throw new AuthenticationException ("Missing or malformed Pair Setup server proof.");
+
+		// HAP hashes the full 3072-bit public A for this proof. The srptools
+		// implementation uses its minimal encoding; they differ only for leading zeros.
+		byte[] paddedPublic = PadBytes (_clientPublic);
+		bool valid = Arrays.FixedTimeEquals (HashAsBytes ("", paddedPublic, _keyProof, _sessionKeyBytes), serverProof);
+		byte[] minimalPublic = ToPyBytes (_clientPublic);
+		if (paddedPublic.Length != minimalPublic.Length)
+			valid |= Arrays.FixedTimeEquals (HashAsBytes ("", minimalPublic, _keyProof, _sessionKeyBytes), serverProof);
+		if (!valid)
+			throw new AuthenticationException ("Invalid Pair Setup server proof.");
+		}
+
 	/// <summary>Third pairing step. Builds the encrypted TLV payload with device identity.</summary>
 	/// <param name="name">An optional display name to include.</param>
 	/// <returns>The encrypted TLV8 payload.</returns>
+	/// <remarks>Call <see cref="VerifyServerProof"/> with the accessory response before this step.</remarks>
 	// pyatv/auth/hap_srp.py (step3) — line 167-201 as of pyatv 0.18.0
 	public byte[] Step3 (string? name = null)
 		{
@@ -317,7 +342,7 @@ public sealed class SrpAuthHandler
 	// pyatv/auth/hap_srp.py (step4) — line 203-233 as of pyatv 0.18.0
 	public HapCredentials Step4 (byte[] encryptedData)
 		{
-		if (_setupSessionKey is null || _authPrivate is null)
+		if (_setupSessionKey is null || _authPrivate is null || _sessionKeyBytes is null)
 			{
 			throw new InvalidOperationException ("Step3 must be called first");
 			}
@@ -332,10 +357,21 @@ public sealed class SrpAuthHandler
 
 		Dictionary<int, byte[]> decryptedTlv = Tlv8.Tlv8.ReadTlv (decryptedTlvBytes);
 
-		var atvIdentifier = decryptedTlv[(int)Tlv8.TlvValue.Identifier];
-		var atvPubKey = decryptedTlv[(int)Tlv8.TlvValue.PublicKey];
+		if (!decryptedTlv.TryGetValue ((int)Tlv8.TlvValue.Identifier, out byte[]? atvIdentifier)
+			|| atvIdentifier.Length == 0
+			|| !decryptedTlv.TryGetValue ((int)Tlv8.TlvValue.PublicKey, out byte[]? atvPubKey)
+			|| atvPubKey.Length != Ed25519PublicKeyParameters.KeySize
+			|| !decryptedTlv.TryGetValue ((int)Tlv8.TlvValue.Signature, out byte[]? signature)
+			|| signature.Length != Ed25519PrivateKeyParameters.SignatureSize)
+			throw new AuthenticationException ("Missing or malformed Pair Setup accessory identity.");
 
-		// TODO: verify signature here (pyatv/auth/hap_srp.py — line 230 as of pyatv 0.18.0)
+		byte[] accessoryX = HkdfExpand ("Pair-Setup-Accessory-Sign-Salt", "Pair-Setup-Accessory-Sign-Info", _sessionKeyBytes);
+		byte[] accessoryInfo = Concat (accessoryX, atvIdentifier, atvPubKey);
+		var verifier = new Ed25519Signer ();
+		verifier.Init (false, new Ed25519PublicKeyParameters (atvPubKey, 0));
+		verifier.BlockUpdate (accessoryInfo, 0, accessoryInfo.Length);
+		if (!verifier.VerifySignature (signature))
+			throw new AuthenticationException ("Invalid Pair Setup accessory signature.");
 
 		return new HapCredentials (atvPubKey, _authPrivate, atvIdentifier, PairingId);
 		}

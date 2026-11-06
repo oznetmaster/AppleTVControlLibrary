@@ -9,6 +9,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 
 using AppleTvControlLibrary.Auth;
+using AppleTvControlLibrary.Remote.Storage;
 
 namespace AppleTvControlLibrary.Remote.Wpf.Storage;
 
@@ -111,6 +112,10 @@ public sealed class StoredDevice
 		set;
 		}
 
+	/// <summary>Gets or sets unrecognized JSON fields so a save can preserve them.</summary>
+	[JsonExtensionData]
+	public Dictionary<string, JsonElement>? AdditionalData { get; set; }
+
 	/// <summary>Converts the stored key material to a <see cref="HapCredentials"/> instance.</summary>
 	public HapCredentials ToCredentials () => new (Ltpk, Ltsk, AtvId, ClientId);
 
@@ -164,7 +169,10 @@ public sealed class CredentialStore
 			}
 
 		string json = File.ReadAllText (path);
-		return JsonSerializer.Deserialize<StoredDevice> (json, SerializerOptions);
+		StoredDevice? device = JsonSerializer.Deserialize<StoredDevice> (json, SerializerOptions);
+		if (device is not null && CredentialFiles.TryGetAutoConnect (_directory, out string? selected))
+			device.AutoConnect = device.UniqueId == selected;
+		return device;
 		}
 
 	/// <summary>Saves a paired device's credentials.</summary>
@@ -173,7 +181,7 @@ public sealed class CredentialStore
 		{
 		string path = GetPath (device.UniqueId);
 		string json = JsonSerializer.Serialize (device, SerializerOptions);
-		File.WriteAllText (path, json);
+		CredentialFiles.WriteAtomically (path, json);
 		}
 
 	/// <summary>Deletes any stored credentials for the given device (i.e. "forget" / unpair).</summary>
@@ -183,6 +191,8 @@ public sealed class CredentialStore
 		string path = GetPath (uniqueId);
 		if (File.Exists (path))
 			{
+			if (CredentialFiles.TryGetAutoConnect (_directory, out string? selected) && selected == uniqueId)
+				CredentialFiles.SetAutoConnect (_directory, null);
 			File.Delete (path);
 			}
 		}
@@ -191,6 +201,7 @@ public sealed class CredentialStore
 	public IReadOnlyList<StoredDevice> LoadAll ()
 		{
 		List<StoredDevice> devices = [];
+		bool hasPreference = CredentialFiles.TryGetAutoConnect (_directory, out string? selected);
 		foreach (string path in Directory.EnumerateFiles (_directory, "*.json"))
 			{
 			try
@@ -199,6 +210,8 @@ public sealed class CredentialStore
 				StoredDevice? device = JsonSerializer.Deserialize<StoredDevice> (json, SerializerOptions);
 				if (device is not null)
 					{
+					if (hasPreference)
+						device.AutoConnect = device.UniqueId == selected;
 					devices.Add (device);
 					}
 				}
@@ -221,15 +234,8 @@ public sealed class CredentialStore
 	/// </param>
 	public void SetAutoConnect (string? uniqueId)
 		{
-		foreach (StoredDevice device in LoadAll ())
-			{
-			bool shouldAutoConnect = uniqueId is not null && device.UniqueId == uniqueId;
-			if (device.AutoConnect != shouldAutoConnect)
-				{
-				device.AutoConnect = shouldAutoConnect;
-				Save (device);
-				}
-			}
+		string? selected = uniqueId is not null && File.Exists (GetPath (uniqueId)) ? uniqueId : null;
+		CredentialFiles.SetAutoConnect (_directory, selected);
 		}
 
 	/// <summary>Returns the stored device currently marked for auto-connect, if any.</summary>

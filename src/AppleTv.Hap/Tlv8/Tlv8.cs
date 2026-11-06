@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+using AppleTvControlLibrary.Auth;
+
 namespace AppleTvControlLibrary.Tlv8;
 
 /// <summary>
@@ -130,6 +132,18 @@ public enum State
 // pyatv/auth/hap_tlv8.py (ported in full)
 public static class Tlv8
 	{
+	/// <summary>Checks that an accessory accepted a pairing step and returned the expected state.</summary>
+	/// <param name="fields">The decoded response fields.</param>
+	/// <param name="expectedState">The expected one-byte HAP state.</param>
+	/// <exception cref="AuthenticationException">The accessory rejected the step or returned the wrong state.</exception>
+	public static void ValidatePairingResponse (IReadOnlyDictionary<int, byte[]> fields, byte expectedState)
+		{
+		if (fields.ContainsKey ((int)TlvValue.Error))
+			throw new AuthenticationException ($"The accessory rejected pairing at state {expectedState}.");
+		if (!fields.TryGetValue ((int)TlvValue.SeqNo, out byte[]? state) || state.Length != 1 || state[0] != expectedState)
+			throw new AuthenticationException ($"Expected pairing response state {expectedState}.");
+		}
+
 	/// <summary>Parse TLV8 bytes into a dict.</summary>
 	/// <remarks>
 	/// If value is larger than 255 bytes, it is split up in multiple chunks. So

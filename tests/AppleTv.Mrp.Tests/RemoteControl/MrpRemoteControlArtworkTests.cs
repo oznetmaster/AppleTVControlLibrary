@@ -173,6 +173,30 @@ public class MrpRemoteControlArtworkTests
 		}
 
 	[Test]
+	public async Task GetArtworkAsyncCachesDifferentSizesSeparatelyAsync ()
+		{
+		MrpPlayerStateManager psm = CreatePlayerStateManagerWithMetadata (metadata =>
+			{
+			metadata.ArtworkAvailable = true;
+			metadata.ArtworkIdentifier = "https://example.com/{w}x{h}.png";
+			});
+		var handler = new StubHttpMessageHandler (request => new HttpResponseMessage (HttpStatusCode.OK)
+			{
+			Content = new ByteArrayContent (System.Text.Encoding.ASCII.GetBytes (request.RequestUri!.AbsolutePath)),
+			});
+		MrpRemoteControl remoteControl = CreateRemoteControl (psm, handler);
+
+		var small = await remoteControl.GetArtworkAsync (50, 60);
+		var large = await remoteControl.GetArtworkAsync (100, 120);
+		var smallAgain = await remoteControl.GetArtworkAsync (50, 60);
+
+		Assert.That (System.Text.Encoding.ASCII.GetString (small!.Value.Data), Is.EqualTo ("/50x60.png"));
+		Assert.That (System.Text.Encoding.ASCII.GetString (large!.Value.Data), Is.EqualTo ("/100x120.png"));
+		Assert.That (smallAgain!.Value.Data, Is.EqualTo (small.Value.Data));
+		Assert.That (handler.RequestCount, Is.EqualTo (2));
+		}
+
+	[Test]
 	public async Task GetArtworkAsyncFallsBackToLocalArtworkWhenRemoteFetchFailsAsync ()
 		{
 		// No artworkIdentifier/artworkURL at all, but artworkAvailable is true: the only path left
@@ -204,7 +228,10 @@ public class MrpRemoteControlArtworkTests
 			metadata.ArtworkURL = "https://example.com/art.png";
 			});
 
-		var handler = new StubHttpMessageHandler (_ => throw new HttpRequestException ("network down"));
+		int attempts = 0;
+		var handler = new StubHttpMessageHandler (_ => ++attempts == 1
+			? throw new HttpRequestException ("network down")
+			: new HttpResponseMessage (HttpStatusCode.OK) { Content = new ByteArrayContent ([1, 2, 3]) });
 		MrpProtocol protocol = new (new PassthroughConnection (), new SrpAuthHandler (), new MrpInfoSettings ())
 			{
 			ResponseTimeout = TimeSpan.FromMilliseconds (50),
@@ -214,5 +241,8 @@ public class MrpRemoteControlArtworkTests
 		(byte[] Data, string? MimeType)? result = await remoteControl.GetArtworkAsync ().ConfigureAwait (false);
 
 		Assert.That (result, Is.Null);
+		var retry = await remoteControl.GetArtworkAsync ();
+		Assert.That (retry!.Value.Data, Is.EqualTo (new byte[] { 1, 2, 3 }));
+		Assert.That (attempts, Is.EqualTo (2));
 		}
 	}

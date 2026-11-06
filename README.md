@@ -39,6 +39,10 @@ library (which covers Companion Link, AirPlay, and MRP discovery behind their ow
 [MRP Discovery](#discovery-1)) independently of either protocol. Install `AppleTvControlLibrary.All`
 when all three are wanted; it restores all three library packages automatically.
 
+Discovery returns the current address and port. A host can save the last known endpoint with its
+device settings and run discovery again if a reconnect fails. The protocol libraries use the
+endpoint supplied by the host.
+
 ## Repository layout
 
 | Path | Contents |
@@ -86,14 +90,14 @@ the device stays unreachable.
 <img src="https://oznetmaster.github.io/AppleTVControlLibrary/images/companion-link-remote.png" alt="Companion Link Remote WPF reference host" width="180" />
 
 Use it as an integration example for credential storage, connection lifecycle handling, and the
-high-level `CompanionApi`; hosts are expected to provide their own UI and secure credential-store
-implementation.
+high-level `CompanionApi`. Both WPF reference apps store auto-connect preferences separately from
+pairing credentials and load existing credential files without migration.
 
 ### What it can do
 
 - Discover Apple TVs advertising Companion Link over mDNS (`_companion-link._tcp`), query a known
   device address directly, or stop a multicast lookup once an exact service name resolves.
-- Pair with a device (HAP pair-setup over SRP) and persist the resulting credentials.
+- Pair with a device (HAP Pair Setup over SRP) and return credentials for the host to store.
 - Establish an encrypted session (HAP pair-verify, ChaCha20-Poly1305) and bring up a Companion
   Link session (`_systemInfo`, `_touchStart`, `_sessionStart`, `TVRCSessionStart`, `_tiStart`).
 - Notify callers when the connection is closed or lost (`CompanionApi.ConnectionClosed`), whether

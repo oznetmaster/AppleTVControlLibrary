@@ -1,12 +1,16 @@
 // Copyright (c) 2026 Neil Colvin. Licensed under the MIT License.
 // See LICENSE file in the repository root for full license text.
 
+using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 
 using AppleTvControlLibrary.Auth;
+using AppleTvControlLibrary.Crypto;
 using AppleTvControlLibrary.Mrp.Auth;
 using AppleTvControlLibrary.Mrp.FakeDevice;
 using AppleTvControlLibrary.Mrp.Protobuf;
+using AppleTvControlLibrary.Tlv8;
 
 using NUnit.Framework;
 
@@ -27,6 +31,89 @@ namespace AppleTv.Mrp.Tests.AuthTests;
 [FixtureLifeCycle (LifeCycle.InstancePerTestCase)]
 public class MrpPairingIntegrationTests
 	{
+	[TestCase (false)]
+	[TestCase (true)]
+	public async Task PairSetupRejectsInvalidOrMissingServerProofBeforeSendingIdentityAsync (bool omit)
+		{
+		var fake = new FakeMrpDevice ();
+		int requests = 0;
+		var setup = new MrpPairSetupProcedure (request =>
+			{
+			ProtocolMessage response = fake.HandleMessage (request);
+			if (++requests != 2)
+				return Task.FromResult (response);
+
+			Dictionary<int, byte[]> fields = MrpMessages.GetPairingData (response);
+			if (omit)
+				_ = fields.Remove ((int)TlvValue.Proof);
+			else
+				fields[(int)TlvValue.Proof][0] ^= 1;
+			return Task.FromResult (MrpMessages.CryptoPairing (fields));
+			}, new SrpAuthHandler ());
+
+		await setup.StartPairingAsync ();
+		await Assert.ThrowsAsync<AuthenticationException> (async () => await setup.FinishPairingAsync (FakeMrpDevice.PIN_CODE));
+		Assert.That (requests, Is.EqualTo (2), "Do not disclose the controller identity to an unverified peer.");
+		}
+
+	[TestCase (false)]
+	[TestCase (true)]
+	public async Task PairSetupRejectsInvalidOrMissingAccessorySignatureAsync (bool omit)
+		{
+		var fake = new FakeMrpDevice ();
+		var srp = new SrpAuthHandler ();
+		int requests = 0;
+		var setup = new MrpPairSetupProcedure (request =>
+			{
+			ProtocolMessage response = fake.HandleMessage (request);
+			if (++requests != 3)
+				return Task.FromResult (response);
+
+			// Keep the authenticated encryption valid while damaging the separate signature.
+			Dictionary<int, byte[]> fields = MrpMessages.GetPairingData (response);
+			byte[] key = SrpAuthHandler.HkdfExpand ("Pair-Setup-Encrypt-Salt", "Pair-Setup-Encrypt-Info", srp.SharedKey);
+			byte[] nonce = Encoding.ASCII.GetBytes ("PS-Msg06");
+			var cipher = new Chacha20Cipher8ByteNonce (key, key);
+			var identity = Tlv8.ReadTlv (cipher.Decrypt (fields[(int)TlvValue.EncryptedData], nonce: nonce));
+			if (omit)
+				_ = identity.Remove ((int)TlvValue.Signature);
+			else
+				identity[(int)TlvValue.Signature][0] ^= 1;
+			fields[(int)TlvValue.EncryptedData] = cipher.Encrypt (Tlv8.WriteTlv (identity), nonce: nonce);
+			return Task.FromResult (MrpMessages.CryptoPairing (fields));
+			}, srp);
+
+		await setup.StartPairingAsync ();
+		await Assert.ThrowsAsync<AuthenticationException> (async () => await setup.FinishPairingAsync (FakeMrpDevice.PIN_CODE));
+		Assert.That (requests, Is.EqualTo (3));
+		}
+
+	[TestCase (4, true)]
+	[TestCase (3, false)]
+	[TestCase (0, false)]
+	public async Task PairVerifyRejectsErrorOrMissingFinalAcknowledgementAsync (int state, bool rejected)
+		{
+		var fake = new FakeMrpDevice ();
+		var setup = new MrpPairSetupProcedure (request => Task.FromResult (fake.HandleMessage (request)), new SrpAuthHandler ());
+		await setup.StartPairingAsync ();
+		HapCredentials credentials = await setup.FinishPairingAsync (FakeMrpDevice.PIN_CODE);
+		int requests = 0;
+		var verify = new MrpPairVerifyProcedure (request =>
+			{
+			if (++requests == 1)
+				return Task.FromResult (fake.HandleMessage (request));
+			var fields = new Dictionary<int, byte[]> ();
+			if (state != 0)
+				fields[(int)TlvValue.SeqNo] = [(byte)state];
+			if (rejected)
+				fields[(int)TlvValue.Error] = [2];
+			return Task.FromResult (MrpMessages.CryptoPairing (fields));
+			}, new SrpAuthHandler (), credentials);
+
+		await Assert.ThrowsAsync<AuthenticationException> (async () => await verify.VerifyCredentialsAsync ());
+		Assert.That (requests, Is.EqualTo (2));
+		}
+
 	[Test]
 	public async Task PairSetupThenPairVerifySucceedsAsync ()
 		{

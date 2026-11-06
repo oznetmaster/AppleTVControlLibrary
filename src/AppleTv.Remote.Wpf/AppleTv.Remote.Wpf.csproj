@@ -38,6 +38,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Compile Include="..\Shared\CredentialFiles.cs" Link="Storage\CredentialFiles.cs" />
 		<ProjectReference Include="..\AppleTV.Companion\AppleTV.Companion.csproj" />
 		<ProjectReference Include="..\AppleTV.Companion.Discovery\AppleTV.Companion.Discovery.csproj" />
 		<ProjectReference Include="..\AppleTv.Hap\AppleTv.Hap.csproj" />

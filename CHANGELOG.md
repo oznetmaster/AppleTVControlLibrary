@@ -4,6 +4,13 @@ All notable changes to this project are documented in this file.
 
 This changelog records shipped features, fixes, compatibility and runtime dependency changes. See [development and validation history](DEVELOPMENT-HISTORY.md) for tests, CI, build tooling and work not yet released.
 
+## [2.2.7](https://github.com/oznetmaster/AppleTVControlLibrary/releases/tag/v2.2.7) — 2026-11-06
+
+- Verify the accessory's SRP proof and identity signature during HAP Pair Setup. Require the final Pair Verify acknowledgement before opening an MRP or AirPlay session.
+- Close an AirPlay connection when a sent request times out or is cancelled so a late reply cannot be delivered to the next request.
+- Cache MRP artwork by its requested size and retry failed artwork fetches.
+- Save desktop auto-connect preferences separately from pairing credentials. Both WPF reference apps accept existing credential files, preserve unknown fields, and write a complete replacement before replacing a saved record.
+
 ## [2.2.6](https://github.com/oznetmaster/AppleTVControlLibrary/releases/tag/v2.2.6) — 2026-09-22
 
 - Update stable Protobuf and Microsoft compatibility dependencies while retaining net472 support and the existing public API.

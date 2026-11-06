@@ -1,6 +1,7 @@
 // Copyright (c) 2026 Neil Colvin. Licensed under the MIT License.
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Text.Json;
 using NUnit.Framework;
 using CompanionStorage = AppleTvControlLibrary.Remote.Wpf.Storage;
@@ -115,6 +116,83 @@ public sealed class CredentialStoreCompatibilityTests
             store.SetAutoConnect ("second");
             Assert.That (store.Load ("first")!.AutoConnect, Is.False);
             Assert.That (store.LoadAutoConnectDevice ()!.UniqueId, Is.EqualTo ("second"));
+        }
+    }
+
+    [TestCase (false)]
+    [TestCase (true)]
+    public void PreferenceChangesLeaveExistingCredentialFilesByteIdentical (bool mrp)
+    {
+        Directory.CreateDirectory (_directory);
+        string first = Path.Combine (_directory, "first.json");
+        string second = Path.Combine (_directory, "second.json");
+        File.WriteAllText (first, """{"UniqueId":"first","AutoConnect":true,"Ltsk":"AQID","StableIdentifier":"existing"}""");
+        File.WriteAllText (second, """{"UniqueId":"second","Ltsk":"BAUG","FutureField":42}""");
+        byte[] firstBefore = File.ReadAllBytes (first);
+        byte[] secondBefore = File.ReadAllBytes (second);
+        if (mrp)
+        {
+            var store = new Mrp.CredentialStore (_directory);
+            store.SetAutoConnect ("second");
+            Assert.That (new Mrp.CredentialStore (_directory).LoadAutoConnectDevice ()?.UniqueId, Is.EqualTo ("second"));
+            store.SetAutoConnect (null);
+            Assert.That (store.LoadAutoConnectDevice (), Is.Null);
+        }
+        else
+        {
+            var store = new CompanionStorage.CredentialStore (_directory);
+            store.SetAutoConnect ("second");
+            Assert.That (new CompanionStorage.CredentialStore (_directory).LoadAutoConnectDevice ()?.UniqueId, Is.EqualTo ("second"));
+            store.SetAutoConnect (null);
+            Assert.That (store.LoadAutoConnectDevice (), Is.Null);
+        }
+        Assert.That (File.ReadAllBytes (first), Is.EqualTo (firstBefore));
+        Assert.That (File.ReadAllBytes (second), Is.EqualTo (secondBefore));
+    }
+
+    [TestCase (false)]
+    [TestCase (true)]
+    public void FailedReplacementLeavesOriginalThenSuccessfulSaveRetainsKeysAndUnknownFields (bool mrp)
+    {
+        Assume.That (RuntimeInformation.IsOSPlatform (OSPlatform.Windows), "Uses Windows delete-sharing semantics.");
+        Directory.CreateDirectory (_directory);
+        string path = Path.Combine (_directory, "device.json");
+        File.WriteAllText (path, """{"UniqueId":"device","Name":"Old","StableIdentifier":"stable","Ltpk":"AQI=","Ltsk":"AwQ=","AtvId":"BQ==","ClientId":"Bg==","FutureField":{"nested":true}}""");
+        byte[] original = File.ReadAllBytes (path);
+        Action save;
+        if (mrp)
+        {
+            var store = new Mrp.CredentialStore (_directory);
+            var device = store.Load ("device")!;
+            device.Name = "New";
+            save = () => store.Save (device);
+        }
+        else
+        {
+            var store = new CompanionStorage.CredentialStore (_directory);
+            var device = store.Load ("device")!;
+            device.Name = "New";
+            save = () => store.Save (device);
+        }
+        using (File.Open (path, FileMode.Open, FileAccess.Read, FileShare.Read))
+        {
+            Assert.That (() => save (), Throws.InstanceOf<IOException> ());
+        }
+        Assert.That (File.ReadAllBytes (path), Is.EqualTo (original));
+        Assert.That (Directory.GetFiles (_directory), Is.EqualTo (new[] { path }));
+
+        save ();
+        using JsonDocument json = JsonDocument.Parse (File.ReadAllText (path));
+        var record = json.RootElement;
+        using (Assert.EnterMultipleScope ())
+        {
+            Assert.That (record.GetProperty ("Name").GetString (), Is.EqualTo ("New"));
+            Assert.That (record.GetProperty ("StableIdentifier").GetString (), Is.EqualTo ("stable"));
+            Assert.That (record.GetProperty ("Ltpk").GetString (), Is.EqualTo ("AQI="));
+            Assert.That (record.GetProperty ("Ltsk").GetString (), Is.EqualTo ("AwQ="));
+            Assert.That (record.GetProperty ("AtvId").GetString (), Is.EqualTo ("BQ=="));
+            Assert.That (record.GetProperty ("ClientId").GetString (), Is.EqualTo ("Bg=="));
+            Assert.That (record.GetProperty ("FutureField").GetProperty ("nested").GetBoolean (), Is.True);
         }
     }
 }

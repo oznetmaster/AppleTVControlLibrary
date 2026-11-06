@@ -11,6 +11,14 @@ See the [product changelog](CHANGELOG.md) for shipped changes. This document pre
 
 <!-- development-history -->
 
+## Pairing preservation and protocol validation - 2026-11-06
+
+- Workstation auto-connect settings now use a separate preference file. Both WPF apps still read existing credential JSON without migration, preserve unrecognized fields on save, and replace saved records only after writing the complete replacement.
+- HAP Pair Setup verifies the accessory's SRP proof and identity signature. MRP and AirPlay require the final Pair Verify acknowledgement before treating a session as verified.
+- AirPlay closes the connection if a sent request times out or is cancelled, so its reply cannot be assigned to another request. The MRP artwork cache keeps each requested size separate and retries failed fetches.
+- The Release build and 255 offline tests per target passed on .NET 10 and .NET Framework 4.7.2. Credential-store tests used disposable records, and protocol tests used synthetic pairings and a loopback peer.
+- Existing Companion Link and AirPlay/MRP pairings worked on the workstation. On the processor, the library probe found the Apple TV through mDNS after the saved endpoint refused the connection and completed Companion Link Pair Verify. The pairing files used for live validation retained their original bytes.
+
 ## Offline release workflow option - 2026-09-15 (no package release)
 
 - Allow an explicit manual release when local hardware or the self-hosted runner is unavailable, with the reason and exact source recorded in the workflow summary.

@@ -60,13 +60,13 @@ public sealed class AirPlayHapPairVerifyProcedure (HttpConnection http, SrpAuthH
 		byte[] encrypted = pairingData[(int)TlvValue.EncryptedData];
 
 		byte[] encryptedData = _srp.Verify1 (_credentials, sessionPubKey, encrypted);
-		_ = await SendAsync (new Dictionary<int, byte[]>
+		resp = await SendAsync (new Dictionary<int, byte[]>
 			{
 				{ (int)TlvValue.SeqNo, [0x03] },
 				{ (int)TlvValue.EncryptedData, encryptedData },
 			}).ConfigureAwait (false);
 
-		// pyatv/protocols/airplay/auth/hap.py — line 126 as of pyatv 0.18.0: "TODO: check status code"
+		Tlv8.Tlv8.ValidatePairingResponse (Tlv8.Tlv8.ReadTlv (resp.Body), 4);
 		return true;
 		}
 
@@ -148,7 +148,11 @@ public sealed class AirPlayHapPairSetupProcedure (HttpConnection http, SrpAuthHa
 				{ (int)TlvValue.Proof, proof },
 			});
 
-		_ = await _http.PostAsync ("/pair-setup", AirPlayHapPairVerifyProcedure.AirPlayHeaders, body).ConfigureAwait (false);
+		HttpResponse resp = await _http.PostAsync ("/pair-setup", AirPlayHapPairVerifyProcedure.AirPlayHeaders, body).ConfigureAwait (false);
+		Dictionary<int, byte[]> pairingData = Tlv8.Tlv8.ReadTlv (resp.Body);
+		Tlv8.Tlv8.ValidatePairingResponse (pairingData, 4);
+		_ = pairingData.TryGetValue ((int)TlvValue.Proof, out byte[]? atvProof);
+		_srp.VerifyServerProof (atvProof);
 
 		body = Tlv8.Tlv8.WriteTlv (new Dictionary<int, byte[]>
 			{
@@ -156,8 +160,9 @@ public sealed class AirPlayHapPairSetupProcedure (HttpConnection http, SrpAuthHa
 				{ (int)TlvValue.EncryptedData, _srp.Step3 (displayName) },
 			});
 
-		HttpResponse resp = await _http.PostAsync ("/pair-setup", AirPlayHapPairVerifyProcedure.AirPlayHeaders, body).ConfigureAwait (false);
-		Dictionary<int, byte[]> pairingData = Tlv8.Tlv8.ReadTlv (resp.Body);
+		resp = await _http.PostAsync ("/pair-setup", AirPlayHapPairVerifyProcedure.AirPlayHeaders, body).ConfigureAwait (false);
+		pairingData = Tlv8.Tlv8.ReadTlv (resp.Body);
+		Tlv8.Tlv8.ValidatePairingResponse (pairingData, 6);
 
 		byte[] encryptedData = pairingData[(int)TlvValue.EncryptedData];
 		return _srp.Step4 (encryptedData);

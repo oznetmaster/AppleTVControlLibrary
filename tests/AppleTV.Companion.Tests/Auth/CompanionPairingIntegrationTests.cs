@@ -71,6 +71,7 @@ public class CompanionPairingIntegrationTests
 
 		var m4 = Tlv8.ReadTlv (m4ResponseTlv);
 		Assert.That (m4.ContainsKey ((int)TlvValue.Error), Is.False, "Server rejected client SRP proof");
+		pairSetupSrp.VerifyServerProof (m4[(int)TlvValue.Proof]);
 
 		// --- Pair-setup M5 ---
 		// pyatv/protocols/companion/auth.py (finish_pairing, second half) — line 92-100 as of pyatv 0.18.0

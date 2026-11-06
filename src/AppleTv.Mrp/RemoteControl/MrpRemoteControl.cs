@@ -109,8 +109,8 @@ public sealed class MrpRemoteControl (MrpProtocol protocol, MrpPlayerStateManage
 
 	// pyatv/protocols/mrp/__init__.py (MrpMetadata.__init__ / self.artwork_cache = Cache(limit=4)) — line 485-497 as of pyatv 0.18.0
 	private const int ARTWORK_CACHE_LIMIT = 4;
-	private readonly Dictionary<string, (byte[] Data, string? MimeType)?> _artworkCache = [];
-	private readonly List<string> _artworkCacheOrder = [];
+	private readonly Dictionary<(string Identifier, int Width, int Height), (byte[] Data, string? MimeType)> _artworkCache = [];
+	private readonly List<(string Identifier, int Width, int Height)> _artworkCacheOrder = [];
 
 	/// <summary>Press key up.</summary>
 	/// <param name="action">The type of press to perform.</param>
@@ -431,9 +431,11 @@ public sealed class MrpRemoteControl (MrpProtocol protocol, MrpPlayerStateManage
 			return null;
 			}
 
-		if (_artworkCache.TryGetValue (identifier, out (byte[] Data, string? MimeType)? cached))
+		var cacheKey = (identifier, width, height);
+		lock (_artworkCache)
 			{
-			return cached;
+			if (_artworkCache.TryGetValue (cacheKey, out (byte[] Data, string? MimeType) cached))
+				return cached;
 			}
 
 		(byte[] Data, string? MimeType)? artwork;
@@ -449,7 +451,8 @@ public sealed class MrpRemoteControl (MrpProtocol protocol, MrpPlayerStateManage
 			artwork = null;
 			}
 
-		CacheArtwork (identifier, artwork);
+		if (artwork.HasValue)
+			CacheArtwork (cacheKey, artwork.Value);
 		return artwork;
 		}
 
@@ -525,21 +528,22 @@ public sealed class MrpRemoteControl (MrpProtocol protocol, MrpPlayerStateManage
 		}
 
 	// pyatv/protocols/mrp/__init__.py (self.artwork_cache = Cache(limit=4)) — line 497 as of pyatv 0.18.0
-	private void CacheArtwork (string identifier, (byte[] Data, string? MimeType)? artwork)
+	private void CacheArtwork ((string Identifier, int Width, int Height) cacheKey, (byte[] Data, string? MimeType) artwork)
 		{
-		if (_artworkCache.ContainsKey (identifier))
+		lock (_artworkCache)
 			{
-			_ = _artworkCacheOrder.Remove (identifier);
-			}
-		else if (_artworkCacheOrder.Count >= ARTWORK_CACHE_LIMIT)
-			{
-			string oldest = _artworkCacheOrder[0];
-			_artworkCacheOrder.RemoveAt (0);
-			_ = _artworkCache.Remove (oldest);
-			}
+			if (_artworkCache.ContainsKey (cacheKey))
+				_ = _artworkCacheOrder.Remove (cacheKey);
+			else if (_artworkCacheOrder.Count >= ARTWORK_CACHE_LIMIT)
+				{
+				var oldest = _artworkCacheOrder[0];
+				_artworkCacheOrder.RemoveAt (0);
+				_ = _artworkCache.Remove (oldest);
+				}
 
-		_artworkCache[identifier] = artwork;
-		_artworkCacheOrder.Add (identifier);
+			_artworkCache[cacheKey] = artwork;
+			_artworkCacheOrder.Add (cacheKey);
+			}
 		}
 
 	/// <summary>Explicitly fetches artwork bytes for the currently playing item directly over MRP,

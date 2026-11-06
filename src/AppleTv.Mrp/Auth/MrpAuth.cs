@@ -90,8 +90,9 @@ public sealed class MrpPairSetupProcedure (MrpSendAndReceive sendAndReceive, Srp
 
 		ProtocolMessage resp = await _sendAndReceive (m3).ConfigureAwait (false);
 		Dictionary<int, byte[]> pairingData = MrpMessages.GetPairingData (resp);
-		byte[] atvProof = pairingData[(int)TlvValue.Proof];
-		_ = atvProof;
+		Tlv8.Tlv8.ValidatePairingResponse (pairingData, 4);
+		_ = pairingData.TryGetValue ((int)TlvValue.Proof, out byte[]? atvProof);
+		_srp.VerifyServerProof (atvProof);
 
 		byte[] encryptedData = _srp.Step3 ();
 		ProtocolMessage m5 = MrpMessages.CryptoPairing (new Dictionary<int, byte[]>
@@ -102,6 +103,7 @@ public sealed class MrpPairSetupProcedure (MrpSendAndReceive sendAndReceive, Srp
 
 		resp = await _sendAndReceive (m5).ConfigureAwait (false);
 		pairingData = MrpMessages.GetPairingData (resp);
+		Tlv8.Tlv8.ValidatePairingResponse (pairingData, 6);
 		encryptedData = pairingData[(int)TlvValue.EncryptedData];
 
 		return _srp.Step4 (encryptedData);
@@ -148,9 +150,8 @@ public sealed class MrpPairVerifyProcedure (MrpSendAndReceive sendAndReceive, Sr
 			{ (int)TlvValue.EncryptedData, encryptedData },
 			});
 
-		_ = await _sendAndReceive (m3).ConfigureAwait (false);
-
-		// TODO: check status code — pyatv/protocols/mrp/auth.py line 118 as of pyatv 0.18.0
+		resp = await _sendAndReceive (m3).ConfigureAwait (false);
+		Tlv8.Tlv8.ValidatePairingResponse (MrpMessages.GetPairingData (resp), 4);
 		return true;
 		}
 

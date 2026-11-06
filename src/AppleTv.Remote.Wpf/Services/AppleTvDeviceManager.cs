@@ -221,10 +221,9 @@ public sealed class AppleTvDeviceManager (ICompanionDiscovery? discovery = null,
 																																	Dictionary<object, object?> m4Response = protocol.ExchangeAuthAsync (FrameType.PS_Next, new Dictionary<string, object?> { ["_pd"] = m3, ["_pwTy"] = 1 }).ConfigureAwait (false).GetAwaiter ().GetResult ();
 																																	byte[] m4 = (byte[])m4Response["_pd"]!;
 																																	Dictionary<int, byte[]> m4Tlv = Tlv8.Tlv8.ReadTlv (m4);
-																																	if (m4Tlv.ContainsKey ((int)TlvValue.Error))
-																																		{
-																																		throw new AuthenticationException ("Pairing failed at M3/M4 - incorrect PIN?");
-																																		}
+																																	Tlv8.Tlv8.ValidatePairingResponse (m4Tlv, 4);
+																																	_ = m4Tlv.TryGetValue ((int)TlvValue.Proof, out byte[]? atvProof);
+																																	srp.VerifyServerProof (atvProof);
 
 																																	// M5
 																																	byte[] m5EncryptedData = srp.Step3 (name: Environment.MachineName);
@@ -236,6 +235,7 @@ public sealed class AppleTvDeviceManager (ICompanionDiscovery? discovery = null,
 																																	Dictionary<object, object?> m6Response = protocol.ExchangeAuthAsync (FrameType.PS_Next, new Dictionary<string, object?> { ["_pd"] = m5, ["_pwTy"] = 1 }).ConfigureAwait (false).GetAwaiter ().GetResult ();
 																																	byte[] m6 = (byte[])m6Response["_pd"]!;
 																																	Dictionary<int, byte[]> m6Tlv = Tlv8.Tlv8.ReadTlv (m6);
+																																	Tlv8.Tlv8.ValidatePairingResponse (m6Tlv, 6);
 																																	byte[] m6EncryptedData = m6Tlv[(int)TlvValue.EncryptedData];
 
 																																	HapCredentials credentials = srp.Step4 (m6EncryptedData);
