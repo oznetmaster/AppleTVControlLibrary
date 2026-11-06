@@ -1,5 +1,12 @@
 # Concurrent releases and completed validation
 
+## NuGet Trusted Publishing
+
+The publishing job uses [NuGet Trusted Publishing](https://learn.microsoft.com/en-us/nuget/nuget-org/trusted-publishing) through the pinned `NuGet/login` action. It requests a short-lived credential just before uploading; it does not read the repository's long-lived API key. Scope the NuGet policy to new versions of the four existing packages: `AppleTvControlLibrary`, `AppleTvControlLibrary.All`, `AppleTvControlLibrary.Discovery`, and `AppleTvControlLibrary.Mrp`.
+
+If no packages reached NuGet after a failed tag-triggered push, dispatch **Publish .NET Packages** with the existing version and **retry_tagged_nuget**. The workflow checks out the immutable tag before validation, builds and uploads the NuGet packages, and leaves GitHub release assets alone. Verify which packages already exist before retrying a partial upload.
+
+
 Independent tasks may initiate releases at the same time. All publication workflows in this repository share `public-release` with `cancel-in-progress: false` and `queue: max`. GitHub retains up to 100 queued requests per group; overflow/cancellation is not a successful release. Different repositories publish independently. Do not invoke another workflow requiring the same publication lock while holding it.
 
 On manual release workflows, desktop and processor evidence can be reused independently. Both options default to false:

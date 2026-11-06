@@ -23,6 +23,11 @@ on:
         description: Version or tag to publish, for example 1.2.3 or v1.2.3
         required: true
         type: string
+      retry_tagged_nuget:
+        description: Publish NuGet packages from an existing release tag after a failed push
+        required: false
+        type: boolean
+        default: false
       skip_hardware_checks:
         description: Publish without hardware validation when the processor or local runner is unavailable
         required: false
@@ -46,6 +51,11 @@ concurrency:
 jobs:
   publish:
     runs-on: windows-latest
+    permissions:
+      actions: read
+      checks: read
+      contents: write
+      id-token: write
     env:
       SOLUTION_PATH: AppleTVControlLibrary.slnx
       TEST_PROJECT: tests/AppleTV.Companion.Tests/AppleTV.Companion.Tests.csproj
@@ -57,6 +67,26 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Check out the immutable tag for a NuGet retry
+        if: github.event_name == 'workflow_dispatch' && inputs.retry_tagged_nuget
+        shell: pwsh
+        env:
+          RELEASE_INPUT_VERSION: ${{ inputs.version }}
+        run: |
+          $version = $env:RELEASE_INPUT_VERSION.Trim()
+          if ($version -notmatch '^v?\d+\.\d+\.\d+$') {
+              throw 'A published-format version is required for a NuGet retry.'
+          }
+          $tag = 'v' + $version.TrimStart('v')
+          $tagRef = "refs/tags/$tag"
+          git show-ref --verify --quiet $tagRef
+          if ($LASTEXITCODE -ne 0) { throw "Existing release tag $tag was not found." }
+          git merge-base --is-ancestor "$tagRef^{commit}" HEAD
+          if ($LASTEXITCODE -ne 0) { throw "Release tag $tag is not in the selected branch history." }
+          git checkout --detach $tagRef
+          if ($LASTEXITCODE -ne 0) { throw "Could not check out release tag $tag." }
+          git log -1 --format='NuGet retry source: %H %s'
 
       - name: Verify configured release checks
         shell: pwsh
@@ -191,19 +221,32 @@ jobs:
               }
           }
 
+      - name: Authenticate to NuGet with GitHub OIDC
+        id: nuget-login
+        uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841 # v1
+        with:
+          user: oznetmaster
+
       - name: Publish NuGet packages
         shell: pwsh
+        env:
+          NUGET_API_KEY: ${{ steps.nuget-login.outputs.NUGET_API_KEY }}
         run: |
+          if ([string]::IsNullOrWhiteSpace($env:NUGET_API_KEY)) {
+              throw 'NuGet Trusted Publishing did not provide a temporary credential.'
+          }
           $packages = Get-ChildItem -Path "${{ env.ARTIFACT_DIR }}/nuget" -Filter '*.nupkg' | Where-Object { $_.Name -notlike '*.symbols.nupkg' }
           if (-not $packages) {
               throw 'No NuGet packages were produced.'
           }
 
           foreach ($package in $packages) {
-              dotnet nuget push $package.FullName --api-key "${{ secrets.NUGET_API_KEY }}" --source 'https://api.nuget.org/v3/index.json' --skip-duplicate
+              dotnet nuget push $package.FullName --api-key "$env:NUGET_API_KEY" --source 'https://api.nuget.org/v3/index.json'
+              if ($LASTEXITCODE -ne 0) { throw "NuGet publication failed for $($package.Name)." }
           }
 
       - name: Publish WPF reference application
+        if: inputs.retry_tagged_nuget != true
         shell: pwsh
         run: |
           foreach ($framework in @('net472', 'net10.0-windows')) {
@@ -215,6 +258,7 @@ jobs:
           }
 
       - name: Publish MRP WPF reference application
+        if: inputs.retry_tagged_nuget != true
         shell: pwsh
         run: |
           foreach ($framework in @('net472', 'net10.0-windows')) {
@@ -226,6 +270,7 @@ jobs:
           }
 
       - name: Collect release assets
+        if: inputs.retry_tagged_nuget != true
         shell: pwsh
         run: |
           $releaseDir = "${{ env.ARTIFACT_DIR }}/release"
