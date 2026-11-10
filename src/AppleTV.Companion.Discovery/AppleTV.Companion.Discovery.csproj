@@ -44,8 +44,6 @@ See [the changelog](https://github.com/oznetmaster/AppleTVControlLibrary/blob/v2
 </PackageReleaseNotes></PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-		<DebugType>portable</DebugType>
-		<DebugSymbols>true</DebugSymbols>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
@@ -80,4 +78,5 @@ See [the changelog](https://github.com/oznetmaster/AppleTVControlLibrary/blob/v2
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <WarningsAsErrors>$(WarningsAsErrors);CS1591;CS1570;CS1571;CS1572;CS1573;CS1574;CS1580;CS1581;CS1584;CS1587;CS1658;CS1710;CS1711;CS1712</WarningsAsErrors>
   </PropertyGroup>
+  <Import Project="../../build/LibrarySymbols.props" />
 </Project>

@@ -11,7 +11,8 @@
         "net472",
         "net10.0"
       ],
-      "project": "src/AppleTV.Companion/AppleTV.Companion.csproj"
+      "project": "src/AppleTV.Companion/AppleTV.Companion.csproj",
+      "symbols": true
     },
     {
       "id": "AppleTvControlLibrary.All",
@@ -24,7 +25,8 @@
         "net472",
         "net10.0"
       ],
-      "project": "src/AppleTV.Companion.Discovery/AppleTV.Companion.Discovery.csproj"
+      "project": "src/AppleTV.Companion.Discovery/AppleTV.Companion.Discovery.csproj",
+      "symbols": true
     },
     {
       "id": "AppleTvControlLibrary.Mrp",
@@ -32,7 +34,8 @@
         "net472",
         "net10.0"
       ],
-      "project": "src/AppleTv.Mrp/AppleTv.Mrp.csproj"
+      "project": "src/AppleTv.Mrp/AppleTv.Mrp.csproj",
+      "symbols": true
     }
   ],
   "applications": [
