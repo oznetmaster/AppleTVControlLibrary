@@ -4,6 +4,10 @@ All notable changes to this project are documented in this file.
 
 This changelog records shipped features, fixes, compatibility and runtime dependency changes. See [development and validation history](DEVELOPMENT-HISTORY.md) for tests, CI, build tooling and work not yet released.
 
+## [2.2.8](https://github.com/oznetmaster/AppleTVControlLibrary/releases/tag/v2.2.8) — 2026-11-10
+
+- Companion disposal faults pending exchanges immediately and defers gate cleanup until admitted sends and authentication exchanges exit. DisposeAsync shares one completion task and waits for that drain; caller-owned transport timeouts remain the responsibility of the application. MRP rejects cancellation before submitting a frame and reports cancelled response waits as cancellation rather than protocol timeouts. Cancellation after submission does not prove that a command was undone. Pairing storage remains application-owned.
+
 ## [2.2.7](https://github.com/oznetmaster/AppleTVControlLibrary/releases/tag/v2.2.7) — 2026-11-06
 
 - Verify the accessory's SRP proof and identity signature during HAP Pair Setup. Require the final Pair Verify acknowledgement before opening an MRP or AirPlay session.

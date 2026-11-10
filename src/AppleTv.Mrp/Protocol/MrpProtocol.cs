@@ -130,7 +130,6 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 	private readonly SrpAuthHandler _srp;
 	private readonly MrpInfoSettings _info;
 	private readonly ConcurrentDictionary<string, TaskCompletionSource<ProtocolMessage>> _outstanding = new ();
-	private readonly SemaphoreSlim _sendGate = new (1, 1);
 	private CancellationTokenSource? _heartbeatCts;
 
 	/// <summary>Initializes a new instance of the <see cref="MrpProtocol"/> class.</summary>
@@ -161,7 +160,10 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 	/// previously-paired credentials rather than pairing fresh (mirrors pyatv checking
 	/// <c>self.service.credentials</c>). pyatv/protocols/mrp/protocol.py — line 137-140 as of pyatv 0.18.0
 	/// </value>
-	public HapCredentials? Credentials { get; set; }
+	public HapCredentials? Credentials
+		{
+		get; set;
+		}
 
 	/// <summary>Gets or sets the asynchronous callback that transmits fully-built frames.</summary>
 	/// <value>The asynchronous callback that transmits fully-built frames.</value>
@@ -282,6 +284,7 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 	// pyatv/protocols/mrp/protocol.py (start) — line 123-172 as of pyatv 0.18.0
 	public async Task StartAsync (bool skipInitialMessages = false, CancellationToken cancellationToken = default)
 		{
+		cancellationToken.ThrowIfCancellationRequested ();
 		if (State != MrpProtocolState.NotConnected)
 			{
 			throw new InvalidOperationException ($"Invalid state: {State}");
@@ -385,6 +388,7 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 	// pyatv/protocols/mrp/protocol.py (send) — line 223-231 as of pyatv 0.18.0
 	public async Task SendAsync (ProtocolMessage message, CancellationToken cancellationToken = default)
 		{
+		cancellationToken.ThrowIfCancellationRequested ();
 		if (State is not (MrpProtocolState.Connected or MrpProtocolState.Ready))
 			{
 			throw new InvalidOperationException ($"Invalid state: {State}");
@@ -403,6 +407,7 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 	// pyatv/protocols/mrp/protocol.py (send_and_receive) — line 233-260 as of pyatv 0.18.0
 	public async Task<ProtocolMessage> SendAndReceiveAsync (ProtocolMessage message, bool generateIdentifier = true, CancellationToken cancellationToken = default)
 		{
+		cancellationToken.ThrowIfCancellationRequested ();
 		if (State is not (MrpProtocolState.Connected or MrpProtocolState.Ready))
 			{
 			throw new InvalidOperationException ($"Invalid state: {State}");
@@ -436,26 +441,32 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 			throw;
 			}
 
-		Task completed = await Task.WhenAny (completion.Task, Task.Delay (ResponseTimeout, cancellationToken)).ConfigureAwait (false);
+		using var responseWait = CancellationTokenSource.CreateLinkedTokenSource (cancellationToken);
+		Task completed = await Task.WhenAny (completion.Task, Task.Delay (ResponseTimeout, responseWait.Token)).ConfigureAwait (false);
 		if (completed != completion.Task)
 			{
 			_ = _outstanding.TryRemove (identifier, out _);
+			cancellationToken.ThrowIfCancellationRequested ();
 			throw new MrpProtocolException ($"No response received for identifier {identifier} (sent as {message.Type})");
 			}
+		responseWait.Cancel ();
+		cancellationToken.ThrowIfCancellationRequested ();
 
 		return await completion.Task.ConfigureAwait (false);
 		}
 
 	private async Task TransmitAsync (ProtocolMessage message, CancellationToken cancellationToken)
 		{
+		cancellationToken.ThrowIfCancellationRequested ();
 		if (AsyncSender is null)
 			{
 			throw new InvalidOperationException ($"{nameof (AsyncSender)} must be set before sending frames");
 			}
 
 		byte[] frame = Connection.BuildMessage (message.ToByteArray ());
+		cancellationToken.ThrowIfCancellationRequested ();
 		await AsyncSender (frame).ConfigureAwait (false);
-		_ = cancellationToken;
+		cancellationToken.ThrowIfCancellationRequested ();
 		}
 
 	/// <summary>A complete, decrypted message was received from the device.</summary>
@@ -494,6 +505,5 @@ public sealed class MrpProtocol : IMrpConnectionListener, IDisposable
 	public void Dispose ()
 		{
 		Stop ();
-		_sendGate.Dispose ();
 		}
 	}

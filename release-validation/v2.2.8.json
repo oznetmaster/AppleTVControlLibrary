@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "version": "2.2.8",
+  "completedUtc": "2026-11-09T23:12:44.6184403Z",
+  "workstation": [
+    {
+      "failed": 0,
+      "skipped": 0,
+      "framework": "net10.0",
+      "passed": 56,
+      "suite": "AppleHap",
+      "configurations": [
+        "Debug",
+        "Release"
+      ]
+    },
+    {
+      "failed": 0,
+      "skipped": 0,
+      "framework": "net472",
+      "passed": 56,
+      "suite": "AppleHap",
+      "configurations": [
+        "Debug",
+        "Release"
+      ]
+    },
+    {
+      "failed": 0,
+      "skipped": 0,
+      "framework": "net10.0",
+      "passed": 114,
+      "suite": "AppleCompanion",
+      "configurations": [
+        "Debug",
+        "Release"
+      ]
+    },
+    {
+      "failed": 0,
+      "skipped": 0,
+      "framework": "net472",
+      "passed": 114,
+      "suite": "AppleCompanion",
+      "configurations": [
+        "Debug",
+        "Release"
+      ]
+    },
+    {
+      "failed": 0,
+      "skipped": 0,
+      "framework": "net10.0",
+      "passed": 87,
+      "suite": "AppleMrp",
+      "configurations": [
+        "Debug",
+        "Release"
+      ]
+    },
+    {
+      "failed": 0,
+      "skipped": 0,
+      "framework": "net472",
+      "passed": 87,
+      "suite": "AppleMrp",
+      "configurations": [
+        "Debug",
+        "Release"
+      ]
+    }
+  ],
+  "processor": {
+    "failed": 0,
+    "firmware": "4.013.0134",
+    "runtime": "Mono 6.12.0.107, 32-bit",
+    "selectedPassed": 56.0,
+    "skipped": 0,
+    "aggregatePassed": 374,
+    "scope": "Merged offline host with recorded resolved dependencies; fake services and credentials only"
+  },
+  "validatedSourceFiles": [
+    {
+      "Path": "src/AppleTV.Companion/Protocol/CompanionProtocol.cs",
+      "Sha256": "E578A65BBC1798150904B846F9F2755E405C696DBE4E546A5E55389E6E468124"
+    },
+    {
+      "Path": "src/AppleTV.Companion/Protocol/ProtocolLifetime.cs",
+      "Sha256": "1A12DB99BF7AF3186716F09AC7D57C46512927CAD896E46A5CB32ADE572D286C"
+    },
+    {
+      "Path": "src/AppleTv.Mrp/Protocol/MrpProtocol.cs",
+      "Sha256": "C8CAFD44E86DE45970613D6D84901EB9D480725D7661C4F54CEFD58B8F0BDD3E"
+    },
+    {
+      "Path": "tests/AppleTV.Companion.Tests/Protocol/CompanionApiIntegrationTests.cs",
+      "Sha256": "8E507D1D3B3A196B85628A56D7FF054DB3BCD0D3052C5338D1AC31FB416CEEAF"
+    },
+    {
+      "Path": "tests/AppleTV.Companion.Tests/Protocol/FrameworkTaskWaitExtensions.cs",
+      "Sha256": "222383DA68E3614048C997F0DB4B592D3B136847FA5627FA26684B04EE8854BF"
+    },
+    {
+      "Path": "tests/AppleTV.Companion.Tests/Protocol/ProtocolLifetimeTests.cs",
+      "Sha256": "998CBA8448E266A9BF8286040CCFDAC69FAA58C081FB034838E9F8D5B3B5103E"
+    },
+    {
+      "Path": "tests/AppleTv.Mrp.Tests/Protocol/MrpCancellationTests.cs",
+      "Sha256": "37FA483FBF228090A63EE061E865FE59847B158FCD2CCC8F324FAE873F90AF73"
+    }
+  ],
+  "publicationChanges": "Version metadata, documentation and shared publication tooling added after validation; runtime source hashes retained."
+}

@@ -183,6 +183,7 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 	private readonly System.Collections.Concurrent.ConcurrentDictionary<FrameIdentifier, TaskCompletionSource<Dictionary<object, object?>>> _pending = new ();
 	private readonly SemaphoreSlim _sendGate = new (1, 1);
 	private readonly SemaphoreSlim _authGate = new (1, 1);
+	private readonly ProtocolLifetime _lifetime;
 	private readonly object _eventDispatchLock = new ();
 	private Task _eventDispatch = Task.CompletedTask;
 
@@ -197,12 +198,14 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 		{
 		_connection = connection;
 		_srp = srp;
+		_lifetime = new (() => { _authGate.Dispose (); _sendGate.Dispose (); },
+			() => _connection.Fault (new ObjectDisposedException (nameof (CompanionProtocol))));
 		_xid = (uint)new Random ().Next (0, 65536);
 		_connection.FrameReceived += (sender, frameType, data) => OnFrameReceived (frameType, data);
 		_connection.Faulted += (sender, exception) =>
 			{
-			FaultPendingRequests (exception);
-			ConnectionFaulted?.Invoke (this, new ConnectionClosedEventArgs (exception));
+				FaultPendingRequests (exception);
+				ConnectionFaulted?.Invoke (this, new ConnectionClosedEventArgs (exception));
 			};
 		}
 
@@ -261,14 +264,16 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 	/// <returns>A task containing the decoded OPACK response payload.</returns>
 	public async Task<Dictionary<object, object?>> ExchangeAuthAsync (FrameType frameType, Dictionary<string, object?> data, CancellationToken cancellationToken = default)
 		{
+		using ProtocolLifetime.Operation operation = _lifetime.Enter (cancellationToken);
+		cancellationToken = operation.Token;
 		// pyatv/protocols/companion/protocol.py — line 132-140 as of pyatv 0.18.0: *_Start is only used for the first
 		// message, then *_Next is used for remaining messages (even the response to the first).
 		FrameType identifier = frameType switch
 			{
-			FrameType.PS_Start => FrameType.PS_Next,
-			FrameType.PV_Start => FrameType.PV_Next,
-			_ => frameType,
-			};
+				FrameType.PS_Start => FrameType.PS_Next,
+				FrameType.PV_Start => FrameType.PV_Next,
+				_ => frameType,
+				};
 
 		await _authGate.WaitAsync (cancellationToken).ConfigureAwait (false);
 		try
@@ -323,6 +328,8 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 	// pyatv/protocols/companion/protocol.py (_exchange_generic_opack) — line 155-176 as of pyatv 0.18.0
 	private async Task<Dictionary<object, object?>> ExchangeGenericAsync (FrameType frameType, Dictionary<string, object?> data, FrameIdentifier? identifier, CancellationToken cancellationToken)
 		{
+		using ProtocolLifetime.Operation operation = _lifetime.Enter (cancellationToken);
+		cancellationToken = operation.Token;
 		var completion = new TaskCompletionSource<Dictionary<object, object?>> (TaskCreationOptions.RunContinuationsAsynchronously);
 		FrameIdentifier actualIdentifier;
 		await _sendGate.WaitAsync (cancellationToken).ConfigureAwait (false);
@@ -332,7 +339,7 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 				{
 				uint xid = _xid++;
 				data["_x"] = (long)xid;
-				actualIdentifier = FrameIdentifier.FromXid (unchecked ((int)xid));
+				actualIdentifier = FrameIdentifier.FromXid (unchecked((int)xid));
 				}
 			else
 				{
@@ -405,6 +412,8 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 	/// <returns>A task that completes after the transport accepts the frame.</returns>
 	public async Task SendOpackAsync (FrameType frameType, Dictionary<string, object?> data, CancellationToken cancellationToken = default)
 		{
+		using ProtocolLifetime.Operation operation = _lifetime.Enter (cancellationToken);
+		cancellationToken = operation.Token;
 		await _sendGate.WaitAsync (cancellationToken).ConfigureAwait (false);
 		try
 			{
@@ -423,12 +432,13 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 
 	private async Task SendOpackCoreAsync (FrameType frameType, Dictionary<string, object?> data, CancellationToken cancellationToken)
 		{
-		#pragma warning disable CS0618
+		cancellationToken.ThrowIfCancellationRequested ();
+#pragma warning disable CS0618
 		if (AsyncSender is null && Sender is null)
 			{
 			throw new InvalidOperationException ($"{nameof (AsyncSender)} must be set before sending frames");
 			}
-		#pragma warning restore CS0618
+#pragma warning restore CS0618
 
 		byte[] frame = _connection.BuildFrame (frameType, AppleTvControlLibrary.Opack.Opack.Pack (data));
 		try
@@ -439,11 +449,13 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 				}
 			else
 				{
-				#pragma warning disable CS0618
+#pragma warning disable CS0618
 				Sender! (frame);
-				#pragma warning restore CS0618
+#pragma warning restore CS0618
 				}
+			cancellationToken.ThrowIfCancellationRequested ();
 			}
+		catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested) { throw; }
 		catch (Exception ex)
 			{
 			_connection.Fault (ex);
@@ -464,6 +476,8 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 
 	private void OnFrameReceived (FrameType frameType, byte[] data)
 		{
+		if (_lifetime.IsStopped)
+			return;
 		System.Diagnostics.Debug.WriteLine ($"[CompanionProtocol] Received frame {frameType} ({data.Length} bytes)");
 
 		bool isAuth = Array.IndexOf (_authFrames, frameType) >= 0;
@@ -549,14 +563,14 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 			_eventDispatch = _eventDispatch.ContinueWith (
 				_ =>
 					{
-					try
-						{
-						Listener?.EventReceived (eventName, content);
-						}
-					catch (Exception ex)
-						{
-						System.Diagnostics.Debug.WriteLine ($"[CompanionProtocol] Event listener failed for {eventName}: {ex}");
-						}
+						try
+							{
+							Listener?.EventReceived (eventName, content);
+							}
+						catch (Exception ex)
+							{
+							System.Diagnostics.Debug.WriteLine ($"[CompanionProtocol] Event listener failed for {eventName}: {ex}");
+							}
 					},
 				CancellationToken.None,
 				TaskContinuationOptions.None,
@@ -576,16 +590,13 @@ public sealed class CompanionProtocol : IDisposable, IAsyncDisposable
 	/// <inheritdoc cref="IDisposable.Dispose"/>
 	public void Dispose ()
 		{
-		_connection.Fault (new ObjectDisposedException (nameof (CompanionProtocol)));
-		_authGate.Dispose ();
-		_sendGate.Dispose ();
+		_lifetime.Dispose ();
 		}
 
-	/// <summary>Asynchronously faults pending exchanges and disposes this protocol instance.</summary>
-	/// <returns>A task that completes when pending exchanges have been faulted and the protocol resources disposed.</returns>
+	/// <summary>Faults pending exchanges and waits for admitted operations before releasing protocol resources.</summary>
+	/// <returns>The shared shutdown task, completing after active send/authentication operations drain.</returns>
 	public ValueTask DisposeAsync ()
 		{
-		Dispose ();
-		return default;
+		return new (_lifetime.Stop ());
 		}
 	}

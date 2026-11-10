@@ -1,6 +1,6 @@
 # Build and test
 
-This repository uses [the shared Cake build component](https://github.com/oznetmaster/BuildAutomation/tree/cb36bb30b23e58aff85435f23ad0c8428d86ecdd) pinned in `component.json`. It is build tooling only; product dependencies and versions are unchanged.
+This repository uses [the shared Cake build component](https://github.com/oznetmaster/BuildAutomation/tree/5d8006f140a59c8d1dd92ab70723fe8338650bd2) pinned in `component.json`. It is build tooling only; product dependencies and versions are unchanged.
 
 The CI workflow retains its jobs, framework matrix, filters, prerequisites and artifact upload rules. Repository-owned recipes preserve the build/test/package commands. Publication, validation reuse, approvals, runner selection and hardware reservations remain in GitHub Actions.
 
@@ -20,7 +20,7 @@ The shared component rejects missing/stale/empty/failed declared TRX results and
 
 ## Pages documentation
 
-`documentation` builds the repository site and checks [the common Pages standard](https://github.com/oznetmaster/BuildAutomation/blob/cb36bb30b23e58aff85435f23ad0c8428d86ecdd/DOCUMENTATION-STANDARD.md): Home, Guides, API Reference, GitHub and NuGet navigation, modern theme, consistent title/footer, searchable content and every API output group. DocFX is locally pinned to 2.81.0. Existing project-specific generation and coverage checks remain in the recipe. GitHub Actions uploads/deploys the verified site; local builds publish nothing.
+`documentation` builds the repository site and checks [the common Pages standard](https://github.com/oznetmaster/BuildAutomation/blob/5d8006f140a59c8d1dd92ab70723fe8338650bd2/DOCUMENTATION-STANDARD.md): Home, Guides, API Reference, GitHub and NuGet navigation, modern theme, consistent title/footer, searchable content and every API output group. DocFX is locally pinned to 2.81.0. Existing project-specific generation and coverage checks remain in the recipe. GitHub Actions uploads/deploys the verified site; local builds publish nothing.
 
 ## Strict XML documentation
 
@@ -29,3 +29,8 @@ Every shared Cake task first checks the public and protected API documentation i
 Run `./build/Invoke.ps1 -Task xml-documentation` to check documentation without running the test suites. The dedicated CI workflow and the unconditional gate in every publishing job use the same check, including when recent test evidence is reused. Existing repository-specific documentation checks remain in place.
 
 The generated `AppleTvControlLibrary.Mrp.Protobuf` wire-contract reference remains visible. Its compiler-generated properties are exempt from the rendered value-description check; the strict authored-source API checks still cover all four production projects. The generated protocol classes are not hand-maintained library documentation.
+
+
+## Public library publication
+
+The common Cake task `release-assets` runs the configured package and app preparation. See `build/release.json` and the [shared publication protocol](https://github.com/oznetmaster/BuildAutomation/blob/5d8006f140a59c8d1dd92ab70723fe8338650bd2/ReleasePublishing/README.md). Publication runs in a separate job from retained, hash-verified artifacts. Keep the original run when retrying; use Re-run failed jobs so existing NuGet payloads can be verified against the same bytes.

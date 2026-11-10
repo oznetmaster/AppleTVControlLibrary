@@ -39,7 +39,7 @@ public class CompanionApiIntegrationTests
 		cancellationSource.Cancel ();
 
 		await Assert.ThatAsync (() =>
-			protocol.SendOpackAsync (FrameType.E_OPACK, new Dictionary<string, object?> (), cancellationSource.Token), Throws.InstanceOf<System.Threading.Tasks.TaskCanceledException> ());
+			protocol.SendOpackAsync (FrameType.E_OPACK, new Dictionary<string, object?> (), cancellationSource.Token), Throws.InstanceOf<OperationCanceledException> ());
 		}
 
 	// pyatv/protocols/companion/connection.py (connection_lost, exc is not None) — line 161-167 as of
@@ -78,8 +78,8 @@ public class CompanionApiIntegrationTests
 		Exception? observedException = null;
 		api.ConnectionClosed += (sender, args) =>
 			{
-			raised = true;
-			observedException = args.Exception;
+				raised = true;
+				observedException = args.Exception;
 			};
 
 		protocol.Dispose ();
@@ -164,13 +164,13 @@ public class CompanionApiIntegrationTests
 
 		Task swipe = Task.Run (async () =>
 			{
-			for (var x = 0; x <= 1000; x += 100)
-				{
-				await api.SendHidEventAsync (x, 500, x == 0 ? TouchAction.Press : TouchAction.Hold);
-				await Task.Yield ();
-				}
+				for (var x = 0; x <= 1000; x += 100)
+					{
+					await api.SendHidEventAsync (x, 500, x == 0 ? TouchAction.Press : TouchAction.Hold);
+					await Task.Yield ();
+					}
 
-			await api.SendHidEventAsync (1000, 500, TouchAction.Release);
+				await api.SendHidEventAsync (1000, 500, TouchAction.Release);
 			});
 		Task<SystemStatus[]> queries = Task.WhenAll (Enumerable.Range (0, 24).Select (_ => api.FetchAttentionStateAsync ()));
 
@@ -192,18 +192,18 @@ public class CompanionApiIntegrationTests
 
 		serverConnection.FrameReceived += (sender, frameType, data) =>
 			{
-			var unpacked = AppleTvControlLibrary.Opack.Opack.Unpack (data, out _);
-			if (unpacked is not Dictionary<object, object?> request)
-				{
-				return;
-				}
+				var unpacked = AppleTvControlLibrary.Opack.Opack.Unpack (data, out _);
+				if (unpacked is not Dictionary<object, object?> request)
+					{
+					return;
+					}
 
-			Dictionary<object, object?>? response = device.HandleOpackFrame (request);
-			if (response is not null)
-				{
-				var responseFrame = serverConnection.BuildFrame (frameType, AppleTvControlLibrary.Opack.Opack.Pack (response));
-				clientConnection.ReceiveData (responseFrame);
-				}
+				Dictionary<object, object?>? response = device.HandleOpackFrame (request);
+				if (response is not null)
+					{
+					var responseFrame = serverConnection.BuildFrame (frameType, AppleTvControlLibrary.Opack.Opack.Pack (response));
+					clientConnection.ReceiveData (responseFrame);
+					}
 			};
 
 		// tests/fake_device/companion.py (FakeCompanionState._send_rti) — line 133-134 as of pyatv 0.18.0:
@@ -211,20 +211,20 @@ public class CompanionApiIntegrationTests
 		// framed and delivered to the client connection, since they are not a response to a request.
 		device.EventEmitted += (identifier, content) =>
 			{
-			var eventFrame = new Dictionary<object, object?>
+				var eventFrame = new Dictionary<object, object?>
 				{
 				{ "_i", identifier },
 				{ "_t", (int)MessageType.Event },
 				{ "_c", content },
 				};
-			var frame = serverConnection.BuildFrame (AppleTvControlLibrary.Connection.FrameType.E_OPACK, AppleTvControlLibrary.Opack.Opack.Pack (eventFrame));
-			clientConnection.ReceiveData (frame);
+				var frame = serverConnection.BuildFrame (AppleTvControlLibrary.Connection.FrameType.E_OPACK, AppleTvControlLibrary.Opack.Opack.Pack (eventFrame));
+				clientConnection.ReceiveData (frame);
 			};
 
 		companionProtocol.AsyncSender = frame =>
 			{
-			serverConnection.ReceiveData (frame);
-			return System.Threading.Tasks.Task.CompletedTask;
+				serverConnection.ReceiveData (frame);
+				return System.Threading.Tasks.Task.CompletedTask;
 			};
 
 		var credentials = new HapCredentials (
@@ -252,26 +252,26 @@ public class CompanionApiIntegrationTests
 
 		serverConnection.FrameReceived += (sender, frameType, data) =>
 			{
-			var request = (Dictionary<object, object?>)AppleTvControlLibrary.Opack.Opack.Unpack (data, out _)!;
-			Dictionary<object, object?> response = device.HandleOpackFrame (request)!;
-			if (request["_c"] is Dictionary<object, object?> content && content.TryGetValue ("requestNumber", out var requestNumber))
-				{
-				((Dictionary<object, object?>)response["_c"]!)["requestNumber"] = requestNumber;
-				}
-			responses.Add (serverConnection.BuildFrame (frameType, AppleTvControlLibrary.Opack.Opack.Pack (response)));
+				var request = (Dictionary<object, object?>)AppleTvControlLibrary.Opack.Opack.Unpack (data, out _)!;
+				Dictionary<object, object?> response = device.HandleOpackFrame (request)!;
+				if (request["_c"] is Dictionary<object, object?> content && content.TryGetValue ("requestNumber", out var requestNumber))
+					{
+					((Dictionary<object, object?>)response["_c"]!)["requestNumber"] = requestNumber;
+					}
+				responses.Add (serverConnection.BuildFrame (frameType, AppleTvControlLibrary.Opack.Opack.Pack (response)));
 			};
 
 		protocol.AsyncSender = frame =>
 			{
-			serverConnection.ReceiveData (frame);
-			return Task.CompletedTask;
+				serverConnection.ReceiveData (frame);
+				return Task.CompletedTask;
 			};
 		deliverResponses = () =>
 			{
-			for (var index = responses.Count - 1; index >= 0; index--)
-				{
-				clientConnection.ReceiveData (responses[index]);
-				}
+				for (var index = responses.Count - 1; index >= 0; index--)
+					{
+					clientConnection.ReceiveData (responses[index]);
+					}
 			};
 		return protocol;
 		}
@@ -280,11 +280,11 @@ public class CompanionApiIntegrationTests
 		{
 		return value switch
 			{
-			SizedInteger sizedInteger => sizedInteger.Value,
-			long number => number,
-			int number => number,
-			_ => throw new AssertionException ($"Expected an OPACK integer but received {value?.GetType ().FullName ?? "null"}."),
-			};
+				SizedInteger sizedInteger => sizedInteger.Value,
+				long number => number,
+				int number => number,
+				_ => throw new AssertionException ($"Expected an OPACK integer but received {value?.GetType ().FullName ?? "null"}."),
+				};
 		}
 
 	[Test]

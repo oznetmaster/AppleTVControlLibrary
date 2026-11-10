@@ -1,313 +1,112 @@
-name: Publish .NET Packages
-
+name: Publish public library release
 on:
   push:
-    tags:
-      - 'v*'
+    tags: ['v*']
   workflow_dispatch:
     inputs:
+      version:
+        description: Three-part public version
+        required: true
+        type: string
       skip_desktop_checks:
-        description: Reuse reviewed desktop results; package integrity checks still run
-        required: false
+        description: Reuse reviewed workstation validation
         type: boolean
         default: false
       desktop_skip_reason:
-        description: Tested source, completion time, frameworks, counts and evidence
-        required: false
+        description: Validated source, time, frameworks, counts and provenance
         type: string
-      validation_commit:
-        description: Reuse recent CI from an ancestor SHA with only docs or release-automation changes
-        required: false
-        type: string
-      version:
-        description: Version or tag to publish, for example 1.2.3 or v1.2.3
-        required: true
-        type: string
-      retry_tagged_nuget:
-        description: Publish NuGet packages from an existing release tag after a failed push
-        required: false
-        type: boolean
-        default: false
       skip_hardware_checks:
-        description: Publish without hardware validation when the processor or local runner is unavailable
-        required: false
+        description: Reuse reviewed processor validation
         type: boolean
         default: false
       hardware_skip_reason:
-        description: Reason for skipping hardware checks (required when selected)
-        required: false
+        description: Validated source, time, selected tests, limitations and cleanup
         type: string
-
+      validation_commit:
+        description: Optional ancestor CI source permitted by the shared policy
+        type: string
+      retry_tagged_nuget:
+        description: Retired rebuild retry; use Re-run failed jobs on the original run
+        type: boolean
+        default: false
 permissions:
-  actions: read
-  checks: read
-  contents: write
-
+  contents: read
 concurrency:
   group: public-release
   cancel-in-progress: false
   queue: max
-
 jobs:
-  publish:
+  build:
+
     runs-on: windows-latest
+    timeout-minutes: 45
     permissions:
+      contents: read
       actions: read
       checks: read
-      contents: write
-      id-token: write
-    env:
-      SOLUTION_PATH: AppleTVControlLibrary.slnx
-      TEST_PROJECT: tests/AppleTV.Companion.Tests/AppleTV.Companion.Tests.csproj
-      MRP_TEST_PROJECT: tests/AppleTv.Mrp.Tests/AppleTv.Mrp.Tests.csproj
-      ARTIFACT_DIR: ${{ github.workspace }}/artifacts
-
+    outputs:
+      version: ${{ steps.version.outputs.version }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
+          ref: ${{ github.sha }}
           fetch-depth: 0
-
-      - name: Check out the immutable tag for a NuGet retry
-        if: github.event_name == 'workflow_dispatch' && inputs.retry_tagged_nuget
-        shell: pwsh
-        env:
-          RELEASE_INPUT_VERSION: ${{ inputs.version }}
-        run: |
-          $version = $env:RELEASE_INPUT_VERSION.Trim()
-          if ($version -notmatch '^v?\d+\.\d+\.\d+$') {
-              throw 'A published-format version is required for a NuGet retry.'
-          }
-          $tag = 'v' + $version.TrimStart('v')
-          $tagRef = "refs/tags/$tag"
-          git show-ref --verify --quiet $tagRef
-          if ($LASTEXITCODE -ne 0) { throw "Existing release tag $tag was not found." }
-          git merge-base --is-ancestor "$tagRef^{commit}" HEAD
-          if ($LASTEXITCODE -ne 0) { throw "Release tag $tag is not in the selected branch history." }
-          git checkout --detach $tagRef
-          if ($LASTEXITCODE -ne 0) { throw "Could not check out release tag $tag." }
-          git log -1 --format='NuGet retry source: %H %s'
-
-      - name: Verify configured release checks
-        shell: pwsh
-        working-directory: ${{ github.workspace }}/.
-        env:
-          GH_TOKEN: ${{ github.token }}
-          REQUIRED_RELEASE_CHECKS: ${{ vars.RELEASE_REQUIRED_CHECKS }}
-          REQUIRED_HOSTED_WORKFLOWS: '["unit-tests.yml"]'
-          RELEASE_SKIP_HARDWARE_CHECKS: ${{ inputs.skip_hardware_checks }}
-          RELEASE_HARDWARE_SKIP_REASON: ${{ inputs.hardware_skip_reason }}
-        run: |
-          Write-Output 'Configured checks are verified by the following shared-policy action.'
-      - name: Verify shared release policy
-        uses: oznetmaster/CrestronHomeNUnit/.github/actions/release-validation@2ae8197c6685099c2133e7bb962d1f3568aae9c3
+      - uses: actions/setup-dotnet@v4
         with:
-          required-checks: "${{ vars.RELEASE_REQUIRED_CHECKS }}"
-          hosted-workflows: "[\"unit-tests.yml\"]"
-          skip-hardware-checks: "${{ inputs.skip_hardware_checks }}"
-          hardware-skip-reason: "${{ inputs.hardware_skip_reason }}"
-          skip-desktop-checks: "${{ inputs.skip_desktop_checks }}"
-          desktop-skip-reason: "${{ inputs.desktop_skip_reason }}"
-          validation-commit: "${{ inputs.validation_commit }}"
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '10.0.x'
+          dotnet-version: |
+            8.0.x
+            10.0.x
 
-      - name: Verify strict XML documentation before publication
-        shell: pwsh
-        run: ./build/Invoke.ps1 -Task xml-documentation
-
-      - name: Determine package version
+      - name: Resolve public version
         id: version
         shell: pwsh
-        run: |
-          $rawVersion = switch ('${{ github.event_name }}') {
-              'workflow_dispatch' { '${{ inputs.version }}'; break }
-              'push' { '${{ github.ref_name }}'; break }
-              default { '' }
-          }
-
-          if ([string]::IsNullOrWhiteSpace($rawVersion)) {
-              throw 'No release tag or manual version was provided.'
-          }
-
-          $packageVersion = $rawVersion.Trim()
-          if ($packageVersion.StartsWith('v', [System.StringComparison]::OrdinalIgnoreCase)) {
-              $packageVersion = $packageVersion.Substring(1)
-          }
-
-          if ($packageVersion -notmatch '^\d+\.\d+\.\d+(?:\.\d+)?(?:[-+][0-9A-Za-z\.-]+)?$') {
-              throw "Version '$packageVersion' is not a supported NuGet semantic version."
-          }
-
-          "raw_version=$rawVersion" >> $env:GITHUB_OUTPUT
-          "package_version=$packageVersion" >> $env:GITHUB_OUTPUT
-
-      - name: Extract release notes from changelog
-        shell: pwsh
-        run: |
-          $version = '${{ steps.version.outputs.package_version }}'
-          $lines = Get-Content CHANGELOG.md
-          $headingPattern = '(?m)^##[ \t]+(?:\[v?' + [regex]::Escape($Version) + '\](?:\([^\s)]+\))?|v?' + [regex]::Escape($Version) + ')(?=\s|$)'
-          $start = -1
-
-          for ($index = 0; $index -lt $lines.Count; $index++) {
-              if ($lines[$index] -match $headingPattern) {
-                  $start = $index
-                  break
-              }
-          }
-
-          if ($start -lt 0) {
-              throw "No changelog section found for release version $version."
-          }
-
-          $end = $start + 1
-          while ($end -lt $lines.Count -and $lines[$end] -notmatch '^## \[') {
-              $end++
-          }
-
-          $releaseNotes = $lines[$start..($end - 1)] -join [Environment]::NewLine
-          if ([string]::IsNullOrWhiteSpace($releaseNotes)) {
-              throw "Changelog section for release version $version is empty."
-          }
-
-          New-Item -ItemType Directory -Path "${{ env.ARTIFACT_DIR }}" -Force | Out-Null
-          $releaseNotesPath = "${{ env.ARTIFACT_DIR }}/release-notes.md"
-          Set-Content -Path $releaseNotesPath -Value $releaseNotes -NoNewline
-
-      - name: Restore solution
-        run: dotnet restore ${{ env.SOLUTION_PATH }}
-
-      - name: Build solution
-        run: dotnet build ${{ env.SOLUTION_PATH }} --configuration Release --no-restore -p:ContinuousIntegrationBuild=true -p:Version=${{ steps.version.outputs.package_version }}
-
-      - name: Run tests (net472)
-        if: ${{ inputs.skip_desktop_checks != true }}
-        run: dotnet test ${{ env.TEST_PROJECT }} --configuration Release --no-build --framework net472
-
-      - name: Run tests (net10.0)
-        if: ${{ inputs.skip_desktop_checks != true }}
-        run: dotnet test ${{ env.TEST_PROJECT }} --configuration Release --no-build --framework net10.0
-
-      - name: Run Mrp tests (net472)
-        if: ${{ inputs.skip_desktop_checks != true }}
-        run: dotnet test ${{ env.MRP_TEST_PROJECT }} --configuration Release --no-build --framework net472
-
-      - name: Run Mrp tests (net10.0)
-        if: ${{ inputs.skip_desktop_checks != true }}
-        run: dotnet test ${{ env.MRP_TEST_PROJECT }} --configuration Release --no-build --framework net10.0
-
-      - name: Pack NuGet packages
-        shell: pwsh
-        run: |
-          # All NuGet packages are kept in sync on the same version. The release tag's version is
-          # forced onto every package here, overriding each project's own <Version>, so the
-          # published set of packages always shares one version number.
-          $packages = @(
-              'src/AppleTV.Companion/AppleTV.Companion.csproj',
-              'src/AppleTV.Companion.Discovery/AppleTV.Companion.Discovery.csproj',
-              'src/AppleTV.Companion.All/AppleTV.Companion.All.csproj',
-              'src/AppleTv.Mrp/AppleTv.Mrp.csproj'
-          )
-          $outputDir = "${{ env.ARTIFACT_DIR }}/nuget"
-          New-Item -ItemType Directory -Path $outputDir -Force | Out-Null
-
-          foreach ($project in $packages) {
-              dotnet pack $project --configuration Release --no-build -p:ContinuousIntegrationBuild=true -p:Version=${{ steps.version.outputs.package_version }} -p:ReleaseNotesFile="${{ env.ARTIFACT_DIR }}/release-notes.md" --output $outputDir
-              if ($LASTEXITCODE -ne 0) {
-                  throw "Pack failed for $project"
-              }
-          }
-
-      - name: Authenticate to NuGet with GitHub OIDC
-        id: nuget-login
-        uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841 # v1
-        with:
-          user: oznetmaster
-
-      - name: Publish NuGet packages
-        shell: pwsh
         env:
-          NUGET_API_KEY: ${{ steps.nuget-login.outputs.NUGET_API_KEY }}
+          REQUESTED_VERSION: ${{ inputs.version }}
+          RETIRED_REBUILD_RETRY: ${{ inputs.retry_tagged_nuget }}
         run: |
-          if ([string]::IsNullOrWhiteSpace($env:NUGET_API_KEY)) {
-              throw 'NuGet Trusted Publishing did not provide a temporary credential.'
-          }
-          $packages = Get-ChildItem -Path "${{ env.ARTIFACT_DIR }}/nuget" -Filter '*.nupkg' | Where-Object { $_.Name -notlike '*.symbols.nupkg' }
-          if (-not $packages) {
-              throw 'No NuGet packages were produced.'
-          }
-
-          foreach ($package in $packages) {
-              dotnet nuget push $package.FullName --api-key "$env:NUGET_API_KEY" --source 'https://api.nuget.org/v3/index.json'
-              if ($LASTEXITCODE -ne 0) { throw "NuGet publication failed for $($package.Name)." }
-          }
-
-      - name: Publish WPF reference application
-        if: inputs.retry_tagged_nuget != true
-        shell: pwsh
-        run: |
-          foreach ($framework in @('net472', 'net10.0-windows')) {
-              $outputDir = "${{ env.ARTIFACT_DIR }}/publish/AppleTv.Remote.Wpf-$framework"
-              dotnet publish src/AppleTv.Remote.Wpf/AppleTv.Remote.Wpf.csproj --configuration Release --no-build --framework $framework --output $outputDir -p:Version=${{ steps.version.outputs.package_version }}
-              if ($LASTEXITCODE -ne 0) {
-                  throw "Publish failed for AppleTv.Remote.Wpf ($framework)"
-              }
-          }
-
-      - name: Publish MRP WPF reference application
-        if: inputs.retry_tagged_nuget != true
-        shell: pwsh
-        run: |
-          foreach ($framework in @('net472', 'net10.0-windows')) {
-              $outputDir = "${{ env.ARTIFACT_DIR }}/publish/AppleTv.Remote.Mrp.Wpf-$framework"
-              dotnet publish src/AppleTv.Remote.Mrp.Wpf/AppleTv.Remote.Mrp.Wpf.csproj --configuration Release --no-build --framework $framework --output $outputDir -p:Version=${{ steps.version.outputs.package_version }}
-              if ($LASTEXITCODE -ne 0) {
-                  throw "Publish failed for AppleTv.Remote.Mrp.Wpf ($framework)"
-              }
-          }
-
-      - name: Collect release assets
-        if: inputs.retry_tagged_nuget != true
-        shell: pwsh
-        run: |
-          $releaseDir = "${{ env.ARTIFACT_DIR }}/release"
-          New-Item -ItemType Directory -Path $releaseDir -Force | Out-Null
-
-          $libraries = @(
-              @{ ProjectDir = 'src/AppleTV.Companion'; AssemblyName = 'AppleTvControlLibrary'; Frameworks = @('net472', 'net10.0') },
-              @{ ProjectDir = 'src/AppleTV.Companion.Discovery'; AssemblyName = 'AppleTvControlLibrary.Discovery'; Frameworks = @('net472', 'net10.0') },
-              @{ ProjectDir = 'src/AppleTv.Mrp'; AssemblyName = 'AppleTvControlLibrary.Mrp'; Frameworks = @('net472', 'net10.0') }
-          )
-
-          foreach ($library in $libraries) {
-              foreach ($framework in $library.Frameworks) {
-                  $outputDir = Join-Path $library.ProjectDir "bin/Release/$framework"
-                  foreach ($extension in @('dll', 'xml')) {
-                      $sourcePath = Join-Path $outputDir "$($library.AssemblyName).$extension"
-                      if (Test-Path $sourcePath) {
-                          Copy-Item $sourcePath (Join-Path $releaseDir "$($library.AssemblyName).$framework.$extension") -Force
-                      }
-                  }
-              }
-          }
-
-          Get-ChildItem -Path "${{ env.ARTIFACT_DIR }}/publish" -Directory | ForEach-Object {
-              $zipPath = Join-Path $releaseDir "$($_.Name).zip"
-              Compress-Archive -Path (Join-Path $_.FullName '*') -DestinationPath $zipPath -Force
-          }
-
-      - name: Create GitHub release from tag
-        if: github.event_name == 'push'
-        uses: softprops/action-gh-release@v2
+          if ($env:RETIRED_REBUILD_RETRY -eq 'true') { throw 'Use Re-run failed jobs on the original release run to preserve its frozen artifacts.' }
+          $version = if ($env:GITHUB_EVENT_NAME -eq 'push') { $env:GITHUB_REF_NAME } else { $env:REQUESTED_VERSION }
+          $version = $version -creplace '^v', ''
+          if ($version -cnotmatch '^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$') { throw 'Use a canonical three-part stable public version.' }
+          "version=$version" >> $env:GITHUB_OUTPUT
+      - uses: oznetmaster/BuildAutomation/.github/actions/release-prepare@5d8006f140a59c8d1dd92ab70723fe8338650bd2
         with:
-          tag_name: ${{ steps.version.outputs.raw_version }}
-          name: ${{ steps.version.outputs.raw_version }}
-          body_path: ${{ env.ARTIFACT_DIR }}/release-notes.md
-          prerelease: ${{ contains(steps.version.outputs.package_version, '-') }}
-          files: |
-            ${{ env.ARTIFACT_DIR }}/release/*.dll
-            ${{ env.ARTIFACT_DIR }}/release/*.xml
-            ${{ env.ARTIFACT_DIR }}/release/*.zip
+          version: ${{ steps.version.outputs.version }}
+      - name: Verify shared validation policy
+        uses: oznetmaster/CrestronHomeNUnit/.github/actions/release-validation@2ae8197c6685099c2133e7bb962d1f3568aae9c3
+        with:
+          required-checks: ${{ vars.RELEASE_REQUIRED_CHECKS }}
+          hosted-workflows: '["unit-tests.yml"]'
+          skip-desktop-checks: ${{ inputs.skip_desktop_checks }}
+          desktop-skip-reason: ${{ inputs.desktop_skip_reason }}
+          skip-hardware-checks: ${{ inputs.skip_hardware_checks }}
+          hardware-skip-reason: ${{ inputs.hardware_skip_reason }}
+          validation-commit: ${{ inputs.validation_commit }}
+      - name: Stage packages and companion applications through Cake
+        uses: oznetmaster/BuildAutomation@5d8006f140a59c8d1dd92ab70723fe8338650bd2
+        env:
+          RELEASE_VERSION: ${{ steps.version.outputs.version }}
+        with:
+          task: release-assets
+      - uses: oznetmaster/BuildAutomation/.github/actions/release-freeze@5d8006f140a59c8d1dd92ab70723fe8338650bd2
+        with:
+          version: ${{ steps.version.outputs.version }}
+  publish:
+    needs: build
+    runs-on: windows-latest
+    timeout-minutes: 30
+
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - uses: oznetmaster/BuildAutomation/.github/actions/release-publish@5d8006f140a59c8d1dd92ab70723fe8338650bd2
+        with:
+          version: ${{ needs.build.outputs.version }}
